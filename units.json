@@ -1,0 +1,1006 @@
+{
+    "general": {
+        "Knockdown time": "seconds",
+        "Armor health": "none",
+        "Out-of-combat health regeneration": "none",
+        "Role lock": "none",
+        "Ultimate percent retained on swap": "percent"
+    },
+    "heroes": {
+        "tank": {
+            "general": {
+                "Critical headshot damage reduction": "percent",
+                "Knockback resistance": "percent"
+            },
+            "D.Va": {
+                "general": {
+                    "Base health": "none",
+                    "Armor health": "none"
+                },
+                "abilities": {
+                    "Fusion Cannons": {
+                        "Spread": "none",
+                        "Total damage per shot": "none"
+                    },
+                    "Boosters": {
+                        "Impact damage": "none"
+                    },
+                    "Defense Matrix": {
+                        "Cooldown": "seconds",
+                        "Maximum Duration": "seconds"
+                    },
+                    "Self Destruct": {
+                        "Ultimate cost": "none"
+                    },
+                    "Light Gun": {
+                        "Projectile size": "meters"
+                    },
+                    "Micro Missiles": {
+                        "Projectile size": "meters"
+                    }
+                }
+            },
+            "Junker Queen": {
+                "general": {
+                    "Base health": "none",
+                    "Model size": "relative percent"
+                },
+                "abilities": {
+                    "Adrenaline Rush": {
+                        "Health regeneration multiplier from wound damage": "none"
+                    },
+                    "Scattergun": {
+                        "Total damage": "none"
+                    },
+                    "Jagged Blade": {
+                        "Increased knockback on tanks": "percent",
+                        "Pull distance": "relative percent",
+                        "Projectile size": "meters"
+                    },
+                    "Commanding Shout": {
+                        "can be activated while using other abilities": "none",
+                        "Cooldown": "seconds",
+                        "Self overhalth": "none"
+                    },
+                    "Carnage": {
+                        "Impact damage": "none",
+                        "Immediate healing per target hit": "none"
+                    },
+                    "Rampage": {
+                        "Ultimate Cost": "none",
+                        "Wound total damage": "none",
+                        "Startup time": "seconds"
+                    }
+                }
+            },
+            "Orisa": {
+                "general": {
+                    "Base health": "none",
+                    "Armor health": "none"
+                },
+                "abilities": {
+                    "Fortify": {
+                        "Duration": "seconds",
+                        "Movement speed reduction": "percent",
+                        "Cooldown start": "none",
+                        "Cooldown": "seconds",
+                        "Overhealth generation": "none"
+                    },
+                    "Energy Javelin": {
+                        "Direct damage": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Javelin Spin": {
+                        "Cooldown": "seconds"
+                    },
+                    "Terra Surge": {
+                        "Ultimate Cost": "none",
+                        "Minimum damage": "none",
+                        "Maximum damage": "none",
+                        "Early charge rate": "none"
+                    },
+                    "Augmented Fusion Driver": {
+                        "Projectile size": "meters"
+                    }
+                }
+            },
+            "Roadhog": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Scrap Gun": {
+                        "Ammo": "none",
+                        "Total damage": "none",
+                        "Pellet projectile size": "none",
+                        "Shrapnel projectile size": "none"
+                    },
+                    "Take a Breather": {
+                        "Damage reduction": "percent",
+                        "Cooldown": "seconds",
+                        "Maximum healing": "none",
+                        "Maximum Time": "none",
+                        "Resource regeneration per second": "percent"
+                    },
+                    "Chain Hook": {
+                        "Cooldown": "seconds",
+                        "Projectile size": "meters",
+                        "Enemy final position distance": "meters"
+                    },
+                    "Whole Hog": {
+                        "Knockback": "none",
+                        "Damage per pellet": "none",
+                        "Ultimate cost": "none",
+                        "disables other abilities and automatically fires": "none"
+                    },
+                    "Pig Pen": {
+                        "Vertical Knockback": "none",
+                        "Initial damage": "none",
+                        "Damage over time": "none"
+                    }
+                }
+            },
+            "Sigma": {
+                "general": {
+                    "Base health": "none",
+                    "Shield health": "none"
+                },
+                "abilities": {
+                    "Experimental Barrier": {
+                        "Movement speed": "none",
+                        "Regeneration rate": "none"
+                    },
+                    "Kinetic Grasp": {
+                        "Cooldown": "seconds",
+                        "Overhealth generation from damage mitigated": "percent"
+                    },
+                    "Accretion": {
+                        "Direct damage": "none",
+                        "Stun duration": "seconds"
+                    },
+                    "Gravitic Flux": {
+                        "requires line-of-sight": "none",
+                        "Ultimate Cost": "none"
+                    },
+                    "Hyperspheres": {
+                        "Projectile size": "meters"
+                    }
+                }
+            },
+            "Wrecking Ball": {
+                "general": {
+                    "Base health": "none",
+                    "Armor health": "none",
+                    "Shield health": "none"
+                },
+                "abilities": {
+                    "Grappling Claw": {
+                        "Impact damage": "none",
+                        "can be retracted": "none",
+                        "Cooldown if fireball speed is not achieved": "seconds",
+                        "requires fireball speed for max duration to begin": "none",
+                        "Knockback": "none"
+                    },
+                    "Piledriver": {
+                        "Movement lockout duration for enemies": "seconds",
+                        "Cooldown": "seconds",
+                        "Maximum damage": "none"
+                    },
+                    "Adaptive Shield": {
+                        "Ally overhealth cap": "none",
+                        "Overhealth generation per enemy": "none",
+                        "Detection radius": "none"
+                    },
+                    "Minefield": {
+                        "Health": "none",
+                        "Damage": "none",
+                        "Explosion knockback": "none",
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Zarya": {
+                "general": {
+                    "Base health": "none",
+                    "Shield health": "none"
+                },
+                "abilities": {
+                    "Particle Cannon": {
+                        "Maximum damage": "none",
+                        "Minimum damage": "none"
+                    },
+                    "Particle Barrier": {
+                        "shares cooldown with Projected Barrier": "none",
+                        "Cooldown": "seconds"
+                    },
+                    "Projected Barrier": {
+                        "Cooldown start": "none",
+                        "shares cooldown with Particle Barrier": "none",
+                        "Cooldown": "seconds"
+                    },
+                    "Graviton Surge": {
+                        "Ultimate cost": "none",
+                        "Radius": "none",
+                        "Duration": "seconds",
+                        "Projectile size": "meters"
+                    }
+                }
+            },
+            "Doomfist": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "The Best Defense": {
+                        "Overhealth generation": "none"
+                    },
+                    "Hand Cannon": {
+                        "Minimum Damage": "none",
+                        "Maximum Damage": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Seismic Slam": {
+                        "Damage": "none"
+                    },
+                    "Power Block": {
+                        "Cooldown": "seconds",
+                        "Duration": "seconds"
+                    },
+                    "Rocket Punch": {
+                        "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": "none",
+                        "Wall stun": "seconds",
+                        "Maximum empowered wall stun": "seconds",
+                        "Minimum knockback": "relative percent",
+                        "Maximum knockback": "relative percent"
+                    },
+                    "Meteor Strike": {
+                        "Ultimate cost": "none",
+                        "Healing while in air": "none",
+                        "Minimum Damage": "none"
+                    }
+                }
+            },
+            "Reinhardt": {
+                "general": {
+                    "Base health": "none",
+                    "Armor health": "none"
+                },
+                "abilities": {
+                    "Steadfast": {
+                        "Knockback reduction": "percent"
+                    },
+                    "Rocket Hammer": {
+                        "Damage": "none"
+                    },
+                    "Barrier Field": {
+                        "Barrier health": "none",
+                        "Regeneration rate": "health per second"
+                    },
+                    "Charge": {
+                        "Cooldown": "seconds"
+                    },
+                    "Firestrike": {
+                        "Ability charges": "none",
+                        "Damage": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Earthshatter": {
+                        "Knockdown duration": "none",
+                        "Shockwave range": "none",
+                        "Ultimate cost": "none",
+                        "Critical damage": "none"
+                    }
+                }
+            },
+            "Mauga": {
+                "general": {
+                    "Base health": "none",
+                    "Armor health": "none",
+                    "Model Size": "relative percent"
+                },
+                "abilities": {
+                    "Incendiary and Volatile Changuns": {
+                        "Damage per bullet": "none",
+                        "Number of shots required to ignite enemies with Incendiary Chaingun": "none"
+                    },
+                    "Overrun": {
+                        "Cooldown": "seconds",
+                        "Stomp Damage": "none"
+                    },
+                    "Cardiac Overdrive": {
+                        "Cooldown": "seconds",
+                        "Allied damage reduction": "none",
+                        "Lifesteal multiplier": "none",
+                        "Overhealth filled upon activation": "none",
+                        "Duration": "seconds"
+                    },
+                    "Cage Fight": {
+                        "Ultimate cost": "none",
+                        "Duration": "seconds"
+                    }
+                }
+            },
+            "Ramattra": {
+                "general": {
+                    "Base health": "none",
+                    "Armor health": "none",
+                    "Model Size": "relative percent"
+                },
+                "abilities": {
+                    "Nemesis Form": {
+                        "Cooldown": "seconds",
+                        "Extra armor": "none",
+                        "Pummel damage": "none",
+                        "Increased movement speed": "percent"
+                    },
+                    "Void Barrier": {
+                        "Barrier health": "none"
+                    },
+                    "Ravenous Vortex": {
+                        "Cooldown": "seconds",
+                        "Total damage": "none"
+                    },
+                    "Annihilation": {
+                        "Ultimate cost": "none",
+                        "Increased movement speed": "percent"
+                    },
+                    "Void Accelerator": {
+                        "Projectile size": "meters"
+                    },
+                    "Pummel": {
+                        "Projectile size": "meters"
+                    }
+                }
+            },
+            "Winston": {
+                "general": {
+                    "Base health": "none",
+                    "Armor health": "none"
+                },
+                "abilities": {
+                    "Tesla Cannon": {
+                        "Damage per second": "none"
+                    },
+                    "Jump Pack": {
+                        "Cooldown": "seconds"
+                    },
+                    "Primal Rage": {
+                        "Ultimate Cost": "none",
+                        "Punch damage": "none"
+                    }
+                }
+            }
+        },
+        "damage": {
+            "general": {
+                "Healing reduction inflicted on hit": "percent"
+            },
+            "Ashe": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "B.O.B": {
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Bastion": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "A-36 Tactical Grenade": {
+                        "Self damage rate": "none",
+                        "briefly grants increased aerial mobility on self knockback while in Configuration: Assault": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Configuration: Assault": {
+                        "Movement speed penalty": "percent"
+                    },
+                    "Configuration: Artillery": {
+                        "Ultimate cost": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Ironclad": {
+                        "Damage reduction": "percent"
+                    }
+                }
+            },
+            "Cassidy": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Peacekeeper": {
+                        "Secondary fire \"Fan the Hammer\" damage": "none"
+                    },
+                    "Combat Roll": {
+                        "Damage reduction": "percent"
+                    },
+                    "Flashbang": {
+                        "Effect": "none",
+                        "Duration": "seconds",
+                        "Maximum travel time": "seconds",
+                        "Slow": "percent",
+                        "hinder prevents crouching": "none",
+                        "Explosive damage": "none",
+                        "Cooldown": "seconds",
+                        "Projectile speed": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Deadeye": {
+                        "Max movement speed penalty": "percent",
+                        "Min movement speed penalty": "percent",
+                        "Max damage reduction": "percent",
+                        "Min damage reduction": "percent",
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Echo": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Sticky Bombs": {
+                        "Explosion damage": "none",
+                        "Direct damage": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Duplicate": {
+                        "Ultimate gain multiplier": "none",
+                        "Ultimate Cost": "none",
+                        "has predetermined tank health pools": "none"
+                    },
+                    "Tri-shot": {
+                        "Projectile size": 0.175
+                    }
+                }
+            },
+            "Genji": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Shuriken": {
+                        "Damage": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Deflect": {
+                        "Duration": "seconds"
+                    },
+                    "Dragonblade": {
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Hanzo": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Storm Bow": {
+                        "Maximum Damage": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Storm Arrows": {
+                        "Cooldown": "seconds",
+                        "Damage per arrow": "none",
+                        "Ammo": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Dragonstrike": {
+                        "Speed": "none",
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Junkrat": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Frag Launcher": {
+                        "Impact Damage": "none",
+                        "Maximum Splash": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Concussion Mine": {
+                        "Cooldown": "seconds",
+                        "Projectile size": "meters",
+                        "Maximum damage": "none",
+                        "Minimum damage": "none"
+                    },
+                    "RIP-Tire": {
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Mei": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Endothermic Blaster": {
+                        "Ammo": "none",
+                        "Secondary fire projectile size": "none",
+                        "Secondary fire damage": "none",
+                        "Projectile size": "meters",
+                        "Alt fire projectile size": "meters"
+                    },
+                    "Cryofreeze": {
+                        "Healing per second": "none"
+                    },
+                    "Ice Wall": {
+                        "Health per pillar": "none"
+                    },
+                    "Blizzard": {
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Pharah": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Rocket Launcher": {
+                        "Recovery speed": "seconds",
+                        "Projectile speed": "none"
+                    },
+                    "Barrage": {
+                        "Ultimate cost": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Concussive Blast": {
+                        "Projectile size": "meters"
+                    }
+                }
+            },
+            "Reaper": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Hellfire Shotguns": {
+                        "Spread": "none",
+                        "Damage per pellet": "none"
+                    },
+                    "Shadow Step": {
+                        "Cast time": "none",
+                        "Cooldown": "seconds"
+                    },
+                    "Death Blossom": {
+                        "Ultimate cost": "none",
+                        "Damage per second": "none"
+                    }
+                }
+            },
+            "Sojourn": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Railgun": {
+                        "Secondary fire maximum damage": "none",
+                        "Secondary fire minimum damage": "none",
+                        "requires overclock for secondary primary piercing": "none",
+                        "Primary fire shots per second": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Power Slide": {
+                        "Cooldown": "seconds"
+                    },
+                    "Overclock": {
+                        "Energy charge rate": "none",
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Soldier: 76": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Heavy Pulse Rifle": {
+                        "Damage": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Biotic Field": {
+                        "Cooldown": "seconds",
+                        "Healing per second": "none"
+                    },
+                    "Tactical Visor": {
+                        "Ultimate cost": "none"
+                    },
+                    "Helix Rocket": {
+                        "Projectile size": "meters"
+                    }
+                }
+            },
+            "Sombra": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Virus": {
+                        "Damage over time": "none",
+                        "Cooldown": "seconds",
+                        "Projectile size": "meters",
+                        "Impact damage": "none"
+                    },
+                    "EMP": {
+                        "Ultimate cost": "none"
+                    },
+                    "Translocator": {
+                        "destroys breakables while in flight": true
+                    }
+                }
+            },
+            "Symmetra": {
+                "general": {
+                    "Base health": "none",
+                    "Shield health": "none"
+                },
+                "abilities": {
+                    "Photon Projector": {
+                        "Primary fire charge rate": "none",
+                        "Shield regen per beam level": "health per second",
+                        "Primary fire damage per second per level": "none",
+                        "Alt fire minimum projectile size": "meters",
+                        "Alt fire maximum projectile size": "meters"
+                    },
+                    "Sentry Turret": {
+                        "Health": "none",
+                        "Damage per second": "none"
+                    },
+                    "Teleporter": {
+                        "Base Health": "none",
+                        "Shield Health": "none"
+                    },
+                    "Photon Barrier": {
+                        "Ultimate cost": "none",
+                        "Barrier health": "none"
+                    }
+                }
+            },
+            "Torbjörn": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Rivet Gun": {
+                        "Ammo": "none",
+                        "Secondary fire ammo cost": "none",
+                        "Projectile size": "meters",
+                        "Alt fire projectile size": "meters"
+                    },
+                    "Molten Core": {
+                        "Ultimate Cost": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Deploy Turret": {
+                        "Turret damage": 13
+                    }
+                }
+            },
+            "Tracer": {
+                "general": {
+                    "Base health": "none",
+                    "Model size": "relative percent"
+                },
+                "abilities": {
+                    "Pulse Pistols": {
+                        "Damage": "none",
+                        "Minimum falloff range": "meters"
+                    },
+                    "Recall": {
+                        "Cooldown": "seconds"
+                    },
+                    "Pulse Bomb": {
+                        "Projectile size": "meters",
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Venture": {
+                "general": {
+                    "Base health": "none",
+                    "Movement speed": "none"
+                },
+                "abilities": {
+                    "Explorer's Resolve": {
+                        "Ability shield generation": "none",
+                        "Shield cap": "none"
+                    },
+                    "SMART Excavator": {
+                        "Maximum explosion damage": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Drill Dash": {
+                        "Cooldown start": "none",
+                        "Cooldown reduction while burrowed": "percent",
+                        "Cooldown acceleration while burrowed": "percent",
+                        "Initial impact damage": "none",
+                        "Damage over time": "none",
+                        "Cooldown": "seconds",
+                        "Knockback": "relative percent"
+                    },
+                    "Burrow": {
+                        "Grace period": "seconds",
+                        "Minimum damage": "none",
+                        "Maximum damage": "none"
+                    },
+                    "Tectonic Shock": {
+                        "Ultimate Cost": "none",
+                        "Vertical knockback": "relative percent",
+                        "Extra damage range": "meters",
+                        "Extra damage multiplier": "none",
+                        "Damage": "none"
+                    },
+                    "Clobber": {
+                        "Impact damage": "none",
+                        "Damage over time": "none"
+                    }
+                }
+            },
+            "Widowmaker": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Infra-Sight": {
+                        "Ultimate cost": "none"
+                    },
+                    "Widow's Kiss": {
+                        "Projectile size": "meters",
+                        "Scoped shot falloff minimum range": "none",
+                        "Scoped shot falloff maximum range": "none"
+                    }
+                }
+            }
+        },
+        "support": {
+            "general": {
+                "Self heal delay": "none",
+                "Self heal amount": "none"
+            },
+            "Ana": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Biotic Rifle": {
+                        "Ammo": "none",
+                        "Unscoped projectile size": "meters",
+                        "Enemy scoped projectile size": "meters",
+                        "Ally scoped projectile size": "meters"
+                    },
+                    "Sleep Dart": {
+                        "Cooldown": "seconds",
+                        "Projectile size": "meters"
+                    },
+                    "Biotic Grenade": {
+                        "Healing": "none",
+                        "Damage": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Nano Boost": {
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Baptiste": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Biotic Launcher": {
+                        "Damage per bullet": "none",
+                        "Explosion healing": "none",
+                        "Direct healing": "none"
+                    },
+                    "Regenerative Burst": {
+                        "Cooldown": "seconds",
+                        "Instant healing": "none",
+                        "Instant healing on allies <50% HP": "none",
+                        "Heal over time": "none",
+                        "Additional self heal over time": "none"
+                    },
+                    "Immortality Field": {
+                        "Health": "none",
+                        "Minimum health threshhold": "percent"
+                    },
+                    "Amplification Matrix": {
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Brigitte": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Inspire": {
+                        "Healing per second": "none"
+                    },
+                    "Rocket Flail": {
+                        "Damage": "none"
+                    },
+                    "Repair Pack": {
+                        "Instant healing": "none",
+                        "Cooldown": "seconds"
+                    },
+                    "Rally": {
+                        "Ultimate cost": "none",
+                        "resets Shield Bash cooldown upon activation": "none"
+                    }
+                }
+            },
+            "Illari": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Solar Rifle": {
+                        "Damage": "none",
+                        "Critical Multiplier": "none",
+                        "Ammo": "none",
+                        "Primary fire recovery": "none",
+                        "Secondary fire heal-per-second": "none",
+                        "Maximum charge time": "seconds"
+                    },
+                    "Outburst": {
+                        "Damage": "none"
+                    },
+                    "Healing Pylon": {
+                        "Healing per projectile": "none",
+                        "Self healing efficiency": "none",
+                        "Health": "none",
+                        "Shield health": "none",
+                        "Cooldown": "seconds",
+                        "Redeploy cooldown": "seconds"
+                    },
+                    "Captive Sun": {
+                        "Ultimate cost": "none",
+                        "Sunstruck explosion damage": "none",
+                        "Sunstruck explosion maximum explosion falloff damage reduction": "percent"
+                    }
+                }
+            },
+            "Kiriko": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Kunai": {
+                        "Ammo": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Swift Step": {
+                        "Cooldown": "seconds",
+                        "Respawn cooldown": "seconds",
+                        "Self healing": "none"
+                    },
+                    "Protection Suzu": {
+                        "cleanses hard knockdown stuns": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Kitsune Rush": {
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Lifeweaver": {
+                "general": {
+                    "Base health": "none",
+                    "Shield health": "none"
+                },
+                "abilities": {
+                    "Healing Blossom": {
+                        "Ammo": "none",
+                        "Projectile size": "meters",
+                        "Maximum charge time": "seconds",
+                        "Maximum heal amount": "none"
+                    },
+                    "Thorn Volley": {
+                        "Ammo": "none",
+                        "Damage": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Petal Platform": {
+                        "Health": "none",
+                        "Cooldown": "seconds",
+                        "Projectile size": "meters"
+                    },
+                    "Rejuvenating Dash": {
+                        "Heal": "none"
+                    },
+                    "Tree of Life": {
+                        "Pulse healing": "none",
+                        "Health": "none",
+                        "Duration": "seconds",
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Lúcio": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Sonic Amplifier": {
+                        "Damage per projectile": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Soundwave": {
+                        "Damage": "none",
+                        "Knockback": "none"
+                    },
+                    "Sound Barrier": {
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Mercy": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Regeneration": {
+                        "Healing per second": "none",
+                        "Delay": "none"
+                    },
+                    "Sympathetic Recovery": {
+                        "Self healing as percent of healing done": "none"
+                    },
+                    "Caduceus Staff": {
+                        "Healing per second": "none"
+                    },
+                    "Caduceus Blaster": {
+                        "Ammo": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Valkyrie": {
+                        "Healing": "none",
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Moira": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Biotic Grasp": {
+                        "Damage per second": "none"
+                    },
+                    "Coalescence": {
+                        "Self-heal per second": "none",
+                        "can use fade during duration": "none",
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
+            "Zenyatta": {
+                "general": {
+                    "Base health": "none",
+                    "Shield health": "none"
+                },
+                "abilities": {
+                    "Snap Kick": {
+                        "Knockback": "none"
+                    },
+                    "Orb of Destruction": {
+                        "Ammo": "none",
+                        "Projectile size": "meters"
+                    },
+                    "Transcendence": {
+                        "Ultimate cost": "none"
+                    }
+                }
+            }
+        }
+    }
+}
