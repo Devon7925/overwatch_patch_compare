@@ -463,6 +463,30 @@ function updatePatchNotes() {
         </div>
         `;
     }
+    if (changes["Map list"]) {
+        let change_render = "";
+        for (let map in changes["Map list"]){
+            let map_change = changes["Map list"][map];
+            if (map_change[0] === undefined) {
+                change_render += `<li>New map ${map}.</li>`;
+            } else {
+                change_render += `<li>${map} majorly updated.</li>`;
+            }
+        }
+        hero_section.innerHTML += `
+            <div class="PatchNotes-section PatchNotes-section-generic_update">
+                <h4 class="PatchNotes-sectionTitle">Map Updates</h4>
+                <div class="PatchNotes-update PatchNotes-section-generic_update"></div>
+                <div class="PatchNotesGeneralUpdate">
+                    <div class="PatchNotesGeneralUpdate-description">
+                        <ul>
+                            ${change_render}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
 }
 
 
