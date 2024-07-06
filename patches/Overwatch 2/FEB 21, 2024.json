@@ -986,5 +986,28 @@
         "Colosseo": 1,
         "Esperança": 1,
         "New Queen Street": 1
+    },
+    "modes": {
+        "Control": {
+            "Start locked time": 30,
+            "Seconds per percent": 1.2
+        },
+        "Escort": {
+            "Attackers cart healing": 10,
+            "Time until cart rollback": 10
+        },
+        "Flashpoint": {
+            "Seconds per percent": 0.7
+        },
+        "Hybrid": {
+            "Attackers cart healing": 10,
+            "Time until cart rollback": 10
+        },
+        "Push": {
+            "Time limit": 600,
+            "Forward spawn respawn timer": 12,
+            "Robot checkpoint delay time": 9,
+            "Robot speed multiplier when pushing barrier": 1
+        }
     }
 }

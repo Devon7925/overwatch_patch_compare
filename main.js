@@ -487,6 +487,30 @@ function updatePatchNotes() {
             </div>
         `;
     }
+
+    if (changes.modes) {
+        let changeRender = "";
+        for (let mode in changes.modes) {
+            let mode_changes = "";
+            for (let change in changes.modes[mode]) {
+                mode_changes += `<li>${getChangeText(change, changes.modes[mode][change], units.modes[mode][change])}</li>`
+            }
+            changeRender += `
+                    <div class="PatchNotesGeneralUpdate-title">${mode}</div>
+                    <div class="PatchNotesGeneralUpdate-description">
+                        <ul>${mode_changes}</ul>
+                    </div>`
+        }
+        hero_section.innerHTML += `
+            <div class="PatchNotes-section PatchNotes-section-generic_update">
+                <h4 class="PatchNotes-sectionTitle">Mode Updates</h4>
+                <div class="PatchNotes-update PatchNotes-section-generic_update"></div>
+                <div class="PatchNotesGeneralUpdate">
+                    ${changeRender}
+                </div>
+            </div>
+        `;
+    }
 }
 
 

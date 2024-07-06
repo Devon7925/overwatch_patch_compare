@@ -1002,5 +1002,28 @@
                 }
             }
         }
+    },
+    "modes": {
+        "Control": {
+            "Start locked time": "seconds",
+            "Seconds per percent": "seconds"
+        },
+        "Escort": {
+            "Attackers cart healing": "none",
+            "Time until cart rollback": "seconds"
+        },
+        "Flashpoint": {
+            "Seconds per percent": "seconds"
+        },
+        "Hybrid": {
+            "Attackers cart healing": "none",
+            "Time until cart rollback": "seconds"
+        },
+        "Push": {
+            "Time limit": "seconds",
+            "Forward spawn respawn timer": "seconds",
+            "Robot checkpoint delay time": "seconds",
+            "Robot speed multiplier when pushing barrier": "relative percent"
+        }
     }
 }

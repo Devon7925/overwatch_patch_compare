@@ -45,35 +45,28 @@ def process_json_files(folder_path, path, new_key, new_value=None, rename=False)
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = 'Map list'
+new_property_name = 'modes'
 new_value = {
-    "Antarctic Peninsula": 1,
-    "Busan": 1,
-    "Ilios": 1,
-    "Lijiang Tower": 1,
-    "Nepal": 1,
-    "Oasis": 1,
-    "Samoa": 1,
-    "Circuit Royal": 1,
-    "Dorado": 1,
-    "Havana": 1,
-    "Junkertown": 2,
-    "Rialto": 1,
-    "Route 66": 2,
-    "Shambali Monastery": 1,
-    "Watchpoint: Gibraltar": 2,
-    "New Junk City": 1,
-    "Suravasa": 1,
-    "Blizzard World": 1,
-    "Eichenwalde": 1,
-    "Hollywood": 1,
-    "King's Row": 1,
-    "Midtown": 1,
-    "Numbani": 1,
-    "Paraíso": 1,
-    "Colosseo": 2,
-    "Esperança": 1,
-    "New Queen Street": 1,
-    "Runasapi": 1
+    "Control": {
+        "Start locked time": 30,
+        "Seconds per percent": 1.2,
+    },
+    "Escort": {
+        "Attackers cart healing": 10,
+        "Time until cart rollback": 10,
+    },
+    "Flashpoint": {
+        "Seconds per percent": 0.7,
+    },
+    "Hybrid": {
+        "Attackers cart healing": 10,
+        "Time until cart rollback": 10,
+    },
+    "Push": {
+        "Time limit": 600,
+        "Forward spawn respawn timer": 12,
+        "Robot checkpoint delay time": 9,
+        "Robot speed multiplier when pushing barrier": 1,
+    }
 }
 process_json_files(folder_path, '', new_property_name, new_value, rename=False)
