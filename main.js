@@ -246,11 +246,11 @@ const ability_images = {
     "Jump Jet": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/ab8ffe4008a1c257f1014d55a5306fcd3d81cde8ffad569b240f74c4c13a4130.png",
     "Jet Dash": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/323f24b2bd2dada5f395ab291fb363fba87bcbaaa773f99d15af6042e51d4d8b.png",
     "Hover Jets": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/c14b2c5652526a006233965b176fb2b5af9e7c5d44045fad3844267303f07091.png",
-    "Explorer's Resolve": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/c14b2c5652526a006233965b176fb2b5af9e7c5d44045fad3844267303f07091.png",
+    "Explorer's Resolve": "https://cdn.discordapp.com/attachments/1257771713198952498/1259688662736834661/Explorers_Resolve.png?ex=668c97fd&is=668b467d&hm=59d59c23b49bedb758594460fb5dc6ab41895dd96fef85837c3a9e2ead49082b&",
     "Helix Rocket": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/8fedb348952552227b6e2ec85cf14214106b901afce2a9657267153bb2a8cac3.png",
     "Machine Pistol": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/2d43bad47f3061481c4df81d6f66ceaf8fe28a8b49f66dd60d831ff81396e8a4.png",
     "Guardian Angel": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e6d6f1f8288bb9a61fcfb85db90a49d3228277d18ac190898567bed4e7799ddc.png",
-    "Steadfast": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/c14b2c5652526a006233965b176fb2b5af9e7c5d44045fad3844267303f07091.png",
+    "Steadfast": "https://cdn.discordapp.com/attachments/1257771713198952498/1259688663231758516/Steadfast.png?ex=668c97fd&is=668b467d&hm=4e0421ce64a108c0ae30aa813930a9036b1078c79fea2005c30f333ac917ca4d&",
     "Ironclad": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/c14b2c5652526a006233965b176fb2b5af9e7c5d44045fad3844267303f07091.png",
 };
 
