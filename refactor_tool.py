@@ -45,28 +45,6 @@ def process_json_files(folder_path, path, new_key, new_value=None, rename=False)
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = 'modes'
-new_value = {
-    "Control": {
-        "Start locked time": 30,
-        "Seconds per percent": 1.2,
-    },
-    "Escort": {
-        "Attackers cart healing": 10,
-        "Time until cart rollback": 10,
-    },
-    "Flashpoint": {
-        "Seconds per percent": 0.7,
-    },
-    "Hybrid": {
-        "Attackers cart healing": 10,
-        "Time until cart rollback": 10,
-    },
-    "Push": {
-        "Time limit": 600,
-        "Forward spawn respawn timer": 12,
-        "Robot checkpoint delay time": 9,
-        "Robot speed multiplier when pushing barrier": 1,
-    }
-}
-process_json_files(folder_path, '', new_property_name, new_value, rename=False)
+new_property_name = "Secondary fire target acquisition radius"
+new_value = 0.7
+process_json_files(folder_path, 'heroes/support/Moira/abilities/Biotic Grasp', new_property_name, new_value, rename=False)

@@ -8,6 +8,7 @@ let patch_selectors = document.getElementsByClassName("patch-selector");
 export let patches = {};
 const patchList = {
     "Overwatch 2": [
+        "JAN 9, 2024",
         "FEB 13, 2024",
         "FEB 21, 2024",
         "MAR 12, 2024",
@@ -23,6 +24,8 @@ const patchList = {
     "6v6 Adjustments": [
         "JUNE 21, 2024",
         "JUNE 28, 2024",
+        "JULY 6, 2024",
+        "JULY 7, 2024",
     ]
 };
 let promises = [];
@@ -233,7 +236,22 @@ const ability_images = {
     "Translocator": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e81f286184e24512c724af16a960a1faca6ade164238b025d19da64226f05f4d.png",
     "Deploy Turret": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a25d559460eed995f177b84eda6000aca6a52c8600dcf2249cc50ca31aa9c786.png",
     "Light Gun": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/24074dececa8bf7b57628509e70731916db62b5ab5b30660ac1727b20bbc5b4d.png",
-    "Widow's Kiss": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/13a1e7903c23a5e140aa01fa930f585c1ea69e1e24378c0462f42053085f7ad9.png"
+    "Widow's Kiss": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/13a1e7903c23a5e140aa01fa930f585c1ea69e1e24378c0462f42053085f7ad9.png",
+    "Micro Missiles": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/1787326d46d04aa10872fc30fe512ab3575781735110dfb178ff38da352facb7.png",
+    "Hyperspheres": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/b6b9f77a52419e542ae8e20afc12035443fb96b99cadb0765694a8f5b41eeb74.png",
+    "Quad Cannons": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/12339775bfc5bfb8a4ad735a2eef452992e90f5374d341baf09f19bc9968147a.png",
+    "The Viper": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/cca8472a3e966de2b9985cee492e527eac5063e9881797dded4ca1e32e292bc0.png",
+    "Configuration: Recon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a2a15d0b50a53e0477ab65e55ed46248cf86ac976e5cef7c64078470dfa59807.png",
+    "Focusing Beam": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/6552feeb85a32ae7131df50f61a9c0fa24bf347bf007e208a356a940561129ae.png",
+    "Jump Jet": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/ab8ffe4008a1c257f1014d55a5306fcd3d81cde8ffad569b240f74c4c13a4130.png",
+    "Jet Dash": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/323f24b2bd2dada5f395ab291fb363fba87bcbaaa773f99d15af6042e51d4d8b.png",
+    "Hover Jets": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/c14b2c5652526a006233965b176fb2b5af9e7c5d44045fad3844267303f07091.png",
+    "Explorer's Resolve": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/c14b2c5652526a006233965b176fb2b5af9e7c5d44045fad3844267303f07091.png",
+    "Helix Rocket": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/8fedb348952552227b6e2ec85cf14214106b901afce2a9657267153bb2a8cac3.png",
+    "Machine Pistol": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/2d43bad47f3061481c4df81d6f66ceaf8fe28a8b49f66dd60d831ff81396e8a4.png",
+    "Guardian Angel": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e6d6f1f8288bb9a61fcfb85db90a49d3228277d18ac190898567bed4e7799ddc.png",
+    "Steadfast": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/c14b2c5652526a006233965b176fb2b5af9e7c5d44045fad3844267303f07091.png",
+    "Ironclad": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/c14b2c5652526a006233965b176fb2b5af9e7c5d44045fad3844267303f07091.png",
 };
 
 const queryString = window.location.search;
@@ -324,6 +342,12 @@ export function getChangeText(name, change, units) {
                 change_type = "reduced";
             }
             return `${name} ${change_type} from ${change[0]} to ${change[1]} health per second.`;
+        } else if (units == "meters per second") {
+            let change_type = "increased";
+            if (change[0] > change[1]) {
+                change_type = "reduced";
+            }
+            return `${name} ${change_type} from ${change[0]} to ${change[1]} meters per second.`;
         } else if (units == "seconds") {
             let change_type = "increased";
             if (change[0] > change[1]) {
@@ -415,14 +439,18 @@ function updatePatchNotes() {
             let abilities = "";
             for (let ability in heroData.abilities) {
                 let ability_changes = "";
-                for (let stat in heroData.abilities[ability]) {
+                let abilityData = heroData.abilities[ability];
+                if(Array.isArray(abilityData)) {
+                    abilityData = abilityData[1];
+                }
+                for (let stat in abilityData) {
                     if(!units.heroes[role][hero].abilities[ability]) {
                         console.error(`Missing ability for ${hero} - ${ability}`)
                     }
                     if(!units.heroes[role][hero].abilities[ability][stat]) {
                         console.error(`Missing units for ${hero} - ${ability} - ${stat}`)
                     }
-                    ability_changes += `<li>${getChangeText(stat, heroData.abilities[ability][stat], units.heroes[role][hero].abilities[ability][stat])}</li>`;
+                    ability_changes += `<li>${getChangeText(stat, abilityData[stat], units.heroes[role][hero].abilities[ability][stat])}</li>`;
                 }
                 abilities += `
                     <div class="PatchNotesAbilityUpdate">

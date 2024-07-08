@@ -47,8 +47,8 @@
             },
             "Junker Queen": {
                 "general": {
-                    "Base health": 400,
-                    "Model size": 1
+                    "Base health": 425,
+                    "Model size": 0.96
                 },
                 "abilities": {
                     "Adrenaline Rush": {
@@ -139,8 +139,8 @@
                     },
                     "Pig Pen": {
                         "Vertical Knockback": 3,
-                        "Initial damage": 70,
-                        "Damage over time": 35
+                        "Initial damage": 60,
+                        "Damage over time": 30
                     }
                 }
             },
@@ -303,19 +303,19 @@
             },
             "Mauga": {
                 "general": {
-                    "Base health": 400,
-                    "Armor health": 100,
+                    "Base health": 375,
+                    "Armor health": 125,
                     "Model Size": 0.94
                 },
                 "abilities": {
                     "Incendiary and Volatile Changuns": {
-                        "Damage per bullet": 3.5,
+                        "Damage per bullet": 3.25,
                         "Number of shots required to ignite enemies with Incendiary Chaingun": 8,
                         "Projectile size": 0.05
                     },
                     "Overrun": {
                         "Cooldown": 8,
-                        "Stomp Damage": 60
+                        "Stomp Damage": 50
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": 16,
@@ -569,7 +569,7 @@
                 },
                 "abilities": {
                     "Rocket Launcher": {
-                        "Recovery speed": 0.8,
+                        "Recovery speed": 0.85,
                         "Projectile speed": 35,
                         "Projectile size": 0.35,
                         "Explosion self damage": 25
@@ -878,7 +878,7 @@
                     },
                     "Repair Pack": {
                         "Instant healing": 35,
-                        "Cooldown": 6
+                        "Cooldown": 5
                     },
                     "Rally": {
                         "Ultimate cost": 2800,
@@ -894,9 +894,9 @@
                     "Solar Rifle": {
                         "Damage": 70,
                         "Critical Multiplier": 1.47,
-                        "Ammo": 14,
+                        "Ammo": 12,
                         "Primary fire recovery": 0.25,
-                        "Secondary fire heal-per-second": 105,
+                        "Secondary fire heal-per-second": 115,
                         "Maximum charge time": 0.65,
                         "Projectile size": 0.25
                     },
@@ -904,7 +904,7 @@
                         "Damage": 25
                     },
                     "Healing Pylon": {
-                        "Healing per projectile": 40,
+                        "Healing per projectile": 35,
                         "Self healing efficiency": 100,
                         "Health": 60,
                         "Shield health": 40,
@@ -912,7 +912,7 @@
                         "Redeploy cooldown": 6
                     },
                     "Captive Sun": {
-                        "Ultimate cost": 2420,
+                        "Ultimate cost": 2226,
                         "Sunstruck explosion damage": 120,
                         "Sunstruck explosion maximum explosion falloff damage reduction": 25
                     }

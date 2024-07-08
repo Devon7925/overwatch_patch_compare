@@ -4,7 +4,8 @@
         "Armor health": "a flat damage reduction of 5 per projectile, up to a maximum of 50% damage reduction",
         "Out-of-combat health regeneration": "none",
         "Role lock": "2-2-2",
-        "Ultimate percent retained on swap": 0
+        "Ultimate percent retained on swap": 0,
+        "Quick melee damage": 40
     },
     "heroes": {
         "tank": {
@@ -15,12 +16,14 @@
             "D.Va": {
                 "general": {
                     "Base health": 300,
-                    "Armor health": 250
+                    "Armor health": 250,
+                    "Pilot health": 150
                 },
                 "abilities": {
                     "Fusion Cannons": {
                         "Spread": 3.375,
-                        "Total damage per shot": 20.5
+                        "Total damage per shot": 20.5,
+                        "Projectile size": 0.05
                     },
                     "Boosters": {
                         "Impact damage": 10
@@ -30,7 +33,9 @@
                         "Maximum Duration": 2
                     },
                     "Self Destruct": {
-                        "Ultimate cost": 1540
+                        "Ultimate cost": 1540,
+                        "Maximum damage": 1000,
+                        "Inner explosion radius": 6
                     },
                     "Light Gun": {
                         "Projectile size": 0.275
@@ -50,7 +55,8 @@
                         "Health regeneration multiplier from wound damage": 1.2
                     },
                     "Scattergun": {
-                        "Total damage": 75
+                        "Total damage": 75,
+                        "Projectile size": 0.05
                     },
                     "Jagged Blade": {
                         "Pull distance": 17.629,
@@ -103,7 +109,7 @@
             },
             "Roadhog": {
                 "general": {
-                    "Base health": 600
+                    "Base health": 750
                 },
                 "abilities": {
                     "Scrap Gun": {
@@ -128,7 +134,8 @@
                         "Knockback": 16,
                         "Damage per pellet": 6,
                         "Ultimate cost": 2240,
-                        "disables other abilities and automatically fires": true
+                        "disables other abilities and automatically fires": true,
+                        "Projectile size": 0.05
                     },
                     "Pig Pen": {
                         "Vertical Knockback": 3,
@@ -193,6 +200,9 @@
                         "Damage": 130,
                         "Explosion knockback": 10,
                         "Ultimate cost": 1540
+                    },
+                    "Quad Cannons": {
+                        "Projectile size": 0.05
                     }
                 }
             },
@@ -204,7 +214,9 @@
                 "abilities": {
                     "Particle Cannon": {
                         "Maximum damage": 160,
-                        "Minimum damage": 70
+                        "Minimum damage": 70,
+                        "Alt fire projectile size": 0.35,
+                        "Beam width": 0.2
                     },
                     "Particle Barrier": {
                         "shares cooldown with Projected Barrier": false,
@@ -233,7 +245,7 @@
                     },
                     "Hand Cannon": {
                         "Minimum Damage": 13.5,
-                        "Maximum Damage": 45,
+                        "Maximum damage": 45,
                         "Projectile size": 0.05
                     },
                     "Seismic Slam": {
@@ -246,7 +258,9 @@
                     "Rocket Punch": {
                         "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": false,
                         "Minimum knockback": 12,
-                        "Maximum knockback": 28
+                        "Maximum knockback": 28,
+                        "Max impact damage": 75,
+                        "Max wall slam damage": 40
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 1932,
@@ -271,7 +285,8 @@
                         "Regeneration rate": 180
                     },
                     "Charge": {
-                        "Cooldown": 10
+                        "Cooldown": 10,
+                        "Wall impact damage": 275
                     },
                     "Firestrike": {
                         "Ability charges": 1,
@@ -295,7 +310,8 @@
                 "abilities": {
                     "Incendiary and Volatile Changuns": {
                         "Damage per bullet": 3.5,
-                        "Number of shots required to ignite enemies with Incendiary Chaingun": 8
+                        "Number of shots required to ignite enemies with Incendiary Chaingun": 8,
+                        "Projectile size": 0.05
                     },
                     "Overrun": {
                         "Cooldown": 8,
@@ -362,14 +378,20 @@
             }
         },
         "damage": {
-            "general": {},
+            "general": {
+                "Damage passive duration": 2
+            },
             "Ashe": {
                 "general": {
                     "Base health": 200
                 },
                 "abilities": {
                     "B.O.B": {
-                        "Ultimate cost": 2240
+                        "Ultimate cost": 2240,
+                        "Weapon damage": 17
+                    },
+                    "The Viper": {
+                        "Projectile size": 0.08
                     }
                 }
             },
@@ -392,6 +414,12 @@
                     },
                     "Ironclad": {
                         "Damage reduction": 10
+                    },
+                    "Configuration: Recon": {
+                        "Projectile size": 0.08,
+                        "Damage": 25,
+                        "Ammo": 25,
+                        "Reload time": 1.2
                     }
                 }
             },
@@ -401,7 +429,8 @@
                 },
                 "abilities": {
                     "Peacekeeper": {
-                        "Secondary fire \"Fan the Hammer\" damage": 45
+                        "Secondary fire \"Fan the Hammer\" damage": 45,
+                        "Projectile size": 0.08
                     },
                     "Combat Roll": {
                         "Damage reduction": 50
@@ -422,7 +451,9 @@
                         "Min movement speed penalty": 35,
                         "Max damage reduction": 40,
                         "Min damage reduction": 0,
-                        "Ultimate cost": 1680
+                        "Ultimate cost": 1680,
+                        "Initial damage rate": 150,
+                        "Damage rate": 300
                     }
                 }
             },
@@ -439,10 +470,14 @@
                     "Duplicate": {
                         "Ultimate gain multiplier": 5,
                         "Ultimate Cost": 2028,
-                        "has predetermined tank health pools": true
+                        "has predetermined tank health pools": true,
+                        "Maximum combined health": 350
                     },
                     "Tri-shot": {
                         "Projectile size": 0.175
+                    },
+                    "Focusing Beam": {
+                        "Width": 0.25
                     }
                 }
             },
@@ -459,7 +494,8 @@
                         "Duration": 1.5
                     },
                     "Dragonblade": {
-                        "Ultimate cost": 1932
+                        "Ultimate cost": 1932,
+                        "Swing recovery speed": 0.7
                     }
                 }
             },
@@ -469,7 +505,7 @@
                 },
                 "abilities": {
                     "Storm Bow": {
-                        "Maximum Damage": 125,
+                        "Maximum damage": 125,
                         "Projectile size": 0.175
                     },
                     "Storm Arrows": {
@@ -512,7 +548,6 @@
                 "abilities": {
                     "Endothermic Blaster": {
                         "Ammo": 120,
-                        "Secondary fire projectile size": 0.2,
                         "Secondary fire damage": 75,
                         "Projectile size": 0.555,
                         "Alt fire projectile size": 0.2
@@ -536,14 +571,33 @@
                     "Rocket Launcher": {
                         "Recovery speed": 0.85,
                         "Projectile speed": 35,
-                        "Projectile size": 0.35
+                        "Projectile size": 0.35,
+                        "Explosion self damage": 25
                     },
                     "Barrage": {
                         "Ultimate cost": 2100,
-                        "Projectile size": 0.075
+                        "Projectile size": 0.075,
+                        "instantly refills Hover Jets fuel": true
                     },
                     "Concussive Blast": {
-                        "Projectile size": 0.225
+                        "Projectile size": 0.225,
+                        "Cooldown": 7,
+                        "Explosion damage": 30,
+                        "Explosion radius": 6,
+                        "Knockback": 18.7
+                    },
+                    "Jet Dash": {
+                        "Cooldown": 8
+                    },
+                    "Jump Jet": {
+                        "Fuel restoration": 50,
+                        "Vertical boost height": 8.4,
+                        "Cooldown": 14
+                    },
+                    "Hover Jets": {
+                        "requires landing to recharge fuel": true,
+                        "Speed Boost": 40,
+                        "can be activated without fuel to slow decent": true
                     }
                 }
             },
@@ -554,7 +608,8 @@
                 "abilities": {
                     "Hellfire Shotguns": {
                         "Spread": 6,
-                        "Damage per pellet": 5.8
+                        "Damage per pellet": 5.8,
+                        "Projectile size": 0.05
                     },
                     "Shadow Step": {
                         "Cast time": 1.2,
@@ -576,7 +631,8 @@
                         "Secondary fire minimum damage": 1,
                         "requires overclock for secondary primary piercing": false,
                         "Primary fire shots per second": 16,
-                        "Projectile size": 0.175
+                        "Projectile size": 0.175,
+                        "Secondary fire projectile size": 0.15
                     },
                     "Power Slide": {
                         "Cooldown": 9
@@ -624,6 +680,9 @@
                     },
                     "Translocator": {
                         "destroys breakables while in flight": true
+                    },
+                    "Machine Pistol": {
+                        "Projectile size": 0.05
                     }
                 }
             },
@@ -638,7 +697,8 @@
                         "Shield regen per beam level": 0,
                         "Primary fire damage per second per level": 60,
                         "Alt fire minimum projectile size": 0.115,
-                        "Alt fire maximum projectile size": 0.575
+                        "Alt fire maximum projectile size": 0.575,
+                        "Primary fire beam width": 0.25
                     },
                     "Sentry Turret": {
                         "Health": 30,
@@ -682,7 +742,8 @@
                 "abilities": {
                     "Pulse Pistols": {
                         "Damage": 5.5,
-                        "Minimum falloff range": 10
+                        "Minimum falloff range": 10,
+                        "Projectile size": 0.05
                     },
                     "Recall": {
                         "Cooldown": 12
@@ -787,7 +848,8 @@
                     "Biotic Launcher": {
                         "Damage per bullet": 24,
                         "Explosion healing": 35,
-                        "Direct healing": 40
+                        "Direct healing": 40,
+                        "Projectile size": 0.08
                     },
                     "Regenerative Burst": {
                         "Cooldown": 13,
@@ -835,7 +897,8 @@
                         "Ammo": 12,
                         "Primary fire recovery": 0.25,
                         "Secondary fire heal-per-second": 115,
-                        "Maximum charge time": 0.65
+                        "Maximum charge time": 0.65,
+                        "Projectile size": 0.25
                     },
                     "Outburst": {
                         "Damage": 25
@@ -922,7 +985,8 @@
                     },
                     "Soundwave": {
                         "Damage": 30,
-                        "Knockback": 6.5
+                        "Knockback": 6.5,
+                        "Movement lockout duration": 0.45
                     },
                     "Sound Barrier": {
                         "Ultimate cost": 2940
@@ -951,6 +1015,9 @@
                     "Valkyrie": {
                         "Healing": 60,
                         "Ultimate cost": 1820
+                    },
+                    "Guardian Angel": {
+                        "Active duration on jump/crouch cancel": 1
                     }
                 }
             },
@@ -960,7 +1027,8 @@
                 },
                 "abilities": {
                     "Biotic Grasp": {
-                        "Damage per second": 60
+                        "Damage per second": 60,
+                        "Secondary fire target acquisition radius": 0.7
                     },
                     "Coalescence": {
                         "Self-heal per second": 55,

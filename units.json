@@ -20,7 +20,8 @@
                 "abilities": {
                     "Fusion Cannons": {
                         "Spread": "none",
-                        "Total damage per shot": "none"
+                        "Total damage per shot": "none",
+                        "Projectile size": "meters"
                     },
                     "Boosters": {
                         "Impact damage": "none"
@@ -30,7 +31,9 @@
                         "Maximum Duration": "seconds"
                     },
                     "Self Destruct": {
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "Maximum damage": "none",
+                        "Inner explosion radius": "meters"
                     },
                     "Light Gun": {
                         "Projectile size": "meters"
@@ -50,7 +53,8 @@
                         "Health regeneration multiplier from wound damage": "none"
                     },
                     "Scattergun": {
-                        "Total damage": "none"
+                        "Total damage": "none",
+                        "Projectile size": "meters"
                     },
                     "Jagged Blade": {
                         "Increased knockback on tanks": "percent",
@@ -131,7 +135,8 @@
                         "Knockback": "none",
                         "Damage per pellet": "none",
                         "Ultimate cost": "none",
-                        "disables other abilities and automatically fires": "none"
+                        "disables other abilities and automatically fires": "none",
+                        "Projectile size": "meters"
                     },
                     "Pig Pen": {
                         "Vertical Knockback": "none",
@@ -196,6 +201,9 @@
                         "Damage": "none",
                         "Explosion knockback": "none",
                         "Ultimate cost": "none"
+                    },
+                    "Quad Cannons": {
+                        "Projectile size": "meters"
                     }
                 }
             },
@@ -207,7 +215,9 @@
                 "abilities": {
                     "Particle Cannon": {
                         "Maximum damage": "none",
-                        "Minimum damage": "none"
+                        "Minimum damage": "none",
+                        "Alt fire projectile size": "meters",
+                        "Beam width": "meters"
                     },
                     "Particle Barrier": {
                         "shares cooldown with Projected Barrier": "none",
@@ -236,7 +246,7 @@
                     },
                     "Hand Cannon": {
                         "Minimum Damage": "none",
-                        "Maximum Damage": "none",
+                        "Maximum damage": "none",
                         "Projectile size": "meters"
                     },
                     "Seismic Slam": {
@@ -251,7 +261,9 @@
                         "Wall stun": "seconds",
                         "Maximum empowered wall stun": "seconds",
                         "Minimum knockback": "relative percent",
-                        "Maximum knockback": "relative percent"
+                        "Maximum knockback": "relative percent",
+                        "Max impact damage": "none",
+                        "Max wall slam damage": "none"
                     },
                     "Meteor Strike": {
                         "Ultimate cost": "none",
@@ -277,7 +289,8 @@
                         "Regeneration rate": "health per second"
                     },
                     "Charge": {
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Wall impact damage": "none"
                     },
                     "Firestrike": {
                         "Ability charges": "none",
@@ -301,7 +314,8 @@
                 "abilities": {
                     "Incendiary and Volatile Changuns": {
                         "Damage per bullet": "none",
-                        "Number of shots required to ignite enemies with Incendiary Chaingun": "none"
+                        "Number of shots required to ignite enemies with Incendiary Chaingun": "none",
+                        "Projectile size": "meters"
                     },
                     "Overrun": {
                         "Cooldown": "seconds",
@@ -381,7 +395,11 @@
                 },
                 "abilities": {
                     "B.O.B": {
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "Weapon damage": "none"
+                    },
+                    "The Viper": {
+                        "Projectile size": "meters"
                     }
                 }
             },
@@ -398,6 +416,9 @@
                     "Configuration: Assault": {
                         "Movement speed penalty": "percent"
                     },
+                    "Configuration: Recon": {
+                        "Projectile size": "meters"
+                    },
                     "Configuration: Artillery": {
                         "Ultimate cost": "none",
                         "Projectile size": "meters"
@@ -413,7 +434,8 @@
                 },
                 "abilities": {
                     "Peacekeeper": {
-                        "Secondary fire \"Fan the Hammer\" damage": "none"
+                        "Secondary fire \"Fan the Hammer\" damage": "none",
+                        "Projectile size": "meters"
                     },
                     "Combat Roll": {
                         "Damage reduction": "percent"
@@ -434,7 +456,9 @@
                         "Min movement speed penalty": "percent",
                         "Max damage reduction": "percent",
                         "Min damage reduction": "percent",
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "Initial damage rate": "none",
+                        "Damage rate": "none"
                     }
                 }
             },
@@ -451,10 +475,14 @@
                     "Duplicate": {
                         "Ultimate gain multiplier": "none",
                         "Ultimate Cost": "none",
-                        "has predetermined tank health pools": "none"
+                        "has predetermined tank health pools": "none",
+                        "Maximum combined health": "none"
                     },
                     "Tri-shot": {
                         "Projectile size": 0.175
+                    },
+                    "Focusing Beam": {
+                        "Width": "meters"
                     }
                 }
             },
@@ -471,7 +499,8 @@
                         "Duration": "seconds"
                     },
                     "Dragonblade": {
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "Swing recovery speed": "seconds"
                     }
                 }
             },
@@ -481,7 +510,7 @@
                 },
                 "abilities": {
                     "Storm Bow": {
-                        "Maximum Damage": "none",
+                        "Maximum damage": "none",
                         "Projectile size": "meters"
                     },
                     "Storm Arrows": {
@@ -524,7 +553,6 @@
                 "abilities": {
                     "Endothermic Blaster": {
                         "Ammo": "none",
-                        "Secondary fire projectile size": "none",
                         "Secondary fire damage": "none",
                         "Projectile size": "meters",
                         "Alt fire projectile size": "meters"
@@ -547,14 +575,34 @@
                 "abilities": {
                     "Rocket Launcher": {
                         "Recovery speed": "seconds",
-                        "Projectile speed": "none"
+                        "Projectile speed": "meters per second",
+                        "Projectile size": "meters",
+                        "Explosion self damage": "percent"
                     },
                     "Barrage": {
                         "Ultimate cost": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "instantly refills Hover Jets fuel": "none"
                     },
                     "Concussive Blast": {
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Cooldown": "seconds",
+                        "Explosion damage": "none",
+                        "Explosion radius": "meters",
+                        "Knockback": "relative percent"
+                    },
+                    "Jump Jet": {
+                        "Vertical boost height": "relative percent",
+                        "Cooldown": "seconds",
+                        "Fuel restoration": "percent"
+                    },
+                    "Hover Jets": {
+                        "requires landing to recharge fuel": "none",
+                        "Speed Boost": "percent",
+                        "can be activated without fuel to slow decent": "none"
+                    },
+                    "Jet Dash": {
+                        "Cooldown": "seconds"
                     }
                 }
             },
@@ -565,7 +613,8 @@
                 "abilities": {
                     "Hellfire Shotguns": {
                         "Spread": "none",
-                        "Damage per pellet": "none"
+                        "Damage per pellet": "none",
+                        "Projectile size": "meters"
                     },
                     "Shadow Step": {
                         "Cast time": "none",
@@ -587,7 +636,8 @@
                         "Secondary fire minimum damage": "none",
                         "requires overclock for secondary primary piercing": "none",
                         "Primary fire shots per second": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Secondary fire projectile size": "meters"
                     },
                     "Power Slide": {
                         "Cooldown": "seconds"
@@ -635,6 +685,9 @@
                     },
                     "Translocator": {
                         "destroys breakables while in flight": true
+                    },
+                    "Machine Pistol": {
+                        "Projectile size": "meters"
                     }
                 }
             },
@@ -649,7 +702,8 @@
                         "Shield regen per beam level": "health per second",
                         "Primary fire damage per second per level": "none",
                         "Alt fire minimum projectile size": "meters",
-                        "Alt fire maximum projectile size": "meters"
+                        "Alt fire maximum projectile size": "meters",
+                        "Primary fire beam width": "meters"
                     },
                     "Sentry Turret": {
                         "Health": "none",
@@ -693,7 +747,8 @@
                 "abilities": {
                     "Pulse Pistols": {
                         "Damage": "none",
-                        "Minimum falloff range": "meters"
+                        "Minimum falloff range": "meters",
+                        "Projectile size": "meters"
                     },
                     "Recall": {
                         "Cooldown": "seconds"
@@ -799,7 +854,8 @@
                     "Biotic Launcher": {
                         "Damage per bullet": "none",
                         "Explosion healing": "none",
-                        "Direct healing": "none"
+                        "Direct healing": "none",
+                        "Projectile size": "meters"
                     },
                     "Regenerative Burst": {
                         "Cooldown": "seconds",
@@ -849,7 +905,8 @@
                         "Ammo": "none",
                         "Primary fire recovery": "none",
                         "Secondary fire heal-per-second": "none",
-                        "Maximum charge time": "seconds"
+                        "Maximum charge time": "seconds",
+                        "Projectile size": "meters"
                     },
                     "Outburst": {
                         "Damage": "none"
@@ -936,7 +993,8 @@
                     },
                     "Soundwave": {
                         "Damage": "none",
-                        "Knockback": "none"
+                        "Knockback": "none",
+                        "Movement lockout duration": "seconds"
                     },
                     "Sound Barrier": {
                         "Ultimate cost": "none"
@@ -953,7 +1011,7 @@
                         "Delay": "none"
                     },
                     "Sympathetic Recovery": {
-                        "Self healing as percent of healing done": "none"
+                        "Self healing as percent of healing done": "percent"
                     },
                     "Caduceus Staff": {
                         "Healing per second": "none"
@@ -965,6 +1023,9 @@
                     "Valkyrie": {
                         "Healing": "none",
                         "Ultimate cost": "none"
+                    },
+                    "Guardian Angel": {
+                        "Active duration on jump/crouch cancel": "seconds"
                     }
                 }
             },
@@ -974,7 +1035,8 @@
                 },
                 "abilities": {
                     "Biotic Grasp": {
-                        "Damage per second": "none"
+                        "Damage per second": "none",
+                        "Secondary fire target acquisition radius": "meters"
                     },
                     "Coalescence": {
                         "Self-heal per second": "none",
