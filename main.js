@@ -21,6 +21,7 @@ const patchList = {
         "MAY 21, 2024",
         "MAY 24, 2024",
         "JUNE 20, 2024",
+        "JULY 9, 2024",
     ],
     "6v6 Adjustments": [
         "JUNE 21, 2024",

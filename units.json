@@ -10,7 +10,10 @@
         "tank": {
             "general": {
                 "Critical headshot damage reduction": "percent",
-                "Knockback resistance": "percent"
+                "Knockback resistance": "percent",
+                "Ultimate generation reduction": "percent",
+                "Adjusted sleep duration": "seconds",
+                "Damage passive effect reduction": "percent"
             },
             "D.Va": {
                 "general": {
@@ -39,7 +42,8 @@
                         "Projectile size": "meters"
                     },
                     "Micro Missiles": {
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Explosion damage": "none"
                     }
                 }
             },
@@ -143,7 +147,9 @@
                     "Pig Pen": {
                         "Vertical Knockback": "none",
                         "Initial damage": "none",
-                        "Damage over time": "none"
+                        "Damage over time": "none",
+                        "Recovery time": "seconds",
+                        "Cooldown start": "none"
                     }
                 }
             },
@@ -196,7 +202,8 @@
                     "Adaptive Shield": {
                         "Ally overhealth cap": "none",
                         "Overhealth generation per enemy": "none",
-                        "Detection radius": "none"
+                        "Detection radius": "none",
+                        "Allied Overhealth transfer ratio": "none"
                     },
                     "Minefield": {
                         "Health": "none",
@@ -205,7 +212,8 @@
                         "Ultimate cost": "none"
                     },
                     "Quad Cannons": {
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Automatic reload time while transformed": "seconds"
                     }
                 }
             },
@@ -223,12 +231,16 @@
                     },
                     "Particle Barrier": {
                         "shares cooldown with Projected Barrier": "none",
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Health": "none",
+                        "Duration":"seconds"
                     },
                     "Projected Barrier": {
                         "Cooldown start": "none",
                         "shares cooldown with Particle Barrier": "none",
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Health": "none",
+                        "Duration":"seconds"
                     },
                     "Graviton Surge": {
                         "Ultimate cost": "none",
@@ -244,7 +256,8 @@
                 },
                 "abilities": {
                     "The Best Defense": {
-                        "Overhealth generation": "none"
+                        "Overhealth generation": "none",
+                        "Delay before Overhealth begins to drain": "seconds"
                     },
                     "Hand Cannon": {
                         "Minimum Damage": "none",
@@ -322,14 +335,17 @@
                     },
                     "Overrun": {
                         "Cooldown": "seconds",
-                        "Stomp Damage": "none"
+                        "Stomp Damage": "none",
+                        "Knockback damage": "none"
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": "seconds",
                         "Allied damage reduction": "percent",
                         "Lifesteal multiplier": "percent",
                         "Overhealth filled upon activation": "none",
-                        "Duration": "seconds"
+                        "Duration": "seconds",
+                        "Damage reduction": "percent",
+                        "Allied lifesteal": "percent"
                     },
                     "Cage Fight": {
                         "Ultimate cost": "none",
@@ -369,7 +385,8 @@
                         "Projectile size": "meters"
                     },
                     "Pummel": {
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Damage": "none"
                     }
                 }
             },
@@ -380,14 +397,16 @@
                 },
                 "abilities": {
                     "Tesla Cannon": {
-                        "Damage per second": "none"
+                        "Damage per second": "none",
+                        "Secondary fire charge time": "seconds"
                     },
                     "Jump Pack": {
                         "Cooldown": "seconds"
                     },
                     "Primal Rage": {
                         "Ultimate Cost": "none",
-                        "Punch damage": "none"
+                        "Punch damage": "none",
+                        "Maximum health gained": "none"
                     }
                 }
             }
@@ -403,7 +422,8 @@
                 "abilities": {
                     "B.O.B": {
                         "Ultimate cost": "none",
-                        "Weapon damage": "none"
+                        "Weapon damage": "none",
+                        "has tank passive": "none"
                     },
                     "The Viper": {
                         "Projectile size": "meters"
@@ -442,7 +462,9 @@
                 "abilities": {
                     "Peacekeeper": {
                         "Secondary fire \"Fan the Hammer\" damage": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Primary fire falloff range minimum": "meters",
+                        "Primary fire falloff range maximum": "meters"
                     },
                     "Combat Roll": {
                         "Damage reduction": "percent"

@@ -45,6 +45,6 @@ def process_json_files(folder_path, path, new_key, new_value=None, rename=False)
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "pierced by piercing projectiles"
-new_value = False
-process_json_files(folder_path, 'heroes/support/Lifeweaver/abilities/Petal Platform', new_property_name, new_value, rename=False)
+new_property_name = "Adjusted sleep duration"
+new_value = 3.5
+process_json_files(folder_path, 'heroes/tank/general', new_property_name, new_value, rename=False)

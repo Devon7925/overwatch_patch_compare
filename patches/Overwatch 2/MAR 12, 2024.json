@@ -11,7 +11,10 @@
         "tank": {
             "general": {
                 "Critical headshot damage reduction": 0,
-                "Knockback resistance": 30
+                "Knockback resistance": 30,
+                "Ultimate generation reduction": 30,
+                "Damage passive effect reduction": 0,
+                "Adjusted sleep duration": 3.5
             },
             "D.Va": {
                 "general": {
@@ -41,7 +44,8 @@
                         "Projectile size": 0.275
                     },
                     "Micro Missiles": {
-                        "Projectile size": 0.175
+                        "Projectile size": 0.175,
+                        "Explosion damage": 4
                     }
                 }
             },
@@ -144,7 +148,9 @@
                     "Pig Pen": {
                         "Vertical Knockback": 3,
                         "Initial damage": 60,
-                        "Damage over time": 30
+                        "Damage over time": 30,
+                        "Recovery time": 0.55,
+                        "Cooldown start": "after a short delay"
                     }
                 }
             },
@@ -198,7 +204,8 @@
                     "Adaptive Shield": {
                         "Ally overhealth cap": 0,
                         "Overhealth generation per enemy": 100,
-                        "Detection radius": 10
+                        "Detection radius": 10,
+                        "Allied Overhealth transfer ratio": 1
                     },
                     "Minefield": {
                         "Health": 50,
@@ -207,7 +214,8 @@
                         "Ultimate cost": 1850
                     },
                     "Quad Cannons": {
-                        "Projectile size": 0.05
+                        "Projectile size": 0.05,
+                        "Automatic reload time while transformed": 2
                     }
                 }
             },
@@ -225,12 +233,16 @@
                     },
                     "Particle Barrier": {
                         "shares cooldown with Projected Barrier": true,
-                        "Cooldown": 10
+                        "Cooldown": 10,
+                        "Health": 200,
+                        "Duration": 2
                     },
                     "Projected Barrier": {
                         "Cooldown start": "ability use",
                         "shares cooldown with Particle Barrier": true,
-                        "Cooldown": 8
+                        "Cooldown": 8,
+                        "Health": 200,
+                        "Duration": 2
                     },
                     "Graviton Surge": {
                         "Ultimate cost": 2500,
@@ -246,7 +258,8 @@
                 },
                 "abilities": {
                     "The Best Defense": {
-                        "Overhealth generation": 35
+                        "Overhealth generation": 35,
+                        "Delay before Overhealth begins to drain": 1
                     },
                     "Hand Cannon": {
                         "Minimum Damage": 16.5,
@@ -324,14 +337,17 @@
                     },
                     "Overrun": {
                         "Cooldown": 6,
-                        "Stomp Damage": 60
+                        "Stomp Damage": 60,
+                        "Knockback damage": 25
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": 10,
                         "Allied damage reduction": 30,
                         "Lifesteal multiplier": 60,
                         "Duration": 4,
-                        "Overhealth filled upon activation": 100
+                        "Overhealth filled upon activation": 100,
+                        "Damage reduction": 30,
+                        "Allied lifesteal": 30
                     },
                     "Cage Fight": {
                         "Ultimate cost": 2650,
@@ -371,7 +387,8 @@
                         "Projectile size": 0.15
                     },
                     "Pummel": {
-                        "Projectile size": 0.575
+                        "Projectile size": 0.575,
+                        "Damage": 60
                     }
                 }
             },
@@ -382,14 +399,16 @@
                 },
                 "abilities": {
                     "Tesla Cannon": {
-                        "Damage per second": 75
+                        "Damage per second": 75,
+                        "Secondary fire charge time": 1
                     },
                     "Jump Pack": {
                         "Cooldown": 5
                     },
                     "Primal Rage": {
                         "Ultimate Cost": 2050,
-                        "Punch damage": 50
+                        "Punch damage": 50,
+                        "Maximum health gained": 500
                     }
                 }
             }
@@ -406,7 +425,8 @@
                 "abilities": {
                     "B.O.B": {
                         "Ultimate cost": 2450,
-                        "Weapon damage": 17
+                        "Weapon damage": 17,
+                        "has tank passive": false
                     },
                     "The Viper": {
                         "Projectile size": 0.08
@@ -448,7 +468,9 @@
                 "abilities": {
                     "Peacekeeper": {
                         "Secondary fire \"Fan the Hammer\" damage": 50,
-                        "Projectile size": 0.08
+                        "Projectile size": 0.08,
+                        "Primary fire falloff range minimum": 25,
+                        "Primary fire falloff range maximum": 35
                     },
                     "Combat Roll": {
                         "Damage reduction": 75
