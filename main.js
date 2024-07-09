@@ -8,6 +8,7 @@ let patch_selectors = document.getElementsByClassName("patch-selector");
 export let patches = {};
 const patchList = {
     "Overwatch 2": [
+        "DEC 19, 2023",
         "JAN 9, 2024",
         "FEB 13, 2024",
         "FEB 21, 2024",
@@ -252,6 +253,8 @@ const ability_images = {
     "Guardian Angel": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e6d6f1f8288bb9a61fcfb85db90a49d3228277d18ac190898567bed4e7799ddc.png",
     "Steadfast": "https://cdn.discordapp.com/attachments/1257771713198952498/1259688663231758516/Steadfast.png?ex=668c97fd&is=668b467d&hm=4e0421ce64a108c0ae30aa813930a9036b1078c79fea2005c30f333ac917ca4d&",
     "Ironclad": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/c14b2c5652526a006233965b176fb2b5af9e7c5d44045fad3844267303f07091.png",
+    "Berserker": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/f35a2296090039ae055f465e736370f031bdd348677b3c9657147c0b925267b1.png",
+    "Stealth": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/270bcdf26d66cda1f488e9b3286c3cb467c6e622d729420406ce69218380ae1a.png",
 };
 
 const queryString = window.location.search;

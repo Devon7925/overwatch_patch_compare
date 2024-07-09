@@ -88,7 +88,8 @@
                         "Movement speed reduction": "percent",
                         "Cooldown start": "none",
                         "Cooldown": "seconds",
-                        "Overhealth generation": "none"
+                        "Overhealth generation": "none",
+                        "immune to taking forced critical hit damage": "none"
                     },
                     "Energy Javelin": {
                         "Direct damage": "none",
@@ -104,7 +105,8 @@
                         "Early charge rate": "none"
                     },
                     "Augmented Fusion Driver": {
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "has falloff damage penalty": "none"
                     }
                 }
             },
@@ -315,7 +317,8 @@
                     "Incendiary and Volatile Changuns": {
                         "Damage per bullet": "none",
                         "Number of shots required to ignite enemies with Incendiary Chaingun": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Ammo": "none"
                     },
                     "Overrun": {
                         "Cooldown": "seconds",
@@ -323,14 +326,18 @@
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": "seconds",
-                        "Allied damage reduction": "none",
-                        "Lifesteal multiplier": "none",
+                        "Allied damage reduction": "percent",
+                        "Lifesteal multiplier": "percent",
                         "Overhealth filled upon activation": "none",
                         "Duration": "seconds"
                     },
                     "Cage Fight": {
                         "Ultimate cost": "none",
-                        "Duration": "seconds"
+                        "Duration": "seconds",
+                        "grants infinite ammo": "none"
+                    },
+                    "Berserker": {
+                        "Overhealth conversion rate": "percent"
                     }
                 }
             },
@@ -637,7 +644,8 @@
                         "requires overclock for secondary primary piercing": "none",
                         "Primary fire shots per second": "none",
                         "Projectile size": "meters",
-                        "Secondary fire projectile size": "meters"
+                        "Secondary fire projectile size": "meters",
+                        "Minimum energy for gradual energy decay": "percent"
                     },
                     "Power Slide": {
                         "Cooldown": "seconds"
@@ -688,6 +696,11 @@
                     },
                     "Machine Pistol": {
                         "Projectile size": "meters"
+                    },
+                    "Stealth": {
+                        "Grace period where Stealth can be canceled immediately after entering it": "seconds",
+                        "Minimum cooldown while capturing or contesting": "seconds",
+                        "Cooldown on respawn": "seconds"
                     }
                 }
             },
@@ -839,7 +852,8 @@
                     "Biotic Grenade": {
                         "Healing": "none",
                         "Damage": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Effect duration": "seconds"
                     },
                     "Nano Boost": {
                         "Ultimate cost": "none"
@@ -906,7 +920,8 @@
                         "Primary fire recovery": "none",
                         "Secondary fire heal-per-second": "none",
                         "Maximum charge time": "seconds",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": "none"
                     },
                     "Outburst": {
                         "Damage": "none"
@@ -922,7 +937,8 @@
                     "Captive Sun": {
                         "Ultimate cost": "none",
                         "Sunstruck explosion damage": "none",
-                        "Sunstruck explosion maximum explosion falloff damage reduction": "percent"
+                        "Sunstruck explosion maximum explosion falloff damage reduction": "percent",
+                        "fully refills secondary fire resource and resets overheated status": "none"
                     }
                 }
             },
@@ -964,12 +980,14 @@
                     "Thorn Volley": {
                         "Ammo": "none",
                         "Damage": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Projectile speed": "meters per second"
                     },
                     "Petal Platform": {
                         "Health": "none",
                         "Cooldown": "seconds",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "pierced by piercing projectiles": "none"
                     },
                     "Rejuvenating Dash": {
                         "Heal": "none"

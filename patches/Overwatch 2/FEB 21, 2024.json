@@ -89,7 +89,8 @@
                         "Movement speed reduction": 0,
                         "Cooldown start": "ability use",
                         "Cooldown": 16.5,
-                        "Overhealth generation": 100
+                        "Overhealth generation": 100,
+                        "immune to taking forced critical hit damage": true
                     },
                     "Energy Javelin": {
                         "Direct damage": 60,
@@ -105,7 +106,8 @@
                         "Early charge rate": 50
                     },
                     "Augmented Fusion Driver": {
-                        "Projectile size": 0.25
+                        "Projectile size": 0.25,
+                        "has falloff damage penalty": false
                     }
                 }
             },
@@ -317,7 +319,8 @@
                     "Incendiary and Volatile Changuns": {
                         "Damage per bullet": 4,
                         "Number of shots required to ignite enemies with Incendiary Chaingun": 10,
-                        "Projectile size": 0.05
+                        "Projectile size": 0.05,
+                        "Ammo": 300
                     },
                     "Overrun": {
                         "Cooldown": 6,
@@ -331,7 +334,11 @@
                     },
                     "Cage Fight": {
                         "Ultimate cost": 2650,
-                        "Duration": 8
+                        "Duration": 8,
+                        "grants infinite ammo": false
+                    },
+                    "Berserker": {
+                        "Overhealth conversion rate": 50
                     }
                 }
             },
@@ -642,7 +649,8 @@
                         "requires overclock for secondary primary piercing": true,
                         "Primary fire shots per second": 14,
                         "Projectile size": 0.2,
-                        "Secondary fire projectile size": 0.15
+                        "Secondary fire projectile size": 0.15,
+                        "Minimum energy for gradual energy decay": 25
                     },
                     "Power Slide": {
                         "Cooldown": 7
@@ -693,6 +701,11 @@
                     },
                     "Machine Pistol": {
                         "Projectile size": 0.05
+                    },
+                    "Stealth": {
+                        "Grace period where Stealth can be canceled immediately after entering it": 0.75,
+                        "Minimum cooldown while capturing or contesting": 1,
+                        "Cooldown on respawn": 1
                     }
                 }
             },
@@ -803,7 +816,8 @@
                     "Biotic Grenade": {
                         "Healing": 60,
                         "Damage": 60,
-                        "Projectile size": 0.275
+                        "Projectile size": 0.275,
+                        "Effect duration": 3
                     },
                     "Nano Boost": {
                         "Ultimate cost": 2300
@@ -869,7 +883,8 @@
                         "Primary fire recovery": 0.3,
                         "Secondary fire heal-per-second": 105,
                         "Maximum charge time": 0.7,
-                        "Projectile size": 0.25
+                        "Projectile size": 0.25,
+                        "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": false
                     },
                     "Outburst": {
                         "Damage": 10
@@ -885,7 +900,8 @@
                     "Captive Sun": {
                         "Ultimate cost": 2650,
                         "Sunstruck explosion damage": 160,
-                        "Sunstruck explosion maximum explosion falloff damage reduction": 25
+                        "Sunstruck explosion maximum explosion falloff damage reduction": 25,
+                        "fully refills secondary fire resource and resets overheated status": true
                     }
                 }
             },
@@ -925,12 +941,14 @@
                     "Thorn Volley": {
                         "Ammo": 80,
                         "Damage": 6,
-                        "Projectile size": 0.225
+                        "Projectile size": 0.225,
+                        "Projectile speed": 80
                     },
                     "Petal Platform": {
                         "Health": 400,
                         "Cooldown": 12,
-                        "Projectile size": 0.15
+                        "Projectile size": 0.15,
+                        "pierced by piercing projectiles": false
                     },
                     "Rejuvenating Dash": {
                         "Heal": 50
