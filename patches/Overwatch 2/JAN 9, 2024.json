@@ -45,7 +45,8 @@
                     },
                     "Micro Missiles": {
                         "Projectile size": 0.1,
-                        "Explosion damage": 4
+                        "Explosion damage": 4,
+                        "Impact damage": 3
                     }
                 }
             },
@@ -69,7 +70,8 @@
                     "Commanding Shout": {
                         "can be activated while using other abilities": false,
                         "Cooldown": 14,
-                        "Self overhalth": 150
+                        "Self overhalth": 150,
+                        "Ally Overhealth": 50
                     },
                     "Carnage": {
                         "Impact damage": 90,
@@ -171,7 +173,8 @@
                     "Accretion": {
                         "Direct damage": 40,
                         "Stun duration": 1.2,
-                        "Projectile size": 0.9
+                        "Projectile size": 0.9,
+                        "Splash damage": 40
                     },
                     "Gravitic Flux": {
                         "requires line-of-sight": true,
@@ -368,7 +371,6 @@
                     "Nemesis Form": {
                         "Cooldown": 7,
                         "Extra armor": 225,
-                        "Pummel damage": 60,
                         "Increased movement speed": 20
                     },
                     "Void Barrier": {
@@ -425,7 +427,8 @@
                     "B.O.B": {
                         "Ultimate cost": 2227,
                         "Weapon damage": 14,
-                        "has tank passive": false
+                        "has tank passive": false,
+                        "Health": 1000
                     },
                     "The Viper": {
                         "Projectile size": 0.0
@@ -434,7 +437,8 @@
             },
             "Bastion": {
                 "general": {
-                    "Base health": 200
+                    "Base health": 200,
+                    "Armor health": 100
                 },
                 "abilities": {
                     "A-36 Tactical Grenade": {

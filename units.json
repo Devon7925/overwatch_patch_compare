@@ -43,7 +43,8 @@
                     },
                     "Micro Missiles": {
                         "Projectile size": "meters",
-                        "Explosion damage": "none"
+                        "Explosion damage": "none",
+                        "Impact damage": "none"
                     }
                 }
             },
@@ -68,7 +69,8 @@
                     "Commanding Shout": {
                         "can be activated while using other abilities": "none",
                         "Cooldown": "seconds",
-                        "Self overhalth": "none"
+                        "Self overhalth": "none",
+                        "Ally Overhealth": "none"
                     },
                     "Carnage": {
                         "Impact damage": "none",
@@ -169,7 +171,8 @@
                     },
                     "Accretion": {
                         "Direct damage": "none",
-                        "Stun duration": "seconds"
+                        "Stun duration": "seconds",
+                        "Splash damage": "none"
                     },
                     "Gravitic Flux": {
                         "requires line-of-sight": "none",
@@ -367,7 +370,6 @@
                     "Nemesis Form": {
                         "Cooldown": "seconds",
                         "Extra armor": "none",
-                        "Pummel damage": "none",
                         "Increased movement speed": "percent"
                     },
                     "Void Barrier": {
@@ -423,7 +425,8 @@
                     "B.O.B": {
                         "Ultimate cost": "none",
                         "Weapon damage": "none",
-                        "has tank passive": "none"
+                        "has tank passive": "none",
+                        "Health": "none"
                     },
                     "The Viper": {
                         "Projectile size": "meters"
@@ -806,7 +809,8 @@
                     },
                     "SMART Excavator": {
                         "Maximum explosion damage": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Direct damage": "none"
                     },
                     "Drill Dash": {
                         "Cooldown start": "none",

@@ -45,7 +45,8 @@
                     },
                     "Micro Missiles": {
                         "Projectile size": 0.175,
-                        "Explosion damage": 4
+                        "Explosion damage": 4,
+                        "Impact damage": 3
                     }
                 }
             },
@@ -69,7 +70,8 @@
                     "Commanding Shout": {
                         "can be activated while using other abilities": true,
                         "Cooldown": 14,
-                        "Self overhalth": 100
+                        "Self overhalth": 100,
+                        "Ally Overhealth": 50
                     },
                     "Carnage": {
                         "Impact damage": 90,
@@ -169,7 +171,8 @@
                     "Accretion": {
                         "Direct damage": 50,
                         "Stun duration": 0.7,
-                        "Projectile size": 0.9
+                        "Projectile size": 0.9,
+                        "Splash damage": 40
                     },
                     "Gravitic Flux": {
                         "requires line-of-sight": true,
@@ -359,8 +362,7 @@
                 "abilities": {
                     "Nemesis Form": {
                         "Cooldown": 9,
-                        "Extra armor": 200,
-                        "Pummel damage": 70
+                        "Extra armor": 200
                     },
                     "Void Barrier": {
                         "Barrier health": 650
@@ -378,7 +380,7 @@
                     },
                     "Pummel": {
                         "Projectile size": 0.575,
-                        "Damage": 60
+                        "Damage": 70
                     }
                 }
             },
@@ -415,7 +417,8 @@
                     "B.O.B": {
                         "Ultimate cost": 2240,
                         "Weapon damage": 17,
-                        "has tank passive": false
+                        "has tank passive": false,
+                        "Health": 1000
                     },
                     "The Viper": {
                         "Projectile size": 0.08
@@ -424,7 +427,8 @@
             },
             "Bastion": {
                 "general": {
-                    "Base health": 200
+                    "Base health": 200,
+                    "Armor health": 100
                 },
                 "abilities": {
                     "A-36 Tactical Grenade": {
@@ -801,7 +805,8 @@
                     },
                     "SMART Excavator": {
                         "Maximum explosion damage": 40,
-                        "Projectile size": 0.35
+                        "Projectile size": 0.35,
+                        "Direct damage": 35
                     },
                     "Drill Dash": {
                         "Cooldown start": "ability use",
