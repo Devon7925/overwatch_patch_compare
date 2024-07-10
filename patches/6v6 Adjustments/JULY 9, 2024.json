@@ -235,14 +235,14 @@
                         "shares cooldown with Projected Barrier": false,
                         "Cooldown": 10,
                         "Health": 200,
-                        "Duration": 2
+                        "Duration": 2.5
                     },
                     "Projected Barrier": {
                         "Cooldown start": "ability use",
                         "shares cooldown with Particle Barrier": false,
                         "Cooldown": 8,
                         "Health": 200,
-                        "Duration": 2
+                        "Duration": 2.5
                     },
                     "Graviton Surge": {
                         "Ultimate cost": 2100,
@@ -259,7 +259,7 @@
                 "abilities": {
                     "The Best Defense": {
                         "Overhealth generation": 25,
-                        "Delay before Overhealth begins to drain": 1
+                        "Delay before Overhealth begins to drain": 3
                     },
                     "Hand Cannon": {
                         "Minimum Damage": 13.5,
@@ -417,7 +417,7 @@
                     "B.O.B": {
                         "Ultimate cost": 2240,
                         "Weapon damage": 17,
-                        "has tank passive": false,
+                        "has tank passive": true,
                         "Health": 900
                     },
                     "The Viper": {
@@ -462,8 +462,8 @@
                     "Peacekeeper": {
                         "Secondary fire \"Fan the Hammer\" damage": 45,
                         "Projectile size": 0.08,
-                        "Primary fire falloff range minimum": 25,
-                        "Primary fire falloff range maximum": 35
+                        "Primary fire falloff range minimum": 20,
+                        "Primary fire falloff range maximum": 30
                     },
                     "Combat Roll": {
                         "Damage reduction": 50
@@ -615,9 +615,9 @@
                     "Concussive Blast": {
                         "Projectile size": 0.225,
                         "Cooldown": 7,
-                        "Explosion damage": 30,
-                        "Explosion radius": 6,
-                        "Knockback": 18.7
+                        "Explosion damage": 0,
+                        "Explosion radius": 8,
+                        "Knockback": 20.8
                     },
                     "Jet Dash": {
                         "Cooldown": 8
