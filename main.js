@@ -8,6 +8,9 @@ let patch_selectors = document.getElementsByClassName("patch-selector");
 export let patches = {};
 const patchList = {
     "Overwatch 2": [
+        "NOV 16, 2023",
+        "DEC 5, 2023",
+        "DEC 12, 2023",
         "DEC 19, 2023",
         "JAN 9, 2024",
         "FEB 13, 2024",
@@ -257,6 +260,9 @@ const ability_images = {
     "Ironclad": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/c14b2c5652526a006233965b176fb2b5af9e7c5d44045fad3844267303f07091.png",
     "Berserker": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/f35a2296090039ae055f465e736370f031bdd348677b3c9657147c0b925267b1.png",
     "Stealth": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/270bcdf26d66cda1f488e9b3286c3cb467c6e622d729420406ce69218380ae1a.png",
+    "Overload": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/b59687c0dd86bbc41b754388e7b21deba5397c61808c0d9b375c062c9eaf85ac.png",
+    "Whipshot": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/50af1a0bc61a1f022fe2ee69aa460f151aba3c0ccde41377bfb0d5c45b2c55a3.png",
+    "Healing Ofuda": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/6b8830bd7173de38016ef129e117ac6f418026a6ec4501ab5cb7cdd99bd6f5b8.png"
 };
 
 const queryString = window.location.search;

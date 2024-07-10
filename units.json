@@ -59,7 +59,8 @@
                     },
                     "Scattergun": {
                         "Total damage": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Spread": "relative percent"
                     },
                     "Jagged Blade": {
                         "Increased knockback on tanks": "percent",
@@ -195,7 +196,7 @@
                         "can be retracted": "none",
                         "Cooldown if fireball speed is not achieved": "seconds",
                         "requires fireball speed for max duration to begin": "none",
-                        "Knockback": "none"
+                        "Knockback": "relative percent"
                     },
                     "Piledriver": {
                         "Movement lockout duration for enemies": "seconds",
@@ -327,19 +328,26 @@
                 "general": {
                     "Base health": "none",
                     "Armor health": "none",
-                    "Model Size": "relative percent"
+                    "Model Size": "relative percent",
+                    "Head hit volume": "relative percent"
                 },
                 "abilities": {
                     "Incendiary and Volatile Changuns": {
                         "Damage per bullet": "none",
                         "Number of shots required to ignite enemies with Incendiary Chaingun": "none",
                         "Projectile size": "meters",
-                        "Ammo": "none"
+                        "Ammo": "none",
+                        "Movement speed penalty per gun": "percent",
+                        "Minimum damage falloff range": "meters",
+                        "Fire rate multiplier for firing both guns": "percent",
+                        "Spread for firing both guns": "relative percent"
                     },
                     "Overrun": {
                         "Cooldown": "seconds",
                         "Stomp Damage": "none",
-                        "Knockback damage": "none"
+                        "Knockback damage": "none",
+                        "Damage reduction": "percent",
+                        "can be interrupted by Hack": "none"
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": "seconds",
@@ -384,7 +392,8 @@
                         "Increased movement speed": "percent"
                     },
                     "Void Accelerator": {
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Damage": "none"
                     },
                     "Pummel": {
                         "Projectile size": "meters",
@@ -400,7 +409,8 @@
                 "abilities": {
                     "Tesla Cannon": {
                         "Damage per second": "none",
-                        "Secondary fire charge time": "seconds"
+                        "Secondary fire charge time": "seconds",
+                        "ignores armor damage reduction": "none"
                     },
                     "Jump Pack": {
                         "Cooldown": "seconds"
@@ -714,7 +724,9 @@
                         "Impact damage": "none"
                     },
                     "EMP": {
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "Ability lockout duration": "seconds",
+                        "Damage of current health": "percent"
                     },
                     "Translocator": {
                         "destroys breakables while in flight": true
@@ -774,6 +786,9 @@
                     },
                     "Deploy Turret": {
                         "Turret damage": 13
+                    },
+                    "Overload": {
+                        "Overhealth": "none"
                     }
                 }
             },
@@ -895,7 +910,8 @@
                         "Damage per bullet": "none",
                         "Explosion healing": "none",
                         "Direct healing": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Primary fire ammo": "none"
                     },
                     "Regenerative Burst": {
                         "Cooldown": "seconds",
@@ -931,6 +947,9 @@
                     "Rally": {
                         "Ultimate cost": "none",
                         "resets Shield Bash cooldown upon activation": "none"
+                    },
+                    "Whipshot": {
+                        "Damage": 70
                     }
                 }
             },
@@ -984,10 +1003,15 @@
                     },
                     "Protection Suzu": {
                         "cleanses hard knockdown stuns": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Invulnerability duration": "seconds",
+                        "Healing explosion": "none"
                     },
                     "Kitsune Rush": {
                         "Ultimate cost": "none"
+                    },
+                    "Healing Ofuda": {
+                        "Projectile speed": "meters per second"
                     }
                 }
             },

@@ -61,7 +61,8 @@
                     },
                     "Scattergun": {
                         "Total damage": 80,
-                        "Projectile size": 0.05
+                        "Projectile size": 0.05,
+                        "Spread": 1.8
                     },
                     "Jagged Blade": {
                         "Pull distance": 20.74,
@@ -164,7 +165,7 @@
                 "abilities": {
                     "Experimental Barrier": {
                         "Movement speed": 20,
-                        "Regeneration rate": 100
+                        "Regeneration rate": 85
                     },
                     "Kinetic Grasp": {
                         "Cooldown": 12,
@@ -207,8 +208,7 @@
                     "Adaptive Shield": {
                         "Ally overhealth cap": 75,
                         "Overhealth generation per enemy": 100,
-                        "Detection radius": 13,
-                        "Allied Overhealth transfer ratio": 1
+                        "Detection radius": 13
                     },
                     "Minefield": {
                         "Health": 60,
@@ -329,19 +329,27 @@
                 "general": {
                     "Base health": 525,
                     "Armor health": 200,
-                    "Model Size": 1
+                    "Model Size": 1,
+                    "Head hit volume": 0.85
                 },
                 "abilities": {
                     "Incendiary and Volatile Changuns": {
                         "Damage per bullet": 4,
                         "Number of shots required to ignite enemies with Incendiary Chaingun": 10,
                         "Projectile size": 0.05,
-                        "Ammo": 300
+                        "Ammo": 300,
+                        "Spread when only one Chaingun is active": 1,
+                        "Movement speed penalty per gun": 15,
+                        "Minimum damage falloff range": 30,
+                        "Fire rate multiplier for firing both guns": 0,
+                        "Spread for firing both guns": 0.85
                     },
                     "Overrun": {
                         "Cooldown": 6,
                         "Stomp Damage": 60,
-                        "Knockback damage": 25
+                        "Knockback damage": 25,
+                        "Damage reduction": 50,
+                        "can be interrupted by Hack": false
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": 12,
@@ -349,7 +357,7 @@
                         "Lifesteal multiplier": 60,
                         "Duration": 5,
                         "Damage reduction": 30,
-                        "Allied lifesteal": 30
+                        "Allied lifesteal": 60
                     },
                     "Cage Fight": {
                         "Ultimate cost": 2650,
@@ -357,7 +365,7 @@
                         "grants infinite ammo": false
                     },
                     "Berserker": {
-                        "Overhealth conversion rate": 50
+                        "Overhealth conversion rate": 40
                     }
                 }
             },
@@ -385,7 +393,8 @@
                         "Increased movement speed": 20
                     },
                     "Void Accelerator": {
-                        "Projectile size": 0.15
+                        "Projectile size": 0.15,
+                        "Damage": 5
                     },
                     "Pummel": {
                         "Projectile size": 0.575,
@@ -401,7 +410,8 @@
                 "abilities": {
                     "Tesla Cannon": {
                         "Damage per second": 75,
-                        "Secondary fire charge time": 1
+                        "Secondary fire charge time": 1,
+                        "ignores armor damage reduction": true
                     },
                     "Jump Pack": {
                         "Cooldown": 5
@@ -720,7 +730,9 @@
                         "Impact damage": 25
                     },
                     "EMP": {
-                        "Ultimate cost": 1825
+                        "Ultimate cost": 1825,
+                        "Ability lockout duration": 3,
+                        "Damage of current health": 25
                     },
                     "Translocator": {
                         "destroys breakables while in flight": true
@@ -780,6 +792,9 @@
                     },
                     "Deploy Turret": {
                         "Turret damage": 13
+                    },
+                    "Overload": {
+                        "Overhealth": 100
                     }
                 }
             },
@@ -899,7 +914,8 @@
                         "Damage per bullet": 25,
                         "Explosion healing": 50,
                         "Direct healing": 20,
-                        "Projectile size": 0.08
+                        "Projectile size": 0.08,
+                        "Primary fire ammo": 36
                     },
                     "Regenerative Burst": {
                         "Cooldown": 15,
@@ -934,6 +950,9 @@
                     "Rally": {
                         "Ultimate cost": 2700,
                         "resets Shield Bash cooldown upon activation": true
+                    },
+                    "Whipshot": {
+                        "Damage": 70
                     }
                 }
             },
@@ -985,10 +1004,15 @@
                     },
                     "Protection Suzu": {
                         "cleanses hard knockdown stuns": false,
-                        "Projectile size": 0.2
+                        "Projectile size": 0.2,
+                        "Invulnerability duration": 0.65,
+                        "Healing explosion": 80
                     },
                     "Kitsune Rush": {
                         "Ultimate cost": 2525
+                    },
+                    "Healing Ofuda": {
+                        "Projectile speed": 18
                     }
                 }
             },
@@ -1066,7 +1090,8 @@
                     },
                     "Valkyrie": {
                         "Healing": 60,
-                        "Ultimate cost": 2000
+                        "Ultimate cost": 2000,
+                        "disconnects Caduceus Staff from its target on activation": false
                     },
                     "Guardian Angel": {
                         "Active duration on jump/crouch cancel": 1
