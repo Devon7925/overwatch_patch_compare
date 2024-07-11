@@ -340,7 +340,8 @@
                         "Movement speed penalty per gun": "percent",
                         "Minimum damage falloff range": "meters",
                         "Fire rate multiplier for firing both guns": "percent",
-                        "Spread for firing both guns": "relative percent"
+                        "Spread for firing both guns": "relative percent",
+                        "Spread when only one Chaingun is active": "none"
                     },
                     "Overrun": {
                         "Cooldown": "seconds",
@@ -1092,7 +1093,8 @@
                     },
                     "Valkyrie": {
                         "Healing": "none",
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "disconnects Caduceus Staff from its target on activation": "none"
                     },
                     "Guardian Angel": {
                         "Active duration on jump/crouch cancel": "seconds"
