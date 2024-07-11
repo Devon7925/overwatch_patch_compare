@@ -32,6 +32,7 @@ const patchList = {
         "JULY 6, 2024",
         "JULY 7, 2024",
         "JULY 9, 2024",
+        "JULY 10, 2024",
     ]
 };
 let promises = [];
