@@ -45,6 +45,6 @@ def process_json_files(folder_path, path, new_key, new_value=None, rename=False)
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "disconnects Caduceus Staff from its target on activation"
-new_value = False
-process_json_files(folder_path, 'heroes/support/Mercy/abilities/Valkyrie', new_property_name, new_value, rename=False)
+new_property_name = "Armor health"
+new_value = 50
+process_json_files(folder_path, 'heroes/support/Brigitte/general', new_property_name, new_value, rename=False)

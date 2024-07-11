@@ -447,7 +447,8 @@
             "Bastion": {
                 "general": {
                     "Base health": 200,
-                    "Armor health": 100
+                    "Armor health": 100,
+                    "Model size": 1
                 },
                 "abilities": {
                     "A-36 Tactical Grenade": {
@@ -772,7 +773,8 @@
             },
             "Torbjörn": {
                 "general": {
-                    "Base health": 200
+                    "Base health": 200,
+                    "Armor health": 50
                 },
                 "abilities": {
                     "Rivet Gun": {
@@ -889,7 +891,8 @@
             },
             "Brigitte": {
                 "general": {
-                    "Base health": 150
+                    "Base health": 150,
+                    "Armor health": 50
                 },
                 "abilities": {
                     "Inspire": {

@@ -445,7 +445,9 @@
             },
             "Bastion": {
                 "general": {
-                    "Base health": "none"
+                    "Base health": "none",
+                    "Base armor": "none",
+                    "Model size": "relative percent"
                 },
                 "abilities": {
                     "A-36 Tactical Grenade": {
