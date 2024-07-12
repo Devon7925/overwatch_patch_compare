@@ -359,7 +359,7 @@
                         "Cooldown": 12,
                         "Lifesteal multiplier": 50,
                         "Duration": 5,
-                        "Damage reduction": 30,
+                        "Damage reduction": 40,
                         "Allied lifesteal": 25
                     },
                     "Cage Fight": {

@@ -52,7 +52,7 @@
             },
             "Junker Queen": {
                 "general": {
-                    "Base health": 425,
+                    "Base health": 400,
                     "Model size": 0.96
                 },
                 "abilities": {
@@ -79,7 +79,7 @@
                         "Immediate healing per target hit": 25
                     },
                     "Rampage": {
-                        "Ultimate Cost": 2450,
+                        "Ultimate Cost": 2303,
                         "Wound total damage": 60,
                         "Startup time": 0.5
                     }
