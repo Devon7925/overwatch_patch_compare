@@ -1,30 +1,14 @@
 // import units from "./units.json" with { type: "json" };
 // cant use because firefox dumb https://bugzilla.mozilla.org/show_bug.cgi?id=1736059
+
 const patchList = await fetch("./patch_list.json")
     .then((res) => res.text())
     .then((text) => JSON.parse(text, (key, value) => {
-        if(typeof value != "string") {
+        if (typeof value != "string") {
             return value;
         }
-        return value.replace(/(\.\w+)+$/,"")
+        return value.replace(/(\.\w+)+$/, "")
     }));
-
-let units = {};
-let hero_images = {};
-let ability_images = {};
-export let patches = {};
-
-let promises = [];
-promises.push(fetch("./units.json")
-    .then((res) => res.text())
-    .then((text) => units = JSON.parse(text)))
-promises.push(fetch("./hero_images.json")
-    .then((res) => res.text())
-    .then((text) => hero_images = JSON.parse(text)))
-promises.push(fetch("./ability_images.json")
-    .then((res) => res.text())
-    .then((text) => ability_images = JSON.parse(text)))
-await Promise.all(promises);
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -51,11 +35,38 @@ function patch_from_path(joined_path) {
     } else {
         version = path[1];
     }
-    return `${versionType} - ${version}`
+    return `${versionType}:${version}`
 }
 
-export let before_patch = patch_from_path(before_patch_path);
-export let after_patch = patch_from_path(after_patch_path);
+let siteState = {
+    before_patch: patch_from_path(before_patch_path),
+    after_patch: patch_from_path(after_patch_path),
+}
+
+{
+    let newUrlParams = new URLSearchParams();
+    for (let key in siteState) {
+        newUrlParams.append(key, siteState[key])
+    }
+    window.history.replaceState(siteState, "", "index.html?" + newUrlParams)
+}
+
+let units = {};
+let hero_images = {};
+let ability_images = {};
+export let patches = {};
+
+let promises = [];
+promises.push(fetch("./units.json")
+    .then((res) => res.text())
+    .then((text) => units = JSON.parse(text)))
+promises.push(fetch("./hero_images.json")
+    .then((res) => res.text())
+    .then((text) => hero_images = JSON.parse(text)))
+promises.push(fetch("./ability_images.json")
+    .then((res) => res.text())
+    .then((text) => ability_images = JSON.parse(text)))
+await Promise.all(promises);
 
 function isEmpty(obj) {
     for (var i in obj) { return false; }
@@ -159,17 +170,24 @@ export function getChangeText(name, change, units) {
 }
 
 async function updatePatchNotes() {
-    await Promise.all([before_patch, after_patch]
+    let urlParams = new URLSearchParams();
+    for (let key in siteState) {
+        urlParams.append(key, siteState[key])
+    }
+    window.history.pushState(siteState, "", "index.html?" + urlParams)
+    document.getElementById("patch_before").value = siteState.before_patch;
+    document.getElementById("patch_after").value = siteState.after_patch;
+    await Promise.all([siteState.before_patch, siteState.after_patch]
         .filter((patch) => !(patch in patchList))
         .map(async (patch) => {
-            let [versionType, version] = patch.split(" - ")
+            let [versionType, version] = patch.split(":")
             return fetch(`./patches/${versionType}/${version}.json`)
                 .then((res) => res.text())
                 .then((text) => {
-                    patches[`${versionType} - ${version}`] = JSON.parse(text);
+                    patches[`${versionType}:${version}`] = JSON.parse(text);
                 })
         }))
-    let changes = convert_to_changes(patches[before_patch], patches[after_patch]);
+    let changes = convert_to_changes(patches[siteState.before_patch], patches[siteState.after_patch]);
     let hero_section = document.getElementsByClassName("PatchNotes-section-hero_update")[0];
     hero_section.innerHTML = "";
     if (changes.general) {
@@ -225,14 +243,14 @@ async function updatePatchNotes() {
             for (let ability in heroData.abilities) {
                 let ability_changes = "";
                 let abilityData = heroData.abilities[ability];
-                if(Array.isArray(abilityData)) {
+                if (Array.isArray(abilityData)) {
                     abilityData = abilityData[1];
                 }
                 for (let stat in abilityData) {
-                    if(!units.heroes[role][hero].abilities[ability]) {
+                    if (!units.heroes[role][hero].abilities[ability]) {
                         console.error(`Missing ability for ${hero} - ${ability}`)
                     }
-                    if(!units.heroes[role][hero].abilities[ability][stat]) {
+                    if (!units.heroes[role][hero].abilities[ability][stat]) {
                         console.error(`Missing units for ${hero} - ${ability} - ${stat}`)
                     }
                     ability_changes += `<li>${getChangeText(stat, abilityData[stat], units.heroes[role][hero].abilities[ability][stat])}</li>`;
@@ -278,7 +296,7 @@ async function updatePatchNotes() {
     }
     if (changes["Map list"]) {
         let change_render = "";
-        for (let map in changes["Map list"]){
+        for (let map in changes["Map list"]) {
             let map_change = changes["Map list"][map];
             if (map_change[0] === undefined) {
                 change_render += `<li>New map ${map}.</li>`;
@@ -330,8 +348,8 @@ let patch_options = Object.entries(patchList)
     .flatMap(([k, v]) => v
         .map((p) => {
             let split_date = p.split("-").map((s) => parseInt(s))
-            let pretty_date = new Date(split_date[0], split_date[1]-1, split_date[2])
-            return `<option value=\"${k} - ${p}\">${k} - ${pretty_date.toLocaleDateString()}</option>`
+            let pretty_date = new Date(split_date[0], split_date[1] - 1, split_date[2])
+            return `<option value=\"${k}:${p}\">${k} - ${pretty_date.toLocaleDateString()}</option>`
         })
     ).join();
 
@@ -341,14 +359,20 @@ for (let i = 0; i < patch_selectors.length; i++) {
 }
 
 document.getElementById("patch_before").onchange = async function () {
-    before_patch = this.value;
+    siteState.before_patch = this.value;
     await updatePatchNotes()
 };
-document.getElementById("patch_before").value = before_patch;
 
 document.getElementById("patch_after").onchange = async function () {
-    after_patch = this.value;
+    siteState.after_patch = this.value;
     await updatePatchNotes()
 };
-document.getElementById("patch_after").value = after_patch;
+
+window.addEventListener("popstate", async (event) => {
+    if (event.state) {
+        siteState = event.state;
+        await updatePatchNotes()
+    }
+});
+
 await updatePatchNotes();
