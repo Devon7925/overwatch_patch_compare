@@ -125,23 +125,24 @@
                 "abilities": {
                     "Scrap Gun": {
                         "Ammo": 6,
-                        "Total damage": 160,
+                        "Total damage": 150,
                         "Pellet projectile size": 0.0,
                         "Shrapnel projectile size": 0.075,
-                        "Pellet count": 16,
-                        "Shrapnel count": 4,
-                        "Shrapnel damage": 15,
-                        "Critical damage multiplier": 1.5,
-                        "Pellet damage": 6.25
+                        "Pellet count": 25,
+                        "Critical damage multiplier": 2,
+                        "Secondary fire pre-detonation damage": 50,
+                        "Secondary fire max range": 8,
+                        "has secondary fire": true,
+                        "Pellet damage": 6
                     },
                     "Take a Breather": {
-                        "Damage reduction": 30,
-                        "Cooldown": 1,
-                        "Maximum healing": 450,
-                        "Maximum Time": 3,
-                        "Resource regeneration per second": 8.33,
-                        "Recovery": 0.54,
-                        "Cast time": 0.208
+                        "Damage reduction": 50,
+                        "Cooldown": 8,
+                        "Maximum healing": 350,
+                        "Maximum Time": 1,
+                        "Aplified healing duration": 2.5,
+                        "Recovery": 0.5,
+                        "Cast time": 0.5
                     },
                     "Chain Hook": {
                         "Cooldown": 6,
@@ -154,16 +155,6 @@
                         "Ultimate cost": 2772,
                         "disables other abilities and automatically fires": false,
                         "Projectile size": 0.0
-                    },
-                    "Pig Pen": {
-                        "Vertical Knockback": 5.5,
-                        "Initial damage": 60,
-                        "Damage over time": 30,
-                        "Recovery time": 0.55,
-                        "Cooldown start": "after a short delay",
-                        "Duration": 3,
-                        "Movement speed reduction": 40,
-                        "Cooldown": 12
                     }
                 }
             },

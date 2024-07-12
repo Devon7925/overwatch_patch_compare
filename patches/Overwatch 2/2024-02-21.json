@@ -127,14 +127,21 @@
                         "Ammo": 6,
                         "Total damage": 160,
                         "Pellet projectile size": 0.05,
-                        "Shrapnel projectile size": 0.175
+                        "Shrapnel projectile size": 0.175,
+                        "Pellet count": 16,
+                        "Shrapnel count": 4,
+                        "Shrapnel damage": 15,
+                        "Critical damage multiplier": 1.5,
+                        "Pellet damage": 6.25
                     },
                     "Take a Breather": {
                         "Damage reduction": 50,
                         "Cooldown": 1.5,
                         "Maximum healing": 450,
                         "Maximum Time": 2.5,
-                        "Resource regeneration per second": 10
+                        "Resource regeneration per second": 10,
+                        "Recovery": 0.54,
+                        "Cast time": 0.208
                     },
                     "Chain Hook": {
                         "Cooldown": 6,
@@ -153,7 +160,10 @@
                         "Initial damage": 60,
                         "Damage over time": 30,
                         "Recovery time": 0.55,
-                        "Cooldown start": "after a short delay"
+                        "Cooldown start": "after a short delay",
+                        "Duration": 3,
+                        "Movement speed reduction": 40,
+                        "Cooldown": 12
                     }
                 }
             },

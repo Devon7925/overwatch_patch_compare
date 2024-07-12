@@ -126,14 +126,25 @@
                         "Ammo": "none",
                         "Total damage": "none",
                         "Pellet projectile size": "none",
-                        "Shrapnel projectile size": "none"
+                        "Shrapnel projectile size": "none",
+                        "Secondary fire pre-detonation damage": "none",
+                        "Secondary fire max range": "meters",
+                        "has secondary fire": "none",
+                        "Pellet damage": "none",
+                        "Shrapnel damage": "none",
+                        "Pellet count": "none",
+                        "Shrapnel count": "none",
+                        "Critical damage multiplier": "none"
                     },
                     "Take a Breather": {
                         "Damage reduction": "percent",
                         "Cooldown": "seconds",
                         "Maximum healing": "none",
                         "Maximum Time": "none",
-                        "Resource regeneration per second": "percent"
+                        "Resource regeneration per second": "percent",
+                        "Aplified healing duration": "seconds",
+                        "Recovery": "seconds",
+                        "Cast time": "seconds"
                     },
                     "Chain Hook": {
                         "Cooldown": "seconds",
@@ -152,7 +163,10 @@
                         "Initial damage": "none",
                         "Damage over time": "none",
                         "Recovery time": "seconds",
-                        "Cooldown start": "none"
+                        "Cooldown start": "none",
+                        "Duration": "seconds",
+                        "Movement speed reduction": "percent",
+                        "Cooldown": "seconds"
                     }
                 }
             },
