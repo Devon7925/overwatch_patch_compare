@@ -390,7 +390,7 @@
                 "abilities": {
                     "Nemesis Form": {
                         "Cooldown": 8,
-                        "Extra armor": 250,
+                        "Extra armor": 300,
                         "Increased movement speed": 20
                     },
                     "Void Barrier": {
