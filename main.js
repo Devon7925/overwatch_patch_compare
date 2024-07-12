@@ -15,11 +15,11 @@ const urlParams = new URLSearchParams(queryString);
 
 let before_patch_path = "Overwatch 2:recent"
 let after_patch_path = "Overwatch 2:latest"
-if (urlParams.get("before")) {
-    before_patch_path = urlParams.get("before")
+if (urlParams.get("before_patch")) {
+    before_patch_path = urlParams.get("before_patch")
 }
-if (urlParams.get("after")) {
-    after_patch_path = urlParams.get("after")
+if (urlParams.get("after_patch")) {
+    after_patch_path = urlParams.get("after_patch")
 }
 
 function patch_from_path(joined_path) {
