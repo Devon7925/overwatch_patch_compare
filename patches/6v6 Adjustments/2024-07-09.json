@@ -525,7 +525,26 @@
                         "Ultimate gain multiplier": 5,
                         "Ultimate Cost": 2028,
                         "has predetermined tank health pools": true,
-                        "Maximum combined health": 350
+                        "D.va copy health": 250,
+                        "D.va copy armor": 200,
+                        "Doomfist copy health": 325,
+                        "Junker Queen copy health": 325,
+                        "Mauga copy health": 300,
+                        "Mauga copy armor": 100,
+                        "Orisa copy health": 250,
+                        "Orisa copy armor": 125,
+                        "Ramattra copy health": 325,
+                        "Reinhardt copy health": 300,
+                        "Reinhardt copy armor": 100,
+                        "Roadhog copy health": 500,
+                        "Sigma copy health": 150,
+                        "Sigma copy shield health": 150,
+                        "Winston copy health": 300,
+                        "Winston copy armor": 125,
+                        "Wrecking Ball copy health": 400,
+                        "Wrecking Ball copy armor": 50,
+                        "Zarya copy health": 175,
+                        "Zarya copy shield health": 150
                     },
                     "Tri-shot": {
                         "Projectile size": 0.175
