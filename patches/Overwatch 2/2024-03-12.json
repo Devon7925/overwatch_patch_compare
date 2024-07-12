@@ -79,7 +79,7 @@
                         "Immediate healing per target hit": 0
                     },
                     "Rampage": {
-                        "Ultimate Cost": 2700,
+                        "Ultimate cost": 2700,
                         "Wound total damage": 90,
                         "Startup time": 0.75
                     }
@@ -107,7 +107,7 @@
                         "Cooldown": 7
                     },
                     "Terra Surge": {
-                        "Ultimate Cost": 2150,
+                        "Ultimate cost": 2150,
                         "Minimum damage": 72,
                         "Maximum damage": 500,
                         "Early charge rate": 62.5
@@ -189,7 +189,7 @@
                     },
                     "Gravitic Flux": {
                         "requires line-of-sight": true,
-                        "Ultimate Cost": 2300
+                        "Ultimate cost": 2300
                     },
                     "Hyperspheres": {
                         "Projectile size": 0.35
@@ -428,7 +428,7 @@
                         "Cooldown": 5
                     },
                     "Primal Rage": {
-                        "Ultimate Cost": 2050,
+                        "Ultimate cost": 2050,
                         "Punch damage": 50,
                         "Maximum health gained": 500
                     }
@@ -534,7 +534,7 @@
                     },
                     "Duplicate": {
                         "Ultimate gain multiplier": 4,
-                        "Ultimate Cost": 1850,
+                        "Ultimate cost": 1850,
                         "has predetermined tank health pools": false,
                         "Maximum combined health": 350
                     },
@@ -800,7 +800,7 @@
                         "Alt fire projectile size": 0.05
                     },
                     "Molten Core": {
-                        "Ultimate Cost": 2350,
+                        "Ultimate cost": 2350,
                         "Projectile size": 0.205
                     },
                     "Deploy Turret": {

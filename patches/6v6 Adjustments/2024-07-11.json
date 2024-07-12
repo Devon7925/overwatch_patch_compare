@@ -79,7 +79,7 @@
                         "Immediate healing per target hit": 25
                     },
                     "Rampage": {
-                        "Ultimate Cost": 2450,
+                        "Ultimate cost": 2450,
                         "Wound total damage": 60,
                         "Startup time": 0.5
                     }
@@ -105,7 +105,7 @@
                         "Cooldown": 7
                     },
                     "Terra Surge": {
-                        "Ultimate Cost": 1814,
+                        "Ultimate cost": 1814,
                         "Minimum damage": 58,
                         "Maximum damage": 400,
                         "Early charge rate": 62.5
@@ -187,7 +187,7 @@
                     },
                     "Gravitic Flux": {
                         "requires line-of-sight": true,
-                        "Ultimate Cost": 1960
+                        "Ultimate cost": 1960
                     },
                     "Hyperspheres": {
                         "Projectile size": 0.35
@@ -418,7 +418,7 @@
                         "Cooldown": 6
                     },
                     "Primal Rage": {
-                        "Ultimate Cost": 1540,
+                        "Ultimate cost": 1540,
                         "Punch damage": 40,
                         "Maximum health gained": 500
                     }
@@ -523,27 +523,27 @@
                     },
                     "Duplicate": {
                         "Ultimate gain multiplier": 5,
-                        "Ultimate Cost": 2028,
+                        "Ultimate cost": 2028,
                         "has predetermined tank health pools": true,
-                        "D.va copy health": 250,
-                        "D.va copy armor": 200,
-                        "Doomfist copy health": 325,
-                        "Junker Queen copy health": 325,
-                        "Mauga copy health": 300,
-                        "Mauga copy armor": 100,
-                        "Orisa copy health": 250,
-                        "Orisa copy armor": 125,
-                        "Ramattra copy health": 325,
-                        "Reinhardt copy health": 300,
-                        "Reinhardt copy armor": 100,
+                        "D.va copy health": 350,
+                        "D.va copy armor": 100,
+                        "Doomfist copy health": 350,
+                        "Junker Queen copy health": 350,
+                        "Mauga copy health": 250,
+                        "Mauga copy armor": 125,
+                        "Orisa copy health": 200,
+                        "Orisa copy armor": 150,
+                        "Ramattra copy health": 350,
+                        "Reinhardt copy health": 500,
+                        "Reinhardt copy armor": 50,
                         "Roadhog copy health": 500,
                         "Sigma copy health": 150,
                         "Sigma copy shield health": 150,
-                        "Winston copy health": 300,
-                        "Winston copy armor": 125,
+                        "Winston copy health": 325,
+                        "Winston copy armor": 50,
                         "Wrecking Ball copy health": 400,
                         "Wrecking Ball copy armor": 50,
-                        "Zarya copy health": 175,
+                        "Zarya copy health": 200,
                         "Zarya copy shield health": 150
                     },
                     "Tri-shot": {
@@ -808,7 +808,7 @@
                         "Alt fire projectile size": 0.05
                     },
                     "Molten Core": {
-                        "Ultimate Cost": 2142,
+                        "Ultimate cost": 2142,
                         "Projectile size": 0.205
                     },
                     "Deploy Turret": {
@@ -868,7 +868,7 @@
                         "Maximum damage": 80
                     },
                     "Tectonic Shock": {
-                        "Ultimate Cost": 1925,
+                        "Ultimate cost": 1925,
                         "Vertical knockback": 5,
                         "Extra damage range": 2.5,
                         "Extra damage multiplier": 1.5,

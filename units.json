@@ -78,7 +78,7 @@
                         "Immediate healing per target hit": "none"
                     },
                     "Rampage": {
-                        "Ultimate Cost": "none",
+                        "Ultimate cost": "none",
                         "Wound total damage": "none",
                         "Startup time": "seconds"
                     }
@@ -106,7 +106,7 @@
                         "Cooldown": "seconds"
                     },
                     "Terra Surge": {
-                        "Ultimate Cost": "none",
+                        "Ultimate cost": "none",
                         "Minimum damage": "none",
                         "Maximum damage": "none",
                         "Early charge rate": "none"
@@ -191,7 +191,7 @@
                     },
                     "Gravitic Flux": {
                         "requires line-of-sight": "none",
-                        "Ultimate Cost": "none"
+                        "Ultimate cost": "none"
                     },
                     "Hyperspheres": {
                         "Projectile size": "meters"
@@ -251,14 +251,14 @@
                         "shares cooldown with Projected Barrier": "none",
                         "Cooldown": "seconds",
                         "Health": "none",
-                        "Duration":"seconds"
+                        "Duration": "seconds"
                     },
                     "Projected Barrier": {
                         "Cooldown start": "none",
                         "shares cooldown with Particle Barrier": "none",
                         "Cooldown": "seconds",
                         "Health": "none",
-                        "Duration":"seconds"
+                        "Duration": "seconds"
                     },
                     "Graviton Surge": {
                         "Ultimate cost": "none",
@@ -431,7 +431,7 @@
                         "Cooldown": "seconds"
                     },
                     "Primal Rage": {
-                        "Ultimate Cost": "none",
+                        "Ultimate cost": "none",
                         "Punch damage": "none",
                         "Maximum health gained": "none"
                     }
@@ -533,7 +533,7 @@
                     },
                     "Duplicate": {
                         "Ultimate gain multiplier": "none",
-                        "Ultimate Cost": "none",
+                        "Ultimate cost": "none",
                         "has predetermined tank health pools": "none",
                         "Maximum combined health": "none",
                         "D.va copy health": "none",
@@ -818,7 +818,7 @@
                         "Alt fire projectile size": "meters"
                     },
                     "Molten Core": {
-                        "Ultimate Cost": "none",
+                        "Ultimate cost": "none",
                         "Projectile size": "meters"
                     },
                     "Deploy Turret": {
@@ -879,7 +879,7 @@
                         "Maximum damage": "none"
                     },
                     "Tectonic Shock": {
-                        "Ultimate Cost": "none",
+                        "Ultimate cost": "none",
                         "Vertical knockback": "relative percent",
                         "Extra damage range": "meters",
                         "Extra damage multiplier": "none",
