@@ -1131,7 +1131,8 @@
                         "disconnects Caduceus Staff from its target on activation": "none"
                     },
                     "Guardian Angel": {
-                        "Active duration on jump/crouch cancel": "seconds"
+                        "Active duration on jump/crouch cancel": "seconds",
+                        "Cooldown": "seconds"
                     }
                 }
             },
