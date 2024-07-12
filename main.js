@@ -174,7 +174,7 @@ async function updatePatchNotes() {
     for (let key in siteState) {
         urlParams.append(key, siteState[key])
     }
-    window.history.pushState(siteState, "", "index.html?" + urlParams)
+    window.history.replaceState(siteState, "", "index.html?" + urlParams)
     document.getElementById("patch_before").value = siteState.before_patch;
     document.getElementById("patch_after").value = siteState.after_patch;
     await Promise.all([siteState.before_patch, siteState.after_patch]
