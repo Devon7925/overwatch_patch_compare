@@ -70,7 +70,6 @@
     "Barrier Field": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/121f13903665417446ee4673d9740080a3bc117e285cf3dcf6547861a0bc7d43.png",
     "Firestrike": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/568a5f49875557f735af36dce68474a923f7e8582a7be20fb68b6ee66ac077e6.png",
     "Charge": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/40c9f1c060033e58120c9ec174008b8f5d833412923f7f351a32e5df47fe8166.png",
-    "Earthshatter": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a63041a68d81c202a47a95035878edcfa75d5aa3f72414a7e84e1b1a68594bed.png",
     "Scrap Gun": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/50b6e388a6693ce31b5a1889e53037970a1b884b8265834f33dd6f7a3dedce44.png",
     "Chain Hook": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/139deabeb3d62c451b558367bf5e64641583355d99ed90fe42107a5716fdca3b.png",
     "Kinetic Grasp": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a7401d18a391bc0eafddd8fc47a31ccc7f277190ab61ed14ae98408f576d6a23.png",
@@ -80,7 +79,6 @@
     "Primal Rage": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/685608721cb914e0412a090eb1e89c0f5d10edfb3dbc34218ba3acd35611c990.png",
     "Particle Cannon": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/02aebadea29904eca48f514437522f9f3a52ea266e6c2b2688dad39641071bda.png",
     "Particle Barrier": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/2d462e28ae2fc60b3ef9c32702bbc88936885dd7d20746a31dd2e3c51c20f199.png",
-    "Projected Barrier": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/6e42984ee8329a50e9c2460ae2df7670d7be9846a093c336e4576d1eea1fb2f1.png",
     "The Best Defense": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/e60ad8d06a44f829f6110b528751d2e5a1840e0a72bed4a9c848970ba6ebae80.png",
     "Incendiary and Volatile Changuns": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/df6bae435e7e319b51fe4977e92971fcfbb9b30fab2f39d1e614660274fab226.png",
     "Nemesis Form": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/5a9818afe979474cd23a8a3863522be14ae549df841a6a7efc9ed5398f3d692f.png",
@@ -172,5 +170,8 @@
     "Overload": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/b59687c0dd86bbc41b754388e7b21deba5397c61808c0d9b375c062c9eaf85ac.png",
     "Whipshot": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/50af1a0bc61a1f022fe2ee69aa460f151aba3c0ccde41377bfb0d5c45b2c55a3.png",
     "Healing Ofuda": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/6b8830bd7173de38016ef129e117ac6f418026a6ec4501ab5cb7cdd99bd6f5b8.png",
-    "The Reaping": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/21fb34e5a009987c73f686336cd61d4e4b771a8a2d9b6753e62f65b41e6b6c51.png"
+    "The Reaping": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/21fb34e5a009987c73f686336cd61d4e4b771a8a2d9b6753e62f65b41e6b6c51.png",
+    "Life Grip": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/36969bea55419b7ff963f2fb0ff7f80e37ecbe810bcd7dae0c7c835270c938a8.png",
+    "Harmony Orb": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/999f5d34dd3c8dfb045bc69129d1b6aac547b98e252b68f2599b878d15d841cb.png",
+    "Orb of Discord": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/f416ae3c602c4f920551057176a3618441f943a0faea5e3cf77dc5db0e5128a5.png"
 }

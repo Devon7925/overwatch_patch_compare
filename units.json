@@ -24,7 +24,8 @@
                     "Fusion Cannons": {
                         "Spread": "none",
                         "Total damage per shot": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Movement speed penalty": "percent"
                     },
                     "Boosters": {
                         "Impact damage": "none"
@@ -44,7 +45,8 @@
                     "Micro Missiles": {
                         "Projectile size": "meters",
                         "Explosion damage": "none",
-                        "Impact damage": "none"
+                        "Impact damage": "none",
+                        "Projectile speed": "meters per second"
                     }
                 }
             },
@@ -427,7 +429,10 @@
                     "Tesla Cannon": {
                         "Damage per second": "none",
                         "Secondary fire charge time": "seconds",
-                        "ignores armor damage reduction": "none"
+                        "ignores armor damage reduction": "none",
+                        "Secondary fire range": "meters",
+                        "Cooldown": "seconds",
+                        "Spread": "relative percent"
                     },
                     "Jump Pack": {
                         "Cooldown": "seconds"
@@ -636,7 +641,8 @@
                         "Ammo": "none",
                         "Secondary fire damage": "none",
                         "Projectile size": "meters",
-                        "Alt fire projectile size": "meters"
+                        "Alt fire projectile size": "meters",
+                        "Slow effect": "percent"
                     },
                     "Cryofreeze": {
                         "Healing per second": "none"
@@ -907,7 +913,8 @@
                     "Widow's Kiss": {
                         "Projectile size": "meters",
                         "Scoped shot falloff minimum range": "none",
-                        "Scoped shot falloff maximum range": "none"
+                        "Scoped shot falloff maximum range": "none",
+                        "Unscoped shots to reach maximum spread": "none"
                     }
                 }
             }
@@ -936,7 +943,8 @@
                         "Healing": "none",
                         "Damage": "none",
                         "Projectile size": "meters",
-                        "Effect duration": "seconds"
+                        "Effect duration": "seconds",
+                        "Cooldown": "seconds"
                     },
                     "Nano Boost": {
                         "Ultimate cost": "none"
@@ -964,7 +972,8 @@
                     },
                     "Immortality Field": {
                         "Health": "none",
-                        "Minimum health threshhold": "percent"
+                        "Minimum health threshhold": "percent",
+                        "Cooldown": "seconds"
                     },
                     "Amplification Matrix": {
                         "Ultimate cost": "none"
@@ -1047,7 +1056,8 @@
                         "cleanses hard knockdown stuns": "none",
                         "Projectile size": "meters",
                         "Invulnerability duration": "seconds",
-                        "Healing explosion": "none"
+                        "Healing explosion": "none",
+                        "Cooldown": "seconds"
                     },
                     "Kitsune Rush": {
                         "Ultimate cost": "none"
@@ -1089,6 +1099,9 @@
                         "Health": "none",
                         "Duration": "seconds",
                         "Ultimate cost": "none"
+                    },
+                    "Life Grip": {
+                        "Cooldown": "seconds"
                     }
                 }
             },
@@ -1172,6 +1185,13 @@
                     },
                     "Transcendence": {
                         "Ultimate cost": "none"
+                    },
+                    "Harmony Orb": {
+                        "Time to wear off when not in line-of-sight": "seconds"
+                    },
+                    "Orb of Discord": {
+                        "Reapplication cooldown": "seconds",
+                        "Range": "meters"
                     }
                 }
             }

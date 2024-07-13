@@ -26,7 +26,8 @@
                     "Fusion Cannons": {
                         "Spread": 3.375,
                         "Total damage per shot": 20.5,
-                        "Projectile size": 0.05
+                        "Projectile size": 0.05,
+                        "Movement speed penalty": 30
                     },
                     "Boosters": {
                         "Impact damage": 10
@@ -46,7 +47,8 @@
                     "Micro Missiles": {
                         "Projectile size": 0.175,
                         "Explosion damage": 4.53,
-                        "Impact damage": 2.47
+                        "Impact damage": 2.47,
+                        "Projectile speed": 50
                     }
                 }
             },
@@ -414,7 +416,8 @@
                     "Tesla Cannon": {
                         "Damage per second": 60,
                         "Secondary fire charge time": 1,
-                        "ignores armor damage reduction": true
+                        "ignores armor damage reduction": true,
+                        "Secondary fire range": 40
                     },
                     "Jump Pack": {
                         "Cooldown": 6
@@ -460,7 +463,9 @@
                         "Projectile size": 0.4
                     },
                     "Configuration: Assault": {
-                        "Movement speed penalty": 45
+                        "Movement speed penalty": 45,
+                        "Cooldown": 12,
+                        "Spread": 2.2
                     },
                     "Configuration: Artillery": {
                         "Ultimate cost": 2310,
@@ -625,7 +630,8 @@
                         "Ammo": 120,
                         "Secondary fire damage": 75,
                         "Projectile size": 0.555,
-                        "Alt fire projectile size": 0.2
+                        "Alt fire projectile size": 0.2,
+                        "Slow effect": 30
                     },
                     "Cryofreeze": {
                         "Healing per second": 50
@@ -894,7 +900,8 @@
                     "Widow's Kiss": {
                         "Projectile size": 0.05,
                         "Scoped shot falloff minimum range": 50,
-                        "Scoped shot falloff maximum range": 70
+                        "Scoped shot falloff maximum range": 70,
+                        "Unscoped shots to reach maximum spread": 7
                     }
                 }
             }
@@ -923,7 +930,8 @@
                         "Healing": 100,
                         "Damage": 60,
                         "Projectile size": 0.275,
-                        "Effect duration": 3
+                        "Effect duration": 3,
+                        "Cooldown": 12
                     },
                     "Nano Boost": {
                         "Ultimate cost": 2100
@@ -949,7 +957,8 @@
                     },
                     "Immortality Field": {
                         "Health": 100,
-                        "Minimum health threshhold": 20
+                        "Minimum health threshhold": 20,
+                        "Cooldown": 25
                     },
                     "Amplification Matrix": {
                         "Ultimate cost": 2310
@@ -993,7 +1002,7 @@
                         "Primary fire recovery": 0.25,
                         "Secondary fire heal-per-second": 110,
                         "Maximum charge time": 0.65,
-                        "Projectile size": 0.25,
+                        "Projectile size": 0.13,
                         "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": false
                     },
                     "Outburst": {
@@ -1033,7 +1042,8 @@
                         "cleanses hard knockdown stuns": true,
                         "Projectile size": 0.2,
                         "Invulnerability duration": 0.65,
-                        "Healing explosion": 80
+                        "Healing explosion": 80,
+                        "Cooldown": 15
                     },
                     "Kitsune Rush": {
                         "Ultimate cost": 2400
@@ -1075,6 +1085,9 @@
                         "Health": 900,
                         "Duration": 12,
                         "Ultimate cost": 2000
+                    },
+                    "Life Grip": {
+                        "Cooldown": 19
                     }
                 }
             },
@@ -1156,6 +1169,13 @@
                     },
                     "Transcendence": {
                         "Ultimate cost": 2310
+                    },
+                    "Harmony Orb": {
+                        "Time to wear off when not in line-of-sight": 5
+                    },
+                    "Orb of Discord": {
+                        "Reapplication cooldown": 7,
+                        "Range": 40
                     }
                 }
             }
