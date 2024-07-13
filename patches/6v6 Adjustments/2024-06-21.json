@@ -47,7 +47,7 @@
                     "Micro Missiles": {
                         "Projectile size": 0.175,
                         "Explosion damage": 4,
-                        "Impact damage": 3,
+                        "Direct damage": 3,
                         "Projectile speed": 50
                     }
                 }
@@ -867,7 +867,7 @@
                     "Drill Dash": {
                         "Cooldown start": "ability use",
                         "Cooldown acceleration while burrowed": 90,
-                        "Initial impact damage": 21.67,
+                        "Impact damage": 21.67,
                         "Damage over time": 43.33,
                         "Cooldown": 6.5,
                         "Knockback": 10.15
@@ -998,7 +998,7 @@
                 "abilities": {
                     "Solar Rifle": {
                         "Damage": 70,
-                        "Critical Multiplier": 1.47,
+                        "Critical multiplier": 1.57142857,
                         "Ammo": 14,
                         "Primary fire recovery": 0.25,
                         "Secondary fire heal-per-second": 105,

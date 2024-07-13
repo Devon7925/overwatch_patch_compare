@@ -12,15 +12,7 @@ const patchList = await fetch("./patch_list.json")
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-
-let before_patch_path = "Overwatch 2:recent"
-let after_patch_path = "Overwatch 2:latest"
-if (urlParams.get("before_patch")) {
-    before_patch_path = urlParams.get("before_patch")
-}
-if (urlParams.get("after_patch")) {
-    after_patch_path = urlParams.get("after_patch")
-}
+let siteState;
 
 function patch_from_path(joined_path) {
     let path = joined_path.split(":");
@@ -38,9 +30,25 @@ function patch_from_path(joined_path) {
     return `${versionType}:${version}`
 }
 
-let siteState = {
-    before_patch: patch_from_path(before_patch_path),
-    after_patch: patch_from_path(after_patch_path),
+{
+    let before_patch_path = "Overwatch 2:recent"
+    let after_patch_path = "Overwatch 2:latest"
+    let show_calculated_properties = false
+    if (urlParams.get("before_patch")) {
+        before_patch_path = urlParams.get("before_patch")
+    }
+    if (urlParams.get("after_patch")) {
+        after_patch_path = urlParams.get("after_patch")
+    }
+    if (urlParams.get("show_calculated_properties")) {
+        show_calculated_properties = urlParams.get("show_calculated_properties") === "true"
+    }
+
+    siteState = {
+        before_patch: patch_from_path(before_patch_path),
+        after_patch: patch_from_path(after_patch_path),
+        show_calculated_properties: show_calculated_properties,
+    }
 }
 
 {
@@ -100,6 +108,12 @@ export function convert_to_changes(before, after) {
 }
 
 export function getChangeText(name, change, units) {
+    if(typeof change[0] === "number") {
+        change[0] = round(change[0],2)
+    }
+    if(typeof change[1] === "number") {
+        change[1] = round(change[1],2)
+    }
     if (change[0] === undefined || !Array.isArray(change)) {
         let new_value = change[1];
         if (!Array.isArray(change)) {
@@ -169,6 +183,11 @@ export function getChangeText(name, change, units) {
     }
 }
 
+const calculated_properties = [
+    "Total damage",
+    "Headshot damage"
+]
+
 async function updatePatchNotes() {
     let urlParams = new URLSearchParams();
     for (let key in siteState) {
@@ -177,6 +196,7 @@ async function updatePatchNotes() {
     window.history.replaceState(siteState, "", "index.html?" + urlParams)
     document.getElementById("patch_before").value = siteState.before_patch;
     document.getElementById("patch_after").value = siteState.after_patch;
+    document.getElementById("disp_calc_props").checked = siteState.show_calculated_properties
     await Promise.all([siteState.before_patch, siteState.after_patch]
         .filter((patch) => !(patch in patchList))
         .map(async (patch) => {
@@ -187,7 +207,13 @@ async function updatePatchNotes() {
                     patches[`${versionType}:${version}`] = JSON.parse(text);
                 })
         }))
-    let changes = convert_to_changes(patches[siteState.before_patch], patches[siteState.after_patch]);
+    let before_patch_data = patches[siteState.before_patch];
+    let after_patch_data = patches[siteState.after_patch];
+    if(siteState.show_calculated_properties) {
+        before_patch_data = calculate_properties(before_patch_data)
+        after_patch_data = calculate_properties(after_patch_data)
+    }
+    let changes = convert_to_changes(before_patch_data, after_patch_data);
     let hero_section = document.getElementsByClassName("PatchNotes-section-hero_update")[0];
     hero_section.innerHTML = "";
     if (changes.general) {
@@ -250,7 +276,7 @@ async function updatePatchNotes() {
                     if (!units.heroes[role][hero].abilities[ability]) {
                         console.error(`Missing ability for ${hero} - ${ability}`)
                     }
-                    if (!units.heroes[role][hero].abilities[ability][stat]) {
+                    if (!units.heroes[role][hero].abilities[ability][stat] && !(calculated_properties.includes(stat))) {
                         console.error(`Missing units for ${hero} - ${ability} - ${stat}`)
                     }
                     ability_changes += `<li>${getChangeText(stat, abilityData[stat], units.heroes[role][hero].abilities[ability][stat])}</li>`;
@@ -344,6 +370,52 @@ async function updatePatchNotes() {
     }
 }
 
+export function calculate_properties(patch_data) {
+    for (let role in patch_data.heroes) {
+        for (let hero in patch_data.heroes[role]) {
+            if (hero == "general") continue;
+            let total_health = 0;
+            if(patch_data.heroes[role][hero].general["Base health"]) {
+                total_health += patch_data.heroes[role][hero].general["Base health"];
+            }
+            if(patch_data.heroes[role][hero].general["Armor health"]) {
+                total_health += patch_data.heroes[role][hero].general["Armor health"];
+            }
+            if(patch_data.heroes[role][hero].general["Shield health"]) {
+                total_health += patch_data.heroes[role][hero].general["Shield health"];
+            }
+            patch_data.heroes[role][hero].general["Total health"] = total_health;
+
+            for (let ability in patch_data.heroes[role][hero].abilities) {
+                if (patch_data.heroes[role][hero].abilities[ability]["Impact damage"] && patch_data.heroes[role][hero].abilities[ability]["Damage over time"]) {
+                    let total_damage = 0;
+                    total_damage += patch_data.heroes[role][hero].abilities[ability]["Impact damage"]
+                    total_damage += patch_data.heroes[role][hero].abilities[ability]["Damage over time"]
+                    patch_data.heroes[role][hero].abilities[ability]["Total damage"] = total_damage
+                }
+                if (patch_data.heroes[role][hero].abilities[ability]["Direct damage"] && patch_data.heroes[role][hero].abilities[ability]["Maximum explosion damage"]) {
+                    let total_damage = 0;
+                    total_damage += patch_data.heroes[role][hero].abilities[ability]["Direct damage"]
+                    total_damage += patch_data.heroes[role][hero].abilities[ability]["Maximum explosion damage"]
+                    patch_data.heroes[role][hero].abilities[ability]["Total damage"] = total_damage
+                }
+                if (patch_data.heroes[role][hero].abilities[ability]["Direct damage"] && patch_data.heroes[role][hero].abilities[ability]["Explosion damage"]) {
+                    let total_damage = 0;
+                    total_damage += patch_data.heroes[role][hero].abilities[ability]["Direct damage"]
+                    total_damage += patch_data.heroes[role][hero].abilities[ability]["Explosion damage"]
+                    patch_data.heroes[role][hero].abilities[ability]["Total damage"] = total_damage
+                }
+                if (patch_data.heroes[role][hero].abilities[ability]["Damage"] && patch_data.heroes[role][hero].abilities[ability]["Critical multiplier"]) {
+                    let headshot_damage = patch_data.heroes[role][hero].abilities[ability]["Damage"]
+                    headshot_damage *= patch_data.heroes[role][hero].abilities[ability]["Critical multiplier"]
+                    patch_data.heroes[role][hero].abilities[ability]["Headshot damage"] = headshot_damage
+                }
+            }
+        }
+    }
+    return patch_data
+}
+
 let patch_options = Object.entries(patchList)
     .flatMap(([k, v]) => v
         .map((p) => {
@@ -365,6 +437,11 @@ document.getElementById("patch_before").onchange = async function () {
 
 document.getElementById("patch_after").onchange = async function () {
     siteState.after_patch = this.value;
+    await updatePatchNotes()
+};
+
+document.getElementById("disp_calc_props").onchange = async function () {
+    siteState.show_calculated_properties = this.checked;
     await updatePatchNotes()
 };
 

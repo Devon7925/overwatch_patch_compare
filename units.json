@@ -45,7 +45,7 @@
                     "Micro Missiles": {
                         "Projectile size": "meters",
                         "Explosion damage": "none",
-                        "Impact damage": "none",
+                        "Direct damage": "none",
                         "Projectile speed": "meters per second"
                     }
                 }
@@ -879,7 +879,7 @@
                         "Cooldown start": "none",
                         "Cooldown reduction while burrowed": "percent",
                         "Cooldown acceleration while burrowed": "percent",
-                        "Initial impact damage": "none",
+                        "Impact damage": "none",
                         "Damage over time": "none",
                         "Cooldown": "seconds",
                         "Knockback": "relative percent"
@@ -1011,7 +1011,7 @@
                 "abilities": {
                     "Solar Rifle": {
                         "Damage": "none",
-                        "Critical Multiplier": "none",
+                        "Critical multiplier": "none",
                         "Ammo": "none",
                         "Primary fire recovery": "none",
                         "Secondary fire heal-per-second": "none",

@@ -47,7 +47,7 @@
                     "Micro Missiles": {
                         "Projectile size": 0.175,
                         "Explosion damage": 4,
-                        "Impact damage": 3,
+                        "Direct damage": 3,
                         "Projectile speed": 50
                     }
                 }
@@ -949,7 +949,7 @@
                 "abilities": {
                     "Solar Rifle": {
                         "Damage": 75,
-                        "Critical Multiplier": 1.5,
+                        "Critical multiplier": 1.5,
                         "Ammo": 16,
                         "Primary fire recovery": 0.2,
                         "Secondary fire heal-per-second": 105,

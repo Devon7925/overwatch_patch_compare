@@ -47,7 +47,7 @@
                     "Micro Missiles": {
                         "Projectile size": 0.1,
                         "Explosion damage": 4,
-                        "Impact damage": 3,
+                        "Direct damage": 3,
                         "Projectile speed": 50
                     }
                 }
@@ -325,50 +325,6 @@
                         "Shockwave range": 20,
                         "Ultimate cost": 1636,
                         "Critical damage": 150
-                    }
-                }
-            },
-            "Mauga": {
-                "general": {
-                    "Base health": 650,
-                    "Armor health": 0,
-                    "Model Size": 1,
-                    "Head hit volume": 1
-                },
-                "abilities": {
-                    "Incendiary and Volatile Changuns": {
-                        "Damage per bullet": 4.5,
-                        "Number of shots required to ignite enemies with Incendiary Chaingun": 10,
-                        "Projectile size": 0.0,
-                        "Ammo": 300,
-                        "Spread when only one Chaingun is active": 1.1,
-                        "Movement speed penalty per gun": 20,
-                        "Minimum damage falloff range": 25,
-                        "Fire rate multiplier for firing both guns": 25,
-                        "Spread for firing both guns": 1
-                    },
-                    "Overrun": {
-                        "Cooldown": 6,
-                        "Stomp Damage": 45,
-                        "Knockback damage": 25,
-                        "Damage reduction": 30,
-                        "can be interrupted by Hack": true
-                    },
-                    "Cardiac Overdrive": {
-                        "Cooldown": 10,
-                        "Allied damage reduction": 30,
-                        "Lifesteal multiplier": 60,
-                        "Duration": 5,
-                        "Damage reduction": 30,
-                        "Allied lifesteal": 60
-                    },
-                    "Cage Fight": {
-                        "Ultimate cost": 2409,
-                        "Duration": 10,
-                        "grants infinite ammo": true
-                    },
-                    "Berserker": {
-                        "Overhealth conversion rate": 40
                     }
                 }
             },
@@ -935,7 +891,7 @@
                 "abilities": {
                     "Solar Rifle": {
                         "Damage": 75,
-                        "Critical Multiplier": 1.5,
+                        "Critical multiplier": 1.5,
                         "Ammo": 14,
                         "Primary fire recovery": 0.3,
                         "Secondary fire heal-per-second": 105,
