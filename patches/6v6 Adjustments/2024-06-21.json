@@ -53,7 +53,8 @@
             "Junker Queen": {
                 "general": {
                     "Base health": 400,
-                    "Model size": 1
+                    "Model size": 1,
+                    "Armor health": 0
                 },
                 "abilities": {
                     "Adrenaline Rush": {
@@ -691,6 +692,9 @@
                     "Death Blossom": {
                         "Ultimate cost": 2100,
                         "Damage per second": 170
+                    },
+                    "The Reaping": {
+                        "Lifesteal percentage": 35
                     }
                 }
             },

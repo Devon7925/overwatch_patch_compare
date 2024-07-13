@@ -51,7 +51,8 @@
             "Junker Queen": {
                 "general": {
                     "Base health": "none",
-                    "Model size": "relative percent"
+                    "Model size": "relative percent",
+                    "Armor health": "none"
                 },
                 "abilities": {
                     "Adrenaline Rush": {
@@ -71,7 +72,8 @@
                         "can be activated while using other abilities": "none",
                         "Cooldown": "seconds",
                         "Self overhalth": "none",
-                        "Ally Overhealth": "none"
+                        "Ally Overhealth": "none",
+                        "Additional allied tank overhealth": "none"
                     },
                     "Carnage": {
                         "Impact damage": "none",
@@ -702,6 +704,9 @@
                     "Death Blossom": {
                         "Ultimate cost": "none",
                         "Damage per second": "none"
+                    },
+                    "The Reaping": {
+                        "Lifesteal percentage": "percent"
                     }
                 }
             },
