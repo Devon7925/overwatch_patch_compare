@@ -54,9 +54,9 @@
             },
             "Junker Queen": {
                 "general": {
-                    "Base health": 325,
+                    "Base health": 350,
                     "Model size": 0.96,
-                    "Armor health": 75
+                    "Armor health": 50
                 },
                 "abilities": {
                     "Adrenaline Rush": {
@@ -75,8 +75,7 @@
                         "can be activated while using other abilities": true,
                         "Cooldown": 12,
                         "Self overhalth": 100,
-                        "Additional allied tank overhealth": 50,
-                        "Ally Overhealth": 0
+                        "Ally Overhealth": 25
                     },
                     "Carnage": {
                         "Impact damage": 90,
@@ -1162,7 +1161,9 @@
                     "Shield health": 100
                 },
                 "abilities": {
-                    "Snap Kick": {},
+                    "Snap Kick": {
+                        "Knockback": 8
+                    },
                     "Orb of Destruction": {
                         "Ammo": 20,
                         "Projectile size": 0.225
