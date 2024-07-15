@@ -100,7 +100,8 @@
                         "Cooldown start": "ability use",
                         "Cooldown": 16.5,
                         "Overhealth generation": 100,
-                        "immune to taking forced critical hit damage": true
+                        "immune to taking forced critical hit damage": true,
+                        "Damage reduction": 45
                     },
                     "Energy Javelin": {
                         "Direct damage": 60,
@@ -231,7 +232,8 @@
                     },
                     "Quad Cannons": {
                         "Projectile size": 0.05,
-                        "Automatic reload time while transformed": 2
+                        "Automatic reload time while transformed": 2,
+                        "Number of shots to reach max spread": 30
                     }
                 }
             },
@@ -258,7 +260,8 @@
                         "shares cooldown with Particle Barrier": true,
                         "Cooldown": 8,
                         "Health": 200,
-                        "Duration": 2
+                        "Duration": 2,
+                        "Size": 1
                     },
                     "Graviton Surge": {
                         "Ultimate cost": 2500,
@@ -622,7 +625,9 @@
                         "Secondary fire damage": 75,
                         "Projectile size": 0.555,
                         "Alt fire projectile size": 0.2,
-                        "Slow effect": 30
+                        "Damage per second": 100,
+                        "Maximum slow": 30,
+                        "Minimum slow": 30
                     },
                     "Cryofreeze": {
                         "Healing per second": 62.5
@@ -757,15 +762,36 @@
                         "Damage of current health": 25
                     },
                     "Translocator": {
-                        "destroys breakables while in flight": true
+                        "destroys breakables while in flight": true,
+                        "can be manually activated": false,
+                        "activates on terrain collision": true,
+                        "Maximum time before translocation": 0.25,
+                        "Stealth cooldown reduction on teleport": 2.25,
+                        "Projectile speed": 72,
+                        "Cooldown start": "After teleport"
                     },
                     "Machine Pistol": {
-                        "Projectile size": 0.05
+                        "Projectile size": 0.05,
+                        "Damage": 8,
+                        "Minimum Spread": 0,
+                        "Number of shots until max spread": 6,
+                        "Reload time": 1.2
                     },
                     "Stealth": {
                         "Grace period where Stealth can be canceled immediately after entering it": 0.75,
                         "Minimum cooldown while capturing or contesting": 1,
-                        "Cooldown on respawn": 1
+                        "Cooldown on respawn": 1,
+                        "is passive": true,
+                        "Cooldown": 3.5,
+                        "Movement speed": 45,
+                        "Fade out duration": 0.25,
+                        "Fade in duration": 0.375
+                    },
+                    "Hack": {
+                        "Cast time": 0.65,
+                        "cancels Stealth when hacking an enemy hero": true,
+                        "Cooldown": 3,
+                        "Cooldown on successful enemy hero hack": 6
                     }
                 }
             },
@@ -807,7 +833,8 @@
                         "Ammo": 18,
                         "Secondary fire ammo cost": 2,
                         "Projectile size": 0.18,
-                        "Alt fire projectile size": 0.05
+                        "Alt fire projectile size": 0.05,
+                        "Primary fire recovery": 0.51
                     },
                     "Molten Core": {
                         "Ultimate cost": 2350,

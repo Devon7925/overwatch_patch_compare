@@ -276,7 +276,25 @@ async function updatePatchNotes() {
                 let ability_changes = "";
                 let abilityData = heroData.abilities[ability];
                 if (Array.isArray(abilityData)) {
-                    abilityData = abilityData[1];
+                    if (abilityData[1] != undefined) {
+                        abilityData = abilityData[1];
+                    } else {
+                        abilities += `
+                            <div class="PatchNotesAbilityUpdate">
+                                <div class="PatchNotesAbilityUpdate-icon-container"><img class="PatchNotesAbilityUpdate-icon" src="${ability_images[ability]}">
+                                </div>
+                                <div class="PatchNotesAbilityUpdate-text">
+                                    <div class="PatchNotesAbilityUpdate-name">${ability}</div>
+                                    <div class="PatchNotesAbilityUpdate-detailList">
+                                        <ul>
+                                            <li>Removed</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        continue;
+                    }
                 }
                 for (let stat in abilityData) {
                     if (!units.heroes[role][hero].abilities[ability]) {

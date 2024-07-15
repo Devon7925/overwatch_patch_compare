@@ -100,7 +100,8 @@
                         "Cooldown start": "none",
                         "Cooldown": "seconds",
                         "Overhealth generation": "none",
-                        "immune to taking forced critical hit damage": "none"
+                        "immune to taking forced critical hit damage": "none",
+                        "Damage reduction": "percent"
                     },
                     "Energy Javelin": {
                         "Direct damage": "none",
@@ -235,7 +236,8 @@
                     },
                     "Quad Cannons": {
                         "Projectile size": "meters",
-                        "Automatic reload time while transformed": "seconds"
+                        "Automatic reload time while transformed": "seconds",
+                        "Number of shots to reach max spread": "none"
                     }
                 }
             },
@@ -262,7 +264,8 @@
                         "shares cooldown with Particle Barrier": "none",
                         "Cooldown": "seconds",
                         "Health": "none",
-                        "Duration": "seconds"
+                        "Duration": "seconds",
+                        "Size": "relative percent"
                     },
                     "Graviton Surge": {
                         "Ultimate cost": "none",
@@ -637,12 +640,19 @@
                     "Base health": "none"
                 },
                 "abilities": {
+                    "Deep Chill": {
+                        "Damage": "none",
+                        "Duration": "seconds",
+                        "Movement speed reduction": "percent"
+                    },
                     "Endothermic Blaster": {
                         "Ammo": "none",
                         "Secondary fire damage": "none",
                         "Projectile size": "meters",
                         "Alt fire projectile size": "meters",
-                        "Slow effect": "percent"
+                        "Damage per second": "none",
+                        "Minimum slow": "percent",
+                        "Maximum slow": "percent"
                     },
                     "Cryofreeze": {
                         "Healing per second": "none"
@@ -777,15 +787,39 @@
                         "Damage of current health": "percent"
                     },
                     "Translocator": {
-                        "destroys breakables while in flight": true
+                        "destroys breakables while in flight": "none",
+                        "can be manually activated": "none",
+                        "activates on terrain collision": "none",
+                        "Projectile speed": "meters per second",
+                        "Cooldown start": "none",
+                        "Maximum time before translocation": "seconds",
+                        "Stealth cooldown reduction on teleport": "seconds"
                     },
                     "Machine Pistol": {
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Damage": "none",
+                        "Minimum Spread": "none",
+                        "Number of shots until max spread": "none",
+                        "Reload time": "seconds"
                     },
                     "Stealth": {
                         "Grace period where Stealth can be canceled immediately after entering it": "seconds",
                         "Minimum cooldown while capturing or contesting": "seconds",
-                        "Cooldown on respawn": "seconds"
+                        "Cooldown on respawn": "seconds",
+                        "Cooldown": "seconds",
+                        "Movement speed": "percent",
+                        "Fade in duration": "seconds",
+                        "Fade out duration": "seconds",
+                        "is passive": "none"
+                    },
+                    "Hack": {
+                        "Cast time": "seconds",
+                        "cancels Stealth when hacking an enemy hero": "none",
+                        "Cooldown on successful enemy hero hack": "seconds",
+                        "Cooldown": "seconds"
+                    },
+                    "Opportunist": {
+                        "Damage boost on hacked targets": "percent"
                     }
                 }
             },
@@ -826,7 +860,8 @@
                         "Ammo": "none",
                         "Secondary fire ammo cost": "none",
                         "Projectile size": "meters",
-                        "Alt fire projectile size": "meters"
+                        "Alt fire projectile size": "meters",
+                        "Primary fire recovery": "seconds"
                     },
                     "Molten Core": {
                         "Ultimate cost": "none",
