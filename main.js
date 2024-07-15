@@ -34,6 +34,12 @@ function patch_from_path(joined_path) {
     let before_patch_path = "Overwatch 2:recent"
     let after_patch_path = "Overwatch 2:latest"
     let show_calculated_properties = false
+    if (urlParams.get("before")) {
+        before_patch_path = urlParams.get("before")
+    }
+    if (urlParams.get("after")) {
+        after_patch_path = urlParams.get("after")
+    }
     if (urlParams.get("before_patch")) {
         before_patch_path = urlParams.get("before_patch")
     }
