@@ -7016,13 +7016,15 @@
             background-image: url('https://cdn.cookielaw.org/logos/static/ot_persistent_cookie_icon.png')
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
 </head>
 
 <body class="vsc-initialized" style="overflow: visible;">
     <header>
         <script type="module" src="main.js" defer></script>
     </header>
-    <main class="main-content"><blz-section class="PatchNotesBody" size="wide"  style="background-color: #004da7;position: absolute;width: 100%;">
+    <main class="main-content"><blz-section class="PatchNotesBody" size="wide"
+            style="background-color: #004da7;position: absolute;width: 100%;">
             <div class="background-image bltb8e017a6ec5cc8c8 background-active" bp="min xs sm" slot="background"
                 style="--background-url: url(https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt9b62150a67cc2697/645022615740b5288491c3a1/960_Sky_v2.jpg);background-size: cover;background-repeat: no-repeat; height:100%"
                 data-group="0"></div>
@@ -7035,25 +7037,53 @@
             <div class="PatchNotes-list" style="position: relative;">
                 <div class="PatchNotes-body" style="max-width: 100%; width: 100%;">
                     <div class="PatchNotes-patch PatchNotes-live" style="padding-left: 2vw;">
-                        <p1>Patch Before:</p1>
-                        <select name="patch_before" id="patch_before" class="patch-selector">
-                        </select>
-                        <p1>Patch After:</p1>
-                        <select name="patch_after" id="patch_after" class="patch-selector">
-                        </select>
-                        <label class="checkbox">
-                            <input type="checkbox" id="disp_calc_props"/>
-                            Display calculated properties
-                        </label>
+                        <div>
+                            <button class="button" id="last_patch_button">← Last Patch</button>
+                            <button class="button" id="next_patch_button" style="float: right;">Next Patch →</button>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
+                                    <input type="checkbox" id="disp_calc_props">
+                                    Display calculated properties
+                                </label>
+                            </div>
+                        </div>
+                        <div class="field is-horizontal">
+                            <div class="field-body">
+                                <div class="field is-horizontal">
+                                    <div class="field-label is-normal">
+                                        <label class="label">Patch Before:</label>
+                                    </div>
+                                    <div class="control">
+                                        <span class="select">
+                                            <select name="patch_before" id="patch_before" class="patch-selector">
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="field is-horizontal">
+                                    <div class="field-label is-normal">
+                                        <label class="label">Patch After:</label>
+                                    </div>
+                                    <div class="control">
+                                        <span class="select">
+                                            <select name="patch_after" id="patch_after" class="patch-selector">
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="PatchNotes-section PatchNotes-section-hero_update">
                             <div class="PatchNotes-update PatchNotes-section-hero_update"></div>
                         </div>
                         <div class="PatchNotes-section PatchNotes-section-map_update">
                             <div class="PatchNotes-sectionDescription"></div>
                             <div class="PatchNotes-update PatchNotes-section-map_update"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
         </blz-section></main>
 </body>
 

@@ -203,6 +203,17 @@ async function updatePatchNotes() {
     document.getElementById("patch_before").value = siteState.before_patch;
     document.getElementById("patch_after").value = siteState.after_patch;
     document.getElementById("disp_calc_props").checked = siteState.show_calculated_properties
+
+    
+    {
+        let before_patch_path = siteState.before_patch.split(":")
+        let after_patch_path = siteState.after_patch.split(":")
+        const last_patch_exists = (before_patch_path[0] === after_patch_path[0]) && patchList[before_patch_path[0]].indexOf(before_patch_path[1]) > 0;
+        const next_patch_exists = (before_patch_path[0] === after_patch_path[0]) && patchList[after_patch_path[0]].indexOf(after_patch_path[1]) < patchList[after_patch_path[0]].length - 1;
+        document.getElementById("last_patch_button").style.visibility = last_patch_exists?'visible':'hidden';
+        document.getElementById("next_patch_button").style.visibility = next_patch_exists?'visible':'hidden';
+    }
+
     await Promise.all([siteState.before_patch, siteState.after_patch]
         .filter((patch) => !(patch in patchList))
         .map(async (patch) => {
@@ -475,5 +486,33 @@ window.addEventListener("popstate", async (event) => {
         await updatePatchNotes()
     }
 });
+
+document.getElementById("last_patch_button").onclick = async function () {
+    let before_path = siteState.before_patch.split(":");
+    let before_index = patchList[before_path[0]].indexOf(before_path[1]);
+    if(before_index > 0) {
+        siteState.before_patch = `${before_path[0]}:${patchList[before_path[0]][before_index - 1]}`
+    }
+    let after_path = siteState.after_patch.split(":");
+    let after_index = patchList[after_path[0]].indexOf(after_path[1]);
+    if(after_index > 0) {
+        siteState.after_patch = `${after_path[0]}:${patchList[after_path[0]][after_index - 1]}`
+    }
+    await updatePatchNotes()
+};
+
+document.getElementById("next_patch_button").onclick = async function () {
+    let before_path = siteState.before_patch.split(":");
+    let before_index = patchList[before_path[0]].indexOf(before_path[1]);
+    if(before_index < patchList[before_path[0]].length) {
+        siteState.before_patch = `${before_path[0]}:${patchList[before_path[0]][before_index + 1]}`
+    }
+    let after_path = siteState.after_patch.split(":");
+    let after_index = patchList[after_path[0]].indexOf(after_path[1]);
+    if(after_index < patchList[after_path[0]].length) {
+        siteState.after_patch = `${after_path[0]}:${patchList[after_path[0]][after_index + 1]}`
+    }
+    await updatePatchNotes()
+};
 
 await updatePatchNotes();
