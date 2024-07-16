@@ -440,10 +440,28 @@ export function calculate_properties(patch_data) {
                     total_damage += patch_data.heroes[role][hero].abilities[ability]["Explosion damage"]
                     patch_data.heroes[role][hero].abilities[ability]["Total damage"] = total_damage
                 }
-                if (patch_data.heroes[role][hero].abilities[ability]["Damage"] && patch_data.heroes[role][hero].abilities[ability]["Critical multiplier"]) {
-                    let headshot_damage = patch_data.heroes[role][hero].abilities[ability]["Damage"]
-                    headshot_damage *= patch_data.heroes[role][hero].abilities[ability]["Critical multiplier"]
-                    patch_data.heroes[role][hero].abilities[ability]["Headshot damage"] = headshot_damage
+                if (patch_data.heroes[role][hero].abilities[ability]["Direct healing"] && patch_data.heroes[role][hero].abilities[ability]["Explosion healing"]) {
+                    let total_damage = 0;
+                    total_damage += patch_data.heroes[role][hero].abilities[ability]["Direct healing"]
+                    total_damage += patch_data.heroes[role][hero].abilities[ability]["Explosion healing"]
+                    patch_data.heroes[role][hero].abilities[ability]["Total healing"] = total_damage
+                }
+                if (patch_data.heroes[role][hero].abilities[ability]["Max impact damage"] && patch_data.heroes[role][hero].abilities[ability]["Max wall slam damage"]) {
+                    let total_damage = 0;
+                    total_damage += patch_data.heroes[role][hero].abilities[ability]["Max impact damage"]
+                    total_damage += patch_data.heroes[role][hero].abilities[ability]["Max wall slam damage"]
+                    patch_data.heroes[role][hero].abilities[ability]["Total maximum damage"] = total_damage
+                }
+                if (patch_data.heroes[role][hero].abilities[ability]["Critical multiplier"]) {
+                    let headshot_damage = patch_data.heroes[role][hero].abilities[ability]["Critical multiplier"]
+                    if(patch_data.heroes[role][hero].abilities[ability]["Damage"]){
+                        headshot_damage *= patch_data.heroes[role][hero].abilities[ability]["Damage"]
+                        patch_data.heroes[role][hero].abilities[ability]["Headshot damage"] = headshot_damage
+                    }
+                    if(patch_data.heroes[role][hero].abilities[ability]["Total damage"]){
+                        headshot_damage *= patch_data.heroes[role][hero].abilities[ability]["Total damage"]
+                        patch_data.heroes[role][hero].abilities[ability]["Total headshot damage"] = headshot_damage
+                    }
                 }
             }
         }

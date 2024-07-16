@@ -133,7 +133,7 @@
                         "Pellet projectile size": 0.0,
                         "Shrapnel projectile size": 0.075,
                         "Pellet count": 25,
-                        "Critical damage multiplier": 2,
+                        "Critical multiplier": 2,
                         "Secondary fire pre-detonation damage": 50,
                         "Secondary fire max range": 8,
                         "has secondary fire": true,

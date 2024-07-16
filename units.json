@@ -139,7 +139,7 @@
                         "Shrapnel damage": "none",
                         "Pellet count": "none",
                         "Shrapnel count": "none",
-                        "Critical damage multiplier": "none"
+                        "Critical multiplier": "none"
                     },
                     "Take a Breather": {
                         "Damage reduction": "percent",

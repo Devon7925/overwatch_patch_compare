@@ -133,7 +133,7 @@
                         "Pellet count": 16,
                         "Shrapnel count": 4,
                         "Shrapnel damage": 15,
-                        "Critical damage multiplier": 1.5,
+                        "Critical multiplier": 1.5,
                         "Pellet damage": 6.25
                     },
                     "Take a Breather": {
