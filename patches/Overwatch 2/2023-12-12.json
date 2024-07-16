@@ -299,7 +299,8 @@
                         "Wall stun": 0.15,
                         "Maximum empowered wall stun": 0.65,
                         "Max impact damage": 50,
-                        "Max wall slam damage": 30
+                        "Max wall slam damage": 30,
+                        "Damage reduction on AoE affected targets": 0
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 1949,
@@ -358,7 +359,8 @@
                         "Movement speed penalty per gun": 15,
                         "Minimum damage falloff range": 30,
                         "Fire rate multiplier for firing both guns": 0,
-                        "Spread for firing both guns": 0.85
+                        "Spread for firing both guns": 0.85,
+                        "Incendiary Chaingun burn duration": 3
                     },
                     "Overrun": {
                         "Cooldown": 6,
@@ -727,7 +729,8 @@
                 "abilities": {
                     "Heavy Pulse Rifle": {
                         "Damage": 19,
-                        "Projectile size": 0.0
+                        "Projectile size": 0.0,
+                        "Maximum ammo": 30
                     },
                     "Biotic Field": {
                         "Cooldown": 18,

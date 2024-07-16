@@ -299,7 +299,8 @@
                         "Wall stun": 0.15,
                         "Maximum empowered wall stun": 0.65,
                         "Max impact damage": 50,
-                        "Max wall slam damage": 30
+                        "Max wall slam damage": 30,
+                        "Damage reduction on AoE affected targets": 0
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 1680,
@@ -682,7 +683,8 @@
                 "abilities": {
                     "Heavy Pulse Rifle": {
                         "Damage": 19,
-                        "Projectile size": 0.0
+                        "Projectile size": 0.0,
+                        "Maximum ammo": 30
                     },
                     "Biotic Field": {
                         "Cooldown": 15,

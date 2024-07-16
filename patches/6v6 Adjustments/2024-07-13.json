@@ -295,7 +295,8 @@
                         "Minimum knockback": 12,
                         "Maximum knockback": 28,
                         "Max impact damage": 75,
-                        "Max wall slam damage": 40
+                        "Max wall slam damage": 40,
+                        "Damage reduction on AoE affected targets": 0
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 1932,
@@ -353,7 +354,8 @@
                         "Movement speed penalty per gun": 15,
                         "Minimum damage falloff range": 30,
                         "Fire rate multiplier for firing both guns": 0,
-                        "Spread for firing both guns": 0.85
+                        "Spread for firing both guns": 0.85,
+                        "Incendiary Chaingun burn duration": 3
                     },
                     "Overrun": {
                         "Cooldown": 8,
@@ -741,7 +743,8 @@
                 "abilities": {
                     "Heavy Pulse Rifle": {
                         "Damage": 19.5,
-                        "Projectile size": 0.05
+                        "Projectile size": 0.05,
+                        "Maximum ammo": 30
                     },
                     "Biotic Field": {
                         "Cooldown": 15,

@@ -303,7 +303,8 @@
                         "Minimum knockback": "relative percent",
                         "Maximum knockback": "relative percent",
                         "Max impact damage": "none",
-                        "Max wall slam damage": "none"
+                        "Max wall slam damage": "none",
+                        "Damage reduction on AoE affected targets": "percent"
                     },
                     "Meteor Strike": {
                         "Ultimate cost": "none",
@@ -362,7 +363,8 @@
                         "Minimum damage falloff range": "meters",
                         "Fire rate multiplier for firing both guns": "percent",
                         "Spread for firing both guns": "relative percent",
-                        "Spread when only one Chaingun is active": "none"
+                        "Spread when only one Chaingun is active": "none",
+                        "Incendiary Chaingun burn duration": "seconds"
                     },
                     "Overrun": {
                         "Cooldown": "seconds",
@@ -759,7 +761,8 @@
                 "abilities": {
                     "Heavy Pulse Rifle": {
                         "Damage": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Maximum ammo": "none"
                     },
                     "Biotic Field": {
                         "Cooldown": "seconds",
