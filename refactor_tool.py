@@ -45,6 +45,7 @@ def process_json_files(folder_path, path, new_key, new_value=None, rename=False)
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Primary fire recovery"
-new_value = 0.51
-process_json_files(folder_path, 'heroes/damage/Torbjörn/abilities/Rivet Gun', new_property_name, new_value, rename=False)
+new_property_name = "Reconfigure"
+new_value = {
+}
+process_json_files(folder_path, 'heroes/damage/Bastion/abilities', new_property_name, new_value, rename=False)

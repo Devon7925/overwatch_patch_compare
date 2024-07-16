@@ -491,7 +491,8 @@
                         "Damage": 25,
                         "Ammo": 25,
                         "Reload time": 1.2
-                    }
+                    },
+                    "Reconfigure": {}
                 }
             },
             "Cassidy": {
