@@ -282,9 +282,10 @@
                         "Delay before Overhealth begins to drain": 1
                     },
                     "Hand Cannon": {
-                        "Minimum Damage": 16.5,
+                        "Minimum damage": 16.5,
                         "Maximum damage": 55,
-                        "Projectile size": 0.05
+                        "Projectile size": 0.05,
+                        "Pellet count": 11
                     },
                     "Seismic Slam": {
                         "Damage": 50
@@ -306,7 +307,7 @@
                     "Meteor Strike": {
                         "Ultimate cost": 2145,
                         "Healing while in air": 75,
-                        "Minimum Damage": 50
+                        "Minimum damage": 50
                     }
                 }
             },
@@ -689,7 +690,9 @@
                     "Hellfire Shotguns": {
                         "Spread": 6,
                         "Damage per pellet": 5.4,
-                        "Projectile size": 0.05
+                        "Projectile size": 0.05,
+                        "Pellet count": 20,
+                        "Critical multiplier": 2
                     },
                     "Shadow Step": {
                         "Cast time": 1.2,

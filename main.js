@@ -440,6 +440,12 @@ export function calculate_properties(patch_data) {
                     total_damage += patch_data.heroes[role][hero].abilities[ability]["Explosion damage"]
                     patch_data.heroes[role][hero].abilities[ability]["Total damage"] = total_damage
                 }
+                if (patch_data.heroes[role][hero].abilities[ability]["Damage per pellet"] && patch_data.heroes[role][hero].abilities[ability]["Pellet count"]) {
+                    let total_damage = 1;
+                    total_damage *= patch_data.heroes[role][hero].abilities[ability]["Damage per pellet"]
+                    total_damage *= patch_data.heroes[role][hero].abilities[ability]["Pellet count"]
+                    patch_data.heroes[role][hero].abilities[ability]["Total damage"] = total_damage
+                }
                 if (patch_data.heroes[role][hero].abilities[ability]["Direct healing"] && patch_data.heroes[role][hero].abilities[ability]["Explosion healing"]) {
                     let total_damage = 0;
                     total_damage += patch_data.heroes[role][hero].abilities[ability]["Direct healing"]

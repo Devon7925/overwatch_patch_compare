@@ -285,7 +285,7 @@
                         "Delay before Overhealth begins to drain": "seconds"
                     },
                     "Hand Cannon": {
-                        "Minimum Damage": "none",
+                        "Minimum damage": "none",
                         "Maximum damage": "none",
                         "Projectile size": "meters"
                     },
@@ -309,7 +309,7 @@
                     "Meteor Strike": {
                         "Ultimate cost": "none",
                         "Healing while in air": "none",
-                        "Minimum Damage": "none"
+                        "Minimum damage": "none"
                     }
                 }
             },

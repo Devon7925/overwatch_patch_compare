@@ -45,6 +45,6 @@ def process_json_files(folder_path, path, new_key, new_value=None, rename=False)
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Maximum ammo"
-new_value = 30
-process_json_files(folder_path, 'heroes/damage/Soldier: 76/abilities/Heavy Pulse Rifle', new_property_name, new_value, rename=False)
+new_property_name = "Pellet count"
+new_value = 11
+process_json_files(folder_path, 'heroes/tank/Doomfist/abilities/Hand Cannon', new_property_name, new_value, rename=False)
