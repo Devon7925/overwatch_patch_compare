@@ -68,7 +68,8 @@
                     "Jagged Blade": {
                         "Increased knockback on tanks": "percent",
                         "Pull distance": "relative percent",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Impact damage": "none"
                     },
                     "Commanding Shout": {
                         "can be activated while using other abilities": "none",
@@ -466,7 +467,8 @@
                         "Health": "none"
                     },
                     "The Viper": {
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Reload time": "seconds"
                     }
                 }
             },
@@ -480,7 +482,8 @@
                     "A-36 Tactical Grenade": {
                         "Self damage rate": "none",
                         "briefly grants increased aerial mobility on self knockback while in Configuration: Assault": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Impact damage": "none"
                     },
                     "Configuration: Assault": {
                         "Movement speed penalty": "percent"
@@ -490,7 +493,8 @@
                     },
                     "Configuration: Artillery": {
                         "Ultimate cost": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "can score critical hits": "none"
                     },
                     "Ironclad": {
                         "Damage reduction": "percent"
@@ -648,7 +652,8 @@
                     "Deep Chill": {
                         "Damage": "none",
                         "Duration": "seconds",
-                        "Movement speed reduction": "percent"
+                        "Movement speed reduction": "percent",
+                        "bonus damage triggered by Mei's quick melee": "none"
                     },
                     "Endothermic Blaster": {
                         "Ammo": "none",
@@ -657,7 +662,8 @@
                         "Alt fire projectile size": "meters",
                         "Damage per second": "none",
                         "Minimum slow": "percent",
-                        "Maximum slow": "percent"
+                        "Maximum slow": "percent",
+                        "Duration before slow falls off between primary fire hits": "seconds"
                     },
                     "Cryofreeze": {
                         "Healing per second": "none"
@@ -1098,7 +1104,8 @@
                         "Projectile size": "meters",
                         "Invulnerability duration": "seconds",
                         "Healing explosion": "none",
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "passes through enemy heroes": "none"
                     },
                     "Kitsune Rush": {
                         "Ultimate cost": "none"

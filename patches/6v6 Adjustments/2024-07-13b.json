@@ -69,7 +69,8 @@
                     },
                     "Jagged Blade": {
                         "Pull distance": 17.629,
-                        "Projectile size": 0.35
+                        "Projectile size": 0.35,
+                        "Impact damage": 65
                     },
                     "Commanding Shout": {
                         "can be activated while using other abilities": true,
@@ -451,7 +452,8 @@
                         "Health": 900
                     },
                     "The Viper": {
-                        "Projectile size": 0.08
+                        "Projectile size": 0.08,
+                        "Reload time": 0.2
                     }
                 }
             },
@@ -465,7 +467,8 @@
                     "A-36 Tactical Grenade": {
                         "Self damage rate": 25,
                         "briefly grants increased aerial mobility on self knockback while in Configuration: Assault": true,
-                        "Projectile size": 0.4
+                        "Projectile size": 0.4,
+                        "Impact damage": 15
                     },
                     "Configuration: Assault": {
                         "Movement speed penalty": 45,
@@ -474,7 +477,8 @@
                     },
                     "Configuration: Artillery": {
                         "Ultimate cost": 2310,
-                        "Projectile size": 0.015
+                        "Projectile size": 0.015,
+                        "can score critical hits": false
                     },
                     "Ironclad": {
                         "Damage reduction": 10
@@ -639,7 +643,8 @@
                         "Alt fire projectile size": 0.2,
                         "Damage per second": 100,
                         "Maximum slow": 30,
-                        "Minimum slow": 30
+                        "Minimum slow": 30,
+                        "Duration before slow falls off between primary fire hits": 0.6
                     },
                     "Cryofreeze": {
                         "Healing per second": 50
@@ -1076,7 +1081,8 @@
                         "Projectile size": 0.2,
                         "Invulnerability duration": 0.65,
                         "Healing explosion": 80,
-                        "Cooldown": 15
+                        "Cooldown": 15,
+                        "passes through enemy heroes": true
                     },
                     "Kitsune Rush": {
                         "Ultimate cost": 2400
