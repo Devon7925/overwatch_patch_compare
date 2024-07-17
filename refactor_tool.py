@@ -45,6 +45,6 @@ def process_json_files(folder_path, path, new_key, new_value=None, rename=False)
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "passes through enemy heroes"
-new_value = True
-process_json_files(folder_path, 'heroes/support/Kiriko/abilities/Protection Suzu', new_property_name, new_value, rename=False)
+new_property_name = "Critical multiplier"
+new_value = 2.5
+process_json_files(folder_path, 'heroes/support/Kiriko/abilities/Kunai', new_property_name, new_value, rename=False)

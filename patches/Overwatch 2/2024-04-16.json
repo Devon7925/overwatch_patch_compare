@@ -1061,7 +1061,9 @@
                 "abilities": {
                     "Kunai": {
                         "Ammo": 15,
-                        "Projectile size": 0.225
+                        "Projectile size": 0.225,
+                        "Damage": 45,
+                        "Critical multiplier": 2.5
                     },
                     "Swift Step": {
                         "Cooldown": 7
