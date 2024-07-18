@@ -1081,7 +1081,10 @@
                         "Ultimate cost": "none",
                         "Sunstruck explosion damage": "none",
                         "Sunstruck explosion maximum explosion falloff damage reduction": "percent",
-                        "fully refills secondary fire resource and resets overheated status": "none"
+                        "fully refills secondary fire resource and resets overheated status": "none",
+                        "projectile impact and explosion are blocked by barriers": "none",
+                        "Projectile size": "meters",
+                        "Sunstruck duration": "seconds"
                     }
                 }
             },
