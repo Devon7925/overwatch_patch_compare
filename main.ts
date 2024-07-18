@@ -227,7 +227,13 @@ export function getChangeText(name: string, change: [any, any], units: Unit) {
 
 const calculated_properties = [
     "Total damage",
-    "Headshot damage"
+    "Total healing",
+    "Headshot damage",
+    "Total headshot damage",
+    "Total maximum damage",
+    "Damage per second",
+    "Damage per second(including reload)",
+    "Headshot damage per second",
 ]
 
 let patch_before_box = document.querySelector<HTMLSelectElement>("select#patch_before")!;
@@ -502,12 +508,38 @@ export function calculate_properties(patch_data: PatchData) {
                     total_damage += abilityData["Max wall slam damage"]
                     patch_data.heroes[role][hero].abilities[ability]["Total maximum damage"] = total_damage
                 }
+                if (typeof abilityData["Recovery time"] === "number") {
+                    let damage_per_second = 1/abilityData["Recovery time"]
+                    if (typeof abilityData["Damage"] === "number") {
+                        damage_per_second *= abilityData["Damage"]
+                    }
+                    if (typeof abilityData["Total damage"] === "number") {
+                        damage_per_second *= abilityData["Total damage"]
+                    }
+                    patch_data.heroes[role][hero].abilities[ability]["Damage per second"] = damage_per_second
+                    if (typeof abilityData["Ammo"] === "number" && typeof abilityData["Reload time"] === "number") {
+                        let damage_per_second_incl_reload = 0;
+                        if (typeof abilityData["Damage"] === "number") {
+                            damage_per_second_incl_reload = (abilityData["Ammo"] * abilityData["Damage"]) / (abilityData["Ammo"] * abilityData["Recovery time"] + abilityData["Reload time"])
+                        }
+                        if (typeof abilityData["Total damage"] === "number") {
+                            damage_per_second_incl_reload = (abilityData["Ammo"] * abilityData["Total damage"]) / (abilityData["Ammo"] * abilityData["Recovery time"] + abilityData["Reload time"])
+                        }
+                        patch_data.heroes[role][hero].abilities[ability]["Damage per second(including reload)"] = damage_per_second_incl_reload
+                    }
+                }
                 if (typeof abilityData["Critical multiplier"] === "number") {
                     let headshot_damage = abilityData["Critical multiplier"]
                     if(typeof abilityData["Damage"] === "number"){
                         headshot_damage *= abilityData["Damage"]
                         patch_data.heroes[role][hero].abilities[ability]["Headshot damage"] = headshot_damage
                     }
+                    headshot_damage = abilityData["Critical multiplier"]
+                    if(typeof abilityData["Damage per second"] === "number"){
+                        headshot_damage *= abilityData["Damage per second"]
+                        patch_data.heroes[role][hero].abilities[ability]["Headshot damage per second"] = headshot_damage
+                    }
+                    headshot_damage = abilityData["Critical multiplier"]
                     if(typeof abilityData["Total damage"] === "number"){
                         headshot_damage *= abilityData["Total damage"]
                         patch_data.heroes[role][hero].abilities[ability]["Total headshot damage"] = headshot_damage

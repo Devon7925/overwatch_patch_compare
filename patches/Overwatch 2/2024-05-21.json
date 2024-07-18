@@ -25,9 +25,10 @@
                 "abilities": {
                     "Fusion Cannons": {
                         "Spread": 3.75,
-                        "Total damage per shot": 22,
+                        "Total damage": 22,
                         "Projectile size": 0.05,
-                        "Movement speed penalty": 30
+                        "Movement speed penalty": 30,
+                        "Recovery time": 0.15
                     },
                     "Boosters": {
                         "Impact damage": 15
@@ -137,7 +138,9 @@
                         "Shrapnel count": 4,
                         "Shrapnel damage": 15,
                         "Critical multiplier": 1.5,
-                        "Pellet damage": 6.25
+                        "Pellet damage": 6.25,
+                        "Recovery time": 0.8,
+                        "Reload time": 1.75
                     },
                     "Take a Breather": {
                         "Damage reduction": 50,
@@ -414,11 +417,15 @@
                     },
                     "Void Accelerator": {
                         "Projectile size": 0.15,
-                        "Damage": 5
+                        "Damage": 5,
+                        "Reload time": 1,
+                        "Ammo": 100,
+                        "Recovery time": 0.04
                     },
                     "Pummel": {
                         "Projectile size": 0.575,
-                        "Damage": 60
+                        "Damage": 60,
+                        "Recovery time": 0.6
                     }
                 }
             },
@@ -696,7 +703,10 @@
                         "Damage per pellet": 5.4,
                         "Projectile size": 0.05,
                         "Pellet count": 20,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Recovery time": 0.5,
+                        "Reload time": 1.5,
+                        "Ammo": 8
                     },
                     "Shadow Step": {
                         "Cast time": 1.5,
@@ -742,7 +752,10 @@
                     "Heavy Pulse Rifle": {
                         "Damage": 19,
                         "Projectile size": 0.05,
-                        "Maximum ammo": 30
+                        "Ammo": 30,
+                        "Recovery time": 0.111111111,
+                        "Critical multiplier": 2,
+                        "Reload time": 1.5
                     },
                     "Biotic Field": {
                         "Cooldown": 18,
@@ -1064,7 +1077,9 @@
                         "Ammo": 15,
                         "Projectile size": 0.225,
                         "Damage": 45,
-                        "Critical multiplier": 2.5
+                        "Critical multiplier": 2.5,
+                        "Recovery time": 0.5,
+                        "Reload time": 1
                     },
                     "Swift Step": {
                         "Cooldown": 7

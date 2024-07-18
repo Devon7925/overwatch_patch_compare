@@ -23,7 +23,7 @@
                 "abilities": {
                     "Fusion Cannons": {
                         "Spread": "none",
-                        "Total damage per shot": "none",
+                        "Total damage": "none",
                         "Projectile size": "meters",
                         "Movement speed penalty": "percent"
                     },
@@ -768,7 +768,7 @@
                     "Heavy Pulse Rifle": {
                         "Damage": "none",
                         "Projectile size": "meters",
-                        "Maximum ammo": "none"
+                        "Ammo": "none"
                     },
                     "Biotic Field": {
                         "Cooldown": "seconds",
@@ -1092,7 +1092,8 @@
                 "abilities": {
                     "Kunai": {
                         "Ammo": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Damage": "none"
                     },
                     "Swift Step": {
                         "Cooldown": "seconds",
