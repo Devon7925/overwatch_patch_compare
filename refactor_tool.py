@@ -45,6 +45,6 @@ def process_json_files(folder_path, path, new_key, new_value=None, rename=False)
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Sunstruck duration"
-new_value = 6
-process_json_files(folder_path, 'heroes/support/Illari/abilities/Captive Sun', new_property_name, new_value, rename=False)
+new_property_name = "Reload time"
+new_value = 1.5
+process_json_files(folder_path, 'heroes/support/Ana/abilities/Biotic Rifle', new_property_name, new_value, rename=False)

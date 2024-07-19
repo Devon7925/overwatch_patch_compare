@@ -31,7 +31,8 @@
                         "Recovery time": 0.15
                     },
                     "Boosters": {
-                        "Impact damage": 15
+                        "Impact damage": 15,
+                        "Cooldown": 3.5
                     },
                     "Defense Matrix": {
                         "Cooldown": 1,
@@ -50,6 +51,9 @@
                         "Explosion damage": 4,
                         "Direct damage": 3,
                         "Projectile speed": 50
+                    },
+                    "Eject Mech": {
+                        "Pilot damage immunity while ejecting": 0.4
                     }
                 }
             },
@@ -120,7 +124,8 @@
                     },
                     "Augmented Fusion Driver": {
                         "Projectile size": 0.225,
-                        "has falloff damage penalty": false
+                        "has falloff damage penalty": false,
+                        "Minimum damage falloff range": 20
                     }
                 }
             },
@@ -178,7 +183,8 @@
             "Sigma": {
                 "general": {
                     "Base health": 350,
-                    "Shield health": 275
+                    "Shield health": 275,
+                    "has adjusted movement deceleration": false
                 },
                 "abilities": {
                     "Experimental Barrier": {
@@ -291,11 +297,13 @@
                         "Pellet count": 11
                     },
                     "Seismic Slam": {
-                        "Damage": 50
+                        "Damage": 50,
+                        "Cooldown": 6
                     },
                     "Power Block": {
                         "Cooldown": 7,
-                        "Duration": 2.5
+                        "Duration": 2.5,
+                        "reduces damage from stuck projectiles": true
                     },
                     "Rocket Punch": {
                         "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": true,
@@ -426,6 +434,9 @@
                         "Projectile size": 0.575,
                         "Damage": 60,
                         "Recovery time": 0.6
+                    },
+                    "Block": {
+                        "reduces damage from stuck projectiles": true
                     }
                 }
             },
@@ -439,7 +450,8 @@
                         "Damage per second": 75,
                         "Secondary fire charge time": 1,
                         "ignores armor damage reduction": true,
-                        "Secondary fire range": 40
+                        "Secondary fire range": 40,
+                        "Secondary fire recovery time": 0.75
                     },
                     "Jump Pack": {
                         "Cooldown": 5
@@ -485,7 +497,9 @@
                         "Self damage rate": 50,
                         "briefly grants increased aerial mobility on self knockback while in Configuration: Assault": false,
                         "Projectile size": 0.4,
-                        "Impact damage": 15
+                        "Impact damage": 15,
+                        "Maximum explosion damage falloff": 50,
+                        "Detonation time": 0.35
                     },
                     "Configuration: Assault": {
                         "Movement speed penalty": 35,
@@ -495,7 +509,8 @@
                     "Configuration: Artillery": {
                         "Ultimate cost": 2500,
                         "Projectile size": 0.015,
-                        "can score critical hits": false
+                        "can score critical hits": false,
+                        "Targeting state movement speed": 25
                     },
                     "Ironclad": {
                         "Damage reduction": 20
@@ -504,7 +519,8 @@
                         "Projectile size": 0.08,
                         "Damage": 25,
                         "Ammo": 25,
-                        "Reload time": 1.2
+                        "Reload time": 1.2,
+                        "Recovery time": 0.2
                     },
                     "Reconfigure": {}
                 }
@@ -594,7 +610,8 @@
                 "abilities": {
                     "Storm Bow": {
                         "Maximum damage": 120,
-                        "Projectile size": 0.175
+                        "Projectile size": 0.175,
+                        "has arrow draw progress preserved while wall climbing": false
                     },
                     "Storm Arrows": {
                         "Cooldown": 8,
@@ -765,7 +782,9 @@
                         "Ultimate cost": 2750
                     },
                     "Helix Rocket": {
-                        "Projectile size": 0.35
+                        "Projectile size": 0.35,
+                        "Explosion damage": 80,
+                        "Direct damage": 40
                     }
                 }
             },
@@ -783,7 +802,8 @@
                     "EMP": {
                         "Ultimate cost": 1825,
                         "Ability lockout duration": 3,
-                        "Damage of current health": 25
+                        "Damage of current health": 25,
+                        "destroys Lifeweaver's Tree of Life": false
                     },
                     "Translocator": {
                         "destroys breakables while in flight": true,
@@ -850,7 +870,8 @@
             "Torbjörn": {
                 "general": {
                     "Base health": 250,
-                    "Armor health": 50
+                    "Armor health": 50,
+                    "Weapon swap time": 0.4
                 },
                 "abilities": {
                     "Rivet Gun": {
@@ -869,6 +890,9 @@
                     },
                     "Overload": {
                         "Overhealth": 100
+                    },
+                    "Forge Hammer": {
+                        "Swing recovery time": 0.6
                     }
                 }
             },
@@ -923,7 +947,11 @@
                         "Ammo": 15,
                         "Unscoped projectile size": 0.15,
                         "Enemy scoped projectile size": 0.08,
-                        "Ally scoped projectile size": 0.3
+                        "Ally scoped projectile size": 0.3,
+                        "Damage": 70,
+                        "Healing": 70,
+                        "Recovery time": 0.8,
+                        "Reload time": 1.5
                     },
                     "Sleep Dart": {
                         "Cooldown": 14,
@@ -991,6 +1019,9 @@
                     },
                     "Whipshot": {
                         "Damage": 70
+                    },
+                    "Barrier Shield": {
+                        "Barrier Shield health": 250
                     }
                 }
             },
@@ -1053,7 +1084,9 @@
                         "Invulnerability duration": 0.65,
                         "Healing explosion": 80,
                         "Cooldown": 15,
-                        "passes through enemy heroes": true
+                        "passes through enemy heroes": true,
+                        "has knockback": false,
+                        "Additional healing when cleansing a negative effect": 30
                     },
                     "Kitsune Rush": {
                         "Ultimate cost": 2525
@@ -1079,7 +1112,8 @@
                         "Ammo": 80,
                         "Damage": 6,
                         "Projectile size": 0.2,
-                        "Projectile speed": 80
+                        "Projectile speed": 80,
+                        "Second Thorn Volley projectile reduced spread": 25
                     },
                     "Petal Platform": {
                         "Health": 400,
@@ -1094,10 +1128,12 @@
                         "Pulse healing": 75,
                         "Health": 1000,
                         "Duration": 15,
-                        "Ultimate cost": 2200
+                        "Ultimate cost": 2200,
+                        "Overhealth conversion rate": 50
                     },
                     "Life Grip": {
-                        "Cooldown": 19
+                        "Cooldown": 19,
+                        "Ability lockout duration": 0.75
                     }
                 }
             },
@@ -1117,6 +1153,9 @@
                     },
                     "Sound Barrier": {
                         "Ultimate cost": 2650
+                    },
+                    "Crossfade": {
+                        "Crossfade self-healing penalty for the duration of Amp It Up": 0
                     }
                 }
             },
@@ -1132,7 +1171,8 @@
                         "Self healing as percent of healing done": 40
                     },
                     "Caduceus Staff": {
-                        "Healing per second": 55
+                        "Healing per second": 55,
+                        "Secondary fire damage boost": 25
                     },
                     "Caduceus Blaster": {
                         "Ammo": 25,
