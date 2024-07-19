@@ -1120,6 +1120,9 @@
                     "Shield health": 150
                 },
                 "abilities": {
+                    "Martian Overboots": {
+                        "Move speed while falling": 3
+                    },
                     "Mediblaster": {
                         "Damage": 7,
                         "Healing": 7,
@@ -1127,29 +1130,39 @@
                         "Ammo": 180,
                         "Spread": 1,
                         "Falloff range minimum": 30,
-                        "Falloff range maximum": 45
+                        "Falloff range maximum": 45,
+                        "Reload time": 1.8
                     },
                     "Pulsar Torpedoes": {
                         "Damage": 75,
-                        "Healing": 75,
+                        "Healing": 60,
                         "Maximum duration": 4,
+                        "HoT duration": 2.5,
                         "Cooldown": 10
                     },
                     "Glide Boost": {
                         "Increased movement speed": 50,
                         "Maximum Duration": 4,
-                        "Cooldown": 8
+                        "Cooldown": 8,
+                        "Dash movement speed": 390
                     },
                     "Hyper Ring": {
                         "Increased movement speed": 50,
-                        "Cooldown": 16
+                        "Cooldown": 16,
+                        "Duration": 8,
+                        "Speed boost duration": 3,
+                        "Area of effect size": 8,
+                        "Max deploy range": 13.5,
+                        "Initial activation speed boost range": 5
                     },
                     "Orbital Ray": {
                         "Damage boost": 35,
-                        "Ultimate cost": 2600
-                    },
-                    "Martian Overboots": {
-
+                        "Ultimate cost": 2600,
+                        "Healing per second": 100,
+                        "Duration": 10,
+                        "Radius": 8,
+                        "Deploy range": 4,
+                        "Movement distance": 16
                     }
                 }
             },
