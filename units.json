@@ -1130,6 +1130,45 @@
                     }
                 }
             },
+            "Juno": {
+                "general": {
+                    "Base health": "none",
+                    "Shield health": "none"
+                },
+                "abilities": {
+                    "Mediblaster": {
+                        "Damage": "none",
+                        "Healing": "none",
+                        "Bullets per burst": "none",
+                        "Ammo": "none",
+                        "Spread": "relative percent",
+                        "Falloff range minimum": "meters",
+                        "Falloff range maximum": "meters"
+                    },
+                    "Pulsar Torpedoes": {
+                        "Damage": "none",
+                        "Healing": "none",
+                        "Maximum duration": "seconds",
+                        "Cooldown": "seconds"
+                    },
+                    "Glide Boost": {
+                        "Increased movement speed": "percent",
+                        "Maximum Duration": "seconds",
+                        "Cooldown": "seconds"
+                    },
+                    "Hyper Ring": {
+                        "Increased movement speed": "percent",
+                        "Cooldown": "seconds"
+                    },
+                    "Orbital Ray": {
+                        "Damage boost": "percent",
+                        "Ultimate cost": "none"
+                    },
+                    "Martion Overboots": {
+
+                    }
+                }
+            },
             "Kiriko": {
                 "general": {
                     "Base health": "none"
