@@ -243,7 +243,8 @@
                     "Quad Cannons": {
                         "Projectile size": "meters",
                         "Automatic reload time while transformed": "seconds",
-                        "Number of shots to reach max spread": "none"
+                        "Number of shots to reach max spread": "none",
+                        "Reload time": "seconds"
                     }
                 }
             },
@@ -417,7 +418,8 @@
                     },
                     "Ravenous Vortex": {
                         "Cooldown": "seconds",
-                        "Total damage": "none"
+                        "Total damage": "none",
+                        "passes through enemy heroes": "none"
                     },
                     "Annihilation": {
                         "Ultimate cost": "none",
@@ -543,7 +545,9 @@
                         "Explosive damage": "none",
                         "Cooldown": "seconds",
                         "Projectile speed": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Seeking radius": "meters",
+                        "Homing duration": "seconds"
                     },
                     "Deadeye": {
                         "Max movement speed penalty": "percent",
@@ -766,7 +770,9 @@
                         "Primary fire shots per second": "none",
                         "Projectile size": "meters",
                         "Secondary fire projectile size": "meters",
-                        "Minimum energy for gradual energy decay": "percent"
+                        "Minimum energy for gradual energy decay": "percent",
+                        "Number of shots to reach maximum spread": "none",
+                        "Spread": "relative percent"
                     },
                     "Power Slide": {
                         "Cooldown": "seconds"
@@ -865,13 +871,16 @@
                         "Primary fire charge rate": "none",
                         "Shield regen per beam level": "health per second",
                         "Primary fire damage per second per level": "none",
+                        "Primary fire beam width": "meters",
                         "Alt fire minimum projectile size": "meters",
                         "Alt fire maximum projectile size": "meters",
-                        "Primary fire beam width": "meters"
+                        "Alt fire maximum impact damage": "none",
+                        "Alt fire maximum explosion damage": "none"
                     },
                     "Sentry Turret": {
                         "Health": "none",
-                        "Damage per second": "none"
+                        "Damage per second": "none",
+                        "reveals enemy heroes to allies while dealing damage and for 1 additional second afterwards": "none"
                     },
                     "Teleporter": {
                         "Base Health": "none",
@@ -893,17 +902,20 @@
                         "Secondary fire ammo cost": "none",
                         "Projectile size": "meters",
                         "Alt fire projectile size": "meters",
-                        "Primary fire recovery": "seconds"
+                        "Primary fire recovery": "seconds",
+                        "Secondary Fire spread": "none"
                     },
                     "Molten Core": {
                         "Ultimate cost": "none",
                         "Projectile size": "meters"
                     },
                     "Deploy Turret": {
-                        "Turret damage": 13
+                        "Turret damage": 13,
+                        "Cooldown": "seconds"
                     },
                     "Overload": {
-                        "Overhealth": "none"
+                        "Overhealth": "none",
+                        "Ammo reloaded on use": "none"
                     },
                     "Forge Hammer": {
                         "Swing recovery time": "seconds"
@@ -1149,7 +1161,8 @@
                         "Ultimate cost": "none"
                     },
                     "Healing Ofuda": {
-                        "Projectile speed": "meters per second"
+                        "Projectile speed": "meters per second",
+                        "Recovery time": "seconds"
                     }
                 }
             },
@@ -1170,7 +1183,8 @@
                         "Damage": "none",
                         "Projectile size": "meters",
                         "Projectile speed": "meters per second",
-                        "Second Thorn Volley projectile reduced spread": "percent"
+                        "Second Thorn Volley projectile reduced spread": "percent",
+                        "Number of projectiles to reach maximum spread": "none"
                     },
                     "Petal Platform": {
                         "Health": "none",

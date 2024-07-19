@@ -495,7 +495,9 @@
                         "Explosive damage": 70,
                         "Cooldown": 10,
                         "Projectile speed": 25,
-                        "Projectile size": 0.1
+                        "Projectile size": 0.1,
+                        "Seeking radius": 1.3,
+                        "Homing duration": 0.75
                     },
                     "Deadeye": {
                         "Max movement speed penalty": 70,
@@ -601,7 +603,7 @@
                     "Deep Chill": {
                         "Damage": 40,
                         "Duration": 1.5,
-                        "Movement speed reduction": 75,
+                        "Movement speed reduction": 65,
                         "bonus damage triggered by Mei's quick melee": true
                     },
                     "Endothermic Blaster": {
@@ -1063,7 +1065,8 @@
                         "Damage": 6,
                         "Projectile size": 0.1,
                         "Projectile speed": 70,
-                        "Second Thorn Volley projectile reduced spread": 25
+                        "Second Thorn Volley projectile reduced spread": 25,
+                        "Number of projectiles to reach maximum spread": 20
                     },
                     "Petal Platform": {
                         "Health": 400,

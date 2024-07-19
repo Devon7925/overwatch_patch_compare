@@ -1165,7 +1165,8 @@
                         "Damage": 6,
                         "Projectile size": 0.2,
                         "Projectile speed": 80,
-                        "Second Thorn Volley projectile reduced spread": 25
+                        "Second Thorn Volley projectile reduced spread": 25,
+                        "Number of projectiles to reach maximum spread": 20
                     },
                     "Petal Platform": {
                         "Health": 400,

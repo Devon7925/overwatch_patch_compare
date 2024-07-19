@@ -550,7 +550,9 @@
                         "Explosive damage": 70,
                         "Cooldown": 12,
                         "Projectile speed": 25,
-                        "Projectile size": 0.2
+                        "Projectile size": 0.2,
+                        "Seeking radius": 1.3,
+                        "Homing duration": 0.75
                     },
                     "Deadeye": {
                         "Max movement speed penalty": 70,
@@ -1163,7 +1165,8 @@
                         "Damage": 6,
                         "Projectile size": 0.2,
                         "Projectile speed": 80,
-                        "Second Thorn Volley projectile reduced spread": 25
+                        "Second Thorn Volley projectile reduced spread": 25,
+                        "Number of projectiles to reach maximum spread": 20
                     },
                     "Petal Platform": {
                         "Health": 400,

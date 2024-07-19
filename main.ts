@@ -512,11 +512,12 @@ export function calculate_properties(patch_data: PatchData) {
                     let damage_per_second = 1/abilityData["Recovery time"]
                     if (typeof abilityData["Damage"] === "number") {
                         damage_per_second *= abilityData["Damage"]
+                        patch_data.heroes[role][hero].abilities[ability]["Damage per second"] = damage_per_second
                     }
                     if (typeof abilityData["Total damage"] === "number") {
                         damage_per_second *= abilityData["Total damage"]
+                        patch_data.heroes[role][hero].abilities[ability]["Damage per second"] = damage_per_second
                     }
-                    patch_data.heroes[role][hero].abilities[ability]["Damage per second"] = damage_per_second
                     if (typeof abilityData["Ammo"] === "number" && typeof abilityData["Reload time"] === "number") {
                         let damage_per_second_incl_reload = 0;
                         if (typeof abilityData["Damage"] === "number") {

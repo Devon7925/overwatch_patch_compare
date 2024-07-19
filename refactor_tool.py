@@ -45,6 +45,6 @@ def process_json_files(folder_path, path, new_key, new_value=None, rename=False)
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Time to wear off the target when not in line-of-sight"
-new_value = 1.5
-process_json_files(folder_path, 'heroes/support/Zenyatta/abilities/Orb of Discord', new_property_name, new_value, rename=False)
+new_property_name = "Number of projectiles to reach maximum spread"
+new_value = 20
+process_json_files(folder_path, 'heroes/support/Lifeweaver/abilities/Thorn Volley', new_property_name, new_value, rename=False)
