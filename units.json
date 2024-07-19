@@ -503,7 +503,8 @@
                     },
                     "Configuration: Recon": {
                         "Projectile size": "meters",
-                        "Reload time": "seconds"
+                        "Reload time": "seconds",
+                        "Recovery time": "seconds"
                     },
                     "Configuration: Artillery": {
                         "Ultimate cost": "none",
@@ -795,7 +796,8 @@
                     },
                     "Helix Rocket": {
                         "Projectile size": "meters",
-                        "Explosion damage": "none"
+                        "Explosion damage": "none",
+                        "Direct damage": "none"
                     }
                 }
             },
@@ -1003,7 +1005,9 @@
                         "Enemy scoped projectile size": "meters",
                         "Ally scoped projectile size": "meters",
                         "Damage": "none",
-                        "Healing": "none"
+                        "Healing": "none",
+                        "Recovery time": "seconds",
+                        "Reload time": "seconds"
                     },
                     "Sleep Dart": {
                         "Cooldown": "seconds",
