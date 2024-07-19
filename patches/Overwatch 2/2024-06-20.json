@@ -244,7 +244,8 @@
                     "Quad Cannons": {
                         "Projectile size": 0.05,
                         "Automatic reload time while transformed": 2,
-                        "Number of shots to reach max spread": 30
+                        "Number of shots to reach max spread": 30,
+                        "Reload time": 1.6
                     }
                 }
             },
@@ -418,7 +419,8 @@
                     },
                     "Ravenous Vortex": {
                         "Cooldown": 11,
-                        "Total damage": 70
+                        "Total damage": 70,
+                        "passes through enemy heroes": true
                     },
                     "Annihilation": {
                         "Ultimate cost": 2300,
@@ -751,7 +753,9 @@
                         "Primary fire shots per second": 16,
                         "Projectile size": 0.175,
                         "Secondary fire projectile size": 0.15,
-                        "Minimum energy for gradual energy decay": 25
+                        "Minimum energy for gradual energy decay": 25,
+                        "Number of shots to reach maximum spread": 12,
+                        "Spread": 0.88
                     },
                     "Power Slide": {
                         "Cooldown": 7
@@ -852,11 +856,14 @@
                         "Primary fire damage per second per level": 60,
                         "Alt fire minimum projectile size": 0.115,
                         "Alt fire maximum projectile size": 0.575,
-                        "Primary fire beam width": 0.25
+                        "Primary fire beam width": 0.25,
+                        "Alt fire maximum impact damage": 50,
+                        "Alt fire maximum explosion damage": 50
                     },
                     "Sentry Turret": {
                         "Health": 40,
-                        "Damage per second": 30
+                        "Damage per second": 30,
+                        "reveals enemy heroes to allies while dealing damage and for 1 additional second afterwards": true
                     },
                     "Teleporter": {
                         "Base Health": 100,
@@ -880,17 +887,20 @@
                         "Secondary fire ammo cost": 2,
                         "Projectile size": 0.18,
                         "Alt fire projectile size": 0.05,
-                        "Primary fire recovery": 0.51
+                        "Primary fire recovery": 0.51,
+                        "Secondary Fire spread": 4.5
                     },
                     "Molten Core": {
                         "Ultimate cost": 2350,
                         "Projectile size": 0.205
                     },
                     "Deploy Turret": {
-                        "Turret damage": 13
+                        "Turret damage": 13,
+                        "Cooldown": 12
                     },
                     "Overload": {
-                        "Overhealth": 100
+                        "Overhealth": 100,
+                        "Ammo reloaded on use": 6
                     },
                     "Forge Hammer": {
                         "Swing recovery time": 0.6
@@ -1133,7 +1143,8 @@
                         "Ultimate cost": 2525
                     },
                     "Healing Ofuda": {
-                        "Projectile speed": 18
+                        "Projectile speed": 18,
+                        "Recovery time": 0.9
                     }
                 }
             },
@@ -1267,7 +1278,8 @@
                     },
                     "Orb of Discord": {
                         "Reapplication cooldown": 7,
-                        "Range": 40
+                        "Range": 40,
+                        "Time to wear off the target when not in line-of-sight": 1.5
                     }
                 }
             }
