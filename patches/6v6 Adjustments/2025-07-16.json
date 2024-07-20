@@ -70,7 +70,8 @@
                     "Scattergun": {
                         "Total damage": 70,
                         "Projectile size": 0.05,
-                        "Spread": 1.8
+                        "Spread": 1.8,
+                        "Ammo": 8
                     },
                     "Jagged Blade": {
                         "Pull distance": 17.629,
@@ -90,7 +91,8 @@
                     "Rampage": {
                         "Ultimate cost": 2303,
                         "Wound total damage": 60,
-                        "Startup time": 0.5
+                        "Startup time": 0.5,
+                        "Impact damage": 40
                     }
                 }
             },
@@ -109,7 +111,8 @@
                     },
                     "Energy Javelin": {
                         "Direct damage": 70,
-                        "Projectile size": 0.5
+                        "Projectile size": 0.5,
+                        "Cooldown": 6
                     },
                     "Javelin Spin": {
                         "Cooldown": 7
@@ -123,7 +126,8 @@
                     "Augmented Fusion Driver": {
                         "Projectile size": 0.225,
                         "has falloff damage penalty": false,
-                        "Minimum damage falloff range": 20
+                        "Minimum damage falloff range": 20,
+                        "Damage": 13
                     }
                 }
             },
@@ -229,11 +233,6 @@
                         "Cooldown": 10,
                         "Maximum damage": 90
                     },
-                    "Adaptive Shield": {
-                        "Ally overhealth cap": 0,
-                        "Overhealth generation per enemy": 75,
-                        "Detection radius": 13
-                    },
                     "Minefield": {
                         "Health": 45,
                         "Damage": 130,
@@ -245,6 +244,12 @@
                         "Automatic reload time while transformed": 2,
                         "Number of shots to reach max spread": 30,
                         "Reload time": 1.6
+                    },
+                    "Adaptive Shield": {
+                        "Ally overhealth cap": 0,
+                        "Overhealth generation per enemy": 75,
+                        "Detection radius": 13,
+                        "Effect duration": 7
                     }
                 }
             },
@@ -450,13 +455,14 @@
                         "Secondary fire range": 40,
                         "Secondary fire recovery time": 0.75
                     },
-                    "Jump Pack": {
-                        "Cooldown": 6
-                    },
                     "Primal Rage": {
                         "Ultimate cost": 1540,
                         "Punch damage": 40,
                         "Maximum health gained": 500
+                    },
+                    "Jet Pack": {
+                        "Cooldown": 6,
+                        "Minimum damage falloff range": 1.3
                     }
                 }
             }
@@ -1152,7 +1158,8 @@
                         "Damage": 45,
                         "Critical multiplier": 2.5,
                         "Recovery time": 0.5,
-                        "Reload time": 1
+                        "Reload time": 1,
+                        "Ammo refresh time": 0.65
                     },
                     "Swift Step": {
                         "Cooldown": 7,

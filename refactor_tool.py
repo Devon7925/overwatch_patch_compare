@@ -46,5 +46,5 @@ folder_path = 'patches'
 
 # Example usage for adding
 new_property_name = "Cooldown"
-new_value = 7
-process_json_files(folder_path, 'heroes/support/Illari/abilities/Outburst', new_property_name, new_value, rename=False)
+new_value = 6
+process_json_files(folder_path, 'heroes/tank/Orisa/abilities/Energy Javelin', new_property_name, new_value, rename=False)

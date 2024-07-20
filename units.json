@@ -67,7 +67,8 @@
                     "Scattergun": {
                         "Total damage": "none",
                         "Projectile size": "meters",
-                        "Spread": "relative percent"
+                        "Spread": "relative percent",
+                        "Ammo": "none"
                     },
                     "Jagged Blade": {
                         "Increased knockback on tanks": "percent",
@@ -89,7 +90,8 @@
                     "Rampage": {
                         "Ultimate cost": "none",
                         "Wound total damage": "none",
-                        "Startup time": "seconds"
+                        "Startup time": "seconds",
+                        "Impact damage": "none"
                     }
                 }
             },
@@ -124,7 +126,8 @@
                     "Augmented Fusion Driver": {
                         "Projectile size": "meters",
                         "has falloff damage penalty": "none",
-                        "Minimum damage falloff range": "meters"
+                        "Minimum damage falloff range": "meters",
+                        "Damage": "none"
                     }
                 }
             },
@@ -232,7 +235,8 @@
                         "Ally overhealth cap": "none",
                         "Overhealth generation per enemy": "none",
                         "Detection radius": "none",
-                        "Allied Overhealth transfer ratio": "none"
+                        "Allied Overhealth transfer ratio": "none",
+                        "Effect duration": "seconds"
                     },
                     "Minefield": {
                         "Health": "none",
@@ -453,8 +457,9 @@
                         "Spread": "relative percent",
                         "Secondary fire recovery time": "seconds"
                     },
-                    "Jump Pack": {
-                        "Cooldown": "seconds"
+                    "Jet Pack": {
+                        "Cooldown": "seconds",
+                        "Minimum damage falloff range": "meters"
                     },
                     "Primal Rage": {
                         "Ultimate cost": "none",
@@ -1209,7 +1214,8 @@
                         "Projectile size": "meters",
                         "Damage": "none",
                         "Critical multiplier": "none",
-                        "Recovery time": "seconds"
+                        "Recovery time": "seconds",
+                        "Ammo refresh time": "seconds"
                     },
                     "Swift Step": {
                         "Cooldown": "seconds",
