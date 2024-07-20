@@ -200,14 +200,17 @@
                         "Direct damage": 80,
                         "Stun duration": 1.2,
                         "Projectile size": 0.9,
-                        "Splash damage": 40
+                        "Cooldown": 10,
+                        "Explosion damage": 40
                     },
                     "Gravitic Flux": {
                         "requires line-of-sight": true,
                         "Ultimate cost": 2300
                     },
                     "Hyperspheres": {
-                        "Projectile size": 0.35
+                        "Projectile size": 0.35,
+                        "Direct damage": 25,
+                        "Explosion damage": 30
                     }
                 }
             },
@@ -328,7 +331,8 @@
             "Reinhardt": {
                 "general": {
                     "Base health": 400,
-                    "Armor health": 300
+                    "Armor health": 300,
+                    "has overridden melee": true
                 },
                 "abilities": {
                     "Steadfast": {
@@ -938,10 +942,6 @@
                 }
             },
             "Venture": {
-                "general": {
-                    "Base health": 250,
-                    "Movement speed": 5.5
-                },
                 "abilities": {
                     "Explorer's Resolve": {
                         "Ability shield generation": 40,
@@ -975,6 +975,11 @@
                         "Impact damage": 30,
                         "Damage over time": 40
                     }
+                },
+                "general": {
+                    "Base health": 250,
+                    "Movement speed": 5.5,
+                    "has overridden melee": true
                 }
             },
             "Widowmaker": {
@@ -1062,7 +1067,8 @@
             "Brigitte": {
                 "general": {
                     "Base health": 200,
-                    "Armor health": 50
+                    "Armor health": 50,
+                    "has overridden melee": true
                 },
                 "abilities": {
                     "Inspire": {
@@ -1080,10 +1086,15 @@
                         "resets Shield Bash cooldown upon activation": true
                     },
                     "Whipshot": {
-                        "Damage": 70
+                        "Damage": 70,
+                        "Cooldown": 4
                     },
                     "Barrier Shield": {
                         "Barrier Shield health": 250
+                    },
+                    "Shield Bash": {
+                        "Cooldown": 5,
+                        "Damage": 50
                     }
                 }
             },
@@ -1103,7 +1114,8 @@
                         "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": false
                     },
                     "Outburst": {
-                        "Damage": 25
+                        "Damage": 25,
+                        "Cooldown": 7
                     },
                     "Healing Pylon": {
                         "Healing per projectile": 40,
@@ -1218,7 +1230,8 @@
                     "Soundwave": {
                         "Damage": 45,
                         "Knockback": 7.2,
-                        "Movement lockout duration": 0.45
+                        "Movement lockout duration": 0.45,
+                        "Cooldown": 4
                     },
                     "Sound Barrier": {
                         "Ultimate cost": 2650

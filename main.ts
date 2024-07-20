@@ -12,6 +12,7 @@ type PatchStructure<T> = {
             [key: string]: {
                 general: {[key: string]: T},
                 abilities: {[key: string]: {[key: string]: T}}
+                breakpoints?: {[key: string]: T},
             }
         }
     },
@@ -24,6 +25,8 @@ type PatchStructure<T> = {
 }
 type PatchData = PatchStructure<Value>
 type Units = PatchStructure<Unit>
+
+const damageBreakPointHealthValues = [150, 175, 200, 225, 250, 300];
 
 const patchList:{[key: string]: string[]} = await fetch("./patch_list.json")
     .then((res) => res.text())
@@ -39,7 +42,8 @@ const urlParams = new URLSearchParams(queryString);
 let siteState: {
     before_patch: string,
     after_patch: string,
-    show_calculated_properties: boolean
+    show_calculated_properties: boolean,
+    show_breakpoints: boolean
 };
 
 function patch_from_path(joined_path:string) {
@@ -62,6 +66,7 @@ function patch_from_path(joined_path:string) {
     let before_patch_path = "Overwatch 2:recent"
     let after_patch_path = "Overwatch 2:latest"
     let show_calculated_properties = false
+    let show_breakpoints = false
     {
         let url_before = urlParams.get("before")
         if (url_before) {
@@ -83,11 +88,15 @@ function patch_from_path(joined_path:string) {
     if (urlParams.get("show_calculated_properties")) {
         show_calculated_properties = urlParams.get("show_calculated_properties") === "true"
     }
+    if (urlParams.get("show_breakpoints")) {
+        show_breakpoints = urlParams.get("show_breakpoints") === "true"
+    }
 
     siteState = {
         before_patch: patch_from_path(before_patch_path),
         after_patch: patch_from_path(after_patch_path),
         show_calculated_properties: show_calculated_properties,
+        show_breakpoints: show_breakpoints
     }
 }
 
@@ -245,6 +254,7 @@ const calculated_properties = [
 let patch_before_box = document.querySelector<HTMLSelectElement>("select#patch_before")!;
 let patch_after_box = document.querySelector<HTMLSelectElement>("select#patch_after")!;
 let display_calculated_properties_box = document.querySelector<HTMLInputElement>("input#disp_calc_props")!;
+let display_breakpoints_box = document.querySelector<HTMLInputElement>("input#disp_breakpoints")!;
 let last_patch_button = document.querySelector<HTMLButtonElement>("button#last_patch_button")!;
 let next_patch_button = document.querySelector<HTMLButtonElement>("button#next_patch_button")!;
 
@@ -258,6 +268,7 @@ async function updatePatchNotes() {
     patch_before_box.value = siteState.before_patch;
     patch_after_box.value = siteState.after_patch;
     display_calculated_properties_box.checked = siteState.show_calculated_properties
+    display_breakpoints_box.checked = siteState.show_breakpoints
 
     
     {
@@ -282,8 +293,12 @@ async function updatePatchNotes() {
     let before_patch_data = patches[siteState.before_patch];
     let after_patch_data = patches[siteState.after_patch];
     if(siteState.show_calculated_properties) {
-        before_patch_data = calculate_properties(before_patch_data)
-        after_patch_data = calculate_properties(after_patch_data)
+        before_patch_data = calculateProperties(before_patch_data)
+        after_patch_data = calculateProperties(after_patch_data)
+    }
+    if(siteState.show_breakpoints) {
+        before_patch_data = calculateBreakpoints(before_patch_data)
+        after_patch_data = calculateBreakpoints(after_patch_data)
     }
     let changes = convert_to_changes(before_patch_data, after_patch_data);
     let hero_section = document.getElementsByClassName("PatchNotes-section-hero_update")[0];
@@ -403,6 +418,14 @@ async function updatePatchNotes() {
                     </div>
                 `;
             }
+            let breakpointsRender = ""
+            if (heroData.breakpoints) {
+                breakpointsRender += "<ul>";
+                for (let property in heroData.breakpoints) {
+                    breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], "none")}</li>`
+                }
+                breakpointsRender += "</ul>";
+            }
             heroChanges += `
             <div class="PatchNotesHeroUpdate">
                 <div class="PatchNotesHeroUpdate-header"><img class="PatchNotesHeroUpdate-icon" src="${hero_images[hero]}">
@@ -413,7 +436,10 @@ async function updatePatchNotes() {
                     ${generalChangesRender}
                     </div>
                     <div class="PatchNotesHeroUpdate-abilitiesList">
-                        ${abilities}
+                    ${abilities}
+                    </div>
+                    <div class="PatchNotesHeroUpdate-generalUpdates">
+                    ${breakpointsRender}
                     </div>
                 </div>
             </div>`;
@@ -497,7 +523,7 @@ async function updatePatchNotes() {
     }
 }
 
-export function calculate_properties(patch_data: PatchData) {
+export function calculateProperties(patch_data: PatchData) {
     for (let role in patch_data.heroes) {
         for (let hero in patch_data.heroes[role]) {
             if (hero == "general") continue;
@@ -595,6 +621,65 @@ export function calculate_properties(patch_data: PatchData) {
     return patch_data
 }
 
+export function calculateBreakpoints(patchData: PatchData): PatchData {
+    for (let role in patchData.heroes) {
+        for (let hero in patchData.heroes[role]) {
+            if (hero == "general") continue;
+            let heroData = patchData.heroes[role][hero];
+            let damageOptions: {[key: string]: [number, number]} = {};
+            if(typeof patchData.general["Quick melee damage"] == "number" && heroData.general["has overridden melee"] !== true) {
+                damageOptions["Melee"] = [patchData.general["Quick melee damage"], 1]
+            }
+            for (let ability in heroData.abilities) {
+                if ("Cooldown" in heroData.abilities[ability]){
+                    if(typeof heroData.abilities[ability]["Total damage"] == "number") {
+                        damageOptions[ability] = [heroData.abilities[ability]["Total damage"], 1]
+                    } else if(typeof heroData.abilities[ability]["Damage"] == "number") {
+                        damageOptions[ability] = [heroData.abilities[ability]["Damage"], 1]
+                    }
+                    if(typeof heroData.abilities[ability]["Total headshot damage"] == "number") {
+                        damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Total headshot damage"], 1]
+                    } else if(typeof heroData.abilities[ability]["Headshot damage"] == "number") {
+                        damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Headshot damage"], 1]
+                    }
+                } else {
+                    if(typeof heroData.abilities[ability]["Total damage"] == "number") {
+                        damageOptions[ability] = [heroData.abilities[ability]["Total damage"], 3]
+                    } else if(typeof heroData.abilities[ability]["Damage"] == "number") {
+                        damageOptions[ability] = [heroData.abilities[ability]["Damage"], 3]
+                    }
+                    if(typeof heroData.abilities[ability]["Total headshot damage"] == "number") {
+                        damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Total headshot damage"], 3]
+                    } else if(typeof heroData.abilities[ability]["Headshot damage"] == "number") {
+                        damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Headshot damage"], 3]
+                    }
+                }
+            }
+            let breakpointDamage:{[key:string]: number} = {"": 0}
+            for(let damageOption in damageOptions){
+                for (let damageEntry in breakpointDamage) {
+                    for(let i = 1; i <= damageOptions[damageOption][1]; i++) {
+                        if(i === 1) {
+                            breakpointDamage[`${damageEntry}, ${damageOption}`] = breakpointDamage[damageEntry] + i * damageOptions[damageOption][0]
+                        } else {
+                            breakpointDamage[`${damageEntry}, ${i}x ${damageOption}`] = breakpointDamage[damageEntry] + i * damageOptions[damageOption][0]
+                        }
+                    }
+                }
+            }
+            let breakpointDamageEntries:{[key:string]: number} = {}
+            for(let breakpoint in breakpointDamage) {
+                let breakpointHealth = damageBreakPointHealthValues.findLast((v) => v <= breakpointDamage[breakpoint]);
+                if(breakpointHealth !== undefined) {
+                    breakpointDamageEntries[`Breakpoint for ${breakpoint.substring(2)}`] = breakpointHealth
+                }
+            }
+            patchData.heroes[role][hero].breakpoints = breakpointDamageEntries;
+        }
+    }
+    return patchData
+}
+
 let patch_options = Object.entries(patchList)
     .flatMap(([k, v]) => v
         .map((p) => {
@@ -621,6 +706,11 @@ patch_after_box.onchange = async function () {
 
 display_calculated_properties_box.onchange = async function () {
     siteState.show_calculated_properties = (this as HTMLInputElement).checked;
+    await updatePatchNotes()
+};
+
+display_breakpoints_box.onchange = async function () {
+    siteState.show_breakpoints = (this as HTMLInputElement).checked;
     await updatePatchNotes()
 };
 

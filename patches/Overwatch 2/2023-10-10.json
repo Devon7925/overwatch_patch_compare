@@ -190,14 +190,17 @@
                         "Direct damage": 40,
                         "Stun duration": 1.2,
                         "Projectile size": 0.9,
-                        "Splash damage": 40
+                        "Cooldown": 10,
+                        "Explosion damage": 40
                     },
                     "Gravitic Flux": {
                         "requires line-of-sight": true,
                         "Ultimate cost": 2090
                     },
                     "Hyperspheres": {
-                        "Projectile size": 0.25
+                        "Projectile size": 0.25,
+                        "Direct damage": 25,
+                        "Explosion damage": 30
                     }
                 }
             },
@@ -316,7 +319,8 @@
             "Reinhardt": {
                 "general": {
                     "Base health": 350,
-                    "Armor health": 250
+                    "Armor health": 250,
+                    "has overridden melee": true
                 },
                 "abilities": {
                     "Steadfast": {
@@ -964,7 +968,8 @@
             "Brigitte": {
                 "general": {
                     "Base health": 150,
-                    "Armor health": 50
+                    "Armor health": 50,
+                    "has overridden melee": true
                 },
                 "abilities": {
                     "Inspire": {
@@ -982,10 +987,15 @@
                         "resets Shield Bash cooldown upon activation": false
                     },
                     "Whipshot": {
-                        "Damage": 80
+                        "Damage": 80,
+                        "Cooldown": 4
                     },
                     "Barrier Shield": {
                         "Barrier Shield health": 250
+                    },
+                    "Shield Bash": {
+                        "Cooldown": 5,
+                        "Damage": 50
                     }
                 }
             },
@@ -1005,7 +1015,8 @@
                         "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": true
                     },
                     "Outburst": {
-                        "Damage": 10
+                        "Damage": 10,
+                        "Cooldown": 7
                     },
                     "Healing Pylon": {
                         "Healing per projectile": 30,
@@ -1094,7 +1105,7 @@
                     "Rejuvenating Dash": {
                         "Heal": 50
                     },
-                    "Tree of Life": \{
+                    "Tree of Life": {
                         "Pulse healing": 75,
                         "Health": 1000,
                         "Duration": 15,
@@ -1120,7 +1131,8 @@
                     "Soundwave": {
                         "Damage": 25,
                         "Knockback": 7,
-                        "Movement lockout duration": 0.3
+                        "Movement lockout duration": 0.3,
+                        "Cooldown": 4
                     },
                     "Sound Barrier": {
                         "Ultimate cost": 2409

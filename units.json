@@ -198,7 +198,7 @@
                     "Accretion": {
                         "Direct damage": "none",
                         "Stun duration": "seconds",
-                        "Splash damage": "none"
+                        "Explosion damage": "none"
                     },
                     "Gravitic Flux": {
                         "requires line-of-sight": "none",
@@ -1103,6 +1103,10 @@
                     },
                     "Barrier Shield": {
                         "Barrier Shield health": "none"
+                    },
+                    "Shield Bash": {
+                        "Cooldown": "seconds",
+                        "Damage": "none"
                     }
                 }
             },
