@@ -497,7 +497,8 @@
                         "Projectile speed": 25,
                         "Projectile size": 0.1,
                         "Seeking radius": 1.3,
-                        "Homing duration": 0.75
+                        "Homing duration": 0.75,
+                        "Impact damage": 10
                     },
                     "Deadeye": {
                         "Max movement speed penalty": 70,
@@ -541,7 +542,8 @@
                 "abilities": {
                     "Shuriken": {
                         "Damage": 27,
-                        "Projectile size": 0.1
+                        "Projectile size": 0.1,
+                        "Ammo": 30
                     },
                     "Deflect": {
                         "Duration": 2
@@ -571,6 +573,10 @@
                     "Dragonstrike": {
                         "Speed": 12,
                         "Ultimate cost": 1681
+                    },
+                    "Sonic Arrow": {
+                        "does impact sound plat for enemies": true,
+                        "has visual effect when deployed": true
                     }
                 }
             },
@@ -686,6 +692,9 @@
                     },
                     "The Reaping": {
                         "Lifesteal percentage": 35
+                    },
+                    "Wraith Form": {
+                        "can be activated while affected by mobility-locking effects": false
                     }
                 }
             },
@@ -856,7 +865,8 @@
                     "Pulse Pistols": {
                         "Damage": 5.5,
                         "Minimum falloff range": 12,
-                        "Projectile size": 0.0
+                        "Projectile size": 0.0,
+                        "Spread": 4.14
                     },
                     "Recall": {
                         "Cooldown": 12
@@ -879,7 +889,8 @@
                         "Projectile size": 0.0,
                         "Scoped shot falloff minimum range": 40,
                         "Scoped shot falloff maximum range": 60,
-                        "Unscoped shots to reach maximum spread": 3
+                        "Unscoped shots to reach maximum spread": 3,
+                        "Scoped shot maximum damage falloff scalar": 50
                     }
                 }
             }
@@ -1051,7 +1062,8 @@
             "Lifeweaver": {
                 "general": {
                     "Base health": 175,
-                    "Shield health": 50
+                    "Shield health": 50,
+                    "Petal ornament size": 0.9
                 },
                 "abilities": {
                     "Healing Blossom": {
@@ -1063,7 +1075,7 @@
                     "Thorn Volley": {
                         "Ammo": 80,
                         "Damage": 6,
-                        "Projectile size": 0.1,
+                        "Projectile size": 0.125,
                         "Projectile speed": 70,
                         "Second Thorn Volley projectile reduced spread": 25,
                         "Number of projectiles to reach maximum spread": 20
@@ -1072,21 +1084,25 @@
                         "Health": 400,
                         "Cooldown": 12,
                         "Projectile size": 0.15,
-                        "pierced by piercing projectiles": true
+                        "pierced by piercing projectiles": true,
+                        "Walkable area": 1.15,
+                        "Maximum triger lift radius": 2,
+                        "Minimum triger lift radius": 0.75
                     },
                     "Rejuvenating Dash": {
                         "Heal": 50
                     },
-                    "Tree of Life": {
+                    "Tree of Life": \{
                         "Pulse healing": 75,
                         "Health": 1000,
                         "Duration": 15,
-                        "Ultimate cost": 1999,
+                        "Ultimate cost": 2000,
                         "Overhealth conversion rate": 50
                     },
                     "Life Grip": {
                         "Cooldown": 16,
-                        "Ability lockout duration": 0.75
+                        "Ability lockout duration": 0.75,
+                        "Healing": 50
                     }
                 }
             },
@@ -1155,6 +1171,9 @@
                         "Self-heal per second": 50,
                         "can use fade during duration": true,
                         "Ultimate cost": 2636
+                    },
+                    "Fade": {
+                        "can be activated while affected by mobility-locking effects": false
                     }
                 }
             },

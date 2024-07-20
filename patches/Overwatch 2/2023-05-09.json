@@ -78,7 +78,7 @@
                     "Commanding Shout": {
                         "can be activated while using other abilities": false,
                         "Cooldown": 14,
-                        "Self overhalth": 150,
+                        "Self overhalth": 200,
                         "Ally Overhealth": 50
                     },
                     "Carnage": {
@@ -86,7 +86,7 @@
                         "Immediate healing per target hit": 0
                     },
                     "Rampage": {
-                        "Ultimate cost": 2454,
+                        "Ultimate cost": 2134,
                         "Wound total damage": 60,
                         "Startup time": 0.75
                     }
@@ -151,7 +151,6 @@
                         "Cooldown": 8,
                         "Maximum healing": 350,
                         "Maximum Time": 1,
-                        "Aplified healing duration": 2.5,
                         "Recovery": 0.5,
                         "Cast time": 0.5
                     },
@@ -485,17 +484,16 @@
                         "Damage reduction": 50
                     },
                     "Flashbang": {
-                        "Effect": "Applies hinder on stick",
-                        "Duration": 1.25,
-                        "Slow": 30,
+                        "Duration": 1.2,
+                        "Maximum projectile travel range": 10,
                         "hinder prevents crouching": true,
-                        "Explosive damage": 70,
+                        "Direct damage": 60,
+                        "Explosive damage": 60,
                         "Cooldown": 10,
                         "Projectile speed": 25,
                         "Projectile size": 0.1,
-                        "Seeking radius": 1.5,
-                        "Homing duration": 1,
-                        "Impact damage": 10
+                        "Seeking radius": 3,
+                        "Impact damage": 0
                     },
                     "Deadeye": {
                         "Max movement speed penalty": 70,
@@ -540,7 +538,7 @@
                     "Shuriken": {
                         "Damage": 27,
                         "Projectile size": 0.1,
-                        "Ammo": 30
+                        "Ammo": 24
                     },
                     "Deflect": {
                         "Duration": 2
@@ -557,7 +555,7 @@
                 },
                 "abilities": {
                     "Storm Bow": {
-                        "Maximum damage": 120,
+                        "Maximum damage": 125,
                         "Projectile size": 0.1,
                         "has arrow draw progress preserved while wall climbing": true
                     },
@@ -572,8 +570,8 @@
                         "Ultimate cost": 1681
                     },
                     "Sonic Arrow": {
-                        "does impact sound plat for enemies": true,
-                        "has visual effect when deployed": true
+                        "does impact sound plat for enemies": false,
+                        "has visual effect when deployed": false
                     }
                 }
             },
@@ -603,20 +601,14 @@
                     "Base health": 250
                 },
                 "abilities": {
-                    "Deep Chill": {
-                        "Damage": 40,
-                        "Duration": 1.5,
-                        "Movement speed reduction": 75,
-                        "bonus damage triggered by Mei's quick melee": false
-                    },
                     "Endothermic Blaster": {
                         "Ammo": 150,
                         "Secondary fire damage": 75,
                         "Projectile size": 0.555,
                         "Alt fire projectile size": 0.1,
-                        "Damage per second": 55,
-                        "Maximum slow": 50,
-                        "Minimum slow": 30,
+                        "Damage per second": 100,
+                        "Maximum slow": 40,
+                        "Minimum slow": 40,
                         "Duration before slow falls off between primary fire hits": 0.5
                     },
                     "Cryofreeze": {
@@ -691,7 +683,7 @@
                         "Lifesteal percentage": 35
                     },
                     "Wraith Form": {
-                        "can be activated while affected by mobility-locking effects": false
+                        "can be activated while affected by mobility-locking effects": true
                     }
                 }
             },
@@ -861,7 +853,7 @@
                         "Damage": 5.5,
                         "Minimum falloff range": 12,
                         "Projectile size": 0.0,
-                        "Spread": 4.14
+                        "Spread": 3.6
                     },
                     "Recall": {
                         "Cooldown": 12
@@ -882,10 +874,10 @@
                     },
                     "Widow's Kiss": {
                         "Projectile size": 0.0,
-                        "Scoped shot falloff minimum range": 40,
-                        "Scoped shot falloff maximum range": 60,
+                        "Scoped shot falloff minimum range": 70,
+                        "Scoped shot falloff maximum range": 100,
                         "Unscoped shots to reach maximum spread": 3,
-                        "Scoped shot maximum damage falloff scalar": 50
+                        "Scoped shot maximum damage falloff scalar": 30
                     }
                 }
             }
@@ -1021,19 +1013,19 @@
                 "general": {
                     "Base health": 200,
                     "Shield health": 0,
-                    "Petal ornament size": 0.9
+                    "Petal ornament size": 1.0
                 },
                 "abilities": {
                     "Healing Blossom": {
                         "Ammo": 20,
                         "Projectile size": 0.275,
                         "Maximum charge time": 1,
-                        "Maximum heal amount": 75
+                        "Maximum heal amount": 65
                     },
                     "Thorn Volley": {
-                        "Ammo": 70,
-                        "Damage": 6,
-                        "Projectile size": 0.125,
+                        "Ammo": 60,
+                        "Damage": 5,
+                        "Projectile size": 0.1,
                         "Projectile speed": 70,
                         "Second Thorn Volley projectile reduced spread": 0,
                         "Number of projectiles to reach maximum spread": 0,
@@ -1045,9 +1037,9 @@
                         "Cooldown": 12,
                         "Projectile size": 0.15,
                         "pierced by piercing projectiles": true,
-                        "Walkable area": 1.15,
+                        "Walkable area": 1,
                         "Maximum triger lift radius": 2,
-                        "Minimum triger lift radius": 0.75
+                        "Minimum triger lift radius": 2
                     },
                     "Rejuvenating Dash": {
                         "Heal": 25
@@ -1056,13 +1048,12 @@
                         "Pulse healing": 75,
                         "Health": 1000,
                         "Duration": 15,
-                        "Ultimate cost": 2000,
+                        "Ultimate cost": 1850,
                         "Overhealth conversion rate": 0
                     },
                     "Life Grip": {
-                        "Cooldown": 16,
-                        "Ability lockout duration": 0.45,
-                        "Healing": 50
+                        "Cooldown": 20,
+                        "Ability lockout duration": 0.45
                     }
                 }
             },
@@ -1133,7 +1124,7 @@
                         "Ultimate cost": 2636
                     },
                     "Fade": {
-                        "can be activated while affected by mobility-locking effects": false
+                        "can be activated while affected by mobility-locking effects": true
                     }
                 }
             },

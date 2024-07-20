@@ -134,6 +134,14 @@ export function getChangeText(name, change, units) {
         else if (units == "seconds") {
             return `There is now ${new_value} second ${name.toLowerCase()}.`;
         }
+        else if (units == "flag") {
+            if (new_value === false) {
+                return `There is not ${name.toLowerCase()}.`;
+            }
+            else {
+                return `There is ${name.toLowerCase()}.`;
+            }
+        }
         return `There is now ${new_value} ${name.toLowerCase()}.`;
     }
     else if (typeof change[0] == "number") {
@@ -293,7 +301,23 @@ async function updatePatchNotes() {
             let generalChangesRender = "";
             let heroData = changes.heroes[role][hero];
             if (Array.isArray(heroData)) {
-                heroData = heroData[1];
+                if (heroData[1] != undefined) {
+                    heroData = heroData[1];
+                }
+                else {
+                    heroChanges += `
+                    <div class="PatchNotesHeroUpdate">
+                        <div class="PatchNotesHeroUpdate-header"><img class="PatchNotesHeroUpdate-icon" src="${hero_images[hero]}">
+                            <h5 class="PatchNotesHeroUpdate-name">${hero}</h5>
+                        </div>
+                        <div class="PatchNotesHeroUpdate-body">
+                            <div class="PatchNotesHeroUpdate-generalUpdates">
+                                <ul><li>Removed</li></ul>
+                            </div>
+                        </div>
+                    </div>`;
+                    continue;
+                }
             }
             if (heroData.general) {
                 generalChangesRender += "<ul>";
@@ -331,9 +355,11 @@ async function updatePatchNotes() {
                 for (let stat in abilityData) {
                     if (!units.heroes[role][hero].abilities[ability]) {
                         console.error(`Missing ability for ${hero} - ${ability}`);
+                        break;
                     }
                     if (!units.heroes[role][hero].abilities[ability][stat] && !(calculated_properties.includes(stat))) {
                         console.error(`Missing units for ${hero} - ${ability} - ${stat}`);
+                        continue;
                     }
                     ability_changes += `<li>${getChangeText(stat, abilityData[stat], units.heroes[role][hero].abilities[ability][stat])}</li>`;
                 }
@@ -404,6 +430,27 @@ async function updatePatchNotes() {
     if (changes.modes) {
         let changeRender = "";
         for (let mode in changes.modes) {
+            if (Array.isArray(changes.modes[mode])) {
+                if (changes.modes[mode][1] == undefined) {
+                    changeRender += `
+                            <div class="PatchNotesGeneralUpdate-title">${mode}</div>
+                            <div class="PatchNotesGeneralUpdate-description">
+                                <ul>Removed</ul>
+                            </div>`;
+                }
+                else {
+                    let mode_changes = "";
+                    for (let change in changes.modes[mode][1]) {
+                        mode_changes += `<li>${getChangeText(change, [undefined, changes.modes[mode][1][change]], units.modes[mode][change])}</li>`;
+                    }
+                    changeRender += `
+                            <div class="PatchNotesGeneralUpdate-title">${mode}</div>
+                            <div class="PatchNotesGeneralUpdate-description">
+                                <ul><li>Mode added</li>${mode_changes}</ul>
+                            </div>`;
+                }
+                continue;
+            }
             let mode_changes = "";
             for (let change in changes.modes[mode]) {
                 mode_changes += `<li>${getChangeText(change, changes.modes[mode][change], units.modes[mode][change])}</li>`;

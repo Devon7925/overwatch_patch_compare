@@ -596,7 +596,8 @@
                 "abilities": {
                     "Shuriken": {
                         "Damage": 27,
-                        "Projectile size": 0.175
+                        "Projectile size": 0.175,
+                        "Ammo": 30
                     },
                     "Deflect": {
                         "Duration": 2
@@ -626,6 +627,10 @@
                     "Dragonstrike": {
                         "Speed": 15,
                         "Ultimate cost": 1850
+                    },
+                    "Sonic Arrow": {
+                        "does impact sound plat for enemies": true,
+                        "has visual effect when deployed": true
                     }
                 }
             },
@@ -739,6 +744,9 @@
                     },
                     "The Reaping": {
                         "Lifesteal percentage": 35
+                    },
+                    "Wraith Form": {
+                        "can be activated while affected by mobility-locking effects": false
                     }
                 }
             },
@@ -917,7 +925,8 @@
                     "Pulse Pistols": {
                         "Damage": 6,
                         "Minimum falloff range": 10,
-                        "Projectile size": 0.05
+                        "Projectile size": 0.05,
+                        "Spread": 4.14
                     },
                     "Recall": {
                         "Cooldown": 13
@@ -980,7 +989,8 @@
                         "Projectile size": 0.05,
                         "Scoped shot falloff minimum range": 50,
                         "Scoped shot falloff maximum range": 70,
-                        "Unscoped shots to reach maximum spread": 7
+                        "Unscoped shots to reach maximum spread": 7,
+                        "Scoped shot maximum damage falloff scalar": 50
                     }
                 }
             }
@@ -1152,7 +1162,8 @@
             "Lifeweaver": {
                 "general": {
                     "Base health": 225,
-                    "Shield health": 50
+                    "Shield health": 50,
+                    "Petal ornament size": 0.9
                 },
                 "abilities": {
                     "Healing Blossom": {
@@ -1173,7 +1184,10 @@
                         "Health": 400,
                         "Cooldown": 12,
                         "Projectile size": 0.15,
-                        "pierced by piercing projectiles": false
+                        "pierced by piercing projectiles": false,
+                        "Walkable area": 1.15,
+                        "Maximum triger lift radius": 2,
+                        "Minimum triger lift radius": 0.75
                     },
                     "Rejuvenating Dash": {
                         "Heal": 60
@@ -1187,7 +1201,8 @@
                     },
                     "Life Grip": {
                         "Cooldown": 19,
-                        "Ability lockout duration": 0.75
+                        "Ability lockout duration": 0.75,
+                        "Healing": 50
                     }
                 }
             },
@@ -1256,6 +1271,9 @@
                         "Self-heal per second": 55,
                         "can use fade during duration": true,
                         "Ultimate cost": 2900
+                    },
+                    "Fade": {
+                        "can be activated while affected by mobility-locking effects": false
                     }
                 }
             },
