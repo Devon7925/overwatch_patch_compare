@@ -1247,7 +1247,8 @@
                         "Ammo": 14,
                         "Projectile size": 0.25,
                         "Maximum charge time": 1.15,
-                        "Maximum heal amount": 80
+                        "Maximum heal amount": 80,
+                        "Delay until slow": 1
                     },
                     "Thorn Volley": {
                         "Ammo": 60,

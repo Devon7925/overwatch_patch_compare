@@ -1149,7 +1149,8 @@
                         "Ammo": 16,
                         "Projectile size": 0.275,
                         "Maximum charge time": 1,
-                        "Maximum heal amount": 70
+                        "Maximum heal amount": 70,
+                        "Delay until slow": 1
                     },
                     "Thorn Volley": {
                         "Ammo": 80,
@@ -1173,7 +1174,7 @@
                     },
                     "Tree of Life": {
                         "Pulse healing": 75,
-                        "Health": 1000,
+                        "Health": 1200,
                         "Duration": 15,
                         "Ultimate cost": 2200,
                         "Overhealth conversion rate": 50

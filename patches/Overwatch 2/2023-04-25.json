@@ -1037,7 +1037,8 @@
                         "Ammo": 20,
                         "Projectile size": 0.275,
                         "Maximum charge time": 1,
-                        "Maximum heal amount": 65
+                        "Maximum heal amount": 65,
+                        "Delay until slow": 1
                     },
                     "Thorn Volley": {
                         "Ammo": 60,
@@ -1063,7 +1064,7 @@
                     },
                     "Tree of Life": {
                         "Pulse healing": 75,
-                        "Health": 1000,
+                        "Health": 1200,
                         "Duration": 15,
                         "Ultimate cost": 1850,
                         "Overhealth conversion rate": 0
@@ -1188,7 +1189,7 @@
         "Rialto": 1,
         "Route 66": 1,
         "Shambali Monastery": 1,
-        "Watchpoint: Gibraltar": 2,
+        "Watchpoint: Gibraltar": 1,
         "Blizzard World": 1,
         "Eichenwalde": 1,
         "Hollywood": 1,
