@@ -1,0 +1,18 @@
+{
+    "general": {
+
+    },
+    "heroes": {
+        "tank": {
+            "general": {}
+        },
+        "damage": {
+            "general": {}
+        },
+        "support": {
+            "general": {}
+        }
+    },
+    "Map list": [],
+    "modes": {}
+}

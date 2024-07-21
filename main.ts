@@ -178,9 +178,9 @@ export function getChangeText(name: string, change: [any, any], units: Unit) {
             return `There is now ${new_value} second ${name.toLowerCase()}.`;
         } else if (units == "flag") {
             if(new_value === false) {
-                return `There is not ${name.toLowerCase()}.`;
+                return `No longer ${name}.`;
             } else {
-                return `There is ${name.toLowerCase()}.`;
+                return `Now ${name}.`;
             }
         }
         return `There is now ${new_value} ${name.toLowerCase()}.`;
@@ -542,23 +542,26 @@ export function calculateProperties(patch_data: PatchData) {
 
             for (let ability in patch_data.heroes[role][hero].abilities) {
                 const abilityData = patch_data.heroes[role][hero].abilities[ability];
-                if (typeof abilityData["Impact damage"] === "number" && typeof abilityData["Damage over time"] === "number") {
-                    let total_damage = 0;
+                let total_damage = 0;
+                if (typeof abilityData["Impact damage"] === "number") {
                     total_damage += abilityData["Impact damage"]
+                }
+                if(typeof abilityData["Damage over time"] === "number") {
                     total_damage += abilityData["Damage over time"]
-                    patch_data.heroes[role][hero].abilities[ability]["Total damage"] = total_damage
                 }
                 if (typeof abilityData["Direct damage"] === "number") {
-                    let total_damage = 0;
                     total_damage += abilityData["Direct damage"]
-                    if(typeof abilityData["Maximum explosion damage"] === "number") {
-                        total_damage += abilityData["Maximum explosion damage"]
-                    }
-                    if(typeof abilityData["Explosion damage"] === "number") {
-                        total_damage += abilityData["Explosion damage"]
-                    }
+                }
+                if(typeof abilityData["Maximum explosion damage"] === "number") {
+                    total_damage += abilityData["Maximum explosion damage"]
+                }
+                if(typeof abilityData["Explosion damage"] === "number") {
+                    total_damage += abilityData["Explosion damage"]
+                }
+                if(total_damage > 0) {
                     patch_data.heroes[role][hero].abilities[ability]["Total damage"] = total_damage
                 }
+                
                 if (typeof abilityData["Damage per pellet"] === "number" && typeof abilityData["Pellet count"] === "number") {
                     let total_damage = 1;
                     total_damage *= abilityData["Damage per pellet"]

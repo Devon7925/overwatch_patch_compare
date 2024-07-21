@@ -45,6 +45,6 @@ def process_json_files(folder_path, path, new_key, new_value=None, rename=False)
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Delay until slow"
-new_value = 1
-process_json_files(folder_path, 'heroes/support/Lifeweaver/abilities/Healing Blossom', new_property_name, new_value, rename=False)
+new_property_name = "Recovery time"
+new_value = 0.5
+process_json_files(folder_path, 'heroes/damage/Cassidy/abilities/Peacekeeper', new_property_name, new_value, rename=False)

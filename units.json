@@ -547,7 +547,7 @@
                         "Maximum travel time": "seconds",
                         "Slow": "percent",
                         "hinder prevents crouching": "none",
-                        "Explosive damage": "none",
+                        "Explosion damage": "none",
                         "Cooldown": "seconds",
                         "Projectile speed": "none",
                         "Projectile size": "meters",
@@ -838,7 +838,8 @@
                         "Ultimate cost": "none",
                         "Ability lockout duration": "seconds",
                         "Damage of current health": "percent",
-                        "destroys Lifeweaver's Tree of Life": "none"
+                        "destroys Lifeweaver's Tree of Life": "flag",
+                        "destroys Mei's Blizzard": "flag"
                     },
                     "Translocator": {
                         "destroys breakables while in flight": "none",
@@ -1097,11 +1098,18 @@
                     },
                     "Repair Pack": {
                         "Instant healing": "none",
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Range": "meters"
                     },
                     "Rally": {
                         "Ultimate cost": "none",
-                        "resets Shield Bash cooldown upon activation": "none"
+                        "resets Shield Bash cooldown upon activation": "none",
+                        "Extra armor health": "none",
+                        "builds self overhealth": "flag",
+                        "has bigger shield": "flag",
+                        "Additional barrier health": "none",
+                        "Shield bash stun duration": "seconds",
+                        "Bonus movement speed": "percent"
                     },
                     "Whipshot": {
                         "Damage": 70
@@ -1251,7 +1259,8 @@
                         "Ammo": "none",
                         "Projectile size": "meters",
                         "Maximum charge time": "seconds",
-                        "Maximum heal amount": "none"
+                        "Maximum heal amount": "none",
+                        "Delay until slow": "seconds"
                     },
                     "Thorn Volley": {
                         "Ammo": "none",
@@ -1286,6 +1295,10 @@
                         "Cooldown": "seconds",
                         "Ability lockout duration": "seconds",
                         "Healing": "none"
+                    },
+                    "Parting Gift": {
+                        "Ally healing": "none",
+                        "Enemy healing": "none"
                     }
                 }
             },
@@ -1325,7 +1338,8 @@
                     },
                     "Caduceus Staff": {
                         "Healing per second": "none",
-                        "Secondary fire damage boost": "percent"
+                        "Secondary fire damage boost": "percent",
+                        "Bonus healing for allies under half health": "percent"
                     },
                     "Caduceus Blaster": {
                         "Ammo": "none",
@@ -1334,7 +1348,8 @@
                     "Valkyrie": {
                         "Healing": "none",
                         "Ultimate cost": "none",
-                        "disconnects Caduceus Staff from its target on activation": "none"
+                        "disconnects Caduceus Staff from its target on activation": "none",
+                        "force enables passive healing": "flag"
                     },
                     "Guardian Angel": {
                         "Active duration on jump/crouch cancel": "seconds",
@@ -1349,12 +1364,14 @@
                 "abilities": {
                     "Biotic Grasp": {
                         "Damage per second": "none",
-                        "Secondary fire target acquisition radius": "meters"
+                        "Secondary fire target acquisition radius": "meters",
+                        "Lingering heal duration": "seconds"
                     },
                     "Coalescence": {
                         "Self-heal per second": "none",
                         "can use fade during duration": "none",
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "Bonus movement speed": "percent"
                     },
                     "Fade": {
                         "can be activated while affected by mobility-locking effects": "none"

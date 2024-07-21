@@ -142,10 +142,10 @@ export function getChangeText(name, change, units) {
         }
         else if (units == "flag") {
             if (new_value === false) {
-                return `There is not ${name.toLowerCase()}.`;
+                return `No longer ${name}.`;
             }
             else {
-                return `There is ${name.toLowerCase()}.`;
+                return `Now ${name}.`;
             }
         }
         return `There is now ${new_value} ${name.toLowerCase()}.`;

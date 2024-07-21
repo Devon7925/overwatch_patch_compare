@@ -5,7 +5,8 @@
         "Out-of-combat health regeneration": "0",
         "Role lock": "1-2-2",
         "Ultimate percent retained on swap": 25,
-        "Quick melee damage": 30
+        "Quick melee damage": 30,
+        "has stranded spawn feature": true
     },
     "heroes": {
         "tank": {
@@ -488,7 +489,11 @@
                         "Secondary fire \"Fan the Hammer\" damage": 50,
                         "Projectile size": 0.0,
                         "Primary fire falloff range minimum": 25,
-                        "Primary fire falloff range maximum": 45
+                        "Primary fire falloff range maximum": 45,
+                        "Damage": 70,
+                        "Critical multiplier": 2,
+                        "Ammo": 6,
+                        "Recovery time": 0.5
                     },
                     "Combat Roll": {
                         "Damage reduction": 50
@@ -498,7 +503,7 @@
                         "Maximum projectile travel range": 10,
                         "hinder prevents crouching": true,
                         "Direct damage": 60,
-                        "Explosive damage": 60,
+                        "Explosion damage": 60,
                         "Cooldown": 10,
                         "Projectile speed": 25,
                         "Projectile size": 0.1,
@@ -761,7 +766,8 @@
                         "Ultimate cost": 1640,
                         "Ability lockout duration": 1.5,
                         "Damage of current health": 40,
-                        "destroys Lifeweaver's Tree of Life": true
+                        "destroys Lifeweaver's Tree of Life": true,
+                        "destroys Mei's Blizzard": true
                     },
                     "Translocator": {
                         "destroys breakables while in flight": false,
@@ -971,11 +977,18 @@
                     },
                     "Repair Pack": {
                         "Instant healing": 25,
-                        "Cooldown": 6
+                        "Cooldown": 6,
+                        "Range": 25
                     },
                     "Rally": {
                         "Ultimate cost": 2517,
-                        "resets Shield Bash cooldown upon activation": false
+                        "resets Shield Bash cooldown upon activation": false,
+                        "Extra armor health": 100,
+                        "builds self overhealth": false,
+                        "has bigger shield": true,
+                        "Additional barrier health": 450,
+                        "Shield bash stun duration": 0.5,
+                        "Bonus movement speed": 15
                     },
                     "Whipshot": {
                         "Damage": 70,
@@ -1124,7 +1137,8 @@
                     "Valkyrie": {
                         "Healing": 60,
                         "Ultimate cost": 1818,
-                        "disconnects Caduceus Staff from its target on activation": true
+                        "disconnects Caduceus Staff from its target on activation": true,
+                        "force enables passive healing": true
                     },
                     "Guardian Angel": {
                         "Active duration on jump/crouch cancel": 1.5,
@@ -1139,12 +1153,14 @@
                 "abilities": {
                     "Biotic Grasp": {
                         "Damage per second": 50,
-                        "Secondary fire target acquisition radius": 0.6
+                        "Secondary fire target acquisition radius": 0.6,
+                        "Lingering heal duration": 3
                     },
                     "Coalescence": {
                         "Self-heal per second": 50,
                         "can use fade during duration": true,
-                        "Ultimate cost": 2636
+                        "Ultimate cost": 2636,
+                        "Bonus movement speed": 40
                     },
                     "Fade": {
                         "can be activated while affected by mobility-locking effects": true
