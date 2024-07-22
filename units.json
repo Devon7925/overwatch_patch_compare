@@ -800,15 +800,17 @@
                 },
                 "abilities": {
                     "Railgun": {
-                        "Secondary fire maximum damage": "none",
-                        "Secondary fire minimum damage": "none",
-                        "requires overclock for secondary primary piercing": "none",
-                        "Primary fire shots per second": "none",
+                        "Recovery time": "seconds",
                         "Projectile size": "meters",
-                        "Secondary fire projectile size": "meters",
                         "Minimum energy for gradual energy decay": "percent",
                         "Number of shots to reach maximum spread": "none",
                         "Spread": "relative percent"
+                    },
+                    "Railgun Alt Fire": {
+                        "Maximum damage": "none",
+                        "Minimum damage": "none",
+                        "requires overclock for secondary primary piercing": "none",
+                        "Projectile size": "meters"
                     },
                     "Power Slide": {
                         "Cooldown": "seconds"

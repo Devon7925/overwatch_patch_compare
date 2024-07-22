@@ -842,13 +842,15 @@
                 "abilities": {
                     "Railgun": {
                         "requires overclock for secondary primary piercing": false,
-                        "Primary fire shots per second": 16,
                         "Projectile size": 0.175,
                         "Minimum energy for gradual energy decay": 25,
                         "Number of shots to reach maximum spread": 12,
                         "Spread": 0.88,
                         "Critical multiplier": 2,
-                        "Damage": 9
+                        "Damage": 9,
+                        "Recovery time": 0.0625,
+                        "Ammo": 45,
+                        "Reload time": 1.2
                     },
                     "Power Slide": {
                         "Cooldown": 9
@@ -887,7 +889,8 @@
                     "Helix Rocket": {
                         "Projectile size": 0.35,
                         "Explosion damage": 80,
-                        "Direct damage": 40
+                        "Direct damage": 40,
+                        "Cooldown": 6
                     }
                 }
             },
