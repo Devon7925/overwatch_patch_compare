@@ -127,7 +127,7 @@
                         "Projectile size": "meters",
                         "has falloff damage penalty": "none",
                         "Minimum damage falloff range": "meters",
-                        "Damage": "none"
+                        "damage": "none"
                     }
                 }
             },
@@ -240,7 +240,7 @@
                     },
                     "Minefield": {
                         "Health": "none",
-                        "Damage": "none",
+                        "damage": "none",
                         "Explosion knockback": "none",
                         "Ultimate cost": "none"
                     },
@@ -301,7 +301,7 @@
                         "Projectile size": "meters"
                     },
                     "Seismic Slam": {
-                        "Damage": "none",
+                        "damage": "none",
                         "Cooldown": 7
                     },
                     "Power Block": {
@@ -336,7 +336,7 @@
                         "Knockback reduction": "percent"
                     },
                     "Rocket Hammer": {
-                        "Damage": "none"
+                        "damage": "none"
                     },
                     "Barrier Field": {
                         "Barrier health": "none",
@@ -348,7 +348,7 @@
                     },
                     "Firestrike": {
                         "Ability charges": "none",
-                        "Damage": "none",
+                        "damage": "none",
                         "Projectile size": "meters"
                     },
                     "Earthshatter": {
@@ -381,7 +381,7 @@
                     },
                     "Overrun": {
                         "Cooldown": "seconds",
-                        "Stomp Damage": "none",
+                        "Stomp damage": "none",
                         "Knockback damage": "none",
                         "Damage reduction": "percent",
                         "can be interrupted by Hack": "none"
@@ -431,11 +431,11 @@
                     },
                     "Void Accelerator": {
                         "Projectile size": "meters",
-                        "Damage": "none"
+                        "damage": "none"
                     },
                     "Pummel": {
                         "Projectile size": "meters",
-                        "Damage": "none"
+                        "damage": "none"
                     },
                     "Block": {
                         "reduces damage from stuck projectiles": "none"
@@ -618,7 +618,7 @@
                 },
                 "abilities": {
                     "Shuriken": {
-                        "Damage": "none",
+                        "damage": "none",
                         "Projectile size": "meters",
                         "Ammo": "none"
                     },
@@ -663,8 +663,8 @@
                 },
                 "abilities": {
                     "Frag Launcher": {
-                        "Impact Damage": "none",
-                        "Maximum Splash": "none",
+                        "Direct damage": "none",
+                        "Explosion damage": "none",
                         "Projectile size": "meters"
                     },
                     "Concussion Mine": {
@@ -684,7 +684,7 @@
                 },
                 "abilities": {
                     "Deep Chill": {
-                        "Damage": "none",
+                        "damage": "none",
                         "Duration": "seconds",
                         "Movement speed reduction": "percent",
                         "bonus damage triggered by Mei's quick melee": "flag"
@@ -805,7 +805,7 @@
                 },
                 "abilities": {
                     "Heavy Pulse Rifle": {
-                        "Damage": "none",
+                        "damage": "none",
                         "Projectile size": "meters",
                         "Ammo": "none"
                     },
@@ -852,7 +852,7 @@
                     },
                     "Machine Pistol": {
                         "Projectile size": "meters",
-                        "Damage": "none",
+                        "damage": "none",
                         "Minimum Spread": "none",
                         "Number of shots until max spread": "none",
                         "Reload time": "seconds"
@@ -946,7 +946,7 @@
                 },
                 "abilities": {
                     "Pulse Pistols": {
-                        "Damage": "none",
+                        "damage": "none",
                         "Minimum falloff range": "meters",
                         "Projectile size": "meters",
                         "Spread": "relative percent"
@@ -994,7 +994,7 @@
                         "Vertical knockback": "relative percent",
                         "Extra damage range": "meters",
                         "Extra damage multiplier": "none",
-                        "Damage": "none"
+                        "damage": "none"
                     },
                     "Clobber": {
                         "Impact damage": "none",
@@ -1035,7 +1035,7 @@
                         "Unscoped projectile size": "meters",
                         "Enemy scoped projectile size": "meters",
                         "Ally scoped projectile size": "meters",
-                        "Damage": "none",
+                        "damage": "none",
                         "Healing": "none",
                         "Recovery time": "seconds",
                         "Reload time": "seconds"
@@ -1046,7 +1046,7 @@
                     },
                     "Biotic Grenade": {
                         "Healing": "none",
-                        "Damage": "none",
+                        "damage": "none",
                         "Projectile size": "meters",
                         "Effect duration": "seconds",
                         "Cooldown": "seconds"
@@ -1094,7 +1094,7 @@
                         "Healing per second": "none"
                     },
                     "Rocket Flail": {
-                        "Damage": "none"
+                        "damage": "none"
                     },
                     "Repair Pack": {
                         "Instant healing": "none",
@@ -1119,7 +1119,7 @@
                     },
                     "Shield Bash": {
                         "Cooldown": "seconds",
-                        "Damage": "none"
+                        "damage": "none"
                     }
                 }
             },
@@ -1129,17 +1129,17 @@
                 },
                 "abilities": {
                     "Solar Rifle": {
-                        "Damage": "none",
+                        "damage": "none",
                         "Critical multiplier": "none",
                         "Ammo": "none",
                         "Primary fire recovery": "none",
                         "Secondary fire heal-per-second": "none",
                         "Maximum charge time": "seconds",
                         "Projectile size": "meters",
-                        "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": "none"
+                        "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": "flag"
                     },
                     "Outburst": {
-                        "Damage": "none"
+                        "damage": "none"
                     },
                     "Healing Pylon": {
                         "Healing per projectile": "none",
@@ -1154,7 +1154,7 @@
                         "Sunstruck explosion damage": "none",
                         "Sunstruck explosion maximum explosion falloff damage reduction": "percent",
                         "fully refills secondary fire resource and resets overheated status": "none",
-                        "projectile impact and explosion are blocked by barriers": "none",
+                        "projectile impact and explosion are blocked by barriers": "flag",
                         "Projectile size": "meters",
                         "Sunstruck duration": "seconds"
                     }
@@ -1170,7 +1170,7 @@
                         "Move speed while falling": "meters per second"
                     },
                     "Mediblaster": {
-                        "Damage": "none",
+                        "damage": "none",
                         "Healing": "none",
                         "Bullets per burst": "none",
                         "Ammo": "none",
@@ -1180,7 +1180,7 @@
                         "Reload time": "seconds"
                     },
                     "Pulsar Torpedoes": {
-                        "Damage": "none",
+                        "damage": "none",
                         "Healing": "none",
                         "Maximum duration": "seconds",
                         "Cooldown": "seconds",
@@ -1220,7 +1220,7 @@
                     "Kunai": {
                         "Ammo": "none",
                         "Projectile size": "meters",
-                        "Damage": "none",
+                        "damage": "none",
                         "Critical multiplier": "none",
                         "Recovery time": "seconds",
                         "Ammo refresh time": "seconds"
@@ -1264,7 +1264,7 @@
                     },
                     "Thorn Volley": {
                         "Ammo": "none",
-                        "Damage": "none",
+                        "damage": "none",
                         "Projectile size": "meters",
                         "Projectile speed": "meters per second",
                         "Second Thorn Volley projectile reduced spread": "percent",
@@ -1312,7 +1312,7 @@
                         "Projectile size": "meters"
                     },
                     "Soundwave": {
-                        "Damage": "none",
+                        "damage": "none",
                         "Knockback": "none",
                         "Movement lockout duration": "seconds"
                     },
@@ -1348,7 +1348,7 @@
                     "Valkyrie": {
                         "Healing": "none",
                         "Ultimate cost": "none",
-                        "disconnects Caduceus Staff from its target on activation": "none",
+                        "disconnects Caduceus Staff from its target on activation": "flag",
                         "force enables passive healing": "flag"
                     },
                     "Guardian Angel": {
@@ -1369,12 +1369,12 @@
                     },
                     "Coalescence": {
                         "Self-heal per second": "none",
-                        "can use fade during duration": "none",
+                        "can use fade during duration": "flag",
                         "Ultimate cost": "none",
                         "Bonus movement speed": "percent"
                     },
                     "Fade": {
-                        "can be activated while affected by mobility-locking effects": "none"
+                        "can be activated while affected by mobility-locking effects": "flag"
                     }
                 }
             },

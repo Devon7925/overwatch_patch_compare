@@ -1,7 +1,5 @@
 {
-    "general": {
-
-    },
+    "general": {},
     "heroes": {
         "tank": {
             "general": {}

@@ -29,7 +29,8 @@
                         "Total damage": 20.5,
                         "Projectile size": 0.05,
                         "Movement speed penalty": 30,
-                        "Recovery time": 0.15
+                        "Recovery time": 0.15,
+                        "Critical multiplier": 2
                     },
                     "Boosters": {
                         "Impact damage": 10,
@@ -51,7 +52,8 @@
                         "Projectile size": 0.175,
                         "Explosion damage": 4.53,
                         "Direct damage": 2.47,
-                        "Projectile speed": 50
+                        "Projectile speed": 50,
+                        "Cooldown": 7
                     },
                     "Eject Mech": {
                         "Pilot damage immunity while ejecting": 0.4
@@ -62,7 +64,8 @@
                 "general": {
                     "Base health": 400,
                     "Model size": 0.96,
-                    "Armor health": 0
+                    "Armor health": 0,
+                    "has overridden melee": true
                 },
                 "abilities": {
                     "Adrenaline Rush": {
@@ -72,12 +75,15 @@
                         "Total damage": 75,
                         "Projectile size": 0.05,
                         "Spread": 1.8,
-                        "Ammo": 8
+                        "Ammo": 8,
+                        "Critical multiplier": 2
                     },
                     "Jagged Blade": {
                         "Pull distance": 17.629,
                         "Projectile size": 0.35,
-                        "Impact damage": 65
+                        "Impact damage": 65,
+                        "Cooldown": 6,
+                        "Damage over time": 30
                     },
                     "Commanding Shout": {
                         "can be activated while using other abilities": true,
@@ -87,7 +93,9 @@
                     },
                     "Carnage": {
                         "Impact damage": 90,
-                        "Immediate healing per target hit": 25
+                        "Immediate healing per target hit": 25,
+                        "Cooldown": 8,
+                        "Damage over time": 40
                     },
                     "Rampage": {
                         "Ultimate cost": 2303,
@@ -113,7 +121,8 @@
                     "Energy Javelin": {
                         "Direct damage": 70,
                         "Projectile size": 0.5,
-                        "Cooldown": 6
+                        "Cooldown": 6,
+                        "Wall impact damage": 40
                     },
                     "Javelin Spin": {
                         "Cooldown": 7
@@ -128,7 +137,9 @@
                         "Projectile size": 0.225,
                         "has falloff damage penalty": false,
                         "Minimum damage falloff range": 20,
-                        "Damage": 13
+                        "Damage": 13,
+                        "Critical multiplier": 2,
+                        "Recovery time": 0.1
                     }
                 }
             },
@@ -244,7 +255,11 @@
                         "Projectile size": 0.05,
                         "Automatic reload time while transformed": 2,
                         "Number of shots to reach max spread": 30,
-                        "Reload time": 1.6
+                        "Reload time": 1.6,
+                        "Critical multiplier": 2,
+                        "Damage": 5,
+                        "Recovery time": 0.04,
+                        "Ammo": 80
                     },
                     "Adaptive Shield": {
                         "Ally overhealth cap": 0,
@@ -301,7 +316,8 @@
                         "Minimum damage": 13.5,
                         "Maximum damage": 45,
                         "Projectile size": 0.05,
-                        "Pellet count": 11
+                        "Pellet count": 11,
+                        "Critical multiplier": 2
                     },
                     "Seismic Slam": {
                         "Damage": 40,
@@ -337,7 +353,8 @@
                         "Knockback reduction": 20
                     },
                     "Rocket Hammer": {
-                        "Damage": 80
+                        "Damage": 80,
+                        "Recovery time": 0.96
                     },
                     "Barrier Field": {
                         "Barrier health": 1800,
@@ -369,7 +386,6 @@
                 },
                 "abilities": {
                     "Incendiary and Volatile Changuns": {
-                        "Damage per bullet": 3.25,
                         "Number of shots required to ignite enemies with Incendiary Chaingun": 8,
                         "Projectile size": 0.05,
                         "Ammo": 300,
@@ -378,7 +394,10 @@
                         "Minimum damage falloff range": 30,
                         "Fire rate multiplier for firing both guns": 0,
                         "Spread for firing both guns": 0.85,
-                        "Incendiary Chaingun burn duration": 3
+                        "Incendiary Chaingun burn duration": 3,
+                        "Critical multiplier": 2,
+                        "Recovery time": 0.055555,
+                        "Damage": 3.25
                     },
                     "Overrun": {
                         "Cooldown": 8,
@@ -431,7 +450,8 @@
                         "Damage": 5,
                         "Reload time": 1,
                         "Ammo": 100,
-                        "Recovery time": 0.04
+                        "Recovery time": 0.04,
+                        "Critical multiplier": 2
                     },
                     "Pummel": {
                         "Projectile size": 0.575,
@@ -485,7 +505,8 @@
                     },
                     "The Viper": {
                         "Projectile size": 0.08,
-                        "Reload time": 0.2
+                        "Reload time": 0.2,
+                        "Critical multiplier": 2
                     }
                 }
             },
@@ -523,7 +544,8 @@
                         "Damage": 25,
                         "Ammo": 25,
                         "Reload time": 1.2,
-                        "Recovery time": 0.2
+                        "Recovery time": 0.2,
+                        "Critical multiplier": 2
                     },
                     "Reconfigure": {}
                 }
@@ -604,7 +626,13 @@
                         "Zarya copy shield health": 150
                     },
                     "Tri-shot": {
-                        "Projectile size": 0.175
+                        "Projectile size": 0.175,
+                        "Critical multiplier": 2,
+                        "Damage per pellet": 17,
+                        "Pellet count": 3,
+                        "Recovery time": 0.33333,
+                        "Reload time": 1.5,
+                        "Ammo": 12
                     },
                     "Focusing Beam": {
                         "Width": 0.25
@@ -619,7 +647,8 @@
                     "Shuriken": {
                         "Damage": 29,
                         "Projectile size": 0.175,
-                        "Ammo": 30
+                        "Ammo": 30,
+                        "Critical multiplier": 2
                     },
                     "Deflect": {
                         "Duration": 1.5
@@ -638,17 +667,20 @@
                     "Storm Bow": {
                         "Maximum damage": 125,
                         "Projectile size": 0.175,
-                        "has arrow draw progress preserved while wall climbing": false
+                        "has arrow draw progress preserved while wall climbing": false,
+                        "Critical multiplier": 2
                     },
                     "Storm Arrows": {
                         "Cooldown": 10,
                         "Damage per arrow": 70,
                         "Ammo": 4,
-                        "Projectile size": 0.175
+                        "Projectile size": 0.175,
+                        "Critical multiplier": 2
                     },
                     "Dragonstrike": {
                         "Speed": 15,
-                        "Ultimate cost": 1680
+                        "Ultimate cost": 1680,
+                        "Critical multiplier": 2
                     },
                     "Sonic Arrow": {
                         "does impact sound plat for enemies": true,
@@ -662,9 +694,12 @@
                 },
                 "abilities": {
                     "Frag Launcher": {
-                        "Impact Damage": "41.4",
-                        "Maximum Splash": "73.6",
-                        "Projectile size": 0.35
+                        "Projectile size": 0.35,
+                        "Direct damage": 41.4,
+                        "Explosion damage": 73.6,
+                        "Recovery time": 0.6667,
+                        "Ammo": 5,
+                        "Reload time": 1.5
                     },
                     "Concussion Mine": {
                         "Cooldown": 8,
@@ -709,10 +744,14 @@
                 },
                 "abilities": {
                     "Rocket Launcher": {
-                        "Recovery speed": 0.85,
                         "Projectile speed": 40,
                         "Projectile size": 0.35,
-                        "Explosion self damage": 25
+                        "Explosion self damage": 25,
+                        "Direct damage": 40,
+                        "Explosion damage": 80,
+                        "Recovery time": 0.85,
+                        "Ammo": 6,
+                        "Reload time": 1.5
                     },
                     "Barrage": {
                         "Ultimate cost": 2100,
@@ -786,7 +825,8 @@
                         "Secondary fire projectile size": 0.15,
                         "Minimum energy for gradual energy decay": 25,
                         "Number of shots to reach maximum spread": 12,
-                        "Spread": 0.88
+                        "Spread": 0.88,
+                        "Critical multiplier": 2
                     },
                     "Power Slide": {
                         "Cooldown": 9
@@ -856,7 +896,10 @@
                         "Damage": 8,
                         "Minimum Spread": 0,
                         "Number of shots until max spread": 6,
-                        "Reload time": 1.2
+                        "Reload time": 1.2,
+                        "Critical multiplier": 2,
+                        "Recovery time": 0.05,
+                        "Ammo": 60
                     },
                     "Stealth": {
                         "Grace period where Stealth can be canceled immediately after entering it": 0.75,
@@ -920,7 +963,8 @@
                         "Projectile size": 0.18,
                         "Alt fire projectile size": 0.05,
                         "Primary fire recovery": 0.51,
-                        "Secondary Fire spread": 4.5
+                        "Secondary Fire spread": 4.5,
+                        "Critical multiplier": 2
                     },
                     "Molten Core": {
                         "Ultimate cost": 2142,
@@ -941,15 +985,21 @@
             },
             "Tracer": {
                 "general": {
-                    "Base health": 175,
+                    "Base health": 150,
                     "Model size": 0.96
                 },
                 "abilities": {
                     "Pulse Pistols": {
-                        "Damage": 5.5,
                         "Minimum falloff range": 10,
                         "Projectile size": 0.05,
-                        "Spread": 4.14
+                        "Spread": 4.14,
+                        "Critical multiplier": 2,
+                        "Recovery time": 0.05,
+                        "Reload time": 1,
+                        "Ammo": 40,
+                        "Damage per pellet": 5.5,
+                        "Pellet count": 2,
+                        "Ammo per shot": 2
                     },
                     "Recall": {
                         "Cooldown": 12
@@ -969,7 +1019,10 @@
                     "SMART Excavator": {
                         "Maximum explosion damage": 37.33,
                         "Projectile size": 0.35,
-                        "Direct damage": 32.67
+                        "Direct damage": 32.67,
+                        "Reload time": 1.5,
+                        "Recovery time": 0.7,
+                        "Ammo": 8
                     },
                     "Drill Dash": {
                         "Cooldown start": "ability use",
@@ -1066,7 +1119,8 @@
                         "Explosion healing": 35,
                         "Direct healing": 40,
                         "Projectile size": 0.08,
-                        "Primary fire ammo": 36
+                        "Primary fire ammo": 36,
+                        "Critical multiplier": 2
                     },
                     "Regenerative Burst": {
                         "Cooldown": 13,
@@ -1137,7 +1191,8 @@
                         "Secondary fire heal-per-second": 110,
                         "Maximum charge time": 0.65,
                         "Projectile size": 0.13,
-                        "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": false
+                        "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": false,
+                        "Reload time": 1.8
                     },
                     "Outburst": {
                         "Damage": 25,
@@ -1216,13 +1271,16 @@
                     },
                     "Thorn Volley": {
                         "Ammo": 60,
-                        "Damage": 7.5,
                         "Projectile size": 0.2,
                         "Projectile speed": 80,
                         "Second Thorn Volley projectile reduced spread": 25,
                         "Number of projectiles to reach maximum spread": 20,
                         "Recovery time": 0.0909,
-                        "Reload time": 1.5
+                        "Reload time": 1.5,
+                        "Critical multiplier": 2,
+                        "Damage per pellet": 7.5,
+                        "Pellet count": 2,
+                        "Ammo per shot": 2
                     },
                     "Petal Platform": {
                         "Health": 300,
@@ -1257,7 +1315,8 @@
                 "abilities": {
                     "Sonic Amplifier": {
                         "Damage per projectile": 20,
-                        "Projectile size": 0.25
+                        "Projectile size": 0.25,
+                        "Critical multiplier": 2
                     },
                     "Soundwave": {
                         "Damage": 30,
@@ -1291,7 +1350,11 @@
                     },
                     "Caduceus Blaster": {
                         "Ammo": 20,
-                        "Projectile size": 0.275
+                        "Projectile size": 0.275,
+                        "Critical multiplier": 2,
+                        "Reload time": 1.4,
+                        "Recovery time": 0.2,
+                        "Damage": 20
                     },
                     "Valkyrie": {
                         "Healing": 60,
@@ -1334,8 +1397,12 @@
                 "abilities": {
                     "Snap Kick": {},
                     "Orb of Destruction": {
-                        "Ammo": 20,
-                        "Projectile size": 0.225
+                        "Ammo": 25,
+                        "Projectile size": 0.225,
+                        "Critical multiplier": 2,
+                        "Damage": 48,
+                        "Recovery time": 0.4,
+                        "Reload time": 1.5
                     },
                     "Transcendence": {
                         "Ultimate cost": 2310
