@@ -4,7 +4,8 @@
         "Armor health": "none",
         "Out-of-combat health regeneration": "none",
         "Role lock": "none",
-        "Ultimate percent retained on swap": "percent"
+        "Ultimate percent retained on swap": "percent",
+        "has stranded spawn feature": "flag"
     },
     "heroes": {
         "tank": {
@@ -262,10 +263,12 @@
                 },
                 "abilities": {
                     "Particle Cannon": {
-                        "Maximum damage": "none",
-                        "Minimum damage": "none",
-                        "Alt fire projectile size": "meters",
+                        "Maximum damage per second": "none",
+                        "Minimum damage per second": "none",
                         "Beam width": "meters"
+                    },
+                    "Particle Cannon Alt Fire": {
+                        "Projectile size": "meters"
                     },
                     "Particle Barrier": {
                         "shares cooldown with Projected Barrier": "none",
@@ -454,12 +457,14 @@
                 "abilities": {
                     "Tesla Cannon": {
                         "Damage per second": "none",
-                        "Secondary fire charge time": "seconds",
-                        "ignores armor damage reduction": "none",
-                        "Secondary fire range": "meters",
+                        "ignores armor damage reduction": "flag",
                         "Cooldown": "seconds",
-                        "Spread": "relative percent",
-                        "Secondary fire recovery time": "seconds"
+                        "Spread": "relative percent"
+                    },
+                    "Tesla Cannon Alt Fire": {
+                        "Maximum charge time": "seconds",
+                        "Range": "meters",
+                        "Recovery time": "seconds"
                     },
                     "Jet Pack": {
                         "Cooldown": "seconds",
@@ -706,6 +711,10 @@
                         "Minimum slow": "percent",
                         "Maximum slow": "percent",
                         "Duration before slow falls off between primary fire hits": "seconds"
+                    },
+                    "Endothermic Blaster Alt Fire": {
+                        "Damage": "none",
+                        "Projectile size": "meters"
                     },
                     "Cryofreeze": {
                         "Healing per second": "none"

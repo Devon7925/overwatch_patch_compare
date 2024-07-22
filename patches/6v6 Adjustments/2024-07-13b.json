@@ -76,7 +76,9 @@
                         "Projectile size": 0.05,
                         "Spread": 1.8,
                         "Ammo": 8,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Reload time": 1.5,
+                        "Recovery time": 0.75
                     },
                     "Jagged Blade": {
                         "Pull distance": 17.629,
@@ -240,7 +242,8 @@
                         "can be retracted": true,
                         "Cooldown if fireball speed is not achieved": 1,
                         "requires fireball speed for max duration to begin": true,
-                        "Knockback": 18.7
+                        "Knockback": 18.7,
+                        "Cooldown": 5
                     },
                     "Piledriver": {
                         "Movement lockout duration for enemies": 0.75,
@@ -477,10 +480,7 @@
                 "abilities": {
                     "Tesla Cannon": {
                         "Damage per second": 60,
-                        "Secondary fire charge time": 1,
-                        "ignores armor damage reduction": true,
-                        "Secondary fire range": 40,
-                        "Secondary fire recovery time": 0.75
+                        "ignores armor damage reduction": true
                     },
                     "Primal Rage": {
                         "Ultimate cost": 1540,
@@ -490,6 +490,12 @@
                     "Jet Pack": {
                         "Cooldown": 6,
                         "Minimum damage falloff range": 1.3
+                    },
+                    "Tesla Cannon Alt Fire": {
+                        "Maximum charge time": 1,
+                        "Range": 40,
+                        "Recovery time": 0.75,
+                        "Damage": 50
                     }
                 }
             }
@@ -530,7 +536,8 @@
                         "Projectile size": 0.4,
                         "Impact damage": 15,
                         "Maximum explosion damage falloff": 50,
-                        "Detonation time": 0.35
+                        "Detonation time": 0.35,
+                        "Cooldown": 8
                     },
                     "Configuration: Assault": {
                         "Movement speed penalty": 45,
@@ -729,9 +736,7 @@
                 "abilities": {
                     "Endothermic Blaster": {
                         "Ammo": 120,
-                        "Secondary fire damage": 75,
                         "Projectile size": 0.555,
-                        "Alt fire projectile size": 0.2,
                         "Damage per second": 100,
                         "Maximum slow": 30,
                         "Minimum slow": 30,
@@ -746,6 +751,11 @@
                     "Blizzard": {
                         "Ultimate cost": 1610,
                         "Cast time": 0.4
+                    },
+                    "Endothermic Blaster Alt Fire": {
+                        "Projectile size": 0.2,
+                        "Damage": 75,
+                        "Recovery time": 0.8
                     }
                 }
             },
@@ -830,16 +840,14 @@
                 },
                 "abilities": {
                     "Railgun": {
-                        "Secondary fire maximum damage": 100,
-                        "Secondary fire minimum damage": 1,
                         "requires overclock for secondary primary piercing": false,
                         "Primary fire shots per second": 16,
                         "Projectile size": 0.175,
-                        "Secondary fire projectile size": 0.15,
                         "Minimum energy for gradual energy decay": 25,
                         "Number of shots to reach maximum spread": 12,
                         "Spread": 0.88,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Damage": 9
                     },
                     "Power Slide": {
                         "Cooldown": 9
@@ -847,6 +855,11 @@
                     "Overclock": {
                         "Energy charge rate": 120,
                         "Ultimate cost": 2100
+                    },
+                    "Railgun Alt Fire": {
+                        "Maximum damage": 100,
+                        "Minimum damage": 1,
+                        "Projectile size": 0.15
                     }
                 }
             },

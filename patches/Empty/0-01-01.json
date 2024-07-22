@@ -5,7 +5,17 @@
             "general": {}
         },
         "damage": {
-            "general": {}
+            "general": {},
+            "Sojourn": {
+                "abilities": {
+                    "Railgun Alt Fire": {
+                        "Damage": 9
+                    },
+                    "Railgun": {
+                        "Damage": 9
+                    }
+                }
+            }
         },
         "support": {
             "general": {}
