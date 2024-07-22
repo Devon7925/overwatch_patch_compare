@@ -121,7 +121,8 @@
                         "Ultimate cost": "none",
                         "Minimum damage": "none",
                         "Maximum damage": "none",
-                        "Early charge rate": "none"
+                        "Early charge rate": "none",
+                        "can be interrupted by hack": "flag"
                     },
                     "Augmented Fusion Driver": {
                         "Projectile size": "meters",
@@ -163,7 +164,8 @@
                     "Chain Hook": {
                         "Cooldown": "seconds",
                         "Projectile size": "meters",
-                        "Enemy final position distance": "meters"
+                        "Enemy final position distance": "meters",
+                        "Cooldown start": "none"
                     },
                     "Whole Hog": {
                         "Knockback": "none",
@@ -242,7 +244,8 @@
                         "Health": "none",
                         "damage": "none",
                         "Explosion knockback": "none",
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "Arming time": "seconds"
                     },
                     "Quad Cannons": {
                         "Projectile size": "meters",
@@ -427,7 +430,8 @@
                     },
                     "Annihilation": {
                         "Ultimate cost": "none",
-                        "Increased movement speed": "percent"
+                        "Increased movement speed": "percent",
+                        "refreshes bonus armor if used while in Nemesis Form": "flag"
                     },
                     "Void Accelerator": {
                         "Projectile size": "meters",
@@ -482,7 +486,8 @@
                         "Ultimate cost": "none",
                         "Weapon damage": "none",
                         "has tank passive": "none",
-                        "Health": "none"
+                        "Health": "none",
+                        "prefers to shoot at enemy targets that Ashe damage with her rifle": "flag"
                     },
                     "The Viper": {
                         "Projectile size": "meters",
@@ -654,6 +659,9 @@
                     "Sonic Arrow": {
                         "does impact sound plat for enemies": "none",
                         "has visual effect when deployed": "none"
+                    },
+                    "Lunge": {
+                        "Cooldown": "seconds"
                     }
                 }
             },
@@ -706,7 +714,8 @@
                         "Health per pillar": "none"
                     },
                     "Blizzard": {
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "Cast time": "seconds"
                     }
                 }
             },
@@ -736,7 +745,8 @@
                     "Jump Jet": {
                         "Vertical boost height": "relative percent",
                         "Cooldown": "seconds",
-                        "Fuel restoration": "percent"
+                        "Fuel restoration": "percent",
+                        "affected by directional input": "flag"
                     },
                     "Hover Jets": {
                         "requires landing to recharge fuel": "none",
@@ -776,7 +786,8 @@
             },
             "Sojourn": {
                 "general": {
-                    "Base health": "none"
+                    "Base health": "none",
+                    "Torso hit volume": "relative percent"
                 },
                 "abilities": {
                     "Railgun": {
@@ -1077,7 +1088,7 @@
                     },
                     "Immortality Field": {
                         "Health": "none",
-                        "Minimum health threshhold": "percent",
+                        "Minimum health threshold": "percent",
                         "Cooldown": "seconds"
                     },
                     "Amplification Matrix": {
@@ -1170,7 +1181,7 @@
                         "Move speed while falling": "meters per second"
                     },
                     "Mediblaster": {
-                        "damage": "none",
+                        "Damage": "none",
                         "Healing": "none",
                         "Bullets per burst": "none",
                         "Ammo": "none",

@@ -131,7 +131,8 @@
                         "Ultimate cost": 1814,
                         "Minimum damage": 58,
                         "Maximum damage": 400,
-                        "Early charge rate": 62.5
+                        "Early charge rate": 62.5,
+                        "can be interrupted by hack": true
                     },
                     "Augmented Fusion Driver": {
                         "Projectile size": 0.225,
@@ -173,7 +174,8 @@
                     "Chain Hook": {
                         "Cooldown": 7,
                         "Projectile size": 0.5,
-                        "Enemy final position distance": 3
+                        "Enemy final position distance": 3,
+                        "Cooldown start": "ability end"
                     },
                     "Whole Hog": {
                         "Knockback": 16,
@@ -249,7 +251,8 @@
                         "Health": 45,
                         "Damage": 130,
                         "Explosion knockback": 10,
-                        "Ultimate cost": 1540
+                        "Ultimate cost": 1540,
+                        "Arming time": 1.25
                     },
                     "Quad Cannons": {
                         "Projectile size": 0.05,
@@ -443,7 +446,8 @@
                     },
                     "Annihilation": {
                         "Ultimate cost": 2016,
-                        "Increased movement speed": 10
+                        "Increased movement speed": 10,
+                        "refreshes bonus armor if used while in Nemesis Form": true
                     },
                     "Void Accelerator": {
                         "Projectile size": 0.15,
@@ -501,7 +505,8 @@
                         "Ultimate cost": 2240,
                         "Weapon damage": 17,
                         "has tank passive": true,
-                        "Health": 900
+                        "Health": 900,
+                        "prefers to shoot at enemy targets that Ashe damage with her rifle": true
                     },
                     "The Viper": {
                         "Projectile size": 0.08,
@@ -685,6 +690,9 @@
                     "Sonic Arrow": {
                         "does impact sound plat for enemies": true,
                         "has visual effect when deployed": true
+                    },
+                    "Lunge": {
+                        "Cooldown": 4
                     }
                 }
             },
@@ -734,7 +742,8 @@
                         "Health per pillar": 275
                     },
                     "Blizzard": {
-                        "Ultimate cost": 1610
+                        "Ultimate cost": 1610,
+                        "Cast time": 0.4
                     }
                 }
             },
@@ -771,7 +780,8 @@
                     "Jump Jet": {
                         "Fuel restoration": 50,
                         "Vertical boost height": 8.4,
-                        "Cooldown": 14
+                        "Cooldown": 14,
+                        "affected by directional input": true
                     },
                     "Hover Jets": {
                         "requires landing to recharge fuel": true,
@@ -813,7 +823,8 @@
             },
             "Sojourn": {
                 "general": {
-                    "Base health": 200
+                    "Base health": 200,
+                    "Torso hit volume": 1.2
                 },
                 "abilities": {
                     "Railgun": {
@@ -1129,7 +1140,7 @@
                     },
                     "Immortality Field": {
                         "Health": 100,
-                        "Minimum health threshhold": 20,
+                        "Minimum health threshold": 20,
                         "Cooldown": 25
                     },
                     "Amplification Matrix": {

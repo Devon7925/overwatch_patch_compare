@@ -45,6 +45,6 @@ def process_json_files(folder_path, path, new_key, new_value=None, rename=False)
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Wall impact damage"
-new_value = 40
-process_json_files(folder_path, 'heroes/tank/Orisa/abilities/Energy Javelin', new_property_name, new_value, rename=False)
+new_property_name = "refreshes bonus armor if used while in Nemesis Form"
+new_value = True
+process_json_files(folder_path, 'heroes/tank/Ramattra/abilities/Annihilation', new_property_name, new_value, rename=False)
