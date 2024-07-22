@@ -270,10 +270,9 @@
                 },
                 "abilities": {
                     "Particle Cannon": {
-                        "Maximum damage": 170,
-                        "Minimum damage": 85,
-                        "Alt fire projectile size": 0.2,
-                        "Beam width": 0.15
+                        "Beam width": 0.15,
+                        "Maximum damage per second": 170,
+                        "Minimum damage per second": 85
                     },
                     "Particle Barrier": {
                         "shares cooldown with Projected Barrier": true,
@@ -294,6 +293,9 @@
                         "Radius": 6,
                         "Duration": 3.5,
                         "Projectile size": 0.05
+                    },
+                    "Particle Cannon Alt Fire": {
+                        "Projectile size": 0.2
                     }
                 }
             },

@@ -1,32 +1,37 @@
 import os
 import json
 
-def rename_property_in_json(obj, path, new_key):
-    keys = path.split('/')
-    if not keys:
+def rename_property_in_json(obj, old_path, new_path):
+    old_keys = old_path.split('/')
+    new_keys = new_path.split('/')
+
+    def get_nested_dict(obj, keys):
+        for key in keys[:-1]:
+            obj = obj.setdefault(key, {})
         return obj
 
-    current_key = keys.pop(0)
+    old_parent = get_nested_dict(obj, old_keys)
+    new_parent = get_nested_dict(obj, new_keys)
 
-    if current_key in obj:
-        if not keys:  # If this is the last key in the path
-            obj[new_key] = obj.pop(current_key)
-        else:
-            rename_property_in_json(obj[current_key], '/'.join(keys), new_key)
+    old_key = old_keys[-1]
+    new_key = new_keys[-1]
+
+    if old_key in old_parent:
+        new_parent[new_key] = old_parent.pop(old_key)
 
 def add_property_in_json(obj, path, new_key, new_value):
     keys = path.split('/')
-    if not keys or keys == ['']:
-        obj[new_key] = new_value
-        return
-
     current_key = keys.pop(0)
 
     if current_key not in obj:
-        return
-    add_property_in_json(obj[current_key], '/'.join(keys), new_key, new_value)
+        obj[current_key] = {}
 
-def process_json_files(folder_path, path, new_key, new_value=None, rename=False):
+    if keys:
+        add_property_in_json(obj[current_key], '/'.join(keys), new_key, new_value)
+    else:
+        obj[new_key] = new_value
+
+def process_json_files(folder_path, old_path, new_path=None, new_value=None, rename=False):
     for root, dirs, files in os.walk(folder_path):
         for filename in files:
             if filename.endswith('.json'):
@@ -35,9 +40,9 @@ def process_json_files(folder_path, path, new_key, new_value=None, rename=False)
                     data = json.load(file)
 
                 if rename:
-                    rename_property_in_json(data, path, new_key)
+                    rename_property_in_json(data, old_path, new_path)
                 else:
-                    add_property_in_json(data, path, new_key, new_value)
+                    add_property_in_json(data, old_path, new_path, new_value)
 
                 with open(file_path, 'w', encoding='utf-8') as file:
                     json.dump(data, file, ensure_ascii=False, indent=4)
@@ -45,6 +50,6 @@ def process_json_files(folder_path, path, new_key, new_value=None, rename=False)
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "refreshes bonus armor if used while in Nemesis Form"
-new_value = True
-process_json_files(folder_path, 'heroes/tank/Ramattra/abilities/Annihilation', new_property_name, new_value, rename=False)
+new_property_name = "heroes/tank/Winston/abilities/Tesla Cannon Alt Fire"
+new_value = {}
+process_json_files(folder_path, 'heroes/tank/Winston/abilities/Tesla Cannon Alt Fire', new_property_name, new_value, rename=False)
