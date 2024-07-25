@@ -38,7 +38,8 @@
                     },
                     "Defense Matrix": {
                         "Cooldown": 1.5,
-                        "Maximum Duration": 2
+                        "Maximum Duration": 2,
+                        "Recharge rate": 16.67
                     },
                     "Self Destruct": {
                         "Ultimate cost": 1540,
@@ -153,16 +154,15 @@
                 "abilities": {
                     "Scrap Gun": {
                         "Ammo": 5,
-                        "Total damage": 127.5,
                         "Pellet projectile size": 0.05,
                         "Shrapnel projectile size": 0.15,
                         "Pellet count": 16,
                         "Shrapnel count": 4,
-                        "Shrapnel damage": 15,
                         "Critical multiplier": 1.5,
-                        "Pellet damage": 6.25,
                         "Recovery time": 0.8,
-                        "Reload time": 1.75
+                        "Reload time": 1.75,
+                        "Damage per pellet": 4.98046875,
+                        "Damage per shrapnel": 11.953125
                     },
                     "Take a Breather": {
                         "Damage reduction": 40,
@@ -434,7 +434,8 @@
             "Ramattra": {
                 "general": {
                     "Base health": 400,
-                    "Model Size": 0.94
+                    "Model Size": 0.94,
+                    "Nemesis model size": 0.94
                 },
                 "abilities": {
                     "Nemesis Form": {
@@ -442,7 +443,8 @@
                         "Extra armor": 200
                     },
                     "Void Barrier": {
-                        "Barrier health": 650
+                        "Barrier health": 650,
+                        "Cooldown": 13
                     },
                     "Ravenous Vortex": {
                         "Cooldown": 12,
@@ -496,6 +498,9 @@
                         "Range": 40,
                         "Recovery time": 0.75,
                         "Damage": 50
+                    },
+                    "Barrier Projector": {
+                        "Health": 650
                     }
                 }
             }
@@ -1406,7 +1411,8 @@
                         "Ultimate cost": 2940
                     },
                     "Crossfade": {
-                        "Crossfade self-healing penalty for the duration of Amp It Up": 0
+                        "Crossfade self-healing penalty for the duration of Amp It Up": 0,
+                        "Self healing per second": 10
                     }
                 }
             },

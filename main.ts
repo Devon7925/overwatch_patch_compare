@@ -561,14 +561,20 @@ export function calculateProperties(patch_data: PatchData) {
                 if(typeof abilityData["Explosion damage"] === "number") {
                     total_damage += abilityData["Explosion damage"]
                 }
-                if(total_damage > 0) {
-                    patch_data.heroes[role][hero].abilities[ability]["Total damage"] = total_damage
-                }
 
                 if (typeof abilityData["Damage per pellet"] === "number" && typeof abilityData["Pellet count"] === "number") {
-                    let total_damage = 1;
-                    total_damage *= abilityData["Damage per pellet"]
-                    total_damage *= abilityData["Pellet count"]
+                    let pellet_damage = 1;
+                    pellet_damage *= abilityData["Damage per pellet"]
+                    pellet_damage *= abilityData["Pellet count"]
+                    total_damage += pellet_damage
+                }
+                if (typeof abilityData["Damage per shrapnel"] === "number" && typeof abilityData["Shrapnel count"] === "number") {
+                    let shrapnel_damage = 1;
+                    shrapnel_damage *= abilityData["Damage per shrapnel"]
+                    shrapnel_damage *= abilityData["Shrapnel count"]
+                    total_damage += shrapnel_damage
+                }
+                if(total_damage > 0) {
                     patch_data.heroes[role][hero].abilities[ability]["Total damage"] = total_damage
                 }
                 if (typeof abilityData["Direct healing"] === "number" && typeof abilityData["Explosion healing"] === "number") {

@@ -38,7 +38,8 @@
                     },
                     "Defense Matrix": {
                         "Cooldown": 1,
-                        "Maximum Duration": 3
+                        "Maximum Duration": 3,
+                        "Recharge rate": 16.67
                     },
                     "Self Destruct": {
                         "Ultimate cost": 1545,
@@ -153,7 +154,6 @@
                 "abilities": {
                     "Scrap Gun": {
                         "Ammo": 6,
-                        "Total damage": 150,
                         "Pellet projectile size": 0.0,
                         "Shrapnel projectile size": 0.075,
                         "Pellet count": 25,
@@ -161,9 +161,9 @@
                         "Secondary fire pre-detonation damage": 50,
                         "Secondary fire max range": 8,
                         "has secondary fire": true,
-                        "Pellet damage": 6,
                         "Recovery time": 0.8,
-                        "Reload time": 1.75
+                        "Reload time": 1.75,
+                        "Damage per pellet": 6
                     },
                     "Take a Breather": {
                         "Damage reduction": 50,
@@ -392,7 +392,8 @@
                         "Increased movement speed": 20
                     },
                     "Void Barrier": {
-                        "Barrier health": 1000
+                        "Barrier health": 1000,
+                        "Cooldown": 13
                     },
                     "Ravenous Vortex": {
                         "Cooldown": 12,
@@ -446,6 +447,9 @@
                         "Range": 30,
                         "Recovery time": 0.5,
                         "Damage": 50
+                    },
+                    "Barrier Projector": {
+                        "Health": 650
                     }
                 }
             }
@@ -1198,7 +1202,8 @@
                         "Ultimate cost": 2409
                     },
                     "Crossfade": {
-                        "Crossfade self-healing penalty for the duration of Amp It Up": 60
+                        "Crossfade self-healing penalty for the duration of Amp It Up": 60,
+                        "Self healing per second": 10
                     }
                 }
             },

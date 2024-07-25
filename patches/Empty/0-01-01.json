@@ -2,13 +2,27 @@
     "general": {},
     "heroes": {
         "tank": {
-            "general": {}
+            "general": {},
+            "Winston": {
+                "abilities": {
+                    "Barrier Projector": {
+                        "Health": 650
+                    }
+                }
+            }
         },
         "damage": {
             "general": {}
         },
         "support": {
-            "general": {}
+            "general": {},
+            "Lúcio": {
+                "abilities": {
+                    "Crossfade": {
+                        "Self healing per second": 10
+                    }
+                }
+            }
         }
     },
     "Map list": [],

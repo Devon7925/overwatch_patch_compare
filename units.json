@@ -34,7 +34,8 @@
                     },
                     "Defense Matrix": {
                         "Cooldown": "seconds",
-                        "Maximum Duration": "seconds"
+                        "Maximum Duration": "seconds",
+                        "Recharge rate": "percent"
                     },
                     "Self Destruct": {
                         "Ultimate cost": "none",
@@ -113,7 +114,8 @@
                     },
                     "Energy Javelin": {
                         "Direct damage": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Cooldown": "seconds"
                     },
                     "Javelin Spin": {
                         "Cooldown": "seconds"
@@ -129,7 +131,7 @@
                         "Projectile size": "meters",
                         "has falloff damage penalty": "none",
                         "Minimum damage falloff range": "meters",
-                        "damage": "none"
+                        "Damage": "none"
                     }
                 }
             },
@@ -140,14 +142,13 @@
                 "abilities": {
                     "Scrap Gun": {
                         "Ammo": "none",
-                        "Total damage": "none",
                         "Pellet projectile size": "none",
                         "Shrapnel projectile size": "none",
                         "Secondary fire pre-detonation damage": "none",
                         "Secondary fire max range": "meters",
                         "has secondary fire": "none",
-                        "Pellet damage": "none",
-                        "Shrapnel damage": "none",
+                        "Damage per pellet": "none",
+                        "Damage per shrapnel": "none",
                         "Pellet count": "none",
                         "Shrapnel count": "none",
                         "Critical multiplier": "none"
@@ -243,7 +244,7 @@
                     },
                     "Minefield": {
                         "Health": "none",
-                        "damage": "none",
+                        "Damage": "none",
                         "Explosion knockback": "none",
                         "Ultimate cost": "none",
                         "Arming time": "seconds"
@@ -307,7 +308,7 @@
                         "Projectile size": "meters"
                     },
                     "Seismic Slam": {
-                        "damage": "none",
+                        "Damage": "none",
                         "Cooldown": 7
                     },
                     "Power Block": {
@@ -342,7 +343,7 @@
                         "Knockback reduction": "percent"
                     },
                     "Rocket Hammer": {
-                        "damage": "none"
+                        "Damage": "none"
                     },
                     "Barrier Field": {
                         "Barrier health": "none",
@@ -354,7 +355,7 @@
                     },
                     "Firestrike": {
                         "Ability charges": "none",
-                        "damage": "none",
+                        "Damage": "none",
                         "Projectile size": "meters"
                     },
                     "Earthshatter": {
@@ -424,7 +425,8 @@
                         "Increased movement speed": "percent"
                     },
                     "Void Barrier": {
-                        "Barrier health": "none"
+                        "Barrier health": "none",
+                        "Cooldown": "seconds"
                     },
                     "Ravenous Vortex": {
                         "Cooldown": "seconds",
@@ -438,11 +440,11 @@
                     },
                     "Void Accelerator": {
                         "Projectile size": "meters",
-                        "damage": "none"
+                        "Damage": "none"
                     },
                     "Pummel": {
                         "Projectile size": "meters",
-                        "damage": "none"
+                        "Damage": "none"
                     },
                     "Block": {
                         "reduces damage from stuck projectiles": "none"
@@ -474,6 +476,9 @@
                         "Ultimate cost": "none",
                         "Punch damage": "none",
                         "Maximum health gained": "none"
+                    },
+                    "Barrier Projector": {
+                        "Health": "none"
                     }
                 }
             }
@@ -628,7 +633,7 @@
                 },
                 "abilities": {
                     "Shuriken": {
-                        "damage": "none",
+                        "Damage": "none",
                         "Projectile size": "meters",
                         "Ammo": "none"
                     },
@@ -697,7 +702,7 @@
                 },
                 "abilities": {
                     "Deep Chill": {
-                        "damage": "none",
+                        "Damage": "none",
                         "Duration": "seconds",
                         "Movement speed reduction": "percent",
                         "bonus damage triggered by Mei's quick melee": "flag"
@@ -827,7 +832,7 @@
                 },
                 "abilities": {
                     "Heavy Pulse Rifle": {
-                        "damage": "none",
+                        "Damage": "none",
                         "Projectile size": "meters",
                         "Ammo": "none"
                     },
@@ -874,7 +879,7 @@
                     },
                     "Machine Pistol": {
                         "Projectile size": "meters",
-                        "damage": "none",
+                        "Damage": "none",
                         "Minimum Spread": "none",
                         "Number of shots until max spread": "none",
                         "Reload time": "seconds"
@@ -968,7 +973,7 @@
                 },
                 "abilities": {
                     "Pulse Pistols": {
-                        "damage": "none",
+                        "Damage per pellet": "none",
                         "Minimum falloff range": "meters",
                         "Projectile size": "meters",
                         "Spread": "relative percent"
@@ -995,7 +1000,8 @@
                     "SMART Excavator": {
                         "Maximum explosion damage": "none",
                         "Projectile size": "meters",
-                        "Direct damage": "none"
+                        "Direct damage": "none",
+                        "Ammo": "none"
                     },
                     "Drill Dash": {
                         "Cooldown start": "none",
@@ -1016,7 +1022,7 @@
                         "Vertical knockback": "relative percent",
                         "Extra damage range": "meters",
                         "Extra damage multiplier": "none",
-                        "damage": "none"
+                        "Damage": "none"
                     },
                     "Clobber": {
                         "Impact damage": "none",
@@ -1057,7 +1063,7 @@
                         "Unscoped projectile size": "meters",
                         "Enemy scoped projectile size": "meters",
                         "Ally scoped projectile size": "meters",
-                        "damage": "none",
+                        "Damage": "none",
                         "Healing": "none",
                         "Recovery time": "seconds",
                         "Reload time": "seconds"
@@ -1068,7 +1074,7 @@
                     },
                     "Biotic Grenade": {
                         "Healing": "none",
-                        "damage": "none",
+                        "Damage": "none",
                         "Projectile size": "meters",
                         "Effect duration": "seconds",
                         "Cooldown": "seconds"
@@ -1116,7 +1122,7 @@
                         "Healing per second": "none"
                     },
                     "Rocket Flail": {
-                        "damage": "none"
+                        "Damage": "none"
                     },
                     "Repair Pack": {
                         "Instant healing": "none",
@@ -1141,7 +1147,7 @@
                     },
                     "Shield Bash": {
                         "Cooldown": "seconds",
-                        "damage": "none"
+                        "Damage": "none"
                     }
                 }
             },
@@ -1151,7 +1157,7 @@
                 },
                 "abilities": {
                     "Solar Rifle": {
-                        "damage": "none",
+                        "Damage": "none",
                         "Critical multiplier": "none",
                         "Ammo": "none",
                         "Primary fire recovery": "none",
@@ -1161,7 +1167,7 @@
                         "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": "flag"
                     },
                     "Outburst": {
-                        "damage": "none"
+                        "Damage": "none"
                     },
                     "Healing Pylon": {
                         "Healing per projectile": "none",
@@ -1202,7 +1208,7 @@
                         "Reload time": "seconds"
                     },
                     "Pulsar Torpedoes": {
-                        "damage": "none",
+                        "Damage": "none",
                         "Healing": "none",
                         "Maximum duration": "seconds",
                         "Cooldown": "seconds",
@@ -1242,7 +1248,7 @@
                     "Kunai": {
                         "Ammo": "none",
                         "Projectile size": "meters",
-                        "damage": "none",
+                        "Damage": "none",
                         "Critical multiplier": "none",
                         "Recovery time": "seconds",
                         "Ammo refresh time": "seconds"
@@ -1286,7 +1292,7 @@
                     },
                     "Thorn Volley": {
                         "Ammo": "none",
-                        "damage": "none",
+                        "Damage": "none",
                         "Projectile size": "meters",
                         "Projectile speed": "meters per second",
                         "Second Thorn Volley projectile reduced spread": "percent",
@@ -1334,7 +1340,7 @@
                         "Projectile size": "meters"
                     },
                     "Soundwave": {
-                        "damage": "none",
+                        "Damage": "none",
                         "Knockback": "none",
                         "Movement lockout duration": "seconds"
                     },
@@ -1342,7 +1348,8 @@
                         "Ultimate cost": "none"
                     },
                     "Crossfade": {
-                        "Crossfade self-healing penalty for the duration of Amp It Up": "percent"
+                        "Crossfade self-healing penalty for the duration of Amp It Up": "percent",
+                        "Self healing per second": "none"
                     }
                 }
             },
