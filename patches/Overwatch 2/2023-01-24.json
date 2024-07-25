@@ -4,9 +4,9 @@
         "Armor health": "30% damage reduction",
         "Out-of-combat health regeneration": "0",
         "Role lock": "1-2-2",
-        "Ultimate percent retained on swap": 25,
+        "Ultimate percent retained on swap": 30,
         "Quick melee damage": 30,
-        "has stranded spawn feature": true
+        "has stranded spawn feature": false
     },
     "heroes": {
         "tank": {
@@ -15,7 +15,7 @@
                 "Knockback resistance": 30,
                 "Ultimate generation reduction": 30,
                 "Damage passive effect reduction": 0,
-                "Adjusted sleep duration": 3.5
+                "Adjusted sleep duration": 5
             },
             "D.Va": {
                 "general": {
@@ -61,7 +61,7 @@
             },
             "Junker Queen": {
                 "general": {
-                    "Base health": 450,
+                    "Base health": 425,
                     "Model size": 1,
                     "Armor health": 0,
                     "has overridden melee": true
@@ -135,12 +135,12 @@
                         "Minimum damage": 72,
                         "Maximum damage": 500,
                         "Early charge rate": 50,
-                        "can be interrupted by hack": true
+                        "can be interrupted by hack": false
                     },
                     "Augmented Fusion Driver": {
                         "Projectile size": 0.15,
                         "has falloff damage penalty": true,
-                        "Minimum damage falloff range": 15,
+                        "Minimum damage falloff range": 25,
                         "Damage": 12,
                         "Critical multiplier": 2,
                         "Recovery time": 0.1
@@ -174,18 +174,18 @@
                         "Cast time": 0.5
                     },
                     "Chain Hook": {
-                        "Cooldown": 6,
+                        "Cooldown": 8,
                         "Projectile size": 0.5,
                         "Enemy final position distance": 4,
-                        "Cooldown start": "ability end"
+                        "Cooldown start": "ability start"
                     },
                     "Whole Hog": {
                         "Knockback": 14,
                         "Damage per pellet": 7,
-                        "Ultimate cost": 2772,
+                        "Ultimate cost": 2567,
                         "disables other abilities and automatically fires": false,
                         "Projectile size": 0.0,
-                        "Maximum duration": 8
+                        "Maximum duration": 6
                     }
                 }
             },
@@ -205,15 +205,15 @@
                         "Overhealth generation from damage mitigated": 60
                     },
                     "Accretion": {
-                        "Direct damage": 40,
-                        "Stun duration": 1.2,
+                        "Direct damage": 60,
+                        "Stun duration": 0.8,
                         "Projectile size": 0.9,
                         "Cooldown": 10,
                         "Explosion damage": 40
                     },
                     "Gravitic Flux": {
                         "requires line-of-sight": true,
-                        "Ultimate cost": 2090
+                        "Ultimate cost": 1950
                     },
                     "Hyperspheres": {
                         "Projectile size": 0.25,
@@ -224,9 +224,9 @@
             },
             "Wrecking Ball": {
                 "general": {
-                    "Base health": 400,
+                    "Base health": 600,
                     "Armor health": 100,
-                    "Shield health": 150
+                    "Shield health": 0
                 },
                 "abilities": {
                     "Grappling Claw": {
@@ -239,15 +239,15 @@
                     },
                     "Piledriver": {
                         "Movement lockout duration for enemies": 0.5,
-                        "Cooldown": 8,
+                        "Cooldown": 10,
                         "Maximum damage": 100
                     },
                     "Minefield": {
                         "Health": 50,
                         "Damage": 130,
                         "Explosion knockback": 5,
-                        "Ultimate cost": 1681,
-                        "Arming time": 1.25
+                        "Ultimate cost": 1540,
+                        "Arming time": 1.5
                     },
                     "Quad Cannons": {
                         "Projectile size": 0.0,
@@ -280,20 +280,20 @@
                     },
                     "Particle Barrier": {
                         "shares cooldown with Projected Barrier": true,
-                        "Cooldown": 10,
+                        "Cooldown": 11,
                         "Health": 200,
                         "Duration": 2
                     },
                     "Projected Barrier": {
                         "Cooldown start": "ability use",
                         "shares cooldown with Particle Barrier": true,
-                        "Cooldown": 10,
+                        "Cooldown": 11,
                         "Health": 200,
                         "Duration": 2,
                         "Size": 1
                     },
                     "Graviton Surge": {
-                        "Ultimate cost": 2272,
+                        "Ultimate cost": 2100,
                         "Radius": 6,
                         "Duration": 3.5,
                         "Projectile size": 0.05
@@ -346,8 +346,8 @@
             },
             "Reinhardt": {
                 "general": {
-                    "Base health": 350,
-                    "Armor health": 250,
+                    "Base health": 325,
+                    "Armor health": 300,
                     "has overridden melee": true
                 },
                 "abilities": {
@@ -357,26 +357,26 @@
                     "Rocket Hammer": {
                         "Damage": 85,
                         "Recovery time": 0.96,
-                        "Knockback": 6
+                        "Knockback": 10
                     },
                     "Barrier Field": {
                         "Barrier health": 1200,
                         "Regeneration rate": 144
                     },
                     "Charge": {
-                        "Cooldown": 7,
+                        "Cooldown": 8,
                         "Wall impact damage": 225
                     },
                     "Firestrike": {
                         "Ability charges": 2,
-                        "Damage": 100,
+                        "Damage": 90,
                         "Projectile size": 0.85
                     },
                     "Earthshatter": {
-                        "Knockdown duration": 2.75,
+                        "Knockdown duration": 2.5,
                         "Shockwave range": 20,
-                        "Ultimate cost": 1636,
-                        "Critical damage": 150
+                        "Ultimate cost": 1530,
+                        "Critical damage": 250
                     }
                 }
             },
@@ -402,10 +402,9 @@
                         "passes through enemy heroes": false
                     },
                     "Annihilation": {
-                        "Ultimate cost": 1866,
+                        "Ultimate cost": 2120,
                         "Increased movement speed": 20,
-                        "refreshes bonus armor if used while in Nemesis Form": true,
-                        "Maximum duration": 20
+                        "refreshes bonus armor if used while in Nemesis Form": false
                     },
                     "Void Accelerator": {
                         "Projectile size": 0.075,
@@ -451,7 +450,7 @@
                         "Damage": 50
                     },
                     "Barrier Projector": {
-                        "Health": 650
+                        "Health": 700
                     }
                 }
             }
@@ -471,7 +470,7 @@
                         "Weapon damage": 14,
                         "has tank passive": false,
                         "Health": 1000,
-                        "prefers to shoot at enemy targets that Ashe damage with her rifle": true
+                        "prefers to shoot at enemy targets that Ashe damage with her rifle": false
                     },
                     "The Viper": {
                         "Projectile size": 0.0,
@@ -523,14 +522,14 @@
             },
             "Cassidy": {
                 "general": {
-                    "Base health": 200
+                    "Base health": 225
                 },
                 "abilities": {
                     "Peacekeeper": {
                         "Secondary fire \"Fan the Hammer\" damage": 50,
                         "Projectile size": 0.0,
-                        "Primary fire falloff range minimum": 25,
-                        "Primary fire falloff range maximum": 45,
+                        "Primary fire falloff range minimum": 20,
+                        "Primary fire falloff range maximum": 40,
                         "Damage": 70,
                         "Critical multiplier": 2,
                         "Ammo": 6,
@@ -538,19 +537,19 @@
                     },
                     "Combat Roll": {
                         "Damage reduction": 50,
-                        "can be blocked by enemy player collision": false
+                        "can be blocked by enemy player collision": true
                     },
                     "Flashbang": {
                         "Duration": 1.2,
                         "Maximum projectile travel range": 10,
                         "hinder prevents crouching": true,
-                        "Direct damage": 60,
-                        "Explosion damage": 60,
+                        "Direct damage": 65,
+                        "Explosion damage": 65,
                         "Cooldown": 10,
                         "Projectile speed": 25,
                         "Projectile size": 0.1,
                         "Seeking radius": 3,
-                        "Impact damage": 0
+                        "Impact damage": 1
                     },
                     "Deadeye": {
                         "Max movement speed penalty": 70,
@@ -641,7 +640,7 @@
                         "has visual effect when deployed": false
                     },
                     "Lunge": {
-                        "Cooldown": 4
+                        "Cooldown": 5
                     }
                 }
             },
@@ -661,7 +660,7 @@
                     "Concussion Mine": {
                         "Cooldown": 8,
                         "Projectile size": 0.1,
-                        "Maximum damage": 100,
+                        "Maximum damage": 120,
                         "Minimum damage": 20
                     },
                     "RIP-Tire": {
@@ -689,8 +688,8 @@
                         "Health per pillar": 250
                     },
                     "Blizzard": {
-                        "Ultimate cost": 1749,
-                        "Cast time": 0.4
+                        "Ultimate cost": 1840,
+                        "Cast time": 0.5
                     },
                     "Endothermic Blaster Alt Fire": {
                         "Projectile size": 0.1,
@@ -715,7 +714,7 @@
                         "Reload time": 1.5
                     },
                     "Barrage": {
-                        "Ultimate cost": 1999,
+                        "Ultimate cost": 2105,
                         "Projectile size": 0.075,
                         "instantly refills Hover Jets fuel": false
                     },
@@ -729,7 +728,7 @@
                     "Jump Jet": {
                         "Vertical boost height": 10.5,
                         "Cooldown": 10,
-                        "affected by directional input": true
+                        "affected by directional input": false
                     },
                     "Hover Jets": {
                         "requires landing to recharge fuel": false,
@@ -758,7 +757,7 @@
                         "Cooldown": 10
                     },
                     "Death Blossom": {
-                        "Ultimate cost": 1931,
+                        "Ultimate cost": 2120,
                         "Damage per second": 170
                     },
                     "The Reaping": {
@@ -772,7 +771,7 @@
             "Sojourn": {
                 "general": {
                     "Base health": 200,
-                    "Torso hit volume": 1.2
+                    "Torso hit volume": 1
                 },
                 "abilities": {
                     "Railgun": {
@@ -813,8 +812,8 @@
                         "Recovery time": 0.111111111,
                         "Critical multiplier": 2,
                         "Reload time": 1.5,
-                        "Number of shots to reach maximum recoil": 6,
-                        "Recoil": 0.88
+                        "Number of shots to reach maximum recoil": 4,
+                        "Recoil": 1
                     },
                     "Biotic Field": {
                         "Cooldown": 15,
@@ -843,8 +842,7 @@
                         "Ultimate cost": 1640,
                         "Ability lockout duration": 1.5,
                         "Damage of current health": 40,
-                        "destroys Lifeweaver's Tree of Life": true,
-                        "destroys Mei's Blizzard": true
+                        "destroys Mei's Blizzard": false
                     },
                     "Translocator": {
                         "destroys breakables while in flight": false,
@@ -855,7 +853,7 @@
                     },
                     "Machine Pistol": {
                         "Projectile size": 0.0,
-                        "Damage": 7.5,
+                        "Damage": 7,
                         "Minimum Spread": 0.5,
                         "Number of shots until max spread": 3,
                         "Reload time": 1.4,
@@ -875,7 +873,7 @@
                         "cancels Stealth when hacking an enemy hero": false,
                         "Cooldown": 4,
                         "Cooldown on successful enemy hero hack": 4,
-                        "Health pack hacked duration": 45
+                        "Health pack hacked duration": 30
                     }
                 }
             },
@@ -904,7 +902,7 @@
                         "Shield Health": 150
                     },
                     "Photon Barrier": {
-                        "Ultimate cost": 1840,
+                        "Ultimate cost": 1675,
                         "Barrier health": 4000
                     }
                 }
@@ -932,7 +930,7 @@
                     "Deploy Turret": {
                         "Turret damage": 14,
                         "Cooldown": 10,
-                        "Turret base health": 225
+                        "Turret base health": 250
                     },
                     "Overload": {
                         "Overhealth": 100
@@ -971,7 +969,7 @@
             },
             "Widowmaker": {
                 "general": {
-                    "Base health": 175
+                    "Base health": 200
                 },
                 "abilities": {
                     "Infra-Sight": {
@@ -1015,7 +1013,7 @@
                         "Healing": 100,
                         "Damage": 60,
                         "Projectile size": 0.2,
-                        "Effect duration": 3.5,
+                        "Effect duration": 4,
                         "Cooldown": 10
                     },
                     "Nano Boost": {
@@ -1044,7 +1042,7 @@
                     },
                     "Immortality Field": {
                         "Health": 150,
-                        "Minimum health threshold": 25,
+                        "Minimum health threshold": 10,
                         "Cooldown": 23
                     },
                     "Amplification Matrix": {
@@ -1066,20 +1064,19 @@
                         "Damage": 35
                     },
                     "Repair Pack": {
-                        "Instant healing": 25,
                         "Cooldown": 6,
-                        "Range": 25,
-                        "Healing over time": 50
+                        "Range": 30,
+                        "Healing over time": 55
                     },
                     "Rally": {
-                        "Ultimate cost": 2517,
+                        "Ultimate cost": 2800,
                         "resets Shield Bash cooldown upon activation": false,
-                        "Extra armor health": 100,
-                        "builds self overhealth": false,
-                        "has bigger shield": true,
-                        "Additional barrier health": 450,
-                        "Shield bash stun duration": 0.5,
-                        "Bonus movement speed": 15
+                        "Extra armor health": 0,
+                        "builds self overhealth": true,
+                        "has bigger shield": false,
+                        "Additional barrier health": 0,
+                        "Shield bash stun duration": 0,
+                        "Bonus movement speed": 30
                     },
                     "Whipshot": {
                         "Damage": 70,
@@ -1130,58 +1127,6 @@
                     }
                 }
             },
-            "Lifeweaver": {
-                "general": {
-                    "Base health": 200,
-                    "Shield health": 0,
-                    "Petal ornament size": 1.0
-                },
-                "abilities": {
-                    "Healing Blossom": {
-                        "Ammo": 20,
-                        "Projectile size": 0.275,
-                        "Maximum charge time": 1,
-                        "Maximum heal amount": 65,
-                        "Delay until slow": 1
-                    },
-                    "Thorn Volley": {
-                        "Ammo": 60,
-                        "Projectile size": 0.1,
-                        "Projectile speed": 70,
-                        "Second Thorn Volley projectile reduced spread": 0,
-                        "Number of projectiles to reach maximum spread": 0,
-                        "Recovery time": 0.0909,
-                        "Reload time": 1.5,
-                        "Critical multiplier": 2,
-                        "Damage per pellet": 5,
-                        "Pellet count": 2,
-                        "Ammo per shot": 2
-                    },
-                    "Petal Platform": {
-                        "Health": 400,
-                        "Cooldown": 12,
-                        "Projectile size": 0.15,
-                        "pierced by piercing projectiles": true,
-                        "Walkable area": 1,
-                        "Maximum triger lift radius": 2,
-                        "Minimum triger lift radius": 2
-                    },
-                    "Rejuvenating Dash": {
-                        "Heal": 25
-                    },
-                    "Tree of Life": {
-                        "Pulse healing": 75,
-                        "Health": 1200,
-                        "Duration": 15,
-                        "Ultimate cost": 1850,
-                        "Overhealth conversion rate": 0
-                    },
-                    "Life Grip": {
-                        "Cooldown": 20,
-                        "Ability lockout duration": 0.45
-                    }
-                }
-            },
             "Lúcio": {
                 "general": {
                     "Base health": 200
@@ -1199,7 +1144,7 @@
                         "Cooldown": 4
                     },
                     "Sound Barrier": {
-                        "Ultimate cost": 2409
+                        "Ultimate cost": 2590
                     },
                     "Crossfade": {
                         "Crossfade self-healing penalty for the duration of Amp It Up": 60,
@@ -1212,8 +1157,8 @@
                     "Base health": 200
                 },
                 "abilities": {
-                    "Sympathetic Recovery": {
-                        "Self healing as percent of healing done": 25
+                    "Regeneration": {
+                        "Delay": 1.5
                     },
                     "Caduceus Staff": {
                         "Healing per second": 55,
@@ -1231,12 +1176,11 @@
                         "Healing": 60,
                         "Ultimate cost": 1818,
                         "disconnects Caduceus Staff from its target on activation": true,
-                        "force enables passive healing": true
+                        "force enables passive healing": false
                     },
                     "Guardian Angel": {
-                        "Active duration on jump/crouch cancel": 1.5,
-                        "Cooldown": 1.5,
-                        "Backwards movement efficiency": 80
+                        "Active duration on jump/crouch cancel": 1,
+                        "Cooldown": 1.5
                     }
                 }
             },
@@ -1248,13 +1192,13 @@
                     "Biotic Grasp": {
                         "Damage per second": 50,
                         "Secondary fire target acquisition radius": 0.6,
-                        "Lingering heal duration": 3
+                        "Lingering heal duration": 2
                     },
                     "Coalescence": {
                         "Self-heal per second": 50,
-                        "can use fade during duration": true,
-                        "Ultimate cost": 2636,
-                        "Bonus movement speed": 40
+                        "can use fade during duration": false,
+                        "Ultimate cost": 2770,
+                        "Bonus movement speed": 50
                     },
                     "Fade": {
                         "can be activated while affected by mobility-locking effects": true
@@ -1271,7 +1215,7 @@
                         "Knockback": 11
                     },
                     "Orb of Destruction": {
-                        "Ammo": 25,
+                        "Ammo": 20,
                         "Projectile size": 0.15,
                         "Critical multiplier": 2,
                         "Damage": 48,
@@ -1294,7 +1238,6 @@
         }
     },
     "Map list": {
-        "Antarctic Peninsula": 1,
         "Busan": 1,
         "Ilios": 1,
         "Lijiang Tower": 1,

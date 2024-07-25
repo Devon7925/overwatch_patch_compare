@@ -184,7 +184,8 @@
                         "Damage per pellet": 6,
                         "Ultimate cost": 2240,
                         "disables other abilities and automatically fires": true,
-                        "Projectile size": 0.05
+                        "Projectile size": 0.05,
+                        "Maximum duration": 8
                     },
                     "Pig Pen": {
                         "Vertical Knockback": 3,
@@ -362,7 +363,8 @@
                     },
                     "Rocket Hammer": {
                         "Damage": 80,
-                        "Recovery time": 0.96
+                        "Recovery time": 0.96,
+                        "Knockback": 6
                     },
                     "Barrier Field": {
                         "Barrier health": 1600,
@@ -454,7 +456,8 @@
                     "Annihilation": {
                         "Ultimate cost": 2016,
                         "Increased movement speed": 10,
-                        "refreshes bonus armor if used while in Nemesis Form": true
+                        "refreshes bonus armor if used while in Nemesis Form": true,
+                        "Maximum duration": 20
                     },
                     "Void Accelerator": {
                         "Projectile size": 0.15,
@@ -585,7 +588,8 @@
                         "Recovery time": 0.5
                     },
                     "Combat Roll": {
-                        "Damage reduction": 50
+                        "Damage reduction": 50,
+                        "can be blocked by enemy player collision": false
                     },
                     "Flashbang": {
                         "Effect": "Applies hinder on hit",
@@ -881,7 +885,9 @@
                         "Ammo": 30,
                         "Recovery time": 0.111111111,
                         "Critical multiplier": 2,
-                        "Reload time": 1.5
+                        "Reload time": 1.5,
+                        "Number of shots to reach maximum recoil": 6,
+                        "Recoil": 0.88
                     },
                     "Biotic Field": {
                         "Cooldown": 15,
@@ -949,7 +955,8 @@
                         "Cast time": 0.65,
                         "cancels Stealth when hacking an enemy hero": true,
                         "Cooldown": 3,
-                        "Cooldown on successful enemy hero hack": 6
+                        "Cooldown on successful enemy hero hack": 6,
+                        "Health pack hacked duration": 45
                     }
                 }
             },
@@ -1006,7 +1013,8 @@
                     },
                     "Deploy Turret": {
                         "Turret damage": 13,
-                        "Cooldown": 12
+                        "Cooldown": 12,
+                        "Turret base health": 225
                     },
                     "Overload": {
                         "Overhealth": 100,
@@ -1187,7 +1195,8 @@
                     "Repair Pack": {
                         "Instant healing": 35,
                         "Cooldown": 6,
-                        "Range": 25
+                        "Range": 25,
+                        "Healing over time": 50
                     },
                     "Rally": {
                         "Ultimate cost": 2800,
@@ -1399,7 +1408,8 @@
                     },
                     "Guardian Angel": {
                         "Active duration on jump/crouch cancel": 1,
-                        "Cooldown": 1.5
+                        "Cooldown": 1.5,
+                        "Backwards movement efficiency": 80
                     }
                 }
             },

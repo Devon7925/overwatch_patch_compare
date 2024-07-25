@@ -9,10 +9,60 @@
                         "Health": 650
                     }
                 }
+            },
+            "Ramattra": {
+                "abilities": {
+                    "Annihilation": {
+                        "Maximum duration": 20
+                    }
+                }
+            },
+            "Reinhardt": {
+                "abilities": {
+                    "Rocket Hammer": {
+                        "Knockback": 6
+                    }
+                }
+            },
+            "Roadhog": {
+                "abilities": {
+                    "Whole Hog": {
+                        "Maximum duration": 8
+                    }
+                }
             }
         },
         "damage": {
-            "general": {}
+            "general": {},
+            "Cassidy": {
+                "abilities": {
+                    "Combat Roll": {
+                        "can be blocked by enemy player collision": false
+                    }
+                }
+            },
+            "Soldier: 76": {
+                "abilities": {
+                    "Heavy Pulse Rifle": {
+                        "Number of shots to reach maximum recoil": 6,
+                        "Recoil": 0.88
+                    }
+                }
+            },
+            "Sombra": {
+                "abilities": {
+                    "Hack": {
+                        "Health pack hacked duration": 45
+                    }
+                }
+            },
+            "Torbjörn": {
+                "abilities": {
+                    "Deploy Turret": {
+                        "Turret base health": 225
+                    }
+                }
+            }
         },
         "support": {
             "general": {},
@@ -20,6 +70,20 @@
                 "abilities": {
                     "Crossfade": {
                         "Self healing per second": 10
+                    }
+                }
+            },
+            "Brigitte": {
+                "abilities": {
+                    "Repair Pack": {
+                        "Healing over time": 50
+                    }
+                }
+            },
+            "Mercy": {
+                "abilities": {
+                    "Guardian Angel": {
+                        "Backwards movement efficiency": 80
                     }
                 }
             }

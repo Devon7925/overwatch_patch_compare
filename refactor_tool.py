@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Self healing per second"
-new_value = 10
-process_json_files(folder_path, 'heroes/support/Lúcio/abilities/Crossfade/Self healing per second', new_property_name, new_value, rename=False)
+new_property_name = "Backwards movement efficiency"
+new_value = 80
+process_json_files(folder_path, 'heroes/support/Mercy/abilities/Guardian Angel/Backwards movement efficiency', new_property_name, new_value, rename=False)

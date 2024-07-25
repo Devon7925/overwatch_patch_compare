@@ -174,7 +174,8 @@
                         "Damage per pellet": "none",
                         "Ultimate cost": "none",
                         "disables other abilities and automatically fires": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Maximum duration": "seconds"
                     },
                     "Pig Pen": {
                         "Vertical Knockback": "none",
@@ -343,7 +344,8 @@
                         "Knockback reduction": "percent"
                     },
                     "Rocket Hammer": {
-                        "Damage": "none"
+                        "Damage": "none",
+                        "Knockback": "none"
                     },
                     "Barrier Field": {
                         "Barrier health": "none",
@@ -436,7 +438,8 @@
                     "Annihilation": {
                         "Ultimate cost": "none",
                         "Increased movement speed": "percent",
-                        "refreshes bonus armor if used while in Nemesis Form": "flag"
+                        "refreshes bonus armor if used while in Nemesis Form": "flag",
+                        "Maximum duration": "seconds"
                     },
                     "Void Accelerator": {
                         "Projectile size": "meters",
@@ -554,7 +557,8 @@
                         "Primary fire falloff range maximum": "meters"
                     },
                     "Combat Roll": {
-                        "Damage reduction": "percent"
+                        "Damage reduction": "percent",
+                        "can be blocked by enemy player collision": "flag"
                     },
                     "Flashbang": {
                         "Effect": "none",
@@ -834,7 +838,9 @@
                     "Heavy Pulse Rifle": {
                         "Damage": "none",
                         "Projectile size": "meters",
-                        "Ammo": "none"
+                        "Ammo": "none",
+                        "Number of shots to reach maximum recoil": "none",
+                        "Recoil": "relative percent"
                     },
                     "Biotic Field": {
                         "Cooldown": "seconds",
@@ -898,7 +904,8 @@
                         "Cast time": "seconds",
                         "cancels Stealth when hacking an enemy hero": "none",
                         "Cooldown on successful enemy hero hack": "seconds",
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Health pack hacked duration": "seconds"
                     },
                     "Opportunist": {
                         "Damage boost on hacked targets": "percent"
@@ -955,7 +962,8 @@
                     },
                     "Deploy Turret": {
                         "Turret damage": 13,
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Turret base health": "none"
                     },
                     "Overload": {
                         "Overhealth": "none",
@@ -1127,7 +1135,8 @@
                     "Repair Pack": {
                         "Instant healing": "none",
                         "Cooldown": "seconds",
-                        "Range": "meters"
+                        "Range": "meters",
+                        "Healing over time": "none"
                     },
                     "Rally": {
                         "Ultimate cost": "none",
@@ -1382,7 +1391,8 @@
                     },
                     "Guardian Angel": {
                         "Active duration on jump/crouch cancel": "seconds",
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Backwards movement efficiency": "percent"
                     }
                 }
             },
