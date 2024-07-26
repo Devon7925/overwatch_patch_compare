@@ -50,8 +50,13 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Biotic Orb"
+new_property_name = "heroes/tank/Doomfist/abilities/Power Block/Minimum damage mitigated required to empower Rocket Punch"
 new_value = {
-    "Damage orb biotic energy per damage dealt": 0.2
+    "Damage per second": 51,
+    "Projectile speed": 30,
+    "Max range": 30,
+    "Radius": 5,
+    "Duration": 4,
+    "Cooldown": 15,
 }
-process_json_files(folder_path, 'heroes/support/Moira/abilities/Biotic Orb', new_property_name, new_value, rename=False)
+process_json_files(folder_path, 'heroes/tank/Doomfist/abilities/Rocket Punch/Minimum damage mitigated required to empower Rocket Punch', new_property_name, new_value, rename=True)

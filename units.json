@@ -128,7 +128,8 @@
                         "Minimum damage": "none",
                         "Maximum damage": "none",
                         "Early charge rate": "none",
-                        "can be interrupted by hack": "flag"
+                        "can be interrupted by hack": "flag",
+                        "pierces through barriers upon impact": "flag"
                     },
                     "Augmented Fusion Driver": {
                         "Projectile size": "meters",
@@ -325,7 +326,8 @@
                     "Power Block": {
                         "Cooldown": "seconds",
                         "Duration": "seconds",
-                        "reduces damage from stuck projectiles": "none"
+                        "reduces damage from stuck projectiles": "none",
+                        "Minimum damage mitigated required to empower Rocket Punch": "none"
                     },
                     "Rocket Punch": {
                         "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": "none",
@@ -335,7 +337,8 @@
                         "Maximum knockback": "relative percent",
                         "Max impact damage": "none",
                         "Max wall slam damage": "none",
-                        "Damage reduction on AoE affected targets": "percent"
+                        "Damage reduction on AoE affected targets": "percent",
+                        "Cooldown": "seconds"
                     },
                     "Meteor Strike": {
                         "Ultimate cost": "none",
@@ -835,6 +838,15 @@
                     },
                     "Power Slide": {
                         "Cooldown": "seconds"
+                    },
+                    "Disruptor Shot": {
+                        "Damage per second": "none",
+                        "Projectile speed": "meters per second",
+                        "Max range": "meters",
+                        "Radius": "meters",
+                        "Duration": "seconds",
+                        "Cooldown": "seconds",
+                        "Slow": "percent"
                     },
                     "Overclock": {
                         "Energy charge rate": "none",

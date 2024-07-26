@@ -139,7 +139,8 @@
                         "Minimum damage": 72,
                         "Maximum damage": 500,
                         "Early charge rate": 50,
-                        "can be interrupted by hack": true
+                        "can be interrupted by hack": true,
+                        "pierces through barriers upon impact": true
                     },
                     "Augmented Fusion Driver": {
                         "Projectile size": 0.15,
@@ -345,7 +346,8 @@
                     "Power Block": {
                         "Cooldown": 7,
                         "Duration": 2.5,
-                        "reduces damage from stuck projectiles": true
+                        "reduces damage from stuck projectiles": true,
+                        "Minimum damage mitigated required to empower Rocket Punch": 100
                     },
                     "Rocket Punch": {
                         "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": true,
@@ -355,7 +357,8 @@
                         "Maximum empowered wall stun": 0.65,
                         "Max impact damage": 50,
                         "Max wall slam damage": 30,
-                        "Damage reduction on AoE affected targets": 0
+                        "Damage reduction on AoE affected targets": 0,
+                        "Cooldown": 4
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 1949,
@@ -868,6 +871,14 @@
                         "Maximum damage": 130,
                         "Minimum damage": 30,
                         "Projectile size": 0.1
+                    },
+                    "Disruptor Shot": {
+                        "Damage per second": 51,
+                        "Projectile speed": 30,
+                        "Max range": 30,
+                        "Radius": 5,
+                        "Duration": 4,
+                        "Cooldown": 15
                     }
                 }
             },

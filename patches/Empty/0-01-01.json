@@ -51,6 +51,23 @@
                         "Energy degeneration delay": 2
                     }
                 }
+            },
+            "Doomfist": {
+                "abilities": {
+                    "Rocket Punch": {
+                        "Cooldown": 4
+                    },
+                    "Power Block": {
+                        "Minimum damage mitigated required to empower Rocket Punch": 100
+                    }
+                }
+            },
+            "Orisa": {
+                "abilities": {
+                    "Terra Surge": {
+                        "pierces through barriers upon impact": true
+                    }
+                }
             }
         },
         "damage": {
@@ -88,6 +105,14 @@
                 "abilities": {
                     "Railgun": {
                         "Energy gain based on": "player hits"
+                    },
+                    "Disruptor Shot": {
+                        "Damage per second": 51,
+                        "Projectile speed": 30,
+                        "Max range": 30,
+                        "Radius": 5,
+                        "Duration": 4,
+                        "Cooldown": 15
                     }
                 }
             }
