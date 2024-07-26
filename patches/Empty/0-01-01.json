@@ -28,6 +28,27 @@
                 "abilities": {
                     "Whole Hog": {
                         "Maximum duration": 8
+                    },
+                    "Chain Hook": {
+                        "Impact damage": 5
+                    }
+                }
+            },
+            "Junker Queen": {
+                "abilities": {
+                    "Adrenaline Rush": {
+                        "heals for the remaining wound damage when an enemy dies with wounds on them": true
+                    },
+                    "Carnage": {
+                        "Cooldown reduction per enemy hit": 2
+                    }
+                }
+            },
+            "Zarya": {
+                "abilities": {
+                    "Energy": {
+                        "Energy degeneration rate": 2,
+                        "Energy degeneration delay": 2
                     }
                 }
             }
@@ -62,6 +83,13 @@
                         "Turret base health": 225
                     }
                 }
+            },
+            "Sojourn": {
+                "abilities": {
+                    "Railgun": {
+                        "Energy gain based on": "player hits"
+                    }
+                }
             }
         },
         "support": {
@@ -84,6 +112,13 @@
                 "abilities": {
                     "Guardian Angel": {
                         "Backwards movement efficiency": 80
+                    }
+                }
+            },
+            "Moira": {
+                "abilities": {
+                    "Biotic Orb": {
+                        "Damage orb biotic energy per damage dealt": 0.2
                     }
                 }
             }

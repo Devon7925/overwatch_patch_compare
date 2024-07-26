@@ -50,6 +50,8 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Backwards movement efficiency"
-new_value = 80
-process_json_files(folder_path, 'heroes/support/Mercy/abilities/Guardian Angel/Backwards movement efficiency', new_property_name, new_value, rename=False)
+new_property_name = "Biotic Orb"
+new_value = {
+    "Damage orb biotic energy per damage dealt": 0.2
+}
+process_json_files(folder_path, 'heroes/support/Moira/abilities/Biotic Orb', new_property_name, new_value, rename=False)

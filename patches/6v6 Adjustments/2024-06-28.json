@@ -70,7 +70,8 @@
                 },
                 "abilities": {
                     "Adrenaline Rush": {
-                        "Health regeneration multiplier from wound damage": 1.2
+                        "Health regeneration multiplier from wound damage": 1.2,
+                        "heals for the remaining wound damage when an enemy dies with wounds on them": true
                     },
                     "Scattergun": {
                         "Total damage": 75,
@@ -98,7 +99,8 @@
                         "Impact damage": 90,
                         "Immediate healing per target hit": 25,
                         "Cooldown": 8,
-                        "Damage over time": 40
+                        "Damage over time": 40,
+                        "Cooldown reduction per enemy hit": 2
                     },
                     "Rampage": {
                         "Ultimate cost": 2450,
@@ -177,7 +179,8 @@
                         "Cooldown": 7,
                         "Projectile size": 0.5,
                         "Enemy final position distance": 3,
-                        "Cooldown start": "ability end"
+                        "Cooldown start": "ability end",
+                        "Impact damage": 5
                     },
                     "Whole Hog": {
                         "Knockback": 16,
@@ -309,6 +312,10 @@
                     },
                     "Particle Cannon Alt Fire": {
                         "Projectile size": 0.35
+                    },
+                    "Energy": {
+                        "Energy degeneration rate": 2,
+                        "Energy degeneration delay": 2
                     }
                 }
             },
@@ -411,7 +418,7 @@
                     },
                     "Overrun": {
                         "Cooldown": 8,
-                        "Stomp Damage": 60,
+                        "Damage": 60,
                         "Knockback damage": 25,
                         "Damage reduction": 50,
                         "can be interrupted by Hack": false
@@ -858,7 +865,8 @@
                         "Damage": 9,
                         "Recovery time": 0.0625,
                         "Ammo": 45,
-                        "Reload time": 1.2
+                        "Reload time": 1.2,
+                        "Energy gain based on": "player hits"
                     },
                     "Power Slide": {
                         "Cooldown": 9
@@ -1431,6 +1439,9 @@
                     },
                     "Fade": {
                         "can be activated while affected by mobility-locking effects": false
+                    },
+                    "Biotic Orb": {
+                        "Damage orb biotic energy per damage dealt": 0.2
                     }
                 }
             },

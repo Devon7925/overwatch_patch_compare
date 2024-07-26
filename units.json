@@ -64,7 +64,8 @@
                 },
                 "abilities": {
                     "Adrenaline Rush": {
-                        "Health regeneration multiplier from wound damage": "none"
+                        "Health regeneration multiplier from wound damage": "none",
+                        "heals for the remaining wound damage when an enemy dies with wounds on them": "flag"
                     },
                     "Scattergun": {
                         "Total damage": "none",
@@ -76,7 +77,8 @@
                         "Increased knockback on tanks": "percent",
                         "Pull distance": "relative percent",
                         "Projectile size": "meters",
-                        "Impact damage": "none"
+                        "Impact damage": "none",
+                        "Damage over time": "none"
                     },
                     "Commanding Shout": {
                         "can be activated while using other abilities": "none",
@@ -87,7 +89,8 @@
                     },
                     "Carnage": {
                         "Impact damage": "none",
-                        "Immediate healing per target hit": "none"
+                        "Immediate healing per target hit": "none",
+                        "Cooldown reduction per enemy hit": "seconds"
                     },
                     "Rampage": {
                         "Ultimate cost": "none",
@@ -151,7 +154,9 @@
                         "Damage per shrapnel": "none",
                         "Pellet count": "none",
                         "Shrapnel count": "none",
-                        "Critical multiplier": "none"
+                        "Critical multiplier": "none",
+                        "Recovery time": "seconds",
+                        "Reload time": "seconds"
                     },
                     "Take a Breather": {
                         "Damage reduction": "percent",
@@ -167,7 +172,8 @@
                         "Cooldown": "seconds",
                         "Projectile size": "meters",
                         "Enemy final position distance": "meters",
-                        "Cooldown start": "none"
+                        "Cooldown start": "none",
+                        "Impact damage": "none"
                     },
                     "Whole Hog": {
                         "Knockback": "none",
@@ -264,6 +270,10 @@
                     "Shield health": "none"
                 },
                 "abilities": {
+                    "Energy": {
+                        "Energy degeneration rate": "none",
+                        "Energy degeneration delay": "seconds"
+                    },
                     "Particle Cannon": {
                         "Maximum damage per second": "none",
                         "Minimum damage per second": "none",
@@ -377,7 +387,7 @@
                 },
                 "abilities": {
                     "Incendiary and Volatile Changuns": {
-                        "Damage per bullet": "none",
+                        "Damage": "none",
                         "Number of shots required to ignite enemies with Incendiary Chaingun": "none",
                         "Projectile size": "meters",
                         "Ammo": "none",
@@ -390,7 +400,7 @@
                     },
                     "Overrun": {
                         "Cooldown": "seconds",
-                        "Stomp damage": "none",
+                        "Damage": "none",
                         "Knockback damage": "none",
                         "Damage reduction": "percent",
                         "can be interrupted by Hack": "none"
@@ -743,7 +753,7 @@
                 },
                 "abilities": {
                     "Rocket Launcher": {
-                        "Recovery speed": "seconds",
+                        "Recovery time": "seconds",
                         "Projectile speed": "meters per second",
                         "Projectile size": "meters",
                         "Explosion self damage": "percent"
@@ -813,7 +823,9 @@
                         "Projectile size": "meters",
                         "Minimum energy for gradual energy decay": "percent",
                         "Number of shots to reach maximum spread": "none",
-                        "Spread": "relative percent"
+                        "Spread": "relative percent",
+                        "Damage": "none",
+                        "Energy gain based on": "none"
                     },
                     "Railgun Alt Fire": {
                         "Maximum damage": "none",
@@ -1301,7 +1313,7 @@
                     },
                     "Thorn Volley": {
                         "Ammo": "none",
-                        "Damage": "none",
+                        "Damage per pellet": "none",
                         "Projectile size": "meters",
                         "Projectile speed": "meters per second",
                         "Second Thorn Volley projectile reduced spread": "percent",
@@ -1414,6 +1426,9 @@
                     },
                     "Fade": {
                         "can be activated while affected by mobility-locking effects": "flag"
+                    },
+                    "Biotic Orb": {
+                        "Damage orb biotic energy per damage dealt": "none"
                     }
                 }
             },
