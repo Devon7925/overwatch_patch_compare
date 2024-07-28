@@ -58,6 +58,11 @@
                     },
                     "Eject Mech": {
                         "Pilot damage immunity while ejecting": 0.4
+                    },
+                    "Call Mech": {
+                        "Ultimate cost": 280,
+                        "Damage": 250,
+                        "Radius": 3
                     }
                 }
             },
@@ -760,6 +765,11 @@
                     },
                     "RIP-Tire": {
                         "Ultimate cost": 1925
+                    },
+                    "Steel Trap": {
+                        "Arming time": 0.75,
+                        "Trapped duration": 2.5,
+                        "Damage": 100
                     }
                 }
             },
@@ -993,7 +1003,9 @@
                         "cancels Stealth when hacking an enemy hero": true,
                         "Cooldown": 3,
                         "Cooldown on successful enemy hero hack": 6,
-                        "Health pack hacked duration": 45
+                        "Health pack hacked duration": 45,
+                        "Ability lockout duration": 1.5,
+                        "can hack hacked enemies": false
                     }
                 }
             },
@@ -1367,7 +1379,8 @@
                     },
                     "Swift Step": {
                         "Cooldown": 7,
-                        "Respawn cooldown": 5
+                        "Respawn cooldown": 5,
+                        "Invulnerability duration": 0.25
                     },
                     "Protection Suzu": {
                         "cleanses hard knockdown stuns": true,

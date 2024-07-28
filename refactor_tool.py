@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Weapon swap time"
+new_property_name = "Invulnerability duration"
 new_value = 0.25
-process_json_files(folder_path, 'heroes/support/Mercy/general/Weapon swap time', new_property_name, new_value, rename=False)
+process_json_files(folder_path, 'heroes/support/Kiriko/abilities/Swift Step/Invulnerability duration', new_property_name, new_value, rename=False)

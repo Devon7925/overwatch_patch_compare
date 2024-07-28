@@ -87,6 +87,15 @@
                         "pierces through barriers upon impact": true
                     }
                 }
+            },
+            "D.Va": {
+                "abilities": {
+                    "Call Mech": {
+                        "Ultimate cost": 280,
+                        "Damage": 250,
+                        "Radius": 3
+                    }
+                }
             }
         },
         "damage": {
@@ -109,7 +118,9 @@
             "Sombra": {
                 "abilities": {
                     "Hack": {
-                        "Health pack hacked duration": 45
+                        "Health pack hacked duration": 45,
+                        "Ability lockout duration": 1.5,
+                        "can hack hacked enemies": false
                     }
                 }
             },
@@ -158,6 +169,15 @@
                         "gains ammo from damaging barriers with primary fire": true
                     }
                 }
+            },
+            "Junkrat": {
+                "abilities": {
+                    "Steel Trap": {
+                        "Arming time": 0.75,
+                        "Trapped duration": 2.5,
+                        "Damage": 100
+                    }
+                }
             }
         },
         "support": {
@@ -201,6 +221,9 @@
                     },
                     "Protection Suzu": {
                         "Cast time": 0.1
+                    },
+                    "Swift Step": {
+                        "Invulnerability duration": 0.25
                     }
                 },
                 "general": {

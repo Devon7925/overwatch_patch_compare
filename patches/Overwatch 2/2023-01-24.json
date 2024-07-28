@@ -56,7 +56,12 @@
                         "Projectile speed": 40,
                         "Cooldown": 7
                     },
-                    "Eject Mech": {}
+                    "Eject Mech": {},
+                    "Call Mech": {
+                        "Ultimate cost": 280,
+                        "Damage": 250,
+                        "Radius": 3
+                    }
                 }
             },
             "Junker Queen": {
@@ -690,6 +695,11 @@
                     },
                     "RIP-Tire": {
                         "Ultimate cost": 1909
+                    },
+                    "Steel Trap": {
+                        "Arming time": 0.75,
+                        "Trapped duration": 2.5,
+                        "Damage": 100
                     }
                 }
             },
@@ -910,7 +920,9 @@
                         "cancels Stealth when hacking an enemy hero": false,
                         "Cooldown": 4,
                         "Cooldown on successful enemy hero hack": 4,
-                        "Health pack hacked duration": 30
+                        "Health pack hacked duration": 30,
+                        "Ability lockout duration": 1.5,
+                        "can hack hacked enemies": false
                     }
                 }
             },
@@ -1147,7 +1159,8 @@
                         "Ammo refresh time": 0.75
                     },
                     "Swift Step": {
-                        "Cooldown": 7
+                        "Cooldown": 7,
+                        "Invulnerability duration": 0.25
                     },
                     "Protection Suzu": {
                         "cleanses hard knockdown stuns": false,
