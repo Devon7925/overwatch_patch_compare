@@ -223,6 +223,7 @@ const calculated_properties = [
     "Damage per second",
     "Damage per second(including reload)",
     "Headshot damage per second",
+    "Maximum headshot damage",
 ];
 let patch_before_box = document.querySelector("select#patch_before");
 let patch_after_box = document.querySelector("select#patch_after");
@@ -592,6 +593,10 @@ export function calculateProperties(patch_data) {
                         headshot_damage *= abilityData["Damage"];
                         patch_data.heroes[role][hero].abilities[ability]["Headshot damage"] = headshot_damage;
                     }
+                    if (typeof abilityData["Maximum damage"] === "number") {
+                        headshot_damage *= abilityData["Maximum damage"];
+                        patch_data.heroes[role][hero].abilities[ability]["Maximum headshot damage"] = headshot_damage;
+                    }
                     headshot_damage = abilityData["Critical multiplier"];
                     if (typeof abilityData["Damage per second"] === "number") {
                         headshot_damage *= abilityData["Damage per second"];
@@ -619,40 +624,34 @@ export function calculateBreakpoints(patchData) {
                 damageOptions["Melee"] = [patchData.general["Quick melee damage"], 1];
             }
             for (let ability in heroData.abilities) {
-                let is_cooldown = false;
+                let is_cooldown = true;
+                if ("Recovery time" in heroData.abilities[ability]) {
+                    is_cooldown = false;
+                }
                 if ("Cooldown" in heroData.abilities[ability]) {
                     is_cooldown = true;
                 }
                 if ("Ultimate cost" in heroData.abilities[ability]) {
                     is_cooldown = true;
                 }
-                if (is_cooldown) {
-                    if (typeof heroData.abilities[ability]["Total damage"] == "number") {
-                        damageOptions[ability] = [heroData.abilities[ability]["Total damage"], 1];
-                    }
-                    else if (typeof heroData.abilities[ability]["Damage"] == "number") {
-                        damageOptions[ability] = [heroData.abilities[ability]["Damage"], 1];
-                    }
-                    if (typeof heroData.abilities[ability]["Total headshot damage"] == "number") {
-                        damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Total headshot damage"], 1];
-                    }
-                    else if (typeof heroData.abilities[ability]["Headshot damage"] == "number") {
-                        damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Headshot damage"], 1];
-                    }
+                let max_damage_instances = is_cooldown ? 1 : 3;
+                if (typeof heroData.abilities[ability]["Total damage"] == "number") {
+                    damageOptions[ability] = [heroData.abilities[ability]["Total damage"], max_damage_instances];
                 }
-                else {
-                    if (typeof heroData.abilities[ability]["Total damage"] == "number") {
-                        damageOptions[ability] = [heroData.abilities[ability]["Total damage"], 3];
-                    }
-                    else if (typeof heroData.abilities[ability]["Damage"] == "number") {
-                        damageOptions[ability] = [heroData.abilities[ability]["Damage"], 3];
-                    }
-                    if (typeof heroData.abilities[ability]["Total headshot damage"] == "number") {
-                        damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Total headshot damage"], 3];
-                    }
-                    else if (typeof heroData.abilities[ability]["Headshot damage"] == "number") {
-                        damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Headshot damage"], 3];
-                    }
+                else if (typeof heroData.abilities[ability]["Damage"] == "number") {
+                    damageOptions[ability] = [heroData.abilities[ability]["Damage"], max_damage_instances];
+                }
+                else if (typeof heroData.abilities[ability]["Total maximum damage"] == "number") {
+                    damageOptions[ability] = [heroData.abilities[ability]["Total maximum damage"], max_damage_instances];
+                }
+                if (typeof heroData.abilities[ability]["Total headshot damage"] == "number") {
+                    damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Total headshot damage"], max_damage_instances];
+                }
+                else if (typeof heroData.abilities[ability]["Headshot damage"] == "number") {
+                    damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Headshot damage"], max_damage_instances];
+                }
+                else if (typeof heroData.abilities[ability]["Maximum headshot damage"] == "number") {
+                    damageOptions[`${ability} maximum headshot`] = [heroData.abilities[ability]["Maximum headshot damage"], max_damage_instances];
                 }
             }
             let breakpointDamage = { "": 0 };

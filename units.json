@@ -96,7 +96,8 @@
                         "Ultimate cost": "none",
                         "Wound total damage": "none",
                         "Startup time": "seconds",
-                        "Impact damage": "none"
+                        "Impact damage": "none",
+                        "Wound duration": "seconds"
                     }
                 }
             },
@@ -312,7 +313,8 @@
                 "abilities": {
                     "The Best Defense": {
                         "Overhealth generation": "none",
-                        "Delay before Overhealth begins to drain": "seconds"
+                        "Delay before Overhealth begins to drain": "seconds",
+                        "Maximum temporary health": "none"
                     },
                     "Hand Cannon": {
                         "Minimum damage": "none",
@@ -338,12 +340,19 @@
                         "Max impact damage": "none",
                         "Max wall slam damage": "none",
                         "Damage reduction on AoE affected targets": "percent",
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Min impact damage": "none",
+                        "Min wall slam damage": "none",
+                        "Minimum empowered wall stun": "seconds",
+                        "Empowered Rocket Punch knockback radius": "meters",
+                        "Minimum time before cancel option becomes available": "seconds"
                     },
                     "Meteor Strike": {
                         "Ultimate cost": "none",
                         "Healing while in air": "none",
-                        "Minimum damage": "none"
+                        "Minimum damage": "none",
+                        "empowers Rocket Punch on landing": "flag",
+                        "Enemy slow duration": "seconds"
                     }
                 }
             },
@@ -456,11 +465,16 @@
                     },
                     "Void Accelerator": {
                         "Projectile size": "meters",
-                        "Damage": "none"
+                        "Damage": "none",
+                        "Reload time": "seconds",
+                        "Ammo": "none",
+                        "Recovery time": "seconds",
+                        "Critical multiplier": "none"
                     },
                     "Pummel": {
                         "Projectile size": "meters",
-                        "Damage": "none"
+                        "Damage": "none",
+                        "Recovery time": "seconds"
                     },
                     "Block": {
                         "reduces damage from stuck projectiles": "none"
@@ -501,7 +515,9 @@
         },
         "damage": {
             "general": {
-                "Healing reduction inflicted on hit": "percent"
+                "Healing reduction inflicted on hit": "percent",
+                "Movement speed bonus on elimination": "percent",
+                "Reload speed bonus on elimination": "percent"
             },
             "Ashe": {
                 "general": {
@@ -537,7 +553,8 @@
                         "Detonation time": "seconds"
                     },
                     "Configuration: Assault": {
-                        "Movement speed penalty": "percent"
+                        "Movement speed penalty": "percent",
+                        "Cooldown": "seconds"
                     },
                     "Configuration: Recon": {
                         "Projectile size": "meters",
@@ -548,7 +565,8 @@
                         "Ultimate cost": "none",
                         "Projectile size": "meters",
                         "can score critical hits": "none",
-                        "Targeting state movement speed": "meters per second"
+                        "Targeting state movement speed": "meters per second",
+                        "Minimum delay between placing shots": "relative percent"
                     },
                     "Ironclad": {
                         "Damage reduction": "percent"
@@ -828,13 +846,16 @@
                         "Number of shots to reach maximum spread": "none",
                         "Spread": "relative percent",
                         "Damage": "none",
-                        "Energy gain based on": "none"
+                        "Energy gain based on": "none",
+                        "Energy delay before draining": "seconds"
                     },
                     "Railgun Alt Fire": {
                         "Maximum damage": "none",
                         "Minimum damage": "none",
                         "requires overclock for secondary primary piercing": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Critical multiplier": "none",
+                        "Minimum damage falloff range": "none"
                     },
                     "Power Slide": {
                         "Cooldown": "seconds"
@@ -943,14 +964,17 @@
                 },
                 "abilities": {
                     "Photon Projector": {
-                        "Primary fire charge rate": "none",
+                        "Primary fire charge rate": "relative percent",
                         "Shield regen per beam level": "health per second",
                         "Primary fire damage per second per level": "none",
                         "Primary fire beam width": "meters",
                         "Alt fire minimum projectile size": "meters",
                         "Alt fire maximum projectile size": "meters",
                         "Alt fire maximum impact damage": "none",
-                        "Alt fire maximum explosion damage": "none"
+                        "Alt fire maximum explosion damage": "none",
+                        "Primary fire decay rate": "relative percent",
+                        "Primary fire ammo consumption rate": "rnone",
+                        "gains ammo from damaging barriers with primary fire": "flag"
                     },
                     "Sentry Turret": {
                         "Health": "none",
@@ -1299,10 +1323,13 @@
                         "Cooldown": "seconds",
                         "passes through enemy heroes": "none",
                         "has knockback": "none",
-                        "Additional healing when cleansing a negative effect": "none"
+                        "Additional healing when cleansing a negative effect": "none",
+                        "Cast time": "seconds"
                     },
                     "Kitsune Rush": {
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "Movement speed bonus": "percent",
+                        "Cooldown rate": "seconds"
                     },
                     "Healing Ofuda": {
                         "Projectile speed": "meters per second",
