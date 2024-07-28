@@ -1,5 +1,7 @@
 {
-    "general": {},
+    "general": {
+        "Overhealth ultimate charge generation rate": 50
+    },
     "heroes": {
         "tank": {
             "general": {},
@@ -43,7 +45,13 @@
                         "Cooldown reduction per enemy hit": 2
                     },
                     "Rampage": {
-                        "Wound duration": 4.5
+                        "Wound duration": 4.5,
+                        "Radius": 5
+                    },
+                    "Commanding Shout": {
+                        "Allied duration": 3,
+                        "Radius": 15,
+                        "Self duration": 5
                     }
                 },
                 "general": {
@@ -70,7 +78,8 @@
                         "Minimum time before cancel option becomes available": 0.12
                     },
                     "Power Block": {
-                        "Minimum damage mitigated required to empower Rocket Punch": 100
+                        "Minimum damage mitigated required to empower Rocket Punch": 100,
+                        "Movement speed penalty": 35
                     },
                     "The Best Defense": {
                         "Maximum temporary health": 200
@@ -85,6 +94,12 @@
                 "abilities": {
                     "Terra Surge": {
                         "pierces through barriers upon impact": true
+                    },
+                    "Fortify": {
+                        "disables critical damage": true
+                    },
+                    "Javelin Spin": {
+                        "Bonus movement speed": 50
                     }
                 }
             },
@@ -135,7 +150,8 @@
                 "abilities": {
                     "Railgun": {
                         "Energy gain based on": "player hits",
-                        "Energy delay before draining": 5
+                        "Energy delay before draining": 5,
+                        "Energy gained from shooting non-player targets": 1
                     },
                     "Disruptor Shot": {
                         "Damage per second": 51,
@@ -147,7 +163,8 @@
                     },
                     "Railgun Alt Fire": {
                         "Critical multiplier": 1.5,
-                        "Minimum damage falloff range": 40
+                        "Minimum damage falloff range": 40,
+                        "Minimum projectile radius": 0
                     }
                 }
             },
@@ -166,7 +183,11 @@
                     "Photon Projector": {
                         "Primary fire decay rate": 1,
                         "Primary fire ammo consumption rate": 10,
-                        "gains ammo from damaging barriers with primary fire": true
+                        "gains ammo from damaging barriers with primary fire": true,
+                        "Alt fire maximum charge time": 1
+                    },
+                    "Teleporter": {
+                        "Cooldown": 12
                     }
                 }
             },
@@ -193,13 +214,17 @@
                 "abilities": {
                     "Repair Pack": {
                         "Healing over time": 50
+                    },
+                    "Inspire": {
+                        "Duration": 5
                     }
                 }
             },
             "Mercy": {
                 "abilities": {
                     "Guardian Angel": {
-                        "Backwards movement efficiency": 80
+                        "Backwards movement efficiency": 80,
+                        "can launch straight up with crouch": true
                     }
                 },
                 "general": {
@@ -209,7 +234,16 @@
             "Moira": {
                 "abilities": {
                     "Biotic Orb": {
-                        "Damage orb biotic energy per damage dealt": 0.2
+                        "Damage orb biotic energy per damage dealt": 0.2,
+                        "Healing Orb capacity": 300,
+                        "Cooldown": 8,
+                        "can fire damage orb": true
+                    },
+                    "Fade": {
+                        "Cooldown": 6
+                    },
+                    "Biotic Grasp": {
+                        "Self-healing": 24
                     }
                 }
             },
@@ -228,6 +262,13 @@
                 },
                 "general": {
                     "Arm hit volumes width": 0.85
+                }
+            },
+            "Baptiste": {
+                "abilities": {
+                    "Biotic Launcher": {
+                        "Minimum falloff damage range": 25
+                    }
                 }
             }
         }

@@ -6,7 +6,8 @@
         "Role lock": "2-2-2",
         "Ultimate percent retained on swap": 0,
         "Quick melee damage": 40,
-        "has stranded spawn feature": true
+        "has stranded spawn feature": true,
+        "Overhealth ultimate charge generation rate": 50
     },
     "heroes": {
         "tank": {
@@ -100,7 +101,10 @@
                         "can be activated while using other abilities": true,
                         "Cooldown": 12,
                         "Self overhalth": 100,
-                        "Ally Overhealth": 25
+                        "Ally Overhealth": 25,
+                        "Allied duration": 3,
+                        "Radius": 15,
+                        "Self duration": 5
                     },
                     "Carnage": {
                         "Impact damage": 90,
@@ -114,7 +118,8 @@
                         "Wound total damage": 60,
                         "Startup time": 0.5,
                         "Impact damage": 40,
-                        "Wound duration": 4.5
+                        "Wound duration": 4.5,
+                        "Radius": 5
                     }
                 }
             },
@@ -129,7 +134,8 @@
                         "Cooldown start": "ability end",
                         "Cooldown": 13,
                         "immune to taking forced critical hit damage": true,
-                        "Damage reduction": 45
+                        "Damage reduction": 45,
+                        "disables critical damage": true
                     },
                     "Energy Javelin": {
                         "Direct damage": 70,
@@ -138,7 +144,8 @@
                         "Wall impact damage": 40
                     },
                     "Javelin Spin": {
-                        "Cooldown": 7
+                        "Cooldown": 7,
+                        "Bonus movement speed": 50
                     },
                     "Terra Surge": {
                         "Ultimate cost": 1814,
@@ -353,7 +360,8 @@
                         "Cooldown": 8,
                         "Duration": 1.5,
                         "reduces damage from stuck projectiles": true,
-                        "Minimum damage mitigated required to empower Rocket Punch": 100
+                        "Minimum damage mitigated required to empower Rocket Punch": 100,
+                        "Movement speed penalty": 35
                     },
                     "Rocket Punch": {
                         "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": false,
@@ -895,7 +903,8 @@
                         "Ammo": 45,
                         "Reload time": 1.2,
                         "Energy gain based on": "player hits",
-                        "Energy delay before draining": 5
+                        "Energy delay before draining": 5,
+                        "Energy gained from shooting non-player targets": 1
                     },
                     "Power Slide": {
                         "Cooldown": 9
@@ -909,7 +918,8 @@
                         "Minimum damage": 1,
                         "Projectile size": 0.15,
                         "Critical multiplier": 1.5,
-                        "Minimum damage falloff range": 40
+                        "Minimum damage falloff range": 40,
+                        "Minimum projectile radius": 0
                     },
                     "Disruptor Shot": {
                         "Damage per second": 51,
@@ -1026,7 +1036,8 @@
                         "Alt fire maximum explosion damage": 50,
                         "Primary fire decay rate": 1,
                         "Primary fire ammo consumption rate": 10,
-                        "gains ammo from damaging barriers with primary fire": true
+                        "gains ammo from damaging barriers with primary fire": true,
+                        "Alt fire maximum charge time": 1
                     },
                     "Sentry Turret": {
                         "Health": 30,
@@ -1035,7 +1046,8 @@
                     },
                     "Teleporter": {
                         "Base Health": 75,
-                        "Shield Health": 150
+                        "Shield Health": 150,
+                        "Cooldown": 12
                     },
                     "Photon Barrier": {
                         "Ultimate cost": 1680,
@@ -1212,7 +1224,8 @@
                         "Direct healing": 40,
                         "Projectile size": 0.08,
                         "Primary fire ammo": 36,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Minimum falloff damage range": 25
                     },
                     "Regenerative Burst": {
                         "Cooldown": 13,
@@ -1237,7 +1250,8 @@
                 },
                 "abilities": {
                     "Inspire": {
-                        "Healing per second": 12
+                        "Healing per second": 12,
+                        "Duration": 5
                     },
                     "Rocket Flail": {
                         "Damage": 35
@@ -1465,7 +1479,8 @@
                     "Guardian Angel": {
                         "Active duration on jump/crouch cancel": 1,
                         "Cooldown": 1.1,
-                        "Backwards movement efficiency": 80
+                        "Backwards movement efficiency": 80,
+                        "can launch straight up with crouch": true
                     }
                 }
             },
@@ -1477,7 +1492,8 @@
                     "Biotic Grasp": {
                         "Damage per second": 60,
                         "Secondary fire target acquisition radius": 0.7,
-                        "Lingering heal duration": 3
+                        "Lingering heal duration": 3,
+                        "Self-healing": 24
                     },
                     "Coalescence": {
                         "Self-heal per second": 55,
@@ -1486,10 +1502,14 @@
                         "Bonus movement speed": 40
                     },
                     "Fade": {
-                        "can be activated while affected by mobility-locking effects": false
+                        "can be activated while affected by mobility-locking effects": false,
+                        "Cooldown": 6
                     },
                     "Biotic Orb": {
-                        "Damage orb biotic energy per damage dealt": 0.2
+                        "Damage orb biotic energy per damage dealt": 0.2,
+                        "Healing Orb capacity": 300,
+                        "Cooldown": 8,
+                        "can fire damage orb": true
                     }
                 }
             },
