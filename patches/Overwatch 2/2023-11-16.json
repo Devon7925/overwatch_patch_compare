@@ -1145,7 +1145,8 @@
                         "Cooldown": 15,
                         "Instant healing": 40,
                         "Instant healing on allies <50% HP": 40,
-                        "Heal over time": 40
+                        "Heal over time": 40,
+                        "Self healing rate": 100
                     },
                     "Immortality Field": {
                         "Health": 125,

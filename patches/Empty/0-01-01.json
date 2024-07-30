@@ -33,6 +33,13 @@
                         "Slows ascent speed": true
                     }
                 }
+            },
+            "Baptiste": {
+                "abilities": {
+                    "Regenerative Burst": {
+                        "Self healing rate": 100
+                    }
+                }
             }
         }
     },

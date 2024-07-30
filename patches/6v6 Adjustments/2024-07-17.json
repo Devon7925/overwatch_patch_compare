@@ -1246,7 +1246,8 @@
                     "Regenerative Burst": {
                         "Cooldown": 13,
                         "Heal over time": 75,
-                        "Additional self heal over time": 75
+                        "Additional self heal over time": 75,
+                        "Self healing rate": 100
                     },
                     "Immortality Field": {
                         "Health": 100,
