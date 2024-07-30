@@ -7,7 +7,8 @@
         "Ultimate percent retained on swap": 15,
         "Quick melee damage": 40,
         "has stranded spawn feature": true,
-        "Overhealth ultimate charge generation rate": 50
+        "Overhealth ultimate charge generation rate": 50,
+        "uses dynamic calculation for armor": true
     },
     "heroes": {
         "tank": {
@@ -163,7 +164,8 @@
                         "Minimum damage falloff range": 20,
                         "Damage": 13,
                         "Critical multiplier": 2,
-                        "Recovery time": 0.1
+                        "Recovery time": 0.1,
+                        "Damage falloff at maximum range": 50
                     }
                 }
             },
@@ -364,7 +366,8 @@
                         "Duration": 2.5,
                         "reduces damage from stuck projectiles": true,
                         "Minimum damage mitigated required to empower Rocket Punch": 100,
-                        "Movement speed penalty": 35
+                        "Movement speed penalty": 35,
+                        "Damage reduction": 80
                     },
                     "Rocket Punch": {
                         "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": true,
@@ -770,7 +773,9 @@
                     "Steel Trap": {
                         "Arming time": 0.75,
                         "Trapped duration": 2.5,
-                        "Damage": 100
+                        "Damage": 100,
+                        "Projectile speed": 15,
+                        "prevents all movement for its target": true
                     }
                 }
             },
@@ -829,7 +834,9 @@
                         "Cooldown": 7,
                         "Explosion damage": 30,
                         "Explosion radius": 6,
-                        "Knockback": 18.7
+                        "Knockback": 18.7,
+                        "Direct damage": 30,
+                        "Direct knockback": 31
                     },
                     "Jet Dash": {
                         "Cooldown": 8
@@ -1030,17 +1037,25 @@
                         "Primary fire decay rate": 1,
                         "Primary fire ammo consumption rate": 10,
                         "gains ammo from damaging barriers with primary fire": true,
-                        "Alt fire maximum charge time": 1
+                        "Alt fire maximum charge time": 1,
+                        "Ammo": 100,
+                        "Projectile speed": 50,
+                        "Alt fire ammo cost": 10
                     },
                     "Sentry Turret": {
                         "Health": 40,
                         "Damage per second": 30,
-                        "reveals enemy heroes to allies while dealing damage and for 1 additional second afterwards": true
+                        "reveals enemy heroes to allies while dealing damage and for 1 additional second afterwards": true,
+                        "Movement speed reduction per turret": 15,
+                        "Travel speed": 20
                     },
                     "Teleporter": {
                         "Base Health": 100,
                         "Shield Health": 200,
-                        "Cooldown": 12
+                        "Cooldown": 12,
+                        "Build time": 1,
+                        "Maximum lifetime": 10,
+                        "Cooldown start": "teleporter placed"
                     },
                     "Photon Barrier": {
                         "Ultimate cost": 2025,
@@ -1062,7 +1077,8 @@
                         "Alt fire projectile size": 0.05,
                         "Primary fire recovery": 0.51,
                         "Secondary Fire spread": 4.5,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Alt fire recovery time": 0.7
                     },
                     "Molten Core": {
                         "Ultimate cost": 2350,
@@ -1423,7 +1439,11 @@
                         "Active duration on jump/crouch cancel": 1,
                         "Cooldown": 1.5,
                         "Backwards movement efficiency": 80,
-                        "can launch straight up with crouch": true
+                        "can launch straight up with crouch": true,
+                        "has meter GA cancel": true
+                    },
+                    "Angelic Descent": {
+                        "Slows ascent speed": true
                     }
                 }
             },

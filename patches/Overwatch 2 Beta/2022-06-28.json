@@ -7,7 +7,8 @@
         "Ultimate percent retained on swap": 0,
         "Quick melee damage": 30,
         "has stranded spawn feature": false,
-        "Overhealth ultimate charge generation rate": 0
+        "Overhealth ultimate charge generation rate": 0,
+        "uses dynamic calculation for armor": false
     },
     "heroes": {
         "tank": {
@@ -100,10 +101,9 @@
                         "Cooldown": 11,
                         "Self overhalth": 200,
                         "Ally Overhealth": 100,
-                        "Allied duration": 5,
-                        "has overhealth decay": true,
-                        "Radius": 15,
-                        "Self duration": 5
+                        "Allied duration": 4,
+                        "Radius": 20,
+                        "Self duration": 4
                     },
                     "Carnage": {
                         "Impact damage": 90,
@@ -118,7 +118,7 @@
                         "Startup time": 0.75,
                         "Impact damage": 0,
                         "Wound duration": 5,
-                        "Radius": 5
+                        "Radius": 6
                     }
                 }
             },
@@ -136,7 +136,7 @@
                         "Overhealth generation": 125,
                         "immune to taking forced critical hit damage": false,
                         "Damage reduction": 40,
-                        "disables critical damage": true
+                        "disables critical damage": false
                     },
                     "Energy Javelin": {
                         "Direct damage": 60,
@@ -146,7 +146,7 @@
                     },
                     "Javelin Spin": {
                         "Cooldown": 7,
-                        "Bonus movement speed": 50
+                        "Bonus movement speed": 40
                     },
                     "Terra Surge": {
                         "Ultimate cost": 1954,
@@ -160,9 +160,11 @@
                         "Projectile size": 0.15,
                         "has falloff damage penalty": true,
                         "Minimum damage falloff range": 15,
+                        "Maximum damage falloff range": 25,
                         "Damage": 12,
                         "Critical multiplier": 2,
-                        "Recovery time": 0.1
+                        "Recovery time": 0.1,
+                        "Damage falloff at maximum range": 50
                     }
                 }
             },
@@ -352,8 +354,9 @@
                         "Cooldown": 8,
                         "Duration": 2,
                         "reduces damage from stuck projectiles": false,
-                        "Minimum damage mitigated required to empower Rocket Punch": 90,
-                        "Movement speed penalty": 35
+                        "Minimum damage mitigated required to empower Rocket Punch": 100,
+                        "Movement speed penalty": 35,
+                        "Damage reduction": 80
                     },
                     "Rocket Punch": {
                         "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": true,
@@ -660,7 +663,9 @@
                     "Steel Trap": {
                         "Arming time": 0.5,
                         "Trapped duration": 3,
-                        "Damage": 100
+                        "Damage": 100,
+                        "Projectile speed": 15,
+                        "prevents all movement for its target": true
                     }
                 }
             },
@@ -719,7 +724,9 @@
                         "Cooldown": 9,
                         "Explosion damage": 0,
                         "Explosion radius": 8,
-                        "Knockback": 20.8
+                        "Knockback": 20.8,
+                        "Direct damage": 30,
+                        "Direct knockback": 31
                     },
                     "Jump Jet": {
                         "Vertical boost height": 10.5,
@@ -778,7 +785,7 @@
                         "Spread": 0.78125,
                         "Critical multiplier": 2,
                         "Damage": 9,
-                        "Recovery time": 0.07142857142857142,
+                        "Recovery time": 0.06666666666666667,
                         "Ammo": 45,
                         "Reload time": 1.2,
                         "Energy gain based on": "damage dealt",
@@ -798,7 +805,7 @@
                         "Projectile size": 0.1,
                         "Critical multiplier": 2,
                         "Minimum damage falloff range": 70,
-                        "Minimum projectile radius": 0
+                        "Minimum projectile radius": 0.1
                     },
                     "Disruptor Shot": {
                         "Damage per second": 51,
@@ -900,24 +907,32 @@
                         "Primary fire charge rate": 0.8333333333333334,
                         "Primary fire damage per second per level": 60,
                         "Alt fire minimum projectile size": 0.04,
-                        "Alt fire maximum projectile size": 0.5,
+                        "Alt fire maximum projectile size": 0.4,
                         "Primary fire beam width": 0.2,
                         "Alt fire maximum impact damage": 45,
                         "Alt fire maximum explosion damage": 45,
                         "Primary fire decay rate": 0.8333333333333334,
                         "Primary fire ammo consumption rate": 7,
                         "gains ammo from damaging barriers with primary fire": false,
-                        "Alt fire maximum charge time": 1
+                        "Alt fire maximum charge time": 1.2,
+                        "Ammo": 100,
+                        "Projectile speed": 50,
+                        "Alt fire ammo cost": 10
                     },
                     "Sentry Turret": {
                         "Health": 30,
                         "Damage per second": 40,
-                        "reveals enemy heroes to allies while dealing damage and for 1 additional second afterwards": false
+                        "reveals enemy heroes to allies while dealing damage and for 1 additional second afterwards": false,
+                        "Movement speed reduction per turret": 15,
+                        "Travel speed": 20
                     },
                     "Teleporter": {
                         "Base Health": 50,
                         "Shield Health": 150,
-                        "Cooldown": 12
+                        "Cooldown": 16,
+                        "Build time": 1,
+                        "Maximum lifetime": 10,
+                        "Cooldown start": "teleporter placed"
                     },
                     "Photon Barrier": {
                         "Ultimate cost": 1675,
@@ -939,7 +954,8 @@
                         "Alt fire projectile size": 0.0,
                         "Primary fire recovery": 0.55,
                         "Secondary Fire spread": 5,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Alt fire recovery time": 0.7
                     },
                     "Molten Core": {
                         "Ultimate cost": 2136,
@@ -1111,47 +1127,6 @@
                     }
                 }
             },
-            "Kiriko": {
-                "general": {
-                    "Base health": 200,
-                    "Arm hit volumes width": 1
-                },
-                "abilities": {
-                    "Kunai": {
-                        "Ammo": 12,
-                        "Projectile size": 0.18,
-                        "Damage": 40,
-                        "Critical multiplier": 3,
-                        "Recovery time": 0.55,
-                        "Reload time": 1,
-                        "Ammo refresh time": 0.75
-                    },
-                    "Swift Step": {
-                        "Cooldown": 7,
-                        "Invulnerability duration": 0.4
-                    },
-                    "Protection Suzu": {
-                        "cleanses hard knockdown stuns": false,
-                        "Projectile size": 0.2,
-                        "Invulnerability duration": 1,
-                        "Healing explosion": 50,
-                        "Cooldown": 14,
-                        "passes through enemy heroes": false,
-                        "has knockback": true,
-                        "Additional healing when cleansing a negative effect": 0,
-                        "Cast time": 0.15
-                    },
-                    "Kitsune Rush": {
-                        "Ultimate cost": 2080,
-                        "Movement speed bonus": 50,
-                        "Cooldown rate": 3
-                    },
-                    "Healing Ofuda": {
-                        "Projectile speed": 14,
-                        "Recovery time": 0.85
-                    }
-                }
-            },
             "Lúcio": {
                 "general": {
                     "Base health": 200
@@ -1207,7 +1182,12 @@
                     "Guardian Angel": {
                         "Active duration on jump/crouch cancel": 1,
                         "Cooldown": 1.5,
-                        "can launch straight up with crouch": false
+                        "can launch straight up with crouch": false,
+                        "has meter GA cancel": false,
+                        "launches up when reaching destination": true
+                    },
+                    "Angelic Descent": {
+                        "Slows ascent speed": true
                     }
                 }
             },
@@ -1220,7 +1200,7 @@
                         "Damage per second": 50,
                         "Secondary fire target acquisition radius": 0.6,
                         "Lingering heal duration": 2,
-                        "Self-healing": 20
+                        "Self-healing": 24
                     },
                     "Coalescence": {
                         "Self-heal per second": 50,
@@ -1230,27 +1210,19 @@
                     },
                     "Fade": {
                         "can be activated while affected by mobility-locking effects": true,
-                        "Cooldown": 7
+                        "Cooldown": 6
                     },
                     "Biotic Orb": {
-                        "Healing Orb capacity": 250,
-                        "Cooldown": 10,
-                        "can fire damage orb": false
-                    },
-                    "Necrotic Orb": {
-                        "Cooldown": 16,
-                        "Impact damage": 40,
-                        "Explosion damage": 10,
-                        "Explosion radius": 3,
-                        "Weakening damage reduction": 75,
-                        "Weakening duration": 4
+                        "Healing Orb capacity": 300,
+                        "Cooldown": 8,
+                        "can fire damage orb": true
                     }
                 }
             },
             "Zenyatta": {
                 "general": {
                     "Base health": 50,
-                    "Shield health": 150
+                    "Shield health": 175
                 },
                 "abilities": {
                     "Snap Kick": {
@@ -1273,7 +1245,7 @@
                     "Orb of Discord": {
                         "Reapplication cooldown": 0,
                         "Range": 40,
-                        "Time to wear off the target when not in line-of-sight": 1.5
+                        "Time to wear off the target when not in line-of-sight": 2
                     }
                 }
             }

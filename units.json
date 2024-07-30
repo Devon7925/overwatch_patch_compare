@@ -76,14 +76,18 @@
                         "Total damage": "none",
                         "Projectile size": "meters",
                         "Spread": "relative percent",
-                        "Ammo": "none"
+                        "Ammo": "none",
+                        "Critical multiplier": "none",
+                        "Reload time": "seconds",
+                        "Recovery time": "seconds"
                     },
                     "Jagged Blade": {
                         "Increased knockback on tanks": "percent",
                         "Pull distance": "relative percent",
                         "Projectile size": "meters",
                         "Impact damage": "none",
-                        "Damage over time": "none"
+                        "Damage over time": "none",
+                        "Cooldown": "seconds"
                     },
                     "Commanding Shout": {
                         "can be activated while using other abilities": "none",
@@ -99,7 +103,9 @@
                     "Carnage": {
                         "Impact damage": "none",
                         "Immediate healing per target hit": "none",
-                        "Cooldown reduction per enemy hit": "seconds"
+                        "Cooldown reduction per enemy hit": "seconds",
+                        "Cooldown": "seconds",
+                        "Damage over time": "none"
                     },
                     "Rampage": {
                         "Ultimate cost": "none",
@@ -134,7 +140,8 @@
                     },
                     "Javelin Spin": {
                         "Cooldown": "seconds",
-                        "Bonus movement speed": "percent"
+                        "Bonus movement speed": "percent",
+                        "has reduced knockback": "flag"
                     },
                     "Terra Surge": {
                         "Ultimate cost": "none",
@@ -148,7 +155,10 @@
                         "Projectile size": "meters",
                         "has falloff damage penalty": "none",
                         "Minimum damage falloff range": "meters",
-                        "Damage": "none"
+                        "Maximum damage falloff range": "meters",
+                        "Damage": "none",
+                        "Critical multiplier": "none",
+                        "scales projectile size with distance": "flag"
                     }
                 }
             },
@@ -335,13 +345,15 @@
                     },
                     "Seismic Slam": {
                         "Damage": "none",
-                        "Cooldown": 7
+                        "Cooldown": 7,
+                        "Slow": "percent"
                     },
                     "Power Block": {
                         "Cooldown": "seconds",
                         "Duration": "seconds",
                         "reduces damage from stuck projectiles": "none",
-                        "Minimum damage mitigated required to empower Rocket Punch": "none"
+                        "Minimum damage mitigated required to empower Rocket Punch": "none",
+                        "Damage reduction": "percent"
                     },
                     "Rocket Punch": {
                         "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": "none",
@@ -420,7 +432,9 @@
                         "Fire rate multiplier for firing both guns": "percent",
                         "Spread for firing both guns": "relative percent",
                         "Spread when only one Chaingun is active": "none",
-                        "Incendiary Chaingun burn duration": "seconds"
+                        "Incendiary Chaingun burn duration": "seconds",
+                        "Critical multiplier": "none",
+                        "Recovery time": "seconds"
                     },
                     "Overrun": {
                         "Cooldown": "seconds",
@@ -562,7 +576,8 @@
                         "Projectile size": "meters",
                         "Impact damage": "none",
                         "Maximum explosion damage falloff": "percent",
-                        "Detonation time": "seconds"
+                        "Detonation time": "seconds",
+                        "Cooldown": "seconds"
                     },
                     "Configuration: Assault": {
                         "Movement speed penalty": "percent",
@@ -740,7 +755,10 @@
                     },
                     "Steel Trap": {
                         "Arming time": "seconds",
-                        "Trapped duration": "seconds"
+                        "Trapped duration": "seconds",
+                        "Projectile speed": "meters per second",
+                        "prevents all movement for its target": "flag",
+                        "Movement speed reduction of trapped player": "percent"
                     },
                     "RIP-Tire": {
                         "Ultimate cost": "none"
@@ -803,9 +821,11 @@
                     "Concussive Blast": {
                         "Projectile size": "meters",
                         "Cooldown": "seconds",
+                        "Direct damage": "none",
                         "Explosion damage": "none",
                         "Explosion radius": "meters",
-                        "Knockback": "relative percent"
+                        "Knockback": "relative percent",
+                        "Direct knockback": "relative percent"
                     },
                     "Jump Jet": {
                         "Vertical boost height": "relative percent",
@@ -864,7 +884,8 @@
                         "Damage": "none",
                         "Energy gain based on": "none",
                         "Energy delay before draining": "seconds",
-                        "Energy gained from shooting non-player targets": "none"
+                        "Energy gained from shooting non-player targets": "none",
+                        "requires overclock for secondary primary piercing": "flag"
                     },
                     "Railgun Alt Fire": {
                         "Maximum damage": "none",
@@ -995,17 +1016,25 @@
                         "Primary fire decay rate": "relative percent",
                         "Primary fire ammo consumption rate": "rnone",
                         "gains ammo from damaging barriers with primary fire": "flag",
-                        "Alt fire maximum charge time": "seconds"
+                        "Alt fire maximum charge time": "seconds",
+                        "Ammo": "none",
+                        "Projectile speed": "meters per second",
+                        "Alt fire ammo cost": "none"
                     },
                     "Sentry Turret": {
                         "Health": "none",
                         "Damage per second": "none",
-                        "reveals enemy heroes to allies while dealing damage and for 1 additional second afterwards": "none"
+                        "reveals enemy heroes to allies while dealing damage and for 1 additional second afterwards": "none",
+                        "Movement speed reduction per turret": "percent",
+                        "Travel speed": "meters per second"
                     },
                     "Teleporter": {
                         "Base Health": "none",
                         "Shield Health": "none",
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Build time": "seconds",
+                        "Cooldown start": "none",
+                        "Maximum lifetime": "seconds"
                     },
                     "Photon Barrier": {
                         "Ultimate cost": "none",
@@ -1024,7 +1053,8 @@
                         "Projectile size": "meters",
                         "Alt fire projectile size": "meters",
                         "Primary fire recovery": "seconds",
-                        "Secondary Fire spread": "none"
+                        "Secondary Fire spread": "none",
+                        "Alt fire recovery time": "seconds"
                     },
                     "Molten Core": {
                         "Ultimate cost": "none",
@@ -1079,7 +1109,9 @@
                         "Maximum explosion damage": "none",
                         "Projectile size": "meters",
                         "Direct damage": "none",
-                        "Ammo": "none"
+                        "Ammo": "none",
+                        "Recovery time": "seconds",
+                        "Reload time": "seconds"
                     },
                     "Drill Dash": {
                         "Cooldown start": "none",
@@ -1245,10 +1277,12 @@
                         "Secondary fire heal-per-second": "none",
                         "Maximum charge time": "seconds",
                         "Projectile size": "meters",
-                        "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": "flag"
+                        "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": "flag",
+                        "Reload time": "seconds"
                     },
                     "Outburst": {
-                        "Damage": "none"
+                        "Damage": "none",
+                        "Cooldown": "seconds"
                     },
                     "Healing Pylon": {
                         "Healing per projectile": "none",
@@ -1383,7 +1417,10 @@
                         "Second Thorn Volley projectile reduced spread": "percent",
                         "Number of projectiles to reach maximum spread": "none",
                         "Recovery time": "seconds",
-                        "Reload time": "seconds"
+                        "Reload time": "seconds",
+                        "Critical multiplier": "none",
+                        "Pellet count": "none",
+                        "Ammo per shot": "none"
                     },
                     "Petal Platform": {
                         "Health": "none",
@@ -1450,6 +1487,9 @@
                     "Sympathetic Recovery": {
                         "Self healing as percent of healing done": "percent"
                     },
+                    "Angelic Descent": {
+                        "Slows ascent speed": "flag"
+                    },
                     "Caduceus Staff": {
                         "Healing per second": "none",
                         "Secondary fire damage boost": "percent",
@@ -1469,7 +1509,9 @@
                         "Active duration on jump/crouch cancel": "seconds",
                         "Cooldown": "seconds",
                         "Backwards movement efficiency": "percent",
-                        "can launch straight up with crouch": "flag"
+                        "can launch straight up with crouch": "flag",
+                        "has meter GA cancel": "flag",
+                        "launches up when reaching destination": "flag"
                     }
                 }
             },
@@ -1499,6 +1541,14 @@
                         "Healing Orb capacity": "none",
                         "can fire damage orb": "flag",
                         "Cooldown": "seconds"
+                    },
+                    "Necrotic Orb": {
+                        "Cooldown": "seconds",
+                        "Impact damage": "none",
+                        "Explosion damage": "none",
+                        "Explosion radius": "meters",
+                        "Weakening damage reduction": "percent",
+                        "Weakening duration": "seconds"
                     }
                 }
             },
@@ -1523,7 +1573,8 @@
                     },
                     "Orb of Discord": {
                         "Reapplication cooldown": "seconds",
-                        "Range": "meters"
+                        "Range": "meters",
+                        "Time to wear off the target when not in line-of-sight": "seconds"
                     }
                 }
             }
