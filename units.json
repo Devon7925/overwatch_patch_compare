@@ -885,7 +885,8 @@
                         "Energy gain based on": "none",
                         "Energy delay before draining": "seconds",
                         "Energy gained from shooting non-player targets": "none",
-                        "requires overclock for secondary primary piercing": "flag"
+                        "requires overclock for secondary primary piercing": "flag",
+                        "Ammo": "none"
                     },
                     "Railgun Alt Fire": {
                         "Maximum damage": "none",
@@ -1212,7 +1213,8 @@
                         "Instant healing": "none",
                         "Instant healing on allies <50% HP": "none",
                         "Heal over time": "none",
-                        "Additional self heal over time": "none"
+                        "Additional self heal over time": "none",
+                        "Self healing rate": "percent"
                     },
                     "Immortality Field": {
                         "Health": "none",
