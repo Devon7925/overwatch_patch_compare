@@ -203,9 +203,10 @@
                         "Knockback": "none",
                         "Damage per pellet": "none",
                         "Ultimate cost": "none",
-                        "disables other abilities and automatically fires": "none",
+                        "disables other abilities and automatically fires": "flag",
                         "Projectile size": "meters",
-                        "Maximum duration": "seconds"
+                        "Maximum duration": "seconds",
+                        "cancelled by stuns": "flag"
                     },
                     "Pig Pen": {
                         "Vertical Knockback": "none",
@@ -522,7 +523,8 @@
                     "Tesla Cannon Alt Fire": {
                         "Maximum charge time": "seconds",
                         "Range": "meters",
-                        "Recovery time": "seconds"
+                        "Recovery time": "seconds",
+                        "Ammo per shot": "none"
                     },
                     "Jet Pack": {
                         "Cooldown": "seconds",
@@ -932,12 +934,18 @@
                         "Healing per second": "none"
                     },
                     "Tactical Visor": {
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "removes damage falloff": "flag",
+                        "prevents critical hits": "flag"
                     },
                     "Helix Rocket": {
                         "Projectile size": "meters",
                         "Explosion damage": "none",
                         "Direct damage": "none"
+                    },
+                    "Sprint": {
+                        "Increased movement speed": "percent",
+                        "Recovery time": "seconds"
                     }
                 }
             },
@@ -1206,7 +1214,8 @@
                         "Direct healing": "none",
                         "Projectile size": "meters",
                         "Primary fire ammo": "none",
-                        "Minimum falloff damage range": "meters"
+                        "Minimum falloff damage range": "meters",
+                        "Secondary fire ammo": "none"
                     },
                     "Regenerative Burst": {
                         "Cooldown": "seconds",
@@ -1262,7 +1271,8 @@
                     },
                     "Shield Bash": {
                         "Cooldown": "seconds",
-                        "Damage": "none"
+                        "Damage": "none",
+                        "Knockback scalar": "relative percent"
                     }
                 }
             },

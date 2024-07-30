@@ -5,7 +5,14 @@
     },
     "heroes": {
         "tank": {
-            "general": {}
+            "general": {},
+            "Winston": {
+                "abilities": {
+                    "Tesla Cannon Alt Fire": {
+                        "Ammo per shot": 12
+                    }
+                }
+            }
         },
         "damage": {
             "general": {},
@@ -23,6 +30,14 @@
                         "Alt fire recovery time": 0.7
                     }
                 }
+            },
+            "Soldier: 76": {
+                "abilities": {
+                    "Sprint": {
+                        "Increased movement speed": 50,
+                        "Recovery time": 0.3
+                    }
+                }
             }
         },
         "support": {
@@ -38,6 +53,16 @@
                 "abilities": {
                     "Regenerative Burst": {
                         "Self healing rate": 100
+                    },
+                    "Biotic Launcher": {
+                        "Secondary fire ammo": 13
+                    }
+                }
+            },
+            "Brigitte": {
+                "abilities": {
+                    "Shield Bash": {
+                        "Knockback scalar": 2
                     }
                 }
             }

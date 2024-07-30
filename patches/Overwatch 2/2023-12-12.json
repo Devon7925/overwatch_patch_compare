@@ -545,7 +545,8 @@
                         "Maximum charge time": 1,
                         "Range": 40,
                         "Recovery time": 0.75,
-                        "Damage": 50
+                        "Damage": 50,
+                        "Ammo per shot": 12
                     },
                     "Barrier Projector": {
                         "Health": 650
@@ -954,6 +955,10 @@
                         "Explosion damage": 80,
                         "Direct damage": 40,
                         "Cooldown": 6
+                    },
+                    "Sprint": {
+                        "Increased movement speed": 50,
+                        "Recovery time": 0.3
                     }
                 }
             },
@@ -1187,7 +1192,8 @@
                         "Projectile size": 0.0,
                         "Primary fire ammo": 36,
                         "Critical multiplier": 2,
-                        "Minimum falloff damage range": 25
+                        "Minimum falloff damage range": 25,
+                        "Secondary fire ammo": 13
                     },
                     "Regenerative Burst": {
                         "Cooldown": 15,
@@ -1245,7 +1251,8 @@
                     },
                     "Shield Bash": {
                         "Cooldown": 5,
-                        "Damage": 50
+                        "Damage": 50,
+                        "Knockback scalar": 2
                     }
                 }
             },
