@@ -136,7 +136,8 @@
                     "Energy Javelin": {
                         "Direct damage": "none",
                         "Projectile size": "meters",
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Wall impact damage": "none"
                     },
                     "Javelin Spin": {
                         "Cooldown": "seconds",
@@ -158,7 +159,9 @@
                         "Maximum damage falloff range": "meters",
                         "Damage": "none",
                         "Critical multiplier": "none",
-                        "scales projectile size with distance": "flag"
+                        "scales projectile size with distance": "flag",
+                        "Damage falloff at maximum range": "percent",
+                        "Recovery time": "seconds"
                     }
                 }
             },
@@ -311,7 +314,8 @@
                         "shares cooldown with Projected Barrier": "none",
                         "Cooldown": "seconds",
                         "Health": "none",
-                        "Duration": "seconds"
+                        "Duration": "seconds",
+                        "Cooldown start": "none"
                     },
                     "Projected Barrier": {
                         "Cooldown start": "none",
@@ -342,7 +346,9 @@
                     "Hand Cannon": {
                         "Minimum damage": "none",
                         "Maximum damage": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Pellet count": "none",
+                        "Critical multiplier": "none"
                     },
                     "Seismic Slam": {
                         "Damage": "none",
@@ -354,7 +360,8 @@
                         "Duration": "seconds",
                         "reduces damage from stuck projectiles": "none",
                         "Minimum damage mitigated required to empower Rocket Punch": "none",
-                        "Damage reduction": "percent"
+                        "Damage reduction": "percent",
+                        "Movement speed penalty": "percent"
                     },
                     "Rocket Punch": {
                         "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": "none",
@@ -400,7 +407,9 @@
                     },
                     "Charge": {
                         "Cooldown": "seconds",
-                        "Wall impact damage": "none"
+                        "Wall impact damage": "none",
+                        "cancellable": "flag",
+                        "Steering turn rate": "relative percent"
                     },
                     "Firestrike": {
                         "Ability charges": "none",
@@ -536,7 +545,9 @@
                         "Maximum health gained": "none"
                     },
                     "Barrier Projector": {
-                        "Health": "none"
+                        "Health": "none",
+                        "Cooldown": "seconds",
+                        "Duration": "seconds"
                     }
                 }
             }
@@ -583,19 +594,32 @@
                     },
                     "Configuration: Assault": {
                         "Movement speed penalty": "percent",
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Damage": "none",
+                        "Duration": "seconds",
+                        "Recovery time": "seconds",
+                        "Reload time": "seconds",
+                        "Ammo": "none",
+                        "Spread": "relative percent",
+                        "Min spread": "relative percent"
                     },
                     "Configuration: Recon": {
                         "Projectile size": "meters",
                         "Reload time": "seconds",
-                        "Recovery time": "seconds"
+                        "Recovery time": "seconds",
+                        "Spread": "relative percent",
+                        "Ammo": "none",
+                        "Damage": "none"
                     },
                     "Configuration: Artillery": {
                         "Ultimate cost": "none",
                         "Projectile size": "meters",
                         "can score critical hits": "none",
                         "Targeting state movement speed": "meters per second",
-                        "Minimum delay between placing shots": "relative percent"
+                        "Minimum delay between placing shots": "relative percent",
+                        "deals explosion damage to self": "flag",
+                        "Explosion damage": "none",
+                        "Delay before projectile drops": "seconds"
                     },
                     "Ironclad": {
                         "Damage reduction": "percent"
@@ -614,7 +638,8 @@
                         "Secondary fire \"Fan the Hammer\" damage": "none",
                         "Projectile size": "meters",
                         "Primary fire falloff range minimum": "meters",
-                        "Primary fire falloff range maximum": "meters"
+                        "Primary fire falloff range maximum": "meters",
+                        "Secondary fire recovery time": "seconds"
                     },
                     "Combat Roll": {
                         "Damage reduction": "percent",
@@ -643,7 +668,10 @@
                         "Min damage reduction": "percent",
                         "Ultimate cost": "none",
                         "Initial damage rate": "none",
-                        "Damage rate": "none"
+                        "Secondary damage rate": "none",
+                        "Final damage rate": "none",
+                        "Damage rate": "none",
+                        "Maximum duration": "seconds"
                     }
                 }
             },
@@ -687,7 +715,8 @@
                         "Projectile size": 0.175
                     },
                     "Focusing Beam": {
-                        "Width": "meters"
+                        "Width": "meters",
+                        "Maximum damage per second": "none"
                     }
                 }
             },
@@ -760,7 +789,8 @@
                         "Trapped duration": "seconds",
                         "Projectile speed": "meters per second",
                         "prevents all movement for its target": "flag",
-                        "Movement speed reduction of trapped player": "percent"
+                        "Movement speed reduction of trapped player": "percent",
+                        "Damage": "none"
                     },
                     "RIP-Tire": {
                         "Ultimate cost": "none"
@@ -786,7 +816,8 @@
                         "Damage per second": "none",
                         "Minimum slow": "percent",
                         "Maximum slow": "percent",
-                        "Duration before slow falls off between primary fire hits": "seconds"
+                        "Duration before slow falls off between primary fire hits": "seconds",
+                        "stuns on freeze": "flag"
                     },
                     "Endothermic Blaster Alt Fire": {
                         "Damage": "none",
@@ -796,7 +827,8 @@
                         "Healing per second": "none"
                     },
                     "Ice Wall": {
-                        "Health per pillar": "none"
+                        "Health per pillar": "none",
+                        "Range": "meters"
                     },
                     "Blizzard": {
                         "Ultimate cost": "none",
@@ -888,7 +920,9 @@
                         "Energy delay before draining": "seconds",
                         "Energy gained from shooting non-player targets": "none",
                         "requires overclock for secondary primary piercing": "flag",
-                        "Ammo": "none"
+                        "Ammo": "none",
+                        "Critical multiplier": "none",
+                        "Reload time": "seconds"
                     },
                     "Railgun Alt Fire": {
                         "Maximum damage": "none",
@@ -965,7 +999,8 @@
                         "Ability lockout duration": "seconds",
                         "Damage of current health": "percent",
                         "destroys Lifeweaver's Tree of Life": "flag",
-                        "destroys Mei's Blizzard": "flag"
+                        "destroys Mei's Blizzard": "flag",
+                        "deals additional damage to base shield health pools": "flag"
                     },
                     "Translocator": {
                         "destroys breakables while in flight": "none",
@@ -981,7 +1016,8 @@
                         "Damage": "none",
                         "Minimum Spread": "none",
                         "Number of shots until max spread": "none",
-                        "Reload time": "seconds"
+                        "Reload time": "seconds",
+                        "Maximum spread": "relative percent"
                     },
                     "Stealth": {
                         "Grace period where Stealth can be canceled immediately after entering it": "seconds",
@@ -991,7 +1027,8 @@
                         "Movement speed": "percent",
                         "Fade in duration": "seconds",
                         "Fade out duration": "seconds",
-                        "is passive": "none"
+                        "is passive": "none",
+                        "Enemy detection radius": "meters"
                     },
                     "Hack": {
                         "Cast time": "seconds",
@@ -1000,7 +1037,11 @@
                         "Cooldown": "seconds",
                         "Health pack hacked duration": "seconds",
                         "Ability lockout duration": "seconds",
-                        "can hack hacked enemies": "flag"
+                        "can hack hacked enemies": "flag",
+                        "reveals enemies": "flag",
+                        "Cooldown on interrupt": "seconds",
+                        "Stun duration on Bob": "seconds",
+                        "destroys immortality field": "flag"
                     },
                     "Opportunist": {
                         "Damage boost on hacked targets": "percent"
@@ -1242,7 +1283,8 @@
                 "abilities": {
                     "Inspire": {
                         "Healing per second": "none",
-                        "Duration": "seconds"
+                        "Duration": "seconds",
+                        "triggers from Shield Bash damage": "flag"
                     },
                     "Rocket Flail": {
                         "Damage": "none"
@@ -1272,7 +1314,10 @@
                     "Shield Bash": {
                         "Cooldown": "seconds",
                         "Damage": "none",
-                        "Knockback scalar": "relative percent"
+                        "Knockback scalar": "relative percent",
+                        "Stun duration": "seconds",
+                        "stopped by barriers": "flag",
+                        "Distance travelled": "meters"
                     }
                 }
             },

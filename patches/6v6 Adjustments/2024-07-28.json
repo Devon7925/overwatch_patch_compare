@@ -18,18 +18,18 @@
                 "Knockback resistance": 10,
                 "Ultimate generation reduction": 15,
                 "Damage passive effect reduction": 0,
-                "Adjusted sleep duration": 3
+                "Adjusted sleep duration": 5
             },
             "D.Va": {
                 "general": {
-                    "Base health": 450,
-                    "Armor health": 125,
+                    "Base health": 400,
+                    "Armor health": 150,
                     "Pilot health": 150
                 },
                 "abilities": {
                     "Fusion Cannons": {
                         "Spread": 3.375,
-                        "Total damage": 20.5,
+                        "Total damage": 20,
                         "Projectile size": 0.05,
                         "Movement speed penalty": 30,
                         "Recovery time": 0.15,
@@ -42,7 +42,7 @@
                     "Defense Matrix": {
                         "Cooldown": 1.5,
                         "Maximum Duration": 2,
-                        "Recharge rate": 16.67
+                        "Recharge rate": 15
                     },
                     "Self Destruct": {
                         "Ultimate cost": 1540,
@@ -71,20 +71,20 @@
             },
             "Junker Queen": {
                 "general": {
-                    "Base health": 400,
+                    "Base health": 350,
                     "Model size": 0.96,
-                    "Armor health": 0,
+                    "Armor health": 50,
                     "has overridden melee": true,
                     "Torso hit volume": 1.12,
                     "Head hit volume": 1.12
                 },
                 "abilities": {
                     "Adrenaline Rush": {
-                        "Health regeneration multiplier from wound damage": 1.2,
+                        "Health regeneration multiplier from wound damage": 1.25,
                         "heals for the remaining wound damage when an enemy dies with wounds on them": true
                     },
                     "Scattergun": {
-                        "Total damage": 75,
+                        "Total damage": 70,
                         "Projectile size": 0.05,
                         "Spread": 1.8,
                         "Ammo": 8,
@@ -102,15 +102,15 @@
                     "Commanding Shout": {
                         "can be activated while using other abilities": true,
                         "Cooldown": 12,
-                        "Self overhalth": 125,
-                        "Ally Overhealth": 0,
+                        "Self overhalth": 100,
+                        "Ally Overhealth": 25,
                         "Allied duration": 3,
                         "Radius": 15,
                         "Self duration": 5
                     },
                     "Carnage": {
                         "Impact damage": 90,
-                        "Immediate healing per target hit": 25,
+                        "Immediate healing per target hit": 20,
                         "Cooldown": 8,
                         "Damage over time": 40,
                         "Cooldown reduction per enemy hit": 2
@@ -142,7 +142,7 @@
                     "Energy Javelin": {
                         "Direct damage": 70,
                         "Projectile size": 0.5,
-                        "Cooldown": 6,
+                        "Cooldown": 7,
                         "Wall impact damage": 40
                     },
                     "Javelin Spin": {
@@ -182,8 +182,8 @@
                         "Critical multiplier": 1.5,
                         "Recovery time": 0.8,
                         "Reload time": 1.75,
-                        "Damage per pellet": 5.46875,
-                        "Damage per shrapnel": 13.125
+                        "Damage per pellet": 5.078125,
+                        "Damage per shrapnel": 12.1875
                     },
                     "Take a Breather": {
                         "Damage reduction": 40,
@@ -204,7 +204,7 @@
                     "Whole Hog": {
                         "Knockback": 16,
                         "Damage per pellet": 6,
-                        "Ultimate cost": 2240,
+                        "Ultimate cost": 2275,
                         "disables other abilities and automatically fires": true,
                         "Projectile size": 0.05,
                         "Maximum duration": 8
@@ -223,8 +223,8 @@
             },
             "Sigma": {
                 "general": {
-                    "Base health": 250,
-                    "Shield health": 150,
+                    "Base health": 300,
+                    "Shield health": 100,
                     "has adjusted movement deceleration": false
                 },
                 "abilities": {
@@ -234,18 +234,18 @@
                     },
                     "Kinetic Grasp": {
                         "Cooldown": 13,
-                        "Overhealth generation from damage mitigated": 40
+                        "Overhealth generation from damage mitigated": 30
                     },
                     "Accretion": {
                         "Direct damage": 60,
-                        "Stun duration": 0.7,
+                        "Stun duration": 0.5,
                         "Projectile size": 0.9,
                         "Cooldown": 10,
                         "Explosion damage": 30
                     },
                     "Gravitic Flux": {
                         "requires line-of-sight": true,
-                        "Ultimate cost": 1960
+                        "Ultimate cost": 2100
                     },
                     "Hyperspheres": {
                         "Projectile size": 0.35,
@@ -256,14 +256,14 @@
             },
             "Wrecking Ball": {
                 "general": {
-                    "Base health": 475,
-                    "Armor health": 75
+                    "Base health": 500,
+                    "Armor health": 50
                 },
                 "abilities": {
                     "Grappling Claw": {
                         "Impact damage": 50,
                         "can be retracted": true,
-                        "Cooldown if fireball speed is not achieved": 1,
+                        "Cooldown if fireball speed is not achieved": 2,
                         "requires fireball speed for max duration to begin": true,
                         "Knockback": 18.7,
                         "Cooldown": 5
@@ -312,14 +312,14 @@
                     "Particle Barrier": {
                         "shares cooldown with Projected Barrier": false,
                         "Cooldown": 10,
-                        "Health": 200,
+                        "Health": 225,
                         "Duration": 2.25
                     },
                     "Projected Barrier": {
                         "Cooldown start": "ability use",
                         "shares cooldown with Particle Barrier": false,
                         "Cooldown": 8,
-                        "Health": 200,
+                        "Health": 225,
                         "Duration": 2.25,
                         "Size": 1
                     },
@@ -349,8 +349,8 @@
                         "Maximum temporary health": 200
                     },
                     "Hand Cannon": {
-                        "Minimum damage": 13.5,
-                        "Maximum damage": 45,
+                        "Minimum damage": 15,
+                        "Maximum damage": 50,
                         "Projectile size": 0.05,
                         "Pellet count": 11,
                         "Critical multiplier": 2
@@ -361,7 +361,7 @@
                     },
                     "Power Block": {
                         "Cooldown": 8,
-                        "Duration": 1.5,
+                        "Duration": 1.75,
                         "reduces damage from stuck projectiles": true,
                         "Minimum damage mitigated required to empower Rocket Punch": 100,
                         "Movement speed penalty": 35,
@@ -371,9 +371,9 @@
                         "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": false,
                         "Minimum knockback": 12,
                         "Maximum knockback": 28,
-                        "Max impact damage": 75,
-                        "Max wall slam damage": 40,
-                        "Damage reduction on AoE affected targets": 0,
+                        "Max impact damage": 71.739,
+                        "Max wall slam damage": 38.261,
+                        "Damage reduction on AoE affected targets": 50,
                         "Cooldown": 4,
                         "Min impact damage": 25,
                         "Min wall slam damage": 10,
@@ -382,7 +382,7 @@
                         "Minimum time before cancel option becomes available": 0.12
                     },
                     "Meteor Strike": {
-                        "Ultimate cost": 1932,
+                        "Ultimate cost": 1750,
                         "Minimum damage": 50,
                         "empowers Rocket Punch on landing": true,
                         "Enemy slow duration": 3
@@ -397,7 +397,7 @@
                 },
                 "abilities": {
                     "Steadfast": {
-                        "Knockback reduction": 20
+                        "Knockback reduction": 30
                     },
                     "Rocket Hammer": {
                         "Damage": 80,
@@ -438,16 +438,16 @@
                     "Incendiary and Volatile Changuns": {
                         "Number of shots required to ignite enemies with Incendiary Chaingun": 8,
                         "Projectile size": 0.05,
-                        "Ammo": 300,
+                        "Ammo": 250,
                         "Spread when only one Chaingun is active": 1,
                         "Movement speed penalty per gun": 15,
                         "Minimum damage falloff range": 30,
                         "Fire rate multiplier for firing both guns": 0,
                         "Spread for firing both guns": 0.85,
-                        "Incendiary Chaingun burn duration": 3,
+                        "Incendiary Chaingun burn duration": 3.5,
                         "Critical multiplier": 2,
                         "Recovery time": 0.055555,
-                        "Damage": 3.25
+                        "Damage": 3.33
                     },
                     "Overrun": {
                         "Cooldown": 8,
@@ -458,10 +458,10 @@
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": 12,
-                        "Lifesteal multiplier": 50,
+                        "Lifesteal multiplier": 70,
                         "Duration": 5,
-                        "Damage reduction": 30,
-                        "Allied lifesteal": 25
+                        "Damage reduction": 40,
+                        "Allied lifesteal": 35
                     },
                     "Cage Fight": {
                         "Ultimate cost": 2400,
@@ -477,16 +477,16 @@
                 "general": {
                     "Base health": 400,
                     "Model Size": 0.94,
-                    "Nemesis model size": 0.94
+                    "Nemesis model size": 1
                 },
                 "abilities": {
                     "Nemesis Form": {
                         "Cooldown": 8,
-                        "Extra armor": 200
+                        "Extra armor": 175
                     },
                     "Void Barrier": {
-                        "Barrier health": 650,
-                        "Cooldown": 13
+                        "Barrier health": 550,
+                        "Cooldown": 12
                     },
                     "Ravenous Vortex": {
                         "Cooldown": 12,
@@ -501,7 +501,7 @@
                     },
                     "Void Accelerator": {
                         "Projectile size": 0.15,
-                        "Damage": 5,
+                        "Damage": 5.7,
                         "Reload time": 1,
                         "Ammo": 100,
                         "Recovery time": 0.04,
@@ -509,7 +509,7 @@
                     },
                     "Pummel": {
                         "Projectile size": 0.575,
-                        "Damage": 70,
+                        "Damage": 65,
                         "Recovery time": 0.6
                     },
                     "Block": {
@@ -544,7 +544,7 @@
                         "Ammo per shot": 12
                     },
                     "Barrier Projector": {
-                        "Health": 650,
+                        "Health": 600,
                         "Duration": 8,
                         "Cooldown": 12
                     }
@@ -677,7 +677,7 @@
                     },
                     "Duplicate": {
                         "Ultimate gain multiplier": 5,
-                        "Ultimate cost": 2028,
+                        "Ultimate cost": 1880,
                         "has predetermined tank health pools": true,
                         "D.va copy health": 350,
                         "D.va copy armor": 100,
@@ -721,7 +721,7 @@
                 },
                 "abilities": {
                     "Shuriken": {
-                        "Damage": 29,
+                        "Damage": 28.5,
                         "Projectile size": 0.175,
                         "Ammo": 30,
                         "Critical multiplier": 2
@@ -730,7 +730,7 @@
                         "Duration": 1.5
                     },
                     "Dragonblade": {
-                        "Ultimate cost": 1932,
+                        "Ultimate cost": 1750,
                         "Swing recovery speed": 0.7
                     }
                 }
@@ -741,7 +741,7 @@
                 },
                 "abilities": {
                     "Storm Bow": {
-                        "Maximum damage": 125,
+                        "Maximum damage": 120,
                         "Projectile size": 0.175,
                         "has arrow draw progress preserved while wall climbing": false,
                         "Critical multiplier": 2
@@ -783,8 +783,8 @@
                     "Concussion Mine": {
                         "Cooldown": 8,
                         "Projectile size": 0.2,
-                        "Maximum damage": 120,
-                        "Minimum damage": 55
+                        "Maximum damage": 108,
+                        "Minimum damage": 49.5
                     },
                     "RIP-Tire": {
                         "Ultimate cost": 1925
@@ -882,7 +882,7 @@
                 "abilities": {
                     "Hellfire Shotguns": {
                         "Spread": 6,
-                        "Damage per pellet": 5.8,
+                        "Damage per pellet": 5.3,
                         "Projectile size": 0.05,
                         "Pellet count": 20,
                         "Critical multiplier": 2,
@@ -895,7 +895,7 @@
                         "Cooldown": 8
                     },
                     "Death Blossom": {
-                        "Ultimate cost": 2100,
+                        "Ultimate cost": 1900,
                         "Damage per second": 170
                     },
                     "The Reaping": {
@@ -928,7 +928,7 @@
                         "Energy gained from shooting non-player targets": 1
                     },
                     "Power Slide": {
-                        "Cooldown": 9
+                        "Cooldown": 7
                     },
                     "Overclock": {
                         "Energy charge rate": 120,
@@ -1143,7 +1143,7 @@
                         "Recovery time": 0.05,
                         "Reload time": 1,
                         "Ammo": 40,
-                        "Damage per pellet": 5.5,
+                        "Damage per pellet": 5.35,
                         "Pellet count": 2,
                         "Ammo per shot": 2
                     },
@@ -1168,26 +1168,24 @@
                         "Direct damage": 32.67,
                         "Reload time": 1.5,
                         "Recovery time": 0.7,
-                        "Ammo": 8
+                        "Ammo": 6
                     },
                     "Drill Dash": {
                         "Cooldown start": "ability use",
                         "Cooldown acceleration while burrowed": 90,
-                        "Impact damage": 21.67,
-                        "Damage over time": 43.33,
-                        "Cooldown": 7.5,
+                        "Impact damage": 20,
+                        "Damage over time": 40,
+                        "Cooldown": 7,
                         "Knockback": 10.15
                     },
                     "Burrow": {
                         "Grace period": 0.2,
-                        "Minimum damage": 40,
-                        "Maximum damage": 80
+                        "Minimum damage": 35,
+                        "Maximum damage": 70
                     },
                     "Tectonic Shock": {
-                        "Ultimate cost": 1925,
+                        "Ultimate cost": 1780,
                         "Vertical knockback": 5,
-                        "Extra damage range": 2.5,
-                        "Extra damage multiplier": 1.5,
                         "Damage": 110
                     },
                     "Clobber": {
@@ -1248,7 +1246,7 @@
                         "Damage": 60,
                         "Projectile size": 0.275,
                         "Effect duration": 3,
-                        "Cooldown": 12
+                        "Cooldown": 11
                     },
                     "Nano Boost": {
                         "Ultimate cost": 2100
@@ -1262,7 +1260,7 @@
                 "abilities": {
                     "Biotic Launcher": {
                         "Damage per bullet": 24,
-                        "Explosion healing": 35,
+                        "Explosion healing": 30,
                         "Direct healing": 40,
                         "Projectile size": 0.08,
                         "Primary fire ammo": 36,
@@ -1282,14 +1280,14 @@
                         "Cooldown": 25
                     },
                     "Amplification Matrix": {
-                        "Ultimate cost": 2310
+                        "Ultimate cost": 2370
                     }
                 }
             },
             "Brigitte": {
                 "general": {
-                    "Base health": 175,
-                    "Armor health": 25,
+                    "Base health": 150,
+                    "Armor health": 50,
                     "has overridden melee": true
                 },
                 "abilities": {
@@ -1308,7 +1306,7 @@
                         "Healing over time": 50
                     },
                     "Rally": {
-                        "Ultimate cost": 2800,
+                        "Ultimate cost": 2625,
                         "resets Shield Bash cooldown upon activation": false,
                         "Extra armor health": 100,
                         "builds self overhealth": false,
@@ -1356,7 +1354,7 @@
                         "Cooldown": 7
                     },
                     "Healing Pylon": {
-                        "Healing per projectile": 35,
+                        "Healing per projectile": 30,
                         "Self healing efficiency": 100,
                         "Health": 60,
                         "Shield health": 40,
@@ -1364,7 +1362,7 @@
                         "Redeploy cooldown": 6
                     },
                     "Captive Sun": {
-                        "Ultimate cost": 2546,
+                        "Ultimate cost": 2450,
                         "Sunstruck explosion damage": 120,
                         "Sunstruck explosion maximum explosion falloff damage reduction": 25,
                         "fully refills secondary fire resource and resets overheated status": true,
@@ -1381,9 +1379,9 @@
                 },
                 "abilities": {
                     "Kunai": {
-                        "Ammo": 12,
+                        "Ammo": 15,
                         "Projectile size": 0.225,
-                        "Damage": 45,
+                        "Damage": 48,
                         "Critical multiplier": 2.5,
                         "Recovery time": 0.5,
                         "Reload time": 1,
@@ -1392,7 +1390,6 @@
                     "Swift Step": {
                         "Cooldown": 7,
                         "Respawn cooldown": 5,
-                        "Self healing": 40,
                         "Invulnerability duration": 0.25
                     },
                     "Protection Suzu": {
@@ -1445,8 +1442,8 @@
                         "Ammo per shot": 2
                     },
                     "Petal Platform": {
-                        "Health": 300,
-                        "Cooldown": 10,
+                        "Health": 250,
+                        "Cooldown": 11,
                         "Projectile size": 0.15,
                         "pierced by piercing projectiles": false,
                         "Walkable area": 1.15,
@@ -1457,9 +1454,9 @@
                         "Heal": 60
                     },
                     "Tree of Life": {
-                        "Pulse healing": 75,
+                        "Pulse healing": 90,
                         "Health": 900,
-                        "Duration": 12,
+                        "Duration": 11,
                         "Ultimate cost": 2000,
                         "Overhealth conversion rate": 50
                     },
@@ -1481,7 +1478,7 @@
                         "Critical multiplier": 2
                     },
                     "Soundwave": {
-                        "Damage": 30,
+                        "Damage": 20,
                         "Knockback": 7.2,
                         "Movement lockout duration": 0.45,
                         "Cooldown": 4
@@ -1491,7 +1488,7 @@
                     },
                     "Crossfade": {
                         "Crossfade self-healing penalty for the duration of Amp It Up": 0,
-                        "Self healing per second": 10
+                        "Self healing per second": 16
                     }
                 }
             },
@@ -1503,10 +1500,7 @@
                 "abilities": {
                     "Regeneration": {
                         "Healing per second": 20,
-                        "Delay": 2.5
-                    },
-                    "Sympathetic Recovery": {
-                        "Self healing as percent of healing done": 40
+                        "Delay": 1
                     },
                     "Caduceus Staff": {
                         "Healing per second": 60,
@@ -1573,7 +1567,9 @@
                     "Shield health": 100
                 },
                 "abilities": {
-                    "Snap Kick": {},
+                    "Snap Kick": {
+                        "Knockback": 8
+                    },
                     "Orb of Destruction": {
                         "Ammo": 25,
                         "Projectile size": 0.225,
@@ -1583,7 +1579,7 @@
                         "Reload time": 1.5
                     },
                     "Transcendence": {
-                        "Ultimate cost": 2310
+                        "Ultimate cost": 2200
                     },
                     "Harmony Orb": {
                         "Time to wear off when not in line-of-sight": 5

@@ -8,7 +8,8 @@
         "Quick melee damage": 30,
         "has stranded spawn feature": true,
         "Overhealth ultimate charge generation rate": 50,
-        "uses dynamic calculation for armor": true
+        "uses dynamic calculation for armor": true,
+        "can phase type abilities cleanse mobility lock": false
     },
     "heroes": {
         "tank": {
@@ -405,7 +406,9 @@
                     },
                     "Charge": {
                         "Cooldown": 7,
-                        "Wall impact damage": 225
+                        "Wall impact damage": 225,
+                        "Steering turn rate": 1.5,
+                        "cancellable": true
                     },
                     "Firestrike": {
                         "Ability charges": 2,
@@ -492,7 +495,9 @@
                         "Ammo per shot": 12
                     },
                     "Barrier Projector": {
-                        "Health": 650
+                        "Health": 650,
+                        "Duration": 8,
+                        "Cooldown": 12
                     }
                 }
             }
@@ -540,7 +545,9 @@
                     "Configuration: Assault": {
                         "Movement speed penalty": 35,
                         "Cooldown": 12,
-                        "Spread": 2.2
+                        "Spread": 2.2,
+                        "Damage": 12,
+                        "Duration": 6
                     },
                     "Configuration: Artillery": {
                         "Ultimate cost": 2272,
@@ -579,7 +586,8 @@
                         "Damage": 70,
                         "Critical multiplier": 2,
                         "Ammo": 6,
-                        "Recovery time": 0.5
+                        "Recovery time": 0.5,
+                        "Secondary fire recovery time": 0.112
                     },
                     "Combat Roll": {
                         "Damage reduction": 75,
@@ -606,7 +614,9 @@
                         "Min damage reduction": 40,
                         "Ultimate cost": 1818,
                         "Initial damage rate": 130,
-                        "Damage rate": 260
+                        "Damage rate": 260,
+                        "Maximum duration": 7,
+                        "Final damage rate": 260
                     }
                 }
             },
@@ -636,7 +646,8 @@
                         "Ammo": 12
                     },
                     "Focusing Beam": {
-                        "Width": 0.2
+                        "Width": 0.2,
+                        "Maximum damage per second": 175
                     }
                 }
             },
@@ -734,13 +745,15 @@
                         "Damage per second": 100,
                         "Maximum slow": 30,
                         "Minimum slow": 30,
-                        "Duration before slow falls off between primary fire hits": 0.6
+                        "Duration before slow falls off between primary fire hits": 0.6,
+                        "stuns on freeze": false
                     },
                     "Cryofreeze": {
                         "Healing per second": 50
                     },
                     "Ice Wall": {
-                        "Health per pillar": 250
+                        "Health per pillar": 250,
+                        "Range": 20
                     },
                     "Blizzard": {
                         "Ultimate cost": 1749,
@@ -940,7 +953,8 @@
                         "Reload time": 1.2,
                         "Critical multiplier": 2,
                         "Recovery time": 0.05,
-                        "Ammo": 60
+                        "Ammo": 60,
+                        "Maximum spread": 2.16
                     },
                     "Stealth": {
                         "Grace period where Stealth can be canceled immediately after entering it": 0.5,
@@ -950,7 +964,8 @@
                         "Cooldown": 3.5,
                         "Movement speed": 45,
                         "Fade out duration": 0.25,
-                        "Fade in duration": 0.375
+                        "Fade in duration": 0.375,
+                        "Enemy detection radius": 4
                     },
                     "Hack": {
                         "Cast time": 0.65,
@@ -959,7 +974,11 @@
                         "Cooldown on successful enemy hero hack": 6,
                         "Health pack hacked duration": 45,
                         "Ability lockout duration": 1.5,
-                        "can hack hacked enemies": false
+                        "can hack hacked enemies": false,
+                        "reveals enemies": true,
+                        "Cooldown on interrupt": 4,
+                        "Stun duration on Bob": 2,
+                        "destroys immortality field": true
                     }
                 }
             },
@@ -1164,7 +1183,8 @@
                 "abilities": {
                     "Inspire": {
                         "Healing per second": 15,
-                        "Duration": 5
+                        "Duration": 5,
+                        "triggers from Shield Bash damage": true
                     },
                     "Rocket Flail": {
                         "Damage": 35
@@ -1195,8 +1215,12 @@
                     "Shield Bash": {
                         "Cooldown": 5,
                         "Damage": 50,
-                        "Knockback scalar": 2
+                        "Knockback scalar": 2,
+                        "Distance travelled": 12
                     }
+                },
+                "Inspire": {
+                    "triggers from Shield Bash damage": true
                 }
             },
             "Illari": {
