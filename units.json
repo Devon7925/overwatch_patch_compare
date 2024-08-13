@@ -150,7 +150,8 @@
                         "Maximum damage": "none",
                         "Early charge rate": "none",
                         "can be interrupted by hack": "flag",
-                        "pierces through barriers upon impact": "flag"
+                        "pierces through barriers upon impact": "flag",
+                        "Overhealth": "none"
                     },
                     "Augmented Fusion Driver": {
                         "Projectile size": "meters",
@@ -1620,7 +1621,8 @@
                     },
                     "Orb of Destruction": {
                         "Ammo": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Damage": "none"
                     },
                     "Transcendence": {
                         "Ultimate cost": "none"

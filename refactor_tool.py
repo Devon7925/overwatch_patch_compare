@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "cancellable"
-new_value = True
-process_json_files(folder_path, 'heroes/tank/Reinhardt/abilities/Charge/cancellable', new_property_name, new_value, rename=False)
+new_property_name = "Overhealth"
+new_value = 100
+process_json_files(folder_path, 'heroes/tank/Orisa/abilities/Terra Surge/Overhealth', new_property_name, new_value, rename=False)

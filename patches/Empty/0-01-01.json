@@ -1,149 +1,16 @@
 {
-    "general": {
-        "Overhealth ultimate charge generation rate": 50,
-        "uses dynamic calculation for armor": true,
-        "can phase type abilities cleanse mobility lock": false
-    },
+    "general": {},
     "heroes": {
         "tank": {
-            "general": {},
-            "Winston": {
-                "abilities": {
-                    "Tesla Cannon Alt Fire": {
-                        "Ammo per shot": 12
-                    },
-                    "Barrier Projector": {
-                        "Duration": 8,
-                        "Cooldown": 12
-                    }
-                }
-            },
-            "Reinhardt": {
-                "abilities": {
-                    "Charge": {
-                        "Steering turn rate": 1.5,
-                        "cancellable": true
-                    }
-                }
-            }
+            "general": {}
         },
         "damage": {
-            "general": {},
-            "Symmetra": {
-                "abilities": {
-                    "Sentry Turret": {
-                        "Movement speed reduction per turret": 15,
-                        "Travel speed": 20
-                    }
-                }
-            },
-            "Torbjörn": {
-                "abilities": {
-                    "Rivet Gun": {
-                        "Alt fire recovery time": 0.7
-                    }
-                }
-            },
-            "Soldier: 76": {
-                "abilities": {
-                    "Sprint": {
-                        "Increased movement speed": 50,
-                        "Recovery time": 0.3
-                    }
-                }
-            },
-            "Sombra": {
-                "abilities": {
-                    "Stealth": {
-                        "Enemy detection radius": 4
-                    },
-                    "Hack": {
-                        "reveals enemies": true,
-                        "Cooldown on interrupt": 4,
-                        "Stun duration on Bob": 2,
-                        "destroys immortality field": true
-                    },
-                    "Machine Pistol": {
-                        "Maximum spread": 2.16
-                    }
-                }
-            },
-            "Mei": {
-                "abilities": {
-                    "Ice Wall": {
-                        "Range": 20
-                    },
-                    "Endothermic Blaster": {
-                        "stuns on freeze": false
-                    }
-                }
-            },
-            "Echo": {
-                "abilities": {
-                    "Focusing Beam": {
-                        "Maximum damage per second": 175
-                    }
-                }
-            },
-            "Bastion": {
-                "abilities": {
-                    "Configuration: Assault": {
-                        "Damage": 12,
-                        "Duration": 6
-                    }
-                }
-            },
-            "Cassidy": {
-                "abilities": {
-                    "Peacekeeper": {
-                        "Secondary fire recovery time": 0.112
-                    },
-                    "Deadeye": {
-                        "Maximum duration": 7,
-                        "Final damage rate": 260
-                    }
-                }
-            }
+            "general": {}
         },
         "support": {
-            "general": {},
-            "Mercy": {
-                "abilities": {
-                    "Angelic Descent": {
-                        "Slows ascent speed": true
-                    }
-                }
-            },
-            "Baptiste": {
-                "abilities": {
-                    "Regenerative Burst": {
-                        "Self healing rate": 100
-                    },
-                    "Biotic Launcher": {
-                        "Secondary fire ammo": 13
-                    }
-                }
-            },
-            "Brigitte": {
-                "abilities": {
-                    "Shield Bash": {
-                        "Knockback scalar": 2,
-                        "Distance travelled": 12
-                    },
-                    "Inspire": {
-                        "triggers from Shield Bash damage": true
-                    }
-                },
-                "Inspire": {
-                    "triggers from Shield Bash damage": true
-                }
-            }
+            "general": {}
         }
     },
     "Map list": [],
-    "modes": {
-        "Control": {
-            "triggers overtime after capping point at 99%": true
-        }
-    }
+    "modes": {}
 }

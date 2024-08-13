@@ -155,7 +155,8 @@
                         "Maximum damage": 500,
                         "Early charge rate": 50,
                         "can be interrupted by hack": false,
-                        "pierces through barriers upon impact": false
+                        "pierces through barriers upon impact": false,
+                        "Overhealth": 100
                     },
                     "Augmented Fusion Driver": {
                         "Projectile size": 0.15,

@@ -107,6 +107,9 @@
                         "Cast time": 0.4,
                         "Ultimate cost": 1680,
                         "Duration": 15
+                    },
+                    "Terra Surge": {
+                        "Overhealth": 100
                     }
                 }
             },
