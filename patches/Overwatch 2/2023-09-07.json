@@ -302,7 +302,10 @@
                     "Particle Cannon": {
                         "Beam width": 0.15,
                         "Maximum damage per second": 170,
-                        "Minimum damage per second": 85
+                        "Minimum damage per second": 85,
+                        "Ammo": 100,
+                        "Reload time": 1.5,
+                        "Ammo per second": 20
                     },
                     "Particle Barrier": {
                         "shares cooldown with Projected Barrier": true,
@@ -325,7 +328,11 @@
                         "Projectile size": 0.05
                     },
                     "Particle Cannon Alt Fire": {
-                        "Projectile size": 0.2
+                        "Projectile size": 0.2,
+                        "Alt fire of": "Particle Cannon",
+                        "Ammo per shot": 25,
+                        "Max damage": 95,
+                        "Recovery time": 1
                     },
                     "Energy": {
                         "Energy degeneration rate": 2,
@@ -477,7 +484,10 @@
                 "abilities": {
                     "Tesla Cannon": {
                         "Damage per second": 60,
-                        "ignores armor damage reduction": false
+                        "ignores armor damage reduction": false,
+                        "Ammo": 100,
+                        "Reload time": 1.7,
+                        "Ammo per second": 20
                     },
                     "Primal Rage": {
                         "Ultimate cost": 1863,
@@ -493,7 +503,8 @@
                         "Range": 30,
                         "Recovery time": 0.75,
                         "Damage": 50,
-                        "Ammo per shot": 12
+                        "Ammo per shot": 12,
+                        "Alt fire of": "Tesla Cannon"
                     },
                     "Barrier Projector": {
                         "Health": 650,
@@ -755,7 +766,9 @@
                         "Maximum slow": 40,
                         "Minimum slow": 30,
                         "Duration before slow falls off between primary fire hits": 0.6,
-                        "stuns on freeze": false
+                        "stuns on freeze": false,
+                        "Reload time": 1.5,
+                        "Ammo per second": 20
                     },
                     "Cryofreeze": {
                         "Healing per second": 50
@@ -771,7 +784,9 @@
                     "Endothermic Blaster Alt Fire": {
                         "Projectile size": 0.1,
                         "Damage": 75,
-                        "Recovery time": 0.8
+                        "Recovery time": 0.8,
+                        "Alt fire of": "Endothermic Blaster",
+                        "Ammo per shot": 10
                     }
                 }
             },

@@ -306,10 +306,19 @@
                     "Particle Cannon": {
                         "Maximum damage per second": "none",
                         "Minimum damage per second": "none",
-                        "Beam width": "meters"
+                        "Beam width": "meters",
+                        "Ammo": "none",
+                        "Reload time": "seconds",
+                        "Ammo per second": "none"
                     },
                     "Particle Cannon Alt Fire": {
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Alt fire of": "none",
+                        "Ammo per shot": "none",
+                        "Max damage": "none",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time": "seconds"
                     },
                     "Particle Barrier": {
                         "shares cooldown with Projected Barrier": "none",
@@ -528,13 +537,20 @@
                         "Damage per second": "none",
                         "ignores armor damage reduction": "flag",
                         "Cooldown": "seconds",
-                        "Spread": "relative percent"
+                        "Spread": "relative percent",
+                        "Ammo": "none",
+                        "Reload time": "seconds",
+                        "Ammo per second": "none"
                     },
                     "Tesla Cannon Alt Fire": {
                         "Maximum charge time": "seconds",
                         "Range": "meters",
                         "Recovery time": "seconds",
-                        "Ammo per shot": "none"
+                        "Ammo per shot": "none",
+                        "Damage": "none",
+                        "Alt fire of": "none",
+                        "Ammo": "none",
+                        "Reload time": "seconds"
                     },
                     "Jet Pack": {
                         "Cooldown": "seconds",
@@ -818,11 +834,18 @@
                         "Minimum slow": "percent",
                         "Maximum slow": "percent",
                         "Duration before slow falls off between primary fire hits": "seconds",
-                        "stuns on freeze": "flag"
+                        "stuns on freeze": "flag",
+                        "Reload time": "seconds",
+                        "Ammo per second": "none"
                     },
                     "Endothermic Blaster Alt Fire": {
                         "Damage": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Recovery time": "seconds",
+                        "Alt fire of": "none",
+                        "Ammo per shot": "none",
+                        "Ammo": "none",
+                        "Reload time": "seconds"
                     },
                     "Cryofreeze": {
                         "Healing per second": "none"
