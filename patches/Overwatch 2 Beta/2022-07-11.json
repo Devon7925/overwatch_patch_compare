@@ -1102,13 +1102,10 @@
                 "abilities": {
                     "Biotic Launcher": {
                         "Damage per bullet": 24,
-                        "Explosion healing": 50,
-                        "Direct healing": 20,
                         "Projectile size": 0.0,
-                        "Primary fire ammo": 45,
                         "Critical multiplier": 2,
                         "Minimum falloff damage range": 20,
-                        "Secondary fire ammo": 13
+                        "Ammo": 45
                     },
                     "Regenerative Burst": {
                         "Cooldown": 15,
@@ -1124,6 +1121,13 @@
                     },
                     "Amplification Matrix": {
                         "Ultimate cost": 2318
+                    },
+                    "Biotic Launcher Alt Fire": {
+                        "Explosion healing": 50,
+                        "Direct healing": 20,
+                        "Ammo": 13,
+                        "Recovery time": 0.9,
+                        "Reload time": 1.5
                     }
                 }
             },
@@ -1301,6 +1305,14 @@
                         "Reapplication cooldown": 0,
                         "Range": 40,
                         "Time to wear off the target when not in line-of-sight": 2
+                    }
+                }
+            },
+            "Lifeweaver": {
+                "abilities": {
+                    "Healing Blossom": {
+                        "Recovery time": 0.3,
+                        "Reload time": 1.5
                     }
                 }
             }

@@ -253,6 +253,10 @@ const calculated_properties = [
     "Maximum total damage",
     "Maximum damage per second",
     "Maximum damage per second(including reload)",
+    "Healing per second",
+    "Healing per second(including reload)",
+    "Maximum healing per second",
+    "Maximum healing per second(including reload)",
 ]
 
 let patch_before_box = document.querySelector<HTMLSelectElement>("select#patch_before")!;
@@ -621,6 +625,7 @@ export function calculateProperties(patch_data: PatchData) {
                 }
                 if (time_between_shots > 0) {
                     let damage_per_second = 1/time_between_shots
+                    let healing_per_second = 1/time_between_shots
                     if (typeof abilityData["Damage"] === "number") {
                         damage_per_second *= abilityData["Damage"]
                         patch_data.heroes[role][hero].abilities[ability]["Damage per second"] = damage_per_second
@@ -628,6 +633,18 @@ export function calculateProperties(patch_data: PatchData) {
                     if (typeof abilityData["Total damage"] === "number") {
                         damage_per_second *= abilityData["Total damage"]
                         patch_data.heroes[role][hero].abilities[ability]["Damage per second"] = damage_per_second
+                    }
+                    if (typeof abilityData["Healing"] === "number") {
+                        healing_per_second *= abilityData["Healing"]
+                        patch_data.heroes[role][hero].abilities[ability]["Healing per second"] = healing_per_second
+                    }
+                    if (typeof abilityData["Maximum healing"] === "number") {
+                        healing_per_second *= abilityData["Maximum healing"]
+                        patch_data.heroes[role][hero].abilities[ability]["Maximum healing per second"] = healing_per_second
+                    }
+                    if (typeof abilityData["Total healing"] === "number") {
+                        healing_per_second *= abilityData["Total healing"]
+                        patch_data.heroes[role][hero].abilities[ability]["Healing per second"] = healing_per_second
                     }
                     if (typeof abilityData["Total maximum damage"] === "number") {
                         damage_per_second *= abilityData["Total maximum damage"]
@@ -648,6 +665,14 @@ export function calculateProperties(patch_data: PatchData) {
                     if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage per second"] === "number") {
                         let damage_per_second_incl_reload = patch_data.heroes[role][hero].abilities[ability]["Damage per second"] * time_before_reload / (time_before_reload + abilityData["Reload time"])
                         patch_data.heroes[role][hero].abilities[ability]["Damage per second(including reload)"] = damage_per_second_incl_reload
+                    }
+                    if (typeof patch_data.heroes[role][hero].abilities[ability]["Healing per second"] === "number") {
+                        let damage_per_second_incl_reload = patch_data.heroes[role][hero].abilities[ability]["Healing per second"] * time_before_reload / (time_before_reload + abilityData["Reload time"])
+                        patch_data.heroes[role][hero].abilities[ability]["Healing per second(including reload)"] = damage_per_second_incl_reload
+                    }
+                    if (typeof patch_data.heroes[role][hero].abilities[ability]["Maximum healing per second"] === "number") {
+                        let damage_per_second_incl_reload = patch_data.heroes[role][hero].abilities[ability]["Maximum healing per second"] * time_before_reload / (time_before_reload + abilityData["Reload time"])
+                        patch_data.heroes[role][hero].abilities[ability]["Maximum healing per second(including reload)"] = damage_per_second_incl_reload
                     }
                     if (typeof patch_data.heroes[role][hero].abilities[ability]["Maximum damage per second"] === "number") {
                         let damage_per_second_incl_reload = patch_data.heroes[role][hero].abilities[ability]["Maximum damage per second"] * time_before_reload / (time_before_reload + abilityData["Reload time"])

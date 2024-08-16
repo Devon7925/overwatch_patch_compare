@@ -1226,13 +1226,10 @@
                 "abilities": {
                     "Biotic Launcher": {
                         "Damage per bullet": 25,
-                        "Explosion healing": 50,
-                        "Direct healing": 20,
                         "Projectile size": 0.08,
-                        "Primary fire ammo": 36,
                         "Critical multiplier": 2,
                         "Minimum falloff damage range": 25,
-                        "Secondary fire ammo": 13
+                        "Ammo": 36
                     },
                     "Regenerative Burst": {
                         "Cooldown": 15,
@@ -1248,6 +1245,13 @@
                     },
                     "Amplification Matrix": {
                         "Ultimate cost": 2550
+                    },
+                    "Biotic Launcher Alt Fire": {
+                        "Explosion healing": 50,
+                        "Direct healing": 20,
+                        "Ammo": 13,
+                        "Recovery time": 0.9,
+                        "Reload time": 1.5
                     }
                 }
             },
@@ -1391,8 +1395,10 @@
                         "Ammo": 16,
                         "Projectile size": 0.25,
                         "Maximum charge time": 1.15,
-                        "Maximum heal amount": 80,
-                        "Delay until slow": 1
+                        "Delay until slow": 1,
+                        "Maximum healing": 80,
+                        "Recovery time": 0.3,
+                        "Reload time": 1.5
                     },
                     "Thorn Volley": {
                         "Ammo": 80,
