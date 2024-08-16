@@ -652,11 +652,21 @@
                 },
                 "abilities": {
                     "Peacekeeper": {
-                        "Secondary fire \"Fan the Hammer\" damage": "none",
                         "Projectile size": "meters",
                         "Primary fire falloff range minimum": "meters",
                         "Primary fire falloff range maximum": "meters",
-                        "Secondary fire recovery time": "seconds"
+                        "Damage": "none",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time": "seconds",
+                        "Critical multiplier": "none"
+                    },
+                    "Fan the Hammer": {
+                        "Damage": "none",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time": "seconds",
+                        "Alt fire of": "none"
                     },
                     "Combat Roll": {
                         "Damage reduction": "percent",

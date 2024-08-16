@@ -541,7 +541,6 @@
                 },
                 "abilities": {
                     "Peacekeeper": {
-                        "Secondary fire \"Fan the Hammer\" damage": 50,
                         "Projectile size": 0.0,
                         "Primary fire falloff range minimum": 20,
                         "Primary fire falloff range maximum": 40,
@@ -549,7 +548,7 @@
                         "Critical multiplier": 2,
                         "Ammo": 6,
                         "Recovery time": 0.5,
-                        "Secondary fire recovery time": 0.112
+                        "Reload time": 1.5
                     },
                     "Combat Roll": {
                         "Damage reduction": 50,
@@ -577,6 +576,11 @@
                         "Damage rate": 260,
                         "Maximum duration": 7,
                         "Final damage rate": 260
+                    },
+                    "Fan the Hammer": {
+                        "Damage": 50,
+                        "Recovery time": 0.112,
+                        "Alt fire of": "Peacekeeper"
                     }
                 }
             },

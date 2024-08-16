@@ -52,4 +52,4 @@ folder_path = 'patches'
 # Example usage for adding
 new_property_name = "Reload time"
 new_value = 1.5
-process_json_files(folder_path, 'heroes/support/Lifeweaver/abilities/Healing Blossom/Reload time', new_property_name, new_value, rename=False)
+process_json_files(folder_path, 'heroes/damage/Cassidy/abilities/Peacekeeper/Reload time', new_property_name, new_value, rename=False)
