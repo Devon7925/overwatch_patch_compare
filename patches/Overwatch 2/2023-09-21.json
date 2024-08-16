@@ -1439,6 +1439,10 @@
                     },
                     "Angelic Descent": {
                         "Slows ascent speed": true
+                    },
+                    "Resurrect": {
+                        "souls over death pits hidden": false,
+                        "freezes soul in place": true
                     }
                 }
             },

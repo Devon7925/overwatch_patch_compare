@@ -1187,6 +1187,10 @@
                     },
                     "Angelic Descent": {
                         "Slows ascent speed": false
+                    },
+                    "Resurrect": {
+                        "souls over death pits hidden": false,
+                        "freezes soul in place": true
                     }
                 }
             },
@@ -1245,14 +1249,6 @@
                         "Reapplication cooldown": 0,
                         "Range": 40,
                         "Time to wear off the target when not in line-of-sight": 3
-                    }
-                }
-            },
-            "Lifeweaver": {
-                "abilities": {
-                    "Healing Blossom": {
-                        "Recovery time": 0.3,
-                        "Reload time": 1.5
                     }
                 }
             }

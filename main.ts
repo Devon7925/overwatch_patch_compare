@@ -536,6 +536,10 @@ export function calculateProperties(patch_data: PatchData) {
         for (let hero in patch_data.heroes[role]) {
             if (hero == "general") continue;
             const generalHeroData = patch_data.heroes[role][hero].general;
+            if(generalHeroData === undefined) {
+                console.error(`No general hero data for ${hero}`)
+                continue
+            }
             let total_health = 0;
             if(typeof generalHeroData["Base health"] === "number") {
                 total_health += generalHeroData["Base health"];
