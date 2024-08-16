@@ -1089,21 +1089,29 @@
                 },
                 "abilities": {
                     "Photon Projector": {
-                        "Primary fire charge rate": "relative percent",
+                        "Beam charge rate": "relative percent",
                         "Shield regen per beam level": "health per second",
-                        "Primary fire damage per second per level": "none",
-                        "Primary fire beam width": "meters",
-                        "Alt fire minimum projectile size": "meters",
-                        "Alt fire maximum projectile size": "meters",
-                        "Alt fire maximum impact damage": "none",
-                        "Alt fire maximum explosion damage": "none",
-                        "Primary fire decay rate": "relative percent",
-                        "Primary fire ammo consumption rate": "rnone",
+                        "Damage per second per level": "none",
+                        "Beam width": "meters",
+                        "Beam decay rate": "relative percent",
+                        "Ammo per second": "rnone",
                         "gains ammo from damaging barriers with primary fire": "flag",
-                        "Alt fire maximum charge time": "seconds",
                         "Ammo": "none",
                         "Projectile speed": "meters per second",
-                        "Alt fire ammo cost": "none"
+                        "Reload time": "seconds",
+                        "Maximum beam level": "none"
+                    },
+                    "Photon Projector Alt Fire": {
+                        "Minimum projectile size": "meters",
+                        "Maximum projectile size": "meters",
+                        "Maximum impact damage": "none",
+                        "Maximum explosion damage": "none",
+                        "Maximum charge time": "seconds",
+                        "Ammo per shot": "none",
+                        "Reload time": "seconds",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Alt fire of": "none"
                     },
                     "Sentry Turret": {
                         "Health": "none",

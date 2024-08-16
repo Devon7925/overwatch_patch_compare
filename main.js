@@ -550,6 +550,9 @@ export function calculateProperties(patch_data) {
                 if (typeof abilityData["Maximum explosion damage"] === "number") {
                     total_damage += abilityData["Maximum explosion damage"];
                 }
+                if (typeof abilityData["Maximum impact damage"] === "number") {
+                    total_damage += abilityData["Maximum impact damage"];
+                }
                 if (typeof abilityData["Explosion damage"] === "number") {
                     total_damage += abilityData["Explosion damage"];
                 }
@@ -588,6 +591,9 @@ export function calculateProperties(patch_data) {
                     if (total_damage > 0) {
                         patch_data.heroes[role][hero].abilities[ability]["Total maximum damage"] = total_damage;
                     }
+                }
+                if (typeof abilityData["Damage per second per level"] === "number" && typeof abilityData["Maximum beam level"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Maximum damage per second"] = abilityData["Damage per second per level"] * abilityData["Maximum beam level"];
                 }
                 let time_between_shots = 0;
                 if (typeof abilityData["Recovery time"] === "number") {

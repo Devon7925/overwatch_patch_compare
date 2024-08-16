@@ -996,20 +996,16 @@
                 },
                 "abilities": {
                     "Photon Projector": {
-                        "Primary fire charge rate": 1,
-                        "Primary fire damage per second per level": 60,
-                        "Alt fire minimum projectile size": 0.04,
-                        "Alt fire maximum projectile size": 0.5,
-                        "Primary fire beam width": 0.2,
-                        "Alt fire maximum impact damage": 45,
-                        "Alt fire maximum explosion damage": 45,
-                        "Primary fire decay rate": 1,
-                        "Primary fire ammo consumption rate": 10,
                         "gains ammo from damaging barriers with primary fire": true,
-                        "Alt fire maximum charge time": 1,
                         "Ammo": 100,
                         "Projectile speed": 50,
-                        "Alt fire ammo cost": 10
+                        "Damage per second per level": 60,
+                        "Beam width": 0.2,
+                        "Beam charge rate": 1,
+                        "Beam decay rate": 1,
+                        "Ammo per second": 10,
+                        "Reload time": 1.5,
+                        "Maximum beam level": 3
                     },
                     "Sentry Turret": {
                         "Health": 30,
@@ -1029,6 +1025,16 @@
                     "Photon Barrier": {
                         "Ultimate cost": 1840,
                         "Barrier health": 4000
+                    },
+                    "Photon Projector Alt Fire": {
+                        "Minimum projectile size": 0.04,
+                        "Maximum projectile size": 0.5,
+                        "Maximum impact damage": 45,
+                        "Maximum explosion damage": 45,
+                        "Maximum charge time": 1,
+                        "Ammo per shot": 10,
+                        "Alt fire of": "Photon Projector",
+                        "Recovery time": 0.1
                     }
                 }
             },

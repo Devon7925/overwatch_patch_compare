@@ -817,20 +817,16 @@
                 },
                 "abilities": {
                     "Photon Projector": {
-                        "Primary fire charge rate": 0.8333333333333334,
-                        "Primary fire damage per second per level": 60,
-                        "Alt fire minimum projectile size": 0.04,
-                        "Alt fire maximum projectile size": 0.5,
-                        "Primary fire beam width": 0.2,
-                        "Alt fire maximum impact damage": 60,
-                        "Alt fire maximum explosion damage": 60,
-                        "Primary fire decay rate": 0.8333333333333334,
-                        "Primary fire ammo consumption rate": 7,
                         "gains ammo from damaging barriers with primary fire": true,
-                        "Alt fire maximum charge time": 1,
                         "Ammo": 70,
                         "Projectile speed": 25,
-                        "Alt fire ammo cost": 7
+                        "Damage per second per level": 60,
+                        "Beam width": 0.2,
+                        "Beam charge rate": 0.8333333333333334,
+                        "Beam decay rate": 0.8333333333333334,
+                        "Ammo per second": 7,
+                        "Reload time": 1.5,
+                        "Maximum beam level": 3
                     },
                     "Sentry Turret": {
                         "Health": 30,
@@ -849,6 +845,16 @@
                     "Photon Barrier": {
                         "Ultimate cost": 1675,
                         "Barrier health": 4000
+                    },
+                    "Photon Projector Alt Fire": {
+                        "Minimum projectile size": 0.04,
+                        "Maximum projectile size": 0.5,
+                        "Maximum impact damage": 60,
+                        "Maximum explosion damage": 60,
+                        "Maximum charge time": 1,
+                        "Ammo per shot": 7,
+                        "Alt fire of": "Photon Projector",
+                        "Recovery time": 0.1
                     }
                 }
             },

@@ -1,18 +1,18 @@
 // import units from "./units.json" with { type: "json" };
 // cant use because firefox dumb https://bugzilla.mozilla.org/show_bug.cgi?id=1736059
 
-type Unit = "none" | "percent" | "meters" | "seconds" | "health per second" | "meters per second" | "relative percent"| "flag"
+type Unit = "none" | "percent" | "meters" | "seconds" | "health per second" | "meters per second" | "relative percent" | "flag"
 type Value = string | number | boolean
 type PatchStructure<T> = {
-    general: {[key: string]: T}
+    general: { [key: string]: T }
     heroes: {
         [key: string]: {
-            general: {[key: string]: T},
+            general: { [key: string]: T },
         } & {
             [key: string]: {
-                general: {[key: string]: T},
-                abilities: {[key: string]: {[key: string]: T}}
-                breakpoints?: {[key: string]: T},
+                general: { [key: string]: T },
+                abilities: { [key: string]: { [key: string]: T } }
+                breakpoints?: { [key: string]: T },
             }
         }
     },
@@ -20,7 +20,7 @@ type PatchStructure<T> = {
         [map: string]: number
     },
     "modes": {
-        [key: string]: {[key: string]: T}
+        [key: string]: { [key: string]: T }
     }
 }
 type PatchData = PatchStructure<Value>
@@ -28,7 +28,7 @@ type Units = PatchStructure<Unit>
 
 const damageBreakPointHealthValues = [150, 175, 200, 225, 250, 300];
 
-const patchList:{[key: string]: string[]} = await fetch("./patch_list.json")
+const patchList: { [key: string]: string[] } = await fetch("./patch_list.json")
     .then((res) => res.text())
     .then((text) => JSON.parse(text, (key, value) => {
         if (typeof value != "string") {
@@ -46,7 +46,7 @@ let siteState: {
     show_breakpoints: boolean
 };
 
-function patch_from_path(joined_path:string) {
+function patch_from_path(joined_path: string) {
     let path = joined_path.split(":");
     let versionType = path[0];
     let version = "";
@@ -110,9 +110,9 @@ function patch_from_path(joined_path:string) {
 }
 
 let units: Units;
-let hero_images: {[key: string]: string} = {};
-let ability_images: {[key: string]: string} = {};
-export let patches:{[key:string]: PatchData} = {};
+let hero_images: { [key: string]: string } = {};
+let ability_images: { [key: string]: string } = {};
+export let patches: { [key: string]: PatchData } = {};
 
 let promises = [];
 promises.push(fetch("./units.json")
@@ -136,10 +136,10 @@ function round(num: number, decimalPlaces = 0) {
     return Number(num + "e" + -decimalPlaces);
 }
 
-export function convert_to_changes<T extends {[key: string]: any}>(before: T, after: T): {[key in keyof T]: any};
+export function convert_to_changes<T extends { [key: string]: any }>(before: T, after: T): { [key in keyof T]: any };
 export function convert_to_changes(before: any, after: any) {
     if (typeof before == "object" && typeof after == "object") {
-        let result: {[key: string]: any} = {};
+        let result: { [key: string]: any } = {};
         for (let key in before) {
             if (before[key] != after[key]) {
                 let changes = convert_to_changes(before[key], after[key]);
@@ -159,11 +159,11 @@ export function convert_to_changes(before: any, after: any) {
 }
 
 export function getChangeText(name: string, change: [any, any], units: Unit) {
-    if(typeof change[0] === "number") {
-        change[0] = round(change[0],2)
+    if (typeof change[0] === "number") {
+        change[0] = round(change[0], 2)
     }
-    if(typeof change[1] === "number") {
-        change[1] = round(change[1],2)
+    if (typeof change[1] === "number") {
+        change[1] = round(change[1], 2)
     }
     if (change[0] === undefined || !Array.isArray(change)) {
         let new_value = change[1];
@@ -177,7 +177,7 @@ export function getChangeText(name: string, change: [any, any], units: Unit) {
         } else if (units == "seconds") {
             return `There is now ${new_value} second ${name.toLowerCase()}.`;
         } else if (units == "flag") {
-            if(new_value === false) {
+            if (new_value === false) {
                 return `No longer ${name}.`;
             } else {
                 return `Now ${name}.`;
@@ -278,14 +278,14 @@ async function updatePatchNotes() {
     display_calculated_properties_box.checked = siteState.show_calculated_properties
     display_breakpoints_box.checked = siteState.show_breakpoints
 
-    
+
     {
         let before_patch_path = siteState.before_patch.split(":")
         let after_patch_path = siteState.after_patch.split(":")
         const last_patch_exists = (before_patch_path[0] === after_patch_path[0]) && patchList[before_patch_path[0]].indexOf(before_patch_path[1]) > 0;
         const next_patch_exists = (before_patch_path[0] === after_patch_path[0]) && patchList[after_patch_path[0]].indexOf(after_patch_path[1]) < patchList[after_patch_path[0]].length - 1;
-        last_patch_button.style.visibility = last_patch_exists?'visible':'hidden';
-        next_patch_button.style.visibility = next_patch_exists?'visible':'hidden';
+        last_patch_button.style.visibility = last_patch_exists ? 'visible' : 'hidden';
+        next_patch_button.style.visibility = next_patch_exists ? 'visible' : 'hidden';
     }
 
     await Promise.all([siteState.before_patch, siteState.after_patch]
@@ -300,11 +300,11 @@ async function updatePatchNotes() {
         }))
     let before_patch_data = patches[siteState.before_patch];
     let after_patch_data = patches[siteState.after_patch];
-    if(siteState.show_calculated_properties) {
+    if (siteState.show_calculated_properties) {
         before_patch_data = calculateProperties(before_patch_data)
         after_patch_data = calculateProperties(after_patch_data)
     }
-    if(siteState.show_breakpoints) {
+    if (siteState.show_breakpoints) {
         before_patch_data = calculateBreakpoints(before_patch_data)
         after_patch_data = calculateBreakpoints(after_patch_data)
     }
@@ -351,7 +351,7 @@ async function updatePatchNotes() {
             let generalChangesRender = "";
             let heroData = changes.heroes[role][hero];
             if (Array.isArray(heroData)) {
-                if(heroData[1] != undefined) {
+                if (heroData[1] != undefined) {
                     heroData = heroData[1];
                 } else {
                     heroChanges += `
@@ -490,7 +490,7 @@ async function updatePatchNotes() {
         let changeRender = "";
         for (let mode in changes.modes) {
             if (Array.isArray(changes.modes[mode])) {
-                if(changes.modes[mode][1] == undefined) {
+                if (changes.modes[mode][1] == undefined) {
                     changeRender += `
                             <div class="PatchNotesGeneralUpdate-title">${mode}</div>
                             <div class="PatchNotesGeneralUpdate-description">
@@ -536,18 +536,18 @@ export function calculateProperties(patch_data: PatchData) {
         for (let hero in patch_data.heroes[role]) {
             if (hero == "general") continue;
             const generalHeroData = patch_data.heroes[role][hero].general;
-            if(generalHeroData === undefined) {
+            if (generalHeroData === undefined) {
                 console.error(`No general hero data for ${hero}`)
                 continue
             }
             let total_health = 0;
-            if(typeof generalHeroData["Base health"] === "number") {
+            if (typeof generalHeroData["Base health"] === "number") {
                 total_health += generalHeroData["Base health"];
             }
-            if(typeof generalHeroData["Armor health"] === "number") {
+            if (typeof generalHeroData["Armor health"] === "number") {
                 total_health += generalHeroData["Armor health"];
             }
-            if(typeof generalHeroData["Shield health"] === "number") {
+            if (typeof generalHeroData["Shield health"] === "number") {
                 total_health += generalHeroData["Shield health"];
             }
             patch_data.heroes[role][hero].general["Total health"] = total_health;
@@ -569,16 +569,19 @@ export function calculateProperties(patch_data: PatchData) {
                 if (typeof abilityData["Wall impact damage"] === "number") {
                     total_damage += abilityData["Wall impact damage"]
                 }
-                if(typeof abilityData["Damage over time"] === "number") {
+                if (typeof abilityData["Damage over time"] === "number") {
                     total_damage += abilityData["Damage over time"]
                 }
                 if (typeof abilityData["Direct damage"] === "number") {
                     total_damage += abilityData["Direct damage"]
                 }
-                if(typeof abilityData["Maximum explosion damage"] === "number") {
+                if (typeof abilityData["Maximum explosion damage"] === "number") {
                     total_damage += abilityData["Maximum explosion damage"]
                 }
-                if(typeof abilityData["Explosion damage"] === "number") {
+                if (typeof abilityData["Maximum impact damage"] === "number") {
+                    total_damage += abilityData["Maximum impact damage"]
+                }
+                if (typeof abilityData["Explosion damage"] === "number") {
                     total_damage += abilityData["Explosion damage"]
                 }
 
@@ -594,7 +597,7 @@ export function calculateProperties(patch_data: PatchData) {
                     shrapnel_damage *= abilityData["Shrapnel count"]
                     total_damage += shrapnel_damage
                 }
-                if(total_damage > 0) {
+                if (total_damage > 0) {
                     patch_data.heroes[role][hero].abilities[ability]["Total damage"] = total_damage
                 }
                 if (typeof abilityData["Direct healing"] === "number" && typeof abilityData["Explosion healing"] === "number") {
@@ -619,6 +622,10 @@ export function calculateProperties(patch_data: PatchData) {
                     }
                 }
 
+                if (typeof abilityData["Damage per second per level"] === "number" && typeof abilityData["Maximum beam level"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Maximum damage per second"] = abilityData["Damage per second per level"] * abilityData["Maximum beam level"]
+                }
+
 
                 let time_between_shots = 0;
                 if (typeof abilityData["Recovery time"] === "number") {
@@ -628,8 +635,8 @@ export function calculateProperties(patch_data: PatchData) {
                     time_between_shots += abilityData["Maximum charge time"]
                 }
                 if (time_between_shots > 0) {
-                    let damage_per_second = 1/time_between_shots
-                    let healing_per_second = 1/time_between_shots
+                    let damage_per_second = 1 / time_between_shots
+                    let healing_per_second = 1 / time_between_shots
                     if (typeof abilityData["Damage"] === "number") {
                         damage_per_second *= abilityData["Damage"]
                         patch_data.heroes[role][hero].abilities[ability]["Damage per second"] = damage_per_second
@@ -687,21 +694,21 @@ export function calculateProperties(patch_data: PatchData) {
 
                 if (typeof abilityData["Critical multiplier"] === "number") {
                     let headshot_damage = abilityData["Critical multiplier"]
-                    if(typeof abilityData["Damage"] === "number"){
+                    if (typeof abilityData["Damage"] === "number") {
                         headshot_damage *= abilityData["Damage"]
                         patch_data.heroes[role][hero].abilities[ability]["Headshot damage"] = headshot_damage
                     }
-                    if(typeof abilityData["Maximum damage"] === "number"){
+                    if (typeof abilityData["Maximum damage"] === "number") {
                         headshot_damage *= abilityData["Maximum damage"]
                         patch_data.heroes[role][hero].abilities[ability]["Maximum headshot damage"] = headshot_damage
                     }
                     headshot_damage = abilityData["Critical multiplier"]
-                    if(typeof abilityData["Damage per second"] === "number"){
+                    if (typeof abilityData["Damage per second"] === "number") {
                         headshot_damage *= abilityData["Damage per second"]
                         patch_data.heroes[role][hero].abilities[ability]["Headshot damage per second"] = headshot_damage
                     }
                     headshot_damage = abilityData["Critical multiplier"]
-                    if(typeof abilityData["Total damage"] === "number"){
+                    if (typeof abilityData["Total damage"] === "number") {
                         headshot_damage *= abilityData["Total damage"]
                         patch_data.heroes[role][hero].abilities[ability]["Total headshot damage"] = headshot_damage
                     }
@@ -717,8 +724,8 @@ export function calculateBreakpoints(patchData: PatchData): PatchData {
         for (let hero in patchData.heroes[role]) {
             if (hero == "general") continue;
             let heroData = patchData.heroes[role][hero];
-            let damageOptions: {[key: string]: [number, number]} = {};
-            if(typeof patchData.general["Quick melee damage"] == "number" && heroData.general["has overridden melee"] !== true) {
+            let damageOptions: { [key: string]: [number, number] } = {};
+            if (typeof patchData.general["Quick melee damage"] == "number" && heroData.general["has overridden melee"] !== true) {
                 damageOptions["Melee"] = [patchData.general["Quick melee damage"], 1]
             }
             for (let ability in heroData.abilities) {
@@ -733,28 +740,28 @@ export function calculateBreakpoints(patchData: PatchData): PatchData {
                     is_cooldown = true
                 }
                 let max_damage_instances = is_cooldown ? 1 : 3;
-                    if(typeof heroData.abilities[ability]["Total damage"] == "number") {
-                        damageOptions[ability] = [heroData.abilities[ability]["Total damage"], max_damage_instances]
-                    } else if(typeof heroData.abilities[ability]["Damage"] == "number") {
-                        damageOptions[ability] = [heroData.abilities[ability]["Damage"], max_damage_instances]
-                    } else if(typeof heroData.abilities[ability]["Total maximum damage"] == "number") {
-                        damageOptions[ability] = [heroData.abilities[ability]["Total maximum damage"], max_damage_instances]
-                    } else if(typeof heroData.abilities[ability]["Maximum damage"] == "number") {
-                        damageOptions[ability] = [heroData.abilities[ability]["Maximum damage"], max_damage_instances]
-                    }
-                    if(typeof heroData.abilities[ability]["Total headshot damage"] == "number") {
-                        damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Total headshot damage"], max_damage_instances]
-                    } else if(typeof heroData.abilities[ability]["Headshot damage"] == "number") {
-                        damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Headshot damage"], max_damage_instances]
-                    } else if(typeof heroData.abilities[ability]["Maximum headshot damage"] == "number") {
-                        damageOptions[`${ability} maximum headshot`] = [heroData.abilities[ability]["Maximum headshot damage"], max_damage_instances]
-                    }
+                if (typeof heroData.abilities[ability]["Total damage"] == "number") {
+                    damageOptions[ability] = [heroData.abilities[ability]["Total damage"], max_damage_instances]
+                } else if (typeof heroData.abilities[ability]["Damage"] == "number") {
+                    damageOptions[ability] = [heroData.abilities[ability]["Damage"], max_damage_instances]
+                } else if (typeof heroData.abilities[ability]["Total maximum damage"] == "number") {
+                    damageOptions[ability] = [heroData.abilities[ability]["Total maximum damage"], max_damage_instances]
+                } else if (typeof heroData.abilities[ability]["Maximum damage"] == "number") {
+                    damageOptions[ability] = [heroData.abilities[ability]["Maximum damage"], max_damage_instances]
+                }
+                if (typeof heroData.abilities[ability]["Total headshot damage"] == "number") {
+                    damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Total headshot damage"], max_damage_instances]
+                } else if (typeof heroData.abilities[ability]["Headshot damage"] == "number") {
+                    damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Headshot damage"], max_damage_instances]
+                } else if (typeof heroData.abilities[ability]["Maximum headshot damage"] == "number") {
+                    damageOptions[`${ability} maximum headshot`] = [heroData.abilities[ability]["Maximum headshot damage"], max_damage_instances]
+                }
             }
-            let breakpointDamage:{[key:string]: number} = {"": 0}
-            for(let damageOption in damageOptions){
+            let breakpointDamage: { [key: string]: number } = { "": 0 }
+            for (let damageOption in damageOptions) {
                 for (let damageEntry in breakpointDamage) {
-                    for(let i = 1; i <= damageOptions[damageOption][1]; i++) {
-                        if(i === 1) {
+                    for (let i = 1; i <= damageOptions[damageOption][1]; i++) {
+                        if (i === 1) {
                             breakpointDamage[`${damageEntry}, ${damageOption}`] = breakpointDamage[damageEntry] + i * damageOptions[damageOption][0]
                         } else {
                             breakpointDamage[`${damageEntry}, ${i}x ${damageOption}`] = breakpointDamage[damageEntry] + i * damageOptions[damageOption][0]
@@ -762,10 +769,10 @@ export function calculateBreakpoints(patchData: PatchData): PatchData {
                     }
                 }
             }
-            let breakpointDamageEntries:{[key:string]: number} = {}
-            for(let breakpoint in breakpointDamage) {
+            let breakpointDamageEntries: { [key: string]: number } = {}
+            for (let breakpoint in breakpointDamage) {
                 let breakpointHealth = damageBreakPointHealthValues.findLast((v) => v <= breakpointDamage[breakpoint]);
-                if(breakpointHealth !== undefined) {
+                if (breakpointHealth !== undefined) {
                     breakpointDamageEntries[`Breakpoint for ${breakpoint.substring(2)}`] = breakpointHealth
                 }
             }
@@ -819,12 +826,12 @@ window.addEventListener("popstate", async (event) => {
 last_patch_button.onclick = async function () {
     let before_path = siteState.before_patch.split(":");
     let before_index = patchList[before_path[0]].indexOf(before_path[1]);
-    if(before_index > 0) {
+    if (before_index > 0) {
         siteState.before_patch = `${before_path[0]}:${patchList[before_path[0]][before_index - 1]}`
     }
     let after_path = siteState.after_patch.split(":");
     let after_index = patchList[after_path[0]].indexOf(after_path[1]);
-    if(after_index > 0) {
+    if (after_index > 0) {
         siteState.after_patch = `${after_path[0]}:${patchList[after_path[0]][after_index - 1]}`
     }
     await updatePatchNotes()
@@ -833,12 +840,12 @@ last_patch_button.onclick = async function () {
 next_patch_button.onclick = async function () {
     let before_path = siteState.before_patch.split(":");
     let before_index = patchList[before_path[0]].indexOf(before_path[1]);
-    if(before_index < patchList[before_path[0]].length) {
+    if (before_index < patchList[before_path[0]].length) {
         siteState.before_patch = `${before_path[0]}:${patchList[before_path[0]][before_index + 1]}`
     }
     let after_path = siteState.after_patch.split(":");
     let after_index = patchList[after_path[0]].indexOf(after_path[1]);
-    if(after_index < patchList[after_path[0]].length) {
+    if (after_index < patchList[after_path[0]].length) {
         siteState.after_patch = `${after_path[0]}:${patchList[after_path[0]][after_index + 1]}`
     }
     await updatePatchNotes()
