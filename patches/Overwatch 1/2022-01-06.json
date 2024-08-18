@@ -425,7 +425,8 @@
                         "Critical multiplier": 2,
                         "Ammo": 6,
                         "Recovery time": 0.5,
-                        "Reload time": 1.5
+                        "Reload time": 1.5,
+                        "Maximum damage falloff scalar": 30
                     },
                     "Combat Roll": {
                         "can be blocked by enemy player collision": true
@@ -629,7 +630,8 @@
                         "Duration before slow falls off between primary fire hits": 1.0,
                         "stuns on freeze": true,
                         "Reload time": 1.5,
-                        "Ammo per second": 20
+                        "Ammo per second": 20,
+                        "Freeze rate": 1
                     },
                     "Cryofreeze": {
                         "Healing per second": 50
@@ -1058,7 +1060,8 @@
             },
             "Lúcio": {
                 "general": {
-                    "Base health": 200
+                    "Base health": 200,
+                    "Model size": 1
                 },
                 "abilities": {
                     "Sonic Amplifier": {
