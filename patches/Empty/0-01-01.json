@@ -5,29 +5,10 @@
             "general": {}
         },
         "damage": {
-            "general": {},
-            "Cassidy": {
-                "abilities": {
-                    "Peacekeeper": {
-                        "Maximum damage falloff scalar": 30
-                    }
-                }
-            },
-            "Mei": {
-                "abilities": {
-                    "Endothermic Blaster": {
-                        "Freeze rate": 1
-                    }
-                }
-            }
+            "general": {}
         },
         "support": {
-            "general": {},
-            "Lúcio": {
-                "general": {
-                    "Model size": 1
-                }
-            }
+            "general": {}
         }
     },
     "Map list": [],

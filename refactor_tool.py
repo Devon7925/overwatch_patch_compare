@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Model size"
-new_value = 1
-process_json_files(folder_path, 'heroes/support/Lúcio/general/Model size', new_property_name, new_value, rename=False)
+new_property_name = "heroes/damage/Torbjörn/abilities/Forge Hammer/Recovery time"
+new_value = {}
+process_json_files(folder_path, 'heroes/damage/Torbjörn/abilities/Forge Hammer/Swing recovery time', new_property_name, new_value, rename=True)

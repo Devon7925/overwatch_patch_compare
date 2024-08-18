@@ -1125,13 +1125,11 @@
                 "abilities": {
                     "Rivet Gun": {
                         "Ammo": 18,
-                        "Secondary fire ammo cost": 2,
                         "Projectile size": 0.18,
-                        "Alt fire projectile size": 0.05,
-                        "Primary fire recovery": 0.51,
-                        "Secondary Fire spread": 4.5,
                         "Critical multiplier": 2,
-                        "Alt fire recovery time": 0.7
+                        "Recovery time": 0.51,
+                        "Damage": 70,
+                        "Reload time": 2
                     },
                     "Molten Core": {
                         "Ultimate cost": 2350,
@@ -1147,7 +1145,18 @@
                         "Ammo reloaded on use": 6
                     },
                     "Forge Hammer": {
-                        "Swing recovery time": 0.6
+                        "Damage": 55,
+                        "Recovery time": 0.6
+                    },
+                    "Rivet Gun Alt Fire": {
+                        "Ammo per shot": 2,
+                        "Projectile size": 0.05,
+                        "Spread": 4.5,
+                        "Recovery time": 0.7,
+                        "Damage per pellet": 3.75,
+                        "Critical multiplier": 2,
+                        "Pellet count": 10,
+                        "Alt fire of": "Rivet Gun"
                     }
                 }
             },
