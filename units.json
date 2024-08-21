@@ -99,7 +99,8 @@
                         "Allied speed duration": "seconds",
                         "has overhealth decay": "flag",
                         "Radius": "meters",
-                        "Self duration": "seconds"
+                        "Self duration": "seconds",
+                        "Movement speed bonus": "percent"
                     },
                     "Carnage": {
                         "Impact damage": "none",
