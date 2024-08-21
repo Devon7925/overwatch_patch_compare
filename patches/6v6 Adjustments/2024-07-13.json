@@ -1020,10 +1020,10 @@
                 },
                 "abilities": {
                     "Virus": {
-                        "Damage over time": 90,
+                        "Damage over time": 84.375,
                         "Cooldown": 7,
                         "Projectile size": 0.5,
-                        "Impact damage": 25
+                        "Impact damage": 23.4375
                     },
                     "EMP": {
                         "Ultimate cost": 1484,
@@ -1043,7 +1043,7 @@
                     },
                     "Machine Pistol": {
                         "Projectile size": 0.05,
-                        "Damage": 8,
+                        "Damage": 7.5,
                         "Minimum Spread": 0,
                         "Number of shots until max spread": 6,
                         "Reload time": 1.2,
