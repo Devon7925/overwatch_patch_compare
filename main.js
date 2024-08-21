@@ -527,55 +527,75 @@ export function calculateProperties(patch_data) {
             for (let ability in patch_data.heroes[role][hero].abilities) {
                 const abilityData = patch_data.heroes[role][hero].abilities[ability];
                 if (typeof abilityData["Alt fire of"] == "string") {
-                    if ("Ammo" in patch_data.heroes[role][hero].abilities[abilityData["Alt fire of"]]) {
+                    if (!("Ammo" in abilityData) && "Ammo" in patch_data.heroes[role][hero].abilities[abilityData["Alt fire of"]]) {
                         patch_data.heroes[role][hero].abilities[ability]["Ammo"] = patch_data.heroes[role][hero].abilities[abilityData["Alt fire of"]]["Ammo"];
                     }
                     if ("Reload time" in patch_data.heroes[role][hero].abilities[abilityData["Alt fire of"]]) {
                         patch_data.heroes[role][hero].abilities[ability]["Reload time"] = patch_data.heroes[role][hero].abilities[abilityData["Alt fire of"]]["Reload time"];
                     }
                 }
-                let total_damage = 0;
-                if (typeof abilityData["Impact damage"] === "number") {
-                    total_damage += abilityData["Impact damage"];
-                }
-                if (typeof abilityData["Wall impact damage"] === "number") {
-                    total_damage += abilityData["Wall impact damage"];
-                }
-                if (typeof abilityData["Damage over time"] === "number") {
-                    total_damage += abilityData["Damage over time"];
-                }
-                if (typeof abilityData["Direct damage"] === "number") {
-                    total_damage += abilityData["Direct damage"];
-                }
-                if (typeof abilityData["Maximum explosion damage"] === "number") {
-                    total_damage += abilityData["Maximum explosion damage"];
-                }
-                if (typeof abilityData["Maximum impact damage"] === "number") {
-                    total_damage += abilityData["Maximum impact damage"];
-                }
-                if (typeof abilityData["Explosion damage"] === "number") {
-                    total_damage += abilityData["Explosion damage"];
-                }
-                if (typeof abilityData["Damage per pellet"] === "number" && typeof abilityData["Pellet count"] === "number") {
-                    let pellet_damage = 1;
-                    pellet_damage *= abilityData["Damage per pellet"];
-                    pellet_damage *= abilityData["Pellet count"];
-                    total_damage += pellet_damage;
-                }
-                if (typeof abilityData["Damage per shrapnel"] === "number" && typeof abilityData["Shrapnel count"] === "number") {
-                    let shrapnel_damage = 1;
-                    shrapnel_damage *= abilityData["Damage per shrapnel"];
-                    shrapnel_damage *= abilityData["Shrapnel count"];
-                    total_damage += shrapnel_damage;
-                }
-                if (total_damage > 0) {
-                    patch_data.heroes[role][hero].abilities[ability]["Total damage"] = total_damage;
-                }
-                if (typeof abilityData["Direct healing"] === "number" && typeof abilityData["Explosion healing"] === "number") {
+                {
                     let total_damage = 0;
-                    total_damage += abilityData["Direct healing"];
-                    total_damage += abilityData["Explosion healing"];
-                    patch_data.heroes[role][hero].abilities[ability]["Total healing"] = total_damage;
+                    if (typeof abilityData["Impact damage"] === "number") {
+                        total_damage += abilityData["Impact damage"];
+                    }
+                    if (typeof abilityData["Wall impact damage"] === "number") {
+                        total_damage += abilityData["Wall impact damage"];
+                    }
+                    if (typeof abilityData["Damage over time"] === "number") {
+                        total_damage += abilityData["Damage over time"];
+                    }
+                    if (typeof abilityData["Direct damage"] === "number") {
+                        total_damage += abilityData["Direct damage"];
+                    }
+                    if (typeof abilityData["Maximum explosion damage"] === "number") {
+                        total_damage += abilityData["Maximum explosion damage"];
+                    }
+                    if (typeof abilityData["Maximum impact damage"] === "number") {
+                        total_damage += abilityData["Maximum impact damage"];
+                    }
+                    if (typeof abilityData["Explosion damage"] === "number") {
+                        total_damage += abilityData["Explosion damage"];
+                    }
+                    if (typeof abilityData["Damage per bullet"] === "number") {
+                        total_damage += abilityData["Damage per bullet"];
+                    }
+                    if (typeof abilityData["Damage per pellet"] === "number" && typeof abilityData["Pellet count"] === "number") {
+                        let pellet_damage = 1;
+                        pellet_damage *= abilityData["Damage per pellet"];
+                        pellet_damage *= abilityData["Pellet count"];
+                        total_damage += pellet_damage;
+                    }
+                    if (typeof abilityData["Damage per shrapnel"] === "number" && typeof abilityData["Shrapnel count"] === "number") {
+                        let shrapnel_damage = 1;
+                        shrapnel_damage *= abilityData["Damage per shrapnel"];
+                        shrapnel_damage *= abilityData["Shrapnel count"];
+                        total_damage += shrapnel_damage;
+                    }
+                    if (typeof abilityData["Bullets per burst"] === "number") {
+                        total_damage *= abilityData["Bullets per burst"];
+                    }
+                    if (total_damage > 0) {
+                        patch_data.heroes[role][hero].abilities[ability]["Total damage"] = total_damage;
+                    }
+                }
+                {
+                    let total_healing = 0;
+                    if (typeof abilityData["Direct healing"] === "number") {
+                        total_healing += abilityData["Direct healing"];
+                    }
+                    if (typeof abilityData["Explosion healing"] === "number") {
+                        total_healing += abilityData["Explosion healing"];
+                    }
+                    if (typeof abilityData["Healing per bullet"] === "number") {
+                        total_healing += abilityData["Healing per bullet"];
+                    }
+                    if (typeof abilityData["Bullets per burst"] === "number") {
+                        total_healing *= abilityData["Bullets per burst"];
+                    }
+                    if (total_healing > 0) {
+                        patch_data.heroes[role][hero].abilities[ability]["Total healing"] = total_healing;
+                    }
                 }
                 {
                     let total_damage = 0;
@@ -637,6 +657,9 @@ export function calculateProperties(patch_data) {
                     }
                     if (typeof abilityData["Ammo per shot"] === "number") {
                         time_before_reload /= abilityData["Ammo per shot"];
+                    }
+                    if (typeof abilityData["Bullets per burst"] === "number") {
+                        time_before_reload /= abilityData["Bullets per burst"];
                     }
                     if (typeof abilityData["Ammo per second"] === "number") {
                         time_before_reload /= abilityData["Ammo per second"];

@@ -5,31 +5,10 @@
             "general": {}
         },
         "damage": {
-            "general": {},
-            "Sojourn": {
-                "abilities": {
-                    "Railgun": {
-                        "Energy decay per second": 33
-                    }
-                }
-            }
+            "general": {}
         },
         "support": {
-            "general": {},
-            "Illari": {
-                "abilities": {
-                    "Captive Sun": {
-                        "Environment collision projectile size": 0.15
-                    }
-                }
-            },
-            "Lifeweaver": {
-                "abilities": {
-                    "Petal Platform": {
-                        "Duration": 10
-                    }
-                }
-            }
+            "general": {}
         }
     },
     "Map list": [],

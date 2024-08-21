@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Range forgive"
-new_value = 5
-process_json_files(folder_path, 'heroes/support/Juno/abilities/Pulsar Torpedoes/Range forgive', new_property_name, new_value, rename=False)
+new_property_name = "Alt fire of"
+new_value = "Biotic Launcher"
+process_json_files(folder_path, 'heroes/support/Baptiste/abilities/Biotic Launcher Alt Fire/Alt fire of', new_property_name, new_value, rename=False)

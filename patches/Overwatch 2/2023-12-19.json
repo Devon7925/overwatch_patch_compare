@@ -257,7 +257,10 @@
                     "Hyperspheres": {
                         "Projectile size": 0.25,
                         "Direct damage": 25,
-                        "Explosion damage": 30
+                        "Explosion damage": 30,
+                        "Recovery time": 1.5,
+                        "Bullets per burst": 2,
+                        "Burst recovery time": 0.192
                     }
                 }
             },
@@ -735,10 +738,14 @@
                 },
                 "abilities": {
                     "Shuriken": {
-                        "Damage": 27,
+                        "Damage per bullet": 27,
                         "Projectile size": 0.1,
                         "Ammo": 30,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Burst recovery time": 0.096,
+                        "Bullets per burst": 3,
+                        "Recovery time": 0.88,
+                        "Reload time": 1.5
                     },
                     "Deflect": {
                         "Duration": 2
@@ -1251,7 +1258,11 @@
                         "Projectile size": 0.0,
                         "Critical multiplier": 2,
                         "Minimum falloff damage range": 25,
-                        "Ammo": 36
+                        "Ammo": 36,
+                        "Recovery time": 0.588,
+                        "Burst recovery time": 0.096,
+                        "Bullets per burst": 3,
+                        "Reload time": 1.5
                     },
                     "Regenerative Burst": {
                         "Cooldown": 15,
@@ -1273,7 +1284,7 @@
                         "Direct healing": 20,
                         "Ammo": 13,
                         "Recovery time": 0.9,
-                        "Reload time": 1.5
+                        "Alt fire of": "Biotic Launcher"
                     }
                 }
             },
@@ -1468,9 +1479,14 @@
                 },
                 "abilities": {
                     "Sonic Amplifier": {
-                        "Damage per projectile": 20,
+                        "Reload time": 1.5,
+                        "Ammo": 20,
+                        "Damage per bullet": 20,
                         "Projectile size": 0.15,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Recovery time": 0.93,
+                        "Bullets per burst": 4,
+                        "Burst recovery time": 0.112
                     },
                     "Soundwave": {
                         "Damage": 25,

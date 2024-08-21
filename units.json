@@ -247,14 +247,21 @@
                     "Accretion": {
                         "Direct damage": "none",
                         "Stun duration": "seconds",
-                        "Explosion damage": "none"
+                        "Explosion damage": "none",
+                        "Cooldown": "seconds",
+                        "Projectile size": "meters"
                     },
                     "Gravitic Flux": {
                         "requires line-of-sight": "none",
                         "Ultimate cost": "none"
                     },
                     "Hyperspheres": {
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Direct damage": "none",
+                        "Explosion damage": "none",
+                        "Recovery time": "seconds",
+                        "Burst recovery time": "seconds",
+                        "Bullets per burst": "none"
                     }
                 }
             },
@@ -761,9 +768,14 @@
                 },
                 "abilities": {
                     "Shuriken": {
-                        "Damage": "none",
+                        "Damage per bullet": "none",
                         "Projectile size": "meters",
-                        "Ammo": "none"
+                        "Ammo": "none",
+                        "Critical multiplier": "none",
+                        "Burst recovery time": "seconds",
+                        "Bullets per burst": "none",
+                        "Recovery time": "seconds",
+                        "Reload time": "seconds"
                     },
                     "Deflect": {
                         "Duration": "seconds"
@@ -1321,14 +1333,19 @@
                         "Projectile size": "meters",
                         "Ammo": "none",
                         "Minimum falloff damage range": "meters",
-                        "Critical multiplier": "none"
+                        "Critical multiplier": "none",
+                        "Recovery time": "seconds",
+                        "Burst recovery time": "seconds",
+                        "Bullets per burst": "none",
+                        "Reload time": "seconds"
                     },
                     "Biotic Launcher Alt Fire": {
                         "Explosion healing": "none",
                         "Direct healing": "none",
                         "Ammo": "none",
                         "Recovery time": "seconds",
-                        "Reload time": "seconds"
+                        "Reload time": "seconds",
+                        "Alt fire of": "none"
                     },
                     "Regenerative Burst": {
                         "Cooldown": "seconds",
@@ -1443,15 +1460,16 @@
                         "Move speed while falling": "meters per second"
                     },
                     "Mediblaster": {
-                        "Damage": "none",
-                        "Healing": "none",
+                        "Damage per bullet": "none",
+                        "Healing per bullet": "none",
                         "Bullets per burst": "none",
                         "Ammo": "none",
                         "Spread": "relative percent",
                         "Falloff range minimum": "meters",
                         "Falloff range maximum": "meters",
                         "Reload time": "seconds",
-                        "Burst recovery time": "seconds"
+                        "Burst recovery time": "seconds",
+                        "Recovery time": "seconds"
                     },
                     "Pulsar Torpedoes": {
                         "Damage": "none",
@@ -1598,13 +1616,20 @@
                 },
                 "abilities": {
                     "Sonic Amplifier": {
-                        "Damage per projectile": "none",
-                        "Projectile size": "meters"
+                        "Reload time": "seconds",
+                        "Ammo": "none",
+                        "Damage per bullet": "none",
+                        "Projectile size": "meters",
+                        "Critical multiplier": "none",
+                        "Recovery time": "seconds",
+                        "Bullets per burst": "none",
+                        "Burst recovery time": "seconds"
                     },
                     "Soundwave": {
                         "Damage": "none",
                         "Knockback": "none",
-                        "Movement lockout duration": "seconds"
+                        "Movement lockout duration": "seconds",
+                        "Cooldown": "seconds"
                     },
                     "Sound Barrier": {
                         "Ultimate cost": "none"
