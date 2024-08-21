@@ -1,5 +1,7 @@
 {
     "general": {
+        "Respawn time": 10,
+        "Overtime respawn time": 13,
         "Knockdown time": 2,
         "Armor health": "30% damage reduction",
         "Out-of-combat health regeneration": "0",
@@ -885,7 +887,8 @@
                         "Reload time": 1.2,
                         "Energy gain based on": "player hits",
                         "Energy delay before draining": 5,
-                        "Energy gained from shooting non-player targets": 1
+                        "Energy gained from shooting non-player targets": 1,
+                        "Energy decay per second": 33
                     },
                     "Power Slide": {
                         "Cooldown": 7
@@ -1337,7 +1340,8 @@
                         "pierced by piercing projectiles": true,
                         "Walkable area": 1.15,
                         "Maximum triger lift radius": 2,
-                        "Minimum triger lift radius": 0.75
+                        "Minimum triger lift radius": 0.75,
+                        "Duration": 10
                     },
                     "Rejuvenating Dash": {
                         "Heal": 25
@@ -1481,6 +1485,13 @@
                         "Reapplication cooldown": 0,
                         "Range": 40,
                         "Time to wear off the target when not in line-of-sight": 2
+                    }
+                }
+            },
+            "Illari": {
+                "abilities": {
+                    "Captive Sun": {
+                        "Environment collision projectile size": 0.15
                     }
                 }
             }

@@ -1,5 +1,7 @@
 {
     "general": {
+        "Respawn time": 10,
+        "Overtime respawn time": 13,
         "Knockdown time": 2,
         "Armor health": "30% damage reduction",
         "Out-of-combat health regeneration": "0",
@@ -876,7 +878,8 @@
                         "Reload time": 1.2,
                         "Energy gain based on": "damage dealt",
                         "Energy delay before draining": 5,
-                        "Energy gained from shooting non-player targets": 1
+                        "Energy gained from shooting non-player targets": 1,
+                        "Energy decay per second": 33
                     },
                     "Power Slide": {
                         "Cooldown": 7
@@ -1414,6 +1417,20 @@
                         "Reapplication cooldown": 0,
                         "Range": 40,
                         "Time to wear off the target when not in line-of-sight": 2
+                    }
+                }
+            },
+            "Illari": {
+                "abilities": {
+                    "Captive Sun": {
+                        "Environment collision projectile size": 0.15
+                    }
+                }
+            },
+            "Lifeweaver": {
+                "abilities": {
+                    "Petal Platform": {
+                        "Duration": 10
                     }
                 }
             }

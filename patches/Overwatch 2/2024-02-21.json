@@ -1,5 +1,7 @@
 {
     "general": {
+        "Respawn time": 10,
+        "Overtime respawn time": 13,
         "Knockdown time": 2,
         "Armor health": "30% damage reduction",
         "Out-of-combat health regeneration": "20",
@@ -942,7 +944,8 @@
                         "Reload time": 1.2,
                         "Energy gain based on": "player hits",
                         "Energy delay before draining": 5,
-                        "Energy gained from shooting non-player targets": 1
+                        "Energy gained from shooting non-player targets": 1,
+                        "Energy decay per second": 33
                     },
                     "Power Slide": {
                         "Cooldown": 7
@@ -1362,7 +1365,8 @@
                         "fully refills secondary fire resource and resets overheated status": true,
                         "projectile impact and explosion are blocked by barriers": true,
                         "Projectile size": 0.75,
-                        "Sunstruck duration": 6
+                        "Sunstruck duration": 6,
+                        "Environment collision projectile size": 0.15
                     }
                 }
             },
@@ -1441,7 +1445,8 @@
                         "pierced by piercing projectiles": false,
                         "Walkable area": 1.15,
                         "Maximum triger lift radius": 2,
-                        "Minimum triger lift radius": 0.75
+                        "Minimum triger lift radius": 0.75,
+                        "Duration": 10
                     },
                     "Rejuvenating Dash": {
                         "Heal": 50

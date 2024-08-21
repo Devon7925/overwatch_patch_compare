@@ -1,12 +1,16 @@
 {
     "general": {
+        "Respawn time": "seconds",
+        "Overtime respawn time": "seconds",
         "Knockdown time": "seconds",
         "Armor health": "none",
         "Out-of-combat health regeneration": "none",
         "Role lock": "none",
         "Ultimate percent retained on swap": "percent",
         "has stranded spawn feature": "flag",
-        "Overhealth ultimate charge generation rate": "percent"
+        "Overhealth ultimate charge generation rate": "percent",
+        "Max wave respawn time": "seconds",
+        "Non wave respawn time reduction": "seconds"
     },
     "heroes": {
         "tank": {
@@ -807,7 +811,8 @@
                     "Frag Launcher": {
                         "Direct damage": "none",
                         "Explosion damage": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Projectile size reduction": "percent"
                     },
                     "Concussion Mine": {
                         "Cooldown": "seconds",
@@ -961,7 +966,8 @@
                         "requires overclock for secondary primary piercing": "flag",
                         "Ammo": "none",
                         "Critical multiplier": "none",
-                        "Reload time": "seconds"
+                        "Reload time": "seconds",
+                        "Energy decay per second": "none"
                     },
                     "Railgun Alt Fire": {
                         "Maximum damage": "none",
@@ -1422,7 +1428,8 @@
                         "fully refills secondary fire resource and resets overheated status": "none",
                         "projectile impact and explosion are blocked by barriers": "flag",
                         "Projectile size": "meters",
-                        "Sunstruck duration": "seconds"
+                        "Sunstruck duration": "seconds",
+                        "Environment collision projectile size": "meters"
                     }
                 }
             },
@@ -1443,14 +1450,18 @@
                         "Spread": "relative percent",
                         "Falloff range minimum": "meters",
                         "Falloff range maximum": "meters",
-                        "Reload time": "seconds"
+                        "Reload time": "seconds",
+                        "Burst recovery time": "seconds"
                     },
                     "Pulsar Torpedoes": {
                         "Damage": "none",
                         "Healing": "none",
                         "Maximum duration": "seconds",
                         "Cooldown": "seconds",
-                        "HoT duration": "seconds"
+                        "HoT duration": "seconds",
+                        "Healing over time": "none",
+                        "Cooldown after no lock-on cancel": "seconds",
+                        "Forgiveness range": "meters"
                     },
                     "Glide Boost": {
                         "Increased movement speed": "percent",
@@ -1474,7 +1485,8 @@
                         "Duration": "seconds",
                         "Radius": "meters",
                         "Deploy range": "meters",
-                        "Movement distance": "meters"
+                        "Movement distance": "meters",
+                        "Beam travel speed": "meters per second"
                     }
                 }
             },
@@ -1532,7 +1544,8 @@
                         "Maximum healing": "none",
                         "Delay until slow": "seconds",
                         "Recovery time": "seconds",
-                        "Reload time": "seconds"
+                        "Reload time": "seconds",
+                        "Passive charge per second": "none"
                     },
                     "Thorn Volley": {
                         "Ammo": "none",
@@ -1554,7 +1567,9 @@
                         "pierced by piercing projectiles": "none",
                         "Walkable area": "relative percent",
                         "Minimum triger lift radius": "meters",
-                        "Maximum triger lift radius": "meters"
+                        "Maximum triger lift radius": "meters",
+                        "Duration": "seconds",
+                        "Delay until lower": "seconds"
                     },
                     "Rejuvenating Dash": {
                         "Heal": "none"
@@ -1720,7 +1735,8 @@
             "Time until cart rollback": "seconds"
         },
         "Flashpoint": {
-            "Seconds per percent": "seconds"
+            "Seconds per percent": "seconds",
+            "Maximum speed boost when leaving spawn": "percent"
         },
         "Hybrid": {
             "Attackers cart healing": "none",
@@ -1730,7 +1746,8 @@
             "Time limit": "seconds",
             "Forward spawn respawn timer": "seconds",
             "Robot checkpoint delay time": "seconds",
-            "Robot speed multiplier when pushing barrier": "relative percent"
+            "Robot speed multiplier when pushing barrier": "relative percent",
+            "Decreased vertical contest hitbox": "flag"
         }
     }
 }

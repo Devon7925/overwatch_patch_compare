@@ -1,5 +1,7 @@
 {
     "general": {
+        "Respawn time": 10,
+        "Overtime respawn time": 13,
         "Knockdown time": 2,
         "Armor health": "a flat damage reduction of 5 per projectile, up to a maximum of 50% damage reduction",
         "Out-of-combat health regeneration": "0",
@@ -953,6 +955,13 @@
                         "Scoped shot maximum damage falloff scalar": 30
                     }
                 }
+            },
+            "Sojourn": {
+                "abilities": {
+                    "Railgun": {
+                        "Energy decay per second": 33
+                    }
+                }
             }
         },
         "support": {
@@ -1195,6 +1204,20 @@
                         "Reapplication cooldown": 0,
                         "Range": 40,
                         "Time to wear off the target when not in line-of-sight": 3
+                    }
+                }
+            },
+            "Illari": {
+                "abilities": {
+                    "Captive Sun": {
+                        "Environment collision projectile size": 0.15
+                    }
+                }
+            },
+            "Lifeweaver": {
+                "abilities": {
+                    "Petal Platform": {
+                        "Duration": 10
                     }
                 }
             }

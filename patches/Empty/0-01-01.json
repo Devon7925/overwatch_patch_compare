@@ -2,20 +2,34 @@
     "general": {},
     "heroes": {
         "tank": {
+            "general": {}
+        },
+        "damage": {
             "general": {},
-            "Junker Queen": {
+            "Sojourn": {
                 "abilities": {
-                    "Commanding Shout": {
-                        "Movement speed bonus": 30
+                    "Railgun": {
+                        "Energy decay per second": 33
                     }
                 }
             }
         },
-        "damage": {
-            "general": {}
-        },
         "support": {
-            "general": {}
+            "general": {},
+            "Illari": {
+                "abilities": {
+                    "Captive Sun": {
+                        "Environment collision projectile size": 0.15
+                    }
+                }
+            },
+            "Lifeweaver": {
+                "abilities": {
+                    "Petal Platform": {
+                        "Duration": 10
+                    }
+                }
+            }
         }
     },
     "Map list": [],

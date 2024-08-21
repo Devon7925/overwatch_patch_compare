@@ -1,5 +1,7 @@
 {
     "general": {
+        "Respawn time": 10,
+        "Overtime respawn time": 13,
         "Knockdown time": 1.7,
         "Armor health": "a flat damage reduction of 10 per projectile, up to a maximum of 50% damage reduction",
         "Out-of-combat health regeneration": "10 + 5% of max hp",
@@ -941,7 +943,8 @@
                         "Reload time": 1.2,
                         "Energy gain based on": "player hits",
                         "Energy delay before draining": 5,
-                        "Energy gained from shooting non-player targets": 1
+                        "Energy gained from shooting non-player targets": 1,
+                        "Energy decay per second": 33
                     },
                     "Power Slide": {
                         "Cooldown": 7
@@ -1405,7 +1408,8 @@
                         "fully refills secondary fire resource and resets overheated status": true,
                         "projectile impact and explosion are blocked by barriers": true,
                         "Projectile size": 0.75,
-                        "Sunstruck duration": 6
+                        "Sunstruck duration": 6,
+                        "Environment collision projectile size": 0.15
                     }
                 }
             },
@@ -1426,14 +1430,17 @@
                         "Spread": 1,
                         "Falloff range minimum": 30,
                         "Falloff range maximum": 45,
-                        "Reload time": 1.8
+                        "Reload time": 1.8,
+                        "Burst recovery time": 0.03571428571428571
                     },
                     "Pulsar Torpedoes": {
                         "Damage": 75,
-                        "Healing": 60,
+                        "Healing": 75,
                         "Maximum duration": 4,
                         "HoT duration": 2.5,
-                        "Cooldown": 10
+                        "Cooldown": 10,
+                        "Healing over time": 60,
+                        "Cooldown after no lock-on cancel": 5
                     },
                     "Glide Boost": {
                         "Increased movement speed": 50,
@@ -1457,7 +1464,7 @@
                         "Duration": 10,
                         "Radius": 8,
                         "Deploy range": 4,
-                        "Movement distance": 16
+                        "Beam travel speed": 1.9
                     }
                 }
             },
@@ -1536,7 +1543,8 @@
                         "pierced by piercing projectiles": false,
                         "Walkable area": 1.15,
                         "Maximum triger lift radius": 2,
-                        "Minimum triger lift radius": 0.75
+                        "Minimum triger lift radius": 0.75,
+                        "Duration": 10
                     },
                     "Rejuvenating Dash": {
                         "Heal": 60
