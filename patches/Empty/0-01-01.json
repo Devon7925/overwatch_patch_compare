@@ -2,7 +2,14 @@
     "general": {},
     "heroes": {
         "tank": {
-            "general": {}
+            "general": {},
+            "Junker Queen": {
+                "abilities": {
+                    "Commanding Shout": {
+                        "Movement speed bonus": 30
+                    }
+                }
+            }
         },
         "damage": {
             "general": {}

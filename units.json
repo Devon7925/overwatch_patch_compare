@@ -95,7 +95,8 @@
                         "Self overhalth": "none",
                         "Ally Overhealth": "none",
                         "Additional allied tank overhealth": "none",
-                        "Allied duration": "seconds",
+                        "Allied overhealth duration": "seconds",
+                        "Allied speed duration": "seconds",
                         "has overhealth decay": "flag",
                         "Radius": "meters",
                         "Self duration": "seconds"

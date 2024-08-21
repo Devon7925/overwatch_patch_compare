@@ -102,9 +102,11 @@
                         "Cooldown": 11,
                         "Self overhalth": 200,
                         "Ally Overhealth": 100,
-                        "Allied duration": 4,
+                        "Allied overhealth duration": 4,
+                        "Allied speed duration": 4,
                         "Radius": 20,
-                        "Self duration": 4
+                        "Self duration": 4,
+                        "Movement speed bonus": 30
                     },
                     "Carnage": {
                         "Impact damage": 90,
