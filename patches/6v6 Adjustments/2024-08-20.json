@@ -342,7 +342,7 @@
                         "Projectile size": 0.35,
                         "Alt fire of": "Particle Cannon",
                         "Ammo per shot": 25,
-                        "Max damage": 110,
+                        "Max damage": 98.42,
                         "Recovery time": 1
                     },
                     "Energy": {
