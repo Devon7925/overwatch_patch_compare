@@ -1489,8 +1489,8 @@
                     "Kunai": {
                         "Ammo": 15,
                         "Projectile size": 0.225,
-                        "Damage": 48,
-                        "Critical multiplier": 2.5,
+                        "Damage": 60,
+                        "Critical multiplier": 2,
                         "Recovery time": 0.55,
                         "Reload time": 1,
                         "Ammo refresh time": 0.65
