@@ -342,7 +342,7 @@
                         "Projectile size": 0.35,
                         "Alt fire of": "Particle Cannon",
                         "Ammo per shot": 25,
-                        "Max damage": 98.42,
+                        "Max damage": 100,
                         "Recovery time": 1
                     },
                     "Energy": {
@@ -1022,10 +1022,10 @@
                 },
                 "abilities": {
                     "Virus": {
-                        "Damage over time": 81.5625,
+                        "Damage over time": 84.375,
                         "Cooldown": 8,
                         "Projectile size": 0.5,
-                        "Impact damage": 31.71875
+                        "Impact damage": 32.8125
                     },
                     "EMP": {
                         "Ultimate cost": 1375,
@@ -1045,7 +1045,7 @@
                     },
                     "Machine Pistol": {
                         "Projectile size": 0.05,
-                        "Damage": 7.25,
+                        "Damage": 7.5,
                         "Minimum Spread": 0,
                         "Number of shots until max spread": 6,
                         "Reload time": 1.2,
@@ -1489,7 +1489,7 @@
                     "Kunai": {
                         "Ammo": 15,
                         "Projectile size": 0.225,
-                        "Damage": 60,
+                        "Damage": 55,
                         "Critical multiplier": 2,
                         "Recovery time": 0.55,
                         "Reload time": 1,
@@ -1554,7 +1554,7 @@
                     },
                     "Petal Platform": {
                         "Health": 250,
-                        "Cooldown": 11,
+                        "Cooldown": 12,
                         "Projectile size": 0.15,
                         "pierced by piercing projectiles": false,
                         "Walkable area": 1.15,
