@@ -1671,6 +1671,15 @@
                         "Reapplication cooldown": 7,
                         "Range": 40,
                         "Time to wear off the target when not in line-of-sight": 1.5
+                    },
+                    "Orb of Destruction Alt Fire": {
+                        "Alt fire of": "Orb of Destruction",
+                        "Damage per bullet": 48,
+                        "Projectile size": 0.225,
+                        "Bullets per burst": 5,
+                        "Maximum charge time": 2.62,
+                        "Recovery time": 0.6,
+                        "Critical multiplier": 2
                     }
                 }
             }

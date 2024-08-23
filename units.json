@@ -1759,7 +1759,21 @@
                     "Orb of Destruction": {
                         "Ammo": "none",
                         "Projectile size": "meters",
-                        "Damage": "none"
+                        "Damage": "none",
+                        "Critical multiplier": "none",
+                        "Recovery time": "seconds",
+                        "Reload time": "seconds"
+                    },
+                    "Orb of Destruction Alt Fire": {
+                        "Alt fire of": "none",
+                        "Damage per bullet": "none",
+                        "Projectile size": "meters",
+                        "Bullets per burst": "none",
+                        "Maximum charge time": "seconds",
+                        "Critical multiplier": "none",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time": "seconds"
                     },
                     "Transcendence": {
                         "Ultimate cost": "none"
