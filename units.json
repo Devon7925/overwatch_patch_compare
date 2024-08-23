@@ -31,7 +31,9 @@
                         "Spread": "none",
                         "Total damage": "none",
                         "Projectile size": "meters",
-                        "Movement speed penalty": "percent"
+                        "Movement speed penalty": "percent",
+                        "Recovery time": "seconds",
+                        "Critical multiplier": "none"
                     },
                     "Boosters": {
                         "Impact damage": "none",
@@ -48,7 +50,12 @@
                         "Inner explosion radius": "meters"
                     },
                     "Light Gun": {
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Damage": "none",
+                        "Recovery time": "seconds",
+                        "Reload time": "seconds",
+                        "Ammo": "none",
+                        "Critical multiplier": "none"
                     },
                     "Micro Missiles": {
                         "Projectile size": "meters",
@@ -61,7 +68,9 @@
                         "Pilot damage immunity while ejecting": "seconds"
                     },
                     "Call Mech": {
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "Damage": "none",
+                        "Radius": "none"
                     }
                 }
             },

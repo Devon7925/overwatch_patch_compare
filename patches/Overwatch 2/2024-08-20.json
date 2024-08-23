@@ -54,7 +54,12 @@
                         "Inner explosion radius": 6
                     },
                     "Light Gun": {
-                        "Projectile size": 0.275
+                        "Projectile size": 0.275,
+                        "Damage": 14,
+                        "Recovery time": 0.143,
+                        "Reload time": 1.4,
+                        "Ammo": 20,
+                        "Critical multiplier": 2
                     },
                     "Micro Missiles": {
                         "Projectile size": 0.175,
