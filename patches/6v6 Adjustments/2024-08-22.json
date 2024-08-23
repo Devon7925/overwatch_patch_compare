@@ -145,7 +145,7 @@
                         "disables critical damage": true
                     },
                     "Energy Javelin": {
-                        "Direct damage": 80,
+                        "Direct damage": 75,
                         "Projectile size": 0.5,
                         "Cooldown": 6.5,
                         "Wall impact damage": 40
@@ -957,7 +957,7 @@
                         "Critical multiplier": 2,
                         "Damage": 9,
                         "Recovery time": 0.0625,
-                        "Ammo": 45,
+                        "Ammo": 35,
                         "Reload time": 1.2,
                         "Energy gain based on": "player hits, double for crits",
                         "Energy delay before draining": 7,
@@ -1029,10 +1029,10 @@
                 },
                 "abilities": {
                     "Virus": {
-                        "Damage over time": 84.375,
+                        "Damage over time": 90,
                         "Cooldown": 7,
                         "Projectile size": 0.5,
-                        "Impact damage": 32.8125
+                        "Impact damage": 25
                     },
                     "EMP": {
                         "Ultimate cost": 1375,
@@ -1445,7 +1445,7 @@
                         "Move speed while falling": 3
                     },
                     "Mediblaster": {
-                        "Damage per bullet": 7,
+                        "Damage per bullet": 8,
                         "Healing per bullet": 7,
                         "Ammo": 180,
                         "Spread": 1,
@@ -1474,7 +1474,7 @@
                     },
                     "Hyper Ring": {
                         "Increased movement speed": 50,
-                        "Cooldown": 14,
+                        "Cooldown": 12,
                         "Duration": 8,
                         "Speed boost duration": 3,
                         "Area of effect size": 8,
@@ -1673,7 +1673,7 @@
                 },
                 "abilities": {
                     "Biotic Grasp": {
-                        "Damage per second": 65,
+                        "Damage per second": 60,
                         "Secondary fire target acquisition radius": 0.7,
                         "Lingering heal duration": 3,
                         "Self-healing": 24
