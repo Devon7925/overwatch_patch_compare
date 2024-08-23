@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Recovery time"
-new_value = 0.266
-process_json_files(folder_path, 'heroes/damage/Ashe/abilities/The Viper/Recovery time', new_property_name, new_value, rename=False)
+new_property_name = "Damage"
+new_value = 50
+process_json_files(folder_path, 'heroes/damage/Genji/abilities/Swift Strike/Damage', new_property_name, new_value, rename=False)

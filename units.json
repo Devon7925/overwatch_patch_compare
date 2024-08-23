@@ -798,11 +798,17 @@
                         "Pellet count": "none"
                     },
                     "Deflect": {
+                        "Cooldown": "seconds",
                         "Duration": "seconds"
+                    },
+                    "Swift Strike": {
+                        "Cooldown": "seconds",
+                        "Damage": "none"
                     },
                     "Dragonblade": {
                         "Ultimate cost": "none",
-                        "Swing recovery speed": "seconds"
+                        "Recovery time": "seconds",
+                        "Damage": "none"
                     }
                 }
             },

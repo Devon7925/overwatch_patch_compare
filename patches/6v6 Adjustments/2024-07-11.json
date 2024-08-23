@@ -764,11 +764,13 @@
                         "Reload time": 1.5
                     },
                     "Deflect": {
-                        "Duration": 1.5
+                        "Duration": 1.5,
+                        "Cooldown": 8
                     },
                     "Dragonblade": {
                         "Ultimate cost": 1932,
-                        "Swing recovery speed": 0.7
+                        "Recovery time": 0.7,
+                        "Damage": 110
                     },
                     "Shuriken Alt Fire": {
                         "Damage per pellet": 29,
@@ -778,6 +780,10 @@
                         "Recovery time": 0.68,
                         "Ammo per shot": 3,
                         "Pellet count": 3
+                    },
+                    "Swift Strike": {
+                        "Cooldown": 8,
+                        "Damage": 50
                     }
                 }
             },
