@@ -661,6 +661,10 @@ export function calculateProperties(patch_data: PatchData) {
                         damage_per_second *= abilityData["Damage"]
                         patch_data.heroes[role][hero].abilities[ability]["Damage per second"] = damage_per_second
                     }
+                    if (typeof abilityData["Maximum damage"] === "number") {
+                        damage_per_second *= abilityData["Maximum damage"]
+                        patch_data.heroes[role][hero].abilities[ability]["Maximum damage per second"] = damage_per_second
+                    }
                     if (typeof abilityData["Total damage"] === "number") {
                         damage_per_second *= abilityData["Total damage"]
                         patch_data.heroes[role][hero].abilities[ability]["Damage per second"] = damage_per_second

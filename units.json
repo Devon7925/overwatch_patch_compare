@@ -1279,10 +1279,27 @@
                     },
                     "Widow's Kiss": {
                         "Projectile size": "meters",
-                        "Scoped shot falloff minimum range": "meters",
-                        "Scoped shot falloff maximum range": "meters",
-                        "Unscoped shots to reach maximum spread": "none",
-                        "Scoped shot maximum damage falloff scalar": "percent"
+                        "Shots to reach maximum spread": "none",
+                        "Reload time": "seconds",
+                        "Ammo": "none",
+                        "Recovery time": "seconds",
+                        "Damage": "none",
+                        "Critical multiplier": "none"
+                    },
+                    "Widow's Kiss Alt Fire": {
+                        "Projectile size": "meters",
+                        "Falloff minimum range": "meters",
+                        "Falloff maximum range": "meters",
+                        "Shots to reach maximum spread": "none",
+                        "Maximum damage falloff scalar": "percent",
+                        "Alt fire of": "none",
+                        "Critical multiplier": "none",
+                        "Maximum damage": "none",
+                        "Maximum charge time": "seconds",
+                        "Recovery time": "seconds",
+                        "Ammo per shot": "none",
+                        "Ammo": "none",
+                        "Reload time": "seconds"
                     }
                 }
             }
