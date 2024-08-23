@@ -602,7 +602,18 @@
                     },
                     "The Viper": {
                         "Projectile size": "meters",
-                        "Reload time": "seconds"
+                        "Reload time": "seconds",
+                        "Damage": "none",
+                        "Recovery time": "seconds",
+                        "Critical multiplier": "none"
+                    },
+                    "The Viper Alt Fire": {
+                        "Projectile size": "meters",
+                        "Critical multiplier": "none",
+                        "Damage": "none",
+                        "Recovery time": "seconds",
+                        "Reload time": "seconds",
+                        "Alt fire of": "none"
                     }
                 }
             },

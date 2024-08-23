@@ -598,7 +598,16 @@
                     "The Viper": {
                         "Projectile size": 0.0,
                         "Reload time": 0.2,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Damage": 40,
+                        "Recovery time": 0.266
+                    },
+                    "The Viper Alt Fire": {
+                        "Projectile size": 0.0,
+                        "Damage": 75,
+                        "Critical multiplier": 2,
+                        "Recovery time": 0.65,
+                        "Alt fire of": "The Viper"
                     }
                 }
             },
