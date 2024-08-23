@@ -752,6 +752,15 @@
                     "Dragonblade": {
                         "Ultimate cost": 2125,
                         "Swing recovery speed": 0.7
+                    },
+                    "Shuriken Alt Fire": {
+                        "Damage per pellet": 27,
+                        "Projectile size": 0.175,
+                        "Critical multiplier": 2,
+                        "Alt fire of": "Shuriken",
+                        "Recovery time": 0.68,
+                        "Ammo per shot": 3,
+                        "Pellet count": 3
                     }
                 }
             },

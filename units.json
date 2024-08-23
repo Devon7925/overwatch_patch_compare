@@ -777,6 +777,15 @@
                         "Recovery time": "seconds",
                         "Reload time": "seconds"
                     },
+                    "Shuriken Alt Fire": {
+                        "Damage per pellet": "none",
+                        "Projectile size": "meters",
+                        "Critical multiplier": "none",
+                        "Alt fire of": "none",
+                        "Recovery time": "seconds",
+                        "Ammo per shot": "none",
+                        "Pellet count": "none"
+                    },
                     "Deflect": {
                         "Duration": "seconds"
                     },
