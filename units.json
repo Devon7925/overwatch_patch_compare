@@ -778,7 +778,8 @@
                     },
                     "Focusing Beam": {
                         "Width": "meters",
-                        "Maximum damage per second": "none"
+                        "Maximum damage per second": "none",
+                        "Cooldown": "seconds"
                     }
                 }
             },

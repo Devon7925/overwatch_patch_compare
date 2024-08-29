@@ -740,7 +740,8 @@
                     },
                     "Focusing Beam": {
                         "Width": 0.25,
-                        "Maximum damage per second": 175
+                        "Maximum damage per second": 175,
+                        "Cooldown": 8
                     }
                 }
             },
