@@ -1471,12 +1471,16 @@
                         "Damage": "none",
                         "Critical multiplier": "none",
                         "Ammo": "none",
-                        "Primary fire recovery": "none",
-                        "Secondary fire heal-per-second": "none",
+                        "Recovery time": "seconds",
                         "Maximum charge time": "seconds",
                         "Projectile size": "meters",
                         "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": "flag",
                         "Reload time": "seconds"
+                    },
+                    "Solar Rifle Alt Fire": {
+                        "Healing per second": "none",
+                        "Recharge rate": "none",
+                        "Depletion rate": "none"
                     },
                     "Outburst": {
                         "Damage": "none",

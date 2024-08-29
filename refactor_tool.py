@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Critical multiplier"
-new_value = 2
-process_json_files(folder_path, 'heroes/tank/D.Va/abilities/Light Gun/Critical multiplier', new_property_name, new_value, rename=False)
+new_property_name = "Depletion rate"
+new_value = 0.3333333333333333
+process_json_files(folder_path, 'heroes/support/Illari/abilities/Solar Rifle Alt Fire/Depletion rate', new_property_name, new_value, rename=False)

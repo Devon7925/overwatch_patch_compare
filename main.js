@@ -685,6 +685,12 @@ export function calculateProperties(patch_data) {
                         patch_data.heroes[role][hero].abilities[ability]["Maximum damage per second(including reload)"] = damage_per_second_incl_reload;
                     }
                 }
+                if (typeof abilityData["Recharge rate"] === "number" && typeof abilityData["Depletion rate"] === "number") {
+                    let uptime = (1 / abilityData["Depletion rate"]) / (1 / abilityData["Recharge rate"] + 1 / abilityData["Depletion rate"]);
+                    if (typeof patch_data.heroes[role][hero].abilities[ability]["Healing per second"] === "number") {
+                        patch_data.heroes[role][hero].abilities[ability]["Healing per second(including reload)"] = uptime * patch_data.heroes[role][hero].abilities[ability]["Healing per second"];
+                    }
+                }
                 if (typeof abilityData["Critical multiplier"] === "number") {
                     let headshot_damage = abilityData["Critical multiplier"];
                     if (typeof abilityData["Damage"] === "number") {
