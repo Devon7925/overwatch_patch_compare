@@ -119,7 +119,9 @@
                         "Critical multiplier": 1.5,
                         "Recovery time": 0.1,
                         "scales projectile size with distance": true,
-                        "Damage falloff at maximum range": 50
+                        "Damage falloff at maximum range": 50,
+                        "Ammo": 50,
+                        "Reload time per ammo": 0.04
                     }
                 }
             },
