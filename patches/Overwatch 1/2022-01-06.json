@@ -376,6 +376,15 @@
                         "Movement speed bonus": 30
                     }
                 }
+            },
+            "Doomfist": {
+                "abilities": {
+                    "Hand Cannon": {
+                        "Reload time per ammo": 0.4,
+                        "Ammo": 4,
+                        "Recovery time": 0.336
+                    }
+                }
             }
         },
         "damage": {

@@ -382,7 +382,10 @@
                         "Maximum damage": 55,
                         "Projectile size": 0.05,
                         "Pellet count": 11,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Reload time per ammo": 0.4,
+                        "Ammo": 4,
+                        "Recovery time": 0.336
                     },
                     "Seismic Slam": {
                         "Damage": 50,

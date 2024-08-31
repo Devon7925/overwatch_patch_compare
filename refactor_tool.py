@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Reload time per ammo"
-new_value = 0.04
-process_json_files(folder_path, 'heroes/tank/Orisa/abilities/Augmented Fusion Driver/Reload time per ammo', new_property_name, new_value, rename=False)
+new_property_name = "Recovery time"
+new_value = 0.336
+process_json_files(folder_path, 'heroes/tank/Doomfist/abilities/Hand Cannon/Recovery time', new_property_name, new_value, rename=False)

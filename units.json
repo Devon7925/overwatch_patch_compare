@@ -389,7 +389,10 @@
                         "Maximum damage": "none",
                         "Projectile size": "meters",
                         "Pellet count": "none",
-                        "Critical multiplier": "none"
+                        "Critical multiplier": "none",
+                        "Reload time per ammo": "seconds",
+                        "Recovery time": "seconds",
+                        "Ammo": "none"
                     },
                     "Seismic Slam": {
                         "Damage": "none",
