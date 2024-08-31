@@ -1504,12 +1504,12 @@
                         "Burst recovery time": 0.029411764705882353
                     },
                     "Pulsar Torpedoes": {
-                        "Damage": 76.5,
-                        "Healing": 72.25,
+                        "Damage": 85,
+                        "Healing": 85,
                         "Maximum duration": 4,
                         "HoT duration": 2.5,
                         "Cooldown": 10,
-                        "Healing over time": 42.5,
+                        "Healing over time": 50,
                         "Cooldown after no lock-on cancel": 2,
                         "Forgiveness range": 5
                     },
