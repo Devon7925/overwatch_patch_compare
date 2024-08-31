@@ -300,6 +300,10 @@
                         "Overhealth generation per enemy": 100,
                         "Detection radius": 10,
                         "Effect duration": 9
+                    },
+                    "Roll": {
+                        "Cast time": 0.4,
+                        "Move speed": 10
                     }
                 }
             },
@@ -510,6 +514,20 @@
                         "Critical multiplier": 2,
                         "Recovery time": 0.65,
                         "Alt fire of": "The Viper"
+                    },
+                    "Dynamite": {
+                        "Cooldown": 12,
+                        "Explosion damage": 50,
+                        "Damage over time": 100,
+                        "Duration": 5,
+                        "Range": 5
+                    },
+                    "Coach Gun": {
+                        "Cooldown": 10,
+                        "Damage per pellet": 6,
+                        "Pellet count": 15,
+                        "Cast time": 0.16,
+                        "Recovery time": 0.4
                     }
                 }
             },
@@ -639,6 +657,16 @@
                         "Width": 0.2,
                         "Maximum damage per second": 175,
                         "Cooldown": 8
+                    },
+                    "Flight": {
+                        "Cooldown": 6,
+                        "Duration": 3,
+                        "Dash speed": 28,
+                        "Flight speed": 8
+                    },
+                    "Glide": {
+                        "Movement speed": 50,
+                        "Vertical speed": 4
                     }
                 }
             },
@@ -1106,6 +1134,12 @@
                     "Pulse Bomb": {
                         "Projectile size": 0.25,
                         "Ultimate cost": 1250
+                    },
+                    "Blink": {
+                        "Charges": 3,
+                        "Cooldown": 3,
+                        "Recovery time": 0.1,
+                        "Range": 7.5
                     }
                 }
             },
@@ -1136,6 +1170,21 @@
                         "Maximum charge time": 1,
                         "Recovery time": 0.5,
                         "Ammo per shot": 5
+                    },
+                    "Grappling Hook": {
+                        "Cooldown": 12,
+                        "Range": 20,
+                        "Move speed": 20
+                    },
+                    "Venom Mine": {
+                        "Cooldown": 15,
+                        "Damage over time": 75,
+                        "Health": 1,
+                        "Duration": 5,
+                        "Range": 3,
+                        "Projectile speed": 20,
+                        "Cast time": 0.19,
+                        "Recovery time": 0.78
                     }
                 }
             }
@@ -1333,6 +1382,18 @@
                     "Crossfade": {
                         "Crossfade self-healing penalty for the duration of Amp It Up": 60,
                         "Self healing per second": 10
+                    },
+                    "Amp It Up": {
+                        "Cooldown": 12,
+                        "Healing per second": 52,
+                        "Duration": 3,
+                        "Recovery time": 0.69,
+                        "Movement speed": 60
+                    },
+                    "Wall Ride": {
+                        "Cooldown": 0.5,
+                        "Movement speed": 30,
+                        "Wall leap speed increase": 2.5
                     }
                 }
             },

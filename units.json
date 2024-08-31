@@ -282,6 +282,7 @@
                 },
                 "abilities": {
                     "Grappling Claw": {
+                        "Cooldown": "seconds",
                         "Impact damage": "none",
                         "can be retracted": "none",
                         "Cooldown if fireball speed is not achieved": "seconds",
@@ -311,7 +312,15 @@
                         "Projectile size": "meters",
                         "Automatic reload time while transformed": "seconds",
                         "Number of shots to reach max spread": "none",
-                        "Reload time": "seconds"
+                        "Reload time": "seconds",
+                        "Critical multiplier": "none",
+                        "Damage": "none",
+                        "Recovery time": "seconds",
+                        "Ammo": "none"
+                    },
+                    "Roll": {
+                        "Cast time": "seconds",
+                        "Move speed": "meters per second"
                     }
                 }
             },
@@ -623,6 +632,20 @@
                         "Recovery time": "seconds",
                         "Reload time": "seconds",
                         "Alt fire of": "none"
+                    },
+                    "Dynamite": {
+                        "Cooldown": "seconds",
+                        "Explosion damage": "none",
+                        "Damage over time": "none",
+                        "Duration": "seconds",
+                        "Range": "meters"
+                    },
+                    "Coach Gun": {
+                        "Cooldown": "seconds",
+                        "Damage per pellet": "none",
+                        "Pellet count": "none",
+                        "Cast time": "seconds",
+                        "Recovery time": "seconds"
                     }
                 }
             },
@@ -774,12 +797,27 @@
                     },
                     "Tri-shot": {
                         "Projectile size": 0.175,
-                        "Damage per pellet": "none"
+                        "Damage per pellet": "none",
+                        "Critical multiplier": "none",
+                        "Pellet count": "none",
+                        "Ammo": "none",
+                        "Recovery time": "seconds",
+                        "Reload time": "seconds"
                     },
                     "Focusing Beam": {
                         "Width": "meters",
                         "Maximum damage per second": "none",
                         "Cooldown": "seconds"
+                    },
+                    "Flight": {
+                        "Cooldown": "seconds",
+                        "Duration": "seconds",
+                        "Dash speed": "meters per second",
+                        "Flight speed": "meters per second"
+                    },
+                    "Glide": {
+                        "Movement speed": "percent",
+                        "Vertical speed": "meters per second"
                     }
                 }
             },
@@ -1247,7 +1285,13 @@
                         "Damage per pellet": "none",
                         "Minimum falloff range": "meters",
                         "Projectile size": "meters",
-                        "Spread": "relative percent"
+                        "Spread": "relative percent",
+                        "Critical multiplier": "none",
+                        "Recovery time": "seconds",
+                        "Reload time": "seconds",
+                        "Ammo": "none",
+                        "Pellet count": "none",
+                        "Ammo per shot": "none"
                     },
                     "Recall": {
                         "Cooldown": "seconds"
@@ -1255,6 +1299,12 @@
                     "Pulse Bomb": {
                         "Projectile size": "meters",
                         "Ultimate cost": "none"
+                    },
+                    "Blink": {
+                        "Charges": "none",
+                        "Cooldown": "seconds",
+                        "Recovery time": "seconds",
+                        "Range": "meters"
                     }
                 }
             },
@@ -1336,6 +1386,21 @@
                         "Ammo per shot": "none",
                         "Ammo": "none",
                         "Reload time": "seconds"
+                    },
+                    "Grappling Hook": {
+                        "Cooldown": "seconds",
+                        "Range": "meters",
+                        "Move speed": "meters per second"
+                    },
+                    "Venom Mine": {
+                        "Cooldown": "seconds",
+                        "Damage over time": "none",
+                        "Health": "none",
+                        "Duration": "seconds",
+                        "Range": "meters",
+                        "Projectile speed": "meters per second",
+                        "Cast time": "seconds",
+                        "Recovery time": "seconds"
                     }
                 }
             }
@@ -1694,6 +1759,18 @@
                     "Crossfade": {
                         "Crossfade self-healing penalty for the duration of Amp It Up": "percent",
                         "Self healing per second": "none"
+                    },
+                    "Amp It Up": {
+                        "Cooldown": "seconds",
+                        "Healing per second": "none",
+                        "Duration": "seconds",
+                        "Recovery time": "seconds",
+                        "Movement speed": "seconds"
+                    },
+                    "Wall Ride": {
+                        "Cooldown": "seconds",
+                        "Movement speed": "meters per second",
+                        "Wall leap speed increase": "meters per second"
                     }
                 }
             },

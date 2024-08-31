@@ -50,6 +50,10 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Cooldown"
-new_value = 8
-process_json_files(folder_path, 'heroes/damage/Echo/abilities/Focusing Beam/Cooldown', new_property_name, new_value, rename=False)
+new_property_name = "Wall Ride"
+new_value = {
+    "Cooldown": 0.5,
+    "Movement speed": 30,
+    "Wall leap speed increase": 2.5
+}
+process_json_files(folder_path, 'heroes/support/Lúcio/abilities/Wall Ride', new_property_name, new_value, rename=False)
