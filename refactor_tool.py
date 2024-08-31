@@ -51,5 +51,5 @@ folder_path = 'patches'
 
 # Example usage for adding
 new_property_name = "Recovery time"
-new_value = 0.336
-process_json_files(folder_path, 'heroes/tank/Doomfist/abilities/Hand Cannon/Recovery time', new_property_name, new_value, rename=False)
+new_value = 0.6
+process_json_files(folder_path, 'heroes/support/Brigitte/abilities/Rocket Flail/Recovery time', new_property_name, new_value, rename=False)

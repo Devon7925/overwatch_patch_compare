@@ -1227,7 +1227,8 @@
                         "triggers from Shield Bash damage": true
                     },
                     "Rocket Flail": {
-                        "Damage": 35
+                        "Damage": 35,
+                        "Recovery time": 0.6
                     },
                     "Repair Pack": {
                         "Cooldown": 6,

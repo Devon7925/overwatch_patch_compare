@@ -177,7 +177,9 @@
                         "Critical multiplier": "none",
                         "scales projectile size with distance": "flag",
                         "Damage falloff at maximum range": "percent",
-                        "Recovery time": "seconds"
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time per ammo": "seconds"
                     }
                 }
             },
@@ -443,7 +445,8 @@
                     },
                     "Rocket Hammer": {
                         "Damage": "none",
-                        "Knockback": "none"
+                        "Knockback": "none",
+                        "Recovery time": "seconds"
                     },
                     "Barrier Field": {
                         "Barrier health": "none",
@@ -689,7 +692,8 @@
                         "Recovery time": "seconds",
                         "Spread": "relative percent",
                         "Ammo": "none",
-                        "Damage": "none"
+                        "Damage": "none",
+                        "Critical multiplier": "none"
                     },
                     "Configuration: Artillery": {
                         "Ultimate cost": "none",
@@ -850,7 +854,9 @@
                         "Alt fire of": "none",
                         "Recovery time": "seconds",
                         "Ammo per shot": "none",
-                        "Pellet count": "none"
+                        "Pellet count": "none",
+                        "Ammo": "none",
+                        "Reload time": "seconds"
                     },
                     "Deflect": {
                         "Cooldown": "seconds",
@@ -875,17 +881,20 @@
                     "Storm Bow": {
                         "Maximum damage": "none",
                         "Projectile size": "meters",
-                        "has arrow draw progress preserved while wall climbing": "none"
+                        "has arrow draw progress preserved while wall climbing": "none",
+                        "Critical multiplier": "none"
                     },
                     "Storm Arrows": {
                         "Cooldown": "seconds",
                         "Damage per arrow": "none",
                         "Ammo": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Critical multiplier": "none"
                     },
                     "Dragonstrike": {
                         "Speed": "none",
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "Critical multiplier": "none"
                     },
                     "Sonic Arrow": {
                         "does impact sound plat for enemies": "none",
@@ -905,7 +914,10 @@
                         "Direct damage": "none",
                         "Explosion damage": "none",
                         "Projectile size": "meters",
-                        "Projectile size reduction": "percent"
+                        "Projectile size reduction": "percent",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time": "seconds"
                     },
                     "Concussion Mine": {
                         "Cooldown": "seconds",
@@ -982,7 +994,11 @@
                         "Recovery time": "seconds",
                         "Projectile speed": "meters per second",
                         "Projectile size": "meters",
-                        "Explosion self damage": "percent"
+                        "Explosion self damage": "percent",
+                        "Direct damage": "none",
+                        "Explosion damage": "none",
+                        "Ammo": "none",
+                        "Reload time": "seconds"
                     },
                     "Barrage": {
                         "Ultimate cost": "none",
@@ -1022,7 +1038,12 @@
                     "Hellfire Shotguns": {
                         "Spread": "none",
                         "Damage per pellet": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Pellet count": "none",
+                        "Critical multiplier": "none",
+                        "Recovery time": "seconds",
+                        "Reload time": "seconds",
+                        "Ammo": "none"
                     },
                     "Shadow Step": {
                         "Cast time": "none",
@@ -1099,7 +1120,10 @@
                         "Projectile size": "meters",
                         "Ammo": "none",
                         "Number of shots to reach maximum recoil": "none",
-                        "Recoil": "relative percent"
+                        "Recoil": "relative percent",
+                        "Recovery time": "seconds",
+                        "Reload time": "seconds",
+                        "Critical multiplier": "none"
                     },
                     "Biotic Field": {
                         "Cooldown": "seconds",
@@ -1113,7 +1137,8 @@
                     "Helix Rocket": {
                         "Projectile size": "meters",
                         "Explosion damage": "none",
-                        "Direct damage": "none"
+                        "Direct damage": "none",
+                        "Cooldown": "seconds"
                     },
                     "Sprint": {
                         "Increased movement speed": "percent",
@@ -1155,7 +1180,10 @@
                         "Minimum Spread": "none",
                         "Number of shots until max spread": "none",
                         "Reload time": "seconds",
-                        "Maximum spread": "relative percent"
+                        "Maximum spread": "relative percent",
+                        "Critical multiplier": "none",
+                        "Recovery time": "seconds",
+                        "Ammo": "none"
                     },
                     "Stealth": {
                         "Grace period where Stealth can be canceled immediately after entering it": "seconds",
@@ -1501,7 +1529,8 @@
                         "triggers from Shield Bash damage": "flag"
                     },
                     "Rocket Flail": {
-                        "Damage": "none"
+                        "Damage": "none",
+                        "Recovery time": "seconds"
                     },
                     "Repair Pack": {
                         "Instant healing": "none",
@@ -1520,7 +1549,8 @@
                         "Bonus movement speed": "percent"
                     },
                     "Whipshot": {
-                        "Damage": 70
+                        "Damage": "none",
+                        "Cooldown": "seconds"
                     },
                     "Barrier Shield": {
                         "Barrier Shield health": "none"
@@ -1648,6 +1678,7 @@
                         "Damage": "none",
                         "Critical multiplier": "none",
                         "Recovery time": "seconds",
+                        "Reload time": "seconds",
                         "Ammo refresh time": "seconds"
                     },
                     "Swift Step": {
@@ -1803,7 +1834,11 @@
                     },
                     "Caduceus Blaster": {
                         "Ammo": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Critical multiplier": "none",
+                        "Reload time": "seconds",
+                        "Recovery time": "seconds",
+                        "Damage": "none"
                     },
                     "Resurrect": {
                         "souls over death pits hidden": "flag",
