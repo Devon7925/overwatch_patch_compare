@@ -623,7 +623,9 @@
                         "Reload time": "seconds",
                         "Damage": "none",
                         "Recovery time": "seconds",
-                        "Critical multiplier": "none"
+                        "Critical multiplier": "none",
+                        "Ammo": "none",
+                        "Reload time per ammo": "seconds"
                     },
                     "The Viper Alt Fire": {
                         "Projectile size": "meters",
@@ -631,7 +633,9 @@
                         "Damage": "none",
                         "Recovery time": "seconds",
                         "Reload time": "seconds",
-                        "Alt fire of": "none"
+                        "Alt fire of": "none",
+                        "Ammo": "none",
+                        "Reload time per ammo": "seconds"
                     },
                     "Dynamite": {
                         "Cooldown": "seconds",
