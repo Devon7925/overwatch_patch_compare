@@ -369,22 +369,6 @@
                         "Cooldown": 13
                     }
                 }
-            },
-            "Junker Queen": {
-                "abilities": {
-                    "Commanding Shout": {
-                        "Movement speed bonus": 30
-                    }
-                }
-            },
-            "Doomfist": {
-                "abilities": {
-                    "Hand Cannon": {
-                        "Reload time per ammo": 0.4,
-                        "Ammo": 4,
-                        "Recovery time": 0.336
-                    }
-                }
             }
         },
         "damage": {
@@ -1066,13 +1050,6 @@
                         "Recovery time": 0.78
                     }
                 }
-            },
-            "Sojourn": {
-                "abilities": {
-                    "Railgun": {
-                        "Energy decay per second": 33
-                    }
-                }
             }
         },
         "support": {
@@ -1347,15 +1324,6 @@
                         "Recovery time": 0.6,
                         "Critical multiplier": 2
                     }
-                }
-            },
-            "Illari": {
-                "abilities": {
-                    "Solar Rifle Alt Fire": {
-                        "Recharge rate": 0.3448275862068966,
-                        "Depletion rate": 0.3333333333333333
-                    },
-                    "Solar Rifle": {}
                 }
             }
         }

@@ -1412,15 +1412,6 @@
                         "Critical multiplier": 2
                     }
                 }
-            },
-            "Illari": {
-                "abilities": {
-                    "Solar Rifle Alt Fire": {
-                        "Recharge rate": 0.3448275862068966,
-                        "Depletion rate": 0.3333333333333333
-                    },
-                    "Solar Rifle": {}
-                }
             }
         }
     },
