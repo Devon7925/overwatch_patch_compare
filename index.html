@@ -7057,12 +7057,15 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="field is-horizontal">
-                            <div class="field-body">
-                                <div class="field is-horizontal">
-                                    <div class="field-label is-normal">
-                                        <label class="label">Patch Before:</label>
-                                    </div>
+                        <div class="fixed-grid has-2-cols">
+                            <div class="grid">
+                                <div class="cell">
+                                    <label class="label">Patch Before:</label>
+                                </div>
+                                <div class="cell">
+                                    <label class="label">Patch After:</label>
+                                </div>
+                                <div class="cell field is-horizontal">
                                     <div class="control">
                                         <span class="select">
                                             <select name="patch_before" id="patch_before" class="patch-selector">
@@ -7070,15 +7073,32 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="field is-horizontal">
-                                    <div class="field-label is-normal">
-                                        <label class="label">Patch After:</label>
-                                    </div>
+                                <div class="cell field is-horizontal">
                                     <div class="control">
                                         <span class="select">
                                             <select name="patch_after" id="patch_after" class="patch-selector">
                                             </select>
                                         </span>
+                                    </div>
+                                </div>
+                                <div class="cell field is-horizontal has-addons">
+                                    <div class="control">
+                                        <input type="text" value="100" class="input" id="patch_before_dmg_boost">
+                                    </div>
+                                    <div class="control">
+                                        <div class="input">
+                                            <input type="range" min="0" max="300" value="100" class="dmg_boost_slider" id="patch_before_dmg_boost_slider">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell field is-horizontal has-addons">
+                                    <div class="control">
+                                        <input type="text" value="100" class="input" id="patch_after_dmg_boost">
+                                    </div>
+                                    <div class="control">
+                                        <div class="input">
+                                            <input type="range" min="0" max="300" value="100" class="dmg_boost_slider" id="patch_after_dmg_boost_slider">
+                                        </div>
                                     </div>
                                 </div>
                             </div>

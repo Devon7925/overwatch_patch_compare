@@ -39,12 +39,23 @@ const patchList: { [key: string]: string[] } = await fetch("./patch_list.json")
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-let siteState: {
+type SiteState = {
     before_patch: string,
     after_patch: string,
     show_calculated_properties: boolean,
-    show_breakpoints: boolean
+    show_breakpoints: boolean,
+    before_dmg_boost: number,
+    after_dmg_boost: number,
 };
+let siteState: SiteState;
+let defaultSiteState: SiteState = {
+    before_patch: "Overwatch 2:recent",
+    after_patch: "Overwatch 2:latest",
+    show_calculated_properties: false,
+    show_breakpoints: false,
+    before_dmg_boost: 1,
+    after_dmg_boost: 1,
+}
 
 function patch_from_path(joined_path: string) {
     let path = joined_path.split(":");
@@ -63,41 +74,42 @@ function patch_from_path(joined_path: string) {
 }
 
 {
-    let before_patch_path = "Overwatch 2:recent"
-    let after_patch_path = "Overwatch 2:latest"
-    let show_calculated_properties = false
-    let show_breakpoints = false
+    siteState = structuredClone(defaultSiteState)
     {
         let url_before = urlParams.get("before")
         if (url_before) {
-            before_patch_path = url_before
+            siteState.before_patch = url_before
         }
         let url_after = urlParams.get("after")
         if (url_after) {
-            after_patch_path = url_after
+            siteState.after_patch = url_after
         }
         url_before = urlParams.get("before_patch")
         if (url_before) {
-            before_patch_path = url_before
+            siteState.before_patch = url_before
         }
         url_after = urlParams.get("after_patch")
         if (url_after) {
-            after_patch_path = url_after
+            siteState.after_patch = url_after
         }
     }
     if (urlParams.get("show_calculated_properties")) {
-        show_calculated_properties = urlParams.get("show_calculated_properties") === "true"
+        siteState.show_calculated_properties = urlParams.get("show_calculated_properties") === "true"
     }
     if (urlParams.get("show_breakpoints")) {
-        show_breakpoints = urlParams.get("show_breakpoints") === "true"
+        siteState.show_breakpoints = urlParams.get("show_breakpoints") === "true"
+    }
+    let before_dmg_boost_param = urlParams.get("before_dmg_boost")
+    if (typeof before_dmg_boost_param == "string") {
+        siteState.before_dmg_boost = parseFloat(before_dmg_boost_param)
+    }
+    let after_dmg_boost_param = urlParams.get("after_dmg_boost")
+    if (typeof after_dmg_boost_param == "string") {
+        siteState.after_dmg_boost = parseFloat(after_dmg_boost_param)
     }
 
-    siteState = {
-        before_patch: patch_from_path(before_patch_path),
-        after_patch: patch_from_path(after_patch_path),
-        show_calculated_properties: show_calculated_properties,
-        show_breakpoints: show_breakpoints
-    }
+    siteState.before_patch = patch_from_path(siteState.before_patch)
+    siteState.after_patch = patch_from_path(siteState.after_patch)
 }
 
 {
@@ -265,18 +277,51 @@ let display_calculated_properties_box = document.querySelector<HTMLInputElement>
 let display_breakpoints_box = document.querySelector<HTMLInputElement>("input#disp_breakpoints")!;
 let last_patch_button = document.querySelector<HTMLButtonElement>("button#last_patch_button")!;
 let next_patch_button = document.querySelector<HTMLButtonElement>("button#next_patch_button")!;
+let patch_before_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost")!;
+let patch_before_dmg_boost_slider = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost_slider")!;
+let patch_after_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_after_dmg_boost")!;
+let patch_after_dmg_boost_slider = document.querySelector<HTMLInputElement>("input#patch_after_dmg_boost_slider")!;
+pair_box_slider(patch_before_dmg_boost, patch_before_dmg_boost_slider);
+pair_box_slider(patch_after_dmg_boost, patch_after_dmg_boost_slider);
+function pair_box_slider(patch_after_dmg_boost: HTMLInputElement, patch_after_dmg_boost_slider: HTMLInputElement) {
+    let min_val = parseFloat(patch_after_dmg_boost_slider.min)
+    let max_val = parseFloat(patch_after_dmg_boost_slider.max)
+    let oldValue = patch_after_dmg_boost_slider.value;
+    patch_after_dmg_boost.oninput = (e) => {
+        let value = parseFloat(patch_after_dmg_boost.value);
+        if (patch_after_dmg_boost.value === "") {
+            patch_after_dmg_boost.value = "0"
+        } else if (+patch_after_dmg_boost.value !== +patch_after_dmg_boost.value || value < min_val || value > max_val || isNaN(value)) {
+            patch_after_dmg_boost.value = oldValue;
+        }
+        patch_after_dmg_boost.value = "" + parseFloat(patch_after_dmg_boost.value)
+        oldValue = patch_after_dmg_boost.value
+        patch_after_dmg_boost_slider.value = oldValue
+    }
+    patch_after_dmg_boost_slider.oninput = (e) => {
+        let value = parseFloat(patch_after_dmg_boost_slider.value);
+        oldValue = patch_after_dmg_boost_slider.value
+        patch_after_dmg_boost.value = oldValue
+    }
+}
 
 async function updatePatchNotes() {
     let urlParams = new URLSearchParams();
     let key: keyof typeof siteState
     for (key in siteState) {
-        urlParams.append(key, `${siteState[key]}`)
+        if (siteState[key] !== defaultSiteState[key]) {
+            urlParams.append(key, `${siteState[key]}`)
+        }
     }
     window.history.replaceState(siteState, "", "index.html?" + urlParams)
     patch_before_box.value = siteState.before_patch;
     patch_after_box.value = siteState.after_patch;
     display_calculated_properties_box.checked = siteState.show_calculated_properties
     display_breakpoints_box.checked = siteState.show_breakpoints
+    patch_before_dmg_boost.value = "" + (100*siteState.before_dmg_boost)
+    patch_before_dmg_boost_slider.value = "" + (100*siteState.before_dmg_boost)
+    patch_after_dmg_boost.value = "" + (100*siteState.after_dmg_boost)
+    patch_after_dmg_boost_slider.value = "" + (100*siteState.after_dmg_boost)
 
 
     {
@@ -298,15 +343,15 @@ async function updatePatchNotes() {
                     patches[`${versionType}:${version}`] = JSON.parse(text);
                 })
         }))
-    let before_patch_data = patches[siteState.before_patch];
-    let after_patch_data = patches[siteState.after_patch];
+    let before_patch_data = structuredClone(patches[siteState.before_patch]);
+    let after_patch_data = structuredClone(patches[siteState.after_patch]);
     if (siteState.show_calculated_properties) {
         before_patch_data = calculateProperties(before_patch_data)
         after_patch_data = calculateProperties(after_patch_data)
     }
     if (siteState.show_breakpoints) {
-        before_patch_data = calculateBreakpoints(before_patch_data)
-        after_patch_data = calculateBreakpoints(after_patch_data)
+        before_patch_data = calculateBreakpoints(before_patch_data, parseFloat(patch_before_dmg_boost_slider.value) / 100)
+        after_patch_data = calculateBreakpoints(after_patch_data, parseFloat(patch_after_dmg_boost_slider.value) / 100)
     }
     let changes = convert_to_changes(before_patch_data, after_patch_data);
     let hero_section = document.getElementsByClassName("PatchNotes-section-hero_update")[0];
@@ -728,7 +773,7 @@ export function calculateProperties(patch_data: PatchData) {
                     }
                 }
                 if (typeof abilityData["Recharge rate"] === "number" && typeof abilityData["Depletion rate"] === "number") {
-                    let uptime = (1/abilityData["Depletion rate"])/(1/abilityData["Recharge rate"] + 1/abilityData["Depletion rate"])
+                    let uptime = (1 / abilityData["Depletion rate"]) / (1 / abilityData["Recharge rate"] + 1 / abilityData["Depletion rate"])
                     if (typeof patch_data.heroes[role][hero].abilities[ability]["Healing per second"] === "number") {
                         patch_data.heroes[role][hero].abilities[ability]["Healing per second(including reload)"] = uptime * patch_data.heroes[role][hero].abilities[ability]["Healing per second"]
                     }
@@ -762,7 +807,7 @@ export function calculateProperties(patch_data: PatchData) {
     return patch_data
 }
 
-export function calculateBreakpoints(patchData: PatchData): PatchData {
+export function calculateBreakpoints(patchData: PatchData, multiplier: number): PatchData {
     for (let role in patchData.heroes) {
         for (let hero in patchData.heroes[role]) {
             if (hero == "general") continue;
@@ -799,6 +844,9 @@ export function calculateBreakpoints(patchData: PatchData): PatchData {
                 } else if (typeof heroData.abilities[ability]["Maximum headshot damage"] == "number") {
                     damageOptions[`${ability} maximum headshot`] = [heroData.abilities[ability]["Maximum headshot damage"], max_damage_instances]
                 }
+            }
+            for (let damageOption in damageOptions) {
+                damageOptions[damageOption][0] = damageOptions[damageOption][0] * multiplier;
             }
             let breakpointDamage: { [key: string]: number } = { "": 0 }
             for (let damageOption in damageOptions) {
@@ -856,6 +904,24 @@ display_calculated_properties_box.onchange = async function () {
 
 display_breakpoints_box.onchange = async function () {
     siteState.show_breakpoints = (this as HTMLInputElement).checked;
+    await updatePatchNotes()
+};
+
+patch_before_dmg_boost.onchange = async function () {
+    siteState.before_dmg_boost = parseFloat((this as HTMLInputElement).value)/100.0;
+    await updatePatchNotes()
+};
+patch_before_dmg_boost_slider.onchange = async function () {
+    siteState.before_dmg_boost = parseFloat((this as HTMLInputElement).value)/100.0;
+    await updatePatchNotes()
+};
+
+patch_after_dmg_boost.onchange = async function () {
+    siteState.after_dmg_boost = parseFloat((this as HTMLInputElement).value)/100.0;
+    await updatePatchNotes()
+};
+patch_after_dmg_boost_slider.onchange = async function () {
+    siteState.after_dmg_boost = parseFloat((this as HTMLInputElement).value)/100.0;
     await updatePatchNotes()
 };
 

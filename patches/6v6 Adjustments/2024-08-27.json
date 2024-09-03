@@ -927,7 +927,8 @@
                         "Damage": 75,
                         "Recovery time": 0.8,
                         "Alt fire of": "Endothermic Blaster",
-                        "Ammo per shot": 10
+                        "Ammo per shot": 10,
+                        "Critical multiplier": 2
                     }
                 }
             },
