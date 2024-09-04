@@ -728,7 +728,7 @@
                         "Maximum damage falloff scalar": "percent",
                         "Recovery time": "seconds",
                         "Ammo": "none",
-                        "Reload time": "seconds",
+                        "Reload time": "seconds"
                     },
                     "Fan the Hammer": {
                         "Alt fire of": "none",
