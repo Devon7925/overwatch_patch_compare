@@ -276,22 +276,41 @@ function pair_box_slider(patch_after_dmg_boost, patch_after_dmg_boost_slider) {
     };
 }
 async function updatePatchNotes() {
-    let urlParams = new URLSearchParams();
-    let key;
-    for (key in siteState) {
-        if (siteState[key] !== defaultSiteState[key]) {
-            urlParams.append(key, `${siteState[key]}`);
-        }
-    }
-    window.history.replaceState(siteState, "", "index.html?" + urlParams);
     patch_before_box.value = siteState.before_patch;
     patch_after_box.value = siteState.after_patch;
     display_calculated_properties_box.checked = siteState.show_calculated_properties;
+    if (siteState.show_calculated_properties) {
+        (display_breakpoints_box.parentElement?.parentElement?.parentElement).style.display = "flex";
+    }
+    else {
+        (display_breakpoints_box.parentElement?.parentElement?.parentElement).style.display = "none";
+        siteState.show_breakpoints = false;
+    }
     display_breakpoints_box.checked = siteState.show_breakpoints;
+    if (siteState.show_breakpoints) {
+        (patch_before_dmg_boost.parentElement?.parentElement).style.display = "flex";
+        (patch_after_dmg_boost.parentElement?.parentElement).style.display = "flex";
+    }
+    else {
+        (patch_before_dmg_boost.parentElement?.parentElement).style.display = "none";
+        (patch_after_dmg_boost.parentElement?.parentElement).style.display = "none";
+        siteState.before_dmg_boost = 1;
+        siteState.after_dmg_boost = 1;
+    }
     patch_before_dmg_boost.value = "" + (100 * siteState.before_dmg_boost);
     patch_before_dmg_boost_slider.value = "" + (100 * siteState.before_dmg_boost);
     patch_after_dmg_boost.value = "" + (100 * siteState.after_dmg_boost);
     patch_after_dmg_boost_slider.value = "" + (100 * siteState.after_dmg_boost);
+    {
+        let urlParams = new URLSearchParams();
+        let key;
+        for (key in siteState) {
+            if (siteState[key] !== defaultSiteState[key]) {
+                urlParams.append(key, `${siteState[key]}`);
+            }
+        }
+        window.history.replaceState(siteState, "", "index.html?" + urlParams);
+    }
     {
         let before_patch_path = siteState.before_patch.split(":");
         let after_patch_path = siteState.after_patch.split(":");
