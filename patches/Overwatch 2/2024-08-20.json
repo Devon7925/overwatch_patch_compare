@@ -1550,7 +1550,7 @@
                         "Falloff range minimum": 30,
                         "Falloff range maximum": 45,
                         "Reload time": 1.8,
-                        "Burst recovery time": 0.029411764705882353,
+                        "Burst recovery time": 0.03571428571428571,
                         "Recovery time": 0.88
                     },
                     "Pulsar Torpedoes": {

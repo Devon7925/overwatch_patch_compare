@@ -707,6 +707,9 @@ export function calculateProperties(patch_data) {
                 if (typeof abilityData["Reload time per ammo"] === "number" && typeof abilityData["Ammo"] === "number") {
                     reload_time += abilityData["Reload time per ammo"] * abilityData["Ammo"];
                 }
+                if (typeof abilityData["Bullets per burst"] === "number" && typeof abilityData["Burst recovery time"] === "number") {
+                    reload_time += (abilityData["Bullets per burst"] - 1) * abilityData["Burst recovery time"];
+                }
                 if (typeof abilityData["Ammo"] === "number" && reload_time > 0) {
                     let time_before_reload = abilityData["Ammo"];
                     if (time_between_shots > 0) {

@@ -318,10 +318,10 @@ async function updatePatchNotes() {
     patch_after_box.value = siteState.after_patch;
     display_calculated_properties_box.checked = siteState.show_calculated_properties
     display_breakpoints_box.checked = siteState.show_breakpoints
-    patch_before_dmg_boost.value = "" + (100*siteState.before_dmg_boost)
-    patch_before_dmg_boost_slider.value = "" + (100*siteState.before_dmg_boost)
-    patch_after_dmg_boost.value = "" + (100*siteState.after_dmg_boost)
-    patch_after_dmg_boost_slider.value = "" + (100*siteState.after_dmg_boost)
+    patch_before_dmg_boost.value = "" + (100 * siteState.before_dmg_boost)
+    patch_before_dmg_boost_slider.value = "" + (100 * siteState.before_dmg_boost)
+    patch_after_dmg_boost.value = "" + (100 * siteState.after_dmg_boost)
+    patch_after_dmg_boost_slider.value = "" + (100 * siteState.after_dmg_boost)
 
 
     {
@@ -741,6 +741,9 @@ export function calculateProperties(patch_data: PatchData) {
                 if (typeof abilityData["Reload time per ammo"] === "number" && typeof abilityData["Ammo"] === "number") {
                     reload_time += abilityData["Reload time per ammo"] * abilityData["Ammo"]
                 }
+                if (typeof abilityData["Bullets per burst"] === "number" && typeof abilityData["Burst recovery time"] === "number") {
+                    reload_time += (abilityData["Bullets per burst"] - 1) * abilityData["Burst recovery time"]
+                }
                 if (typeof abilityData["Ammo"] === "number" && reload_time > 0) {
                     let time_before_reload = abilityData["Ammo"]
                     if (time_between_shots > 0) {
@@ -908,20 +911,20 @@ display_breakpoints_box.onchange = async function () {
 };
 
 patch_before_dmg_boost.onchange = async function () {
-    siteState.before_dmg_boost = parseFloat((this as HTMLInputElement).value)/100.0;
+    siteState.before_dmg_boost = parseFloat((this as HTMLInputElement).value) / 100.0;
     await updatePatchNotes()
 };
 patch_before_dmg_boost_slider.onchange = async function () {
-    siteState.before_dmg_boost = parseFloat((this as HTMLInputElement).value)/100.0;
+    siteState.before_dmg_boost = parseFloat((this as HTMLInputElement).value) / 100.0;
     await updatePatchNotes()
 };
 
 patch_after_dmg_boost.onchange = async function () {
-    siteState.after_dmg_boost = parseFloat((this as HTMLInputElement).value)/100.0;
+    siteState.after_dmg_boost = parseFloat((this as HTMLInputElement).value) / 100.0;
     await updatePatchNotes()
 };
 patch_after_dmg_boost_slider.onchange = async function () {
-    siteState.after_dmg_boost = parseFloat((this as HTMLInputElement).value)/100.0;
+    siteState.after_dmg_boost = parseFloat((this as HTMLInputElement).value) / 100.0;
     await updatePatchNotes()
 };
 

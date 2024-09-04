@@ -565,7 +565,7 @@
                 },
                 "abilities": {
                     "Tesla Cannon": {
-                        "Damage per second": 75,
+                        "Damage per second": 70,
                         "ignores armor damage reduction": true,
                         "Ammo": 100,
                         "Reload time": 1.7,
@@ -616,10 +616,10 @@
                     "The Viper": {
                         "Projectile size": 0.08,
                         "Critical multiplier": 2,
-                        "Damage": 40,
+                        "Damage": 35,
                         "Recovery time": 0.266,
                         "Ammo": 12,
-                        "Reload time per ammo": 0.2,
+                        "Reload time per ammo": 0.25,
                         "Reload time": 0.5
                     },
                     "The Viper Alt Fire": {
@@ -1087,7 +1087,7 @@
                 },
                 "abilities": {
                     "Virus": {
-                        "Damage over time": 90,
+                        "Damage over time": 75,
                         "Cooldown": 6,
                         "Projectile size": 0.5,
                         "Impact damage": 35
@@ -1542,16 +1542,16 @@
                         "Move speed while falling": 3
                     },
                     "Mediblaster": {
-                        "Damage per bullet": 8,
-                        "Healing per bullet": 7,
+                        "Damage per bullet": 7.5,
+                        "Healing per bullet": 6.5,
                         "Bullets per burst": 12,
                         "Ammo": 180,
                         "Spread": 1,
                         "Falloff range minimum": 30,
                         "Falloff range maximum": 45,
                         "Reload time": 1.8,
-                        "Burst recovery time": 0.03571428571428571,
-                        "Recovery time": 0.88
+                        "Burst recovery time": 0.029411764705882353,
+                        "Recovery time": 0.78
                     },
                     "Pulsar Torpedoes": {
                         "Damage": 85,
