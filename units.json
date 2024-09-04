@@ -27,35 +27,25 @@
                     "Armor health": "none"
                 },
                 "abilities": {
+                    "Eject Mech": {
+                        "Pilot damage immunity while ejecting": "seconds"
+                    },
                     "Fusion Cannons": {
-                        "Spread": "none",
                         "Total damage": "none",
+                        "Critical multiplier": "none",
+                        "Spread": "none",
                         "Projectile size": "meters",
                         "Movement speed penalty": "percent",
-                        "Recovery time": "seconds",
-                        "Critical multiplier": "none"
-                    },
-                    "Boosters": {
-                        "Impact damage": "none",
-                        "Cooldown": "seconds"
+                        "Recovery time": "seconds"
                     },
                     "Defense Matrix": {
                         "Cooldown": "seconds",
                         "Maximum Duration": "seconds",
                         "Recharge rate": "percent"
                     },
-                    "Self Destruct": {
-                        "Ultimate cost": "none",
-                        "Maximum damage": "none",
-                        "Inner explosion radius": "meters"
-                    },
-                    "Light Gun": {
-                        "Projectile size": "meters",
-                        "Damage": "none",
-                        "Recovery time": "seconds",
-                        "Reload time": "seconds",
-                        "Ammo": "none",
-                        "Critical multiplier": "none"
+                    "Boosters": {
+                        "Impact damage": "none",
+                        "Cooldown": "seconds"
                     },
                     "Micro Missiles": {
                         "Projectile size": "meters",
@@ -64,8 +54,18 @@
                         "Projectile speed": "meters per second",
                         "Cooldown": "seconds"
                     },
-                    "Eject Mech": {
-                        "Pilot damage immunity while ejecting": "seconds"
+                    "Self Destruct": {
+                        "Ultimate cost": "none",
+                        "Maximum damage": "none",
+                        "Inner explosion radius": "meters"
+                    },
+                    "Light Gun": {
+                        "Damage": "none",
+                        "Critical multiplier": "none",
+                        "Projectile size": "meters",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time": "seconds"
                     },
                     "Call Mech": {
                         "Ultimate cost": "none",
@@ -87,12 +87,12 @@
                     },
                     "Scattergun": {
                         "Total damage": "none",
+                        "Critical multiplier": "none",
                         "Projectile size": "meters",
                         "Spread": "relative percent",
+                        "Recovery time": "seconds",
                         "Ammo": "none",
-                        "Critical multiplier": "none",
-                        "Reload time": "seconds",
-                        "Recovery time": "seconds"
+                        "Reload time": "seconds"
                     },
                     "Jagged Blade": {
                         "Increased knockback on tanks": "percent",
@@ -138,6 +138,25 @@
                     "Armor health": "none"
                 },
                 "abilities": {
+                    "Augmented Fusion Driver": {
+                        "Damage": "none",
+                        "Critical multiplier": "none",
+                        "Projectile size": "meters",
+                        "Minimum damage falloff range": "meters",
+                        "Maximum damage falloff range": "meters",
+                        "Damage falloff at maximum range": "percent",
+                        "has falloff damage penalty": "none",
+                        "scales projectile size with distance": "flag",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time per ammo": "seconds"
+                    },
+                    "Energy Javelin": {
+                        "Direct damage": "none",
+                        "Projectile size": "meters",
+                        "Cooldown": "seconds",
+                        "Wall impact damage": "none"
+                    },
                     "Fortify": {
                         "Duration": "seconds",
                         "Movement speed reduction": "percent",
@@ -147,12 +166,6 @@
                         "immune to taking forced critical hit damage": "none",
                         "Damage reduction": "percent",
                         "disables critical damage": "flag"
-                    },
-                    "Energy Javelin": {
-                        "Direct damage": "none",
-                        "Projectile size": "meters",
-                        "Cooldown": "seconds",
-                        "Wall impact damage": "none"
                     },
                     "Javelin Spin": {
                         "Cooldown": "seconds",
@@ -167,19 +180,6 @@
                         "can be interrupted by hack": "flag",
                         "pierces through barriers upon impact": "flag",
                         "Overhealth": "none"
-                    },
-                    "Augmented Fusion Driver": {
-                        "Projectile size": "meters",
-                        "has falloff damage penalty": "none",
-                        "Minimum damage falloff range": "meters",
-                        "Maximum damage falloff range": "meters",
-                        "Damage": "none",
-                        "Critical multiplier": "none",
-                        "scales projectile size with distance": "flag",
-                        "Damage falloff at maximum range": "percent",
-                        "Recovery time": "seconds",
-                        "Ammo": "none",
-                        "Reload time per ammo": "seconds"
                     }
                 }
             },
@@ -189,18 +189,18 @@
                 },
                 "abilities": {
                     "Scrap Gun": {
-                        "Ammo": "none",
+                        "Damage per pellet": "none",
+                        "Pellet count": "none",
                         "Pellet projectile size": "none",
+                        "Damage per shrapnel": "none",
+                        "Shrapnel count": "none",
                         "Shrapnel projectile size": "none",
+                        "Critical multiplier": "none",
                         "Secondary fire pre-detonation damage": "none",
                         "Secondary fire max range": "meters",
                         "has secondary fire": "none",
-                        "Damage per pellet": "none",
-                        "Damage per shrapnel": "none",
-                        "Pellet count": "none",
-                        "Shrapnel count": "none",
-                        "Critical multiplier": "none",
                         "Recovery time": "seconds",
+                        "Ammo": "none",
                         "Reload time": "seconds"
                     },
                     "Take a Breather": {
@@ -220,15 +220,6 @@
                         "Cooldown start": "none",
                         "Impact damage": "none"
                     },
-                    "Whole Hog": {
-                        "Knockback": "none",
-                        "Damage per pellet": "none",
-                        "Ultimate cost": "none",
-                        "disables other abilities and automatically fires": "flag",
-                        "Projectile size": "meters",
-                        "Maximum duration": "seconds",
-                        "cancelled by stuns": "flag"
-                    },
                     "Pig Pen": {
                         "Vertical Knockback": "none",
                         "Initial damage": "none",
@@ -238,6 +229,15 @@
                         "Duration": "seconds",
                         "Movement speed reduction": "percent",
                         "Cooldown": "seconds"
+                    },
+                    "Whole Hog": {
+                        "Knockback": "none",
+                        "Damage per pellet": "none",
+                        "Ultimate cost": "none",
+                        "disables other abilities and automatically fires": "flag",
+                        "Projectile size": "meters",
+                        "Maximum duration": "seconds",
+                        "cancelled by stuns": "flag"
                     }
                 }
             },
@@ -247,6 +247,14 @@
                     "Shield health": "none"
                 },
                 "abilities": {
+                    "Hyperspheres": {
+                        "Direct damage": "none",
+                        "Explosion damage": "none",
+                        "Bullets per burst": "none",
+                        "Projectile size": "meters",
+                        "Recovery time": "seconds",
+                        "Burst recovery time": "seconds"
+                    },
                     "Experimental Barrier": {
                         "Movement speed": "none",
                         "Regeneration rate": "none"
@@ -265,15 +273,8 @@
                     "Gravitic Flux": {
                         "requires line-of-sight": "none",
                         "Ultimate cost": "none"
-                    },
-                    "Hyperspheres": {
-                        "Projectile size": "meters",
-                        "Direct damage": "none",
-                        "Explosion damage": "none",
-                        "Recovery time": "seconds",
-                        "Burst recovery time": "seconds",
-                        "Bullets per burst": "none"
                     }
+                    
                 }
             },
             "Wrecking Ball": {
@@ -283,6 +284,16 @@
                     "Shield health": "none"
                 },
                 "abilities": {
+                    "Quad Cannons": {
+                        "Damage": "none",
+                        "Critical multiplier": "none",
+                        "Projectile size": "meters",
+                        "Automatic reload time while transformed": "seconds",
+                        "Number of shots to reach max spread": "none",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time": "seconds"
+                    },
                     "Grappling Claw": {
                         "Cooldown": "seconds",
                         "Impact damage": "none",
@@ -291,10 +302,9 @@
                         "requires fireball speed for max duration to begin": "none",
                         "Knockback": "relative percent"
                     },
-                    "Piledriver": {
-                        "Movement lockout duration for enemies": "seconds",
-                        "Cooldown": "seconds",
-                        "Maximum damage": "none"
+                    "Roll": {
+                        "Cast time": "seconds",
+                        "Move speed": "meters per second"
                     },
                     "Adaptive Shield": {
                         "Ally overhealth cap": "none",
@@ -303,26 +313,17 @@
                         "Allied Overhealth transfer ratio": "none",
                         "Effect duration": "seconds"
                     },
+                    "Piledriver": {
+                        "Movement lockout duration for enemies": "seconds",
+                        "Cooldown": "seconds",
+                        "Maximum damage": "none"
+                    },
                     "Minefield": {
                         "Health": "none",
                         "Damage": "none",
                         "Explosion knockback": "none",
                         "Ultimate cost": "none",
                         "Arming time": "seconds"
-                    },
-                    "Quad Cannons": {
-                        "Projectile size": "meters",
-                        "Automatic reload time while transformed": "seconds",
-                        "Number of shots to reach max spread": "none",
-                        "Reload time": "seconds",
-                        "Critical multiplier": "none",
-                        "Damage": "none",
-                        "Recovery time": "seconds",
-                        "Ammo": "none"
-                    },
-                    "Roll": {
-                        "Cast time": "seconds",
-                        "Move speed": "meters per second"
                     }
                 }
             },
@@ -341,8 +342,8 @@
                         "Minimum damage per second": "none",
                         "Beam width": "meters",
                         "Ammo": "none",
-                        "Reload time": "seconds",
-                        "Ammo per second": "none"
+                        "Ammo per second": "none",
+                        "Reload time": "seconds"
                     },
                     "Particle Cannon Alt Fire": {
                         "Projectile size": "meters",
@@ -392,22 +393,9 @@
                         "Projectile size": "meters",
                         "Pellet count": "none",
                         "Critical multiplier": "none",
-                        "Reload time per ammo": "seconds",
                         "Recovery time": "seconds",
-                        "Ammo": "none"
-                    },
-                    "Seismic Slam": {
-                        "Damage": "none",
-                        "Cooldown": 7,
-                        "Slow": "percent"
-                    },
-                    "Power Block": {
-                        "Cooldown": "seconds",
-                        "Duration": "seconds",
-                        "reduces damage from stuck projectiles": "none",
-                        "Minimum damage mitigated required to empower Rocket Punch": "none",
-                        "Damage reduction": "percent",
-                        "Movement speed penalty": "percent"
+                        "Ammo": "none",
+                        "Reload time per ammo": "seconds"
                     },
                     "Rocket Punch": {
                         "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": "none",
@@ -424,6 +412,19 @@
                         "Minimum empowered wall stun": "seconds",
                         "Empowered Rocket Punch knockback radius": "meters",
                         "Minimum time before cancel option becomes available": "seconds"
+                    },
+                    "Seismic Slam": {
+                        "Damage": "none",
+                        "Cooldown": 7,
+                        "Slow": "percent"
+                    },
+                    "Power Block": {
+                        "Cooldown": "seconds",
+                        "Duration": "seconds",
+                        "reduces damage from stuck projectiles": "none",
+                        "Minimum damage mitigated required to empower Rocket Punch": "none",
+                        "Damage reduction": "percent",
+                        "Movement speed penalty": "percent"
                     },
                     "Meteor Strike": {
                         "Ultimate cost": "none",
@@ -479,11 +480,13 @@
                     "Head hit volume": "relative percent"
                 },
                 "abilities": {
+                    "Berserker": {
+                        "Overhealth conversion rate": "percent"
+                    },
                     "Incendiary and Volatile Changuns": {
                         "Damage": "none",
                         "Number of shots required to ignite enemies with Incendiary Chaingun": "none",
                         "Projectile size": "meters",
-                        "Ammo": "none",
                         "Movement speed penalty per gun": "percent",
                         "Minimum damage falloff range": "meters",
                         "Fire rate multiplier for firing both guns": "percent",
@@ -491,7 +494,8 @@
                         "Spread when only one Chaingun is active": "none",
                         "Incendiary Chaingun burn duration": "seconds",
                         "Critical multiplier": "none",
-                        "Recovery time": "seconds"
+                        "Recovery time": "seconds",
+                        "Ammo": "none"
                     },
                     "Overrun": {
                         "Cooldown": "seconds",
@@ -513,9 +517,6 @@
                         "Ultimate cost": "none",
                         "Duration": "seconds",
                         "grants infinite ammo": "none"
-                    },
-                    "Berserker": {
-                        "Overhealth conversion rate": "percent"
                     }
                 }
             },
@@ -526,14 +527,30 @@
                     "Model Size": "relative percent"
                 },
                 "abilities": {
+                    "Void Accelerator": {
+                        "Damage": "none",
+                        "Critical multiplier": "none",
+                        "Projectile size": "meters",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time": "seconds"
+                    },
+                    "Void Barrier": {
+                        "Barrier health": "none",
+                        "Cooldown": "seconds"
+                    },
                     "Nemesis Form": {
                         "Cooldown": "seconds",
                         "Extra armor": "none",
                         "Increased movement speed": "percent"
                     },
-                    "Void Barrier": {
-                        "Barrier health": "none",
-                        "Cooldown": "seconds"
+                    "Pummel": {
+                        "Damage": "none",
+                        "Projectile size": "meters",
+                        "Recovery time": "seconds"
+                    },
+                    "Block": {
+                        "reduces damage from stuck projectiles": "none"
                     },
                     "Ravenous Vortex": {
                         "Cooldown": "seconds",
@@ -545,22 +562,6 @@
                         "Increased movement speed": "percent",
                         "refreshes bonus armor if used while in Nemesis Form": "flag",
                         "Maximum duration": "seconds"
-                    },
-                    "Void Accelerator": {
-                        "Projectile size": "meters",
-                        "Damage": "none",
-                        "Reload time": "seconds",
-                        "Ammo": "none",
-                        "Recovery time": "seconds",
-                        "Critical multiplier": "none"
-                    },
-                    "Pummel": {
-                        "Projectile size": "meters",
-                        "Damage": "none",
-                        "Recovery time": "seconds"
-                    },
-                    "Block": {
-                        "reduces damage from stuck projectiles": "none"
                     }
                 }
             },
@@ -576,16 +577,16 @@
                         "Cooldown": "seconds",
                         "Spread": "relative percent",
                         "Ammo": "none",
-                        "Reload time": "seconds",
-                        "Ammo per second": "none"
+                        "Ammo per second": "none",
+                        "Reload time": "seconds"
                     },
                     "Tesla Cannon Alt Fire": {
+                        "Alt fire of": "none",
+                        "Damage": "none",
                         "Maximum charge time": "seconds",
                         "Range": "meters",
                         "Recovery time": "seconds",
                         "Ammo per shot": "none",
-                        "Damage": "none",
-                        "Alt fire of": "none",
                         "Ammo": "none",
                         "Reload time": "seconds"
                     },
@@ -593,15 +594,15 @@
                         "Cooldown": "seconds",
                         "Minimum damage falloff range": "meters"
                     },
-                    "Primal Rage": {
-                        "Ultimate cost": "none",
-                        "Punch damage": "none",
-                        "Maximum health gained": "none"
-                    },
                     "Barrier Projector": {
                         "Health": "none",
                         "Cooldown": "seconds",
                         "Duration": "seconds"
+                    },
+                    "Primal Rage": {
+                        "Ultimate cost": "none",
+                        "Punch damage": "none",
+                        "Maximum health gained": "none"
                     }
                 }
             }
@@ -617,31 +618,31 @@
                     "Base health": "none"
                 },
                 "abilities": {
-                    "B.O.B": {
-                        "Ultimate cost": "none",
-                        "Weapon damage": "none",
-                        "has tank passive": "none",
-                        "Health": "none",
-                        "prefers to shoot at enemy targets that Ashe damage with her rifle": "flag"
-                    },
                     "The Viper": {
-                        "Projectile size": "meters",
-                        "Reload time": "seconds",
                         "Damage": "none",
-                        "Recovery time": "seconds",
                         "Critical multiplier": "none",
+                        "Projectile size": "meters",
+                        "Recovery time": "seconds",
                         "Ammo": "none",
-                        "Reload time per ammo": "seconds"
+                        "Reload time per ammo": "seconds",
+                        "Reload time": "seconds"
                     },
                     "The Viper Alt Fire": {
-                        "Projectile size": "meters",
-                        "Critical multiplier": "none",
-                        "Damage": "none",
-                        "Recovery time": "seconds",
-                        "Reload time": "seconds",
                         "Alt fire of": "none",
+                        "Damage": "none",
+                        "Critical multiplier": "none",
+                        "Projectile size": "meters",
+                        "Recovery time": "seconds",
                         "Ammo": "none",
-                        "Reload time per ammo": "seconds"
+                        "Reload time per ammo": "seconds",
+                        "Reload time": "seconds"
+                    },
+                    "Coach Gun": {
+                        "Cooldown": "seconds",
+                        "Damage per pellet": "none",
+                        "Pellet count": "none",
+                        "Cast time": "seconds",
+                        "Recovery time": "seconds"
                     },
                     "Dynamite": {
                         "Cooldown": "seconds",
@@ -650,12 +651,12 @@
                         "Duration": "seconds",
                         "Range": "meters"
                     },
-                    "Coach Gun": {
-                        "Cooldown": "seconds",
-                        "Damage per pellet": "none",
-                        "Pellet count": "none",
-                        "Cast time": "seconds",
-                        "Recovery time": "seconds"
+                    "B.O.B": {
+                        "Ultimate cost": "none",
+                        "Weapon damage": "none",
+                        "has tank passive": "none",
+                        "Health": "none",
+                        "prefers to shoot at enemy targets that Ashe damage with her rifle": "flag"
                     }
                 }
             },
@@ -666,6 +667,29 @@
                     "Model size": "relative percent"
                 },
                 "abilities": {
+                    "Ironclad": {
+                        "Damage reduction": "percent"
+                    },
+                    "Configuration: Recon": {
+                        "Damage": "none",
+                        "Critical multiplier": "none",
+                        "Projectile size": "meters",
+                        "Spread": "relative percent",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time": "seconds"
+                    },
+                    "Configuration: Assault": {
+                        "Damage": "none",
+                        "Movement speed penalty": "percent",
+                        "Spread": "relative percent",
+                        "Min spread": "relative percent",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time": "seconds",
+                        "Duration": "seconds",
+                        "Cooldown": "seconds"
+                    },
                     "A-36 Tactical Grenade": {
                         "Self damage rate": "none",
                         "briefly grants increased aerial mobility on self knockback while in Configuration: Assault": "none",
@@ -675,25 +699,8 @@
                         "Detonation time": "seconds",
                         "Cooldown": "seconds"
                     },
-                    "Configuration: Assault": {
-                        "Movement speed penalty": "percent",
-                        "Cooldown": "seconds",
-                        "Damage": "none",
-                        "Duration": "seconds",
-                        "Recovery time": "seconds",
-                        "Reload time": "seconds",
-                        "Ammo": "none",
-                        "Spread": "relative percent",
-                        "Min spread": "relative percent"
-                    },
-                    "Configuration: Recon": {
-                        "Projectile size": "meters",
-                        "Reload time": "seconds",
-                        "Recovery time": "seconds",
-                        "Spread": "relative percent",
-                        "Ammo": "none",
-                        "Damage": "none",
-                        "Critical multiplier": "none"
+                    "Reconfigure": {
+                        "Armor healing on transform": 50
                     },
                     "Configuration: Artillery": {
                         "Ultimate cost": "none",
@@ -704,12 +711,6 @@
                         "deals explosion damage to self": "flag",
                         "Explosion damage": "none",
                         "Delay before projectile drops": "seconds"
-                    },
-                    "Ironclad": {
-                        "Damage reduction": "percent"
-                    },
-                    "Reconfigure": {
-                        "Armor healing on transform": 50
                     }
                 }
             },
@@ -719,22 +720,22 @@
                 },
                 "abilities": {
                     "Peacekeeper": {
+                        "Damage": "none",
+                        "Critical multiplier": "none",
                         "Projectile size": "meters",
                         "Primary fire falloff range minimum": "meters",
                         "Primary fire falloff range maximum": "meters",
-                        "Damage": "none",
+                        "Maximum damage falloff scalar": "percent",
                         "Recovery time": "seconds",
                         "Ammo": "none",
                         "Reload time": "seconds",
-                        "Critical multiplier": "none",
-                        "Maximum damage falloff scalar": "percent"
                     },
                     "Fan the Hammer": {
+                        "Alt fire of": "none",
                         "Damage": "none",
                         "Recovery time": "seconds",
                         "Ammo": "none",
-                        "Reload time": "seconds",
-                        "Alt fire of": "none"
+                        "Reload time": "seconds"
                     },
                     "Combat Roll": {
                         "Damage reduction": "percent",
@@ -775,10 +776,34 @@
                     "Base health": "none"
                 },
                 "abilities": {
+                    "Glide": {
+                        "Movement speed": "percent",
+                        "Vertical speed": "meters per second"
+                    },
+                    "Tri-shot": {
+                        "Damage per pellet": "none",
+                        "Pellet count": "none",
+                        "Critical multiplier": "none",
+                        "Projectile size": 0.175,
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time": "seconds"
+                    },
                     "Sticky Bombs": {
                         "Explosion damage": "none",
                         "Direct damage": "none",
                         "Projectile size": "meters"
+                    },
+                    "Flight": {
+                        "Cooldown": "seconds",
+                        "Duration": "seconds",
+                        "Dash speed": "meters per second",
+                        "Flight speed": "meters per second"
+                    },
+                    "Focusing Beam": {
+                        "Width": "meters",
+                        "Maximum damage per second": "none",
+                        "Cooldown": "seconds"
                     },
                     "Duplicate": {
                         "Ultimate gain multiplier": "none",
@@ -805,30 +830,6 @@
                         "Wrecking Ball copy armor": "none",
                         "Zarya copy health": "none",
                         "Zarya copy shield health": "none"
-                    },
-                    "Tri-shot": {
-                        "Projectile size": 0.175,
-                        "Damage per pellet": "none",
-                        "Critical multiplier": "none",
-                        "Pellet count": "none",
-                        "Ammo": "none",
-                        "Recovery time": "seconds",
-                        "Reload time": "seconds"
-                    },
-                    "Focusing Beam": {
-                        "Width": "meters",
-                        "Maximum damage per second": "none",
-                        "Cooldown": "seconds"
-                    },
-                    "Flight": {
-                        "Cooldown": "seconds",
-                        "Duration": "seconds",
-                        "Dash speed": "meters per second",
-                        "Flight speed": "meters per second"
-                    },
-                    "Glide": {
-                        "Movement speed": "percent",
-                        "Vertical speed": "meters per second"
                     }
                 }
             },
@@ -839,32 +840,32 @@
                 "abilities": {
                     "Shuriken": {
                         "Damage per bullet": "none",
-                        "Projectile size": "meters",
-                        "Ammo": "none",
-                        "Critical multiplier": "none",
-                        "Burst recovery time": "seconds",
                         "Bullets per burst": "none",
+                        "Critical multiplier": "none",
+                        "Projectile size": "meters",
+                        "Burst recovery time": "seconds",
                         "Recovery time": "seconds",
+                        "Ammo": "none",
                         "Reload time": "seconds"
                     },
                     "Shuriken Alt Fire": {
-                        "Damage per pellet": "none",
-                        "Projectile size": "meters",
-                        "Critical multiplier": "none",
                         "Alt fire of": "none",
-                        "Recovery time": "seconds",
-                        "Ammo per shot": "none",
+                        "Damage per pellet": "none",
                         "Pellet count": "none",
+                        "Critical multiplier": "none",
+                        "Projectile size": "meters",
+                        "Recovery time": "seconds",
                         "Ammo": "none",
+                        "Ammo per shot": "none",
                         "Reload time": "seconds"
-                    },
-                    "Deflect": {
-                        "Cooldown": "seconds",
-                        "Duration": "seconds"
                     },
                     "Swift Strike": {
                         "Cooldown": "seconds",
                         "Damage": "none"
+                    },
+                    "Deflect": {
+                        "Cooldown": "seconds",
+                        "Duration": "seconds"
                     },
                     "Dragonblade": {
                         "Ultimate cost": "none",
@@ -880,9 +881,13 @@
                 "abilities": {
                     "Storm Bow": {
                         "Maximum damage": "none",
+                        "Critical multiplier": "none",
                         "Projectile size": "meters",
-                        "has arrow draw progress preserved while wall climbing": "none",
-                        "Critical multiplier": "none"
+                        "has arrow draw progress preserved while wall climbing": "none"
+                    },
+                    "Sonic Arrow": {
+                        "does impact sound plat for enemies": "none",
+                        "has visual effect when deployed": "none"
                     },
                     "Storm Arrows": {
                         "Cooldown": "seconds",
@@ -891,17 +896,13 @@
                         "Projectile size": "meters",
                         "Critical multiplier": "none"
                     },
+                    "Lunge": {
+                        "Cooldown": "seconds"
+                    },
                     "Dragonstrike": {
                         "Speed": "none",
                         "Ultimate cost": "none",
                         "Critical multiplier": "none"
-                    },
-                    "Sonic Arrow": {
-                        "does impact sound plat for enemies": "none",
-                        "has visual effect when deployed": "none"
-                    },
-                    "Lunge": {
-                        "Cooldown": "seconds"
                     }
                 }
             },
@@ -950,24 +951,23 @@
                         "bonus damage triggered by Mei's quick melee": "flag"
                     },
                     "Endothermic Blaster": {
-                        "Ammo": "none",
-                        "Secondary fire damage": "none",
-                        "Projectile size": "meters",
-                        "Alt fire projectile size": "meters",
                         "Damage per second": "none",
+                        "Projectile size": "meters",
                         "Minimum slow": "percent",
                         "Maximum slow": "percent",
                         "Duration before slow falls off between primary fire hits": "seconds",
                         "stuns on freeze": "flag",
-                        "Reload time": "seconds",
+                        "Freeze rate": "relative percent",
+                        "Ammo": "none",
                         "Ammo per second": "none",
-                        "Freeze rate": "relative percent"
+                        "Reload time": "seconds"
                     },
                     "Endothermic Blaster Alt Fire": {
+                        "Alt fire of": "none",
                         "Damage": "none",
+                        "Critical multiplier": "none",
                         "Projectile size": "meters",
                         "Recovery time": "seconds",
-                        "Alt fire of": "none",
                         "Ammo per shot": "none",
                         "Ammo": "none",
                         "Reload time": "seconds"
@@ -990,20 +990,29 @@
                     "Base health": "none"
                 },
                 "abilities": {
+                    "Hover Jets": {
+                        "requires landing to recharge fuel": "none",
+                        "Speed Boost": "percent",
+                        "can be activated without fuel to slow decent": "none"
+                    },
                     "Rocket Launcher": {
-                        "Recovery time": "seconds",
+                        "Direct damage": "none",
+                        "Explosion self damage": "percent",
+                        "Explosion damage": "none",
                         "Projectile speed": "meters per second",
                         "Projectile size": "meters",
-                        "Explosion self damage": "percent",
-                        "Direct damage": "none",
-                        "Explosion damage": "none",
+                        "Recovery time": "seconds",
                         "Ammo": "none",
                         "Reload time": "seconds"
                     },
-                    "Barrage": {
-                        "Ultimate cost": "none",
-                        "Projectile size": "meters",
-                        "instantly refills Hover Jets fuel": "none"
+                    "Jet Dash": {
+                        "Cooldown": "seconds"
+                    },
+                    "Jump Jet": {
+                        "Vertical boost height": "relative percent",
+                        "Cooldown": "seconds",
+                        "Fuel restoration": "percent",
+                        "affected by directional input": "flag"
                     },
                     "Concussive Blast": {
                         "Projectile size": "meters",
@@ -1014,19 +1023,10 @@
                         "Knockback": "relative percent",
                         "Direct knockback": "relative percent"
                     },
-                    "Jump Jet": {
-                        "Vertical boost height": "relative percent",
-                        "Cooldown": "seconds",
-                        "Fuel restoration": "percent",
-                        "affected by directional input": "flag"
-                    },
-                    "Hover Jets": {
-                        "requires landing to recharge fuel": "none",
-                        "Speed Boost": "percent",
-                        "can be activated without fuel to slow decent": "none"
-                    },
-                    "Jet Dash": {
-                        "Cooldown": "seconds"
+                    "Barrage": {
+                        "Ultimate cost": "none",
+                        "Projectile size": "meters",
+                        "instantly refills Hover Jets fuel": "none"
                     }
                 }
             },
@@ -1035,15 +1035,21 @@
                     "Base health": "none"
                 },
                 "abilities": {
+                    "The Reaping": {
+                        "Lifesteal percentage": "percent"
+                    },
                     "Hellfire Shotguns": {
-                        "Spread": "none",
                         "Damage per pellet": "none",
-                        "Projectile size": "meters",
                         "Pellet count": "none",
                         "Critical multiplier": "none",
+                        "Spread": "none",
+                        "Projectile size": "meters",
                         "Recovery time": "seconds",
                         "Reload time": "seconds",
                         "Ammo": "none"
+                    },
+                    "Wraith Form": {
+                        "can be activated while affected by mobility-locking effects": "none"
                     },
                     "Shadow Step": {
                         "Cast time": "none",
@@ -1052,12 +1058,6 @@
                     "Death Blossom": {
                         "Ultimate cost": "none",
                         "Damage per second": "none"
-                    },
-                    "The Reaping": {
-                        "Lifesteal percentage": "percent"
-                    },
-                    "Wraith Form": {
-                        "can be activated while affected by mobility-locking effects": "none"
                     }
                 }
             },
@@ -1068,29 +1068,29 @@
                 },
                 "abilities": {
                     "Railgun": {
-                        "Recovery time": "seconds",
+                        "Damage": "none",
+                        "Critical multiplier": "none",
                         "Projectile size": "meters",
+                        "Spread": "relative percent",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time": "seconds",
                         "Minimum energy for gradual energy decay": "percent",
                         "Number of shots to reach maximum spread": "none",
-                        "Spread": "relative percent",
-                        "Damage": "none",
                         "Energy gain based on": "none",
                         "Energy delay before draining": "seconds",
                         "Energy gained from shooting non-player targets": "none",
                         "requires overclock for secondary primary piercing": "flag",
-                        "Ammo": "none",
-                        "Critical multiplier": "none",
-                        "Reload time": "seconds",
                         "Energy decay per second": "none"
                     },
                     "Railgun Alt Fire": {
                         "Maximum damage": "none",
                         "Minimum damage": "none",
-                        "requires overclock for secondary primary piercing": "none",
-                        "Projectile size": "meters",
                         "Critical multiplier": "none",
                         "Minimum damage falloff range": "none",
-                        "Minimum projectile radius": "meters"
+                        "Minimum projectile radius": "meters",
+                        "Projectile size": "meters",
+                        "requires overclock for secondary primary piercing": "none"
                     },
                     "Power Slide": {
                         "Cooldown": "seconds"
@@ -1125,15 +1125,6 @@
                         "Reload time": "seconds",
                         "Critical multiplier": "none"
                     },
-                    "Biotic Field": {
-                        "Cooldown": "seconds",
-                        "Healing per second": "none"
-                    },
-                    "Tactical Visor": {
-                        "Ultimate cost": "none",
-                        "removes damage falloff": "flag",
-                        "prevents critical hits": "flag"
-                    },
                     "Helix Rocket": {
                         "Projectile size": "meters",
                         "Explosion damage": "none",
@@ -1143,6 +1134,15 @@
                     "Sprint": {
                         "Increased movement speed": "percent",
                         "Recovery time": "seconds"
+                    },
+                    "Biotic Field": {
+                        "Cooldown": "seconds",
+                        "Healing per second": "none"
+                    },
+                    "Tactical Visor": {
+                        "Ultimate cost": "none",
+                        "removes damage falloff": "flag",
+                        "prevents critical hits": "flag"
                     }
                 }
             },
@@ -1151,40 +1151,6 @@
                     "Base health": "none"
                 },
                 "abilities": {
-                    "Virus": {
-                        "Damage over time": "none",
-                        "Cooldown": "seconds",
-                        "Projectile size": "meters",
-                        "Impact damage": "none"
-                    },
-                    "EMP": {
-                        "Ultimate cost": "none",
-                        "Ability lockout duration": "seconds",
-                        "Damage of current health": "percent",
-                        "destroys Lifeweaver's Tree of Life": "flag",
-                        "destroys Mei's Blizzard": "flag",
-                        "deals additional damage to base shield health pools": "flag"
-                    },
-                    "Translocator": {
-                        "destroys breakables while in flight": "none",
-                        "can be manually activated": "none",
-                        "activates on terrain collision": "none",
-                        "Projectile speed": "meters per second",
-                        "Cooldown start": "none",
-                        "Maximum time before translocation": "seconds",
-                        "Stealth cooldown reduction on teleport": "seconds"
-                    },
-                    "Machine Pistol": {
-                        "Projectile size": "meters",
-                        "Damage": "none",
-                        "Minimum Spread": "none",
-                        "Number of shots until max spread": "none",
-                        "Reload time": "seconds",
-                        "Maximum spread": "relative percent",
-                        "Critical multiplier": "none",
-                        "Recovery time": "seconds",
-                        "Ammo": "none"
-                    },
                     "Stealth": {
                         "Grace period where Stealth can be canceled immediately after entering it": "seconds",
                         "Minimum cooldown while capturing or contesting": "seconds",
@@ -1195,6 +1161,20 @@
                         "Fade out duration": "seconds",
                         "is passive": "none",
                         "Enemy detection radius": "meters"
+                    },
+                    "Opportunist": {
+                        "Damage boost on hacked targets": "percent"
+                    },
+                    "Machine Pistol": {
+                        "Damage": "none",
+                        "Critical multiplier": "none",
+                        "Projectile size": "meters",
+                        "Minimum Spread": "none",
+                        "Maximum spread": "relative percent",
+                        "Number of shots until max spread": "none",
+                        "Reload time": "seconds",
+                        "Recovery time": "seconds",
+                        "Ammo": "none"
                     },
                     "Hack": {
                         "Cast time": "seconds",
@@ -1209,8 +1189,28 @@
                         "Stun duration on Bob": "seconds",
                         "destroys immortality field": "flag"
                     },
-                    "Opportunist": {
-                        "Damage boost on hacked targets": "percent"
+                    "Virus": {
+                        "Impact damage": "none",
+                        "Damage over time": "none",
+                        "Projectile size": "meters",
+                        "Cooldown": "seconds"
+                    },
+                    "Translocator": {
+                        "destroys breakables while in flight": "none",
+                        "can be manually activated": "none",
+                        "activates on terrain collision": "none",
+                        "Projectile speed": "meters per second",
+                        "Cooldown start": "none",
+                        "Maximum time before translocation": "seconds",
+                        "Stealth cooldown reduction on teleport": "seconds"
+                    },
+                    "EMP": {
+                        "Ability lockout duration": "seconds",
+                        "Damage of current health": "percent",
+                        "destroys Lifeweaver's Tree of Life": "flag",
+                        "destroys Mei's Blizzard": "flag",
+                        "deals additional damage to base shield health pools": "flag",
+                        "Ultimate cost": "none"
                     }
                 }
             },
@@ -1271,29 +1271,29 @@
                     "Base health": "none"
                 },
                 "abilities": {
+                    "Forge Hammer": {
+                        "Recovery time": "seconds",
+                        "Damage": "none"
+                    },
                     "Rivet Gun": {
-                        "Ammo": "none",
-                        "Critical multiplier": "none",
                         "Damage": "none",
+                        "Critical multiplier": "none",
                         "Projectile size": "meters",
                         "Recovery time": "seconds",
+                        "Ammo": "none",
                         "Reload time": "seconds"
                     },
                     "Rivet Gun Alt Fire": {
+                        "Damage per pellet": "none",
+                        "Pellet count": "none",
                         "Ammo per shot": "none",
                         "Projectile size": "meters",
                         "Spread": "none",
                         "Recovery time": "seconds",
-                        "Damage per pellet": "none",
                         "Critical multiplier": "none",
-                        "Pellet count": "none",
                         "Alt fire of": "none",
                         "Ammo": "none",
                         "Reload time": "seconds"
-                    },
-                    "Molten Core": {
-                        "Ultimate cost": "none",
-                        "Projectile size": "meters"
                     },
                     "Deploy Turret": {
                         "Turret damage": 13,
@@ -1304,9 +1304,9 @@
                         "Overhealth": "none",
                         "Ammo reloaded on use": "none"
                     },
-                    "Forge Hammer": {
-                        "Recovery time": "seconds",
-                        "Damage": "none"
+                    "Molten Core": {
+                        "Projectile size": "meters",
+                        "Ultimate cost": "none"
                     }
                 }
             },
@@ -1318,15 +1318,21 @@
                 "abilities": {
                     "Pulse Pistols": {
                         "Damage per pellet": "none",
+                        "Pellet count": "none",
+                        "Critical multiplier": "none",
                         "Minimum falloff range": "meters",
                         "Projectile size": "meters",
                         "Spread": "relative percent",
-                        "Critical multiplier": "none",
                         "Recovery time": "seconds",
-                        "Reload time": "seconds",
                         "Ammo": "none",
-                        "Pellet count": "none",
-                        "Ammo per shot": "none"
+                        "Ammo per shot": "none",
+                        "Reload time": "seconds"
+                    },
+                    "Blink": {
+                        "Charges": "none",
+                        "Cooldown": "seconds",
+                        "Recovery time": "seconds",
+                        "Range": "meters"
                     },
                     "Recall": {
                         "Cooldown": "seconds"
@@ -1334,12 +1340,6 @@
                     "Pulse Bomb": {
                         "Projectile size": "meters",
                         "Ultimate cost": "none"
-                    },
-                    "Blink": {
-                        "Charges": "none",
-                        "Cooldown": "seconds",
-                        "Recovery time": "seconds",
-                        "Range": "meters"
                     }
                 }
             },
@@ -1353,12 +1353,16 @@
                         "Ability shield generation": "none",
                         "Shield cap": "none"
                     },
+                    "Clobber": {
+                        "Impact damage": "none",
+                        "Damage over time": "none"
+                    },
                     "SMART Excavator": {
+                        "Direct damage": "none",
                         "Maximum explosion damage": "none",
                         "Projectile size": "meters",
-                        "Direct damage": "none",
-                        "Ammo": "none",
                         "Recovery time": "seconds",
+                        "Ammo": "none",
                         "Reload time": "seconds"
                     },
                     "Drill Dash": {
@@ -1383,10 +1387,6 @@
                         "Damage": "none",
                         "Slow": "percent",
                         "Slow duration": "seconds"
-                    },
-                    "Clobber": {
-                        "Impact damage": "none",
-                        "Damage over time": "none"
                     }
                 }
             },
@@ -1395,31 +1395,28 @@
                     "Base health": "none"
                 },
                 "abilities": {
-                    "Infra-Sight": {
-                        "Ultimate cost": "none"
-                    },
                     "Widow's Kiss": {
+                        "Damage": "none",
+                        "Critical multiplier": "none",
                         "Projectile size": "meters",
                         "Shots to reach maximum spread": "none",
-                        "Reload time": "seconds",
-                        "Ammo": "none",
                         "Recovery time": "seconds",
-                        "Damage": "none",
-                        "Critical multiplier": "none"
+                        "Ammo": "none",
+                        "Reload time": "seconds"
                     },
                     "Widow's Kiss Alt Fire": {
-                        "Projectile size": "meters",
+                        "Alt fire of": "none",
+                        "Maximum damage": "none",
+                        "Critical multiplier": "none",
                         "Falloff minimum range": "meters",
                         "Falloff maximum range": "meters",
-                        "Shots to reach maximum spread": "none",
                         "Maximum damage falloff scalar": "percent",
-                        "Alt fire of": "none",
-                        "Critical multiplier": "none",
-                        "Maximum damage": "none",
+                        "Projectile size": "meters",
+                        "Shots to reach maximum spread": "none",
                         "Maximum charge time": "seconds",
                         "Recovery time": "seconds",
-                        "Ammo per shot": "none",
                         "Ammo": "none",
+                        "Ammo per shot": "none",
                         "Reload time": "seconds"
                     },
                     "Grappling Hook": {
@@ -1436,6 +1433,9 @@
                         "Projectile speed": "meters per second",
                         "Cast time": "seconds",
                         "Recovery time": "seconds"
+                    },
+                    "Infra-Sight": {
+                        "Ultimate cost": "none"
                     }
                 }
             }
@@ -1451,13 +1451,13 @@
                 },
                 "abilities": {
                     "Biotic Rifle": {
-                        "Ammo": "none",
+                        "Damage": "none",
+                        "Healing": "none",
                         "Unscoped projectile size": "meters",
                         "Enemy scoped projectile size": "meters",
                         "Ally scoped projectile size": "meters",
-                        "Damage": "none",
-                        "Healing": "none",
                         "Recovery time": "seconds",
+                        "Ammo": "none",
                         "Reload time": "seconds"
                     },
                     "Sleep Dart": {
@@ -1483,22 +1483,22 @@
                 "abilities": {
                     "Biotic Launcher": {
                         "Damage per bullet": "none",
-                        "Projectile size": "meters",
-                        "Ammo": "none",
-                        "Minimum falloff damage range": "meters",
-                        "Critical multiplier": "none",
-                        "Recovery time": "seconds",
-                        "Burst recovery time": "seconds",
                         "Bullets per burst": "none",
+                        "Projectile size": "meters",
+                        "Critical multiplier": "none",
+                        "Minimum falloff damage range": "meters",
+                        "Burst recovery time": "seconds",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
                         "Reload time": "seconds"
                     },
                     "Biotic Launcher Alt Fire": {
+                        "Alt fire of": "none",
                         "Explosion healing": "none",
                         "Direct healing": "none",
-                        "Ammo": "none",
                         "Recovery time": "seconds",
-                        "Reload time": "seconds",
-                        "Alt fire of": "none"
+                        "Ammo": "none",
+                        "Reload time": "seconds"
                     },
                     "Regenerative Burst": {
                         "Cooldown": "seconds",
@@ -1532,6 +1532,21 @@
                         "Damage": "none",
                         "Recovery time": "seconds"
                     },
+                    "Barrier Shield": {
+                        "Barrier Shield health": "none"
+                    },
+                    "Shield Bash": {
+                        "Cooldown": "seconds",
+                        "Damage": "none",
+                        "Knockback scalar": "relative percent",
+                        "Stun duration": "seconds",
+                        "stopped by barriers": "flag",
+                        "Distance travelled": "meters"
+                    },
+                    "Whipshot": {
+                        "Damage": "none",
+                        "Cooldown": "seconds"
+                    },
                     "Repair Pack": {
                         "Instant healing": "none",
                         "Cooldown": "seconds",
@@ -1547,21 +1562,6 @@
                         "Additional barrier health": "none",
                         "Shield bash stun duration": "seconds",
                         "Bonus movement speed": "percent"
-                    },
-                    "Whipshot": {
-                        "Damage": "none",
-                        "Cooldown": "seconds"
-                    },
-                    "Barrier Shield": {
-                        "Barrier Shield health": "none"
-                    },
-                    "Shield Bash": {
-                        "Cooldown": "seconds",
-                        "Damage": "none",
-                        "Knockback scalar": "relative percent",
-                        "Stun duration": "seconds",
-                        "stopped by barriers": "flag",
-                        "Distance travelled": "meters"
                     }
                 }
             },
@@ -1573,11 +1573,11 @@
                     "Solar Rifle": {
                         "Damage": "none",
                         "Critical multiplier": "none",
-                        "Ammo": "none",
-                        "Recovery time": "seconds",
-                        "Maximum charge time": "seconds",
                         "Projectile size": "meters",
+                        "Recovery time": "seconds",
                         "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": "flag",
+                        "Maximum charge time": "seconds",
+                        "Ammo": "none",
                         "Reload time": "seconds"
                     },
                     "Solar Rifle Alt Fire": {
@@ -1622,13 +1622,13 @@
                         "Damage per bullet": "none",
                         "Healing per bullet": "none",
                         "Bullets per burst": "none",
-                        "Ammo": "none",
                         "Spread": "relative percent",
                         "Falloff range minimum": "meters",
                         "Falloff range maximum": "meters",
-                        "Reload time": "seconds",
                         "Burst recovery time": "seconds",
-                        "Recovery time": "seconds"
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time": "seconds"
                     },
                     "Pulsar Torpedoes": {
                         "Damage": "none",
@@ -1673,13 +1673,17 @@
                 },
                 "abilities": {
                     "Kunai": {
-                        "Ammo": "none",
-                        "Projectile size": "meters",
                         "Damage": "none",
                         "Critical multiplier": "none",
+                        "Projectile size": "meters",
                         "Recovery time": "seconds",
+                        "Ammo": "none",
                         "Reload time": "seconds",
                         "Ammo refresh time": "seconds"
+                    },
+                    "Healing Ofuda": {
+                        "Projectile speed": "meters per second",
+                        "Recovery time": "seconds"
                     },
                     "Swift Step": {
                         "Cooldown": "seconds",
@@ -1702,10 +1706,6 @@
                         "Ultimate cost": "none",
                         "Movement speed bonus": "percent",
                         "Cooldown rate": "seconds"
-                    },
-                    "Healing Ofuda": {
-                        "Projectile speed": "meters per second",
-                        "Recovery time": "seconds"
                     }
                 }
             },
@@ -1715,6 +1715,10 @@
                     "Shield health": "none"
                 },
                 "abilities": {
+                    "Parting Gift": {
+                        "Ally healing": "none",
+                        "Enemy healing": "none"
+                    },
                     "Healing Blossom": {
                         "Ammo": "none",
                         "Projectile size": "meters",
@@ -1726,17 +1730,17 @@
                         "Passive charge per second": "none"
                     },
                     "Thorn Volley": {
-                        "Ammo": "none",
                         "Damage per pellet": "none",
+                        "Pellet count": "none",
+                        "Critical multiplier": "none",
                         "Projectile size": "meters",
                         "Projectile speed": "meters per second",
                         "Second Thorn Volley projectile reduced spread": "percent",
                         "Number of projectiles to reach maximum spread": "none",
                         "Recovery time": "seconds",
-                        "Reload time": "seconds",
-                        "Critical multiplier": "none",
-                        "Pellet count": "none",
-                        "Ammo per shot": "none"
+                        "Ammo": "none",
+                        "Ammo per shot": "none",
+                        "Reload time": "seconds"
                     },
                     "Petal Platform": {
                         "Health": "none",
@@ -1752,21 +1756,17 @@
                     "Rejuvenating Dash": {
                         "Heal": "none"
                     },
+                    "Life Grip": {
+                        "Cooldown": "seconds",
+                        "Ability lockout duration": "seconds",
+                        "Healing": "none"
+                    },
                     "Tree of Life": {
                         "Pulse healing": "none",
                         "Health": "none",
                         "Duration": "seconds",
                         "Ultimate cost": "none",
                         "Overhealth conversion rate": "percent"
-                    },
-                    "Life Grip": {
-                        "Cooldown": "seconds",
-                        "Ability lockout duration": "seconds",
-                        "Healing": "none"
-                    },
-                    "Parting Gift": {
-                        "Ally healing": "none",
-                        "Enemy healing": "none"
                     }
                 }
             },
@@ -1775,24 +1775,26 @@
                     "Base health": "none"
                 },
                 "abilities": {
+                    "Wall Ride": {
+                        "Cooldown": "seconds",
+                        "Movement speed": "meters per second",
+                        "Wall leap speed increase": "meters per second"
+                    },
                     "Sonic Amplifier": {
-                        "Reload time": "seconds",
-                        "Ammo": "none",
                         "Damage per bullet": "none",
+                        "Bullets per burst": "none",
                         "Projectile size": "meters",
                         "Critical multiplier": "none",
+                        "Burst recovery time": "seconds",
                         "Recovery time": "seconds",
-                        "Bullets per burst": "none",
-                        "Burst recovery time": "seconds"
+                        "Ammo": "none",
+                        "Reload time": "seconds"
                     },
                     "Soundwave": {
                         "Damage": "none",
                         "Knockback": "none",
                         "Movement lockout duration": "seconds",
                         "Cooldown": "seconds"
-                    },
-                    "Sound Barrier": {
-                        "Ultimate cost": "none"
                     },
                     "Crossfade": {
                         "Crossfade self-healing penalty for the duration of Amp It Up": "percent",
@@ -1805,10 +1807,8 @@
                         "Recovery time": "seconds",
                         "Movement speed": "seconds"
                     },
-                    "Wall Ride": {
-                        "Cooldown": "seconds",
-                        "Movement speed": "meters per second",
-                        "Wall leap speed increase": "meters per second"
+                    "Sound Barrier": {
+                        "Ultimate cost": "none"
                     }
                 }
             },
@@ -1833,12 +1833,20 @@
                         "Bonus healing for allies under half health": "percent"
                     },
                     "Caduceus Blaster": {
-                        "Ammo": "none",
+                        "Damage": "none",
                         "Projectile size": "meters",
                         "Critical multiplier": "none",
-                        "Reload time": "seconds",
                         "Recovery time": "seconds",
-                        "Damage": "none"
+                        "Ammo": "none",
+                        "Reload time": "seconds"
+                    },
+                    "Guardian Angel": {
+                        "Active duration on jump/crouch cancel": "seconds",
+                        "Cooldown": "seconds",
+                        "Backwards movement efficiency": "percent",
+                        "can launch straight up with crouch": "flag",
+                        "has meter GA cancel": "flag",
+                        "launches up when reaching destination": "flag"
                     },
                     "Resurrect": {
                         "souls over death pits hidden": "flag",
@@ -1849,14 +1857,6 @@
                         "Ultimate cost": "none",
                         "disconnects Caduceus Staff from its target on activation": "flag",
                         "force enables passive healing": "flag"
-                    },
-                    "Guardian Angel": {
-                        "Active duration on jump/crouch cancel": "seconds",
-                        "Cooldown": "seconds",
-                        "Backwards movement efficiency": "percent",
-                        "can launch straight up with crouch": "flag",
-                        "has meter GA cancel": "flag",
-                        "launches up when reaching destination": "flag"
                     }
                 }
             },
@@ -1870,12 +1870,6 @@
                         "Secondary fire target acquisition radius": "meters",
                         "Lingering heal duration": "seconds",
                         "Self-healing": "none"
-                    },
-                    "Coalescence": {
-                        "Self-heal per second": "none",
-                        "can use fade during duration": "flag",
-                        "Ultimate cost": "none",
-                        "Bonus movement speed": "percent"
                     },
                     "Fade": {
                         "can be activated while affected by mobility-locking effects": "flag",
@@ -1894,6 +1888,12 @@
                         "Explosion radius": "meters",
                         "Weakening damage reduction": "percent",
                         "Weakening duration": "seconds"
+                    },
+                    "Coalescence": {
+                        "Self-heal per second": "none",
+                        "can use fade during duration": "flag",
+                        "Ultimate cost": "none",
+                        "Bonus movement speed": "percent"
                     }
                 }
             },
@@ -1907,26 +1907,23 @@
                         "Knockback": "none"
                     },
                     "Orb of Destruction": {
-                        "Ammo": "none",
-                        "Projectile size": "meters",
                         "Damage": "none",
                         "Critical multiplier": "none",
+                        "Projectile size": "meters",
                         "Recovery time": "seconds",
+                        "Ammo": "none",
                         "Reload time": "seconds"
                     },
                     "Orb of Destruction Alt Fire": {
                         "Alt fire of": "none",
                         "Damage per bullet": "none",
-                        "Projectile size": "meters",
                         "Bullets per burst": "none",
-                        "Maximum charge time": "seconds",
                         "Critical multiplier": "none",
+                        "Projectile size": "meters",
+                        "Maximum charge time": "seconds",
                         "Recovery time": "seconds",
                         "Ammo": "none",
                         "Reload time": "seconds"
-                    },
-                    "Transcendence": {
-                        "Ultimate cost": "none"
                     },
                     "Harmony Orb": {
                         "Time to wear off when not in line-of-sight": "seconds"
@@ -1935,6 +1932,9 @@
                         "Reapplication cooldown": "seconds",
                         "Range": "meters",
                         "Time to wear off the target when not in line-of-sight": "seconds"
+                    },
+                    "Transcendence": {
+                        "Ultimate cost": "none"
                     }
                 }
             }

@@ -362,6 +362,8 @@ async function updatePatchNotes() {
         }))
     let before_patch_data = structuredClone(patches[siteState.before_patch]);
     let after_patch_data = structuredClone(patches[siteState.after_patch]);
+    before_patch_data = reorder(before_patch_data, units)
+    after_patch_data = reorder(after_patch_data, units)
     if (siteState.show_calculated_properties) {
         before_patch_data = calculateProperties(before_patch_data)
         after_patch_data = calculateProperties(after_patch_data)
@@ -981,3 +983,22 @@ next_patch_button.onclick = async function () {
 };
 
 await updatePatchNotes();
+
+function reorder<T extends {[key: string]: any}>(to_reorder: T, pattern: {[key: string]: any}): T {
+    let reordered: {[key: string]: any} = {}
+    for(let key in pattern) {
+        if (key in to_reorder) {
+            if(typeof pattern[key] === "object") {
+                reordered[key] = reorder(to_reorder[key], pattern[key])
+            } else {
+                reordered[key] = to_reorder[key]
+            }
+        }
+    }
+    for (let key in to_reorder) {
+        if(!(key in reordered)) {
+            reordered[key] = to_reorder[key]
+        }
+    }
+    return reordered as T
+}
