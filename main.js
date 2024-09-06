@@ -17,6 +17,7 @@ let defaultSiteState = {
     after_patch: "Overwatch 2:latest",
     show_calculated_properties: false,
     show_breakpoints: false,
+    apply_to_armor: false,
     before_dmg_boost: 1,
     after_dmg_boost: 1,
 };
@@ -63,6 +64,9 @@ function patch_from_path(joined_path) {
     }
     if (urlParams.get("show_breakpoints")) {
         siteState.show_breakpoints = urlParams.get("show_breakpoints") === "true";
+    }
+    if (urlParams.get("apply_to_armor")) {
+        siteState.apply_to_armor = urlParams.get("apply_to_armor") === "true";
     }
     let before_dmg_boost_param = urlParams.get("before_dmg_boost");
     if (typeof before_dmg_boost_param == "string") {
@@ -232,6 +236,9 @@ const calculated_properties = [
     "Damage per second",
     "Damage per second(including reload)",
     "Headshot damage per second",
+    "Total headshot damage per second",
+    "Total instance damage",
+    "Total maximum instance damage",
     "Maximum headshot damage",
     "Maximum total damage",
     "Maximum damage per second",
@@ -240,11 +247,14 @@ const calculated_properties = [
     "Healing per second(including reload)",
     "Maximum healing per second",
     "Maximum healing per second(including reload)",
+    "Headshot damage per pellet",
+    "Headshot damage per shrapnel",
 ];
 let patch_before_box = document.querySelector("select#patch_before");
 let patch_after_box = document.querySelector("select#patch_after");
 let display_calculated_properties_box = document.querySelector("input#disp_calc_props");
 let display_breakpoints_box = document.querySelector("input#disp_breakpoints");
+let apply_damage_to_armor_box = document.querySelector("input#apply_damage_to_armor");
 let last_patch_button = document.querySelector("button#last_patch_button");
 let next_patch_button = document.querySelector("button#next_patch_button");
 let patch_before_dmg_boost = document.querySelector("input#patch_before_dmg_boost");
@@ -281,22 +291,22 @@ async function updatePatchNotes() {
     display_calculated_properties_box.checked = siteState.show_calculated_properties;
     if (siteState.show_calculated_properties) {
         (display_breakpoints_box.parentElement?.parentElement?.parentElement).style.display = "flex";
-    }
-    else {
-        (display_breakpoints_box.parentElement?.parentElement?.parentElement).style.display = "none";
-        siteState.show_breakpoints = false;
-    }
-    display_breakpoints_box.checked = siteState.show_breakpoints;
-    if (siteState.show_breakpoints) {
+        (apply_damage_to_armor_box.parentElement?.parentElement?.parentElement).style.display = "flex";
         (patch_before_dmg_boost.parentElement?.parentElement).style.display = "flex";
         (patch_after_dmg_boost.parentElement?.parentElement).style.display = "flex";
     }
     else {
+        (display_breakpoints_box.parentElement?.parentElement?.parentElement).style.display = "none";
+        (apply_damage_to_armor_box.parentElement?.parentElement?.parentElement).style.display = "none";
         (patch_before_dmg_boost.parentElement?.parentElement).style.display = "none";
         (patch_after_dmg_boost.parentElement?.parentElement).style.display = "none";
         siteState.before_dmg_boost = 1;
         siteState.after_dmg_boost = 1;
+        siteState.show_breakpoints = false;
+        siteState.apply_to_armor = false;
     }
+    display_breakpoints_box.checked = siteState.show_breakpoints;
+    apply_damage_to_armor_box.checked = siteState.apply_to_armor;
     patch_before_dmg_boost.value = "" + (100 * siteState.before_dmg_boost);
     patch_before_dmg_boost_slider.value = "" + (100 * siteState.before_dmg_boost);
     patch_after_dmg_boost.value = "" + (100 * siteState.after_dmg_boost);
@@ -333,13 +343,27 @@ async function updatePatchNotes() {
     let after_patch_data = structuredClone(patches[siteState.after_patch]);
     before_patch_data = reorder(before_patch_data, units);
     after_patch_data = reorder(after_patch_data, units);
+    before_patch_data = applyDamageMultiplier(before_patch_data, parseFloat(patch_before_dmg_boost_slider.value) / 100);
+    after_patch_data = applyDamageMultiplier(after_patch_data, parseFloat(patch_after_dmg_boost_slider.value) / 100);
     if (siteState.show_calculated_properties) {
-        before_patch_data = calculateProperties(before_patch_data);
-        after_patch_data = calculateProperties(after_patch_data);
+        before_patch_data = calculatePreArmorProperties(before_patch_data);
+        after_patch_data = calculatePreArmorProperties(after_patch_data);
+    }
+    if (siteState.apply_to_armor) {
+        before_patch_data = applyArmor(before_patch_data);
+        after_patch_data = applyArmor(after_patch_data);
+    }
+    if (siteState.show_calculated_properties) {
+        before_patch_data = calculatePostArmorProperties(before_patch_data);
+        after_patch_data = calculatePostArmorProperties(after_patch_data);
     }
     if (siteState.show_breakpoints) {
-        before_patch_data = calculateBreakpoints(before_patch_data, parseFloat(patch_before_dmg_boost_slider.value) / 100);
-        after_patch_data = calculateBreakpoints(after_patch_data, parseFloat(patch_after_dmg_boost_slider.value) / 100);
+        before_patch_data = calculateBreakpoints(before_patch_data);
+        after_patch_data = calculateBreakpoints(after_patch_data);
+    }
+    if (siteState.show_calculated_properties) {
+        before_patch_data = calculateRates(before_patch_data);
+        after_patch_data = calculateRates(after_patch_data);
     }
     let changes = convert_to_changes(before_patch_data, after_patch_data);
     let hero_section = document.getElementsByClassName("PatchNotes-section-hero_update")[0];
@@ -567,7 +591,230 @@ async function updatePatchNotes() {
         `;
     }
 }
-export function calculateProperties(patch_data) {
+export function applyDamageMultiplier(patch_data, multiplier) {
+    if (typeof patch_data.general["Quick melee damage"] == "number") {
+        patch_data.general["Quick melee damage"] *= multiplier;
+    }
+    for (let role in patch_data.heroes) {
+        for (let hero in patch_data.heroes[role]) {
+            if (hero == "general")
+                continue;
+            for (let ability in patch_data.heroes[role][hero].abilities) {
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage per second"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Damage per second"] *= multiplier;
+                }
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Damage"] *= multiplier;
+                }
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Impact damage"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Impact damage"] *= multiplier;
+                }
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Wall impact damage"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Wall impact damage"] *= multiplier;
+                }
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage over time"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Damage over time"] *= multiplier;
+                }
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Direct damage"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Direct damage"] *= multiplier;
+                }
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Maximum explosion damage"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Maximum explosion damage"] *= multiplier;
+                }
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Maximum impact damage"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Maximum impact damage"] *= multiplier;
+                }
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Explosion damage"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Explosion damage"] *= multiplier;
+                }
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage per bullet"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Damage per bullet"] *= multiplier;
+                }
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage per pellet"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Damage per pellet"] *= multiplier;
+                }
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage per shrapnel"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Damage per shrapnel"] *= multiplier;
+                }
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Bullets per burst"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Bullets per burst"] *= multiplier;
+                }
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Max impact damage"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Max impact damage"] *= multiplier;
+                }
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Max wall slam damage"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Max wall slam damage"] *= multiplier;
+                }
+                if (typeof patch_data.heroes[role][hero].abilities[ability]["Max damage"] === "number") {
+                    patch_data.heroes[role][hero].abilities[ability]["Max damage"] *= multiplier;
+                }
+            }
+        }
+    }
+    return patch_data;
+}
+export function calculatePreArmorProperties(patch_data) {
+    for (let role in patch_data.heroes) {
+        for (let hero in patch_data.heroes[role]) {
+            if (hero == "general")
+                continue;
+            const generalHeroData = patch_data.heroes[role][hero].general;
+            if (generalHeroData === undefined) {
+                console.error(`No general hero data for ${hero}`);
+                continue;
+            }
+            let total_health = 0;
+            if (typeof generalHeroData["Base health"] === "number") {
+                total_health += generalHeroData["Base health"];
+            }
+            if (typeof generalHeroData["Armor health"] === "number") {
+                total_health += generalHeroData["Armor health"];
+            }
+            if (typeof generalHeroData["Shield health"] === "number") {
+                total_health += generalHeroData["Shield health"];
+            }
+            patch_data.heroes[role][hero].general["Total health"] = total_health;
+            for (let ability in patch_data.heroes[role][hero].abilities) {
+                const abilityData = patch_data.heroes[role][hero].abilities[ability];
+                {
+                    let total_damage = 0;
+                    if (typeof abilityData["Impact damage"] === "number") {
+                        total_damage += abilityData["Impact damage"];
+                    }
+                    if (typeof abilityData["Wall impact damage"] === "number") {
+                        total_damage += abilityData["Wall impact damage"];
+                    }
+                    if (typeof abilityData["Direct damage"] === "number") {
+                        total_damage += abilityData["Direct damage"];
+                    }
+                    if (typeof abilityData["Maximum explosion damage"] === "number") {
+                        total_damage += abilityData["Maximum explosion damage"];
+                    }
+                    if (typeof abilityData["Maximum impact damage"] === "number") {
+                        total_damage += abilityData["Maximum impact damage"];
+                    }
+                    if (typeof abilityData["Explosion damage"] === "number") {
+                        total_damage += abilityData["Explosion damage"];
+                    }
+                    if (typeof abilityData["Damage per bullet"] === "number") {
+                        total_damage += abilityData["Damage per bullet"];
+                    }
+                    if (total_damage > 0) {
+                        patch_data.heroes[role][hero].abilities[ability]["Total instance damage"] = total_damage;
+                    }
+                }
+                {
+                    let total_damage = 0;
+                    if (typeof abilityData["Max impact damage"] === "number") {
+                        total_damage += abilityData["Max impact damage"];
+                    }
+                    if (typeof abilityData["Max wall slam damage"] === "number") {
+                        total_damage += abilityData["Max wall slam damage"];
+                    }
+                    if (typeof abilityData["Max damage"] === "number") {
+                        total_damage += abilityData["Max damage"];
+                    }
+                    if (total_damage > 0) {
+                        patch_data.heroes[role][hero].abilities[ability]["Total maximum instance damage"] = total_damage;
+                    }
+                }
+                if (typeof abilityData["Critical multiplier"] === "number") {
+                    let headshot_damage = abilityData["Critical multiplier"];
+                    if (typeof abilityData["Damage"] === "number") {
+                        headshot_damage *= abilityData["Damage"];
+                        patch_data.heroes[role][hero].abilities[ability]["Headshot damage"] = headshot_damage;
+                    }
+                    headshot_damage = abilityData["Critical multiplier"];
+                    if (typeof abilityData["Damage per pellet"] === "number") {
+                        headshot_damage *= abilityData["Damage per pellet"];
+                        patch_data.heroes[role][hero].abilities[ability]["Headshot damage per pellet"] = headshot_damage;
+                    }
+                    headshot_damage = abilityData["Critical multiplier"];
+                    if (typeof abilityData["Damage per shrapnel"] === "number") {
+                        headshot_damage *= abilityData["Damage per shrapnel"];
+                        patch_data.heroes[role][hero].abilities[ability]["Headshot damage per shrapnel"] = headshot_damage;
+                    }
+                    headshot_damage = abilityData["Critical multiplier"];
+                    if (typeof abilityData["Maximum damage"] === "number") {
+                        headshot_damage *= abilityData["Maximum damage"];
+                        patch_data.heroes[role][hero].abilities[ability]["Maximum headshot damage"] = headshot_damage;
+                    }
+                    headshot_damage = abilityData["Critical multiplier"];
+                    if (typeof abilityData["Total damage"] === "number") {
+                        headshot_damage *= abilityData["Total damage"];
+                        patch_data.heroes[role][hero].abilities[ability]["Total headshot damage"] = headshot_damage;
+                    }
+                }
+            }
+        }
+    }
+    return patch_data;
+}
+function applyArmorToStat(stat, min_damage_reduction, max_damage_reduction, flat_damage_reduction) {
+    return Math.min(Math.max(stat - flat_damage_reduction, stat * (1 - max_damage_reduction)), stat * (1 - min_damage_reduction));
+}
+export function applyArmor(patchData) {
+    let min_damage_reduction = 0;
+    let max_damage_reduction = 1;
+    let flat_damage_reduction = 0;
+    if (typeof patchData.general["Armor minimum damage reduction"] === "number") {
+        min_damage_reduction = patchData.general["Armor minimum damage reduction"] / 100;
+    }
+    if (typeof patchData.general["Armor maximum damage reduction"] === "number") {
+        max_damage_reduction = patchData.general["Armor maximum damage reduction"] / 100;
+    }
+    if (typeof patchData.general["Armor flat damage reduction"] === "number") {
+        flat_damage_reduction = patchData.general["Armor flat damage reduction"];
+    }
+    if (typeof patchData.general["Quick melee damage"] == "number") {
+        patchData.general["Quick melee damage"] = applyArmorToStat(patchData.general["Quick melee damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction);
+    }
+    for (let role in patchData.heroes) {
+        for (let hero in patchData.heroes[role]) {
+            if (hero == "general")
+                continue;
+            let heroData = patchData.heroes[role][hero];
+            let damageOptions = {};
+            for (let ability in heroData.abilities) {
+                if (typeof heroData.abilities[ability]["Damage per pellet"] == "number") {
+                    heroData.abilities[ability]["Damage per pellet"] = applyArmorToStat(heroData.abilities[ability]["Damage per pellet"], min_damage_reduction, max_damage_reduction, flat_damage_reduction);
+                }
+                if (typeof heroData.abilities[ability]["Damage per shrapnel"] == "number") {
+                    heroData.abilities[ability]["Damage per shrapnel"] = applyArmorToStat(heroData.abilities[ability]["Damage per shrapnel"], min_damage_reduction, max_damage_reduction, flat_damage_reduction);
+                }
+                if (typeof heroData.abilities[ability]["Total instance damage"] == "number") {
+                    heroData.abilities[ability]["Total instance damage"] = applyArmorToStat(heroData.abilities[ability]["Total instance damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction);
+                }
+                else if (typeof heroData.abilities[ability]["Damage"] == "number") {
+                    heroData.abilities[ability]["Damage"] = applyArmorToStat(heroData.abilities[ability]["Damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction);
+                }
+                else if (typeof heroData.abilities[ability]["Total maximum instance damage"] == "number") {
+                    heroData.abilities[ability]["Total maximum instance damage"] = applyArmorToStat(heroData.abilities[ability]["Total maximum instance damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction);
+                }
+                else if (typeof heroData.abilities[ability]["Maximum damage"] == "number") {
+                    heroData.abilities[ability]["Maximum damage"] = applyArmorToStat(heroData.abilities[ability]["Maximum damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction);
+                }
+                if (typeof heroData.abilities[ability]["Headshot damage per pellet"] == "number") {
+                    heroData.abilities[ability]["Headshot damage per pellet"] = applyArmorToStat(heroData.abilities[ability]["Headshot damage per pellet"], min_damage_reduction, max_damage_reduction, flat_damage_reduction);
+                }
+                if (typeof heroData.abilities[ability]["Headshot damage per shrapnel"] == "number") {
+                    heroData.abilities[ability]["Headshot damage per shrapnel"] = applyArmorToStat(heroData.abilities[ability]["Headshot damage per shrapnel"], min_damage_reduction, max_damage_reduction, flat_damage_reduction);
+                }
+                if (typeof heroData.abilities[ability]["Total headshot damage"] == "number") {
+                    heroData.abilities[ability]["Total headshot damage"] = applyArmorToStat(heroData.abilities[ability]["Total headshot damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction);
+                }
+                else if (typeof heroData.abilities[ability]["Headshot damage"] == "number") {
+                    heroData.abilities[ability]["Headshot damage"] = applyArmorToStat(heroData.abilities[ability]["Headshot damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction);
+                }
+                else if (typeof heroData.abilities[ability]["Maximum headshot damage"] == "number") {
+                    heroData.abilities[ability]["Maximum headshot damage"] = applyArmorToStat(heroData.abilities[ability]["Maximum headshot damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction);
+                }
+            }
+        }
+    }
+    return patchData;
+}
+export function calculatePostArmorProperties(patch_data) {
     for (let role in patch_data.heroes) {
         for (let hero in patch_data.heroes[role]) {
             if (hero == "general")
@@ -603,29 +850,11 @@ export function calculateProperties(patch_data) {
                 }
                 {
                     let total_damage = 0;
-                    if (typeof abilityData["Impact damage"] === "number") {
-                        total_damage += abilityData["Impact damage"];
-                    }
-                    if (typeof abilityData["Wall impact damage"] === "number") {
-                        total_damage += abilityData["Wall impact damage"];
+                    if (typeof abilityData["Total instance damage"] === "number") {
+                        total_damage += abilityData["Total instance damage"];
                     }
                     if (typeof abilityData["Damage over time"] === "number") {
                         total_damage += abilityData["Damage over time"];
-                    }
-                    if (typeof abilityData["Direct damage"] === "number") {
-                        total_damage += abilityData["Direct damage"];
-                    }
-                    if (typeof abilityData["Maximum explosion damage"] === "number") {
-                        total_damage += abilityData["Maximum explosion damage"];
-                    }
-                    if (typeof abilityData["Maximum impact damage"] === "number") {
-                        total_damage += abilityData["Maximum impact damage"];
-                    }
-                    if (typeof abilityData["Explosion damage"] === "number") {
-                        total_damage += abilityData["Explosion damage"];
-                    }
-                    if (typeof abilityData["Damage per bullet"] === "number") {
-                        total_damage += abilityData["Damage per bullet"];
                     }
                     if (typeof abilityData["Damage per pellet"] === "number" && typeof abilityData["Pellet count"] === "number") {
                         let pellet_damage = 1;
@@ -647,6 +876,51 @@ export function calculateProperties(patch_data) {
                     }
                 }
                 {
+                    let total_headshot_damage = 0;
+                    if (typeof abilityData["Headshot damage per pellet"] === "number" && typeof abilityData["Pellet count"] === "number") {
+                        let pellet_damage = 1;
+                        pellet_damage *= abilityData["Headshot damage per pellet"];
+                        pellet_damage *= abilityData["Pellet count"];
+                        total_headshot_damage += pellet_damage;
+                    }
+                    if (typeof abilityData["Headshot damage per shrapnel"] === "number" && typeof abilityData["Shrapnel count"] === "number") {
+                        let shrapnel_damage = 1;
+                        shrapnel_damage *= abilityData["Headshot damage per shrapnel"];
+                        shrapnel_damage *= abilityData["Shrapnel count"];
+                        total_headshot_damage += shrapnel_damage;
+                    }
+                    if (typeof abilityData["Bullets per burst"] === "number") {
+                        total_headshot_damage *= abilityData["Bullets per burst"];
+                    }
+                    if (total_headshot_damage > 0) {
+                        patch_data.heroes[role][hero].abilities[ability]["Total headshot damage"] = total_headshot_damage;
+                    }
+                }
+                if (typeof abilityData["Total maximum instance damage"] === "number") {
+                    let total_damage = abilityData["Total maximum instance damage"];
+                    if (typeof abilityData["Damage over time"] === "number") {
+                        total_damage += abilityData["Damage over time"];
+                    }
+                    if (typeof abilityData["Damage per pellet"] === "number" && typeof abilityData["Pellet count"] === "number") {
+                        let pellet_damage = 1;
+                        pellet_damage *= abilityData["Damage per pellet"];
+                        pellet_damage *= abilityData["Pellet count"];
+                        total_damage += pellet_damage;
+                    }
+                    if (typeof abilityData["Damage per shrapnel"] === "number" && typeof abilityData["Shrapnel count"] === "number") {
+                        let shrapnel_damage = 1;
+                        shrapnel_damage *= abilityData["Damage per shrapnel"];
+                        shrapnel_damage *= abilityData["Shrapnel count"];
+                        total_damage += shrapnel_damage;
+                    }
+                    if (typeof abilityData["Bullets per burst"] === "number") {
+                        total_damage *= abilityData["Bullets per burst"];
+                    }
+                    if (total_damage > 0) {
+                        patch_data.heroes[role][hero].abilities[ability]["Total maximum damage"] = total_damage;
+                    }
+                }
+                {
                     let total_healing = 0;
                     if (typeof abilityData["Direct healing"] === "number") {
                         total_healing += abilityData["Direct healing"];
@@ -664,24 +938,26 @@ export function calculateProperties(patch_data) {
                         patch_data.heroes[role][hero].abilities[ability]["Total healing"] = total_healing;
                     }
                 }
-                {
-                    let total_damage = 0;
-                    if (typeof abilityData["Max impact damage"] === "number") {
-                        total_damage += abilityData["Max impact damage"];
-                    }
-                    if (typeof abilityData["Max wall slam damage"] === "number") {
-                        total_damage += abilityData["Max wall slam damage"];
-                    }
-                    if (typeof abilityData["Max damage"] === "number") {
-                        total_damage += abilityData["Max damage"];
-                    }
-                    if (total_damage > 0) {
-                        patch_data.heroes[role][hero].abilities[ability]["Total maximum damage"] = total_damage;
-                    }
-                }
                 if (typeof abilityData["Damage per second per level"] === "number" && typeof abilityData["Maximum beam level"] === "number") {
                     patch_data.heroes[role][hero].abilities[ability]["Maximum damage per second"] = abilityData["Damage per second per level"] * abilityData["Maximum beam level"];
                 }
+            }
+        }
+    }
+    return patch_data;
+}
+export function calculateRates(patch_data) {
+    for (let role in patch_data.heroes) {
+        for (let hero in patch_data.heroes[role]) {
+            if (hero == "general")
+                continue;
+            const generalHeroData = patch_data.heroes[role][hero].general;
+            if (generalHeroData === undefined) {
+                console.error(`No general hero data for ${hero}`);
+                continue;
+            }
+            for (let ability in patch_data.heroes[role][hero].abilities) {
+                const abilityData = patch_data.heroes[role][hero].abilities[ability];
                 let time_between_shots = 0;
                 if (typeof abilityData["Recovery time"] === "number") {
                     time_between_shots += abilityData["Recovery time"];
@@ -719,6 +995,18 @@ export function calculateProperties(patch_data) {
                     if (typeof abilityData["Total maximum damage"] === "number") {
                         damage_per_second *= abilityData["Total maximum damage"];
                         patch_data.heroes[role][hero].abilities[ability]["Maximum damage per second"] = damage_per_second;
+                    }
+                }
+                if (time_between_shots > 0) {
+                    let damage_per_second = 1 / time_between_shots;
+                    let healing_per_second = 1 / time_between_shots;
+                    if (typeof abilityData["Headshot damage"] === "number") {
+                        damage_per_second *= abilityData["Headshot damage"];
+                        patch_data.heroes[role][hero].abilities[ability]["Headshot damage per second"] = damage_per_second;
+                    }
+                    if (typeof abilityData["Total headshot damage"] === "number") {
+                        damage_per_second *= abilityData["Total headshot damage"];
+                        patch_data.heroes[role][hero].abilities[ability]["Total headshot damage per second"] = damage_per_second;
                     }
                 }
                 let reload_time = 0;
@@ -768,33 +1056,12 @@ export function calculateProperties(patch_data) {
                         patch_data.heroes[role][hero].abilities[ability]["Healing per second(including reload)"] = uptime * patch_data.heroes[role][hero].abilities[ability]["Healing per second"];
                     }
                 }
-                if (typeof abilityData["Critical multiplier"] === "number") {
-                    let headshot_damage = abilityData["Critical multiplier"];
-                    if (typeof abilityData["Damage"] === "number") {
-                        headshot_damage *= abilityData["Damage"];
-                        patch_data.heroes[role][hero].abilities[ability]["Headshot damage"] = headshot_damage;
-                    }
-                    if (typeof abilityData["Maximum damage"] === "number") {
-                        headshot_damage *= abilityData["Maximum damage"];
-                        patch_data.heroes[role][hero].abilities[ability]["Maximum headshot damage"] = headshot_damage;
-                    }
-                    headshot_damage = abilityData["Critical multiplier"];
-                    if (typeof abilityData["Damage per second"] === "number") {
-                        headshot_damage *= abilityData["Damage per second"];
-                        patch_data.heroes[role][hero].abilities[ability]["Headshot damage per second"] = headshot_damage;
-                    }
-                    headshot_damage = abilityData["Critical multiplier"];
-                    if (typeof abilityData["Total damage"] === "number") {
-                        headshot_damage *= abilityData["Total damage"];
-                        patch_data.heroes[role][hero].abilities[ability]["Total headshot damage"] = headshot_damage;
-                    }
-                }
             }
         }
     }
     return patch_data;
 }
-export function calculateBreakpoints(patchData, multiplier) {
+export function calculateBreakpoints(patchData) {
     for (let role in patchData.heroes) {
         for (let hero in patchData.heroes[role]) {
             if (hero == "general")
@@ -837,9 +1104,6 @@ export function calculateBreakpoints(patchData, multiplier) {
                 else if (typeof heroData.abilities[ability]["Maximum headshot damage"] == "number") {
                     damageOptions[`${ability} maximum headshot`] = [heroData.abilities[ability]["Maximum headshot damage"], max_damage_instances];
                 }
-            }
-            for (let damageOption in damageOptions) {
-                damageOptions[damageOption][0] = damageOptions[damageOption][0] * multiplier;
             }
             let breakpointDamage = { "": 0 };
             for (let damageOption in damageOptions) {
@@ -891,6 +1155,10 @@ display_calculated_properties_box.onchange = async function () {
 };
 display_breakpoints_box.onchange = async function () {
     siteState.show_breakpoints = this.checked;
+    await updatePatchNotes();
+};
+apply_damage_to_armor_box.onchange = async function () {
+    siteState.apply_to_armor = this.checked;
     await updatePatchNotes();
 };
 patch_before_dmg_boost.onchange = async function () {
