@@ -666,9 +666,6 @@ export function applyDamageMultiplier(patch_data: PatchData, multiplier: number)
                 if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage per shrapnel"] === "number") {
                     patch_data.heroes[role][hero].abilities[ability]["Damage per shrapnel"] *= multiplier
                 }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Bullets per burst"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Bullets per burst"] *= multiplier
-                }
                 if (typeof patch_data.heroes[role][hero].abilities[ability]["Max impact damage"] === "number") {
                     patch_data.heroes[role][hero].abilities[ability]["Max impact damage"] *= multiplier
                 }

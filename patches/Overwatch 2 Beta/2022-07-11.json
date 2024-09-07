@@ -722,23 +722,30 @@
                         "Maximum damage": 125,
                         "Projectile size": 0.1,
                         "has arrow draw progress preserved while wall climbing": true,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Maximum charge time": 0.732,
+                        "Recovery time": 0.5
                     },
                     "Storm Arrows": {
                         "Cooldown": 10,
-                        "Damage per arrow": 65,
-                        "Ammo": 5,
                         "Projectile size": 0.1,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Bullets per burst": 5,
+                        "Damage per bullet": 65,
+                        "Burst recovery time": 0.24
                     },
                     "Dragonstrike": {
                         "Speed": 12,
                         "Ultimate cost": 1681,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Damage per second": 150
                     },
                     "Sonic Arrow": {
                         "does impact sound plat for enemies": false,
-                        "has visual effect when deployed": false
+                        "has visual effect when deployed": false,
+                        "Cooldown": 12,
+                        "Range": 9,
+                        "Duration": 6
                     },
                     "Lunge": {
                         "Cooldown": 5
@@ -762,17 +769,32 @@
                         "Cooldown": 8,
                         "Projectile size": 0.1,
                         "Maximum damage": 120,
-                        "Minimum damage": 20
+                        "Minimum damage": 20,
+                        "Charges": 2,
+                        "Health": 25,
+                        "Range": 3
                     },
                     "RIP-Tire": {
-                        "Ultimate cost": 1909
+                        "Ultimate cost": 1909,
+                        "Damage": 600,
+                        "Radius": 10,
+                        "Cast time": 1.536,
+                        "Health": 100,
+                        "Duration": 10
                     },
                     "Steel Trap": {
                         "Arming time": 0.5,
                         "Trapped duration": 3,
                         "Damage": 100,
                         "Projectile speed": 15,
-                        "prevents all movement for its target": true
+                        "prevents all movement for its target": true,
+                        "Cooldown": 10,
+                        "Health": 100
+                    },
+                    "Total Mayhem": {
+                        "Bullets per burst": 6,
+                        "Cast time": 0.7,
+                        "Explosion damage": 50
                     }
                 }
             },
@@ -784,25 +806,38 @@
                     "Endothermic Blaster": {
                         "Ammo": 150,
                         "Projectile size": 0.555,
-                        "Damage per second": 100,
                         "Maximum slow": 40,
                         "Minimum slow": 40,
                         "Duration before slow falls off between primary fire hits": 0.5,
                         "stuns on freeze": false,
                         "Reload time": 1.5,
-                        "Ammo per second": 20,
-                        "Freeze rate": 1
+                        "Freeze rate": 1,
+                        "Recovery time": 0.05,
+                        "Damage": 5.0
                     },
                     "Cryofreeze": {
-                        "Healing per second": 50
+                        "Healing per second": 50,
+                        "Max duration": 5,
+                        "Min duration": 0.44,
+                        "Recovery time": 0.24,
+                        "Cooldown": 12,
+                        "Ammo restored per second": 15
                     },
                     "Ice Wall": {
                         "Health per pillar": 250,
-                        "Range": 20
+                        "Range": 20,
+                        "Cooldown": 12,
+                        "Duration": 5,
+                        "Pillar count": 5,
+                        "Recovery time": 0.5
                     },
                     "Blizzard": {
                         "Ultimate cost": 1840,
-                        "Cast time": 0.5
+                        "Cast time": 0.5,
+                        "Range": 10,
+                        "Damage per second": 20,
+                        "Duration": 4.25,
+                        "Projectile speed": 20
                     },
                     "Endothermic Blaster Alt Fire": {
                         "Projectile size": 0.1,
@@ -832,7 +867,11 @@
                     "Barrage": {
                         "Ultimate cost": 2105,
                         "Projectile size": 0.075,
-                        "instantly refills Hover Jets fuel": false
+                        "instantly refills Hover Jets fuel": false,
+                        "Direct damage": 10,
+                        "Explosion damage": 30,
+                        "Recovery time": 0.032,
+                        "Duration": 2.5
                     },
                     "Concussive Blast": {
                         "Projectile size": 0.15,
@@ -872,17 +911,26 @@
                     },
                     "Shadow Step": {
                         "Cast time": 1.5,
-                        "Cooldown": 10
+                        "Cooldown": 10,
+                        "Range": 35
                     },
                     "Death Blossom": {
                         "Ultimate cost": 2120,
-                        "Damage per second": 170
+                        "Damage per second": 170,
+                        "Duration": 3,
+                        "Movement speed reduction": 50,
+                        "Range": 8
                     },
                     "The Reaping": {
                         "Lifesteal percentage": 35
                     },
                     "Wraith Form": {
-                        "can be activated while affected by mobility-locking effects": true
+                        "can be activated while affected by mobility-locking effects": true,
+                        "Cooldown": 8,
+                        "Max duration": 3,
+                        "Min duration": 0.4,
+                        "Recovery time": 0.4,
+                        "Movement speed": 50
                     }
                 }
             },
@@ -951,10 +999,15 @@
                     },
                     "Biotic Field": {
                         "Cooldown": 15,
-                        "Healing per second": 35
+                        "Healing per second": 35,
+                        "Duration": 5,
+                        "Range": 4.5,
+                        "Cast time": 0.54
                     },
                     "Tactical Visor": {
-                        "Ultimate cost": 2273
+                        "Ultimate cost": 2273,
+                        "Cast time": 1.2,
+                        "Duration": 6
                     },
                     "Helix Rocket": {
                         "Projectile size": 0.225,
@@ -1089,7 +1142,8 @@
                     },
                     "Molten Core": {
                         "Ultimate cost": 2136,
-                        "Projectile size": 0.205
+                        "Projectile size": 0.205,
+                        "Impact damage": 25
                     },
                     "Deploy Turret": {
                         "Turret damage": 14,
@@ -1097,7 +1151,10 @@
                         "Turret base health": 250
                     },
                     "Overload": {
-                        "Overhealth": 100
+                        "Overhealth": 100,
+                        "Duration": 5,
+                        "Cooldown": 10,
+                        "Movement speed": 30
                     },
                     "Forge Hammer": {
                         "Damage": 55,
@@ -1134,11 +1191,20 @@
                         "Ammo per shot": 2
                     },
                     "Recall": {
-                        "Cooldown": 12
+                        "Cooldown": 12,
+                        "Cast time": 0.91,
+                        "Rewind time": 3
                     },
                     "Pulse Bomb": {
                         "Projectile size": 0.25,
-                        "Ultimate cost": 1250
+                        "Ultimate cost": 1250,
+                        "Direct damage": 5,
+                        "Explosion damage": 350,
+                        "Radius": 4,
+                        "Duration": 1,
+                        "Cast time": 0.144,
+                        "Recovery time": 0.192,
+                        "Projectile speed": 15
                     },
                     "Blink": {
                         "Charges": 3,
@@ -1154,7 +1220,8 @@
                 },
                 "abilities": {
                     "Infra-Sight": {
-                        "Ultimate cost": 1566
+                        "Ultimate cost": 1566,
+                        "Duration": 15
                     },
                     "Widow's Kiss": {
                         "Projectile size": 0.0,

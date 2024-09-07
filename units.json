@@ -885,18 +885,24 @@
                         "Maximum damage": "none",
                         "Critical multiplier": "none",
                         "Projectile size": "meters",
-                        "has arrow draw progress preserved while wall climbing": "none"
+                        "has arrow draw progress preserved while wall climbing": "none",
+                        "Recovery time": "seconds",
+                        "Maximum charge time": "seconds"
                     },
                     "Sonic Arrow": {
                         "does impact sound plat for enemies": "none",
-                        "has visual effect when deployed": "none"
+                        "has visual effect when deployed": "none",
+                        "Cooldown": "seconds",
+                        "Duration": "seconds",
+                        "Range": "meters"
                     },
                     "Storm Arrows": {
                         "Cooldown": "seconds",
-                        "Damage per arrow": "none",
-                        "Ammo": "none",
+                        "Damage per bullet": "none",
+                        "Bullets per burst": "none",
                         "Projectile size": "meters",
-                        "Critical multiplier": "none"
+                        "Critical multiplier": "none",
+                        "Burst recovery time": "seconds"
                     },
                     "Lunge": {
                         "Cooldown": "seconds"
@@ -913,6 +919,11 @@
                     "Base health": "none"
                 },
                 "abilities": {
+                    "Total Mayhem": {
+                        "Explosion damage": "none",
+                        "Bullets per burst": "none",
+                        "Cast time": "seconds"
+                    },
                     "Frag Launcher": {
                         "Direct damage": "none",
                         "Explosion damage": "none",
@@ -926,7 +937,10 @@
                         "Cooldown": "seconds",
                         "Projectile size": "meters",
                         "Maximum damage": "none",
-                        "Minimum damage": "none"
+                        "Minimum damage": "none",
+                        "Range": "meters",
+                        "Health": "none",
+                        "Charges": "none"
                     },
                     "Steel Trap": {
                         "Arming time": "seconds",
@@ -934,10 +948,17 @@
                         "Projectile speed": "meters per second",
                         "prevents all movement for its target": "flag",
                         "Movement speed reduction of trapped player": "percent",
-                        "Damage": "none"
+                        "Damage": "none",
+                        "Cooldown": "seconds",
+                        "Health": "none"
                     },
                     "RIP-Tire": {
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "Cast time": "seconds",
+                        "Radius": "meters",
+                        "Damage": "none",
+                        "Health": "none",
+                        "Duration": "seconds"
                     }
                 }
             },
@@ -953,13 +974,14 @@
                         "bonus damage triggered by Mei's quick melee": "flag"
                     },
                     "Endothermic Blaster": {
-                        "Damage per second": "none",
+                        "Damage": "none",
                         "Projectile size": "meters",
                         "Minimum slow": "percent",
                         "Maximum slow": "percent",
                         "Duration before slow falls off between primary fire hits": "seconds",
                         "stuns on freeze": "flag",
                         "Freeze rate": "relative percent",
+                        "Recovery time": "seconds",
                         "Ammo": "none",
                         "Ammo per second": "none",
                         "Reload time": "seconds"
@@ -975,15 +997,27 @@
                         "Reload time": "seconds"
                     },
                     "Cryofreeze": {
-                        "Healing per second": "none"
+                        "Healing per second": "none",
+                        "Max duration": "seconds",
+                        "Min duration": "seconds",
+                        "Ammo restored per second": "none",
+                        "Recovery time": "seconds",
+                        "Cooldown": "seconds"
                     },
                     "Ice Wall": {
                         "Health per pillar": "none",
-                        "Range": "meters"
+                        "Pillar count": "none",
+                        "Range": "meters",
+                        "Duration": "seconds",
+                        "Recovery time": "seconds",
+                        "Cooldown": "seconds"
                     },
                     "Blizzard": {
-                        "Ultimate cost": "none",
-                        "Cast time": "seconds"
+                        "Range": "meters",
+                        "Duration": "seconds",
+                        "Projectile speed": "meters per second",
+                        "Cast time": "seconds",
+                        "Ultimate cost": "none"
                     }
                 }
             },
@@ -1026,9 +1060,13 @@
                         "Direct knockback": "relative percent"
                     },
                     "Barrage": {
-                        "Ultimate cost": "none",
                         "Projectile size": "meters",
-                        "instantly refills Hover Jets fuel": "none"
+                        "instantly refills Hover Jets fuel": "none",
+                        "Direct damage": "none",
+                        "Explosion damage": "none",
+                        "Duration": "seconds",
+                        "Recovery time": "seconds",
+                        "Ultimate cost": "none"
                     }
                 }
             },
@@ -1051,15 +1089,24 @@
                         "Ammo": "none"
                     },
                     "Wraith Form": {
-                        "can be activated while affected by mobility-locking effects": "none"
+                        "can be activated while affected by mobility-locking effects": "none",
+                        "Cooldown": "seconds",
+                        "Max duration": "seconds",
+                        "Min duration": "seconds",
+                        "Recovery time": "seconds",
+                        "Movement speed": "percent"
                     },
                     "Shadow Step": {
                         "Cast time": "none",
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Range": "meters"
                     },
                     "Death Blossom": {
-                        "Ultimate cost": "none",
-                        "Damage per second": "none"
+                        "Damage per second": "none",
+                        "Duration": "seconds",
+                        "Movement speed reduction": "percent",
+                        "Range": "meters",
+                        "Ultimate cost": "none"
                     }
                 }
             },
@@ -1138,13 +1185,18 @@
                         "Recovery time": "seconds"
                     },
                     "Biotic Field": {
-                        "Cooldown": "seconds",
-                        "Healing per second": "none"
+                        "Healing per second": "none",
+                        "Range": "meters",
+                        "Duration": "seconds",
+                        "Cast time": "seconds",
+                        "Cooldown": "seconds"
                     },
                     "Tactical Visor": {
-                        "Ultimate cost": "none",
                         "removes damage falloff": "flag",
-                        "prevents critical hits": "flag"
+                        "prevents critical hits": "flag",
+                        "Duration": "seconds",
+                        "Cast time": "seconds",
+                        "Ultimate cost": "none"
                     }
                 }
             },
@@ -1304,10 +1356,14 @@
                     },
                     "Overload": {
                         "Overhealth": "none",
-                        "Ammo reloaded on use": "none"
+                        "Ammo reloaded on use": "none",
+                        "Movement speed": "percent",
+                        "Duration": "seconds",
+                        "Cooldown": "seconds"
                     },
                     "Molten Core": {
                         "Projectile size": "meters",
+                        "Impact damage": "none",
                         "Ultimate cost": "none"
                     }
                 }
@@ -1337,9 +1393,18 @@
                         "Range": "meters"
                     },
                     "Recall": {
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Cast time": "seconds",
+                        "Rewind time": "seconds"
                     },
                     "Pulse Bomb": {
+                        "Direct damage": "none",
+                        "Explosion damage": "none",
+                        "Radius": "meters",
+                        "Duration": "seconds",
+                        "Cast time": "seconds",
+                        "Recovery time": "seconds",
+                        "Projectile speed": "meters per second",
                         "Projectile size": "meters",
                         "Ultimate cost": "none"
                     }
@@ -1382,13 +1447,13 @@
                         "Maximum damage": "none"
                     },
                     "Tectonic Shock": {
-                        "Ultimate cost": "none",
                         "Vertical knockback": "relative percent",
                         "Extra damage range": "meters",
                         "Extra damage multiplier": "none",
                         "Damage": "none",
                         "Slow": "percent",
-                        "Slow duration": "seconds"
+                        "Slow duration": "seconds",
+                        "Ultimate cost": "none"
                     }
                 }
             },
@@ -1437,6 +1502,7 @@
                         "Recovery time": "seconds"
                     },
                     "Infra-Sight": {
+                        "Duration": "seconds",
                         "Ultimate cost": "none"
                     }
                 }
