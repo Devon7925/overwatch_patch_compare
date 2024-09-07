@@ -104,7 +104,8 @@
                         "Critical multiplier": 2,
                         "Reload time": 1.5,
                         "Recovery time": 0.75,
-                        "Damage per pellet": 7.0
+                        "Damage per pellet": 7.0,
+                        "Pellet count": 10
                     },
                     "Jagged Blade": {
                         "Pull distance": 17.629,
@@ -225,7 +226,9 @@
                         "Ultimate cost": 2275,
                         "disables other abilities and automatically fires": true,
                         "Projectile size": 0.05,
-                        "Maximum duration": 8
+                        "Maximum duration": 8,
+                        "Pellet count": 16,
+                        "Recovery time": 0.125
                     },
                     "Pig Pen": {
                         "Vertical Knockback": 3,

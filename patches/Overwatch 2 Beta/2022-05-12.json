@@ -169,7 +169,9 @@
                         "Ultimate cost": 2567,
                         "disables other abilities and automatically fires": false,
                         "Projectile size": 0.0,
-                        "Maximum duration": 6
+                        "Maximum duration": 6,
+                        "Pellet count": 16,
+                        "Recovery time": 0.125
                     }
                 }
             },
@@ -446,7 +448,8 @@
                         "Movement speed bonus": 30
                     },
                     "Scattergun": {
-                        "Total damage": {}
+                        "Total damage": {},
+                        "Pellet count": 10
                     }
                 }
             },

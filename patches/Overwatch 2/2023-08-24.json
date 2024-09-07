@@ -96,13 +96,14 @@
                         "heals for the remaining wound damage when an enemy dies with wounds on them": true
                     },
                     "Scattergun": {
-                        "Total damage": 80,
                         "Projectile size": 0.0,
                         "Spread": 1.956,
                         "Ammo": 8,
                         "Critical multiplier": 2,
                         "Reload time": 1.5,
-                        "Recovery time": 0.75
+                        "Recovery time": 0.75,
+                        "Damage per pellet": 8.0,
+                        "Pellet count": 10
                     },
                     "Jagged Blade": {
                         "Pull distance": 20.74,
@@ -227,7 +228,9 @@
                         "Ultimate cost": 2772,
                         "disables other abilities and automatically fires": false,
                         "Projectile size": 0.0,
-                        "Maximum duration": 8
+                        "Maximum duration": 8,
+                        "Pellet count": 16,
+                        "Recovery time": 0.125
                     }
                 }
             },

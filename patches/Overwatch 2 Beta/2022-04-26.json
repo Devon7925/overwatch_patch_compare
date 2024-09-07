@@ -170,7 +170,9 @@
                         "disables other abilities and automatically fires": true,
                         "Projectile size": 0.0,
                         "Maximum duration": 6,
-                        "cancelled by stuns": true
+                        "cancelled by stuns": true,
+                        "Pellet count": 16,
+                        "Recovery time": 0.125
                     }
                 }
             },
@@ -442,7 +444,8 @@
                         "Movement speed bonus": 30
                     },
                     "Scattergun": {
-                        "Total damage": {}
+                        "Total damage": {},
+                        "Pellet count": 10
                     }
                 }
             },
