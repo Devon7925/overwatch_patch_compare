@@ -17,7 +17,7 @@ def rename_property_in_json(obj, old_path, new_path):
     new_key = new_keys[-1]
 
     if old_key in old_parent:
-        new_parent[new_key] = old_parent.pop(old_key)
+        new_parent[new_key] = old_parent.pop(old_key) 
 
 def add_property_in_json(obj, path, new_key, new_value):
     keys = path.split('/')
@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Cast time"
-new_value = 0.54
-process_json_files(folder_path, 'heroes/damage/Soldier: 76/abilities/Biotic Field/Cast time', new_property_name, new_value, rename=False)
+new_property_name = "heroes/tank/Junker Queen/abilities/Scattergun/Damage per pellet"
+new_value = 8
+process_json_files(folder_path, 'heroes/tank/Junker Queen/abilities/Scattergun/Total damage', new_property_name, new_value, rename=True)

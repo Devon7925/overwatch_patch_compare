@@ -320,7 +320,7 @@ async function updatePatchNotes() {
     patch_before_box.value = siteState.before_patch;
     patch_after_box.value = siteState.after_patch;
     display_calculated_properties_box.checked = siteState.show_calculated_properties
-    if(siteState.show_calculated_properties) {
+    if (siteState.show_calculated_properties) {
         (display_breakpoints_box.parentElement?.parentElement?.parentElement as HTMLElement).style.display = "flex";
         (apply_damage_to_armor_box.parentElement?.parentElement?.parentElement as HTMLElement).style.display = "flex";
         (patch_before_dmg_boost.parentElement?.parentElement as HTMLElement).style.display = "flex";
@@ -631,34 +631,34 @@ export function applyDamageMultiplier(patch_data: PatchData, multiplier: number)
 
             for (let ability in patch_data.heroes[role][hero].abilities) {
                 if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage per second"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Damage per second"] *= multiplier 
+                    patch_data.heroes[role][hero].abilities[ability]["Damage per second"] *= multiplier
                 }
                 if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Damage"] *= multiplier 
+                    patch_data.heroes[role][hero].abilities[ability]["Damage"] *= multiplier
                 }
                 if (typeof patch_data.heroes[role][hero].abilities[ability]["Impact damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Impact damage"] *= multiplier 
+                    patch_data.heroes[role][hero].abilities[ability]["Impact damage"] *= multiplier
                 }
                 if (typeof patch_data.heroes[role][hero].abilities[ability]["Wall impact damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Wall impact damage"] *= multiplier 
+                    patch_data.heroes[role][hero].abilities[ability]["Wall impact damage"] *= multiplier
                 }
                 if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage over time"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Damage over time"] *= multiplier 
+                    patch_data.heroes[role][hero].abilities[ability]["Damage over time"] *= multiplier
                 }
                 if (typeof patch_data.heroes[role][hero].abilities[ability]["Direct damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Direct damage"] *= multiplier 
+                    patch_data.heroes[role][hero].abilities[ability]["Direct damage"] *= multiplier
                 }
                 if (typeof patch_data.heroes[role][hero].abilities[ability]["Maximum explosion damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Maximum explosion damage"] *= multiplier 
+                    patch_data.heroes[role][hero].abilities[ability]["Maximum explosion damage"] *= multiplier
                 }
                 if (typeof patch_data.heroes[role][hero].abilities[ability]["Maximum impact damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Maximum impact damage"] *= multiplier 
+                    patch_data.heroes[role][hero].abilities[ability]["Maximum impact damage"] *= multiplier
                 }
                 if (typeof patch_data.heroes[role][hero].abilities[ability]["Explosion damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Explosion damage"] *= multiplier 
+                    patch_data.heroes[role][hero].abilities[ability]["Explosion damage"] *= multiplier
                 }
                 if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage per bullet"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Damage per bullet"] *= multiplier 
+                    patch_data.heroes[role][hero].abilities[ability]["Damage per bullet"] *= multiplier
                 }
                 if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage per pellet"] === "number") {
                     patch_data.heroes[role][hero].abilities[ability]["Damage per pellet"] *= multiplier
@@ -781,7 +781,7 @@ export function calculatePreArmorProperties(patch_data: PatchData) {
     return patch_data
 }
 
-function applyArmorToStat(stat:number, min_damage_reduction: number, max_damage_reduction: number, flat_damage_reduction: number): number {
+function applyArmorToStat(stat: number, min_damage_reduction: number, max_damage_reduction: number, flat_damage_reduction: number): number {
     return Math.min(Math.max(stat - flat_damage_reduction, stat * (1 - max_damage_reduction)), stat * (1 - min_damage_reduction))
 }
 
@@ -789,7 +789,7 @@ export function applyArmor(patchData: PatchData): PatchData {
     let min_damage_reduction = 0;
     let max_damage_reduction = 1;
     let flat_damage_reduction = 0;
-    
+
     if (typeof patchData.general["Armor minimum damage reduction"] === "number") {
         min_damage_reduction = patchData.general["Armor minimum damage reduction"] / 100
     }
@@ -993,6 +993,9 @@ export function calculateRates(patch_data: PatchData) {
 
 
                 let time_between_shots = 0;
+                if (typeof abilityData["Cast time"] === "number") {
+                    time_between_shots += abilityData["Cast time"]
+                }
                 if (typeof abilityData["Recovery time"] === "number") {
                     time_between_shots += abilityData["Recovery time"]
                 }
@@ -1253,11 +1256,11 @@ next_patch_button.onclick = async function () {
 
 await updatePatchNotes();
 
-function reorder<T extends {[key: string]: any}>(to_reorder: T, pattern: {[key: string]: any}): T {
-    let reordered: {[key: string]: any} = {}
-    for(let key in pattern) {
+function reorder<T extends { [key: string]: any }>(to_reorder: T, pattern: { [key: string]: any }): T {
+    let reordered: { [key: string]: any } = {}
+    for (let key in pattern) {
         if (key in to_reorder) {
-            if(typeof pattern[key] === "object") {
+            if (typeof pattern[key] === "object") {
                 reordered[key] = reorder(to_reorder[key], pattern[key])
             } else {
                 reordered[key] = to_reorder[key]
@@ -1265,7 +1268,7 @@ function reorder<T extends {[key: string]: any}>(to_reorder: T, pattern: {[key: 
         }
     }
     for (let key in to_reorder) {
-        if(!(key in reordered)) {
+        if (!(key in reordered)) {
             reordered[key] = to_reorder[key]
         }
     }

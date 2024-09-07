@@ -33,11 +33,12 @@
                 "abilities": {
                     "Fusion Cannons": {
                         "Spread": 3.5,
-                        "Total damage": 22,
                         "Projectile size": 0.0,
                         "Movement speed penalty": 40,
                         "Recovery time": 0.15,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Damage per pellet": 2.0,
+                        "Pellet count": 11
                     },
                     "Boosters": {
                         "Impact damage": 10,
@@ -66,7 +67,9 @@
                         "Explosion damage": 4,
                         "Direct damage": 3,
                         "Projectile speed": 40,
-                        "Cooldown": 8
+                        "Cooldown": 8,
+                        "Bullets per burst": 18,
+                        "Burst recovery time": 0.09090909090909091
                     },
                     "Eject Mech": {},
                     "Call Mech": {
@@ -413,12 +416,15 @@
                     },
                     "Primal Rage": {
                         "Ultimate cost": 1700,
-                        "Punch damage": 40,
-                        "Maximum health gained": 500
+                        "Damage": 40,
+                        "Maximum health gained": 500,
+                        "Cast time": 0.224,
+                        "Recovery time": 0.432
                     },
                     "Jet Pack": {
                         "Cooldown": 5,
-                        "Minimum damage falloff range": 1
+                        "Minimum damage falloff range": 1,
+                        "Maximum damage": 50
                     },
                     "Barrier Projector": {
                         "Health": 650,
@@ -434,6 +440,21 @@
                 "abilities": {
                     "Commanding Shout": {
                         "Movement speed bonus": 30
+                    },
+                    "Scattergun": {
+                        "Total damage": {}
+                    }
+                }
+            },
+            "Ramattra": {
+                "abilities": {
+                    "Revenous Vortex": {
+                        "Duration": 3
+                    },
+                    "Ravenous Vortex": {
+                        "Duration": 3,
+                        "Slow": 40,
+                        "Radius": 4
                     }
                 }
             }

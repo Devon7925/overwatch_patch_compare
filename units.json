@@ -276,7 +276,6 @@
                         "requires line-of-sight": "none",
                         "Ultimate cost": "none"
                     }
-                    
                 }
             },
             "Wrecking Ball": {
@@ -603,7 +602,7 @@
                     },
                     "Primal Rage": {
                         "Ultimate cost": "none",
-                        "Punch damage": "none",
+                        "Damage": "none",
                         "Maximum health gained": "none"
                     }
                 }

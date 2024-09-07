@@ -636,9 +636,6 @@ export function applyDamageMultiplier(patch_data, multiplier) {
                 if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage per shrapnel"] === "number") {
                     patch_data.heroes[role][hero].abilities[ability]["Damage per shrapnel"] *= multiplier;
                 }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Bullets per burst"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Bullets per burst"] *= multiplier;
-                }
                 if (typeof patch_data.heroes[role][hero].abilities[ability]["Max impact damage"] === "number") {
                     patch_data.heroes[role][hero].abilities[ability]["Max impact damage"] *= multiplier;
                 }
@@ -871,6 +868,9 @@ export function calculatePostArmorProperties(patch_data) {
                     if (typeof abilityData["Bullets per burst"] === "number") {
                         total_damage *= abilityData["Bullets per burst"];
                     }
+                    if (typeof abilityData["Damage per second"] === "number" && typeof abilityData["Duration"] === "number") {
+                        total_damage += abilityData["Damage per second"] * abilityData["Duration"];
+                    }
                     if (total_damage > 0) {
                         patch_data.heroes[role][hero].abilities[ability]["Total damage"] = total_damage;
                     }
@@ -959,6 +959,9 @@ export function calculateRates(patch_data) {
             for (let ability in patch_data.heroes[role][hero].abilities) {
                 const abilityData = patch_data.heroes[role][hero].abilities[ability];
                 let time_between_shots = 0;
+                if (typeof abilityData["Cast time"] === "number") {
+                    time_between_shots += abilityData["Cast time"];
+                }
                 if (typeof abilityData["Recovery time"] === "number") {
                     time_between_shots += abilityData["Recovery time"];
                 }
