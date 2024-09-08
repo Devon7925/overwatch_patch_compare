@@ -88,6 +88,7 @@ function patch_from_path(joined_path) {
     window.history.replaceState(siteState, "", "index.html?" + newUrlParams);
 }
 let units;
+let calculation_units;
 let hero_images = {};
 let ability_images = {};
 export let patches = {};
@@ -95,6 +96,9 @@ let promises = [];
 promises.push(fetch("./units.json")
     .then((res) => res.text())
     .then((text) => units = JSON.parse(text)));
+promises.push(fetch("./calculation_units.json")
+    .then((res) => res.text())
+    .then((text) => calculation_units = JSON.parse(text)));
 promises.push(fetch("./hero_images.json")
     .then((res) => res.text())
     .then((text) => hero_images = JSON.parse(text)));
@@ -227,29 +231,6 @@ export function getChangeText(name, change, units) {
         return `${name} changed from ${change[0]} to ${change[1]}.`;
     }
 }
-const calculated_properties = [
-    "Total damage",
-    "Total healing",
-    "Headshot damage",
-    "Total headshot damage",
-    "Total maximum damage",
-    "Damage per second",
-    "Damage per second(including reload)",
-    "Headshot damage per second",
-    "Total headshot damage per second",
-    "Total instance damage",
-    "Total maximum instance damage",
-    "Maximum headshot damage",
-    "Maximum total damage",
-    "Maximum damage per second",
-    "Maximum damage per second(including reload)",
-    "Healing per second",
-    "Healing per second(including reload)",
-    "Maximum healing per second",
-    "Maximum healing per second(including reload)",
-    "Headshot damage per pellet",
-    "Headshot damage per shrapnel",
-];
 let patch_before_box = document.querySelector("select#patch_before");
 let patch_after_box = document.querySelector("select#patch_after");
 let display_calculated_properties_box = document.querySelector("input#disp_calc_props");
@@ -346,16 +327,16 @@ async function updatePatchNotes() {
     before_patch_data = applyDamageMultiplier(before_patch_data, parseFloat(patch_before_dmg_boost_slider.value) / 100);
     after_patch_data = applyDamageMultiplier(after_patch_data, parseFloat(patch_after_dmg_boost_slider.value) / 100);
     if (siteState.show_calculated_properties) {
-        before_patch_data = calculatePreArmorProperties(before_patch_data);
-        after_patch_data = calculatePreArmorProperties(after_patch_data);
+        before_patch_data = calculatePreArmorProperties(before_patch_data, calculation_units);
+        after_patch_data = calculatePreArmorProperties(after_patch_data, calculation_units);
     }
     if (siteState.apply_to_armor) {
         before_patch_data = applyArmor(before_patch_data);
         after_patch_data = applyArmor(after_patch_data);
     }
     if (siteState.show_calculated_properties) {
-        before_patch_data = calculatePostArmorProperties(before_patch_data);
-        after_patch_data = calculatePostArmorProperties(after_patch_data);
+        before_patch_data = calculatePostArmorProperties(before_patch_data, calculation_units);
+        after_patch_data = calculatePostArmorProperties(after_patch_data, calculation_units);
     }
     if (siteState.show_breakpoints) {
         before_patch_data = calculateBreakpoints(before_patch_data);
@@ -465,9 +446,8 @@ async function updatePatchNotes() {
                         console.error(`Missing ability for ${hero} - ${ability}`);
                         break;
                     }
-                    if (!units.heroes[role][hero].abilities[ability][stat] && !(calculated_properties.includes(stat))) {
+                    if (!units.heroes[role][hero].abilities[ability][stat]) {
                         console.error(`Missing units for ${hero} - ${ability} - ${stat}`);
-                        continue;
                     }
                     ability_changes += `<li>${getChangeText(stat, abilityData[stat], units.heroes[role][hero].abilities[ability][stat])}</li>`;
                 }
@@ -650,96 +630,40 @@ export function applyDamageMultiplier(patch_data, multiplier) {
     }
     return patch_data;
 }
-export function calculatePreArmorProperties(patch_data) {
+export function calculatePreArmorProperties(patch_data, calculation_units) {
     for (let role in patch_data.heroes) {
         for (let hero in patch_data.heroes[role]) {
             if (hero == "general")
                 continue;
-            const generalHeroData = patch_data.heroes[role][hero].general;
-            if (generalHeroData === undefined) {
-                console.error(`No general hero data for ${hero}`);
-                continue;
-            }
-            let total_health = 0;
-            if (typeof generalHeroData["Base health"] === "number") {
-                total_health += generalHeroData["Base health"];
-            }
-            if (typeof generalHeroData["Armor health"] === "number") {
-                total_health += generalHeroData["Armor health"];
-            }
-            if (typeof generalHeroData["Shield health"] === "number") {
-                total_health += generalHeroData["Shield health"];
-            }
-            patch_data.heroes[role][hero].general["Total health"] = total_health;
             for (let ability in patch_data.heroes[role][hero].abilities) {
                 const abilityData = patch_data.heroes[role][hero].abilities[ability];
-                {
-                    let total_damage = 0;
-                    if (typeof abilityData["Impact damage"] === "number") {
-                        total_damage += abilityData["Impact damage"];
-                    }
-                    if (typeof abilityData["Wall impact damage"] === "number") {
-                        total_damage += abilityData["Wall impact damage"];
-                    }
-                    if (typeof abilityData["Direct damage"] === "number") {
-                        total_damage += abilityData["Direct damage"];
-                    }
-                    if (typeof abilityData["Maximum explosion damage"] === "number") {
-                        total_damage += abilityData["Maximum explosion damage"];
-                    }
-                    if (typeof abilityData["Maximum impact damage"] === "number") {
-                        total_damage += abilityData["Maximum impact damage"];
-                    }
-                    if (typeof abilityData["Explosion damage"] === "number") {
-                        total_damage += abilityData["Explosion damage"];
-                    }
-                    if (typeof abilityData["Damage per bullet"] === "number") {
-                        total_damage += abilityData["Damage per bullet"];
-                    }
-                    if (total_damage > 0) {
-                        patch_data.heroes[role][hero].abilities[ability]["Total instance damage"] = total_damage;
-                    }
-                }
-                {
-                    let total_damage = 0;
-                    if (typeof abilityData["Max impact damage"] === "number") {
-                        total_damage += abilityData["Max impact damage"];
-                    }
-                    if (typeof abilityData["Max wall slam damage"] === "number") {
-                        total_damage += abilityData["Max wall slam damage"];
-                    }
-                    if (typeof abilityData["Max damage"] === "number") {
-                        total_damage += abilityData["Max damage"];
-                    }
-                    if (total_damage > 0) {
-                        patch_data.heroes[role][hero].abilities[ability]["Total maximum instance damage"] = total_damage;
-                    }
-                }
-                if (typeof abilityData["Critical multiplier"] === "number") {
-                    let headshot_damage = abilityData["Critical multiplier"];
-                    if (typeof abilityData["Damage"] === "number") {
-                        headshot_damage *= abilityData["Damage"];
-                        patch_data.heroes[role][hero].abilities[ability]["Headshot damage"] = headshot_damage;
-                    }
-                    headshot_damage = abilityData["Critical multiplier"];
-                    if (typeof abilityData["Damage per pellet"] === "number") {
-                        headshot_damage *= abilityData["Damage per pellet"];
-                        patch_data.heroes[role][hero].abilities[ability]["Headshot damage per pellet"] = headshot_damage;
-                    }
-                    headshot_damage = abilityData["Critical multiplier"];
-                    if (typeof abilityData["Damage per shrapnel"] === "number") {
-                        headshot_damage *= abilityData["Damage per shrapnel"];
-                        patch_data.heroes[role][hero].abilities[ability]["Headshot damage per shrapnel"] = headshot_damage;
-                    }
-                    headshot_damage = abilityData["Critical multiplier"];
-                    if (typeof abilityData["Maximum damage"] === "number") {
-                        headshot_damage *= abilityData["Maximum damage"];
-                        patch_data.heroes[role][hero].abilities[ability]["Maximum headshot damage"] = headshot_damage;
-                    }
-                    headshot_damage = abilityData["Critical multiplier"];
-                    if (typeof abilityData["Total damage"] === "number") {
-                        headshot_damage *= abilityData["Total damage"];
-                        patch_data.heroes[role][hero].abilities[ability]["Total headshot damage"] = headshot_damage;
+                const abilityDataUnits = calculation_units.heroes[role][hero].abilities[ability];
+                let total_damage = Object.keys(abilityData)
+                    .flatMap((property) => abilityDataUnits[property]
+                    .filter((unit) => Array.isArray(unit))
+                    .filter((unit) => unit[0] === "damage instance")
+                    .map((unit) => [unit[1], abilityData[property]]))
+                    .reduce((acc, [dmg_type, amount]) => {
+                    if (!(dmg_type in acc))
+                        acc[dmg_type] = 0;
+                    if (typeof amount === "number")
+                        acc[dmg_type] += amount;
+                    return acc;
+                }, {});
+                let crit_data = Object.entries(calculation_units.heroes[role][hero].abilities[ability])
+                    .map(([key, calc_units]) => [calc_units, patch_data.heroes[role][hero].abilities[ability][key]])
+                    .filter((entry) => typeof entry[1] === "number")
+                    .map(([calc_units, multiplier]) => [calc_units
+                        .filter((unit) => Array.isArray(unit))
+                        .filter((unit) => unit[0] === "critical multiplier")
+                        .map((unit) => unit[1]), multiplier])
+                    .flatMap(([crit_types, multiplier]) => crit_types.map((crit_type) => [crit_type, multiplier]));
+                for (let total_damage_type in total_damage) {
+                    patch_data.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance damage`] = total_damage[total_damage_type];
+                    calculation_units.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance damage`] = [["total instance damage", total_damage_type]];
+                    for (let [crit_type, critical_multiplier] of crit_data) {
+                        patch_data.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${crit_type} damage`] = total_damage[total_damage_type] * critical_multiplier;
+                        calculation_units.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${crit_type} damage`] = [["total instance crit damage", total_damage_type, crit_type]];
                     }
                 }
             }
@@ -811,26 +735,22 @@ export function applyArmor(patchData) {
     }
     return patchData;
 }
-export function calculatePostArmorProperties(patch_data) {
+export function calculatePostArmorProperties(patch_data, calculation_units) {
     for (let role in patch_data.heroes) {
         for (let hero in patch_data.heroes[role]) {
             if (hero == "general")
                 continue;
             const generalHeroData = patch_data.heroes[role][hero].general;
+            const generalHeroDataUnits = calculation_units.heroes[role][hero].general;
             if (generalHeroData === undefined) {
                 console.error(`No general hero data for ${hero}`);
                 continue;
             }
-            let total_health = 0;
-            if (typeof generalHeroData["Base health"] === "number") {
-                total_health += generalHeroData["Base health"];
-            }
-            if (typeof generalHeroData["Armor health"] === "number") {
-                total_health += generalHeroData["Armor health"];
-            }
-            if (typeof generalHeroData["Shield health"] === "number") {
-                total_health += generalHeroData["Shield health"];
-            }
+            let total_health = Object.keys(generalHeroData)
+                .filter((general_property) => generalHeroDataUnits[general_property].includes("health"))
+                .map((general_property) => generalHeroData[general_property])
+                .filter((general_property) => typeof general_property === "number")
+                .reduce((a, c) => a + c, 0);
             patch_data.heroes[role][hero].general["Total health"] = total_health;
             for (let ability in patch_data.heroes[role][hero].abilities) {
                 const abilityData = patch_data.heroes[role][hero].abilities[ability];
@@ -867,9 +787,6 @@ export function calculatePostArmorProperties(patch_data) {
                     }
                     if (typeof abilityData["Bullets per burst"] === "number") {
                         total_damage *= abilityData["Bullets per burst"];
-                    }
-                    if (typeof abilityData["Damage per second"] === "number" && typeof abilityData["Duration"] === "number") {
-                        total_damage += abilityData["Damage per second"] * abilityData["Duration"];
                     }
                     if (total_damage > 0) {
                         patch_data.heroes[role][hero].abilities[ability]["Total damage"] = total_damage;

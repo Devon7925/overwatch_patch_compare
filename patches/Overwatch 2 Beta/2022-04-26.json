@@ -1074,8 +1074,8 @@
                         "Travel speed": 15
                     },
                     "Teleporter": {
-                        "Base Health": 50,
-                        "Shield Health": 250,
+                        "Base health": 50,
+                        "Shield health": 250,
                         "Cooldown": 10,
                         "Build time": 2,
                         "Cooldown start": "teleporter destroyed"

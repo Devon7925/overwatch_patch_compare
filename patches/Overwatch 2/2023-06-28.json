@@ -1171,8 +1171,8 @@
                         "Travel speed": 20
                     },
                     "Teleporter": {
-                        "Base Health": 50,
-                        "Shield Health": 150,
+                        "Base health": 50,
+                        "Shield health": 150,
                         "Cooldown": 12,
                         "Build time": 1,
                         "Maximum lifetime": 10,

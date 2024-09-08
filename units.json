@@ -33,7 +33,8 @@
                         "Pilot damage immunity while ejecting": "seconds"
                     },
                     "Fusion Cannons": {
-                        "Total damage": "none",
+                        "Damage per pellet": "none",
+                        "Pellet count": "none",
                         "Critical multiplier": "none",
                         "Spread": "none",
                         "Projectile size": "meters",
@@ -53,6 +54,8 @@
                         "Projectile size": "meters",
                         "Explosion damage": "none",
                         "Direct damage": "none",
+                        "Bullets per burst": "none",
+                        "Burst recovery time": "seconds",
                         "Projectile speed": "meters per second",
                         "Cooldown": "seconds"
                     },
@@ -88,7 +91,8 @@
                         "heals for the remaining wound damage when an enemy dies with wounds on them": "flag"
                     },
                     "Scattergun": {
-                        "Total damage": "none",
+                        "Damage per pellet": "none",
+                        "Pellet count": "none",
                         "Critical multiplier": "none",
                         "Projectile size": "meters",
                         "Spread": "relative percent",
@@ -235,11 +239,13 @@
                     "Whole Hog": {
                         "Knockback": "none",
                         "Damage per pellet": "none",
-                        "Ultimate cost": "none",
+                        "Pellet count": "none",
+                        "Recovery time": "seconds",
                         "disables other abilities and automatically fires": "flag",
                         "Projectile size": "meters",
                         "Maximum duration": "seconds",
-                        "cancelled by stuns": "flag"
+                        "cancelled by stuns": "flag",
+                        "Ultimate cost": "none"
                     }
                 }
             },
@@ -416,7 +422,7 @@
                     },
                     "Seismic Slam": {
                         "Damage": "none",
-                        "Cooldown": 7,
+                        "Cooldown": "seconds",
                         "Slow": "percent"
                     },
                     "Power Block": {
@@ -555,7 +561,9 @@
                     },
                     "Ravenous Vortex": {
                         "Cooldown": "seconds",
-                        "Total damage": "none",
+                        "Duration": "seconds",
+                        "Slow": "percent",
+                        "Radius": "meters",
                         "passes through enemy heroes": "none"
                     },
                     "Annihilation": {
@@ -593,7 +601,8 @@
                     },
                     "Jet Pack": {
                         "Cooldown": "seconds",
-                        "Minimum damage falloff range": "meters"
+                        "Minimum damage falloff range": "meters",
+                        "Maximum damage": "none"
                     },
                     "Barrier Projector": {
                         "Health": "none",
@@ -603,6 +612,8 @@
                     "Primal Rage": {
                         "Ultimate cost": "none",
                         "Damage": "none",
+                        "Cast time": "seconds",
+                        "Recovery time": "seconds",
                         "Maximum health gained": "none"
                     }
                 }
@@ -785,7 +796,7 @@
                         "Damage per pellet": "none",
                         "Pellet count": "none",
                         "Critical multiplier": "none",
-                        "Projectile size": 0.175,
+                        "Projectile size": "meters",
                         "Recovery time": "seconds",
                         "Ammo": "none",
                         "Reload time": "seconds"
@@ -1306,8 +1317,8 @@
                         "Travel speed": "meters per second"
                     },
                     "Teleporter": {
-                        "Base Health": "none",
-                        "Shield Health": "none",
+                        "Base health": "none",
+                        "Shield health": "none",
                         "Cooldown": "seconds",
                         "Build time": "seconds",
                         "Cooldown start": "none",
