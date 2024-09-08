@@ -366,8 +366,8 @@ async function updatePatchNotes() {
         after_patch_data = calculatePreArmorProperties(after_patch_data, calculation_units)
     }
     if (siteState.apply_to_armor) {
-        before_patch_data = applyArmor(before_patch_data)
-        after_patch_data = applyArmor(after_patch_data)
+        before_patch_data = applyArmor(before_patch_data, calculation_units)
+        after_patch_data = applyArmor(after_patch_data, calculation_units)
     }
     if (siteState.show_calculated_properties) {
         before_patch_data = calculatePostArmorProperties(before_patch_data, calculation_units)
@@ -712,60 +712,41 @@ function applyArmorToStat(stat: number, min_damage_reduction: number, max_damage
     return Math.min(Math.max(stat - flat_damage_reduction, stat * (1 - max_damage_reduction)), stat * (1 - min_damage_reduction))
 }
 
-export function applyArmor(patchData: PatchData, calculation_units: CalculationUnits): PatchData {
+export function applyArmor(patch_data: PatchData, calculation_units: CalculationUnits): PatchData {
     let min_damage_reduction = 0;
     let max_damage_reduction = 1;
     let flat_damage_reduction = 0;
 
-    if (typeof patchData.general["Armor minimum damage reduction"] === "number") {
-        min_damage_reduction = patchData.general["Armor minimum damage reduction"] / 100
+    if (typeof patch_data.general["Armor minimum damage reduction"] === "number") {
+        min_damage_reduction = patch_data.general["Armor minimum damage reduction"] / 100
     }
-    if (typeof patchData.general["Armor maximum damage reduction"] === "number") {
-        max_damage_reduction = patchData.general["Armor maximum damage reduction"] / 100
+    if (typeof patch_data.general["Armor maximum damage reduction"] === "number") {
+        max_damage_reduction = patch_data.general["Armor maximum damage reduction"] / 100
     }
-    if (typeof patchData.general["Armor flat damage reduction"] === "number") {
-        flat_damage_reduction = patchData.general["Armor flat damage reduction"]
+    if (typeof patch_data.general["Armor flat damage reduction"] === "number") {
+        flat_damage_reduction = patch_data.general["Armor flat damage reduction"]
     }
-    if (typeof patchData.general["Quick melee damage"] == "number") {
-        patchData.general["Quick melee damage"] = applyArmorToStat(patchData.general["Quick melee damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
+    if (typeof patch_data.general["Quick melee damage"] == "number") {
+        patch_data.general["Quick melee damage"] = applyArmorToStat(patch_data.general["Quick melee damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
     }
-    for (let role in patchData.heroes) {
-        for (let hero in patchData.heroes[role]) {
+    for (let role in patch_data.heroes) {
+        for (let hero in patch_data.heroes[role]) {
             if (hero == "general") continue;
-            let heroData = patchData.heroes[role][hero];
+            let heroData = patch_data.heroes[role][hero];
+            let heroUnits = calculation_units.heroes[role][hero];
             for (let ability in heroData.abilities) {
-                if (typeof heroData.abilities[ability]["Damage per pellet"] == "number") {
-                    heroData.abilities[ability]["Damage per pellet"] = applyArmorToStat(heroData.abilities[ability]["Damage per pellet"], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
-                }
-                if (typeof heroData.abilities[ability]["Damage per shrapnel"] == "number") {
-                    heroData.abilities[ability]["Damage per shrapnel"] = applyArmorToStat(heroData.abilities[ability]["Damage per shrapnel"], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
-                }
-                if (typeof heroData.abilities[ability]["Total instance damage"] == "number") {
-                    heroData.abilities[ability]["Total instance damage"] = applyArmorToStat(heroData.abilities[ability]["Total instance damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
-                } else if (typeof heroData.abilities[ability]["Damage"] == "number") {
-                    heroData.abilities[ability]["Damage"] = applyArmorToStat(heroData.abilities[ability]["Damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
-                } else if (typeof heroData.abilities[ability]["Total maximum instance damage"] == "number") {
-                    heroData.abilities[ability]["Total maximum instance damage"] = applyArmorToStat(heroData.abilities[ability]["Total maximum instance damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
-                } else if (typeof heroData.abilities[ability]["Maximum damage"] == "number") {
-                    heroData.abilities[ability]["Maximum damage"] = applyArmorToStat(heroData.abilities[ability]["Maximum damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
-                }
-                if (typeof heroData.abilities[ability]["Headshot damage per pellet"] == "number") {
-                    heroData.abilities[ability]["Headshot damage per pellet"] = applyArmorToStat(heroData.abilities[ability]["Headshot damage per pellet"], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
-                }
-                if (typeof heroData.abilities[ability]["Headshot damage per shrapnel"] == "number") {
-                    heroData.abilities[ability]["Headshot damage per shrapnel"] = applyArmorToStat(heroData.abilities[ability]["Headshot damage per shrapnel"], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
-                }
-                if (typeof heroData.abilities[ability]["Total headshot damage"] == "number") {
-                    heroData.abilities[ability]["Total headshot damage"] = applyArmorToStat(heroData.abilities[ability]["Total headshot damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
-                } else if (typeof heroData.abilities[ability]["Headshot damage"] == "number") {
-                    heroData.abilities[ability]["Headshot damage"] = applyArmorToStat(heroData.abilities[ability]["Headshot damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
-                } else if (typeof heroData.abilities[ability]["Maximum headshot damage"] == "number") {
-                    heroData.abilities[ability]["Maximum headshot damage"] = applyArmorToStat(heroData.abilities[ability]["Maximum headshot damage"], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
+                for (let ability_property in heroData.abilities[ability]) {
+                    let property_units = heroUnits.abilities[ability][ability_property]
+                    if(typeof heroData.abilities[ability][ability_property] === "number") {
+                        if (property_units.some((unit) => ["total instance damage", "total instance crit damage"].includes(unit[0]))) {
+                            heroData.abilities[ability][ability_property] = applyArmorToStat(heroData.abilities[ability][ability_property], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
+                        }
+                    }
                 }
             }
         }
     }
-    return patchData
+    return patch_data
 }
 
 export function calculatePostArmorProperties(patch_data: PatchData, calculation_units: CalculationUnits) {
