@@ -55,7 +55,7 @@
                         "Projectile size": [],
                         "Explosion damage": [["damage instance", "normal"]],
                         "Direct damage": [["damage instance", "normal"]],
-                        "Bullets per burst": [],
+                        "Bullets per burst": [["bullets per burst", "normal"]],
                         "Burst recovery time": [],
                         "Projectile speed": [],
                         "Cooldown": []
@@ -162,10 +162,10 @@
                         "Reload time per ammo": []
                     },
                     "Energy Javelin": {
-                        "Direct damage": [["damage instance", "normal"]],
+                        "Direct damage": [["damage instance", "direct"]],
                         "Projectile size": [],
                         "Cooldown": [],
-                        "Wall impact damage": []
+                        "Wall impact damage": [["damage instance", "wall impact"]]
                     },
                     "Fortify": {
                         "Duration": [],
@@ -199,11 +199,11 @@
                 },
                 "abilities": {
                     "Scrap Gun": {
-                        "Damage per pellet": [],
-                        "Pellet count": [],
+                        "Damage per pellet": [["damage instance", "pellet"]],
+                        "Pellet count": [["pellet count", "pellet"]],
                         "Pellet projectile size": [],
-                        "Damage per shrapnel": [],
-                        "Shrapnel count": [],
+                        "Damage per shrapnel": [["damage instance", "shrapnel"]],
+                        "Shrapnel count": [["pellet count", "shrapnel"]],
                         "Shrapnel projectile size": [],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Secondary fire pre-detonation damage": [],
@@ -228,7 +228,7 @@
                         "Projectile size": [],
                         "Enemy final position distance": [],
                         "Cooldown start": [],
-                        "Impact damage": []
+                        "Impact damage": [["damage instance", "normal"]]
                     },
                     "Pig Pen": {
                         "Vertical Knockback": [],
@@ -242,7 +242,7 @@
                     },
                     "Whole Hog": {
                         "Knockback": [],
-                        "Damage per pellet": [],
+                        "Damage per pellet": [["damage instance", "normal"]],
                         "Pellet count": [["pellet count", "pellet"]],
                         "Recovery time": [],
                         "Ultimate cost": [],
@@ -263,7 +263,7 @@
                     "Hyperspheres": {
                         "Direct damage": [["damage instance", "normal"]],
                         "Explosion damage": [["damage instance", "normal"]],
-                        "Bullets per burst": [],
+                        "Bullets per burst": [["bullets per burst", "normal"]],
                         "Projectile size": [],
                         "Recovery time": [],
                         "Burst recovery time": []
@@ -361,7 +361,7 @@
                         "Projectile size": [],
                         "Alt fire of": [],
                         "Ammo per shot": [],
-                        "Max damage": [],
+                        "Max damage": [["damage instance", "normal"]],
                         "Recovery time": [],
                         "Ammo": [],
                         "Reload time": []
@@ -415,8 +415,8 @@
                         "Maximum empowered wall stun": [],
                         "Minimum knockback": [],
                         "Maximum knockback": [],
-                        "Max impact damage": [],
-                        "Max wall slam damage": [],
+                        "Max impact damage": [["damage instance", "impact"]],
+                        "Max wall slam damage": [["damage instance", "wall slam"]],
                         "Damage reduction on AoE affected targets": [],
                         "Cooldown": [],
                         "Min impact damage": [],
@@ -468,7 +468,7 @@
                     },
                     "Charge": {
                         "Cooldown": [],
-                        "Wall impact damage": [],
+                        "Wall impact damage": [["damage instance", "wall impact"]],
                         "cancellable": [],
                         "Steering turn rate": []
                     },
@@ -658,8 +658,8 @@
                     },
                     "Coach Gun": {
                         "Cooldown": [],
-                        "Damage per pellet": [],
-                        "Pellet count": [],
+                        "Damage per pellet": [["damage instance", "normal"]],
+                        "Pellet count": [["pellet count", "normal"]],
                         "Cast time": [],
                         "Recovery time": []
                     },
@@ -858,8 +858,8 @@
                 },
                 "abilities": {
                     "Shuriken": {
-                        "Damage per bullet": [],
-                        "Bullets per burst": [],
+                        "Damage per bullet": [["damage instance", "normal"]],
+                        "Bullets per burst": [["bullets per burst", "normal"]],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Projectile size": [],
                         "Burst recovery time": [],
@@ -869,8 +869,8 @@
                     },
                     "Shuriken Alt Fire": {
                         "Alt fire of": [],
-                        "Damage per pellet": [],
-                        "Pellet count": [],
+                        "Damage per pellet": [["damage instance", "normal"]],
+                        "Pellet count": [["pellet count", "normal"]],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Projectile size": [],
                         "Recovery time": [],
@@ -916,7 +916,7 @@
                     "Storm Arrows": {
                         "Cooldown": [],
                         "Damage per bullet": [],
-                        "Bullets per burst": [],
+                        "Bullets per burst": [["bullets per burst", "normal"]],
                         "Projectile size": [],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Burst recovery time": []
@@ -939,7 +939,7 @@
                 "abilities": {
                     "Total Mayhem": {
                         "Explosion damage": [["damage instance", "normal"]],
-                        "Bullets per burst": [],
+                        "Bullets per burst": [["bullets per burst", "normal"]],
                         "Cast time": []
                     },
                     "Frag Launcher": {
@@ -954,8 +954,8 @@
                     "Concussion Mine": {
                         "Cooldown": [],
                         "Projectile size": [],
-                        "Maximum damage": [],
-                        "Minimum damage": [],
+                        "Maximum damage": [["damage instance", "maximum"]],
+                        "Minimum damage": [["damage instance", "minimum"]],
                         "Range": [],
                         "Health": [],
                         "Charges": []
@@ -1448,7 +1448,7 @@
                     },
                     "SMART Excavator": {
                         "Direct damage": [["damage instance", "normal"]],
-                        "Maximum explosion damage": [],
+                        "Maximum explosion damage": [["damage instance", "normal"]],
                         "Projectile size": [],
                         "Recovery time": [],
                         "Ammo": [],
@@ -1495,7 +1495,7 @@
                     },
                     "Widow's Kiss Alt Fire": {
                         "Alt fire of": [],
-                        "Maximum damage": [],
+                        "Maximum damage": [["damage instance", "normal"]],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Falloff minimum range": [],
                         "Falloff maximum range": [],
@@ -1542,7 +1542,7 @@
                 "abilities": {
                     "Biotic Rifle": {
                         "Damage": [["damage instance", "normal"]],
-                        "Healing": [],
+                        "Healing": [["healing instance", "normal"]],
                         "Unscoped projectile size": [],
                         "Enemy scoped projectile size": [],
                         "Ally scoped projectile size": [],
@@ -1555,7 +1555,7 @@
                         "Projectile size": []
                     },
                     "Biotic Grenade": {
-                        "Healing": [],
+                        "Healing": [["healing instance", "normal"]],
                         "Damage": [["damage instance", "normal"]],
                         "Projectile size": [],
                         "Effect duration": [],
@@ -1572,8 +1572,8 @@
                 },
                 "abilities": {
                     "Biotic Launcher": {
-                        "Damage per bullet": [],
-                        "Bullets per burst": [],
+                        "Damage per bullet": [["damage instance", "normal"]],
+                        "Bullets per burst": [["bullets per burst", "normal"]],
                         "Projectile size": [],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Minimum falloff damage range": [],
@@ -1584,17 +1584,17 @@
                     },
                     "Biotic Launcher Alt Fire": {
                         "Alt fire of": [],
-                        "Explosion healing": [],
-                        "Direct healing": [],
+                        "Explosion healing": [["healing instance", "normal"]],
+                        "Direct healing": [["healing instance", "normal"]],
                         "Recovery time": [],
                         "Ammo": [],
                         "Reload time": []
                     },
                     "Regenerative Burst": {
                         "Cooldown": [],
-                        "Instant healing": [],
+                        "Instant healing": [["healing instance", "normal"]],
                         "Instant healing on allies <50% HP": [],
-                        "Heal over time": [],
+                        "Heal over time": [["healing instance", "normal"]],
                         "Additional self heal over time": [],
                         "Self healing rate": []
                     },
@@ -1640,10 +1640,10 @@
                         "Cooldown": []
                     },
                     "Repair Pack": {
-                        "Instant healing": [],
+                        "Instant healing": [["healing instance", "normal"]],
                         "Cooldown": [],
                         "Range": [],
-                        "Healing over time": []
+                        "Healing over time": [["healing instance", "normal"]]
                     },
                     "Rally": {
                         "Ultimate cost": [],
@@ -1682,7 +1682,7 @@
                         "Cooldown": []
                     },
                     "Healing Pylon": {
-                        "Healing per projectile": [],
+                        "Healing per projectile": [["healing instance", "normal"]],
                         "Self healing efficiency": [],
                         "Health": [],
                         "Shield health": ["health"],
@@ -1711,9 +1711,9 @@
                         "Move speed while falling": []
                     },
                     "Mediblaster": {
-                        "Damage per bullet": [],
-                        "Healing per bullet": [],
-                        "Bullets per burst": [],
+                        "Damage per bullet": [["damage instance", "normal"]],
+                        "Healing per bullet": [["healing instance", "normal"]],
+                        "Bullets per burst": [["bullets per burst", "normal"]],
                         "Spread": [],
                         "Falloff range minimum": [],
                         "Falloff range maximum": [],
@@ -1724,11 +1724,11 @@
                     },
                     "Pulsar Torpedoes": {
                         "Damage": [["damage instance", "normal"]],
-                        "Healing": [],
+                        "Healing": [["healing instance", "normal"]],
                         "Maximum duration": [],
                         "Cooldown": [],
                         "HoT duration": [],
-                        "Healing over time": [],
+                        "Healing over time": [["healing instance", "normal"]],
                         "Cooldown after no lock-on cancel": [],
                         "Forgiveness range": []
                     },
@@ -1817,15 +1817,15 @@
                         "Ammo": [],
                         "Projectile size": [],
                         "Maximum charge time": [],
-                        "Maximum healing": [],
+                        "Maximum healing": [["healing instance", "normal"]],
                         "Delay until slow": [],
                         "Recovery time": [],
                         "Reload time": [],
                         "Passive charge per second": []
                     },
                     "Thorn Volley": {
-                        "Damage per pellet": [],
-                        "Pellet count": [],
+                        "Damage per pellet": [["damage instance", "normal"]],
+                        "Pellet count": [["pellet count", "normal"]],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Projectile size": [],
                         "Projectile speed": [],
@@ -1853,7 +1853,7 @@
                     "Life Grip": {
                         "Cooldown": [],
                         "Ability lockout duration": [],
-                        "Healing": []
+                        "Healing": [["healing instance", "normal"]]
                     },
                     "Tree of Life": {
                         "Pulse healing": [],
@@ -1876,8 +1876,8 @@
                         "Wall leap speed increase": []
                     },
                     "Sonic Amplifier": {
-                        "Damage per bullet": [],
-                        "Bullets per burst": [],
+                        "Damage per bullet": [["damage instance", "normal"]],
+                        "Bullets per burst": [["bullets per burst", "normal"]],
                         "Projectile size": [],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Burst recovery time": [],
@@ -2013,7 +2013,7 @@
                     "Orb of Destruction Alt Fire": {
                         "Alt fire of": [],
                         "Damage per bullet": [],
-                        "Bullets per burst": [],
+                        "Bullets per burst": [["bullets per burst", "normal"]],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Projectile size": [],
                         "Maximum charge time": [],
