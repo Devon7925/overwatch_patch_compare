@@ -359,8 +359,8 @@ async function updatePatchNotes() {
     let after_patch_data = structuredClone(patches[siteState.after_patch]);
     before_patch_data = reorder(before_patch_data, units)
     after_patch_data = reorder(after_patch_data, units)
-    before_patch_data = applyDamageMultiplier(before_patch_data, parseFloat(patch_before_dmg_boost_slider.value) / 100)
-    after_patch_data = applyDamageMultiplier(after_patch_data, parseFloat(patch_after_dmg_boost_slider.value) / 100)
+    before_patch_data = applyDamageMultiplier(before_patch_data, parseFloat(patch_before_dmg_boost_slider.value) / 100, calculation_units)
+    after_patch_data = applyDamageMultiplier(after_patch_data, parseFloat(patch_after_dmg_boost_slider.value) / 100, calculation_units)
     if (siteState.show_calculated_properties) {
         before_patch_data = calculatePreArmorProperties(before_patch_data, calculation_units)
         after_patch_data = calculatePreArmorProperties(after_patch_data, calculation_units)
@@ -603,59 +603,24 @@ async function updatePatchNotes() {
     }
 }
 
-export function applyDamageMultiplier(patch_data: PatchData, multiplier: number): PatchData {
+export function applyDamageMultiplier(patch_data: PatchData, multiplier: number, calculation_units: CalculationUnits): PatchData {
     if (typeof patch_data.general["Quick melee damage"] == "number") {
         patch_data.general["Quick melee damage"] *= multiplier
     }
     for (let role in patch_data.heroes) {
         for (let hero in patch_data.heroes[role]) {
             if (hero == "general") continue;
+            let heroData = patch_data.heroes[role][hero];
+            let heroUnits = calculation_units.heroes[role][hero];
 
             for (let ability in patch_data.heroes[role][hero].abilities) {
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage per second"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Damage per second"] *= multiplier
-                }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Damage"] *= multiplier
-                }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Impact damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Impact damage"] *= multiplier
-                }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Wall impact damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Wall impact damage"] *= multiplier
-                }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage over time"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Damage over time"] *= multiplier
-                }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Direct damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Direct damage"] *= multiplier
-                }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Maximum explosion damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Maximum explosion damage"] *= multiplier
-                }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Maximum impact damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Maximum impact damage"] *= multiplier
-                }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Explosion damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Explosion damage"] *= multiplier
-                }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage per bullet"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Damage per bullet"] *= multiplier
-                }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage per pellet"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Damage per pellet"] *= multiplier
-                }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Damage per shrapnel"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Damage per shrapnel"] *= multiplier
-                }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Max impact damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Max impact damage"] *= multiplier
-                }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Max wall slam damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Max wall slam damage"] *= multiplier
-                }
-                if (typeof patch_data.heroes[role][hero].abilities[ability]["Max damage"] === "number") {
-                    patch_data.heroes[role][hero].abilities[ability]["Max damage"] *= multiplier
+                for (let ability_property in heroData.abilities[ability]) {
+                    let property_units = heroUnits.abilities[ability][ability_property]
+                    if(typeof heroData.abilities[ability][ability_property] === "number") {
+                        if (property_units.some((unit) => ["damage instance"].includes(unit[0]))) {
+                            heroData.abilities[ability][ability_property] *= multiplier
+                        }
+                    }
                 }
             }
         }
