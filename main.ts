@@ -10,7 +10,7 @@ type CalculationUnit =
         | "pellet count" | "bullets per burst", [string]> | "total damage" | "total healing"
     | WithRemainder<"total instance crit damage" | "total crit damage", [string, string]> | "total crit damage"
     | WithRemainder<"total instance crit healing" | "total crit healing", [string, string]> | "total crit healing"
-    | ["critical multiplier", string] | "bullets per burst" | "recovery time" | "ammo" | "reload time" | "health"
+    | ["critical multiplier", string] | "bullets per burst" | "recovery time" | "ammo" | "charges" | "reload time" | "health" | "breakpoint damage"
 type Value = string | number | boolean
 type PatchStructure<T> = {
     general: { [key: string]: T }
@@ -381,8 +381,8 @@ async function updatePatchNotes() {
         after_patch_data = calculatePostArmorProperties(after_patch_data, calculation_units)
     }
     if (siteState.show_breakpoints) {
-        before_patch_data = calculateBreakpoints(before_patch_data)
-        after_patch_data = calculateBreakpoints(after_patch_data)
+        before_patch_data = calculateBreakpoints(before_patch_data, calculation_units)
+        after_patch_data = calculateBreakpoints(after_patch_data, calculation_units)
     }
     if (siteState.show_calculated_properties) {
         before_patch_data = calculateRates(before_patch_data)
@@ -644,7 +644,7 @@ export function calculatePreArmorProperties(patch_data: PatchData, calculation_u
                 const abilityData = patch_data.heroes[role][hero].abilities[ability];
                 const abilityDataUnits = calculation_units.heroes[role][hero].abilities[ability];
 
-                for(let damage_or_healing of ["damage", "healing"] as const) {
+                for (let damage_or_healing of ["damage", "healing"] as const) {
                     let total_damage = Object.keys(abilityData)
                         .flatMap((property) => abilityDataUnits[property]
                             .filter((unit) => Array.isArray(unit))
@@ -754,7 +754,7 @@ export function calculatePostArmorProperties(patch_data: PatchData, calculation_
                         patch_data.heroes[role][hero].abilities[ability]["Reload time per ammo"] = patch_data.heroes[role][hero].abilities[abilityData["Alt fire of"]]["Reload time per ammo"];
                     }
                 }
-                for(let damage_or_healing of ["damage", "healing"] as const) {
+                for (let damage_or_healing of ["damage", "healing"] as const) {
                     for (let ability_property in abilityData) {
                         let property_units = abilityDataUnits[ability_property]
                         if (typeof abilityData[ability_property] === "number") {
@@ -825,10 +825,16 @@ export function calculatePostArmorProperties(patch_data: PatchData, calculation_
                         if (total_damage > 0) {
                             abilityData[`Total ${damage_or_healing}`] = total_damage
                             abilityDataUnits[`Total ${damage_or_healing}`] = [`total ${damage_or_healing}`]
+                            if(damage_or_healing === "damage") {
+                                abilityDataUnits[`Total ${damage_or_healing}`].push("breakpoint damage")
+                            }
                         }
                         for (let crit_damage_type in total_crit_damage) {
                             abilityData[`Total ${crit_damage_type} ${damage_or_healing}`] = total_crit_damage[crit_damage_type]
                             abilityDataUnits[`Total ${crit_damage_type} ${damage_or_healing}`] = [`total crit ${damage_or_healing}`]
+                            if(damage_or_healing === "damage") {
+                                abilityDataUnits[`Total ${crit_damage_type} ${damage_or_healing}`].push("breakpoint damage")
+                            }
                         }
                     }
                 }
@@ -838,53 +844,59 @@ export function calculatePostArmorProperties(patch_data: PatchData, calculation_
     return patch_data
 }
 
-export function calculateBreakpoints(patchData: PatchData): PatchData {
-    for (let role in patchData.heroes) {
-        for (let hero in patchData.heroes[role]) {
+export function calculateBreakpoints(patch_data: PatchData, calculation_units: CalculationUnits): PatchData {
+    for (let role in patch_data.heroes) {
+        for (let hero in patch_data.heroes[role]) {
             if (hero == "general") continue;
-            let heroData = patchData.heroes[role][hero];
-            let damageOptions: { [key: string]: [number, number] } = {};
-            if (typeof patchData.general["Quick melee damage"] == "number" && heroData.general["has overridden melee"] !== true) {
-                damageOptions["Melee"] = [patchData.general["Quick melee damage"], 1]
+            let hero_data = patch_data.heroes[role][hero];
+            let hero_data_units = calculation_units.heroes[role][hero];
+            let damage_options: { [key: string]: { [key: string]: number } } = {};
+            if (typeof patch_data.general["Quick melee damage"] == "number" && hero_data.general["has overridden melee"] !== true) {
+                damage_options["Melee"] = {}
+                damage_options["Melee"][""] = patch_data.general["Quick melee damage"]
             }
-            for (let ability in heroData.abilities) {
-                let is_cooldown = true
-                if ("Recovery time" in heroData.abilities[ability]) {
-                    is_cooldown = false
+            for (let ability in hero_data.abilities) {
+                let max_damage_instances = 1;
+                let ability_damage_options: { [key: string]: number } = {}
+                for (let ability_property in hero_data.abilities[ability]) {
+                    for (let property_unit of hero_data_units.abilities[ability][ability_property]) {
+                        if (property_unit == "breakpoint damage") {
+                            if (typeof hero_data.abilities[ability][ability_property] === "number") {
+                                ability_damage_options[ability_property] = hero_data.abilities[ability][ability_property]
+                            }
+                        } else if (property_unit == "ammo") {
+                            if (typeof hero_data.abilities[ability][ability_property] === "number") {
+                                max_damage_instances = Math.max(max_damage_instances, Math.min(3, hero_data.abilities[ability][ability_property]))
+                            }
+                        } else if (property_unit == "charges") {
+                            if (typeof hero_data.abilities[ability][ability_property] === "number") {
+                                max_damage_instances = Math.max(max_damage_instances, hero_data.abilities[ability][ability_property])
+                            }
+                        }
+                    }
                 }
-                if ("Cooldown" in heroData.abilities[ability]) {
-                    is_cooldown = true
+
+                let ability_damage_option_set: { [key: string]: number } = {"": 0}
+                for(let damage_option in ability_damage_options) {
+                    for (let i = 0; i < max_damage_instances; i++) {
+                        for(let damage_option_set_element in ability_damage_option_set) {
+                            if(damage_option_set_element.split(" + ").length <= max_damage_instances) {
+                                ability_damage_option_set[`${damage_option_set_element} + ${damage_option}`] = ability_damage_options[damage_option] + ability_damage_option_set[damage_option_set_element]
+                            }
+                        }
+                    }
                 }
-                if ("Ultimate cost" in heroData.abilities[ability]) {
-                    is_cooldown = true
-                }
-                let max_damage_instances = is_cooldown ? 1 : 3;
-                if (typeof heroData.abilities[ability]["Total damage"] == "number") {
-                    damageOptions[ability] = [heroData.abilities[ability]["Total damage"], max_damage_instances]
-                } else if (typeof heroData.abilities[ability]["Damage"] == "number") {
-                    damageOptions[ability] = [heroData.abilities[ability]["Damage"], max_damage_instances]
-                } else if (typeof heroData.abilities[ability]["Total maximum damage"] == "number") {
-                    damageOptions[ability] = [heroData.abilities[ability]["Total maximum damage"], max_damage_instances]
-                } else if (typeof heroData.abilities[ability]["Maximum damage"] == "number") {
-                    damageOptions[ability] = [heroData.abilities[ability]["Maximum damage"], max_damage_instances]
-                }
-                if (typeof heroData.abilities[ability]["Total headshot damage"] == "number") {
-                    damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Total headshot damage"], max_damage_instances]
-                } else if (typeof heroData.abilities[ability]["Headshot damage"] == "number") {
-                    damageOptions[`${ability} headshot`] = [heroData.abilities[ability]["Headshot damage"], max_damage_instances]
-                } else if (typeof heroData.abilities[ability]["Maximum headshot damage"] == "number") {
-                    damageOptions[`${ability} maximum headshot`] = [heroData.abilities[ability]["Maximum headshot damage"], max_damage_instances]
+                delete ability_damage_option_set[""]
+                damage_options[ability] = {}
+                for(let ability_damage_option in ability_damage_option_set) {
+                    damage_options[ability][`${ability_damage_option.substring(2).toLowerCase()}`] = ability_damage_option_set[ability_damage_option]
                 }
             }
             let breakpointDamage: { [key: string]: number } = { "": 0 }
-            for (let damageOption in damageOptions) {
+            for (let ability in damage_options) {
                 for (let damageEntry in breakpointDamage) {
-                    for (let i = 1; i <= damageOptions[damageOption][1]; i++) {
-                        if (i === 1) {
-                            breakpointDamage[`${damageEntry}, ${damageOption}`] = breakpointDamage[damageEntry] + i * damageOptions[damageOption][0]
-                        } else {
-                            breakpointDamage[`${damageEntry}, ${i}x ${damageOption}`] = breakpointDamage[damageEntry] + i * damageOptions[damageOption][0]
-                        }
+                    for (let damageOption in damage_options[ability]) {
+                        breakpointDamage[`${damageEntry}, ${ability} ${damageOption}`] = breakpointDamage[damageEntry] + damage_options[ability][damageOption]
                     }
                 }
             }
@@ -895,10 +907,10 @@ export function calculateBreakpoints(patchData: PatchData): PatchData {
                     breakpointDamageEntries[`Breakpoint for ${breakpoint.substring(2)}`] = breakpointHealth
                 }
             }
-            patchData.heroes[role][hero].breakpoints = breakpointDamageEntries;
+            patch_data.heroes[role][hero].breakpoints = breakpointDamageEntries;
         }
     }
-    return patchData
+    return patch_data
 }
 
 export function calculateRates(patch_data: PatchData) {
