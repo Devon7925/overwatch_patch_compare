@@ -387,6 +387,8 @@ async function updatePatchNotes() {
     if (siteState.show_calculated_properties) {
         before_patch_data = calculateRates(before_patch_data, calculation_units)
         after_patch_data = calculateRates(after_patch_data, calculation_units)
+        before_patch_data = cleanupProperties(before_patch_data, calculation_units)
+        after_patch_data = cleanupProperties(after_patch_data, calculation_units)
     }
     let changes = convert_to_changes(before_patch_data, after_patch_data);
     let hero_section = document.getElementsByClassName("PatchNotes-section-hero_update")[0];
@@ -1019,6 +1021,91 @@ export function calculateRates(patch_data: PatchData, calculation_units: Calcula
                         let healing_per_second_incl_reload = healing_per_second * time_before_reload / (time_before_reload + reload_time)
                         abilityData["Healing per second(including reload)"] = healing_per_second_incl_reload
                         abilityDataUnits["Healing per second(including reload)"] = []
+                    }
+                }
+            }
+        }
+    }
+    return patch_data
+}
+
+function cleanupProperties(patch_data: PatchData, calculation_units: CalculationUnits) {
+    // return patch_data;
+    for (let role in patch_data.heroes) {
+        for (let hero in patch_data.heroes[role]) {
+            if (hero == "general") continue;
+            let heroData = patch_data.heroes[role][hero]
+            let heroDataUnits = calculation_units.heroes[role][hero]
+            for (let ability in patch_data.heroes[role][hero].abilities) {
+                for(let damage_or_healing of ["damage", "healing"]) {
+                    const abilityData = heroData.abilities[ability];
+                    const abilityDataUnits = heroDataUnits.abilities[ability];
+                    let damage_type_damage: {[key: string]: number} = {}
+                    let crit_damage_type_damage: {[key: string]: number} = {}
+                    for (let property in abilityData) {
+                        if (typeof abilityData[property] === "number") {
+                            let property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total ${damage_or_healing}`).map((unit) => unit[1]);
+                            for(let property_damage_type of property_damage_types) {
+                                damage_type_damage[property_damage_type] = abilityData[property]
+                            }
+                            let crit_property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total crit ${damage_or_healing}`).map((unit) => unit[1]);
+                            for(let property_damage_type of crit_property_damage_types) {
+                                crit_damage_type_damage[property_damage_type] = abilityData[property]
+                            }
+                        }
+                    }
+                    let damage_type_instance_damage: {[key: string]: number} = {}
+                    for (let property in abilityData) {
+                        if (typeof abilityData[property] === "number") {
+                            let property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total instance ${damage_or_healing}`).map((unit) => unit[1])
+                            for(let property_damage_type of property_damage_types) {
+                                damage_type_instance_damage[property_damage_type] = abilityData[property]
+                                if(damage_type_damage[property_damage_type] === abilityData[property]) {
+                                    delete abilityData[property]
+                                    break
+                                }
+                            }
+                            let property_crit_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total instance crit ${damage_or_healing}`).map((unit) => unit[1]);
+                            for(let property_damage_type of property_crit_damage_types) {
+                                if(crit_damage_type_damage[property_damage_type] === abilityData[property]) {
+                                    delete abilityData[property]
+                                    break
+                                }
+                            }
+                        }
+                    }
+                    for (let property in abilityData) {
+                        if (typeof abilityData[property] === "number") {
+                            let property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `${damage_or_healing} instance`).map((unit) => unit[1])
+                            for(let property_damage_type of property_damage_types) {
+                                if(damage_type_instance_damage[property_damage_type] === abilityData[property]) {
+                                    delete abilityData[property]
+                                    break
+                                }
+                            }
+                        }
+                    }
+                    if (Object.keys(damage_type_damage).length == 1) {
+                        for (let property in abilityData) {
+                            if (typeof abilityData[property] === "number") {
+                                let property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total ${damage_or_healing}`).map((unit) => unit[1]);
+                                if(property_damage_types.length > 0) {
+                                    delete abilityData[property]
+                                    continue
+                                }
+                            }
+                        }
+                    }
+                    if (Object.keys(crit_damage_type_damage).length == 1) {
+                        for (let property in abilityData) {
+                            if (typeof abilityData[property] === "number") {
+                                let crit_property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total crit ${damage_or_healing}`).map((unit) => unit[1]);
+                                if(crit_property_damage_types.length > 0) {
+                                    delete abilityData[property]
+                                    continue
+                                }
+                            }
+                        }
                     }
                 }
             }
