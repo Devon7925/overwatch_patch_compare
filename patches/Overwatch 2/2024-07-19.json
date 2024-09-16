@@ -388,14 +388,14 @@
                         "Maximum temporary health": 200
                     },
                     "Hand Cannon": {
-                        "Minimum damage": 16.5,
-                        "Maximum damage": 55,
                         "Projectile size": 0.05,
                         "Pellet count": 11,
                         "Critical multiplier": 2,
                         "Reload time per ammo": 0.4,
                         "Ammo": 4,
-                        "Recovery time": 0.336
+                        "Recovery time": 0.336,
+                        "Damage per pellet": 5.0,
+                        "Minimum damage per pellet": 1.5
                     },
                     "Seismic Slam": {
                         "Damage": 50,
@@ -492,7 +492,8 @@
                         "Incendiary Chaingun burn duration": 3,
                         "Critical multiplier": 2,
                         "Recovery time": 0.055555,
-                        "Damage": 4
+                        "Damage": 4,
+                        "Reload time": 2.2
                     },
                     "Overrun": {
                         "Cooldown": 6,

@@ -350,7 +350,7 @@
                         "Energy degeneration delay": []
                     },
                     "Particle Cannon": {
-                        "Maximum damage per second": [],
+                        "Maximum damage per second": ["damage per second"],
                         "Minimum damage per second": [],
                         "Beam width": [],
                         "Ammo": ["ammo"],
@@ -400,10 +400,10 @@
                         "Maximum temporary health": []
                     },
                     "Hand Cannon": {
-                        "Minimum damage": [],
-                        "Maximum damage": [],
+                        "Minimum damage per pellet": [],
+                        "Damage per pellet": [["damage instance", "normal"]],
                         "Projectile size": [],
-                        "Pellet count": [],
+                        "Pellet count": [["pellet count", "normal"]],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Recovery time": ["time between shots"],
                         "Ammo": ["ammo"],
@@ -508,7 +508,8 @@
                         "Incendiary Chaingun burn duration": [],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"]
+                        "Ammo": ["ammo"],
+                        "Reload time": ["reload time"]
                     },
                     "Overrun": {
                         "Cooldown": [],
@@ -588,7 +589,7 @@
                 },
                 "abilities": {
                     "Tesla Cannon": {
-                        "Damage per second": [],
+                        "Damage per second": ["damage per second"],
                         "ignores armor damage reduction": [],
                         "Cooldown": [],
                         "Spread": [],

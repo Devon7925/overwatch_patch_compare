@@ -10,7 +10,7 @@ type CalculationUnit =
         | "pellet count" | "bullets per burst", [string]> | "total damage" | "total healing"
     | WithRemainder<"total instance crit damage" | "total crit damage", [string, string]> | "total crit damage"
     | WithRemainder<"total instance crit healing" | "total crit healing", [string, string]> | "total crit healing"
-    | ["critical multiplier", string] | "bullets per burst" | "ammo" | "charges" | "reload time" | "health" | "breakpoint damage" | "time between shots" | "burst recovery time" | "reload time per ammo" | "ammo per shot"
+    | ["critical multiplier", string] | "bullets per burst" | "ammo" | "charges" | "reload time" | "health" | "breakpoint damage" | "time between shots" | "burst recovery time" | "reload time per ammo" | "ammo per shot" | "damage per second" | "healing per second"
 type Value = string | number | boolean
 type PatchStructure<T> = {
     general: { [key: string]: T }
@@ -488,7 +488,11 @@ async function updatePatchNotes() {
                         break;
                     }
                     if (!units.heroes[role][hero].abilities[ability][stat]) {
-                        console.error(`Missing units for ${hero} - ${ability} - ${stat}`)
+                        if (calculation_units.heroes[role][hero].abilities[ability][stat]) {
+                            units.heroes[role][hero].abilities[ability][stat] = "none"
+                        } else {
+                            console.error(`Missing units for ${hero} - ${ability} - ${stat}`)
+                        }
                     }
                     ability_changes += `<li>${getChangeText(stat, abilityData[stat], units.heroes[role][hero].abilities[ability][stat])}</li>`;
                 }
@@ -898,7 +902,7 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: C
             for (let ability in damage_options) {
                 for (let damageEntry in breakpointDamage) {
                     for (let damageOption in damage_options[ability]) {
-                        breakpointDamage[`${damageEntry}, ${ability} ${damageOption}`] = breakpointDamage[damageEntry] + damage_options[ability][damageOption]
+                        breakpointDamage[`${damageEntry}, ${ability}${damageOption === ""?"":" "}${damageOption}`] = breakpointDamage[damageEntry] + damage_options[ability][damageOption]
                     }
                 }
             }
@@ -929,20 +933,16 @@ export function calculateRates(patch_data: PatchData, calculation_units: Calcula
                 const abilityData = patch_data.heroes[role][hero].abilities[ability];
                 const abilityDataUnits = calculation_units.heroes[role][hero].abilities[ability];
 
-                let time_between_shots = 0;
-                for (let property in abilityData) {
-                    if (abilityDataUnits[property].includes("time between shots")) {
-                        if (typeof abilityData[property] === "number") {
-                            time_between_shots += abilityData[property]
-                        }
-                    }
-                }
-                let damage_per_second = 0
-                let crit_damage_per_second = 0
-                let healing_per_second = 0
-                if (time_between_shots > 0) {
+                let time_between_shots = 0
+                {
+                    let damage_per_second = 0
+                    let crit_damage_per_second = 0
+                    let healing_per_second = 0
                     for (let property in abilityData) {
                         if (typeof abilityData[property] === "number") {
+                            if (abilityDataUnits[property].includes("time between shots")) {
+                                time_between_shots += abilityData[property]
+                            }
                             if (abilityDataUnits[property].includes("total damage")) {
                                 damage_per_second += abilityData[property]
                             }
@@ -954,20 +954,22 @@ export function calculateRates(patch_data: PatchData, calculation_units: Calcula
                             }
                         }
                     }
-                    damage_per_second /= time_between_shots
-                    crit_damage_per_second /= time_between_shots
-                    healing_per_second /= time_between_shots
-                    if (damage_per_second > 0) {
-                        abilityData["Damage per second"] = damage_per_second
-                        abilityDataUnits["Damage per second"] = []
-                    }
-                    if (crit_damage_per_second > 0) {
-                        abilityData["Critical damage per second"] = crit_damage_per_second
-                        abilityDataUnits["Critical damage per second"] = []
-                    }
-                    if (healing_per_second > 0) {
-                        abilityData["Healing per second"] = healing_per_second
-                        abilityDataUnits["Healing per second"] = []
+                    if (time_between_shots > 0) {
+                        damage_per_second /= time_between_shots
+                        crit_damage_per_second /= time_between_shots
+                        healing_per_second /= time_between_shots
+                        if (damage_per_second > 0) {
+                            abilityData["Damage per second"] = damage_per_second
+                            abilityDataUnits["Damage per second"] = ["damage per second"]
+                        }
+                        if (crit_damage_per_second > 0) {
+                            abilityData["Critical damage per second"] = crit_damage_per_second
+                            abilityDataUnits["Critical damage per second"] = []
+                        }
+                        if (healing_per_second > 0) {
+                            abilityData["Healing per second"] = healing_per_second
+                            abilityDataUnits["Healing per second"] = ["healing per second"]
+                        }
                     }
                 }
                 let reload_time = 0;
@@ -976,6 +978,8 @@ export function calculateRates(patch_data: PatchData, calculation_units: Calcula
                 let bullets_per_burst = 1;
                 let burst_recovery_time = 0;
                 let ammo_per_shot = 1;
+                let damage_per_second = 0
+                let healing_per_second = 0
                 for (let property in abilityData) {
                     if (typeof abilityData[property] === "number") {
                         if (abilityDataUnits[property].includes("reload time")) {
@@ -995,6 +999,12 @@ export function calculateRates(patch_data: PatchData, calculation_units: Calcula
                         }
                         if (abilityDataUnits[property].includes("ammo per shot")) {
                             ammo_per_shot *= abilityData[property]
+                        }
+                        if (abilityDataUnits[property].includes("damage per second")) {
+                            damage_per_second = abilityData[property]
+                        }
+                        if (abilityDataUnits[property].includes("healing per second")) {
+                            healing_per_second = abilityData[property]
                         }
                     }
                 }

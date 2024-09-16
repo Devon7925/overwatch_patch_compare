@@ -399,6 +399,13 @@
                         "Pellet count": 10
                     }
                 }
+            },
+            "Mauga": {
+                "abilities": {
+                    "Incendiary and Volatile Changuns": {
+                        "Reload time": 2.2
+                    }
+                }
             }
         },
         "damage": {

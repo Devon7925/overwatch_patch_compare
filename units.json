@@ -502,7 +502,8 @@
                         "Incendiary Chaingun burn duration": "seconds",
                         "Critical multiplier": "none",
                         "Recovery time": "seconds",
-                        "Ammo": "none"
+                        "Ammo": "none",
+                        "Reload time": "seconds"
                     },
                     "Overrun": {
                         "Cooldown": "seconds",
