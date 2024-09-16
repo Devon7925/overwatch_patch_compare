@@ -836,6 +836,9 @@ export function calculateBreakpoints(patch_data, calculation_units) {
                                 max_damage_instances = Math.max(max_damage_instances, hero_data.abilities[ability][ability_property]);
                             }
                         }
+                        else if (property_unit == "time between shots") {
+                            max_damage_instances = Math.max(max_damage_instances, 3);
+                        }
                     }
                 }
                 let ability_damage_option_set = { "": 0 };

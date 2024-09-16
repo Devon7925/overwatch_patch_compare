@@ -221,7 +221,7 @@
                         "Resource regeneration per second": [],
                         "Aplified healing duration": [],
                         "Recovery": [],
-                        "Cast time": ["time between shots"]
+                        "Cast time": []
                     },
                     "Chain Hook": {
                         "Cooldown": [],
@@ -232,9 +232,9 @@
                     },
                     "Pig Pen": {
                         "Vertical Knockback": [],
-                        "Initial damage": [],
-                        "Damage over time": [],
-                        "Recovery time": ["time between shots"],
+                        "Initial damage": [["damage instance", "normal"]],
+                        "Damage over time": [["damage instance", "dot"]],
+                        "Recovery time": [],
                         "Cooldown start": [],
                         "Duration": [],
                         "Movement speed reduction": [],
@@ -244,6 +244,7 @@
                         "Knockback": [],
                         "Damage per pellet": [["damage instance", "normal"]],
                         "Pellet count": [["pellet count", "pellet"]],
+                        "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Recovery time": ["time between shots"],
                         "Ultimate cost": [],
                         "disables other abilities and automatically fires": [],
@@ -328,7 +329,7 @@
                     "Piledriver": {
                         "Movement lockout duration for enemies": [],
                         "Cooldown": [],
-                        "Maximum damage": []
+                        "Maximum damage": [["damage instance", "maximum"]]
                     },
                     "Minefield": {
                         "Health": [],
@@ -423,7 +424,8 @@
                         "Min wall slam damage": [],
                         "Minimum empowered wall stun": [],
                         "Empowered Rocket Punch knockback radius": [],
-                        "Minimum time before cancel option becomes available": []
+                        "Minimum time before cancel option becomes available": [],
+                        "Empowered damage multiplier": [["critical multiplier", "empowered"]]
                     },
                     "Seismic Slam": {
                         "Damage": [["damage instance", "normal"]],
@@ -516,7 +518,8 @@
                         "Damage": [["damage instance", "normal"]],
                         "Knockback damage": [],
                         "Damage reduction": [],
-                        "can be interrupted by Hack": []
+                        "can be interrupted by Hack": [],
+                        "Critical multiplier": [["critical multiplier", "critical"]]
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": [],

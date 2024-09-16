@@ -229,7 +229,8 @@
                         "Projectile size": 0.05,
                         "Maximum duration": 8,
                         "Pellet count": 16,
-                        "Recovery time": 0.125
+                        "Recovery time": 0.125,
+                        "Critical multiplier": 2
                     },
                     "Pig Pen": {
                         "Vertical Knockback": 3,
@@ -421,7 +422,8 @@
                         "Min wall slam damage": 10,
                         "Minimum empowered wall stun": 0.25,
                         "Empowered Rocket Punch knockback radius": 3,
-                        "Minimum time before cancel option becomes available": 0.12
+                        "Minimum time before cancel option becomes available": 0.12,
+                        "Empowered damage multiplier": 1.5
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 2145,
@@ -498,7 +500,8 @@
                         "Damage": 60,
                         "Knockback damage": 25,
                         "Damage reduction": 50,
-                        "can be interrupted by Hack": false
+                        "can be interrupted by Hack": false,
+                        "Critical multiplier": 2
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": 12,

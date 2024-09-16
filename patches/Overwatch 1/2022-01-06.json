@@ -167,7 +167,8 @@
                         "Maximum duration": 6,
                         "cancelled by stuns": true,
                         "Pellet count": 16,
-                        "Recovery time": 0.125
+                        "Recovery time": 0.125,
+                        "Critical multiplier": 2
                     }
                 }
             },
@@ -404,6 +405,16 @@
                 "abilities": {
                     "Incendiary and Volatile Changuns": {
                         "Reload time": 2.2
+                    },
+                    "Overrun": {
+                        "Critical multiplier": 2
+                    }
+                }
+            },
+            "Doomfist": {
+                "abilities": {
+                    "Rocket Punch": {
+                        "Empowered damage multiplier": 1.5
                     }
                 }
             }

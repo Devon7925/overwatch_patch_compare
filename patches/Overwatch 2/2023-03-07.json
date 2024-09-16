@@ -228,7 +228,8 @@
                         "Projectile size": 0.0,
                         "Maximum duration": 8,
                         "Pellet count": 16,
-                        "Recovery time": 0.125
+                        "Recovery time": 0.125,
+                        "Critical multiplier": 2
                     }
                 }
             },
@@ -410,7 +411,8 @@
                         "Min wall slam damage": 10,
                         "Minimum empowered wall stun": 0.25,
                         "Empowered Rocket Punch knockback radius": 3,
-                        "Minimum time before cancel option becomes available": 0.12
+                        "Minimum time before cancel option becomes available": 0.12,
+                        "Empowered damage multiplier": 1.5
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 1680,
@@ -550,6 +552,9 @@
                 "abilities": {
                     "Incendiary and Volatile Changuns": {
                         "Reload time": 2.2
+                    },
+                    "Overrun": {
+                        "Critical multiplier": 2
                     }
                 }
             }
