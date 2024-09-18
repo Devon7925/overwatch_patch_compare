@@ -261,7 +261,8 @@
                         "Bullets per burst": "none",
                         "Projectile size": "meters",
                         "Recovery time": "seconds",
-                        "Burst recovery time": "seconds"
+                        "Burst recovery time": "seconds",
+                        "Explosion self damage": "percent"
                     },
                     "Experimental Barrier": {
                         "Movement speed": "none",
@@ -921,7 +922,8 @@
                     "Dragonstrike": {
                         "Speed": "none",
                         "Ultimate cost": "none",
-                        "Critical multiplier": "none"
+                        "Critical multiplier": "none",
+                        "Projectile size": "meters"
                     }
                 }
             },
@@ -1972,7 +1974,8 @@
                         "Self-heal per second": "none",
                         "can use fade during duration": "flag",
                         "Ultimate cost": "none",
-                        "Bonus movement speed": "percent"
+                        "Bonus movement speed": "percent",
+                        "Damage per second": "none"
                     }
                 }
             },

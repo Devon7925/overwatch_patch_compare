@@ -276,7 +276,8 @@
                         "Explosion damage": 30,
                         "Recovery time": 1.5,
                         "Bullets per burst": 2,
-                        "Burst recovery time": 0.192
+                        "Burst recovery time": 0.192,
+                        "Explosion self damage": 25
                     }
                 }
             },
@@ -824,7 +825,8 @@
                         "Speed": 12,
                         "Ultimate cost": 1681,
                         "Critical multiplier": 2,
-                        "Damage per second": 150
+                        "Damage per second": 150,
+                        "Projectile size": 0.1
                     },
                     "Sonic Arrow": {
                         "does impact sound plat for enemies": true,
@@ -1590,6 +1592,8 @@
                         "Projectile speed": 70,
                         "Second Thorn Volley projectile reduced spread": 25,
                         "Number of projectiles to reach maximum spread": 20,
+                        "Recovery time": 0.0909,
+                        "Reload time": 1.5,
                         "Critical multiplier": 2,
                         "Damage per pellet": 6,
                         "Pellet count": 2,
@@ -1723,7 +1727,8 @@
                         "Self-heal per second": 50,
                         "can use fade during duration": true,
                         "Ultimate cost": 2636,
-                        "Bonus movement speed": 40
+                        "Bonus movement speed": 40,
+                        "Damage per second": 70
                     },
                     "Fade": {
                         "can be activated while affected by mobility-locking effects": false,

@@ -267,7 +267,8 @@
                         "Bullets per burst": [["bullets per burst", "normal"]],
                         "Projectile size": [],
                         "Recovery time": ["time between shots"],
-                        "Burst recovery time": ["burst recovery time"]
+                        "Burst recovery time": ["burst recovery time"],
+                        "Explosion self damage": []
                     },
                     "Experimental Barrier": {
                         "Movement speed": [],
@@ -932,7 +933,8 @@
                         "Speed": [],
                         "Damage per second": [],
                         "Ultimate cost": [],
-                        "Critical multiplier": [["critical multiplier", "headshot"]]
+                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Projectile size": []
                     }
                 }
             },
@@ -1993,7 +1995,8 @@
                         "Self-heal per second": [],
                         "can use fade during duration": [],
                         "Ultimate cost": [],
-                        "Bonus movement speed": []
+                        "Bonus movement speed": [],
+                        "Damage per second": ["damage per second"]
                     }
                 }
             },

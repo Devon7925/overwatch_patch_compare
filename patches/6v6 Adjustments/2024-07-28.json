@@ -274,7 +274,8 @@
                         "Explosion damage": 30,
                         "Recovery time": 1.5,
                         "Bullets per burst": 2,
-                        "Burst recovery time": 0.192
+                        "Burst recovery time": 0.192,
+                        "Explosion self damage": 25
                     }
                 }
             },
@@ -871,7 +872,8 @@
                         "Speed": 15,
                         "Ultimate cost": 1680,
                         "Critical multiplier": 2,
-                        "Damage per second": 150
+                        "Damage per second": 150,
+                        "Projectile size": 0.175
                     },
                     "Sonic Arrow": {
                         "does impact sound plat for enemies": true,
@@ -1820,7 +1822,8 @@
                         "Self-heal per second": 55,
                         "can use fade during duration": false,
                         "Ultimate cost": 2800,
-                        "Bonus movement speed": 40
+                        "Bonus movement speed": 40,
+                        "Damage per second": 70
                     },
                     "Fade": {
                         "can be activated while affected by mobility-locking effects": false,

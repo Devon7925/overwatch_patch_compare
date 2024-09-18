@@ -8,7 +8,14 @@
             "general": {}
         },
         "support": {
-            "general": {}
+            "general": {},
+            "Moira": {
+                "abilities": {
+                    "Coalescence": {
+                        "Damage per second": 70
+                    }
+                }
+            }
         }
     },
     "Map list": [],

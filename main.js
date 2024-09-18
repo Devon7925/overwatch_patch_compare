@@ -974,7 +974,6 @@ export function calculateRates(patch_data, calculation_units) {
                     }
                     time_before_reload /= ammo_per_shot;
                     time_before_reload /= bullets_per_burst;
-                    console.log(ability + ": " + time_before_reload + ", " + reload_time);
                     if (typeof abilityData["Ammo per second"] === "number") {
                         time_before_reload /= abilityData["Ammo per second"];
                     }
