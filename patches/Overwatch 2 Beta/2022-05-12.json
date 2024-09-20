@@ -455,28 +455,6 @@
                         "Pellet count": 10
                     }
                 }
-            },
-            "Ramattra": {
-                "abilities": {
-                    "Revenous Vortex": {
-                        "Duration": 3
-                    },
-                    "Ravenous Vortex": {
-                        "Duration": 3,
-                        "Slow": 40,
-                        "Radius": 4
-                    }
-                }
-            },
-            "Mauga": {
-                "abilities": {
-                    "Incendiary and Volatile Changuns": {
-                        "Reload time": 2.2
-                    },
-                    "Overrun": {
-                        "Critical multiplier": 2
-                    }
-                }
             }
         },
         "damage": {

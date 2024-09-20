@@ -148,6 +148,16 @@
                     "Armor health": ["health"]
                 },
                 "abilities": {
+                    "Fusion Driver": {
+                        "Damage": [["damage instance", "normal"]],
+                        "Spread": [],
+                        "Movement speed reduction": [],
+                        "Projectile speed": [],
+                        "Recovery time": ["time between shots"],
+                        "Ammo": ["ammo"],
+                        "Reload time": ["reload time"],
+                        "Critical multiplier": [["critical multiplier", "headshot"]]
+                    },
                     "Augmented Fusion Driver": {
                         "Damage": [["damage instance", "normal"]],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
@@ -160,6 +170,12 @@
                         "Recovery time": ["time between shots"],
                         "Ammo": ["ammo"],
                         "Reload time per ammo": ["reload time per ammo"]
+                    },
+                    "Halt": {
+                        "Projectile speed": [],
+                        "Range": [],
+                        "Cast time": [],
+                        "Cooldown": []
                     },
                     "Energy Javelin": {
                         "Direct damage": [["damage instance", "direct"], "breakpoint damage"],
@@ -177,10 +193,23 @@
                         "Damage reduction": [],
                         "disables critical damage": []
                     },
+                    "Protective Barrier": {
+                        "Health": [],
+                        "Projectile speed": [],
+                        "Duration": [],
+                        "Cooldown": []
+                    },
                     "Javelin Spin": {
                         "Cooldown": [],
                         "Bonus movement speed": [],
                         "has reduced knockback": []
+                    },
+                    "Supercharger": {
+                        "Health": [],
+                        "Range": [],
+                        "Cast time": [],
+                        "Ultimate cost": [],
+                        "Duration": []
                     },
                     "Terra Surge": {
                         "Ultimate cost": [],
@@ -542,7 +571,8 @@
                 "general": {
                     "Base health": ["health"],
                     "Armor health": ["health"],
-                    "Model Size": []
+                    "Model Size": [],
+                    "Nemesis model size": []
                 },
                 "abilities": {
                     "Void Accelerator": {
@@ -694,6 +724,7 @@
                     "Ironclad": {
                         "Damage reduction": []
                     },
+                    "Self-Repair": {},
                     "Configuration: Recon": {
                         "Damage": [["damage instance", "normal"]],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
@@ -712,7 +743,8 @@
                         "Ammo": ["ammo"],
                         "Reload time": ["reload time"],
                         "Duration": [],
-                        "Cooldown": []
+                        "Cooldown": [],
+                        "Healing per second": []
                     },
                     "A-36 Tactical Grenade": {
                         "Self damage rate": [],
@@ -726,6 +758,7 @@
                     "Reconfigure": {
                         "Armor healing on transform": 50
                     },
+                    "Configuration: Tank": {},
                     "Configuration: Artillery": {
                         "Ultimate cost": [],
                         "Projectile size": [],
@@ -792,6 +825,52 @@
                         "Final damage rate": [],
                         "Damage rate": [],
                         "Maximum duration": []
+                    }
+                }
+            },
+            "Doomfist": {
+                "general": {
+                    "Base health": ["health"]
+                },
+                "abilities": {
+                    "The Best Defense": {
+                        "Overhealth generation": [],
+                        "Delay before Overhealth begins to drain": [],
+                        "Maximum temporary health": []
+                    },
+                    "Hand Cannon": {
+                        "Minimum damage": [],
+                        "Maximum damage": [],
+                        "Projectile size": [],
+                        "Pellet count": [],
+                        "Critical multiplier": []
+                    },
+                    "Seismic Slam": {
+                        "Damage": [],
+                        "Cooldown": []
+                    },
+                    "Rising Uppercut": {
+                        "Cooldown": [],
+                        "Damage": [],
+                        "Movement speed": [],
+                        "Range": [],
+                        "Duration": []
+                    },
+                    "Rocket Punch": {
+                        "Minimum knockback": [],
+                        "Maximum knockback": [],
+                        "Wall stun": [],
+                        "Max impact damage": [],
+                        "Max wall slam damage": [],
+                        "Damage reduction on AoE affected targets": [],
+                        "Cooldown": [],
+                        "Min impact damage": [],
+                        "Min wall slam damage": [],
+                        "Minimum time before cancel option becomes available": []
+                    },
+                    "Meteor Strike": {
+                        "Ultimate cost": [],
+                        "Minimum damage": []
                     }
                 }
             },
@@ -961,7 +1040,7 @@
                         "Cooldown": [],
                         "Projectile size": [],
                         "Maximum damage": [["damage instance", "maximum"]],
-                        "Minimum damage": [["damage instance", "minimum"]],
+                        "Minimum damage": [],
                         "Range": [],
                         "Health": [],
                         "Charges": ["charges"]

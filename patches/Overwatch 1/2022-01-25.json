@@ -119,9 +119,6 @@
                         "Cast time": 0.4,
                         "Ultimate cost": 1680,
                         "Duration": 15
-                    },
-                    "Terra Surge": {
-                        "Overhealth": 100
                     }
                 }
             },
@@ -379,43 +376,6 @@
                         "Health": 800,
                         "Duration": 9,
                         "Cooldown": 13
-                    }
-                }
-            },
-            "Ramattra": {
-                "abilities": {
-                    "Revenous Vortex": {
-                        "Duration": 3
-                    },
-                    "Ravenous Vortex": {
-                        "Duration": 3,
-                        "Slow": 40,
-                        "Radius": 4
-                    }
-                }
-            },
-            "Junker Queen": {
-                "abilities": {
-                    "Scattergun": {
-                        "Total damage": {},
-                        "Pellet count": 10
-                    }
-                }
-            },
-            "Mauga": {
-                "abilities": {
-                    "Incendiary and Volatile Changuns": {
-                        "Reload time": 2.2
-                    },
-                    "Overrun": {
-                        "Critical multiplier": 2
-                    }
-                }
-            },
-            "Doomfist": {
-                "abilities": {
-                    "Rocket Punch": {
-                        "Empowered damage multiplier": 1.5
                     }
                 }
             }
