@@ -21,15 +21,15 @@
         "tank": {
             "general": {
                 "Critical headshot damage reduction": 25,
-                "Knockback resistance": 10,
+                "Knockback resistance": 12,
                 "Ultimate generation reduction": 15,
                 "Damage passive effect reduction": 0,
                 "Adjusted sleep duration": 5
             },
             "D.Va": {
                 "general": {
-                    "Base health": 375,
-                    "Armor health": 175,
+                    "Base health": 325,
+                    "Armor health": 225,
                     "Pilot health": 150
                 },
                 "abilities": {
@@ -85,7 +85,7 @@
             },
             "Junker Queen": {
                 "general": {
-                    "Base health": 425,
+                    "Base health": 400,
                     "Model size": 0.96,
                     "Armor health": 0,
                     "has overridden melee": true,
@@ -108,7 +108,7 @@
                         "Pellet count": 10
                     },
                     "Jagged Blade": {
-                        "Pull distance": 18.666,
+                        "Pull distance": 17.629,
                         "Projectile size": 0.35,
                         "Impact damage": 65,
                         "Cooldown": 6,
@@ -143,8 +143,8 @@
             },
             "Orisa": {
                 "general": {
-                    "Base health": 250,
-                    "Armor health": 200
+                    "Base health": 225,
+                    "Armor health": 225
                 },
                 "abilities": {
                     "Fortify": {
@@ -156,7 +156,7 @@
                         "disables critical damage": true
                     },
                     "Energy Javelin": {
-                        "Direct damage": 80,
+                        "Direct damage": 70,
                         "Projectile size": 0.5,
                         "Cooldown": 6.5,
                         "Wall impact damage": 40
@@ -282,8 +282,8 @@
             },
             "Wrecking Ball": {
                 "general": {
-                    "Base health": 500,
-                    "Armor health": 50
+                    "Base health": 475,
+                    "Armor health": 75
                 },
                 "abilities": {
                     "Grappling Claw": {
@@ -377,7 +377,7 @@
             },
             "Doomfist": {
                 "general": {
-                    "Base health": 400
+                    "Base health": 450
                 },
                 "abilities": {
                     "The Best Defense": {
@@ -432,8 +432,8 @@
             },
             "Reinhardt": {
                 "general": {
-                    "Base health": 325,
-                    "Armor health": 225,
+                    "Base health": 275,
+                    "Armor health": 275,
                     "has overridden melee": true
                 },
                 "abilities": {
@@ -477,7 +477,7 @@
                 },
                 "abilities": {
                     "Incendiary and Volatile Changuns": {
-                        "Number of shots required to ignite enemies with Incendiary Chaingun": 8,
+                        "Number of shots required to ignite enemies with Incendiary Chaingun": 7,
                         "Projectile size": 0.05,
                         "Ammo": 300,
                         "Spread when only one Chaingun is active": 1,
@@ -525,7 +525,7 @@
                 "abilities": {
                     "Nemesis Form": {
                         "Cooldown": 8,
-                        "Extra armor": 175
+                        "Extra armor": 200
                     },
                     "Void Barrier": {
                         "Barrier health": 550,
@@ -626,7 +626,7 @@
                         "Damage": 40,
                         "Recovery time": 0.266,
                         "Ammo": 12,
-                        "Reload time per ammo": 0.2,
+                        "Reload time per ammo": 0.25,
                         "Reload time": 0.5
                     },
                     "The Viper Alt Fire": {
@@ -677,7 +677,7 @@
                         "Healing per second": 15
                     },
                     "Configuration: Artillery": {
-                        "Ultimate cost": 2310,
+                        "Ultimate cost": 2300,
                         "Projectile size": 0.015,
                         "can score critical hits": false,
                         "Targeting state movement speed": 25,
@@ -726,7 +726,7 @@
                         "Maximum travel time": 0.23,
                         "Slow": 50,
                         "hinder prevents crouching": true,
-                        "Explosion damage": 45,
+                        "Explosion damage": 50,
                         "Cooldown": 12,
                         "Projectile speed": 30,
                         "Projectile size": 0.2
@@ -755,8 +755,8 @@
                 },
                 "abilities": {
                     "Sticky Bombs": {
-                        "Explosion damage": 22.22,
-                        "Direct damage": 4.45,
+                        "Explosion damage": 20.833333333333332,
+                        "Direct damage": 4.166666666666667,
                         "Projectile size": 0.305
                     },
                     "Duplicate": {
@@ -787,7 +787,7 @@
                     "Tri-shot": {
                         "Projectile size": 0.175,
                         "Critical multiplier": 2,
-                        "Damage per pellet": 16,
+                        "Damage per pellet": 15,
                         "Pellet count": 3,
                         "Recovery time": 0.33333,
                         "Reload time": 1.5,
@@ -796,7 +796,7 @@
                     "Focusing Beam": {
                         "Width": 0.25,
                         "Maximum damage per second": 175,
-                        "Cooldown": 8
+                        "Cooldown": 10
                     },
                     "Flight": {
                         "Cooldown": 6,
@@ -896,18 +896,18 @@
                 "abilities": {
                     "Frag Launcher": {
                         "Projectile size": 0.35,
-                        "Direct damage": 41.4,
-                        "Explosion damage": 73.6,
+                        "Direct damage": 39.6,
+                        "Explosion damage": 70.4,
                         "Recovery time": 0.6667,
-                        "Ammo": 5,
+                        "Ammo": 4,
                         "Reload time": 1.5,
                         "Projectile size reduction": 50
                     },
                     "Concussion Mine": {
                         "Cooldown": 8,
                         "Projectile size": 0.2,
-                        "Maximum damage": 108,
-                        "Minimum damage": 49.5,
+                        "Maximum damage": 90,
+                        "Minimum damage": 41.25,
                         "Charges": 2,
                         "Health": 25,
                         "Range": 3
@@ -1091,7 +1091,7 @@
                         "Critical multiplier": 2,
                         "Damage": 9,
                         "Recovery time": 0.0625,
-                        "Ammo": 45,
+                        "Ammo": 35,
                         "Reload time": 1.2,
                         "Energy gain based on": "player hits, double for crits",
                         "Energy delay before draining": 7,
@@ -1168,10 +1168,10 @@
                 },
                 "abilities": {
                     "Virus": {
-                        "Damage over time": 84.375,
+                        "Damage over time": 90,
                         "Cooldown": 7,
                         "Projectile size": 0.5,
-                        "Impact damage": 32.8125
+                        "Impact damage": 25
                     },
                     "EMP": {
                         "Ultimate cost": 1375,
@@ -1369,8 +1369,8 @@
             "Venture": {
                 "abilities": {
                     "Explorer's Resolve": {
-                        "Ability shield generation": 25,
-                        "Shield cap": 50
+                        "Ability shield generation": 30,
+                        "Shield cap": 75
                     },
                     "SMART Excavator": {
                         "Maximum explosion damage": 37.33,
@@ -1392,7 +1392,7 @@
                         "Grace period": 0.2,
                         "Minimum damage": 35,
                         "Maximum damage": 70,
-                        "Maximum duration": 4
+                        "Maximum duration": 3.3
                     },
                     "Tectonic Shock": {
                         "Ultimate cost": 1780,
@@ -1414,7 +1414,7 @@
             },
             "Widowmaker": {
                 "general": {
-                    "Base health": 175
+                    "Base health": 150
                 },
                 "abilities": {
                     "Infra-Sight": {
@@ -1638,7 +1638,7 @@
                         "Move speed while falling": 3
                     },
                     "Mediblaster": {
-                        "Damage per bullet": 7,
+                        "Damage per bullet": 8,
                         "Healing per bullet": 7,
                         "Ammo": 180,
                         "Spread": 1,
@@ -1650,24 +1650,24 @@
                         "Burst recovery time": 0.029411764705882353
                     },
                     "Pulsar Torpedoes": {
-                        "Damage": 76.5,
-                        "Healing": 72.25,
+                        "Damage": 70,
+                        "Healing": 85,
                         "Maximum duration": 4,
                         "HoT duration": 2.5,
-                        "Cooldown": 10,
-                        "Healing over time": 42.5,
+                        "Cooldown": 11,
+                        "Healing over time": 50,
                         "Cooldown after no lock-on cancel": 2,
                         "Forgiveness range": 5
                     },
                     "Glide Boost": {
                         "Increased movement speed": 50,
                         "Maximum Duration": 4,
-                        "Cooldown": 8,
+                        "Cooldown": 6,
                         "Dash movement speed": 390
                     },
                     "Hyper Ring": {
                         "Increased movement speed": 50,
-                        "Cooldown": 14,
+                        "Cooldown": 13,
                         "Duration": 8,
                         "Speed boost duration": 3,
                         "Area of effect size": 8,
@@ -1676,7 +1676,7 @@
                     },
                     "Orbital Ray": {
                         "Damage boost": 35,
-                        "Ultimate cost": 2400,
+                        "Ultimate cost": 2850,
                         "Healing per second": 85,
                         "Duration": 10,
                         "Radius": 8,
@@ -1878,7 +1878,7 @@
                 },
                 "abilities": {
                     "Biotic Grasp": {
-                        "Damage per second": 65,
+                        "Damage per second": 60,
                         "Secondary fire target acquisition radius": 0.7,
                         "Lingering heal duration": 3,
                         "Self-healing": 24

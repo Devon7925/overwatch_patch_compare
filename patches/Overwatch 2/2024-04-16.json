@@ -1380,7 +1380,8 @@
                     },
                     "Burrow": {
                         "Minimum damage": 55,
-                        "Maximum damage": 110
+                        "Maximum damage": 110,
+                        "Maximum duration": 4
                     },
                     "Tectonic Shock": {
                         "Ultimate cost": 1932,

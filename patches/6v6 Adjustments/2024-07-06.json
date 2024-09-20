@@ -1388,7 +1388,8 @@
                     "Burrow": {
                         "Grace period": 0.2,
                         "Minimum damage": 40,
-                        "Maximum damage": 80
+                        "Maximum damage": 80,
+                        "Maximum duration": 4
                     },
                     "Tectonic Shock": {
                         "Ultimate cost": 1925,

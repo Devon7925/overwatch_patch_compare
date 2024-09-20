@@ -1457,7 +1457,8 @@
                     "Burrow": {
                         "Grace period": "seconds",
                         "Minimum damage": "none",
-                        "Maximum damage": "none"
+                        "Maximum damage": "none",
+                        "Maximum duration": "seconds"
                     },
                     "Tectonic Shock": {
                         "Vertical knockback": "relative percent",
