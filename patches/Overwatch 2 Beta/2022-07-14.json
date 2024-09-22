@@ -517,7 +517,8 @@
                         "Weapon damage": 14,
                         "has tank passive": false,
                         "Health": 1000,
-                        "prefers to shoot at enemy targets that Ashe damage with her rifle": false
+                        "prefers to shoot at enemy targets that Ashe damage with her rifle": false,
+                        "Recovery time": 0.125
                     },
                     "The Viper": {
                         "Projectile size": 0.0,
@@ -565,14 +566,16 @@
                         "Impact damage": 15,
                         "Maximum explosion damage falloff": 70,
                         "Detonation time": 0.5,
-                        "Cooldown": 8
+                        "Cooldown": 8,
+                        "Splash Damage": 100
                     },
                     "Configuration: Assault": {
                         "Movement speed penalty": 35,
                         "Cooldown": 12,
                         "Spread": 2.2,
                         "Damage": 12,
-                        "Duration": 6
+                        "Duration": 6,
+                        "Recovery time": 0.03333333333333333
                     },
                     "Configuration: Artillery": {
                         "Ultimate cost": 2272,
@@ -641,7 +644,8 @@
                     "Fan the Hammer": {
                         "Damage": 50,
                         "Recovery time": 0.112,
-                        "Alt fire of": "Peacekeeper"
+                        "Alt fire of": "Peacekeeper",
+                        "Additional reload delay": 0.358
                     }
                 }
             },
@@ -653,7 +657,8 @@
                     "Sticky Bombs": {
                         "Explosion damage": 25,
                         "Direct damage": 5,
-                        "Projectile size": 0.18
+                        "Projectile size": 0.18,
+                        "Bullets per shot": 6
                     },
                     "Duplicate": {
                         "Ultimate gain multiplier": 5.5,
@@ -1162,7 +1167,8 @@
                     "Deploy Turret": {
                         "Turret damage": 14,
                         "Cooldown": 10,
-                        "Turret base health": 250
+                        "Turret base health": 250,
+                        "Turret recovery time": 0.256
                     },
                     "Overload": {
                         "Overhealth": 100,

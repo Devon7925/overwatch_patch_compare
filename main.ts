@@ -3,14 +3,16 @@
 
 type Unit = "none" | "percent" | "meters" | "seconds" | "health per second" | "meters per second" | "relative percent" | "flag"
 type WithRemainder<T extends string, R extends any[]> = T extends any ? [T, ...R] : never
+type WithAppend<T extends string | [string, ...any], R extends string> = T extends [infer First extends string, ...infer Rest extends any[]] ? [`${First}${R}`, ...Rest] : T extends string ? `${T}${R}` : never
+type X = WithAppend<WithRemainder<"total instance crit" | "total crit", [string, string]> | "total crit", " damage" | " healing">
 type CalculationUnit =
-    WithRemainder<
-        "total instance damage" | "damage instance" | "total damage"
-        | "total instance healing" | "healing instance" | "total healing"
-        | "pellet count" | "bullets per burst", [string]> | "total damage" | "total healing"
-    | WithRemainder<"total instance crit damage" | "total crit damage", [string, string]> | "total crit damage"
-    | WithRemainder<"total instance crit healing" | "total crit healing", [string, string]> | "total crit healing"
-    | ["critical multiplier", string] | "bullets per burst" | "ammo" | "charges" | "reload time" | "health" | "breakpoint damage" | "time between shots" | "burst recovery time" | "reload time per ammo" | "ammo per shot" | "damage per second" | "healing per second"
+    WithRemainder<"damage instance" | "healing instance" | "pellet count" | "bullets per burst", [string]>
+    | WithAppend<
+        WithRemainder<"total instance" | "total", [string]>
+        | WithRemainder<"total instance crit" | "total crit", [string, string]>
+        | "total" | "total crit",
+        " damage" | " healing">
+    | ["critical multiplier", string]| ["critical multiplier", string, string] | "bullets per burst" | "ammo" | "charges" | "reload time" | "health" | "breakpoint damage" | "time between shots" | "burst recovery time" | "reload time per ammo" | "ammo per shot" | "damage per second" | "healing per second"
 type Value = string | number | boolean
 type PatchStructure<T> = {
     general: { [key: string]: T }
@@ -67,6 +69,10 @@ let defaultSiteState: SiteState = {
     apply_to_armor: false,
     before_dmg_boost: 1,
     after_dmg_boost: 1,
+}
+type Rest<T extends any[]> = T extends [infer _, ...infer Rest extends any[]] ? Rest : []
+function rest<T extends any[]>(array: T): Rest<T> {
+    return array.slice(1) as Rest<T>
 }
 
 function patch_from_path(joined_path: string) {
@@ -670,15 +676,19 @@ export function calculatePreArmorProperties(patch_data: PatchData, calculation_u
                                 [calc_units
                                     .filter((unit) => Array.isArray(unit))
                                     .filter((unit) => unit[0] === "critical multiplier")
-                                    .map((unit) => unit[1]), multiplier] as const)
+                                    .map((unit) => rest(unit)), multiplier] as const)
                             .flatMap(([crit_types, multiplier]) => crit_types.map((crit_type) => [crit_type, multiplier] as const))
                     for (let total_damage_type in total_damage) {
                         patch_data.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${damage_or_healing}`] = total_damage[total_damage_type]
                         calculation_units.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${damage_or_healing}`] = [[`total instance ${damage_or_healing}`, total_damage_type]]
 
                         for (let [crit_type, critical_multiplier] of crit_data) {
-                            patch_data.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${crit_type} ${damage_or_healing}`] = total_damage[total_damage_type] * critical_multiplier
-                            calculation_units.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${crit_type} ${damage_or_healing}`] = [[`total instance crit ${damage_or_healing}`, total_damage_type, crit_type]]
+                            let adj_critical_multiplier = 1
+                            if(crit_type[1] === undefined || crit_type[1] === total_damage_type) {
+                                adj_critical_multiplier = critical_multiplier
+                            }
+                            patch_data.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${crit_type} ${damage_or_healing}`] = total_damage[total_damage_type] * adj_critical_multiplier
+                            calculation_units.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${crit_type} ${damage_or_healing}`] = [[`total instance crit ${damage_or_healing}`, total_damage_type, crit_type[0]]]
                         }
                     }
                 }
@@ -904,7 +914,7 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: C
             for (let ability in damage_options) {
                 for (let damageEntry in breakpointDamage) {
                     for (let damageOption in damage_options[ability]) {
-                        breakpointDamage[`${damageEntry}, ${ability}${damageOption === ""?"":" "}${damageOption}`] = breakpointDamage[damageEntry] + damage_options[ability][damageOption]
+                        breakpointDamage[`${damageEntry}, ${ability}${damageOption === "" ? "" : " "}${damageOption}`] = breakpointDamage[damageEntry] + damage_options[ability][damageOption]
                     }
                 }
             }
@@ -1048,37 +1058,37 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
             let heroData = patch_data.heroes[role][hero]
             let heroDataUnits = calculation_units.heroes[role][hero]
             for (let ability in patch_data.heroes[role][hero].abilities) {
-                for(let damage_or_healing of ["damage", "healing"]) {
+                for (let damage_or_healing of ["damage", "healing"]) {
                     const abilityData = heroData.abilities[ability];
                     const abilityDataUnits = heroDataUnits.abilities[ability];
-                    let damage_type_damage: {[key: string]: number} = {}
-                    let crit_damage_type_damage: {[key: string]: number} = {}
+                    let damage_type_damage: { [key: string]: number } = {}
+                    let crit_damage_type_damage: { [key: string]: number } = {}
                     for (let property in abilityData) {
                         if (typeof abilityData[property] === "number") {
                             let property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total ${damage_or_healing}`).map((unit) => unit[1]);
-                            for(let property_damage_type of property_damage_types) {
+                            for (let property_damage_type of property_damage_types) {
                                 damage_type_damage[property_damage_type] = abilityData[property]
                             }
                             let crit_property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total crit ${damage_or_healing}`).map((unit) => unit[1]);
-                            for(let property_damage_type of crit_property_damage_types) {
+                            for (let property_damage_type of crit_property_damage_types) {
                                 crit_damage_type_damage[property_damage_type] = abilityData[property]
                             }
                         }
                     }
-                    let damage_type_instance_damage: {[key: string]: number} = {}
+                    let damage_type_instance_damage: { [key: string]: number } = {}
                     for (let property in abilityData) {
                         if (typeof abilityData[property] === "number") {
                             let property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total instance ${damage_or_healing}`).map((unit) => unit[1])
-                            for(let property_damage_type of property_damage_types) {
+                            for (let property_damage_type of property_damage_types) {
                                 damage_type_instance_damage[property_damage_type] = abilityData[property]
-                                if(damage_type_damage[property_damage_type] === abilityData[property]) {
+                                if (damage_type_damage[property_damage_type] === abilityData[property]) {
                                     delete abilityData[property]
                                     break
                                 }
                             }
                             let property_crit_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total instance crit ${damage_or_healing}`).map((unit) => unit[1]);
-                            for(let property_damage_type of property_crit_damage_types) {
-                                if(crit_damage_type_damage[property_damage_type] === abilityData[property]) {
+                            for (let property_damage_type of property_crit_damage_types) {
+                                if (crit_damage_type_damage[property_damage_type] === abilityData[property]) {
                                     delete abilityData[property]
                                     break
                                 }
@@ -1088,8 +1098,8 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                     for (let property in abilityData) {
                         if (typeof abilityData[property] === "number") {
                             let property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `${damage_or_healing} instance`).map((unit) => unit[1])
-                            for(let property_damage_type of property_damage_types) {
-                                if(damage_type_instance_damage[property_damage_type] === abilityData[property]) {
+                            for (let property_damage_type of property_damage_types) {
+                                if (damage_type_instance_damage[property_damage_type] === abilityData[property]) {
                                     delete abilityData[property]
                                     break
                                 }
@@ -1100,7 +1110,7 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                         for (let property in abilityData) {
                             if (typeof abilityData[property] === "number") {
                                 let property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total ${damage_or_healing}`).map((unit) => unit[1]);
-                                if(property_damage_types.length > 0) {
+                                if (property_damage_types.length > 0) {
                                     delete abilityData[property]
                                     continue
                                 }
@@ -1111,7 +1121,7 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                         for (let property in abilityData) {
                             if (typeof abilityData[property] === "number") {
                                 let crit_property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total crit ${damage_or_healing}`).map((unit) => unit[1]);
-                                if(crit_property_damage_types.length > 0) {
+                                if (crit_property_damage_types.length > 0) {
                                     delete abilityData[property]
                                     continue
                                 }

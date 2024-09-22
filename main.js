@@ -21,6 +21,9 @@ let defaultSiteState = {
     before_dmg_boost: 1,
     after_dmg_boost: 1,
 };
+function rest(array) {
+    return array.slice(1);
+}
 function patch_from_path(joined_path) {
     let path = joined_path.split(":");
     let versionType = path[0];
@@ -629,14 +632,18 @@ export function calculatePreArmorProperties(patch_data, calculation_units) {
                         .map(([calc_units, multiplier]) => [calc_units
                             .filter((unit) => Array.isArray(unit))
                             .filter((unit) => unit[0] === "critical multiplier")
-                            .map((unit) => unit[1]), multiplier])
+                            .map((unit) => rest(unit)), multiplier])
                         .flatMap(([crit_types, multiplier]) => crit_types.map((crit_type) => [crit_type, multiplier]));
                     for (let total_damage_type in total_damage) {
                         patch_data.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${damage_or_healing}`] = total_damage[total_damage_type];
                         calculation_units.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${damage_or_healing}`] = [[`total instance ${damage_or_healing}`, total_damage_type]];
                         for (let [crit_type, critical_multiplier] of crit_data) {
-                            patch_data.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${crit_type} ${damage_or_healing}`] = total_damage[total_damage_type] * critical_multiplier;
-                            calculation_units.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${crit_type} ${damage_or_healing}`] = [[`total instance crit ${damage_or_healing}`, total_damage_type, crit_type]];
+                            let adj_critical_multiplier = 1;
+                            if (crit_type[1] === undefined || crit_type[1] === total_damage_type) {
+                                adj_critical_multiplier = critical_multiplier;
+                            }
+                            patch_data.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${crit_type} ${damage_or_healing}`] = total_damage[total_damage_type] * adj_critical_multiplier;
+                            calculation_units.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${crit_type} ${damage_or_healing}`] = [[`total instance crit ${damage_or_healing}`, total_damage_type, crit_type[0]]];
                         }
                     }
                 }

@@ -695,19 +695,20 @@
                         "Cooldown": [],
                         "Damage per pellet": [["damage instance", "normal"]],
                         "Pellet count": [["pellet count", "normal"]],
-                        "Cast time": ["time between shots"],
-                        "Recovery time": ["time between shots"]
+                        "Cast time": [],
+                        "Recovery time": []
                     },
                     "Dynamite": {
                         "Cooldown": [],
                         "Explosion damage": [["damage instance", "normal"]],
-                        "Damage over time": [],
+                        "Damage over time": [["damage instance", "burn"]],
                         "Duration": [],
                         "Range": []
                     },
                     "B.O.B": {
                         "Ultimate cost": [],
-                        "Weapon damage": [],
+                        "Weapon damage": [["damage instance", "normal"]],
+                        "Recovery time": ["time between shots"],
                         "has tank passive": [],
                         "Health": [],
                         "prefers to shoot at enemy targets that Ashe damage with her rifle": []
@@ -751,6 +752,7 @@
                         "briefly grants increased aerial mobility on self knockback while in Configuration: Assault": [],
                         "Projectile size": [],
                         "Impact damage": [["damage instance", "normal"]],
+                        "Splash Damage": [["damage instance", "normal"]],
                         "Maximum explosion damage falloff": [],
                         "Detonation time": [],
                         "Cooldown": []
@@ -792,7 +794,8 @@
                         "Damage": [["damage instance", "normal"]],
                         "Recovery time": ["time between shots"],
                         "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Reload time": ["reload time"],
+                        "Additional reload delay": ["reload time"]
                     },
                     "Combat Roll": {
                         "Damage reduction": [],
@@ -884,8 +887,8 @@
                         "Vertical speed": []
                     },
                     "Tri-shot": {
-                        "Damage per pellet": [],
-                        "Pellet count": [],
+                        "Damage per pellet": [["damage instance", "normal"]],
+                        "Pellet count": [["pellet count", "normal"]],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Projectile size": [],
                         "Recovery time": ["time between shots"],
@@ -895,6 +898,7 @@
                     "Sticky Bombs": {
                         "Explosion damage": [["damage instance", "normal"]],
                         "Direct damage": [["damage instance", "normal"]],
+                        "Bullets per shot": [["bullets per burst", "normal"]],
                         "Projectile size": []
                     },
                     "Flight": {
@@ -964,7 +968,7 @@
                     },
                     "Swift Strike": {
                         "Cooldown": [],
-                        "Damage": []
+                        "Damage": [["damage instance", "normal"]]
                     },
                     "Deflect": {
                         "Cooldown": [],
@@ -973,7 +977,7 @@
                     "Dragonblade": {
                         "Ultimate cost": [],
                         "Recovery time": ["time between shots"],
-                        "Damage": []
+                        "Damage": [["damage instance", "normal"]]
                     }
                 }
             },
@@ -983,7 +987,7 @@
                 },
                 "abilities": {
                     "Storm Bow": {
-                        "Maximum damage": [],
+                        "Maximum damage": [["damage instance", "normal"]],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Projectile size": [],
                         "has arrow draw progress preserved while wall climbing": [],
@@ -999,7 +1003,7 @@
                     },
                     "Storm Arrows": {
                         "Cooldown": [],
-                        "Damage per bullet": [],
+                        "Damage per bullet": [["damage instance", "normal"]],
                         "Bullets per burst": [["bullets per burst", "normal"]],
                         "Projectile size": [],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
@@ -1183,8 +1187,8 @@
                         "Lifesteal percentage": []
                     },
                     "Hellfire Shotguns": {
-                        "Damage per pellet": [],
-                        "Pellet count": [],
+                        "Damage per pellet": [["damage instance", "normal"]],
+                        "Pellet count": [["pellet count", "normal"]],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Spread": [],
                         "Projectile size": [],
@@ -1237,7 +1241,7 @@
                         "Energy decay per second": []
                     },
                     "Railgun Alt Fire": {
-                        "Maximum damage": [],
+                        "Maximum damage": [["damage instance", "normal"]],
                         "Minimum damage": [],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Minimum damage falloff range": [],
@@ -1348,10 +1352,11 @@
                         "destroys immortality field": []
                     },
                     "Virus": {
-                        "Impact damage": [["damage instance", "normal"]],
-                        "Damage over time": [],
+                        "Impact damage": [["damage instance", "impact"]],
+                        "Damage over time": [["damage instance", "damage over time"]],
                         "Projectile size": [],
-                        "Cooldown": []
+                        "Cooldown": [],
+                        "Hack damage multiplier": [["critical multiplier", "hacked", "impact"]]
                     },
                     "Translocator": {
                         "destroys breakables while in flight": [],
@@ -1394,8 +1399,8 @@
                     "Photon Projector Alt Fire": {
                         "Minimum projectile size": [],
                         "Maximum projectile size": [],
-                        "Maximum impact damage": [],
-                        "Maximum explosion damage": [],
+                        "Maximum impact damage": [["damage instance", "normal"]],
+                        "Maximum explosion damage": [["damage instance", "normal"]],
                         "Maximum charge time": ["time between shots"],
                         "Ammo per shot": ["ammo per shot"],
                         "Reload time": ["reload time"],
@@ -1433,7 +1438,7 @@
                 "abilities": {
                     "Forge Hammer": {
                         "Recovery time": ["time between shots"],
-                        "Damage": []
+                        "Damage": [["damage instance", "normal"]]
                     },
                     "Rivet Gun": {
                         "Damage": [["damage instance", "normal"]],
@@ -1444,8 +1449,8 @@
                         "Reload time": ["reload time"]
                     },
                     "Rivet Gun Alt Fire": {
-                        "Damage per pellet": [],
-                        "Pellet count": [],
+                        "Damage per pellet": [["damage instance", "normal"]],
+                        "Pellet count": [["pellet count", "normal"]],
                         "Ammo per shot": ["ammo per shot"],
                         "Projectile size": [],
                         "Spread": [],
@@ -1456,9 +1461,10 @@
                         "Reload time": ["reload time"]
                     },
                     "Deploy Turret": {
-                        "Turret damage": [],
+                        "Turret damage": [["damage instance", "normal"]],
                         "Cooldown": [],
-                        "Turret base health": []
+                        "Turret base health": [],
+                        "Turret recovery time": ["time between shots"]
                     },
                     "Overload": {
                         "Overhealth": [],
@@ -1481,8 +1487,8 @@
                 },
                 "abilities": {
                     "Pulse Pistols": {
-                        "Damage per pellet": [],
-                        "Pellet count": [],
+                        "Damage per pellet": [["damage instance", "normal"]],
+                        "Pellet count": [["pellet count", "normal"]],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Minimum falloff range": [],
                         "Projectile size": [],
@@ -1529,7 +1535,7 @@
                     },
                     "Clobber": {
                         "Impact damage": [["damage instance", "normal"]],
-                        "Damage over time": []
+                        "Damage over time": [["damage instance", "damage over time"]]
                     },
                     "SMART Excavator": {
                         "Direct damage": [["damage instance", "normal"]],
@@ -1544,14 +1550,14 @@
                         "Cooldown reduction while burrowed": [],
                         "Cooldown acceleration while burrowed": [],
                         "Impact damage": [["damage instance", "normal"]],
-                        "Damage over time": [],
+                        "Damage over time": [["damage instance", "damage over time"]],
                         "Cooldown": [],
                         "Knockback": []
                     },
                     "Burrow": {
                         "Grace period": [],
                         "Minimum damage": [],
-                        "Maximum damage": [],
+                        "Maximum damage": [["damage instance", "normal"]],
                         "Maximum duration": []
                     },
                     "Tectonic Shock": {
@@ -1601,7 +1607,7 @@
                     },
                     "Venom Mine": {
                         "Cooldown": [],
-                        "Damage over time": [],
+                        "Damage over time": [["damage instance", "damage over time"]],
                         "Health": [],
                         "Duration": [],
                         "Range": [],

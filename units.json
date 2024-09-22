@@ -668,6 +668,7 @@
                     "B.O.B": {
                         "Ultimate cost": "none",
                         "Weapon damage": "none",
+                        "Recovery time": "seconds",
                         "has tank passive": "none",
                         "Health": "none",
                         "prefers to shoot at enemy targets that Ashe damage with her rifle": "flag"
@@ -709,6 +710,7 @@
                         "briefly grants increased aerial mobility on self knockback while in Configuration: Assault": "none",
                         "Projectile size": "meters",
                         "Impact damage": "none",
+                        "Splash damage": "none",
                         "Maximum explosion damage falloff": "percent",
                         "Detonation time": "seconds",
                         "Cooldown": "seconds"
@@ -1365,7 +1367,8 @@
                     "Deploy Turret": {
                         "Turret damage": 13,
                         "Cooldown": "seconds",
-                        "Turret base health": "none"
+                        "Turret base health": "none",
+                        "Turret recovery time": "seconds"
                     },
                     "Overload": {
                         "Overhealth": "none",
