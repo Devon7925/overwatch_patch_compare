@@ -1846,11 +1846,13 @@
             },
             "Zenyatta": {
                 "general": {
+                    "has overridden melee": true,
                     "Base health": 100,
                     "Shield health": 100
                 },
                 "abilities": {
                     "Snap Kick": {
+                        "Damage": 60,
                         "Knockback": 8
                     },
                     "Orb of Destruction": {

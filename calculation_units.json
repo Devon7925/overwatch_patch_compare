@@ -55,7 +55,7 @@
                         "Projectile size": [],
                         "Explosion damage": [["damage instance", "normal"]],
                         "Direct damage": [["damage instance", "normal"]],
-                        "Bullets per burst": [["bullets per burst", "normal"]],
+                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
                         "Burst recovery time": ["burst recovery time"],
                         "Projectile speed": [],
                         "Cooldown": []
@@ -293,7 +293,7 @@
                     "Hyperspheres": {
                         "Direct damage": [["damage instance", "normal"]],
                         "Explosion damage": [["damage instance", "normal"]],
-                        "Bullets per burst": [["bullets per burst", "normal"]],
+                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
                         "Projectile size": [],
                         "Recovery time": ["time between shots"],
                         "Burst recovery time": ["burst recovery time"],
@@ -898,7 +898,7 @@
                     "Sticky Bombs": {
                         "Explosion damage": [["damage instance", "normal"]],
                         "Direct damage": [["damage instance", "normal"]],
-                        "Bullets per shot": [["bullets per burst", "normal"]],
+                        "Bullets per shot": ["bullets per burst", ["bullets per burst", "normal"]],
                         "Projectile size": []
                     },
                     "Flight": {
@@ -947,7 +947,7 @@
                 "abilities": {
                     "Shuriken": {
                         "Damage per bullet": [["damage instance", "normal"]],
-                        "Bullets per burst": [["bullets per burst", "normal"]],
+                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Projectile size": [],
                         "Burst recovery time": ["burst recovery time"],
@@ -1004,7 +1004,7 @@
                     "Storm Arrows": {
                         "Cooldown": [],
                         "Damage per bullet": [["damage instance", "normal"]],
-                        "Bullets per burst": [["bullets per burst", "normal"]],
+                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
                         "Projectile size": [],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Burst recovery time": ["burst recovery time"]
@@ -1028,7 +1028,7 @@
                 "abilities": {
                     "Total Mayhem": {
                         "Explosion damage": [["damage instance", "normal"]],
-                        "Bullets per burst": [["bullets per burst", "normal"]],
+                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
                         "Cast time": ["time between shots"]
                     },
                     "Frag Launcher": {
@@ -1665,7 +1665,7 @@
                 "abilities": {
                     "Biotic Launcher": {
                         "Damage per bullet": [["damage instance", "normal"]],
-                        "Bullets per burst": [["bullets per burst", "normal"]],
+                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
                         "Projectile size": [],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Minimum falloff damage range": [],
@@ -1805,7 +1805,7 @@
                     "Mediblaster": {
                         "Damage per bullet": [["damage instance", "normal"]],
                         "Healing per bullet": [["healing instance", "normal"]],
-                        "Bullets per burst": [["bullets per burst", "normal"]],
+                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
                         "Spread": [],
                         "Falloff range minimum": [],
                         "Falloff range maximum": [],
@@ -1969,7 +1969,7 @@
                     },
                     "Sonic Amplifier": {
                         "Damage per bullet": [["damage instance", "normal"]],
-                        "Bullets per burst": [["bullets per burst", "normal"]],
+                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
                         "Projectile size": [],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Burst recovery time": ["burst recovery time"],
@@ -2088,11 +2088,13 @@
             },
             "Zenyatta": {
                 "general": {
+                    "has overridden melee": [],
                     "Base health": ["health"],
                     "Shield health": ["health"]
                 },
                 "abilities": {
                     "Snap Kick": {
+                        "Damage": [["damage instance", "normal"]],
                         "Knockback": []
                     },
                     "Orb of Destruction": {
@@ -2106,7 +2108,7 @@
                     "Orb of Destruction Alt Fire": {
                         "Alt fire of": [],
                         "Damage per bullet": [],
-                        "Bullets per burst": [["bullets per burst", "normal"]],
+                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
                         "Critical multiplier": [["critical multiplier", "headshot"]],
                         "Projectile size": [],
                         "Maximum charge time": ["time between shots"],

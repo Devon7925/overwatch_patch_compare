@@ -1033,6 +1033,7 @@ export function calculateRates(patch_data: PatchData, calculation_units: Calcula
                     if (typeof abilityData["Ammo per second"] === "number") {
                         time_before_reload /= abilityData["Ammo per second"]
                     }
+                    console.log(ability + ": " + time_before_reload + " - " + bullets_per_burst)
                     if (damage_per_second > 0) {
                         let damage_per_second_incl_reload = damage_per_second * time_before_reload / (time_before_reload + reload_time)
                         abilityData["Damage per second(including reload)"] = damage_per_second_incl_reload
