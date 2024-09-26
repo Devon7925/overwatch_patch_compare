@@ -758,7 +758,7 @@
                         "Cooldown": []
                     },
                     "Reconfigure": {
-                        "Armor healing on transform": 50
+                        "Armor healing on transform": [["healing instance", "normal"]]
                     },
                     "Configuration: Tank": {},
                     "Configuration: Artillery": {

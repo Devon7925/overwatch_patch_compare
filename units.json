@@ -716,7 +716,7 @@
                         "Cooldown": "seconds"
                     },
                     "Reconfigure": {
-                        "Armor healing on transform": 50
+                        "Armor healing on transform": "none"
                     },
                     "Configuration: Artillery": {
                         "Ultimate cost": "none",
@@ -1295,7 +1295,7 @@
                         "Damage per second per level": "none",
                         "Beam width": "meters",
                         "Beam decay rate": "relative percent",
-                        "Ammo per second": "rnone",
+                        "Ammo per second": "none",
                         "gains ammo from damaging barriers with primary fire": "flag",
                         "Ammo": "none",
                         "Projectile speed": "meters per second",
@@ -1365,7 +1365,7 @@
                         "Reload time": "seconds"
                     },
                     "Deploy Turret": {
-                        "Turret damage": 13,
+                        "Turret damage": "none",
                         "Cooldown": "seconds",
                         "Turret base health": "none",
                         "Turret recovery time": "seconds"

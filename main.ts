@@ -1,10 +1,11 @@
 // import units from "./units.json" with { type: "json" };
 // cant use because firefox dumb https://bugzilla.mozilla.org/show_bug.cgi?id=1736059
 
+import { autoTypeguard, hasOwnProperty, isArrayMatchingTypeguard, isBoolean, isKeyOf, isLiteral, isNumber, isObjectWithValues, isString, isTupleMatchingTypeguards, partialTypeguard, unionTypeguard } from "./utils.js"
+
 type Unit = "none" | "percent" | "meters" | "seconds" | "health per second" | "meters per second" | "relative percent" | "flag"
 type WithRemainder<T extends string, R extends any[]> = T extends any ? [T, ...R] : never
 type WithAppend<T extends string | [string, ...any], R extends string> = T extends [infer First extends string, ...infer Rest extends any[]] ? [`${First}${R}`, ...Rest] : T extends string ? `${T}${R}` : never
-type X = WithAppend<WithRemainder<"total instance crit" | "total crit", [string, string]> | "total crit", " damage" | " healing">
 type CalculationUnit =
     WithRemainder<"damage instance" | "healing instance" | "pellet count" | "bullets per burst", [string]>
     | WithAppend<
@@ -12,42 +13,101 @@ type CalculationUnit =
         | WithRemainder<"total instance crit" | "total crit", [string, string]>
         | "total" | "total crit",
         " damage" | " healing">
-    | ["critical multiplier", string]| ["critical multiplier", string, string] | "bullets per burst" | "ammo" | "charges" | "reload time" | "health" | "breakpoint damage" | "time between shots" | "burst recovery time" | "reload time per ammo" | "ammo per shot" | "damage per second" | "healing per second"
+    | ["critical multiplier", string] | ["critical multiplier", string, string] | "bullets per burst" | "ammo" | "charges" | "reload time" | "health" | "breakpoint damage" | "time between shots" | "burst recovery time" | "reload time per ammo" | "ammo per shot" | "damage per second" | "healing per second"
 type Value = string | number | boolean
+type Hero = "D.Va" |
+    "Doomfist" |
+    "Junker Queen" |
+    "Mauga" |
+    "Orisa" |
+    "Ramattra" |
+    "Reinhardt" |
+    "Roadhog" |
+    "Sigma" |
+    "Winston" |
+    "Wrecking Ball" |
+    "Zarya" |
+    "Ashe" |
+    "Bastion" |
+    "Cassidy" |
+    "Echo" |
+    "Genji" |
+    "Hanzo" |
+    "Junkrat" |
+    "Mei" |
+    "Pharah" |
+    "Reaper" |
+    "Sojourn" |
+    "Soldier: 76" |
+    "Sombra" |
+    "Symmetra" |
+    "Torbjörn" |
+    "Tracer" |
+    "Venture" |
+    "Widowmaker" |
+    "Ana" |
+    "Baptiste" |
+    "Brigitte" |
+    "Illari" |
+    "Juno" |
+    "Kiriko" |
+    "Lifeweaver" |
+    "Lúcio" |
+    "Mercy" |
+    "Moira" |
+    "Zenyatta"
 type PatchStructure<T> = {
     general: { [key: string]: T }
     heroes: {
         [key: string]: {
-            general: { [key: string]: T },
-        } & {
-            [key: string]: {
+            [key in Hero]?: {
                 general: { [key: string]: T },
                 abilities: { [key: string]: { [key: string]: T } }
                 breakpoints?: { [key: string]: T },
             }
+        } & {
+            general: { [key: string]: T },
         }
-    },
-    "Map list": {
-        [map: string]: number
     },
     "modes": {
         [key: string]: { [key: string]: T }
     }
 }
-type PatchData = PatchStructure<Value>
+type PatchData = PatchStructure<Value> & {
+    "Map list": {
+        [map: string]: number
+    }
+}
 type Units = PatchStructure<Unit>
 type CalculationUnits = PatchStructure<CalculationUnit[]>
 
 const damageBreakPointHealthValues = [150, 175, 200, 225, 250, 300];
 
-const patchList: { [key: string]: string[] } = await fetch("./patch_list.json")
+function is_patch_list(obj: unknown): obj is { [key: string]: string[] } {
+    if (!(typeof obj === "object")) return false;
+    if (obj === null) return false;
+    if (Array.isArray(obj)) return false;
+    for (const key in obj) {
+        if (hasOwnProperty(obj, key)) {
+            let element: unknown = obj[key];
+            if (!Array.isArray(element)) return false;
+            if (!element.every((v) => typeof v === "string")) return false
+        }
+    }
+    return true;
+}
+
+const patchList = await fetch("./patch_list.json")
     .then((res) => res.text())
     .then((text) => JSON.parse(text, (key, value) => {
         if (typeof value != "string") {
             return value;
         }
         return value.replace(/(\.\w+)+$/, "")
-    }));
+    })).then((patchList) => {
+        if (!(isObjectWithValues(isArrayMatchingTypeguard(isString)))(patchList)) throw new Error("patchList could not be verified");
+        return patchList;
+    });
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -142,6 +202,78 @@ function patch_from_path(joined_path: string) {
     window.history.replaceState(siteState, "", "index.html?" + newUrlParams)
 }
 
+const isUnit = unionTypeguard<Unit>([
+    isLiteral("none"),
+    isLiteral("percent"),
+    isLiteral("meters"),
+    isLiteral("seconds"),
+    isLiteral("health per second"),
+    isLiteral("meters per second"),
+    isLiteral("relative percent"),
+    isLiteral("flag")
+])
+type SFA = Omit<Units["heroes"][string], "general">
+const isUnits = autoTypeguard<Units>({
+    general: isObjectWithValues(isUnit),
+    heroes: isObjectWithValues(partialTypeguard("general" as const, isObjectWithValues(isUnit), isObjectWithValues(autoTypeguard({
+        general: isObjectWithValues(isUnit),
+        abilities: isObjectWithValues(isObjectWithValues(isUnit)),
+    }, {
+        breakpoints: isObjectWithValues(isUnit)
+    })))),
+    modes: isObjectWithValues(isObjectWithValues(isUnit)),
+}, {})
+const isCalculationUnit = unionTypeguard<CalculationUnit>([
+    isLiteral("bullets per burst"),
+    isTupleMatchingTypeguards(isLiteral("damage instance"), isString),
+    isTupleMatchingTypeguards(isLiteral("healing instance"), isString),
+    isTupleMatchingTypeguards(isLiteral("pellet count"), isString),
+    isTupleMatchingTypeguards(isLiteral("bullets per burst"), isString),
+    isLiteral("total damage"),
+    isLiteral("total healing"),
+    isTupleMatchingTypeguards(unionTypeguard<"total instance damage" | "total instance healing">([isLiteral("total instance damage"), isLiteral("total instance healing")]), isString),
+    isTupleMatchingTypeguards(isLiteral("total damage"), isString),
+    isLiteral("total crit damage"),
+    isLiteral("total crit healing"),
+    isTupleMatchingTypeguards(unionTypeguard<"total instance crit damage" | "total instance crit healing">([isLiteral("total instance crit damage"), isLiteral("total instance crit healing")]), isString, isString),
+    isTupleMatchingTypeguards(unionTypeguard<"total crit damage" | "total crit healing">([isLiteral("total crit damage"), isLiteral("total crit healing")]), isString, isString),
+    isTupleMatchingTypeguards(isLiteral("critical multiplier"), isString),
+    isTupleMatchingTypeguards(isLiteral("critical multiplier"), isString, isString),
+    isLiteral("ammo"),
+    isLiteral("charges"),
+    isLiteral("reload time"),
+    isLiteral("health"),
+    isLiteral("breakpoint damage"),
+    isLiteral("time between shots"),
+    isLiteral("burst recovery time"),
+    isLiteral("reload time per ammo"),
+    isLiteral("ammo per shot"),
+    isLiteral("damage per second"),
+    isLiteral("healing per second"),
+])
+const isCalculationUnits = autoTypeguard<CalculationUnits>({
+    general: isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit)),
+    heroes: isObjectWithValues(partialTypeguard("general" as const, isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit)), isObjectWithValues(autoTypeguard({
+        general: isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit)),
+        abilities: isObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit))),
+    }, {
+        breakpoints: isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit))
+    })))),
+    modes: isObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit)))
+}, {})
+const isValue = unionTypeguard<Value>([isString, isNumber, isLiteral(false), isLiteral(true)])
+const isPatchData = autoTypeguard<PatchData>({
+    general: isObjectWithValues(isValue),
+    heroes: isObjectWithValues(partialTypeguard("general" as const, isObjectWithValues(isValue), isObjectWithValues(autoTypeguard({
+        general: isObjectWithValues(isValue),
+        abilities: isObjectWithValues(isObjectWithValues(isValue)),
+    }, {
+        breakpoints: isObjectWithValues(isValue)
+    })))),
+    modes: isObjectWithValues(isObjectWithValues(isValue)),
+    "Map list": isObjectWithValues(isNumber),
+}, {})
+
 let units: Units;
 let calculation_units: CalculationUnits;
 let hero_images: { [key: string]: string } = {};
@@ -151,16 +283,36 @@ export let patches: { [key: string]: PatchData } = {};
 let promises = [];
 promises.push(fetch("./units.json")
     .then((res) => res.text())
-    .then((text) => units = JSON.parse(text)))
+    .then((text) => JSON.parse(text))
+    .then((possible_units) => {
+        if (!isUnits(possible_units)) throw new Error("Units is incorrect")
+        return possible_units
+    })
+    .then((units_data) => units = units_data))
 promises.push(fetch("./calculation_units.json")
     .then((res) => res.text())
-    .then((text) => calculation_units = JSON.parse(text)))
+    .then((text) => JSON.parse(text))
+    .then((possible_calculation_units) => {
+        if (!isCalculationUnits(possible_calculation_units)) throw new Error("Calculation units is incorrect")
+        return possible_calculation_units
+    })
+    .then((calculation_units_data) => calculation_units = calculation_units_data))
 promises.push(fetch("./hero_images.json")
     .then((res) => res.text())
-    .then((text) => hero_images = JSON.parse(text)))
+    .then((text) => JSON.parse(text))
+    .then((possible_hero_images) => {
+        if (!(isObjectWithValues(isString))(possible_hero_images)) throw new Error("Hero images is incorrect")
+        return possible_hero_images
+    })
+    .then((hero_images_data) => hero_images = hero_images_data))
 promises.push(fetch("./ability_images.json")
     .then((res) => res.text())
-    .then((text) => ability_images = JSON.parse(text)))
+    .then((text) => JSON.parse(text))
+    .then((possible_ability_images) => {
+        if (!(isObjectWithValues(isString))(possible_ability_images)) throw new Error("Ability images is incorrect")
+        return possible_ability_images
+    })
+    .then((ability_images_data) => ability_images = ability_images_data))
 await Promise.all(promises);
 
 function isEmpty(obj: any) {
@@ -173,7 +325,12 @@ function round(num: number, decimalPlaces = 0) {
     return Number(num + "e" + -decimalPlaces);
 }
 
-export function convert_to_changes<T extends { [key: string]: any }>(before: T, after: T): { [key in keyof T]: any };
+type Changes<T> = (
+    T extends string ? [string, string] :
+    T extends number ? [number, number] :
+    T extends object ? { [K in keyof T]: (string extends K ? ([undefined, T[K]] | [T[K], undefined]) : (undefined extends T[K] ? ([undefined, T[K]] | [T[K], undefined]) : never)) | Changes<T[K]> } :
+    never) | T
+export function convert_to_changes<T extends { [key: string]: any }>(before: T, after: T): Changes<T>;
 export function convert_to_changes(before: any, after: any) {
     if (typeof before == "object" && typeof after == "object") {
         let result: { [key: string]: any } = {};
@@ -195,14 +352,17 @@ export function convert_to_changes(before: any, after: any) {
     return [before, after];
 }
 
-export function getChangeText(name: string, change: [any, any], units: Unit) {
+export function getChangeText(name: string, change: [any, any] | string | number | boolean, units: Unit) {
+    if (!Array.isArray(change)) {
+        change = [undefined, change]
+    }
     if (typeof change[0] === "number") {
         change[0] = round(change[0], 2)
     }
     if (typeof change[1] === "number") {
         change[1] = round(change[1], 2)
     }
-    if (change[0] === undefined || !Array.isArray(change)) {
+    if (change[0] === undefined) {
         let new_value = change[1];
         if (!Array.isArray(change)) {
             new_value = change;
@@ -365,7 +525,11 @@ async function updatePatchNotes() {
             return fetch(`./patches/${versionType}/${version}.json`)
                 .then((res) => res.text())
                 .then((text) => {
-                    patches[`${versionType}:${version}`] = JSON.parse(text);
+                    let patch = JSON.parse(text);
+                    if (!isPatchData(patch)) {
+                        throw new Error("Invalid patch data")
+                    }
+                    patches[`${versionType}:${version}`] = patch;
                 })
         }))
     let before_patch_data = structuredClone(patches[siteState.before_patch]);
@@ -421,9 +585,13 @@ async function updatePatchNotes() {
     }
     for (let role in changes.heroes) {
         let generalChangeRender = "";
-        if (changes.heroes[role].general) {
-            for (let generalRule in changes.heroes[role].general) {
-                generalChangeRender += `<li>${getChangeText(generalRule, changes.heroes[role].general[generalRule], units.heroes[role].general[generalRule])}</li>`
+        const roleData = changes.heroes[role]
+        if (Array.isArray(roleData)) {
+            throw new Error("Not supported: role missing from one patch")
+        }
+        if (roleData.general) {
+            for (let generalRule in roleData.general) {
+                generalChangeRender += `<li>${getChangeText(generalRule, roleData.general[generalRule], units.heroes[role].general[generalRule])}</li>`
             }
             generalChangeRender = `
                 <div class="PatchNotes-sectionDescription">
@@ -434,12 +602,15 @@ async function updatePatchNotes() {
             `;
         }
         let heroChanges = "";
-        for (let hero of Object.keys(changes.heroes[role]).sort()) {
+        for (let hero of Object.keys(roleData).sort()) {
+            if (!isKeyOf(roleData, hero)) {
+                throw new Error("Invalid state")
+            }
             if (hero == "general") continue;
             let generalChangesRender = "";
-            let heroData = changes.heroes[role][hero];
+            let heroData = roleData[hero];
             if (Array.isArray(heroData)) {
-                if (heroData[1] != undefined) {
+                if (heroData[1] !== undefined) {
                     heroData = heroData[1];
                 } else {
                     heroChanges += `
@@ -455,6 +626,15 @@ async function updatePatchNotes() {
                     </div>`;
                     continue;
                 }
+            }
+            if (heroData === undefined) {
+                throw new Error("Invalid state")
+            }
+            if (units.heroes[role][hero] === undefined) {
+                throw new Error(`Units is missing hero ${hero}`)
+            }
+            if (calculation_units.heroes[role][hero] === undefined) {
+                throw new Error("Invalid state")
             }
             if (heroData.general) {
                 generalChangesRender += "<ul>";
@@ -519,6 +699,9 @@ async function updatePatchNotes() {
             }
             let breakpointsRender = ""
             if (heroData.breakpoints) {
+                if (Array.isArray(heroData.breakpoints)) {
+                    throw new Error("Invalid State")
+                }
                 breakpointsRender += "<ul>";
                 for (let property in heroData.breakpoints) {
                     breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], "none")}</li>`
@@ -556,6 +739,9 @@ async function updatePatchNotes() {
         let change_render = "";
         for (let map in changes["Map list"]) {
             let map_change = changes["Map list"][map];
+            if (!Array.isArray(map_change)) {
+                map_change = [undefined, map_change]
+            }
             if (map_change[0] === undefined) {
                 change_render += `<li>New map ${map}.</li>`;
             } else {
@@ -628,11 +814,20 @@ export function applyDamageMultiplier(patch_data: PatchData, multiplier: number,
     }
     for (let role in patch_data.heroes) {
         for (let hero in patch_data.heroes[role]) {
+            if (!isKeyOf(patch_data.heroes[role], hero)) {
+                throw new Error("Invalid state")
+            }
             if (hero == "general") continue;
             let heroData = patch_data.heroes[role][hero];
             let heroUnits = calculation_units.heroes[role][hero];
+            if (heroData === undefined) {
+                throw new Error("Invalid state")
+            }
+            if (heroUnits === undefined) {
+                throw new Error("Invalid state")
+            }
 
-            for (let ability in patch_data.heroes[role][hero].abilities) {
+            for (let ability in heroData.abilities) {
                 for (let ability_property in heroData.abilities[ability]) {
                     let property_units = heroUnits.abilities[ability][ability_property]
                     if (typeof heroData.abilities[ability][ability_property] === "number") {
@@ -650,11 +845,22 @@ export function applyDamageMultiplier(patch_data: PatchData, multiplier: number,
 export function calculatePreArmorProperties(patch_data: PatchData, calculation_units: CalculationUnits) {
     for (let role in patch_data.heroes) {
         for (let hero in patch_data.heroes[role]) {
+            if (!isKeyOf(patch_data.heroes[role], hero)) {
+                throw new Error("Invalid state")
+            }
             if (hero == "general") continue;
+            let heroData = patch_data.heroes[role][hero];
+            let heroUnits = calculation_units.heroes[role][hero];
+            if (heroData === undefined) {
+                throw new Error("Invalid state")
+            }
+            if (heroUnits === undefined) {
+                throw new Error("Invalid state")
+            }
 
-            for (let ability in patch_data.heroes[role][hero].abilities) {
-                const abilityData = patch_data.heroes[role][hero].abilities[ability];
-                const abilityDataUnits = calculation_units.heroes[role][hero].abilities[ability];
+            for (let ability in heroData.abilities) {
+                const abilityData = heroData.abilities[ability];
+                const abilityDataUnits = heroUnits.abilities[ability];
 
                 for (let damage_or_healing of ["damage", "healing"] as const) {
                     let total_damage = Object.keys(abilityData)
@@ -669,8 +875,8 @@ export function calculatePreArmorProperties(patch_data: PatchData, calculation_u
                         }, {})
 
                     let crit_data =
-                        Object.entries(calculation_units.heroes[role][hero].abilities[ability])
-                            .map(([key, calc_units]) => [calc_units, patch_data.heroes[role][hero].abilities[ability][key]] as const)
+                        Object.entries(heroUnits.abilities[ability])
+                            .map(([key, calc_units]) => [calc_units, heroData.abilities[ability][key]] as const)
                             .filter((entry): entry is [CalculationUnit[], number] => typeof entry[1] === "number")
                             .map(([calc_units, multiplier]) =>
                                 [calc_units
@@ -679,16 +885,16 @@ export function calculatePreArmorProperties(patch_data: PatchData, calculation_u
                                     .map((unit) => rest(unit)), multiplier] as const)
                             .flatMap(([crit_types, multiplier]) => crit_types.map((crit_type) => [crit_type, multiplier] as const))
                     for (let total_damage_type in total_damage) {
-                        patch_data.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${damage_or_healing}`] = total_damage[total_damage_type]
-                        calculation_units.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${damage_or_healing}`] = [[`total instance ${damage_or_healing}`, total_damage_type]]
+                        heroData.abilities[ability][`Total ${total_damage_type} instance ${damage_or_healing}`] = total_damage[total_damage_type]
+                        heroUnits.abilities[ability][`Total ${total_damage_type} instance ${damage_or_healing}`] = [[`total instance ${damage_or_healing}`, total_damage_type]]
 
                         for (let [crit_type, critical_multiplier] of crit_data) {
                             let adj_critical_multiplier = 1
-                            if(crit_type[1] === undefined || crit_type[1] === total_damage_type) {
+                            if (crit_type[1] === undefined || crit_type[1] === total_damage_type) {
                                 adj_critical_multiplier = critical_multiplier
                             }
-                            patch_data.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${crit_type} ${damage_or_healing}`] = total_damage[total_damage_type] * adj_critical_multiplier
-                            calculation_units.heroes[role][hero].abilities[ability][`Total ${total_damage_type} instance ${crit_type} ${damage_or_healing}`] = [[`total instance crit ${damage_or_healing}`, total_damage_type, crit_type[0]]]
+                            heroData.abilities[ability][`Total ${total_damage_type} instance ${crit_type} ${damage_or_healing}`] = total_damage[total_damage_type] * adj_critical_multiplier
+                            heroUnits.abilities[ability][`Total ${total_damage_type} instance ${crit_type} ${damage_or_healing}`] = [[`total instance crit ${damage_or_healing}`, total_damage_type, crit_type[0]]]
                         }
                     }
                 }
@@ -721,9 +927,18 @@ export function applyArmor(patch_data: PatchData, calculation_units: Calculation
     }
     for (let role in patch_data.heroes) {
         for (let hero in patch_data.heroes[role]) {
+            if (!isKeyOf(patch_data.heroes[role], hero)) {
+                throw new Error("Invalid state")
+            }
             if (hero == "general") continue;
             let heroData = patch_data.heroes[role][hero];
             let heroUnits = calculation_units.heroes[role][hero];
+            if (heroData === undefined) {
+                throw new Error("Invalid state")
+            }
+            if (heroUnits === undefined) {
+                throw new Error("Invalid state")
+            }
             for (let ability in heroData.abilities) {
                 for (let ability_property in heroData.abilities[ability]) {
                     let property_units = heroUnits.abilities[ability][ability_property]
@@ -742,9 +957,20 @@ export function applyArmor(patch_data: PatchData, calculation_units: Calculation
 export function calculatePostArmorProperties(patch_data: PatchData, calculation_units: CalculationUnits) {
     for (let role in patch_data.heroes) {
         for (let hero in patch_data.heroes[role]) {
+            if (!isKeyOf(patch_data.heroes[role], hero)) {
+                throw new Error("Invalid state")
+            }
             if (hero == "general") continue;
-            const generalHeroData = patch_data.heroes[role][hero].general;
-            const generalHeroDataUnits = calculation_units.heroes[role][hero].general;
+            let heroData = patch_data.heroes[role][hero];
+            let heroUnits = calculation_units.heroes[role][hero];
+            if (heroData === undefined) {
+                throw new Error("Invalid state")
+            }
+            if (heroUnits === undefined) {
+                throw new Error("Invalid state")
+            }
+            const generalHeroData = heroData.general;
+            const generalHeroDataUnits = heroUnits.general;
             if (generalHeroData === undefined) {
                 console.error(`No general hero data for ${hero}`)
                 continue
@@ -754,20 +980,20 @@ export function calculatePostArmorProperties(patch_data: PatchData, calculation_
                 .map((general_property) => generalHeroData[general_property])
                 .filter((general_property) => typeof general_property === "number")
                 .reduce((a, c) => a + c, 0)
-            patch_data.heroes[role][hero].general["Total health"] = total_health;
+            heroData.general["Total health"] = total_health;
 
-            for (let ability in patch_data.heroes[role][hero].abilities) {
-                const abilityData = patch_data.heroes[role][hero].abilities[ability];
-                const abilityDataUnits = calculation_units.heroes[role][hero].abilities[ability];
+            for (let ability in heroData.abilities) {
+                const abilityData = heroData.abilities[ability];
+                const abilityDataUnits = heroUnits.abilities[ability];
                 if (typeof abilityData["Alt fire of"] == "string") {
-                    if (!("Ammo" in abilityData) && "Ammo" in patch_data.heroes[role][hero].abilities[abilityData["Alt fire of"]]) {
-                        patch_data.heroes[role][hero].abilities[ability]["Ammo"] = patch_data.heroes[role][hero].abilities[abilityData["Alt fire of"]]["Ammo"];
+                    if (!("Ammo" in abilityData) && "Ammo" in heroData.abilities[abilityData["Alt fire of"]]) {
+                        heroData.abilities[ability]["Ammo"] = heroData.abilities[abilityData["Alt fire of"]]["Ammo"];
                     }
-                    if ("Reload time" in patch_data.heroes[role][hero].abilities[abilityData["Alt fire of"]]) {
-                        patch_data.heroes[role][hero].abilities[ability]["Reload time"] = patch_data.heroes[role][hero].abilities[abilityData["Alt fire of"]]["Reload time"];
+                    if ("Reload time" in heroData.abilities[abilityData["Alt fire of"]]) {
+                        heroData.abilities[ability]["Reload time"] = heroData.abilities[abilityData["Alt fire of"]]["Reload time"];
                     }
-                    if ("Reload time per ammo" in patch_data.heroes[role][hero].abilities[abilityData["Alt fire of"]]) {
-                        patch_data.heroes[role][hero].abilities[ability]["Reload time per ammo"] = patch_data.heroes[role][hero].abilities[abilityData["Alt fire of"]]["Reload time per ammo"];
+                    if ("Reload time per ammo" in heroData.abilities[abilityData["Alt fire of"]]) {
+                        heroData.abilities[ability]["Reload time per ammo"] = heroData.abilities[abilityData["Alt fire of"]]["Reload time per ammo"];
                     }
                 }
                 for (let damage_or_healing of ["damage", "healing"] as const) {
@@ -863,30 +1089,39 @@ export function calculatePostArmorProperties(patch_data: PatchData, calculation_
 export function calculateBreakpoints(patch_data: PatchData, calculation_units: CalculationUnits): PatchData {
     for (let role in patch_data.heroes) {
         for (let hero in patch_data.heroes[role]) {
+            if (!isKeyOf(patch_data.heroes[role], hero)) {
+                throw new Error("Invalid state")
+            }
             if (hero == "general") continue;
-            let hero_data = patch_data.heroes[role][hero];
-            let hero_data_units = calculation_units.heroes[role][hero];
+            let heroData = patch_data.heroes[role][hero];
+            let heroUnits = calculation_units.heroes[role][hero];
+            if (heroData === undefined) {
+                throw new Error("Invalid state")
+            }
+            if (heroUnits === undefined) {
+                throw new Error("Invalid state")
+            }
             let damage_options: { [key: string]: { [key: string]: number } } = {};
-            if (typeof patch_data.general["Quick melee damage"] == "number" && hero_data.general["has overridden melee"] !== true) {
+            if (typeof patch_data.general["Quick melee damage"] == "number" && heroData.general["has overridden melee"] !== true) {
                 damage_options["Melee"] = {}
                 damage_options["Melee"][""] = patch_data.general["Quick melee damage"]
             }
-            for (let ability in hero_data.abilities) {
+            for (let ability in heroData.abilities) {
                 let max_damage_instances = 1;
                 let ability_damage_options: { [key: string]: number } = {}
-                for (let ability_property in hero_data.abilities[ability]) {
-                    for (let property_unit of hero_data_units.abilities[ability][ability_property]) {
+                for (let ability_property in heroData.abilities[ability]) {
+                    for (let property_unit of heroUnits.abilities[ability][ability_property]) {
                         if (property_unit == "breakpoint damage") {
-                            if (typeof hero_data.abilities[ability][ability_property] === "number") {
-                                ability_damage_options[ability_property] = hero_data.abilities[ability][ability_property]
+                            if (typeof heroData.abilities[ability][ability_property] === "number") {
+                                ability_damage_options[ability_property] = heroData.abilities[ability][ability_property]
                             }
                         } else if (property_unit == "ammo") {
-                            if (typeof hero_data.abilities[ability][ability_property] === "number") {
-                                max_damage_instances = Math.max(max_damage_instances, Math.min(3, hero_data.abilities[ability][ability_property]))
+                            if (typeof heroData.abilities[ability][ability_property] === "number") {
+                                max_damage_instances = Math.max(max_damage_instances, Math.min(3, heroData.abilities[ability][ability_property]))
                             }
                         } else if (property_unit == "charges") {
-                            if (typeof hero_data.abilities[ability][ability_property] === "number") {
-                                max_damage_instances = Math.max(max_damage_instances, hero_data.abilities[ability][ability_property])
+                            if (typeof heroData.abilities[ability][ability_property] === "number") {
+                                max_damage_instances = Math.max(max_damage_instances, heroData.abilities[ability][ability_property])
                             }
                         } else if (property_unit == "time between shots") {
                             max_damage_instances = Math.max(max_damage_instances, 3)
@@ -925,7 +1160,7 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: C
                     breakpointDamageEntries[`Breakpoint for ${breakpoint.substring(2)}`] = breakpointHealth
                 }
             }
-            patch_data.heroes[role][hero].breakpoints = breakpointDamageEntries;
+            heroData.breakpoints = breakpointDamageEntries;
         }
     }
     return patch_data
@@ -934,16 +1169,27 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: C
 export function calculateRates(patch_data: PatchData, calculation_units: CalculationUnits) {
     for (let role in patch_data.heroes) {
         for (let hero in patch_data.heroes[role]) {
+            if (!isKeyOf(patch_data.heroes[role], hero)) {
+                throw new Error("Invalid state")
+            }
             if (hero == "general") continue;
-            const generalHeroData = patch_data.heroes[role][hero].general;
+            let heroData = patch_data.heroes[role][hero];
+            let heroUnits = calculation_units.heroes[role][hero];
+            if (heroData === undefined) {
+                throw new Error("Invalid state")
+            }
+            if (heroUnits === undefined) {
+                throw new Error("Invalid state")
+            }
+            const generalHeroData = heroData.general;
             if (generalHeroData === undefined) {
                 console.error(`No general hero data for ${hero}`)
                 continue
             }
 
-            for (let ability in patch_data.heroes[role][hero].abilities) {
-                const abilityData = patch_data.heroes[role][hero].abilities[ability];
-                const abilityDataUnits = calculation_units.heroes[role][hero].abilities[ability];
+            for (let ability in heroData.abilities) {
+                const abilityData = heroData.abilities[ability];
+                const abilityDataUnits = heroUnits.abilities[ability];
 
                 let time_between_shots = 0
                 {
@@ -1055,13 +1301,22 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
     // return patch_data;
     for (let role in patch_data.heroes) {
         for (let hero in patch_data.heroes[role]) {
+            if (!isKeyOf(patch_data.heroes[role], hero)) {
+                throw new Error("Invalid state")
+            }
             if (hero == "general") continue;
-            let heroData = patch_data.heroes[role][hero]
-            let heroDataUnits = calculation_units.heroes[role][hero]
-            for (let ability in patch_data.heroes[role][hero].abilities) {
+            let heroData = patch_data.heroes[role][hero];
+            let heroUnits = calculation_units.heroes[role][hero];
+            if (heroData === undefined) {
+                throw new Error("Invalid state")
+            }
+            if (heroUnits === undefined) {
+                throw new Error("Invalid state")
+            }
+            for (let ability in heroData.abilities) {
                 for (let damage_or_healing of ["damage", "healing"]) {
                     const abilityData = heroData.abilities[ability];
-                    const abilityDataUnits = heroDataUnits.abilities[ability];
+                    const abilityDataUnits = heroUnits.abilities[ability];
                     let damage_type_damage: { [key: string]: number } = {}
                     let crit_damage_type_damage: { [key: string]: number } = {}
                     for (let property in abilityData) {

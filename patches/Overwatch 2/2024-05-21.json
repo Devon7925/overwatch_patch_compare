@@ -1575,9 +1575,6 @@
                         "Knockback scalar": 2,
                         "Distance travelled": 12
                     }
-                },
-                "Inspire": {
-                    "triggers from Shield Bash damage": true
                 }
             },
             "Illari": {

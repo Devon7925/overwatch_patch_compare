@@ -1350,9 +1350,6 @@
                         "Knockback scalar": 1,
                         "Distance travelled": 12
                     }
-                },
-                "Inspire": {
-                    "triggers from Shield Bash damage": true
                 }
             },
             "Lúcio": {

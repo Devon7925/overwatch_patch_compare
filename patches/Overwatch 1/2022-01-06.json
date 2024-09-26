@@ -1255,9 +1255,6 @@
                         "stopped by barriers": true,
                         "Distance travelled": 7
                     }
-                },
-                "Inspire": {
-                    "triggers from Shield Bash damage": true
                 }
             },
             "Lúcio": {
