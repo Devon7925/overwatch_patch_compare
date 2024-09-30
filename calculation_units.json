@@ -178,10 +178,10 @@
                         "Cooldown": []
                     },
                     "Energy Javelin": {
-                        "Direct damage": [["damage instance", "direct"], "breakpoint damage"],
+                        "Direct damage": [["damage instance", "direct"], ["situation", "wall impact"], ["situation", "direct impact"]],
                         "Projectile size": [],
                         "Cooldown": [],
-                        "Wall impact damage": [["damage instance", "wall impact"]]
+                        "Wall impact damage": [["damage instance", "wall impact"], ["situation", "wall impact"]]
                     },
                     "Fortify": {
                         "Duration": [],
@@ -896,8 +896,8 @@
                         "Reload time": ["reload time"]
                     },
                     "Sticky Bombs": {
-                        "Explosion damage": [["damage instance", "normal"]],
-                        "Direct damage": [["damage instance", "normal"]],
+                        "Explosion damage": [["damage instance", "normal"], ["situation", "direct"], ["situation", "explosion"]],
+                        "Direct damage": [["damage instance", "normal"], ["situation", "direct"]],
                         "Bullets per shot": ["bullets per burst", ["bullets per burst", "normal"]],
                         "Projectile size": []
                     },
@@ -1043,8 +1043,8 @@
                     "Concussion Mine": {
                         "Cooldown": [],
                         "Projectile size": [],
-                        "Maximum damage": [["damage instance", "maximum"]],
-                        "Minimum damage": [],
+                        "Maximum damage": [["damage instance", "explosion"], ["situation", "max damage"]],
+                        "Minimum damage": [["damage instance", "explosion"], ["situation", "min damage"]],
                         "Range": [],
                         "Health": [],
                         "Charges": ["charges"]
@@ -1140,9 +1140,9 @@
                         "can be activated without fuel to slow decent": []
                     },
                     "Rocket Launcher": {
-                        "Direct damage": [["damage instance", "normal"]],
+                        "Direct damage": [["damage instance", "normal"], ["situation", "direct"]],
                         "Explosion self damage": [],
-                        "Explosion damage": [["damage instance", "normal"]],
+                        "Explosion damage": [["damage instance", "normal"], ["situation", "direct"], ["situation", "max splash"]],
                         "Projectile speed": [],
                         "Projectile size": [],
                         "Recovery time": ["time between shots"],
@@ -1684,10 +1684,10 @@
                     },
                     "Regenerative Burst": {
                         "Cooldown": [],
-                        "Instant healing": [["healing instance", "normal"]],
-                        "Instant healing on allies <50% HP": [],
-                        "Heal over time": [["healing instance", "normal"]],
-                        "Additional self heal over time": [],
+                        "Instant healing": [["healing instance", "burst"], ["situation", "normal"], ["situation", "self"], ["situation", "critical"]],
+                        "Instant healing on allies <50% HP": [["healing instance", "burst"], ["situation", "critical"]],
+                        "Heal over time": [["healing instance", "heal over time"], ["situation", "normal"], ["situation", "critical"], ["situation", "self"]],
+                        "Additional self heal over time": [["healing instance", "heal over time"], ["situation", "self"]],
                         "Self healing rate": []
                     },
                     "Immortality Field": {
