@@ -1,25 +1,7 @@
 // import units from "./units.json" with { type: "json" };
 // cant use because firefox dumb https://bugzilla.mozilla.org/show_bug.cgi?id=1736059
-import { autoTypeguard, hasOwnProperty, isArrayMatchingTypeguard, isKeyOf, isLiteral, isNumber, isObjectWithValues, isString, isTupleMatchingTypeguards, partialTypeguard, unionTypeguard } from "./utils.js";
+import { autoTypeguard, isArrayMatchingTypeguard, isKeyOf, isLiteral, isNumber, isObjectWithValues, isString, isTupleMatchingTypeguards, partialTypeguard, unionTypeguard } from "./utils.js";
 const damageBreakPointHealthValues = [150, 175, 200, 225, 250, 300];
-function is_patch_list(obj) {
-    if (!(typeof obj === "object"))
-        return false;
-    if (obj === null)
-        return false;
-    if (Array.isArray(obj))
-        return false;
-    for (const key in obj) {
-        if (hasOwnProperty(obj, key)) {
-            let element = obj[key];
-            if (!Array.isArray(element))
-                return false;
-            if (!element.every((v) => typeof v === "string"))
-                return false;
-        }
-    }
-    return true;
-}
 const patchList = await fetch("./patch_list.json")
     .then((res) => res.text())
     .then((text) => JSON.parse(text, (key, value) => {
@@ -257,7 +239,7 @@ export function convert_to_changes(before, after) {
     }
     return [before, after];
 }
-export function getChangeText(name, change, units) {
+export function getChangeText(name, change, units, display_as_new) {
     if (!Array.isArray(change)) {
         change = [undefined, change];
     }
@@ -272,14 +254,15 @@ export function getChangeText(name, change, units) {
         if (!Array.isArray(change)) {
             new_value = change;
         }
+        let prefix = display_as_new ? "" : "There is now ";
         if (units == "percent") {
-            return `There is now ${new_value}% ${name.toLowerCase()}.`;
+            return `${prefix}${new_value}% ${name.toLowerCase()}.`;
         }
         else if (units == "meters") {
-            return `There is now ${new_value} meter ${name.toLowerCase()}.`;
+            return `${prefix}${new_value} meter ${name.toLowerCase()}.`;
         }
         else if (units == "seconds") {
-            return `There is now ${new_value} second ${name.toLowerCase()}.`;
+            return `${prefix}${new_value} second ${name.toLowerCase()}.`;
         }
         else if (units == "flag") {
             if (new_value === false) {
@@ -289,7 +272,7 @@ export function getChangeText(name, change, units) {
                 return `Now ${name}.`;
             }
         }
-        return `There is now ${new_value} ${name.toLowerCase()}.`;
+        return `${prefix}${new_value} ${name.toLowerCase()}.`;
     }
     else if (typeof change[0] == "number") {
         if (change[1] === undefined) {
@@ -473,8 +456,6 @@ async function updatePatchNotes() {
     if (siteState.show_calculated_properties) {
         before_patch_data = calculateRates(before_patch_data, calculation_units);
         after_patch_data = calculateRates(after_patch_data, calculation_units);
-        console.log(after_patch_data);
-        console.log(calculation_units);
         before_patch_data = cleanupProperties(before_patch_data, calculation_units);
         after_patch_data = cleanupProperties(after_patch_data, calculation_units);
     }
@@ -484,7 +465,7 @@ async function updatePatchNotes() {
     if (changes.general) {
         let changeRender = "";
         for (let generalRule in changes.general) {
-            changeRender += `<li>${getChangeText(generalRule, changes.general[generalRule], units.general[generalRule])}</li>`;
+            changeRender += `<li>${getChangeText(generalRule, changes.general[generalRule], units.general[generalRule], false)}</li>`;
         }
         hero_section.innerHTML += `
             <div class="PatchNotes-section PatchNotes-section-generic_update">
@@ -509,7 +490,7 @@ async function updatePatchNotes() {
         }
         if (roleData.general) {
             for (let generalRule in roleData.general) {
-                generalChangeRender += `<li>${getChangeText(generalRule, roleData.general[generalRule], units.heroes[role].general[generalRule])}</li>`;
+                generalChangeRender += `<li>${getChangeText(generalRule, roleData.general[generalRule], units.heroes[role].general[generalRule], false)}</li>`;
             }
             generalChangeRender = `
                 <div class="PatchNotes-sectionDescription">
@@ -528,9 +509,11 @@ async function updatePatchNotes() {
                 continue;
             let generalChangesRender = "";
             let heroData = roleData[hero];
+            let display_as_new = false;
             if (Array.isArray(heroData)) {
                 if (heroData[1] !== undefined) {
                     heroData = heroData[1];
+                    display_as_new = true;
                 }
                 else {
                     heroChanges += `
@@ -559,7 +542,7 @@ async function updatePatchNotes() {
             if (heroData.general) {
                 generalChangesRender += "<ul>";
                 for (let property in heroData.general) {
-                    generalChangesRender += `<li>${getChangeText(property, heroData.general[property], units.heroes[role][hero].general[property])}</li>`;
+                    generalChangesRender += `<li>${getChangeText(property, heroData.general[property], units.heroes[role][hero].general[property], display_as_new)}</li>`;
                 }
                 generalChangesRender += "</ul>";
             }
@@ -567,9 +550,11 @@ async function updatePatchNotes() {
             for (let ability in heroData.abilities) {
                 let ability_changes = "";
                 let abilityData = heroData.abilities[ability];
+                let display_ability_as_new = display_as_new;
                 if (Array.isArray(abilityData)) {
                     if (abilityData[1] != undefined) {
                         abilityData = abilityData[1];
+                        display_ability_as_new = true;
                     }
                     else {
                         abilities += `
@@ -591,7 +576,7 @@ async function updatePatchNotes() {
                 }
                 for (let stat in abilityData) {
                     if (!units.heroes[role][hero].abilities[ability]) {
-                        console.error(`Missing ability for ${hero} - ${ability}`);
+                        console.error(`Missing ability units for ${hero} - ${ability}`);
                         break;
                     }
                     if (!units.heroes[role][hero].abilities[ability][stat]) {
@@ -602,14 +587,14 @@ async function updatePatchNotes() {
                             console.error(`Missing units for ${hero} - ${ability} - ${stat}`);
                         }
                     }
-                    ability_changes += `<li>${getChangeText(stat, abilityData[stat], units.heroes[role][hero].abilities[ability][stat])}</li>`;
+                    ability_changes += `<li>${getChangeText(stat, abilityData[stat], units.heroes[role][hero].abilities[ability][stat], display_ability_as_new)}</li>`;
                 }
                 abilities += `
                     <div class="PatchNotesAbilityUpdate">
                         <div class="PatchNotesAbilityUpdate-icon-container"><img class="PatchNotesAbilityUpdate-icon" src="${ability_images[ability]}">
                         </div>
                         <div class="PatchNotesAbilityUpdate-text">
-                            <div class="PatchNotesAbilityUpdate-name">${ability}</div>
+                            <div class="PatchNotesAbilityUpdate-name">${display_ability_as_new ? "(NEW) " : ""}${ability}</div>
                             <div class="PatchNotesAbilityUpdate-detailList">
                                 <ul>
                                     ${ability_changes}
@@ -626,7 +611,7 @@ async function updatePatchNotes() {
                 }
                 breakpointsRender += "<ul>";
                 for (let property in heroData.breakpoints) {
-                    breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], "none")}</li>`;
+                    breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], "none", true)}</li>`;
                 }
                 breakpointsRender += "</ul>";
             }
@@ -699,7 +684,7 @@ async function updatePatchNotes() {
                 else {
                     let mode_changes = "";
                     for (let change in changes.modes[mode][1]) {
-                        mode_changes += `<li>${getChangeText(change, [undefined, changes.modes[mode][1][change]], units.modes[mode][change])}</li>`;
+                        mode_changes += `<li>${getChangeText(change, [undefined, changes.modes[mode][1][change]], units.modes[mode][change], true)}</li>`;
                     }
                     changeRender += `
                             <div class="PatchNotesGeneralUpdate-title">${mode}</div>
@@ -711,7 +696,7 @@ async function updatePatchNotes() {
             }
             let mode_changes = "";
             for (let change in changes.modes[mode]) {
-                mode_changes += `<li>${getChangeText(change, changes.modes[mode][change], units.modes[mode][change])}</li>`;
+                mode_changes += `<li>${getChangeText(change, changes.modes[mode][change], units.modes[mode][change], false)}</li>`;
             }
             changeRender += `
                     <div class="PatchNotesGeneralUpdate-title">${mode}</div>

@@ -109,7 +109,7 @@
                         "Cooldown": "seconds"
                     },
                     "Commanding Shout": {
-                        "can be activated while using other abilities": "none",
+                        "can be activated while using other abilities": "flag",
                         "Cooldown": "seconds",
                         "Self overhalth": "none",
                         "Ally Overhealth": "none",
@@ -151,7 +151,7 @@
                         "Minimum damage falloff range": "meters",
                         "Maximum damage falloff range": "meters",
                         "Damage falloff at maximum range": "percent",
-                        "has falloff damage penalty": "none",
+                        "has falloff damage penalty": "flag",
                         "scales projectile size with distance": "flag",
                         "Recovery time": "seconds",
                         "Ammo": "none",
@@ -169,7 +169,7 @@
                         "Cooldown start": "none",
                         "Cooldown": "seconds",
                         "Overhealth generation": "none",
-                        "immune to taking forced critical hit damage": "none",
+                        "immune to taking forced critical hit damage": "flag",
                         "Damage reduction": "percent",
                         "disables critical damage": "flag"
                     },
@@ -204,7 +204,7 @@
                         "Critical multiplier": "none",
                         "Secondary fire pre-detonation damage": "none",
                         "Secondary fire max range": "meters",
-                        "has secondary fire": "none",
+                        "has secondary fire": "flag",
                         "Recovery time": "seconds",
                         "Ammo": "none",
                         "Reload time": "seconds"
@@ -280,7 +280,7 @@
                         "Projectile size": "meters"
                     },
                     "Gravitic Flux": {
-                        "requires line-of-sight": "none",
+                        "requires line-of-sight": "flag",
                         "Ultimate cost": "none"
                     }
                 }
@@ -305,9 +305,9 @@
                     "Grappling Claw": {
                         "Cooldown": "seconds",
                         "Impact damage": "none",
-                        "can be retracted": "none",
+                        "can be retracted": "flag",
                         "Cooldown if fireball speed is not achieved": "seconds",
-                        "requires fireball speed for max duration to begin": "none",
+                        "requires fireball speed for max duration to begin": "flag",
                         "Knockback": "relative percent"
                     },
                     "Roll": {
@@ -363,7 +363,7 @@
                         "Reload time": "seconds"
                     },
                     "Particle Barrier": {
-                        "shares cooldown with Projected Barrier": "none",
+                        "shares cooldown with Projected Barrier": "flag",
                         "Cooldown": "seconds",
                         "Health": "none",
                         "Duration": "seconds",
@@ -371,7 +371,7 @@
                     },
                     "Projected Barrier": {
                         "Cooldown start": "none",
-                        "shares cooldown with Particle Barrier": "none",
+                        "shares cooldown with Particle Barrier": "flag",
                         "Cooldown": "seconds",
                         "Health": "none",
                         "Duration": "seconds",
@@ -406,7 +406,7 @@
                         "Reload time per ammo": "seconds"
                     },
                     "Rocket Punch": {
-                        "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": "none",
+                        "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": "flag",
                         "Wall stun": "seconds",
                         "Maximum empowered wall stun": "seconds",
                         "Minimum knockback": "relative percent",
@@ -429,7 +429,7 @@
                     "Power Block": {
                         "Cooldown": "seconds",
                         "Duration": "seconds",
-                        "reduces damage from stuck projectiles": "none",
+                        "reduces damage from stuck projectiles": "flag",
                         "Minimum damage mitigated required to empower Rocket Punch": "none",
                         "Damage reduction": "percent",
                         "Movement speed penalty": "percent"
@@ -511,7 +511,7 @@
                         "Damage": "none",
                         "Knockback damage": "none",
                         "Damage reduction": "percent",
-                        "can be interrupted by Hack": "none"
+                        "can be interrupted by Hack": "flag"
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": "seconds",
@@ -525,7 +525,7 @@
                     "Cage Fight": {
                         "Ultimate cost": "none",
                         "Duration": "seconds",
-                        "grants infinite ammo": "none"
+                        "grants infinite ammo": "flag"
                     }
                 }
             },
@@ -559,14 +559,14 @@
                         "Recovery time": "seconds"
                     },
                     "Block": {
-                        "reduces damage from stuck projectiles": "none"
+                        "reduces damage from stuck projectiles": "flag"
                     },
                     "Ravenous Vortex": {
                         "Cooldown": "seconds",
                         "Duration": "seconds",
                         "Slow": "percent",
                         "Radius": "meters",
-                        "passes through enemy heroes": "none"
+                        "passes through enemy heroes": "flag"
                     },
                     "Annihilation": {
                         "Ultimate cost": "none",
@@ -669,7 +669,7 @@
                         "Ultimate cost": "none",
                         "Weapon damage": "none",
                         "Recovery time": "seconds",
-                        "has tank passive": "none",
+                        "has tank passive": "flag",
                         "Health": "none",
                         "prefers to shoot at enemy targets that Ashe damage with her rifle": "flag",
                         "Charge damage": "none"
@@ -708,7 +708,7 @@
                     },
                     "A-36 Tactical Grenade": {
                         "Self damage rate": "none",
-                        "briefly grants increased aerial mobility on self knockback while in Configuration: Assault": "none",
+                        "briefly grants increased aerial mobility on self knockback while in Configuration: Assault": "flag",
                         "Projectile size": "meters",
                         "Impact damage": "none",
                         "Splash damage": "none",
@@ -722,7 +722,7 @@
                     "Configuration: Artillery": {
                         "Ultimate cost": "none",
                         "Projectile size": "meters",
-                        "can score critical hits": "none",
+                        "can score critical hits": "flag",
                         "Targeting state movement speed": "meters per second",
                         "Minimum delay between placing shots": "relative percent",
                         "deals explosion damage to self": "flag",
@@ -763,7 +763,7 @@
                         "Duration": "seconds",
                         "Maximum travel time": "seconds",
                         "Slow": "percent",
-                        "hinder prevents crouching": "none",
+                        "hinder prevents crouching": "flag",
                         "Explosion damage": "none",
                         "Cooldown": "seconds",
                         "Projectile speed": "none",
@@ -825,7 +825,7 @@
                     "Duplicate": {
                         "Ultimate gain multiplier": "none",
                         "Ultimate cost": "none",
-                        "has predetermined tank health pools": "none",
+                        "has predetermined tank health pools": "flag",
                         "Maximum combined health": "none",
                         "D.va copy health": "none",
                         "D.va copy armor": "none",
@@ -900,13 +900,13 @@
                         "Maximum damage": "none",
                         "Critical multiplier": "none",
                         "Projectile size": "meters",
-                        "has arrow draw progress preserved while wall climbing": "none",
+                        "has arrow draw progress preserved while wall climbing": "flag",
                         "Recovery time": "seconds",
                         "Maximum charge time": "seconds"
                     },
                     "Sonic Arrow": {
-                        "does impact sound plat for enemies": "none",
-                        "has visual effect when deployed": "none",
+                        "does impact sound plat for enemies": "flag",
+                        "has visual effect when deployed": "flag",
                         "Cooldown": "seconds",
                         "Duration": "seconds",
                         "Range": "meters"
@@ -1043,9 +1043,9 @@
                 },
                 "abilities": {
                     "Hover Jets": {
-                        "requires landing to recharge fuel": "none",
+                        "requires landing to recharge fuel": "flag",
                         "Speed Boost": "percent",
-                        "can be activated without fuel to slow decent": "none"
+                        "can be activated without fuel to slow decent": "flag"
                     },
                     "Rocket Launcher": {
                         "Direct damage": "none",
@@ -1077,7 +1077,7 @@
                     },
                     "Barrage": {
                         "Projectile size": "meters",
-                        "instantly refills Hover Jets fuel": "none",
+                        "instantly refills Hover Jets fuel": "flag",
                         "Direct damage": "none",
                         "Explosion damage": "none",
                         "Duration": "seconds",
@@ -1105,7 +1105,7 @@
                         "Ammo": "none"
                     },
                     "Wraith Form": {
-                        "can be activated while affected by mobility-locking effects": "none",
+                        "can be activated while affected by mobility-locking effects": "flag",
                         "Cooldown": "seconds",
                         "Max duration": "seconds",
                         "Min duration": "seconds",
@@ -1155,7 +1155,7 @@
                         "Minimum damage falloff range": "none",
                         "Minimum projectile radius": "meters",
                         "Projectile size": "meters",
-                        "requires overclock for secondary primary piercing": "none"
+                        "requires overclock for secondary primary piercing": "flag"
                     },
                     "Power Slide": {
                         "Cooldown": "seconds"
@@ -1229,7 +1229,7 @@
                         "Movement speed": "percent",
                         "Fade in duration": "seconds",
                         "Fade out duration": "seconds",
-                        "is passive": "none",
+                        "is passive": "flag",
                         "Enemy detection radius": "meters"
                     },
                     "Opportunist": {
@@ -1248,7 +1248,7 @@
                     },
                     "Hack": {
                         "Cast time": "seconds",
-                        "cancels Stealth when hacking an enemy hero": "none",
+                        "cancels Stealth when hacking an enemy hero": "flag",
                         "Cooldown on successful enemy hero hack": "seconds",
                         "Cooldown": "seconds",
                         "Health pack hacked duration": "seconds",
@@ -1266,9 +1266,9 @@
                         "Cooldown": "seconds"
                     },
                     "Translocator": {
-                        "destroys breakables while in flight": "none",
-                        "can be manually activated": "none",
-                        "activates on terrain collision": "none",
+                        "destroys breakables while in flight": "flag",
+                        "can be manually activated": "flag",
+                        "activates on terrain collision": "flag",
                         "Projectile speed": "meters per second",
                         "Cooldown start": "none",
                         "Maximum time before translocation": "seconds",
@@ -1318,7 +1318,7 @@
                     "Sentry Turret": {
                         "Health": "none",
                         "Damage per second": "none",
-                        "reveals enemy heroes to allies while dealing damage and for 1 additional second afterwards": "none",
+                        "reveals enemy heroes to allies while dealing damage and for 1 additional second afterwards": "flag",
                         "Movement speed reduction per turret": "percent",
                         "Travel speed": "meters per second"
                     },
@@ -1641,7 +1641,7 @@
                     },
                     "Rally": {
                         "Ultimate cost": "none",
-                        "resets Shield Bash cooldown upon activation": "none",
+                        "resets Shield Bash cooldown upon activation": "flag",
                         "Extra armor health": "none",
                         "builds self overhealth": "flag",
                         "has bigger shield": "flag",
@@ -1687,7 +1687,7 @@
                         "Ultimate cost": "none",
                         "Sunstruck explosion damage": "none",
                         "Sunstruck explosion maximum explosion falloff damage reduction": "percent",
-                        "fully refills secondary fire resource and resets overheated status": "none",
+                        "fully refills secondary fire resource and resets overheated status": "flag",
                         "projectile impact and explosion are blocked by barriers": "flag",
                         "Projectile size": "meters",
                         "Sunstruck duration": "seconds",
@@ -1778,13 +1778,13 @@
                         "Invulnerability duration": "seconds"
                     },
                     "Protection Suzu": {
-                        "cleanses hard knockdown stuns": "none",
+                        "cleanses hard knockdown stuns": "flag",
                         "Projectile size": "meters",
                         "Invulnerability duration": "seconds",
                         "Healing explosion": "none",
                         "Cooldown": "seconds",
-                        "passes through enemy heroes": "none",
-                        "has knockback": "none",
+                        "passes through enemy heroes": "flag",
+                        "has knockback": "flag",
                         "Additional healing when cleansing a negative effect": "none",
                         "Cast time": "seconds"
                     },
@@ -1832,7 +1832,7 @@
                         "Health": "none",
                         "Cooldown": "seconds",
                         "Projectile size": "meters",
-                        "pierced by piercing projectiles": "none",
+                        "pierced by piercing projectiles": "flag",
                         "Walkable area": "relative percent",
                         "Minimum triger lift radius": "meters",
                         "Maximum triger lift radius": "meters",

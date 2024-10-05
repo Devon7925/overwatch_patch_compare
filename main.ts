@@ -89,20 +89,6 @@ type CalculationUnits = PatchStructure<CalculationUnit[]>
 
 const damageBreakPointHealthValues = [150, 175, 200, 225, 250, 300];
 
-function is_patch_list(obj: unknown): obj is { [key: string]: string[] } {
-    if (!(typeof obj === "object")) return false;
-    if (obj === null) return false;
-    if (Array.isArray(obj)) return false;
-    for (const key in obj) {
-        if (hasOwnProperty(obj, key)) {
-            let element: unknown = obj[key];
-            if (!Array.isArray(element)) return false;
-            if (!element.every((v) => typeof v === "string")) return false
-        }
-    }
-    return true;
-}
-
 const patchList = await fetch("./patch_list.json")
     .then((res) => res.text())
     .then((text) => JSON.parse(text, (key, value) => {
@@ -359,7 +345,7 @@ export function convert_to_changes(before: any, after: any) {
     return [before, after];
 }
 
-export function getChangeText(name: string, change: [any, any] | string | number | boolean, units: Unit) {
+export function getChangeText(name: string, change: [any, any] | string | number | boolean, units: Unit, display_as_new: boolean) {
     if (!Array.isArray(change)) {
         change = [undefined, change]
     }
@@ -374,12 +360,13 @@ export function getChangeText(name: string, change: [any, any] | string | number
         if (!Array.isArray(change)) {
             new_value = change;
         }
+        let prefix = display_as_new?"":"There is now "
         if (units == "percent") {
-            return `There is now ${new_value}% ${name.toLowerCase()}.`;
+            return `${prefix}${new_value}% ${name.toLowerCase()}.`;
         } else if (units == "meters") {
-            return `There is now ${new_value} meter ${name.toLowerCase()}.`;
+            return `${prefix}${new_value} meter ${name.toLowerCase()}.`;
         } else if (units == "seconds") {
-            return `There is now ${new_value} second ${name.toLowerCase()}.`;
+            return `${prefix}${new_value} second ${name.toLowerCase()}.`;
         } else if (units == "flag") {
             if (new_value === false) {
                 return `No longer ${name}.`;
@@ -387,7 +374,7 @@ export function getChangeText(name: string, change: [any, any] | string | number
                 return `Now ${name}.`;
             }
         }
-        return `There is now ${new_value} ${name.toLowerCase()}.`;
+        return `${prefix}${new_value} ${name.toLowerCase()}.`;
     } else if (typeof change[0] == "number") {
         if (change[1] === undefined) {
             return `${name} removed.`;
@@ -573,7 +560,7 @@ async function updatePatchNotes() {
     if (changes.general) {
         let changeRender = "";
         for (let generalRule in changes.general) {
-            changeRender += `<li>${getChangeText(generalRule, changes.general[generalRule], units.general[generalRule])}</li>`
+            changeRender += `<li>${getChangeText(generalRule, changes.general[generalRule], units.general[generalRule], false)}</li>`
         }
         hero_section.innerHTML += `
             <div class="PatchNotes-section PatchNotes-section-generic_update">
@@ -598,7 +585,7 @@ async function updatePatchNotes() {
         }
         if (roleData.general) {
             for (let generalRule in roleData.general) {
-                generalChangeRender += `<li>${getChangeText(generalRule, roleData.general[generalRule], units.heroes[role].general[generalRule])}</li>`
+                generalChangeRender += `<li>${getChangeText(generalRule, roleData.general[generalRule], units.heroes[role].general[generalRule], false)}</li>`
             }
             generalChangeRender = `
                 <div class="PatchNotes-sectionDescription">
@@ -616,9 +603,11 @@ async function updatePatchNotes() {
             if (hero == "general") continue;
             let generalChangesRender = "";
             let heroData = roleData[hero];
+            let display_as_new = false
             if (Array.isArray(heroData)) {
                 if (heroData[1] !== undefined) {
                     heroData = heroData[1];
+                    display_as_new = true
                 } else {
                     heroChanges += `
                     <div class="PatchNotesHeroUpdate">
@@ -646,7 +635,7 @@ async function updatePatchNotes() {
             if (heroData.general) {
                 generalChangesRender += "<ul>";
                 for (let property in heroData.general) {
-                    generalChangesRender += `<li>${getChangeText(property, heroData.general[property], units.heroes[role][hero].general[property])}</li>`
+                    generalChangesRender += `<li>${getChangeText(property, heroData.general[property], units.heroes[role][hero].general[property], display_as_new)}</li>`
                 }
                 generalChangesRender += "</ul>";
             }
@@ -654,9 +643,11 @@ async function updatePatchNotes() {
             for (let ability in heroData.abilities) {
                 let ability_changes = "";
                 let abilityData = heroData.abilities[ability];
+                let display_ability_as_new = display_as_new
                 if (Array.isArray(abilityData)) {
                     if (abilityData[1] != undefined) {
                         abilityData = abilityData[1];
+                        display_ability_as_new = true
                     } else {
                         abilities += `
                             <div class="PatchNotesAbilityUpdate">
@@ -677,7 +668,7 @@ async function updatePatchNotes() {
                 }
                 for (let stat in abilityData) {
                     if (!units.heroes[role][hero].abilities[ability]) {
-                        console.error(`Missing ability for ${hero} - ${ability}`)
+                        console.error(`Missing ability units for ${hero} - ${ability}`)
                         break;
                     }
                     if (!units.heroes[role][hero].abilities[ability][stat]) {
@@ -687,14 +678,14 @@ async function updatePatchNotes() {
                             console.error(`Missing units for ${hero} - ${ability} - ${stat}`)
                         }
                     }
-                    ability_changes += `<li>${getChangeText(stat, abilityData[stat], units.heroes[role][hero].abilities[ability][stat])}</li>`;
+                    ability_changes += `<li>${getChangeText(stat, abilityData[stat], units.heroes[role][hero].abilities[ability][stat], display_ability_as_new)}</li>`;
                 }
                 abilities += `
                     <div class="PatchNotesAbilityUpdate">
                         <div class="PatchNotesAbilityUpdate-icon-container"><img class="PatchNotesAbilityUpdate-icon" src="${ability_images[ability]}">
                         </div>
                         <div class="PatchNotesAbilityUpdate-text">
-                            <div class="PatchNotesAbilityUpdate-name">${ability}</div>
+                            <div class="PatchNotesAbilityUpdate-name">${display_ability_as_new?"(NEW) ":""}${ability}</div>
                             <div class="PatchNotesAbilityUpdate-detailList">
                                 <ul>
                                     ${ability_changes}
@@ -711,7 +702,7 @@ async function updatePatchNotes() {
                 }
                 breakpointsRender += "<ul>";
                 for (let property in heroData.breakpoints) {
-                    breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], "none")}</li>`
+                    breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], "none", true)}</li>`
                 }
                 breakpointsRender += "</ul>";
             }
@@ -783,7 +774,7 @@ async function updatePatchNotes() {
                 } else {
                     let mode_changes = "";
                     for (let change in changes.modes[mode][1]) {
-                        mode_changes += `<li>${getChangeText(change, [undefined, changes.modes[mode][1][change]], units.modes[mode][change])}</li>`
+                        mode_changes += `<li>${getChangeText(change, [undefined, changes.modes[mode][1][change]], units.modes[mode][change], true)}</li>`
                     }
                     changeRender += `
                             <div class="PatchNotesGeneralUpdate-title">${mode}</div>
@@ -795,7 +786,7 @@ async function updatePatchNotes() {
             }
             let mode_changes = "";
             for (let change in changes.modes[mode]) {
-                mode_changes += `<li>${getChangeText(change, changes.modes[mode][change], units.modes[mode][change])}</li>`
+                mode_changes += `<li>${getChangeText(change, changes.modes[mode][change], units.modes[mode][change], false)}</li>`
             }
             changeRender += `
                     <div class="PatchNotesGeneralUpdate-title">${mode}</div>

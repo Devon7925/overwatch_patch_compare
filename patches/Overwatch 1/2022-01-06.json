@@ -459,10 +459,7 @@
                         "Critical multiplier": 2,
                         "Spread": 1.2
                     },
-                    "Reconfigure": {},
-                    "A-36 Tactical Grenade": {
-                        "Splash Damage": 100
-                    }
+                    "Reconfigure": {}
                 }
             },
             "Cassidy": {
