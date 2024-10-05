@@ -611,6 +611,16 @@ async function updatePatchNotes() {
                 }
                 breakpointsRender += "<ul>";
                 for (let property in heroData.breakpoints) {
+                    if (Array.isArray(heroData.breakpoints[property])) {
+                        if (heroData.breakpoints[property][0] === damageBreakPointHealthValues.at(-1))
+                            continue;
+                        if (heroData.breakpoints[property][1] === damageBreakPointHealthValues.at(-1))
+                            continue;
+                    }
+                    else if (typeof heroData.breakpoints[property] === "number") {
+                        if (heroData.breakpoints[property] === damageBreakPointHealthValues.at(-1))
+                            continue;
+                    }
                     breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], "none", true)}</li>`;
                 }
                 breakpointsRender += "</ul>";
@@ -1066,20 +1076,27 @@ export function calculateBreakpoints(patch_data, calculation_units) {
                         }
                     }
                 }
-                let ability_damage_option_set = { "": 0 };
+                let ability_damage_option_set = [[{}, 0]];
                 for (let damage_option in ability_damage_options) {
                     for (let i = 0; i < max_damage_instances; i++) {
-                        for (let damage_option_set_element in ability_damage_option_set) {
-                            if (damage_option_set_element.split(" + ").length <= max_damage_instances) {
-                                ability_damage_option_set[`${damage_option_set_element} + ${damage_option}`] = ability_damage_options[damage_option] + ability_damage_option_set[damage_option_set_element];
+                        for (let damage_option_set_element of ability_damage_option_set) {
+                            if (Object.values(damage_option_set_element[0]).reduce((s, a) => s + a, 0) < max_damage_instances) {
+                                let new_damage_option_set_element = structuredClone(damage_option_set_element);
+                                if (!(damage_option in new_damage_option_set_element[0])) {
+                                    new_damage_option_set_element[0][damage_option] = 0;
+                                }
+                                new_damage_option_set_element[0][damage_option] += 1;
+                                new_damage_option_set_element[1] += ability_damage_options[damage_option];
+                                ability_damage_option_set.push(new_damage_option_set_element);
                             }
                         }
                     }
                 }
-                delete ability_damage_option_set[""];
+                ability_damage_option_set = ability_damage_option_set.filter((dmg_case) => dmg_case[1] > 0);
                 damage_options[ability] = {};
-                for (let ability_damage_option in ability_damage_option_set) {
-                    damage_options[ability][`${ability_damage_option.substring(2).toLowerCase()}`] = ability_damage_option_set[ability_damage_option];
+                for (let ability_damage_option of ability_damage_option_set) {
+                    let label = Object.entries(ability_damage_option[0]).map((e) => e[1] > 1 ? `${e[1]}x ${e[0]}` : e[0]).join(" + ");
+                    damage_options[ability][label] = ability_damage_option[1];
                 }
             }
             let breakpointDamage = { "": 0 };
@@ -1213,7 +1230,6 @@ export function calculateRates(patch_data, calculation_units) {
                     if (typeof abilityData["Ammo per second"] === "number") {
                         time_before_reload /= abilityData["Ammo per second"];
                     }
-                    console.log(ability + ": " + time_before_reload + " - " + bullets_per_burst);
                     if (damage_per_second > 0) {
                         let damage_per_second_incl_reload = damage_per_second * time_before_reload / (time_before_reload + reload_time);
                         abilityData["Damage per second(including reload)"] = damage_per_second_incl_reload;
@@ -1248,9 +1264,6 @@ function cleanupProperties(patch_data, calculation_units) {
                 throw new Error("Invalid state");
             }
             for (let ability in heroData.abilities) {
-                if (hero === "Baptiste") {
-                    console.log(ability, heroData.abilities[ability], heroUnits.abilities[ability]);
-                }
                 for (let damage_or_healing of ["damage", "healing"]) {
                     const abilityData = heroData.abilities[ability];
                     const abilityDataUnits = heroUnits.abilities[ability];
@@ -1296,9 +1309,6 @@ function cleanupProperties(patch_data, calculation_units) {
                                 }
                             }
                         }
-                    }
-                    if (hero === "Baptiste") {
-                        console.log(damage_type_damage);
                     }
                     for (let property in abilityData) {
                         if (typeof abilityData[property] === "number") {
