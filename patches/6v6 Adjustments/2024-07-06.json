@@ -618,7 +618,8 @@
                         "has tank passive": false,
                         "Health": 1000,
                         "prefers to shoot at enemy targets that Ashe damage with her rifle": true,
-                        "Recovery time": 0.125
+                        "Recovery time": 0.125,
+                        "Charge damage": 120
                     },
                     "The Viper": {
                         "Projectile size": 0.08,

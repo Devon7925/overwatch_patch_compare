@@ -711,7 +711,8 @@
                         "Recovery time": ["time between shots"],
                         "has tank passive": [],
                         "Health": [],
-                        "prefers to shoot at enemy targets that Ashe damage with her rifle": []
+                        "prefers to shoot at enemy targets that Ashe damage with her rifle": [],
+                        "Charge damage": [["damage instance", "normal"], ["situation", "charge"]]
                     }
                 }
             },

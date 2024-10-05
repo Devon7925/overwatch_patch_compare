@@ -671,7 +671,8 @@
                         "Recovery time": "seconds",
                         "has tank passive": "none",
                         "Health": "none",
-                        "prefers to shoot at enemy targets that Ashe damage with her rifle": "flag"
+                        "prefers to shoot at enemy targets that Ashe damage with her rifle": "flag",
+                        "Charge damage": "none"
                     }
                 }
             },
