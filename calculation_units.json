@@ -109,7 +109,7 @@
                         "Pull distance": [],
                         "Projectile size": [],
                         "Impact damage": [["damage instance", "normal"]],
-                        "Damage over time": [],
+                        "Damage over time": [["damage instance", "damage over time"]],
                         "Cooldown": []
                     },
                     "Commanding Shout": {
@@ -130,11 +130,11 @@
                         "Immediate healing per target hit": [],
                         "Cooldown reduction per enemy hit": [],
                         "Cooldown": [],
-                        "Damage over time": []
+                        "Damage over time": [["damage instance", "damage over time"]]
                     },
                     "Rampage": {
                         "Ultimate cost": [],
-                        "Wound total damage": [],
+                        "Wound total damage": [["damage instance", "damage over time"]],
                         "Startup time": [],
                         "Impact damage": [["damage instance", "normal"]],
                         "Wound duration": [],
@@ -633,7 +633,7 @@
                     },
                     "Tesla Cannon Alt Fire": {
                         "Alt fire of": [],
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [["damage instance", "lightning"]],
                         "Maximum charge time": ["time between shots"],
                         "Range": [],
                         "Recovery time": ["time between shots"],
@@ -701,7 +701,7 @@
                     "Dynamite": {
                         "Cooldown": [],
                         "Explosion damage": [["damage instance", "normal"]],
-                        "Damage over time": [["damage instance", "burn"]],
+                        "Damage over time": [["damage instance", "damage over time"]],
                         "Duration": [],
                         "Range": []
                     },
@@ -1082,7 +1082,7 @@
                         "bonus damage triggered by Mei's quick melee": []
                     },
                     "Endothermic Blaster": {
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [["damage instance", "beam"]],
                         "Projectile size": [],
                         "Minimum slow": [],
                         "Maximum slow": [],
@@ -1613,8 +1613,8 @@
                         "Duration": [],
                         "Range": [],
                         "Projectile speed": [],
-                        "Cast time": ["time between shots"],
-                        "Recovery time": ["time between shots"]
+                        "Cast time": [],
+                        "Recovery time": []
                     },
                     "Infra-Sight": {
                         "Duration": [],
@@ -1634,7 +1634,7 @@
                 },
                 "abilities": {
                     "Biotic Rifle": {
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [["damage instance", "damage over time"]],
                         "Healing": [["healing instance", "normal"]],
                         "Unscoped projectile size": [],
                         "Enemy scoped projectile size": [],

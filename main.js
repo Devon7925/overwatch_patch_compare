@@ -2,6 +2,11 @@
 // cant use because firefox dumb https://bugzilla.mozilla.org/show_bug.cgi?id=1736059
 import { autoTypeguard, isArrayMatchingTypeguard, isKeyOf, isLiteral, isNumber, isObjectWithValues, isString, isTupleMatchingTypeguards, partialTypeguard, unionTypeguard } from "./utils.js";
 const damageBreakPointHealthValues = [150, 175, 200, 225, 250, 300];
+const specialArmorBehaviorDamageTypes = {
+    "damage over time": ["flat percent mit", 0],
+    "lightning": ["flat percent mit", 0],
+    "beam": ["flat percent mit", 0.3],
+};
 const patchList = await fetch("./patch_list.json")
     .then((res) => res.text())
     .then((text) => JSON.parse(text, (key, value) => {
@@ -122,13 +127,17 @@ const isCalculationUnit = unionTypeguard([
     isTupleMatchingTypeguards(isLiteral("pellet count"), isString),
     isTupleMatchingTypeguards(isLiteral("bullets per burst"), isString),
     isLiteral("total damage"),
-    isLiteral("total healing"),
-    isTupleMatchingTypeguards(unionTypeguard([isLiteral("total instance damage"), isLiteral("total instance healing")]), isString),
+    isTupleMatchingTypeguards(isLiteral("total instance damage"), isString),
     isTupleMatchingTypeguards(isLiteral("total damage"), isString),
     isLiteral("total crit damage"),
+    isTupleMatchingTypeguards(isLiteral("total instance crit damage"), isString, isString),
+    isTupleMatchingTypeguards(isLiteral("total crit damage"), isString, isString),
+    isLiteral("total healing"),
+    isTupleMatchingTypeguards(isLiteral("total instance healing"), isString),
+    isTupleMatchingTypeguards(isLiteral("total healing"), isString),
     isLiteral("total crit healing"),
-    isTupleMatchingTypeguards(unionTypeguard([isLiteral("total instance crit damage"), isLiteral("total instance crit healing")]), isString, isString),
-    isTupleMatchingTypeguards(unionTypeguard([isLiteral("total crit damage"), isLiteral("total crit healing")]), isString, isString),
+    isTupleMatchingTypeguards(isLiteral("total instance crit healing"), isString, isString),
+    isTupleMatchingTypeguards(isLiteral("total crit healing"), isString, isString),
     isTupleMatchingTypeguards(isLiteral("situation"), isString),
     isTupleMatchingTypeguards(isLiteral("critical multiplier"), isString),
     isTupleMatchingTypeguards(isLiteral("critical multiplier"), isString, isString),
@@ -874,8 +883,23 @@ export function applyArmor(patch_data, calculation_units) {
                 for (let ability_property in heroData.abilities[ability]) {
                     let property_units = heroUnits.abilities[ability][ability_property];
                     if (typeof heroData.abilities[ability][ability_property] === "number") {
-                        if (property_units.some((unit) => ["total instance damage", "total instance crit damage"].includes(unit[0]))) {
-                            heroData.abilities[ability][ability_property] = applyArmorToStat(heroData.abilities[ability][ability_property], min_damage_reduction, max_damage_reduction, flat_damage_reduction);
+                        let damage_type = property_units
+                            .filter((unit) => Array.isArray(unit))
+                            .filter((unit) => unit[0] == "total instance damage" || unit[0] == "total instance crit damage")
+                            .map(unit => unit[1]);
+                        if (damage_type.length > 1) {
+                            throw new Error("should not have multiple damage types");
+                        }
+                        if (damage_type.length > 0) {
+                            let possible_special_behavior = specialArmorBehaviorDamageTypes[damage_type[0]];
+                            if (possible_special_behavior !== undefined) {
+                                if (possible_special_behavior[0] === "flat percent mit") {
+                                    heroData.abilities[ability][ability_property] = (1 - possible_special_behavior[1]) * heroData.abilities[ability][ability_property];
+                                }
+                            }
+                            else {
+                                heroData.abilities[ability][ability_property] = applyArmorToStat(heroData.abilities[ability][ability_property], min_damage_reduction, max_damage_reduction, flat_damage_reduction);
+                            }
                         }
                     }
                 }

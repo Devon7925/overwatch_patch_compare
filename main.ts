@@ -5,7 +5,7 @@ import { autoTypeguard, hasOwnProperty, isArrayMatchingTypeguard, isBoolean, isK
 
 type Unit = "none" | "percent" | "meters" | "seconds" | "health per second" | "meters per second" | "relative percent" | "flag"
 type WithRemainder<T extends string, R extends any[]> = T extends any ? [T, ...R] : never
-type WithAppend<T extends string | [string, ...any], R extends string> = T extends [infer First extends string, ...infer Rest extends any[]] ? [`${First}${R}`, ...Rest] : T extends string ? `${T}${R}` : never
+type WithAppend<T extends string | [string, ...any], R extends string> = R extends any?(T extends [infer First extends string, ...infer Rest extends any[]] ? [`${First}${R}`, ...Rest] : T extends string ? `${T}${R}` : never) : never
 
 type Situation = string
 type DamageType = string
@@ -88,6 +88,12 @@ type Units = PatchStructure<Unit>
 type CalculationUnits = PatchStructure<CalculationUnit[]>
 
 const damageBreakPointHealthValues = [150, 175, 200, 225, 250, 300] as const;
+type SpecialArmorBehavior = ["flat percent mit", number] | undefined
+const specialArmorBehaviorDamageTypes: {[damage_type: string]: SpecialArmorBehavior} = {
+    "damage over time": ["flat percent mit", 0],
+    "lightning": ["flat percent mit", 0],
+    "beam": ["flat percent mit", 0.3],
+}
 
 const patchList = await fetch("./patch_list.json")
     .then((res) => res.text())
@@ -222,13 +228,17 @@ const isCalculationUnit = unionTypeguard<CalculationUnit>([
     isTupleMatchingTypeguards(isLiteral("pellet count"), isString),
     isTupleMatchingTypeguards(isLiteral("bullets per burst"), isString),
     isLiteral("total damage"),
-    isLiteral("total healing"),
-    isTupleMatchingTypeguards(unionTypeguard<"total instance damage" | "total instance healing">([isLiteral("total instance damage"), isLiteral("total instance healing")]), isString),
+    isTupleMatchingTypeguards(isLiteral("total instance damage"), isString),
     isTupleMatchingTypeguards(isLiteral("total damage"), isString),
     isLiteral("total crit damage"),
+    isTupleMatchingTypeguards(isLiteral("total instance crit damage"), isString, isString),
+    isTupleMatchingTypeguards(isLiteral("total crit damage"), isString, isString),
+    isLiteral("total healing"),
+    isTupleMatchingTypeguards(isLiteral("total instance healing"), isString),
+    isTupleMatchingTypeguards(isLiteral("total healing"), isString),
     isLiteral("total crit healing"),
-    isTupleMatchingTypeguards(unionTypeguard<"total instance crit damage" | "total instance crit healing">([isLiteral("total instance crit damage"), isLiteral("total instance crit healing")]), isString, isString),
-    isTupleMatchingTypeguards(unionTypeguard<"total crit damage" | "total crit healing">([isLiteral("total crit damage"), isLiteral("total crit healing")]), isString, isString),
+    isTupleMatchingTypeguards(isLiteral("total instance crit healing"), isString, isString),
+    isTupleMatchingTypeguards(isLiteral("total crit healing"), isString, isString),
     isTupleMatchingTypeguards(isLiteral("situation"), isString),
     isTupleMatchingTypeguards(isLiteral("critical multiplier"), isString),
     isTupleMatchingTypeguards(isLiteral("critical multiplier"), isString, isString),
@@ -967,8 +977,22 @@ export function applyArmor(patch_data: PatchData, calculation_units: Calculation
                 for (let ability_property in heroData.abilities[ability]) {
                     let property_units = heroUnits.abilities[ability][ability_property]
                     if (typeof heroData.abilities[ability][ability_property] === "number") {
-                        if (property_units.some((unit) => ["total instance damage", "total instance crit damage"].includes(unit[0]))) {
-                            heroData.abilities[ability][ability_property] = applyArmorToStat(heroData.abilities[ability][ability_property], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
+                        let damage_type = property_units
+                            .filter((unit) => Array.isArray(unit))
+                            .filter((unit) => unit[0] == "total instance damage" || unit[0] == "total instance crit damage")
+                            .map(unit => unit[1]);
+                        if (damage_type.length > 1) {
+                            throw new Error("should not have multiple damage types")
+                        }
+                        if (damage_type.length > 0) {
+                            let possible_special_behavior = specialArmorBehaviorDamageTypes[damage_type[0]];
+                            if(possible_special_behavior !== undefined) {
+                                if(possible_special_behavior[0] === "flat percent mit") {
+                                    heroData.abilities[ability][ability_property] = (1 - possible_special_behavior[1]) * heroData.abilities[ability][ability_property]
+                                }
+                            } else {
+                                heroData.abilities[ability][ability_property] = applyArmorToStat(heroData.abilities[ability][ability_property], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
+                            }
                         }
                     }
                 }
