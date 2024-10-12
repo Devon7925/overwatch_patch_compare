@@ -1177,7 +1177,8 @@
                         "Damage over time": 90,
                         "Cooldown": 7,
                         "Projectile size": 0.5,
-                        "Impact damage": 25
+                        "Impact damage": 25,
+                        "Hack damage multiplier": 2
                     },
                     "EMP": {
                         "Ultimate cost": 1375,

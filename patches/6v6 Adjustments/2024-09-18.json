@@ -5,7 +5,7 @@
         "Knockdown time": 1.7,
         "Armor minimum damage reduction": 0,
         "Armor maximum damage reduction": 50,
-        "Armor flat damage reduction": 10,
+        "Armor flat damage reduction": 7,
         "Out-of-combat health regeneration": "10",
         "Role lock": "2-2-2",
         "Ultimate percent retained on swap": 0,
@@ -271,12 +271,12 @@
                     },
                     "Hyperspheres": {
                         "Projectile size": 0.35,
-                        "Direct damage": 25,
-                        "Explosion damage": 30,
+                        "Direct damage": 15,
+                        "Explosion damage": 40,
                         "Recovery time": 1.5,
                         "Bullets per burst": 2,
                         "Burst recovery time": 0.192,
-                        "Explosion self damage": 25
+                        "Explosion self damage": 0
                     }
                 }
             },
@@ -674,7 +674,7 @@
                     "Configuration: Assault": {
                         "Movement speed penalty": 45,
                         "Cooldown": 12,
-                        "Spread": 2.2,
+                        "Spread": 2,
                         "Damage": 12,
                         "Duration": 6,
                         "Healing per second": 15,
@@ -726,7 +726,7 @@
                     },
                     "Flashbang": {
                         "Effect": "Applies hinder on hit",
-                        "Duration": 1.2,
+                        "Duration": 0.9,
                         "Maximum travel time": 0.23,
                         "Slow": 50,
                         "hinder prevents crouching": true,
@@ -862,10 +862,10 @@
                 "abilities": {
                     "Storm Bow": {
                         "Maximum damage": 120,
-                        "Projectile size": 0.175,
+                        "Projectile size": 0.1,
                         "has arrow draw progress preserved while wall climbing": false,
                         "Critical multiplier": 2,
-                        "Maximum charge time": 0.732,
+                        "Maximum charge time": 0.87,
                         "Recovery time": 0.5
                     },
                     "Storm Arrows": {
@@ -1177,7 +1177,8 @@
                         "Damage over time": 90,
                         "Cooldown": 7,
                         "Projectile size": 0.5,
-                        "Impact damage": 25
+                        "Impact damage": 25,
+                        "Hack damage multiplier": 2
                     },
                     "EMP": {
                         "Ultimate cost": 1375,
@@ -1931,7 +1932,7 @@
                         "Time to wear off when not in line-of-sight": 5
                     },
                     "Orb of Discord": {
-                        "Reapplication cooldown": 7,
+                        "Reapplication cooldown": 6,
                         "Range": 40,
                         "Time to wear off the target when not in line-of-sight": 1.5
                     },
