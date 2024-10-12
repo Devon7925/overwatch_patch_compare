@@ -142,7 +142,8 @@
             "Orisa": {
                 "general": {
                     "Base health": 250,
-                    "Armor health": 250
+                    "Armor health": 250,
+                    "Model size": 1.0
                 },
                 "abilities": {
                     "Fortify": {

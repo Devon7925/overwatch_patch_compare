@@ -442,6 +442,8 @@ async function updatePatchNotes() {
     }));
     let before_patch_data = structuredClone(patches[siteState.before_patch]);
     let after_patch_data = structuredClone(patches[siteState.after_patch]);
+    verifyPatchNotes(before_patch_data, calculation_units, units);
+    verifyPatchNotes(after_patch_data, calculation_units, units);
     before_patch_data = reorder(before_patch_data, units);
     after_patch_data = reorder(after_patch_data, units);
     before_patch_data = applyDamageMultiplier(before_patch_data, parseFloat(patch_before_dmg_boost_slider.value) / 100, calculation_units);
@@ -734,6 +736,61 @@ async function updatePatchNotes() {
         `;
     }
 }
+export function verifyPatchNotes(patch_data, calculation_units, units) {
+    for (let general_property in patch_data.general) {
+        let property_units = calculation_units.general[general_property];
+        if (property_units === undefined) {
+            console.log(`Cannot find calculation units for ${general_property}`);
+        }
+        let display_units = units.general[general_property];
+        if (display_units === undefined) {
+            console.log(`Cannot find units for ${general_property}`);
+        }
+    }
+    for (let role in patch_data.heroes) {
+        for (let hero in patch_data.heroes[role]) {
+            if (!isKeyOf(patch_data.heroes[role], hero)) {
+                throw new Error("Invalid state");
+            }
+            if (hero == "general")
+                continue;
+            let heroData = patch_data.heroes[role][hero];
+            let heroUnits = calculation_units.heroes[role][hero];
+            let heroDisplayUnits = units.heroes[role][hero];
+            if (heroData === undefined) {
+                throw new Error("Invalid state");
+            }
+            if (heroUnits === undefined) {
+                throw new Error("Invalid state");
+            }
+            if (heroDisplayUnits === undefined) {
+                throw new Error("Invalid state");
+            }
+            for (let general_property in heroData.general) {
+                let property_units = heroUnits.general[general_property];
+                if (property_units === undefined) {
+                    console.log(`Cannot find calculation units for ${hero} - ${general_property}`);
+                }
+                let display_units = heroDisplayUnits.general[general_property];
+                if (display_units === undefined) {
+                    console.log(`Cannot find display units for ${hero} - ${general_property}`);
+                }
+            }
+            for (let ability in heroData.abilities) {
+                for (let ability_property in heroData.abilities[ability]) {
+                    let property_units = heroUnits.abilities[ability][ability_property];
+                    if (property_units === undefined) {
+                        console.log(`Cannot find calculation units for ${hero} - ${ability} - ${ability_property}`);
+                    }
+                    let display_units = heroDisplayUnits.abilities[ability][ability_property];
+                    if (display_units === undefined) {
+                        console.log(`Cannot find display units for ${hero} - ${ability} - ${ability_property}`);
+                    }
+                }
+            }
+        }
+    }
+}
 export function applyDamageMultiplier(patch_data, multiplier, calculation_units) {
     if (typeof patch_data.general["Quick melee damage"] == "number") {
         patch_data.general["Quick melee damage"] *= multiplier;
@@ -756,6 +813,9 @@ export function applyDamageMultiplier(patch_data, multiplier, calculation_units)
             for (let ability in heroData.abilities) {
                 for (let ability_property in heroData.abilities[ability]) {
                     let property_units = heroUnits.abilities[ability][ability_property];
+                    if (property_units === undefined) {
+                        console.log(`Cannot find calculation units for ${ability} - ${ability_property}`);
+                    }
                     if (typeof heroData.abilities[ability][ability_property] === "number") {
                         if (property_units.some((unit) => ["damage instance"].includes(unit[0]))) {
                             heroData.abilities[ability][ability_property] *= multiplier;

@@ -12,7 +12,10 @@
         "has stranded spawn feature": [],
         "Overhealth ultimate charge generation rate": [],
         "Max wave respawn time": [],
-        "Non wave respawn time reduction": []
+        "Non wave respawn time reduction": [],
+        "can phase type abilities cleanse mobility lock": [],
+        "uses dynamic calculation for armor": [],
+        "Quick melee damage": []
     },
     "heroes": {
         "tank": {
@@ -25,8 +28,12 @@
             },
             "D.Va": {
                 "general": {
-                    "Base health": ["health"],
-                    "Armor health": ["health"],
+                    "Base health": [
+                        "health"
+                    ],
+                    "Armor health": [
+                        "health"
+                    ],
                     "Pilot health": []
                 },
                 "abilities": {
@@ -34,13 +41,30 @@
                         "Pilot damage immunity while ejecting": []
                     },
                     "Fusion Cannons": {
-                        "Damage per pellet": [["damage instance", "pellet"]],
-                        "Pellet count": [["pellet count", "pellet"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage per pellet": [
+                            [
+                                "damage instance",
+                                "pellet"
+                            ]
+                        ],
+                        "Pellet count": [
+                            [
+                                "pellet count",
+                                "pellet"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Spread": [],
                         "Projectile size": [],
                         "Movement speed penalty": [],
-                        "Recovery time": ["time between shots"]
+                        "Recovery time": [
+                            "time between shots"
+                        ]
                     },
                     "Defense Matrix": {
                         "Cooldown": [],
@@ -48,15 +72,38 @@
                         "Recharge rate": []
                     },
                     "Boosters": {
-                        "Impact damage": [["damage instance", "normal"]],
+                        "Impact damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Cooldown": []
                     },
                     "Micro Missiles": {
                         "Projectile size": [],
-                        "Explosion damage": [["damage instance", "normal"]],
-                        "Direct damage": [["damage instance", "normal"]],
-                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
-                        "Burst recovery time": ["burst recovery time"],
+                        "Explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Direct damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Bullets per burst": [
+                            "bullets per burst",
+                            [
+                                "bullets per burst",
+                                "normal"
+                            ]
+                        ],
+                        "Burst recovery time": [
+                            "burst recovery time"
+                        ],
                         "Projectile speed": [],
                         "Cooldown": []
                     },
@@ -66,25 +113,50 @@
                         "Inner explosion radius": []
                     },
                     "Light Gun": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Call Mech": {
                         "Ultimate cost": [],
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Radius": []
                     }
                 }
             },
             "Junker Queen": {
                 "general": {
-                    "Base health": ["health"],
+                    "Base health": [
+                        "health"
+                    ],
                     "Model size": [],
-                    "Armor health": ["health"],
+                    "Armor health": [
+                        "health"
+                    ],
                     "Head hit volume": [],
                     "Torso hit volume": [],
                     "has overridden melee": []
@@ -95,21 +167,52 @@
                         "heals for the remaining wound damage when an enemy dies with wounds on them": []
                     },
                     "Scattergun": {
-                        "Damage per pellet": [["damage instance", "pellet"]],
-                        "Pellet count": [["pellet count", "pellet"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage per pellet": [
+                            [
+                                "damage instance",
+                                "pellet"
+                            ]
+                        ],
+                        "Pellet count": [
+                            [
+                                "pellet count",
+                                "pellet"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
                         "Spread": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Jagged Blade": {
                         "Increased knockback on tanks": [],
                         "Pull distance": [],
                         "Projectile size": [],
-                        "Impact damage": [["damage instance", "normal"]],
-                        "Damage over time": [["damage instance", "damage over time"]],
+                        "Impact damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Damage over time": [
+                            [
+                                "damage instance",
+                                "damage over time"
+                            ]
+                        ],
                         "Cooldown": []
                     },
                     "Commanding Shout": {
@@ -126,17 +229,37 @@
                         "Movement speed bonus": []
                     },
                     "Carnage": {
-                        "Impact damage": [["damage instance", "normal"]],
+                        "Impact damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Immediate healing per target hit": [],
                         "Cooldown reduction per enemy hit": [],
                         "Cooldown": [],
-                        "Damage over time": [["damage instance", "damage over time"]]
+                        "Damage over time": [
+                            [
+                                "damage instance",
+                                "damage over time"
+                            ]
+                        ]
                     },
                     "Rampage": {
                         "Ultimate cost": [],
-                        "Wound total damage": [["damage instance", "damage over time"]],
+                        "Wound total damage": [
+                            [
+                                "damage instance",
+                                "damage over time"
+                            ]
+                        ],
                         "Startup time": [],
-                        "Impact damage": [["damage instance", "normal"]],
+                        "Impact damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Wound duration": [],
                         "Radius": []
                     }
@@ -144,32 +267,69 @@
             },
             "Orisa": {
                 "general": {
-                    "Base health": ["health"],
-                    "Armor health": ["health"]
+                    "Base health": [
+                        "health"
+                    ],
+                    "Armor health": [
+                        "health"
+                    ],
+                    "Model size": []
                 },
                 "abilities": {
                     "Fusion Driver": {
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Spread": [],
                         "Movement speed reduction": [],
                         "Projectile speed": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"],
-                        "Critical multiplier": [["critical multiplier", "headshot"]]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ]
                     },
                     "Augmented Fusion Driver": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
                         "Minimum damage falloff range": [],
                         "Maximum damage falloff range": [],
                         "Damage falloff at maximum range": [],
                         "has falloff damage penalty": [],
                         "scales projectile size with distance": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time per ammo": ["reload time per ammo"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time per ammo": [
+                            "reload time per ammo"
+                        ]
                     },
                     "Halt": {
                         "Projectile speed": [],
@@ -178,10 +338,32 @@
                         "Cooldown": []
                     },
                     "Energy Javelin": {
-                        "Direct damage": [["damage instance", "direct"], ["situation", "wall impact"], ["situation", "direct impact"]],
+                        "Direct damage": [
+                            [
+                                "damage instance",
+                                "direct"
+                            ],
+                            [
+                                "situation",
+                                "wall impact"
+                            ],
+                            [
+                                "situation",
+                                "direct impact"
+                            ]
+                        ],
                         "Projectile size": [],
                         "Cooldown": [],
-                        "Wall impact damage": [["damage instance", "wall impact"], ["situation", "wall impact"]]
+                        "Wall impact damage": [
+                            [
+                                "damage instance",
+                                "wall impact"
+                            ],
+                            [
+                                "situation",
+                                "wall impact"
+                            ]
+                        ]
                     },
                     "Fortify": {
                         "Duration": [],
@@ -191,7 +373,8 @@
                         "Overhealth generation": [],
                         "immune to taking forced critical hit damage": [],
                         "Damage reduction": [],
-                        "disables critical damage": []
+                        "disables critical damage": [],
+                        "Cooldown reduction per early cancel second": []
                     },
                     "Protective Barrier": {
                         "Health": [],
@@ -224,23 +407,56 @@
             },
             "Roadhog": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Scrap Gun": {
-                        "Damage per pellet": [["damage instance", "pellet"]],
-                        "Pellet count": [["pellet count", "pellet"]],
+                        "Damage per pellet": [
+                            [
+                                "damage instance",
+                                "pellet"
+                            ]
+                        ],
+                        "Pellet count": [
+                            [
+                                "pellet count",
+                                "pellet"
+                            ]
+                        ],
                         "Pellet projectile size": [],
-                        "Damage per shrapnel": [["damage instance", "shrapnel"]],
-                        "Shrapnel count": [["pellet count", "shrapnel"]],
+                        "Damage per shrapnel": [
+                            [
+                                "damage instance",
+                                "shrapnel"
+                            ]
+                        ],
+                        "Shrapnel count": [
+                            [
+                                "pellet count",
+                                "shrapnel"
+                            ]
+                        ],
                         "Shrapnel projectile size": [],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Secondary fire pre-detonation damage": [],
                         "Secondary fire max range": [],
                         "has secondary fire": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Take a Breather": {
                         "Damage reduction": [],
@@ -257,12 +473,27 @@
                         "Projectile size": [],
                         "Enemy final position distance": [],
                         "Cooldown start": [],
-                        "Impact damage": [["damage instance", "normal"]]
+                        "Impact damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ]
                     },
                     "Pig Pen": {
                         "Vertical Knockback": [],
-                        "Initial damage": [["damage instance", "normal"]],
-                        "Damage over time": [["damage instance", "dot"]],
+                        "Initial damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Damage over time": [
+                            [
+                                "damage instance",
+                                "dot"
+                            ]
+                        ],
                         "Recovery time": [],
                         "Cooldown start": [],
                         "Duration": [],
@@ -271,10 +502,27 @@
                     },
                     "Whole Hog": {
                         "Knockback": [],
-                        "Damage per pellet": [["damage instance", "normal"]],
-                        "Pellet count": [["pellet count", "pellet"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
-                        "Recovery time": ["time between shots"],
+                        "Damage per pellet": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Pellet count": [
+                            [
+                                "pellet count",
+                                "pellet"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
                         "Ultimate cost": [],
                         "disables other abilities and automatically fires": [],
                         "Projectile size": [],
@@ -285,18 +533,42 @@
             },
             "Sigma": {
                 "general": {
-                    "Base health": ["health"],
-                    "Shield health": ["health"],
+                    "Base health": [
+                        "health"
+                    ],
+                    "Shield health": [
+                        "health"
+                    ],
                     "has adjusted movement deceleration": []
                 },
                 "abilities": {
                     "Hyperspheres": {
-                        "Direct damage": [["damage instance", "normal"]],
-                        "Explosion damage": [["damage instance", "normal"]],
-                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
+                        "Direct damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Bullets per burst": [
+                            "bullets per burst",
+                            [
+                                "bullets per burst",
+                                "normal"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"],
-                        "Burst recovery time": ["burst recovery time"],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Burst recovery time": [
+                            "burst recovery time"
+                        ],
                         "Explosion self damage": []
                     },
                     "Experimental Barrier": {
@@ -308,9 +580,19 @@
                         "Overhealth generation from damage mitigated": []
                     },
                     "Accretion": {
-                        "Direct damage": [["damage instance", "normal"]],
+                        "Direct damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Stun duration": [],
-                        "Explosion damage": [["damage instance", "normal"]],
+                        "Explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Cooldown": [],
                         "Projectile size": []
                     },
@@ -322,31 +604,60 @@
             },
             "Wrecking Ball": {
                 "general": {
-                    "Base health": ["health"],
-                    "Armor health": ["health"],
-                    "Shield health": ["health"]
+                    "Base health": [
+                        "health"
+                    ],
+                    "Armor health": [
+                        "health"
+                    ],
+                    "Shield health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Quad Cannons": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
                         "Automatic reload time while transformed": [],
                         "Number of shots to reach max spread": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Grappling Claw": {
                         "Cooldown": [],
-                        "Impact damage": [["damage instance", "normal"]],
+                        "Impact damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "can be retracted": [],
                         "Cooldown if fireball speed is not achieved": [],
                         "requires fireball speed for max duration to begin": [],
                         "Knockback": []
                     },
                     "Roll": {
-                        "Cast time": ["time between shots"],
+                        "Cast time": [
+                            "time between shots"
+                        ],
                         "Move speed": []
                     },
                     "Adaptive Shield": {
@@ -359,11 +670,21 @@
                     "Piledriver": {
                         "Movement lockout duration for enemies": [],
                         "Cooldown": [],
-                        "Maximum damage": [["damage instance", "maximum"]]
+                        "Maximum damage": [
+                            [
+                                "damage instance",
+                                "maximum"
+                            ]
+                        ]
                     },
                     "Minefield": {
                         "Health": [],
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Explosion knockback": [],
                         "Ultimate cost": [],
                         "Arming time": []
@@ -372,8 +693,12 @@
             },
             "Zarya": {
                 "general": {
-                    "Base health": ["health"],
-                    "Shield health": ["health"]
+                    "Base health": [
+                        "health"
+                    ],
+                    "Shield health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Energy": {
@@ -381,21 +706,40 @@
                         "Energy degeneration delay": []
                     },
                     "Particle Cannon": {
-                        "Maximum damage per second": ["damage per second"],
+                        "Maximum damage per second": [
+                            "damage per second"
+                        ],
                         "Minimum damage per second": [],
                         "Beam width": [],
-                        "Ammo": ["ammo"],
+                        "Ammo": [
+                            "ammo"
+                        ],
                         "Ammo per second": [],
-                        "Reload time": ["reload time"]
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Particle Cannon Alt Fire": {
                         "Projectile size": [],
                         "Alt fire of": [],
-                        "Ammo per shot": ["ammo per shot"],
-                        "Max damage": [["damage instance", "normal"]],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Ammo per shot": [
+                            "ammo per shot"
+                        ],
+                        "Max damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Particle Barrier": {
                         "shares cooldown with Projected Barrier": [],
@@ -422,7 +766,9 @@
             },
             "Doomfist": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "The Best Defense": {
@@ -432,13 +778,34 @@
                     },
                     "Hand Cannon": {
                         "Minimum damage per pellet": [],
-                        "Damage per pellet": [["damage instance", "normal"]],
+                        "Damage per pellet": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Pellet count": [["pellet count", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time per ammo": ["reload time per ammo"]
+                        "Pellet count": [
+                            [
+                                "pellet count",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time per ammo": [
+                            "reload time per ammo"
+                        ]
                     },
                     "Rocket Punch": {
                         "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": [],
@@ -446,19 +813,42 @@
                         "Maximum empowered wall stun": [],
                         "Minimum knockback": [],
                         "Maximum knockback": [],
-                        "Max impact damage": [["damage instance", "impact"], "breakpoint damage"],
-                        "Max wall slam damage": [["damage instance", "wall slam"]],
+                        "Max impact damage": [
+                            [
+                                "damage instance",
+                                "impact"
+                            ],
+                            "breakpoint damage"
+                        ],
+                        "Max wall slam damage": [
+                            [
+                                "damage instance",
+                                "wall slam"
+                            ]
+                        ],
                         "Damage reduction on AoE affected targets": [],
                         "Cooldown": [],
-                        "Min impact damage": ["breakpoint damage"],
+                        "Min impact damage": [
+                            "breakpoint damage"
+                        ],
                         "Min wall slam damage": [],
                         "Minimum empowered wall stun": [],
                         "Empowered Rocket Punch knockback radius": [],
                         "Minimum time before cancel option becomes available": [],
-                        "Empowered damage multiplier": [["critical multiplier", "empowered"]]
+                        "Empowered damage multiplier": [
+                            [
+                                "critical multiplier",
+                                "empowered"
+                            ]
+                        ]
                     },
                     "Seismic Slam": {
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Cooldown": [],
                         "Slow": []
                     },
@@ -481,8 +871,12 @@
             },
             "Reinhardt": {
                 "general": {
-                    "Base health": ["health"],
-                    "Armor health": ["health"],
+                    "Base health": [
+                        "health"
+                    ],
+                    "Armor health": [
+                        "health"
+                    ],
                     "has overridden melee": []
                 },
                 "abilities": {
@@ -490,9 +884,16 @@
                         "Knockback reduction": []
                     },
                     "Rocket Hammer": {
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Knockback": [],
-                        "Recovery time": ["time between shots"]
+                        "Recovery time": [
+                            "time between shots"
+                        ]
                     },
                     "Barrier Field": {
                         "Barrier health": [],
@@ -500,13 +901,25 @@
                     },
                     "Charge": {
                         "Cooldown": [],
-                        "Wall impact damage": [["damage instance", "wall impact"]],
+                        "Wall impact damage": [
+                            [
+                                "damage instance",
+                                "wall impact"
+                            ]
+                        ],
                         "cancellable": [],
                         "Steering turn rate": []
                     },
                     "Firestrike": {
-                        "Ability charges": ["charges"],
-                        "Damage": [["damage instance", "normal"]],
+                        "Ability charges": [
+                            "charges"
+                        ],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Projectile size": []
                     },
                     "Earthshatter": {
@@ -519,8 +932,12 @@
             },
             "Mauga": {
                 "general": {
-                    "Base health": ["health"],
-                    "Armor health": ["health"],
+                    "Base health": [
+                        "health"
+                    ],
+                    "Armor health": [
+                        "health"
+                    ],
                     "Model Size": [],
                     "Head hit volume": []
                 },
@@ -529,7 +946,12 @@
                         "Overhealth conversion rate": []
                     },
                     "Incendiary and Volatile Changuns": {
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Number of shots required to ignite enemies with Incendiary Chaingun": [],
                         "Projectile size": [],
                         "Movement speed penalty per gun": [],
@@ -538,18 +960,39 @@
                         "Spread for firing both guns": [],
                         "Spread when only one Chaingun is active": [],
                         "Incendiary Chaingun burn duration": [],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Overrun": {
                         "Cooldown": [],
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Knockback damage": [],
                         "Damage reduction": [],
                         "can be interrupted by Hack": [],
-                        "Critical multiplier": [["critical multiplier", "critical"]]
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "critical"
+                            ]
+                        ]
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": [],
@@ -569,19 +1012,39 @@
             },
             "Ramattra": {
                 "general": {
-                    "Base health": ["health"],
-                    "Armor health": ["health"],
+                    "Base health": [
+                        "health"
+                    ],
+                    "Armor health": [
+                        "health"
+                    ],
                     "Model Size": [],
                     "Nemesis model size": []
                 },
                 "abilities": {
                     "Void Accelerator": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Void Barrier": {
                         "Barrier health": [],
@@ -593,9 +1056,16 @@
                         "Increased movement speed": []
                     },
                     "Pummel": {
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"]
+                        "Recovery time": [
+                            "time between shots"
+                        ]
                     },
                     "Block": {
                         "reduces damage from stuck projectiles": []
@@ -612,34 +1082,60 @@
                         "Ultimate cost": [],
                         "Increased movement speed": [],
                         "refreshes bonus armor if used while in Nemesis Form": [],
-                        "Maximum duration": []
+                        "Maximum duration": [],
+                        "Minimum duration": []
                     }
                 }
             },
             "Winston": {
                 "general": {
-                    "Base health": ["health"],
-                    "Armor health": ["health"]
+                    "Base health": [
+                        "health"
+                    ],
+                    "Armor health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Tesla Cannon": {
-                        "Damage per second": ["damage per second"],
+                        "Damage per second": [
+                            "damage per second"
+                        ],
                         "ignores armor damage reduction": [],
                         "Cooldown": [],
                         "Spread": [],
-                        "Ammo": ["ammo"],
+                        "Ammo": [
+                            "ammo"
+                        ],
                         "Ammo per second": [],
-                        "Reload time": ["reload time"]
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Tesla Cannon Alt Fire": {
                         "Alt fire of": [],
-                        "Damage": [["damage instance", "lightning"]],
-                        "Maximum charge time": ["time between shots"],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "lightning"
+                            ]
+                        ],
+                        "Maximum charge time": [
+                            "time between shots"
+                        ],
                         "Range": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo per shot": ["ammo per shot"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo per shot": [
+                            "ammo per shot"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Jet Pack": {
                         "Cooldown": [],
@@ -653,9 +1149,18 @@
                     },
                     "Primal Rage": {
                         "Ultimate cost": [],
-                        "Cast time": ["time between shots"],
-                        "Recovery time": ["time between shots"],
-                        "Damage": [["damage instance", "normal"]],
+                        "Cast time": [
+                            "time between shots"
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Maximum health gained": []
                     }
                 }
@@ -669,57 +1174,135 @@
             },
             "Ashe": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "The Viper": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time per ammo": ["reload time per ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time per ammo": [
+                            "reload time per ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "The Viper Alt Fire": {
                         "Alt fire of": [],
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time per ammo": ["reload time per ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time per ammo": [
+                            "reload time per ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Coach Gun": {
                         "Cooldown": [],
-                        "Damage per pellet": [["damage instance", "normal"]],
-                        "Pellet count": [["pellet count", "normal"]],
+                        "Damage per pellet": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Pellet count": [
+                            [
+                                "pellet count",
+                                "normal"
+                            ]
+                        ],
                         "Cast time": [],
                         "Recovery time": []
                     },
                     "Dynamite": {
                         "Cooldown": [],
-                        "Explosion damage": [["damage instance", "normal"]],
-                        "Damage over time": [["damage instance", "damage over time"]],
+                        "Explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Damage over time": [
+                            [
+                                "damage instance",
+                                "damage over time"
+                            ]
+                        ],
                         "Duration": [],
                         "Range": []
                     },
                     "B.O.B": {
                         "Ultimate cost": [],
-                        "Weapon damage": [["damage instance", "normal"]],
-                        "Recovery time": ["time between shots"],
+                        "Weapon damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
                         "has tank passive": [],
                         "Health": [],
                         "prefers to shoot at enemy targets that Ashe damage with her rifle": [],
-                        "Charge damage": [["damage instance", "normal"], ["situation", "charge"]]
+                        "Charge damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ],
+                            [
+                                "situation",
+                                "charge"
+                            ]
+                        ]
                     }
                 }
             },
             "Bastion": {
                 "general": {
-                    "Base health": ["health"],
-                    "Armor health": ["health"],
+                    "Base health": [
+                        "health"
+                    ],
+                    "Armor health": [
+                        "health"
+                    ],
                     "Model size": []
                 },
                 "abilities": {
@@ -728,22 +1311,49 @@
                     },
                     "Self-Repair": {},
                     "Configuration: Recon": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
                         "Spread": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Configuration: Assault": {
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Movement speed penalty": [],
                         "Spread": [],
                         "Min spread": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ],
                         "Duration": [],
                         "Cooldown": [],
                         "Healing per second": []
@@ -752,14 +1362,29 @@
                         "Self damage rate": [],
                         "briefly grants increased aerial mobility on self knockback while in Configuration: Assault": [],
                         "Projectile size": [],
-                        "Impact damage": [["damage instance", "normal"]],
-                        "Splash Damage": [["damage instance", "normal"]],
+                        "Impact damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Splash Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Maximum explosion damage falloff": [],
                         "Detonation time": [],
                         "Cooldown": []
                     },
                     "Reconfigure": {
-                        "Armor healing on transform": [["healing instance", "normal"]]
+                        "Armor healing on transform": [
+                            [
+                                "healing instance",
+                                "normal"
+                            ]
+                        ]
                     },
                     "Configuration: Tank": {},
                     "Configuration: Artillery": {
@@ -769,34 +1394,70 @@
                         "Targeting state movement speed": [],
                         "Minimum delay between placing shots": [],
                         "deals explosion damage to self": [],
-                        "Explosion damage": [["damage instance", "normal"]],
+                        "Explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Delay before projectile drops": []
                     }
                 }
             },
             "Cassidy": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Peacekeeper": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
                         "Primary fire falloff range minimum": [],
                         "Primary fire falloff range maximum": [],
                         "Maximum damage falloff scalar": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Fan the Hammer": {
                         "Alt fire of": [],
-                        "Damage": [["damage instance", "normal"]],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"],
-                        "Additional reload delay": ["reload time"]
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ],
+                        "Additional reload delay": [
+                            "reload time"
+                        ]
                     },
                     "Combat Roll": {
                         "Damage reduction": [],
@@ -808,14 +1469,24 @@
                         "Maximum travel time": [],
                         "Slow": [],
                         "hinder prevents crouching": [],
-                        "Explosion damage": [["damage instance", "normal"]],
+                        "Explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Cooldown": [],
                         "Projectile speed": [],
                         "Projectile size": [],
                         "Seeking radius": [],
                         "Homing duration": [],
                         "Maximum projectile travel range": [],
-                        "Direct damage": [["damage instance", "normal"]],
+                        "Direct damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Impact damage": []
                     },
                     "Deadeye": {
@@ -834,7 +1505,9 @@
             },
             "Doomfist": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "The Best Defense": {
@@ -880,7 +1553,9 @@
             },
             "Echo": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Glide": {
@@ -888,18 +1563,67 @@
                         "Vertical speed": []
                     },
                     "Tri-shot": {
-                        "Damage per pellet": [["damage instance", "normal"]],
-                        "Pellet count": [["pellet count", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage per pellet": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Pellet count": [
+                            [
+                                "pellet count",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Sticky Bombs": {
-                        "Explosion damage": [["damage instance", "normal"], ["situation", "direct"], ["situation", "explosion"]],
-                        "Direct damage": [["damage instance", "normal"], ["situation", "direct"]],
-                        "Bullets per shot": ["bullets per burst", ["bullets per burst", "normal"]],
+                        "Explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ],
+                            [
+                                "situation",
+                                "direct"
+                            ],
+                            [
+                                "situation",
+                                "explosion"
+                            ]
+                        ],
+                        "Direct damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ],
+                            [
+                                "situation",
+                                "direct"
+                            ]
+                        ],
+                        "Bullets per shot": [
+                            "bullets per burst",
+                            [
+                                "bullets per burst",
+                                "normal"
+                            ]
+                        ],
                         "Projectile size": []
                     },
                     "Flight": {
@@ -943,33 +1667,87 @@
             },
             "Genji": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Shuriken": {
-                        "Damage per bullet": [["damage instance", "normal"]],
-                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage per bullet": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Bullets per burst": [
+                            "bullets per burst",
+                            [
+                                "bullets per burst",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Burst recovery time": ["burst recovery time"],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Burst recovery time": [
+                            "burst recovery time"
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Shuriken Alt Fire": {
                         "Alt fire of": [],
-                        "Damage per pellet": [["damage instance", "normal"]],
-                        "Pellet count": [["pellet count", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage per pellet": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Pellet count": [
+                            [
+                                "pellet count",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Ammo per shot": ["ammo per shot"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Ammo per shot": [
+                            "ammo per shot"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Swift Strike": {
                         "Cooldown": [],
-                        "Damage": [["damage instance", "normal"]]
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ]
                     },
                     "Deflect": {
                         "Cooldown": [],
@@ -977,23 +1755,46 @@
                     },
                     "Dragonblade": {
                         "Ultimate cost": [],
-                        "Recovery time": ["time between shots"],
-                        "Damage": [["damage instance", "normal"]]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ]
                     }
                 }
             },
             "Hanzo": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Storm Bow": {
-                        "Maximum damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Maximum damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
                         "has arrow draw progress preserved while wall climbing": [],
-                        "Recovery time": ["time between shots"],
-                        "Maximum charge time": ["time between shots"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Maximum charge time": [
+                            "time between shots"
+                        ]
                     },
                     "Sonic Arrow": {
                         "does impact sound plat for enemies": [],
@@ -1004,11 +1805,29 @@
                     },
                     "Storm Arrows": {
                         "Cooldown": [],
-                        "Damage per bullet": [["damage instance", "normal"]],
-                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
+                        "Damage per bullet": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Bullets per burst": [
+                            "bullets per burst",
+                            [
+                                "bullets per burst",
+                                "normal"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
-                        "Burst recovery time": ["burst recovery time"]
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
+                        "Burst recovery time": [
+                            "burst recovery time"
+                        ]
                     },
                     "Lunge": {
                         "Cooldown": []
@@ -1017,38 +1836,94 @@
                         "Speed": [],
                         "Damage per second": [],
                         "Ultimate cost": [],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": []
                     }
                 }
             },
             "Junkrat": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Total Mayhem": {
-                        "Explosion damage": [["damage instance", "normal"]],
-                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
-                        "Cast time": ["time between shots"]
+                        "Explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Bullets per burst": [
+                            "bullets per burst",
+                            [
+                                "bullets per burst",
+                                "normal"
+                            ]
+                        ],
+                        "Cast time": [
+                            "time between shots"
+                        ]
                     },
                     "Frag Launcher": {
-                        "Direct damage": [["damage instance", "normal"]],
-                        "Explosion damage": [["damage instance", "normal"]],
+                        "Direct damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Projectile size": [],
                         "Projectile size reduction": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Concussion Mine": {
                         "Cooldown": [],
                         "Projectile size": [],
-                        "Maximum damage": [["damage instance", "explosion"], ["situation", "max damage"]],
-                        "Minimum damage": [["damage instance", "explosion"], ["situation", "min damage"]],
+                        "Maximum damage": [
+                            [
+                                "damage instance",
+                                "explosion"
+                            ],
+                            [
+                                "situation",
+                                "max damage"
+                            ]
+                        ],
+                        "Minimum damage": [
+                            [
+                                "damage instance",
+                                "explosion"
+                            ],
+                            [
+                                "situation",
+                                "min damage"
+                            ]
+                        ],
                         "Range": [],
                         "Health": [],
-                        "Charges": ["charges"]
+                        "Charges": [
+                            "charges"
+                        ]
                     },
                     "Steel Trap": {
                         "Arming time": [],
@@ -1056,15 +1931,27 @@
                         "Projectile speed": [],
                         "prevents all movement for its target": [],
                         "Movement speed reduction of trapped player": [],
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Cooldown": [],
                         "Health": []
                     },
                     "RIP-Tire": {
                         "Ultimate cost": [],
-                        "Cast time": ["time between shots"],
+                        "Cast time": [
+                            "time between shots"
+                        ],
                         "Radius": [],
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Health": [],
                         "Duration": []
                     }
@@ -1072,44 +1959,82 @@
             },
             "Mei": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Deep Chill": {
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Duration": [],
                         "Movement speed reduction": [],
                         "bonus damage triggered by Mei's quick melee": []
                     },
                     "Endothermic Blaster": {
-                        "Damage": [["damage instance", "beam"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "beam"
+                            ]
+                        ],
                         "Projectile size": [],
                         "Minimum slow": [],
                         "Maximum slow": [],
                         "Duration before slow falls off between primary fire hits": [],
                         "stuns on freeze": [],
                         "Freeze rate": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
                         "Ammo per second": [],
-                        "Reload time": ["reload time"]
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Endothermic Blaster Alt Fire": {
                         "Alt fire of": [],
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo per shot": ["ammo per shot"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo per shot": [
+                            "ammo per shot"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Cryofreeze": {
                         "Healing per second": [],
                         "Max duration": [],
                         "Min duration": [],
                         "Ammo restored per second": [],
-                        "Recovery time": ["time between shots"],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
                         "Cooldown": []
                     },
                     "Ice Wall": {
@@ -1117,7 +2042,9 @@
                         "Pillar count": [],
                         "Range": [],
                         "Duration": [],
-                        "Recovery time": ["time between shots"],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
                         "Cooldown": []
                     },
                     "Blizzard": {
@@ -1125,14 +2052,18 @@
                         "Damage per second": [],
                         "Duration": [],
                         "Projectile speed": [],
-                        "Cast time": ["time between shots"],
+                        "Cast time": [
+                            "time between shots"
+                        ],
                         "Ultimate cost": []
                     }
                 }
             },
             "Pharah": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Hover Jets": {
@@ -1141,14 +2072,42 @@
                         "can be activated without fuel to slow decent": []
                     },
                     "Rocket Launcher": {
-                        "Direct damage": [["damage instance", "normal"], ["situation", "direct"]],
+                        "Direct damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ],
+                            [
+                                "situation",
+                                "direct"
+                            ]
+                        ],
                         "Explosion self damage": [],
-                        "Explosion damage": [["damage instance", "normal"], ["situation", "direct"], ["situation", "max splash"]],
+                        "Explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ],
+                            [
+                                "situation",
+                                "direct"
+                            ],
+                            [
+                                "situation",
+                                "max splash"
+                            ]
+                        ],
                         "Projectile speed": [],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Jet Dash": {
                         "Cooldown": []
@@ -1162,8 +2121,18 @@
                     "Concussive Blast": {
                         "Projectile size": [],
                         "Cooldown": [],
-                        "Direct damage": [["damage instance", "normal"]],
-                        "Explosion damage": [["damage instance", "normal"]],
+                        "Direct damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Explosion radius": [],
                         "Knockback": [],
                         "Direct knockback": []
@@ -1171,42 +2140,81 @@
                     "Barrage": {
                         "Projectile size": [],
                         "instantly refills Hover Jets fuel": [],
-                        "Direct damage": [["damage instance", "normal"]],
-                        "Explosion damage": [["damage instance", "normal"]],
+                        "Direct damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Duration": [],
-                        "Recovery time": ["time between shots"],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
                         "Ultimate cost": []
                     }
                 }
             },
             "Reaper": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "The Reaping": {
                         "Lifesteal percentage": []
                     },
                     "Hellfire Shotguns": {
-                        "Damage per pellet": [["damage instance", "normal"]],
-                        "Pellet count": [["pellet count", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage per pellet": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Pellet count": [
+                            [
+                                "pellet count",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Spread": [],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"],
-                        "Reload time": ["reload time"],
-                        "Ammo": ["ammo"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ]
                     },
                     "Wraith Form": {
                         "can be activated while affected by mobility-locking effects": [],
                         "Cooldown": [],
                         "Max duration": [],
                         "Min duration": [],
-                        "Recovery time": ["time between shots"],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
                         "Movement speed": []
                     },
                     "Shadow Step": {
-                        "Cast time": ["time between shots"],
+                        "Cast time": [
+                            "time between shots"
+                        ],
                         "Cooldown": [],
                         "Range": []
                     },
@@ -1221,18 +2229,36 @@
             },
             "Sojourn": {
                 "general": {
-                    "Base health": ["health"],
+                    "Base health": [
+                        "health"
+                    ],
                     "Torso hit volume": []
                 },
                 "abilities": {
                     "Railgun": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
                         "Spread": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ],
                         "Minimum energy for gradual energy decay": [],
                         "Number of shots to reach maximum spread": [],
                         "Energy gain based on": [],
@@ -1242,9 +2268,19 @@
                         "Energy decay per second": []
                     },
                     "Railgun Alt Fire": {
-                        "Maximum damage": [["damage instance", "normal"]],
+                        "Maximum damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Minimum damage": [],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Minimum damage falloff range": [],
                         "Minimum projectile radius": [],
                         "Projectile size": [],
@@ -1270,48 +2306,84 @@
             },
             "Soldier: 76": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Heavy Pulse Rifle": {
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Ammo": ["ammo"],
+                        "Ammo": [
+                            "ammo"
+                        ],
                         "Number of shots to reach maximum recoil": [],
                         "Recoil": [],
-                        "Recovery time": ["time between shots"],
-                        "Reload time": ["reload time"],
-                        "Critical multiplier": [["critical multiplier", "headshot"]]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ]
                     },
                     "Helix Rocket": {
                         "Projectile size": [],
-                        "Explosion damage": [["damage instance", "normal"]],
-                        "Direct damage": [["damage instance", "normal"]],
+                        "Explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Direct damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Cooldown": []
                     },
                     "Sprint": {
                         "Increased movement speed": [],
-                        "Recovery time": ["time between shots"]
+                        "Recovery time": [
+                            "time between shots"
+                        ]
                     },
                     "Biotic Field": {
                         "Healing per second": [],
                         "Range": [],
                         "Duration": [],
-                        "Cast time": ["time between shots"],
+                        "Cast time": [
+                            "time between shots"
+                        ],
                         "Cooldown": []
                     },
                     "Tactical Visor": {
                         "removes damage falloff": [],
                         "prevents critical hits": [],
                         "Duration": [],
-                        "Cast time": ["time between shots"],
+                        "Cast time": [
+                            "time between shots"
+                        ],
                         "Ultimate cost": []
                     }
                 }
             },
             "Sombra": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Stealth": {
@@ -1329,18 +2401,36 @@
                         "Damage boost on hacked targets": []
                     },
                     "Machine Pistol": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
                         "Minimum Spread": [],
                         "Maximum spread": [],
                         "Number of shots until max spread": [],
-                        "Reload time": ["reload time"],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"]
+                        "Reload time": [
+                            "reload time"
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ]
                     },
                     "Hack": {
-                        "Cast time": ["time between shots"],
+                        "Cast time": [
+                            "time between shots"
+                        ],
                         "cancels Stealth when hacking an enemy hero": [],
                         "Cooldown on successful enemy hero hack": [],
                         "Cooldown": [],
@@ -1353,11 +2443,27 @@
                         "destroys immortality field": []
                     },
                     "Virus": {
-                        "Impact damage": [["damage instance", "impact"]],
-                        "Damage over time": [["damage instance", "damage over time"]],
+                        "Impact damage": [
+                            [
+                                "damage instance",
+                                "impact"
+                            ]
+                        ],
+                        "Damage over time": [
+                            [
+                                "damage instance",
+                                "damage over time"
+                            ]
+                        ],
                         "Projectile size": [],
                         "Cooldown": [],
-                        "Hack damage multiplier": [["critical multiplier", "hacked", "impact"]]
+                        "Hack damage multiplier": [
+                            [
+                                "critical multiplier",
+                                "hacked",
+                                "impact"
+                            ]
+                        ]
                     },
                     "Translocator": {
                         "destroys breakables while in flight": [],
@@ -1380,8 +2486,12 @@
             },
             "Symmetra": {
                 "general": {
-                    "Base health": ["health"],
-                    "Shield health": ["health"]
+                    "Base health": [
+                        "health"
+                    ],
+                    "Shield health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Photon Projector": {
@@ -1392,21 +2502,45 @@
                         "Beam decay rate": [],
                         "Ammo per second": [],
                         "gains ammo from damaging barriers with primary fire": [],
-                        "Ammo": ["ammo"],
+                        "Ammo": [
+                            "ammo"
+                        ],
                         "Projectile speed": [],
-                        "Reload time": ["reload time"],
+                        "Reload time": [
+                            "reload time"
+                        ],
                         "Maximum beam level": []
                     },
                     "Photon Projector Alt Fire": {
                         "Minimum projectile size": [],
                         "Maximum projectile size": [],
-                        "Maximum impact damage": [["damage instance", "normal"]],
-                        "Maximum explosion damage": [["damage instance", "normal"]],
-                        "Maximum charge time": ["time between shots"],
-                        "Ammo per shot": ["ammo per shot"],
-                        "Reload time": ["reload time"],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
+                        "Maximum impact damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Maximum explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Maximum charge time": [
+                            "time between shots"
+                        ],
+                        "Ammo per shot": [
+                            "ammo per shot"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
                         "Alt fire of": []
                     },
                     "Sentry Turret": {
@@ -1417,8 +2551,12 @@
                         "Travel speed": []
                     },
                     "Teleporter": {
-                        "Base health": ["health"],
-                        "Shield health": ["health"],
+                        "Base health": [
+                            "health"
+                        ],
+                        "Shield health": [
+                            "health"
+                        ],
                         "Cooldown": [],
                         "Build time": [],
                         "Cooldown start": [],
@@ -1432,40 +2570,97 @@
             },
             "Torbjörn": {
                 "general": {
-                    "Base health": ["health"],
-                    "Armor health": ["health"],
+                    "Base health": [
+                        "health"
+                    ],
+                    "Armor health": [
+                        "health"
+                    ],
                     "Weapon swap time": []
                 },
                 "abilities": {
                     "Forge Hammer": {
-                        "Recovery time": ["time between shots"],
-                        "Damage": [["damage instance", "normal"]]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ]
                     },
                     "Rivet Gun": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Rivet Gun Alt Fire": {
-                        "Damage per pellet": [["damage instance", "normal"]],
-                        "Pellet count": [["pellet count", "normal"]],
-                        "Ammo per shot": ["ammo per shot"],
+                        "Damage per pellet": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Pellet count": [
+                            [
+                                "pellet count",
+                                "normal"
+                            ]
+                        ],
+                        "Ammo per shot": [
+                            "ammo per shot"
+                        ],
                         "Projectile size": [],
                         "Spread": [],
-                        "Recovery time": ["time between shots"],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Alt fire of": [],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Deploy Turret": {
-                        "Turret damage": [["damage instance", "normal"]],
+                        "Turret damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Cooldown": [],
                         "Turret base health": [],
-                        "Turret recovery time": ["time between shots"]
+                        "Turret recovery time": [
+                            "time between shots"
+                        ]
                     },
                     "Overload": {
                         "Overhealth": [],
@@ -1476,47 +2671,95 @@
                     },
                     "Molten Core": {
                         "Projectile size": [],
-                        "Impact damage": [["damage instance", "normal"]],
+                        "Impact damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Ultimate cost": []
                     }
                 }
             },
             "Tracer": {
                 "general": {
-                    "Base health": ["health"],
+                    "Base health": [
+                        "health"
+                    ],
                     "Model size": []
                 },
                 "abilities": {
                     "Pulse Pistols": {
-                        "Damage per pellet": [["damage instance", "normal"]],
-                        "Pellet count": [["pellet count", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage per pellet": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Pellet count": [
+                            [
+                                "pellet count",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Minimum falloff range": [],
                         "Projectile size": [],
                         "Spread": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Ammo per shot": ["ammo per shot"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Ammo per shot": [
+                            "ammo per shot"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Blink": {
                         "Charges": [],
                         "Cooldown": [],
-                        "Recovery time": ["time between shots"],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
                         "Range": []
                     },
                     "Recall": {
                         "Cooldown": [],
-                        "Cast time": ["time between shots"],
+                        "Cast time": [
+                            "time between shots"
+                        ],
                         "Rewind time": []
                     },
                     "Pulse Bomb": {
-                        "Direct damage": [["damage instance", "normal"]],
-                        "Explosion damage": [["damage instance", "normal"]],
+                        "Direct damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Radius": [],
                         "Duration": [],
-                        "Cast time": ["time between shots"],
-                        "Recovery time": ["time between shots"],
+                        "Cast time": [
+                            "time between shots"
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
                         "Projectile speed": [],
                         "Projectile size": [],
                         "Ultimate cost": []
@@ -1525,7 +2768,9 @@
             },
             "Venture": {
                 "general": {
-                    "Base health": ["health"],
+                    "Base health": [
+                        "health"
+                    ],
                     "Movement speed": [],
                     "has overridden melee": []
                 },
@@ -1535,37 +2780,84 @@
                         "Shield cap": []
                     },
                     "Clobber": {
-                        "Impact damage": [["damage instance", "normal"]],
-                        "Damage over time": [["damage instance", "damage over time"]]
+                        "Impact damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Damage over time": [
+                            [
+                                "damage instance",
+                                "damage over time"
+                            ]
+                        ]
                     },
                     "SMART Excavator": {
-                        "Direct damage": [["damage instance", "normal"]],
-                        "Maximum explosion damage": [["damage instance", "normal"]],
+                        "Direct damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Maximum explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Drill Dash": {
                         "Cooldown start": [],
                         "Cooldown reduction while burrowed": [],
                         "Cooldown acceleration while burrowed": [],
-                        "Impact damage": [["damage instance", "normal"]],
-                        "Damage over time": [["damage instance", "damage over time"]],
+                        "Impact damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Damage over time": [
+                            [
+                                "damage instance",
+                                "damage over time"
+                            ]
+                        ],
                         "Cooldown": [],
                         "Knockback": []
                     },
                     "Burrow": {
                         "Grace period": [],
                         "Minimum damage": [],
-                        "Maximum damage": [["damage instance", "normal"]],
-                        "Maximum duration": []
+                        "Maximum damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Maximum duration": [],
+                        "Cooldown reduction per clobber hit": []
                     },
                     "Tectonic Shock": {
                         "Vertical knockback": [],
                         "Extra damage range": [],
                         "Extra damage multiplier": [],
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Slow": [],
                         "Slow duration": [],
                         "Ultimate cost": []
@@ -1574,32 +2866,70 @@
             },
             "Widowmaker": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Widow's Kiss": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
                         "Shots to reach maximum spread": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Widow's Kiss Alt Fire": {
                         "Alt fire of": [],
-                        "Maximum damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Maximum damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Falloff minimum range": [],
                         "Falloff maximum range": [],
                         "Maximum damage falloff scalar": [],
                         "Projectile size": [],
                         "Shots to reach maximum spread": [],
-                        "Maximum charge time": ["time between shots"],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Ammo per shot": ["ammo per shot"],
-                        "Reload time": ["reload time"]
+                        "Maximum charge time": [
+                            "time between shots"
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Ammo per shot": [
+                            "ammo per shot"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Grappling Hook": {
                         "Cooldown": [],
@@ -1608,7 +2938,12 @@
                     },
                     "Venom Mine": {
                         "Cooldown": [],
-                        "Damage over time": [["damage instance", "damage over time"]],
+                        "Damage over time": [
+                            [
+                                "damage instance",
+                                "damage over time"
+                            ]
+                        ],
                         "Health": [],
                         "Duration": [],
                         "Range": [],
@@ -1630,26 +2965,54 @@
             },
             "Ana": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Biotic Rifle": {
-                        "Damage": [["damage instance", "damage over time"]],
-                        "Healing": [["healing instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "damage over time"
+                            ]
+                        ],
+                        "Healing": [
+                            [
+                                "healing instance",
+                                "normal"
+                            ]
+                        ],
                         "Unscoped projectile size": [],
                         "Enemy scoped projectile size": [],
                         "Ally scoped projectile size": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Sleep Dart": {
                         "Cooldown": [],
                         "Projectile size": []
                     },
                     "Biotic Grenade": {
-                        "Healing": [["healing instance", "normal"]],
-                        "Damage": [["damage instance", "normal"]],
+                        "Healing": [
+                            [
+                                "healing instance",
+                                "normal"
+                            ]
+                        ],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Projectile size": [],
                         "Effect duration": [],
                         "Cooldown": []
@@ -1661,34 +3024,128 @@
             },
             "Baptiste": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Biotic Launcher": {
-                        "Damage per bullet": [["damage instance", "normal"]],
-                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
+                        "Damage per bullet": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Bullets per burst": [
+                            "bullets per burst",
+                            [
+                                "bullets per burst",
+                                "normal"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Minimum falloff damage range": [],
-                        "Burst recovery time": ["burst recovery time"],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Burst recovery time": [
+                            "burst recovery time"
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Biotic Launcher Alt Fire": {
                         "Alt fire of": [],
-                        "Explosion healing": [["healing instance", "normal"]],
-                        "Direct healing": [["healing instance", "normal"]],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Explosion healing": [
+                            [
+                                "healing instance",
+                                "normal"
+                            ]
+                        ],
+                        "Direct healing": [
+                            [
+                                "healing instance",
+                                "normal"
+                            ]
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Regenerative Burst": {
                         "Cooldown": [],
-                        "Instant healing": [["healing instance", "burst"], ["situation", "normal"], ["situation", "self"], ["situation", "critical"]],
-                        "Instant healing on allies <50% HP": [["healing instance", "burst"], ["situation", "critical"]],
-                        "Heal over time": [["healing instance", "heal over time"], ["situation", "normal"], ["situation", "critical"], ["situation", "self"]],
-                        "Additional self heal over time": [["healing instance", "heal over time"], ["situation", "self"]],
+                        "Instant healing": [
+                            [
+                                "healing instance",
+                                "burst"
+                            ],
+                            [
+                                "situation",
+                                "normal"
+                            ],
+                            [
+                                "situation",
+                                "self"
+                            ],
+                            [
+                                "situation",
+                                "critical"
+                            ]
+                        ],
+                        "Instant healing on allies <50% HP": [
+                            [
+                                "healing instance",
+                                "burst"
+                            ],
+                            [
+                                "situation",
+                                "critical"
+                            ]
+                        ],
+                        "Heal over time": [
+                            [
+                                "healing instance",
+                                "heal over time"
+                            ],
+                            [
+                                "situation",
+                                "normal"
+                            ],
+                            [
+                                "situation",
+                                "critical"
+                            ],
+                            [
+                                "situation",
+                                "self"
+                            ]
+                        ],
+                        "Additional self heal over time": [
+                            [
+                                "healing instance",
+                                "heal over time"
+                            ],
+                            [
+                                "situation",
+                                "self"
+                            ]
+                        ],
                         "Self healing rate": []
                     },
                     "Immortality Field": {
@@ -1703,8 +3160,12 @@
             },
             "Brigitte": {
                 "general": {
-                    "Base health": ["health"],
-                    "Armor health": ["health"],
+                    "Base health": [
+                        "health"
+                    ],
+                    "Armor health": [
+                        "health"
+                    ],
                     "has overridden melee": []
                 },
                 "abilities": {
@@ -1714,29 +3175,56 @@
                         "triggers from Shield Bash damage": []
                     },
                     "Rocket Flail": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Recovery time": ["time between shots"]
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ]
                     },
                     "Barrier Shield": {
                         "Barrier Shield health": []
                     },
                     "Shield Bash": {
                         "Cooldown": [],
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Knockback scalar": [],
                         "Stun duration": [],
                         "stopped by barriers": [],
                         "Distance travelled": []
                     },
                     "Whipshot": {
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Cooldown": []
                     },
                     "Repair Pack": {
-                        "Instant healing": [["healing instance", "normal"]],
+                        "Instant healing": [
+                            [
+                                "healing instance",
+                                "normal"
+                            ]
+                        ],
                         "Cooldown": [],
                         "Range": [],
-                        "Healing over time": [["healing instance", "normal"]]
+                        "Healing over time": [
+                            [
+                                "healing instance",
+                                "normal"
+                            ]
+                        ]
                     },
                     "Rally": {
                         "Ultimate cost": [],
@@ -1752,18 +3240,38 @@
             },
             "Illari": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Solar Rifle": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
                         "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": [],
-                        "Maximum charge time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Maximum charge time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Solar Rifle Alt Fire": {
                         "Healing per second": [],
@@ -1771,14 +3279,26 @@
                         "Depletion rate": []
                     },
                     "Outburst": {
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Cooldown": []
                     },
                     "Healing Pylon": {
-                        "Healing per projectile": [["healing instance", "normal"]],
+                        "Healing per projectile": [
+                            [
+                                "healing instance",
+                                "normal"
+                            ]
+                        ],
                         "Self healing efficiency": [],
                         "Health": [],
-                        "Shield health": ["health"],
+                        "Shield health": [
+                            "health"
+                        ],
                         "Cooldown": [],
                         "Redeploy cooldown": []
                     },
@@ -1796,32 +3316,75 @@
             },
             "Juno": {
                 "general": {
-                    "Base health": ["health"],
-                    "Shield health": ["health"]
+                    "Base health": [
+                        "health"
+                    ],
+                    "Shield health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Martian Overboots": {
                         "Move speed while falling": []
                     },
                     "Mediblaster": {
-                        "Damage per bullet": [["damage instance", "normal"]],
-                        "Healing per bullet": [["healing instance", "normal"]],
-                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
+                        "Damage per bullet": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Healing per bullet": [
+                            [
+                                "healing instance",
+                                "normal"
+                            ]
+                        ],
+                        "Bullets per burst": [
+                            "bullets per burst",
+                            [
+                                "bullets per burst",
+                                "normal"
+                            ]
+                        ],
                         "Spread": [],
                         "Falloff range minimum": [],
                         "Falloff range maximum": [],
-                        "Burst recovery time": ["burst recovery time"],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Burst recovery time": [
+                            "burst recovery time"
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Pulsar Torpedoes": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Healing": [["healing instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Healing": [
+                            [
+                                "healing instance",
+                                "normal"
+                            ]
+                        ],
                         "Maximum duration": [],
                         "Cooldown": [],
                         "HoT duration": [],
-                        "Healing over time": [["healing instance", "normal"]],
+                        "Healing over time": [
+                            [
+                                "healing instance",
+                                "normal"
+                            ]
+                        ],
                         "Cooldown after no lock-on cancel": [],
                         "Forgiveness range": []
                     },
@@ -1854,22 +3417,43 @@
             },
             "Kiriko": {
                 "general": {
-                    "Base health": ["health"],
-                    "Arm hit volumes width": []
+                    "Base health": [
+                        "health"
+                    ],
+                    "Arm hit volumes width": [],
+                    "Movement speed": []
                 },
                 "abilities": {
                     "Kunai": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ],
                         "Ammo refresh time": []
                     },
                     "Healing Ofuda": {
                         "Projectile speed": [],
-                        "Recovery time": ["time between shots"]
+                        "Recovery time": [
+                            "time between shots"
+                        ]
                     },
                     "Swift Step": {
                         "Cooldown": [],
@@ -1886,7 +3470,9 @@
                         "passes through enemy heroes": [],
                         "has knockback": [],
                         "Additional healing when cleansing a negative effect": [],
-                        "Cast time": ["time between shots"]
+                        "Cast time": [
+                            "time between shots"
+                        ]
                     },
                     "Kitsune Rush": {
                         "Ultimate cost": [],
@@ -1897,8 +3483,12 @@
             },
             "Lifeweaver": {
                 "general": {
-                    "Base health": ["health"],
-                    "Shield health": ["health"],
+                    "Base health": [
+                        "health"
+                    ],
+                    "Shield health": [
+                        "health"
+                    ],
                     "Petal ornament size": []
                 },
                 "abilities": {
@@ -1907,27 +3497,63 @@
                         "Enemy healing": []
                     },
                     "Healing Blossom": {
-                        "Ammo": ["ammo"],
+                        "Ammo": [
+                            "ammo"
+                        ],
                         "Projectile size": [],
-                        "Maximum charge time": ["time between shots"],
-                        "Maximum healing": [["healing instance", "normal"]],
+                        "Maximum charge time": [
+                            "time between shots"
+                        ],
+                        "Maximum healing": [
+                            [
+                                "healing instance",
+                                "normal"
+                            ]
+                        ],
                         "Delay until slow": [],
-                        "Recovery time": ["time between shots"],
-                        "Reload time": ["reload time"],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ],
                         "Passive charge per second": []
                     },
                     "Thorn Volley": {
-                        "Damage per pellet": [["damage instance", "normal"]],
-                        "Pellet count": [["pellet count", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage per pellet": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Pellet count": [
+                            [
+                                "pellet count",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
                         "Projectile speed": [],
                         "Second Thorn Volley projectile reduced spread": [],
                         "Number of projectiles to reach maximum spread": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Ammo per shot": ["ammo per shot"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Ammo per shot": [
+                            "ammo per shot"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Petal Platform": {
                         "Health": [],
@@ -1946,7 +3572,12 @@
                     "Life Grip": {
                         "Cooldown": [],
                         "Ability lockout duration": [],
-                        "Healing": [["healing instance", "normal"]]
+                        "Healing": [
+                            [
+                                "healing instance",
+                                "normal"
+                            ]
+                        ]
                     },
                     "Tree of Life": {
                         "Pulse healing": [],
@@ -1959,7 +3590,9 @@
             },
             "Lúcio": {
                 "general": {
-                    "Base health": ["health"],
+                    "Base health": [
+                        "health"
+                    ],
                     "Model size": []
                 },
                 "abilities": {
@@ -1969,17 +3602,46 @@
                         "Wall leap speed increase": []
                     },
                     "Sonic Amplifier": {
-                        "Damage per bullet": [["damage instance", "normal"]],
-                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
+                        "Damage per bullet": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Bullets per burst": [
+                            "bullets per burst",
+                            [
+                                "bullets per burst",
+                                "normal"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
-                        "Burst recovery time": ["burst recovery time"],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
+                        "Burst recovery time": [
+                            "burst recovery time"
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Soundwave": {
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Knockback": [],
                         "Movement lockout duration": [],
                         "Cooldown": []
@@ -1992,7 +3654,9 @@
                         "Cooldown": [],
                         "Healing per second": [],
                         "Duration": [],
-                        "Recovery time": ["time between shots"],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
                         "Movement speed": []
                     },
                     "Sound Barrier": {
@@ -2002,7 +3666,9 @@
             },
             "Mercy": {
                 "general": {
-                    "Base health": ["health"],
+                    "Base health": [
+                        "health"
+                    ],
                     "Weapon swap time": []
                 },
                 "abilities": {
@@ -2022,12 +3688,28 @@
                         "Bonus healing for allies under half health": []
                     },
                     "Caduceus Blaster": {
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Guardian Angel": {
                         "Active duration on jump/crouch cancel": [],
@@ -2051,7 +3733,9 @@
             },
             "Moira": {
                 "general": {
-                    "Base health": ["health"]
+                    "Base health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Biotic Grasp": {
@@ -2072,8 +3756,18 @@
                     },
                     "Necrotic Orb": {
                         "Cooldown": [],
-                        "Impact damage": [["damage instance", "normal"]],
-                        "Explosion damage": [["damage instance", "normal"]],
+                        "Impact damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Explosion damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Explosion radius": [],
                         "Weakening damage reduction": [],
                         "Weakening duration": []
@@ -2083,39 +3777,85 @@
                         "can use fade during duration": [],
                         "Ultimate cost": [],
                         "Bonus movement speed": [],
-                        "Damage per second": ["damage per second"]
+                        "Damage per second": [
+                            "damage per second"
+                        ]
                     }
                 }
             },
             "Zenyatta": {
                 "general": {
                     "has overridden melee": [],
-                    "Base health": ["health"],
-                    "Shield health": ["health"]
+                    "Base health": [
+                        "health"
+                    ],
+                    "Shield health": [
+                        "health"
+                    ]
                 },
                 "abilities": {
                     "Snap Kick": {
-                        "Damage": [["damage instance", "normal"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Knockback": []
                     },
                     "Orb of Destruction": {
-                        "Damage": [["damage instance", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Orb of Destruction Alt Fire": {
                         "Alt fire of": [],
                         "Damage per bullet": [],
-                        "Bullets per burst": ["bullets per burst", ["bullets per burst", "normal"]],
-                        "Critical multiplier": [["critical multiplier", "headshot"]],
+                        "Bullets per burst": [
+                            "bullets per burst",
+                            [
+                                "bullets per burst",
+                                "normal"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "headshot"
+                            ]
+                        ],
                         "Projectile size": [],
-                        "Maximum charge time": ["time between shots"],
-                        "Recovery time": ["time between shots"],
-                        "Ammo": ["ammo"],
-                        "Reload time": ["reload time"]
+                        "Maximum charge time": [
+                            "time between shots"
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ]
                     },
                     "Harmony Orb": {
                         "Time to wear off when not in line-of-sight": []

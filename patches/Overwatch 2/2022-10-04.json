@@ -141,7 +141,8 @@
             "Orisa": {
                 "general": {
                     "Base health": 275,
-                    "Armor health": 275
+                    "Armor health": 275,
+                    "Model size": 1.0
                 },
                 "abilities": {
                     "Fortify": {
@@ -1411,7 +1412,8 @@
             "Kiriko": {
                 "general": {
                     "Base health": 200,
-                    "Arm hit volumes width": 1
+                    "Arm hit volumes width": 1,
+                    "Movement speed": 5.5
                 },
                 "abilities": {
                     "Kunai": {

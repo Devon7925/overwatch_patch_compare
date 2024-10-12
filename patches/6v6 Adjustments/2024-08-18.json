@@ -142,7 +142,8 @@
             "Orisa": {
                 "general": {
                     "Base health": 250,
-                    "Armor health": 200
+                    "Armor health": 200,
+                    "Model size": 1.0
                 },
                 "abilities": {
                     "Fortify": {
@@ -541,7 +542,8 @@
                         "Ultimate cost": 2016,
                         "Increased movement speed": 10,
                         "refreshes bonus armor if used while in Nemesis Form": true,
-                        "Maximum duration": 20
+                        "Maximum duration": 20,
+                        "Minimum duration": 2.5
                     },
                     "Void Accelerator": {
                         "Projectile size": 0.15,
@@ -1633,7 +1635,8 @@
             "Kiriko": {
                 "general": {
                     "Base health": 200,
-                    "Arm hit volumes width": 0.85
+                    "Arm hit volumes width": 0.85,
+                    "Movement speed": 5.5
                 },
                 "abilities": {
                     "Kunai": {

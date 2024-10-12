@@ -12,7 +12,10 @@
         "has stranded spawn feature": "flag",
         "Overhealth ultimate charge generation rate": "percent",
         "Max wave respawn time": "seconds",
-        "Non wave respawn time reduction": "seconds"
+        "Non wave respawn time reduction": "seconds",
+        "can phase type abilities cleanse mobility lock": "flag",
+        "uses dynamic calculation for armor": "flag",
+        "Quick melee damage": "none"
     },
     "heroes": {
         "tank": {
@@ -26,7 +29,8 @@
             "D.Va": {
                 "general": {
                     "Base health": "none",
-                    "Armor health": "none"
+                    "Armor health": "none",
+                    "Pilot health": "none"
                 },
                 "abilities": {
                     "Eject Mech": {
@@ -83,7 +87,10 @@
                 "general": {
                     "Base health": "none",
                     "Model size": "relative percent",
-                    "Armor health": "none"
+                    "Armor health": "none",
+                    "has overridden melee": "flag",
+                    "Torso hit volume": "relative percent",
+                    "Head hit volume": "relative percent"
                 },
                 "abilities": {
                     "Adrenaline Rush": {
@@ -141,7 +148,8 @@
             "Orisa": {
                 "general": {
                     "Base health": "none",
-                    "Armor health": "none"
+                    "Armor health": "none",
+                    "Model size": "relative percent"
                 },
                 "abilities": {
                     "Augmented Fusion Driver": {
@@ -171,7 +179,8 @@
                         "Overhealth generation": "none",
                         "immune to taking forced critical hit damage": "flag",
                         "Damage reduction": "percent",
-                        "disables critical damage": "flag"
+                        "disables critical damage": "flag",
+                        "Cooldown reduction per early cancel second": "seconds"
                     },
                     "Javelin Spin": {
                         "Cooldown": "seconds",
@@ -245,14 +254,16 @@
                         "Projectile size": "meters",
                         "Maximum duration": "seconds",
                         "cancelled by stuns": "flag",
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "Critical multiplier": "none"
                     }
                 }
             },
             "Sigma": {
                 "general": {
                     "Base health": "none",
-                    "Shield health": "none"
+                    "Shield health": "none",
+                    "has adjusted movement deceleration": "flag"
                 },
                 "abilities": {
                     "Hyperspheres": {
@@ -396,14 +407,14 @@
                         "Maximum temporary health": "none"
                     },
                     "Hand Cannon": {
-                        "Minimum damage": "none",
-                        "Maximum damage": "none",
                         "Projectile size": "meters",
                         "Pellet count": "none",
                         "Critical multiplier": "none",
                         "Recovery time": "seconds",
                         "Ammo": "none",
-                        "Reload time per ammo": "seconds"
+                        "Reload time per ammo": "seconds",
+                        "Damage per pellet": "none",
+                        "Minimum damage per pellet": "none"
                     },
                     "Rocket Punch": {
                         "empowered punch consumed when the windup is cancelled by using Seismic Slam or Power Block": "flag",
@@ -419,7 +430,8 @@
                         "Min wall slam damage": "none",
                         "Minimum empowered wall stun": "seconds",
                         "Empowered Rocket Punch knockback radius": "meters",
-                        "Minimum time before cancel option becomes available": "seconds"
+                        "Minimum time before cancel option becomes available": "seconds",
+                        "Empowered damage multiplier": "none"
                     },
                     "Seismic Slam": {
                         "Damage": "none",
@@ -446,7 +458,8 @@
             "Reinhardt": {
                 "general": {
                     "Base health": "none",
-                    "Armor health": "none"
+                    "Armor health": "none",
+                    "has overridden melee": "flag"
                 },
                 "abilities": {
                     "Steadfast": {
@@ -511,7 +524,8 @@
                         "Damage": "none",
                         "Knockback damage": "none",
                         "Damage reduction": "percent",
-                        "can be interrupted by Hack": "flag"
+                        "can be interrupted by Hack": "flag",
+                        "Critical multiplier": "none"
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": "seconds",
@@ -533,7 +547,8 @@
                 "general": {
                     "Base health": "none",
                     "Armor health": "none",
-                    "Model Size": "relative percent"
+                    "Model Size": "relative percent",
+                    "Nemesis model size": "relative percent"
                 },
                 "abilities": {
                     "Void Accelerator": {
@@ -566,13 +581,15 @@
                         "Duration": "seconds",
                         "Slow": "percent",
                         "Radius": "meters",
-                        "passes through enemy heroes": "flag"
+                        "passes through enemy heroes": "flag",
+                        "Damage per second": "none"
                     },
                     "Annihilation": {
                         "Ultimate cost": "none",
                         "Increased movement speed": "percent",
                         "refreshes bonus armor if used while in Nemesis Form": "flag",
-                        "Maximum duration": "seconds"
+                        "Maximum duration": "seconds",
+                        "Minimum duration": "seconds"
                     }
                 }
             },
@@ -1430,7 +1447,8 @@
             "Venture": {
                 "general": {
                     "Base health": "none",
-                    "Movement speed": "none"
+                    "Movement speed": "none",
+                    "has overridden melee": "flag"
                 },
                 "abilities": {
                     "Explorer's Resolve": {
@@ -1462,7 +1480,8 @@
                         "Grace period": "seconds",
                         "Minimum damage": "none",
                         "Maximum damage": "none",
-                        "Maximum duration": "seconds"
+                        "Maximum duration": "seconds",
+                        "Cooldown reduction per clobber hit": "seconds"
                     },
                     "Tectonic Shock": {
                         "Vertical knockback": "relative percent",
@@ -1755,7 +1774,8 @@
             },
             "Kiriko": {
                 "general": {
-                    "Base health": "none"
+                    "Base health": "none",
+                    "Movement speed": "meters per second"
                 },
                 "abilities": {
                     "Kunai": {
