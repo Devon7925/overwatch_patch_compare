@@ -1065,7 +1065,9 @@
                         "Projectile size": [],
                         "Recovery time": [
                             "time between shots"
-                        ]
+                        ],
+                        "Pierces barriers": [],
+                        "Barrier damage multiplier": []
                     },
                     "Block": {
                         "reduces damage from stuck projectiles": []
@@ -2296,7 +2298,8 @@
                         "Radius": [],
                         "Duration": [],
                         "Cooldown": [],
-                        "Slow": []
+                        "Slow": [],
+                        "Energy convertion rate": []
                     },
                     "Overclock": {
                         "Energy charge rate": [],
@@ -2395,7 +2398,10 @@
                         "Fade in duration": [],
                         "Fade out duration": [],
                         "is passive": [],
-                        "Enemy detection radius": []
+                        "Enemy detection radius": [],
+                        "Cancelled by damage": [],
+                        "Maximum duration": [],
+                        "Damage reveal duration": []
                     },
                     "Opportunist": {
                         "Damage boost on hacked targets": []
@@ -2472,7 +2478,8 @@
                         "Projectile speed": [],
                         "Cooldown start": [],
                         "Maximum time before translocation": [],
-                        "Stealth cooldown reduction on teleport": []
+                        "Stealth cooldown reduction on teleport": [],
+                        "Cooldown": []
                     },
                     "EMP": {
                         "Ability lockout duration": [],
@@ -3062,7 +3069,8 @@
                         ],
                         "Reload time": [
                             "reload time"
-                        ]
+                        ],
+                        "Recoil": []
                     },
                     "Biotic Launcher Alt Fire": {
                         "Alt fire of": [],

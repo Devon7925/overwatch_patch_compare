@@ -571,7 +571,9 @@
                     "Pummel": {
                         "Damage": "none",
                         "Projectile size": "meters",
-                        "Recovery time": "seconds"
+                        "Recovery time": "seconds",
+                        "Pierces barriers": "flag",
+                        "Barrier damage multiplier": "none"
                     },
                     "Block": {
                         "reduces damage from stuck projectiles": "flag"
@@ -696,7 +698,7 @@
             "Bastion": {
                 "general": {
                     "Base health": "none",
-                    "Base armor": "none",
+                    "Armor health": "none",
                     "Model size": "relative percent"
                 },
                 "abilities": {
@@ -731,7 +733,8 @@
                         "Splash damage": "none",
                         "Maximum explosion damage falloff": "percent",
                         "Detonation time": "seconds",
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Splash Damage": "none"
                     },
                     "Reconfigure": {
                         "Armor healing on transform": "none"
@@ -769,7 +772,8 @@
                         "Damage": "none",
                         "Recovery time": "seconds",
                         "Ammo": "none",
-                        "Reload time": "seconds"
+                        "Reload time": "seconds",
+                        "Additional reload delay": "seconds"
                     },
                     "Combat Roll": {
                         "Damage reduction": "percent",
@@ -826,7 +830,8 @@
                     "Sticky Bombs": {
                         "Explosion damage": "none",
                         "Direct damage": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Bullets per shot": "none"
                     },
                     "Flight": {
                         "Cooldown": "seconds",
@@ -943,7 +948,8 @@
                         "Speed": "none",
                         "Ultimate cost": "none",
                         "Critical multiplier": "none",
-                        "Projectile size": "meters"
+                        "Projectile size": "meters",
+                        "Damage per second": "none"
                     }
                 }
             },
@@ -1050,6 +1056,7 @@
                         "Duration": "seconds",
                         "Projectile speed": "meters per second",
                         "Cast time": "seconds",
+                        "Damage per second": "none",
                         "Ultimate cost": "none"
                     }
                 }
@@ -1184,7 +1191,8 @@
                         "Radius": "meters",
                         "Duration": "seconds",
                         "Cooldown": "seconds",
-                        "Slow": "percent"
+                        "Slow": "percent",
+                        "Energy convertion rate": "percent"
                     },
                     "Overclock": {
                         "Energy charge rate": "none",
@@ -1247,7 +1255,10 @@
                         "Fade in duration": "seconds",
                         "Fade out duration": "seconds",
                         "is passive": "flag",
-                        "Enemy detection radius": "meters"
+                        "Enemy detection radius": "meters",
+                        "Cancelled by damage": "flag",
+                        "Maximum duration": "seconds",
+                        "Damage reveal duration": "seconds"
                     },
                     "Opportunist": {
                         "Damage boost on hacked targets": "percent"
@@ -1279,6 +1290,7 @@
                     "Virus": {
                         "Impact damage": "none",
                         "Damage over time": "none",
+                        "Hack damage multiplier": "none",
                         "Projectile size": "meters",
                         "Cooldown": "seconds"
                     },
@@ -1289,7 +1301,8 @@
                         "Projectile speed": "meters per second",
                         "Cooldown start": "none",
                         "Maximum time before translocation": "seconds",
-                        "Stealth cooldown reduction on teleport": "seconds"
+                        "Stealth cooldown reduction on teleport": "seconds",
+                        "Cooldown": "seconds"
                     },
                     "EMP": {
                         "Ability lockout duration": "seconds",
@@ -1355,7 +1368,9 @@
             },
             "Torbjörn": {
                 "general": {
-                    "Base health": "none"
+                    "Base health": "none",
+                    "Armor health": "none",
+                    "Weapon swap time": "seconds"
                 },
                 "abilities": {
                     "Forge Hammer": {
@@ -1595,7 +1610,8 @@
                         "Burst recovery time": "seconds",
                         "Recovery time": "seconds",
                         "Ammo": "none",
-                        "Reload time": "seconds"
+                        "Reload time": "seconds",
+                        "Recoil": "relative percent"
                     },
                     "Biotic Launcher Alt Fire": {
                         "Alt fire of": "none",
@@ -1625,7 +1641,9 @@
             },
             "Brigitte": {
                 "general": {
-                    "Base health": "none"
+                    "Base health": "none",
+                    "Armor health": "none",
+                    "has overridden melee": "flag"
                 },
                 "abilities": {
                     "Inspire": {
@@ -1775,7 +1793,8 @@
             "Kiriko": {
                 "general": {
                     "Base health": "none",
-                    "Movement speed": "meters per second"
+                    "Movement speed": "meters per second",
+                    "Arm hit volumes width": "relative percent"
                 },
                 "abilities": {
                     "Kunai": {
@@ -1818,7 +1837,8 @@
             "Lifeweaver": {
                 "general": {
                     "Base health": "none",
-                    "Shield health": "none"
+                    "Shield health": "none",
+                    "Petal ornament size": "relative percent"
                 },
                 "abilities": {
                     "Parting Gift": {
@@ -1878,7 +1898,8 @@
             },
             "Lúcio": {
                 "general": {
-                    "Base health": "none"
+                    "Base health": "none",
+                    "Model size": "relative percent"
                 },
                 "abilities": {
                     "Wall Ride": {
@@ -1920,7 +1941,8 @@
             },
             "Mercy": {
                 "general": {
-                    "Base health": "none"
+                    "Base health": "none",
+                    "Weapon swap time": "seconds"
                 },
                 "abilities": {
                     "Regeneration": {
@@ -2007,11 +2029,13 @@
             "Zenyatta": {
                 "general": {
                     "Base health": "none",
-                    "Shield health": "none"
+                    "Shield health": "none",
+                    "has overridden melee": "flag"
                 },
                 "abilities": {
                     "Snap Kick": {
-                        "Knockback": "none"
+                        "Knockback": "none",
+                        "Damage": "none"
                     },
                     "Orb of Destruction": {
                         "Damage": "none",
@@ -2050,7 +2074,8 @@
     "modes": {
         "Control": {
             "Start locked time": "seconds",
-            "Seconds per percent": "seconds"
+            "Seconds per percent": "seconds",
+            "triggers overtime after capping point at 99%": "flag"
         },
         "Escort": {
             "Attackers cart healing": "none",
@@ -2070,6 +2095,16 @@
             "Robot checkpoint delay time": "seconds",
             "Robot speed multiplier when pushing barrier": "relative percent",
             "Decreased vertical contest hitbox": "flag"
+        },
+        "Clash": {
+            "Final objective first tick capture time multiplier": "none",
+            "Final objective second tick capture time multiplier": "none",
+            "Final objective third tick capture time multiplier": "none",
+            "B and D points triggers defender instant respawn": "flag",
+            "A and E ticks triggers defender instant respawn": "flag",
+            "Unlock time for final objective points": "seconds",
+            "Decay rate on final objective for attackers": "none",
+            "Capture time multiplier for defenders on B and D points": "none"
         }
     }
 }

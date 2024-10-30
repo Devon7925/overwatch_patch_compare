@@ -154,7 +154,8 @@
                         "Cooldown": 13,
                         "immune to taking forced critical hit damage": true,
                         "Damage reduction": 50,
-                        "disables critical damage": true
+                        "disables critical damage": true,
+                        "Heat generation reduction": 50
                     },
                     "Energy Javelin": {
                         "Direct damage": 75,
@@ -293,7 +294,8 @@
                         "Cooldown if fireball speed is not achieved": 2,
                         "requires fireball speed for max duration to begin": true,
                         "Knockback": 18.7,
-                        "Cooldown": 5
+                        "Cooldown": 5,
+                        "Maximum duration": 6
                     },
                     "Piledriver": {
                         "Movement lockout duration for enemies": 0.75,
@@ -558,7 +560,8 @@
                     "Pummel": {
                         "Projectile size": 0.575,
                         "Damage": 60,
-                        "Recovery time": 0.6
+                        "Recovery time": 0.6,
+                        "Pierces barriers": true
                     },
                     "Block": {
                         "reduces damage from stuck projectiles": true
@@ -1196,7 +1199,8 @@
                         "Maximum time before translocation": 0.25,
                         "Stealth cooldown reduction on teleport": 2.25,
                         "Projectile speed": 72,
-                        "Cooldown start": "After teleport"
+                        "Cooldown start": "After teleport",
+                        "Cooldown": 5
                     },
                     "Machine Pistol": {
                         "Projectile size": 0.05,
@@ -1218,7 +1222,8 @@
                         "Movement speed": 60,
                         "Fade out duration": 0.25,
                         "Fade in duration": 0.375,
-                        "Enemy detection radius": 4
+                        "Enemy detection radius": 4,
+                        "Cancelled by damage": true
                     },
                     "Hack": {
                         "Cast time": 0.65,
@@ -1230,7 +1235,7 @@
                         "can hack hacked enemies": false,
                         "reveals enemies": true,
                         "Cooldown on interrupt": 4,
-                        "Stun duration on Bob": 2,
+                        "Stun duration on Bob": 10,
                         "destroys immortality field": true
                     }
                 }
@@ -1519,7 +1524,8 @@
                         "Recovery time": 0.588,
                         "Bullets per burst": 3,
                         "Burst recovery time": 0.096,
-                        "Reload time": 1.5
+                        "Reload time": 1.5,
+                        "Recoil": 1.0
                     },
                     "Regenerative Burst": {
                         "Cooldown": 13,
@@ -1684,7 +1690,7 @@
                     "Orbital Ray": {
                         "Damage boost": 35,
                         "Ultimate cost": 2500,
-                        "Healing per second": 85,
+                        "Healing per second": 100,
                         "Duration": 10,
                         "Radius": 8,
                         "Deploy range": 4,

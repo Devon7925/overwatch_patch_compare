@@ -879,6 +879,16 @@ export function verifyPatchNotes(patch_data: PatchData, calculation_units: Calcu
             }
         }
     }
+    for(let mode in patch_data.modes) {
+        if(units.modes[mode] === undefined) {
+            console.log(`Cannot find units for ${mode}`)
+        }
+        for (let change in patch_data.modes[mode]) {
+            if(units.modes[mode][change] === undefined) {
+                console.log(`Cannot find units for ${mode} - ${change}`)
+            }
+        }
+    }
 }
 
 export function applyDamageMultiplier(patch_data: PatchData, multiplier: number, calculation_units: CalculationUnits): PatchData {

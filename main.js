@@ -790,6 +790,16 @@ export function verifyPatchNotes(patch_data, calculation_units, units) {
             }
         }
     }
+    for (let mode in patch_data.modes) {
+        if (units.modes[mode] === undefined) {
+            console.log(`Cannot find units for ${mode}`);
+        }
+        for (let change in patch_data.modes[mode]) {
+            if (units.modes[mode][change] === undefined) {
+                console.log(`Cannot find units for ${mode} - ${change}`);
+            }
+        }
+    }
 }
 export function applyDamageMultiplier(patch_data, multiplier, calculation_units) {
     if (typeof patch_data.general["Quick melee damage"] == "number") {
