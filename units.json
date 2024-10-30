@@ -180,7 +180,8 @@
                         "immune to taking forced critical hit damage": "flag",
                         "Damage reduction": "percent",
                         "disables critical damage": "flag",
-                        "Cooldown reduction per early cancel second": "seconds"
+                        "Cooldown reduction per early cancel second": "seconds",
+                        "Heat generation reduction": "percent"
                     },
                     "Javelin Spin": {
                         "Cooldown": "seconds",
@@ -319,7 +320,8 @@
                         "can be retracted": "flag",
                         "Cooldown if fireball speed is not achieved": "seconds",
                         "requires fireball speed for max duration to begin": "flag",
-                        "Knockback": "relative percent"
+                        "Knockback": "relative percent",
+                        "Maximum duration": "seconds"
                     },
                     "Roll": {
                         "Cast time": "seconds",
@@ -723,7 +725,8 @@
                         "Ammo": "none",
                         "Reload time": "seconds",
                         "Duration": "seconds",
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Healing per second": "none"
                     },
                     "A-36 Tactical Grenade": {
                         "Self damage rate": "none",
@@ -1302,7 +1305,9 @@
                         "Cooldown start": "none",
                         "Maximum time before translocation": "seconds",
                         "Stealth cooldown reduction on teleport": "seconds",
-                        "Cooldown": "seconds"
+                        "Cooldown": "seconds",
+                        "Stealth activation delay": "seconds",
+                        "Cooldown refund rate": "percent"
                     },
                     "EMP": {
                         "Ability lockout duration": "seconds",
@@ -1984,7 +1989,10 @@
                         "Healing": "none",
                         "Ultimate cost": "none",
                         "disconnects Caduceus Staff from its target on activation": "flag",
-                        "force enables passive healing": "flag"
+                        "force enables passive healing": "flag",
+                        "Activation healing": "none",
+                        "Early healing per second": "none",
+                        "Early healing duration": "seconds"
                     }
                 }
             },

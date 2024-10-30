@@ -374,7 +374,8 @@
                         "immune to taking forced critical hit damage": [],
                         "Damage reduction": [],
                         "disables critical damage": [],
-                        "Cooldown reduction per early cancel second": []
+                        "Cooldown reduction per early cancel second": [],
+                        "Heat generation reduction": []
                     },
                     "Protective Barrier": {
                         "Health": [],
@@ -652,7 +653,8 @@
                         "can be retracted": [],
                         "Cooldown if fireball speed is not achieved": [],
                         "requires fireball speed for max duration to begin": [],
-                        "Knockback": []
+                        "Knockback": [],
+                        "Maximum duration": []
                     },
                     "Roll": {
                         "Cast time": [
@@ -2479,7 +2481,9 @@
                         "Cooldown start": [],
                         "Maximum time before translocation": [],
                         "Stealth cooldown reduction on teleport": [],
-                        "Cooldown": []
+                        "Cooldown": [],
+                        "Stealth activation delay": [],
+                        "Cooldown refund rate": []
                     },
                     "EMP": {
                         "Ability lockout duration": [],
@@ -3735,7 +3739,10 @@
                         "Healing": [],
                         "Ultimate cost": [],
                         "disconnects Caduceus Staff from its target on activation": [],
-                        "force enables passive healing": []
+                        "force enables passive healing": [],
+                        "Activation healing": [],
+                        "Early healing per second": [],
+                        "Early healing duration": []
                     }
                 }
             },
