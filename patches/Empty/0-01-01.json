@@ -2,51 +2,13 @@
     "general": {},
     "heroes": {
         "tank": {
-            "general": {},
-            "Ramattra": {
-                "abilities": {
-                    "Pummel": {
-                        "Pierces barriers": true
-                    }
-                }
-            },
-            "Orisa": {
-                "abilities": {
-                    "Fortify": {
-                        "Heat generation reduction": 50
-                    }
-                }
-            },
-            "Wrecking Ball": {
-                "abilities": {
-                    "Grappling Claw": {
-                        "Maximum duration": 6
-                    }
-                }
-            }
+            "general": {}
         },
         "damage": {
-            "general": {},
-            "Sombra": {
-                "abilities": {
-                    "Translocator": {
-                        "Cooldown": 5
-                    },
-                    "Stealth": {
-                        "Cancelled by damage": true
-                    }
-                }
-            }
+            "general": {}
         },
         "support": {
-            "general": {},
-            "Baptiste": {
-                "abilities": {
-                    "Biotic Launcher": {
-                        "Recoil": 1.0
-                    }
-                }
-            }
+            "general": {}
         }
     },
     "Map list": {},

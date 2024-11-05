@@ -458,13 +458,6 @@
                         "Pellet count": 10
                     }
                 }
-            },
-            "Ramattra": {
-                "abilities": {
-                    "Pummel": {
-                        "Pierces barriers": true
-                    }
-                }
             }
         },
         "damage": {

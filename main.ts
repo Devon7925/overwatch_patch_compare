@@ -5,7 +5,7 @@ import { autoTypeguard, hasOwnProperty, isArrayMatchingTypeguard, isBoolean, isK
 
 type Unit = "none" | "percent" | "meters" | "seconds" | "health per second" | "meters per second" | "relative percent" | "flag"
 type WithRemainder<T extends string, R extends any[]> = T extends any ? [T, ...R] : never
-type WithAppend<T extends string | [string, ...any], R extends string> = R extends any?(T extends [infer First extends string, ...infer Rest extends any[]] ? [`${First}${R}`, ...Rest] : T extends string ? `${T}${R}` : never) : never
+type WithAppend<T extends string | [string, ...any], R extends string> = R extends any ? (T extends [infer First extends string, ...infer Rest extends any[]] ? [`${First}${R}`, ...Rest] : T extends string ? `${T}${R}` : never) : never
 
 type Situation = string
 type DamageType = string
@@ -70,6 +70,7 @@ type PatchStructure<T> = {
                 general: { [key: string]: T },
                 abilities: { [key: string]: { [key: string]: T } }
                 breakpoints?: { [key: string]: T },
+                breakpoints_data?: { [key: string]: { [key: string]: number } }
             }
         } & {
             general: { [key: string]: T },
@@ -89,7 +90,7 @@ type CalculationUnits = PatchStructure<CalculationUnit[]>
 
 const damageBreakPointHealthValues = [150, 175, 200, 225, 250, 300] as const;
 type SpecialArmorBehavior = ["flat percent mit", number] | undefined
-const specialArmorBehaviorDamageTypes: {[damage_type: string]: SpecialArmorBehavior} = {
+const specialArmorBehaviorDamageTypes: { [damage_type: string]: SpecialArmorBehavior } = {
     "damage over time": ["flat percent mit", 0],
     "lightning": ["flat percent mit", 0],
     "beam": ["flat percent mit", 0.3],
@@ -217,7 +218,8 @@ const isUnits = autoTypeguard<Units>({
         general: isObjectWithValues(isUnit),
         abilities: isObjectWithValues(isObjectWithValues(isUnit)),
     }, {
-        breakpoints: isObjectWithValues(isUnit)
+        breakpoints: isObjectWithValues(isUnit),
+        breakpoints_data: isObjectWithValues(isObjectWithValues(isNumber))
     })))),
     modes: isObjectWithValues(isObjectWithValues(isUnit)),
 }, {})
@@ -260,7 +262,8 @@ const isCalculationUnits = autoTypeguard<CalculationUnits>({
         general: isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit)),
         abilities: isObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit))),
     }, {
-        breakpoints: isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit))
+        breakpoints: isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit)),
+        breakpoints_data: isObjectWithValues(isObjectWithValues(isNumber))
     })))),
     modes: isObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit)))
 }, {})
@@ -271,7 +274,8 @@ const isPatchData = autoTypeguard<PatchData>({
         general: isObjectWithValues(isValue),
         abilities: isObjectWithValues(isObjectWithValues(isValue)),
     }, {
-        breakpoints: isObjectWithValues(isValue)
+        breakpoints: isObjectWithValues(isValue),
+        breakpoints_data: isObjectWithValues(isObjectWithValues(isNumber))
     })))),
     modes: isObjectWithValues(isObjectWithValues(isValue)),
     "Map list": isObjectWithValues(isNumber),
@@ -370,7 +374,7 @@ export function getChangeText(name: string, change: [any, any] | string | number
         if (!Array.isArray(change)) {
             new_value = change;
         }
-        let prefix = display_as_new?"":"There is now "
+        let prefix = display_as_new ? "" : "There is now "
         if (units == "percent") {
             return `${prefix}${new_value}% ${name.toLowerCase()}.`;
         } else if (units == "meters") {
@@ -567,6 +571,9 @@ async function updatePatchNotes() {
         after_patch_data = cleanupProperties(after_patch_data, calculation_units)
     }
     let changes = convert_to_changes(before_patch_data, after_patch_data);
+    if (siteState.show_breakpoints) {
+        changes = removeRedundantBreakpoints(changes, after_patch_data);
+    }
     let hero_section = document.getElementsByClassName("PatchNotes-section-hero_update")[0];
     hero_section.innerHTML = "";
     if (changes.general) {
@@ -697,7 +704,7 @@ async function updatePatchNotes() {
                         <div class="PatchNotesAbilityUpdate-icon-container"><img class="PatchNotesAbilityUpdate-icon" src="${ability_images[ability]}">
                         </div>
                         <div class="PatchNotesAbilityUpdate-text">
-                            <div class="PatchNotesAbilityUpdate-name">${display_ability_as_new?"(NEW) ":""}${ability}</div>
+                            <div class="PatchNotesAbilityUpdate-name">${display_ability_as_new ? "(NEW) " : ""}${ability}</div>
                             <div class="PatchNotesAbilityUpdate-detailList">
                                 <ul>
                                     ${ability_changes}
@@ -714,11 +721,11 @@ async function updatePatchNotes() {
                 }
                 breakpointsRender += "<ul>";
                 for (let property in heroData.breakpoints) {
-                    if(Array.isArray(heroData.breakpoints[property])) {
-                        if(heroData.breakpoints[property][0] === damageBreakPointHealthValues.at(-1)) continue
-                        if(heroData.breakpoints[property][1] === damageBreakPointHealthValues.at(-1)) continue
-                    } else if(typeof heroData.breakpoints[property] === "number") {
-                        if(heroData.breakpoints[property] === damageBreakPointHealthValues.at(-1)) continue
+                    if (Array.isArray(heroData.breakpoints[property])) {
+                        if (heroData.breakpoints[property][0] === damageBreakPointHealthValues.at(-1)) continue
+                        if (heroData.breakpoints[property][1] === damageBreakPointHealthValues.at(-1)) continue
+                    } else if (typeof heroData.breakpoints[property] === "number") {
+                        if (heroData.breakpoints[property] === damageBreakPointHealthValues.at(-1)) continue
                     }
                     breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], "none", true)}</li>`
                 }
@@ -827,11 +834,11 @@ async function updatePatchNotes() {
 export function verifyPatchNotes(patch_data: PatchData, calculation_units: CalculationUnits, units: Units) {
     for (let general_property in patch_data.general) {
         let property_units = calculation_units.general[general_property]
-        if(property_units === undefined) {
+        if (property_units === undefined) {
             console.log(`Cannot find calculation units for ${general_property}`)
         }
         let display_units = units.general[general_property]
-        if(display_units === undefined) {
+        if (display_units === undefined) {
             console.log(`Cannot find units for ${general_property}`)
         }
     }
@@ -857,34 +864,34 @@ export function verifyPatchNotes(patch_data: PatchData, calculation_units: Calcu
 
             for (let general_property in heroData.general) {
                 let property_units = heroUnits.general[general_property]
-                if(property_units === undefined) {
+                if (property_units === undefined) {
                     console.log(`Cannot find calculation units for ${hero} - ${general_property}`)
                 }
                 let display_units = heroDisplayUnits.general[general_property]
-                if(display_units === undefined) {
+                if (display_units === undefined) {
                     console.log(`Cannot find display units for ${hero} - ${general_property}`)
                 }
             }
             for (let ability in heroData.abilities) {
                 for (let ability_property in heroData.abilities[ability]) {
                     let property_units = heroUnits.abilities[ability][ability_property]
-                    if(property_units === undefined) {
+                    if (property_units === undefined) {
                         console.log(`Cannot find calculation units for ${hero} - ${ability} - ${ability_property}`)
                     }
                     let display_units = heroDisplayUnits.abilities[ability][ability_property]
-                    if(display_units === undefined) {
+                    if (display_units === undefined) {
                         console.log(`Cannot find display units for ${hero} - ${ability} - ${ability_property}`)
                     }
                 }
             }
         }
     }
-    for(let mode in patch_data.modes) {
-        if(units.modes[mode] === undefined) {
+    for (let mode in patch_data.modes) {
+        if (units.modes[mode] === undefined) {
             console.log(`Cannot find units for ${mode}`)
         }
         for (let change in patch_data.modes[mode]) {
-            if(units.modes[mode][change] === undefined) {
+            if (units.modes[mode][change] === undefined) {
                 console.log(`Cannot find units for ${mode} - ${change}`)
             }
         }
@@ -913,7 +920,7 @@ export function applyDamageMultiplier(patch_data: PatchData, multiplier: number,
             for (let ability in heroData.abilities) {
                 for (let ability_property in heroData.abilities[ability]) {
                     let property_units = heroUnits.abilities[ability][ability_property]
-                    if(property_units === undefined) {
+                    if (property_units === undefined) {
                         console.log(`Cannot find calculation units for ${ability} - ${ability_property}`)
                     }
                     if (typeof heroData.abilities[ability][ability_property] === "number") {
@@ -955,7 +962,7 @@ export function calculatePreArmorProperties(patch_data: PatchData, calculation_u
                                 .filter((unit) => Array.isArray(unit))
                                 .filter((unit) => unit[0] === "situation")
                                 .map((unit) => unit[1])
-                            if(situations.length == 0) {
+                            if (situations.length == 0) {
                                 situations.push("normal")
                             }
                             return abilityDataUnits[property]
@@ -966,9 +973,9 @@ export function calculatePreArmorProperties(patch_data: PatchData, calculation_u
                         .reduce<{ [key: string]: [string, number][] }>((acc, [dmg_type, amount, situations]) => {
                             if (!(dmg_type in acc)) acc[dmg_type] = [];
                             if (typeof amount === "number") {
-                                for(let situation of situations) {
+                                for (let situation of situations) {
                                     let idx = acc[dmg_type].findIndex((v) => v[0] === situation);
-                                    if(idx === -1) {
+                                    if (idx === -1) {
                                         acc[dmg_type].push([situation, amount])
                                     } else {
                                         acc[dmg_type][idx][1] += amount;
@@ -989,7 +996,7 @@ export function calculatePreArmorProperties(patch_data: PatchData, calculation_u
                                     .map((unit) => rest(unit)), multiplier] as const)
                             .flatMap(([crit_types, multiplier]) => crit_types.map((crit_type) => [crit_type, multiplier] as const))
                     for (let total_damage_type in total_damage) {
-                        for(let situation of total_damage[total_damage_type]) {
+                        for (let situation of total_damage[total_damage_type]) {
                             heroData.abilities[ability][`Total ${total_damage_type} ${situation[0]} instance ${damage_or_healing}`] = situation[1]
                             heroUnits.abilities[ability][`Total ${total_damage_type} ${situation[0]} instance ${damage_or_healing}`] = [[`total instance ${damage_or_healing}`, total_damage_type], ["situation", situation[0]]]
 
@@ -1058,8 +1065,8 @@ export function applyArmor(patch_data: PatchData, calculation_units: Calculation
                         }
                         if (damage_type.length > 0) {
                             let possible_special_behavior = specialArmorBehaviorDamageTypes[damage_type[0]];
-                            if(possible_special_behavior !== undefined) {
-                                if(possible_special_behavior[0] === "flat percent mit") {
+                            if (possible_special_behavior !== undefined) {
+                                if (possible_special_behavior[0] === "flat percent mit") {
                                     heroData.abilities[ability][ability_property] = (1 - possible_special_behavior[1]) * heroData.abilities[ability][ability_property]
                                 }
                             } else {
@@ -1181,7 +1188,7 @@ export function calculatePostArmorProperties(patch_data: PatchData, calculation_
                                             .filter((unit) => unit[0] == "situation")
                                             .map((unit) => unit[1]);
                                         for (let situation of situations) {
-                                            if(!(situation in total_damage)) {
+                                            if (!(situation in total_damage)) {
                                                 total_damage[situation] = 0
                                             }
                                             total_damage[situation] += damage
@@ -1237,9 +1244,13 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: C
                 throw new Error("Invalid state")
             }
             let damage_options: { [key: string]: { [key: string]: number } } = {};
+            let damage_option_data: { [ability: string]: { [label: string]: { [ability_usage: string]: number } } } = {};
             if (typeof patch_data.general["Quick melee damage"] == "number" && heroData.general["has overridden melee"] !== true) {
                 damage_options["Melee"] = {}
+                damage_option_data["Melee"] = {}
+                damage_option_data["Melee"][""] = {}
                 damage_options["Melee"][""] = patch_data.general["Quick melee damage"]
+                damage_option_data["Melee"][""]["normal"] = 1
             }
             for (let ability in heroData.abilities) {
                 let max_damage_instances = 1;
@@ -1264,13 +1275,13 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: C
                     }
                 }
 
-                let ability_damage_option_set: [ {[dmg_case: string]: number}, number ][] = [[{},0]]
+                let ability_damage_option_set: [{ [dmg_case: string]: number }, number][] = [[{}, 0]]
                 for (let damage_option in ability_damage_options) {
                     for (let i = 0; i < max_damage_instances; i++) {
                         for (let damage_option_set_element of ability_damage_option_set) {
                             if (Object.values(damage_option_set_element[0]).reduce((s, a) => s + a, 0) < max_damage_instances) {
                                 let new_damage_option_set_element = structuredClone(damage_option_set_element)
-                                if(!(damage_option in new_damage_option_set_element[0])) {
+                                if (!(damage_option in new_damage_option_set_element[0])) {
                                     new_damage_option_set_element[0][damage_option] = 0
                                 }
                                 new_damage_option_set_element[0][damage_option] += 1
@@ -1283,27 +1294,38 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: C
                 }
                 ability_damage_option_set = ability_damage_option_set.filter((dmg_case) => dmg_case[1] > 0)
                 damage_options[ability] = {}
+                damage_option_data[ability] = {}
                 for (let ability_damage_option of ability_damage_option_set) {
-                    let label = Object.entries(ability_damage_option[0]).map((e) => e[1] > 1 ? `${e[1]}x ${e[0]}`:e[0]).join(" + ")
+                    let label = Object.entries(ability_damage_option[0]).map((e) => e[1] > 1 ? `${e[1]}x ${e[0]}` : e[0]).join(" + ")
                     damage_options[ability][label] = ability_damage_option[1]
+                    damage_option_data[ability][label] = ability_damage_option[0]
                 }
             }
             let breakpointDamage: { [key: string]: number } = { "": 0 }
+            let breakpointDamageData: { [label: string]: { [damage_instance: string]: number } } = { "": {} }
             for (let ability in damage_options) {
                 for (let damageEntry in breakpointDamage) {
                     for (let damageOption in damage_options[ability]) {
-                        breakpointDamage[`${damageEntry}, ${ability}${damageOption === "" ? "" : " "}${damageOption}`] = breakpointDamage[damageEntry] + damage_options[ability][damageOption]
+                        let label = `${damageEntry}, ${ability}${damageOption === "" ? "" : " "}${damageOption}`;
+                        breakpointDamage[label] = breakpointDamage[damageEntry] + damage_options[ability][damageOption]
+                        breakpointDamageData[label] = structuredClone(breakpointDamageData[damageEntry])
+                        for (let ability_use in damage_option_data[ability][damageOption]) {
+                            breakpointDamageData[label][`${ability} ${ability_use}`] = damage_option_data[ability][damageOption][ability_use]
+                        }
                     }
                 }
             }
             let breakpointDamageEntries: { [key: string]: number } = {}
+            let breakpointDamageDataEntries: { [key: string]: { [ability_use: string]: number } } = {}
             for (let breakpoint in breakpointDamage) {
                 let breakpointHealth = damageBreakPointHealthValues.findLast((v) => v <= breakpointDamage[breakpoint]);
                 if (breakpointHealth !== undefined) {
                     breakpointDamageEntries[`Breakpoint for ${breakpoint.substring(2)}`] = breakpointHealth
+                    breakpointDamageDataEntries[`Breakpoint for ${breakpoint.substring(2)}`] = breakpointDamageData[breakpoint]
                 }
             }
             heroData.breakpoints = breakpointDamageEntries;
+            heroData.breakpoints_data = breakpointDamageDataEntries;
         }
     }
     return patch_data
@@ -1440,7 +1462,6 @@ export function calculateRates(patch_data: PatchData, calculation_units: Calcula
 }
 
 function cleanupProperties(patch_data: PatchData, calculation_units: CalculationUnits) {
-    // return patch_data;
     for (let role in patch_data.heroes) {
         for (let hero in patch_data.heroes[role]) {
             if (!isKeyOf(patch_data.heroes[role], hero)) {
@@ -1465,10 +1486,10 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                             let property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `${damage_or_healing} instance`).map((unit) => unit[1])
                             let situations = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == "situation").map((unit) => unit[1]);
                             for (let property_damage_type of property_damage_types) {
-                                if(!(property_damage_type in damage_type_instance_damage )) {
+                                if (!(property_damage_type in damage_type_instance_damage)) {
                                     damage_type_instance_damage[property_damage_type] = {}
                                 }
-                                for(let situation of situations) {
+                                for (let situation of situations) {
                                     damage_type_instance_damage[property_damage_type][situation] = abilityData[property]
                                 }
                             }
@@ -1481,22 +1502,22 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                             let property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total ${damage_or_healing}`).map((unit) => unit[1]);
                             let situations = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == "situation").map((unit) => unit[1]);
                             for (let property_damage_type of property_damage_types) {
-                                if(!(property_damage_type in damage_type_damage )) {
+                                if (!(property_damage_type in damage_type_damage)) {
                                     damage_type_damage[property_damage_type] = {}
                                 }
-                                for(let situation of situations) {
+                                for (let situation of situations) {
                                     damage_type_damage[property_damage_type][situation] = abilityData[property]
-                                    if(damage_type_damage[property_damage_type][situation] == damage_type_instance_damage[property_damage_type][situation]) {
+                                    if (damage_type_damage[property_damage_type][situation] == damage_type_instance_damage[property_damage_type][situation]) {
                                         delete abilityData[property]
                                     }
                                 }
                             }
                             let crit_property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total crit ${damage_or_healing}`).map((unit) => unit[1]);
                             for (let property_damage_type of crit_property_damage_types) {
-                                if(!(property_damage_type in crit_damage_type_damage )) {
+                                if (!(property_damage_type in crit_damage_type_damage)) {
                                     crit_damage_type_damage[property_damage_type] = {}
                                 }
-                                for(let situation of situations) {
+                                for (let situation of situations) {
                                     crit_damage_type_damage[property_damage_type][situation] = abilityData[property]
                                 }
                             }
@@ -1507,7 +1528,7 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                             let property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total instance ${damage_or_healing}`).map((unit) => unit[1])
                             let situations = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == "situation").map((unit) => unit[1]);
                             for (let property_damage_type of property_damage_types) {
-                                for(let situation of situations) {
+                                for (let situation of situations) {
                                     if (damage_type_damage[property_damage_type][situation] === abilityData[property]) {
                                         delete abilityData[property]
                                     }
@@ -1515,7 +1536,7 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                             }
                             let property_crit_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total instance crit ${damage_or_healing}`).map((unit) => unit[1]);
                             for (let property_damage_type of property_crit_damage_types) {
-                                for(let situation of situations) {
+                                for (let situation of situations) {
                                     if (crit_damage_type_damage[property_damage_type][situation] === abilityData[property]) {
                                         delete abilityData[property]
                                     }
@@ -1550,6 +1571,98 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
         }
     }
     return patch_data
+}
+
+function removeRedundantBreakpoints(changes: Changes<PatchData>, after_patch_data: PatchData): Changes<PatchData> {
+    for (let role in changes.heroes) {
+        const roleData = changes.heroes[role]
+        if (Array.isArray(roleData)) {
+            throw new Error("Not supported: role missing from one patch")
+        }
+        for (let hero of Object.keys(roleData).sort()) {
+            if (!isKeyOf(roleData, hero)) {
+                throw new Error("Invalid state")
+            }
+            if (hero == "general") continue;
+            let heroData = roleData[hero];
+            let display_as_new = false
+            if (Array.isArray(heroData)) {
+                if (heroData[1] !== undefined) {
+                    heroData = heroData[1];
+                    display_as_new = true
+                } else {
+                    continue;
+                }
+            }
+            if (heroData === undefined) {
+                throw new Error("Invalid state")
+            }
+            if(!heroData.breakpoints) continue;
+            if(!heroData.breakpoints_data) continue;
+            let breakpoints = heroData.breakpoints;
+            let breakpoints_data = heroData.breakpoints_data;
+            if(Array.isArray(breakpoints)) continue;
+            if(Array.isArray(breakpoints_data)) continue;
+            //TODO use es2024 Object.groupBy when typescript 5.7 releases
+            let similar_breakpoints:{[key:string]: [string, {[key:string]: number}][]}= {};
+            for(let breakpoint in breakpoints) {
+                let breakpoint_data = breakpoints_data[breakpoint];
+                if(Array.isArray(breakpoint_data)) {
+                    if(breakpoint_data[0] === undefined) {
+                        breakpoint_data = breakpoint_data[1]
+                    } else if(breakpoint_data[1] === undefined) {
+                        breakpoint_data = breakpoint_data[0]
+                    }
+                }
+                let unchanged_breakpoint_data: {[key:string]: number} = {};
+                for (let damage_type in breakpoint_data) {
+                    let count = breakpoint_data[damage_type];
+                    if (Array.isArray(count)) {
+                        if(count[0] === undefined) {
+                            count = count[1]
+                        } else if(count[1] === undefined) {
+                            count = count[0]
+                        } else {
+                            throw new Error("Invalid state")
+                        }
+                    }
+                    unchanged_breakpoint_data[damage_type] = count
+                }
+                if(!(`${breakpoints[breakpoint]}` in similar_breakpoints))
+                    similar_breakpoints[`${breakpoints[breakpoint]}`] = []
+                similar_breakpoints[`${breakpoints[breakpoint]}`].push([breakpoint, unchanged_breakpoint_data])
+            }
+            let breakpoints_to_remove = []
+            for(let breakpoint_type in similar_breakpoints) {
+                let breakpoints = similar_breakpoints[breakpoint_type]
+                for(let breakpoint of breakpoints) {
+                    let sub_breakpoint = breakpoints.find((other_breakpoint) => breakpoint[0] !== other_breakpoint[0] && isSubBreakpoint(breakpoint[1], other_breakpoint[1]))
+                    if(sub_breakpoint !== undefined) {
+                        breakpoints_to_remove.push(breakpoint[0])
+                        breakpoints.splice(breakpoints.indexOf(breakpoint), 1)
+                    }
+                }
+            }
+            console.log(breakpoints_to_remove)
+            
+            if(Array.isArray(heroData.breakpoints)) throw new Error("Invalid state")
+                console.log(Object.entries(heroData.breakpoints).length)
+            for (let remove_breakpoint of breakpoints_to_remove) {
+                delete heroData.breakpoints[remove_breakpoint];
+            }
+            roleData[hero] = heroData
+        }
+        changes.heroes[role] = roleData
+    }
+    return changes;
+}
+
+function isSubBreakpoint(possible_super_breakpoint:{[key:string]: number}, possible_sub_breakpoint: {[key:string]: number}): boolean {
+    for(let damage_type in possible_sub_breakpoint) {
+        if(!(damage_type in possible_super_breakpoint)) return false;
+        if(possible_super_breakpoint[damage_type] < possible_sub_breakpoint[damage_type]) return false;
+    }
+    return true;
 }
 
 let patch_options = Object.entries(patchList)

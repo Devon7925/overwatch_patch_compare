@@ -504,13 +504,6 @@
                         "Cooldown": 12
                     }
                 }
-            },
-            "Ramattra": {
-                "abilities": {
-                    "Pummel": {
-                        "Pierces barriers": true
-                    }
-                }
             }
         },
         "damage": {

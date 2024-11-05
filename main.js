@@ -116,7 +116,8 @@ const isUnits = autoTypeguard({
         general: isObjectWithValues(isUnit),
         abilities: isObjectWithValues(isObjectWithValues(isUnit)),
     }, {
-        breakpoints: isObjectWithValues(isUnit)
+        breakpoints: isObjectWithValues(isUnit),
+        breakpoints_data: isObjectWithValues(isObjectWithValues(isNumber))
     })))),
     modes: isObjectWithValues(isObjectWithValues(isUnit)),
 }, {});
@@ -159,7 +160,8 @@ const isCalculationUnits = autoTypeguard({
         general: isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit)),
         abilities: isObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit))),
     }, {
-        breakpoints: isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit))
+        breakpoints: isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit)),
+        breakpoints_data: isObjectWithValues(isObjectWithValues(isNumber))
     })))),
     modes: isObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit)))
 }, {});
@@ -170,7 +172,8 @@ const isPatchData = autoTypeguard({
         general: isObjectWithValues(isValue),
         abilities: isObjectWithValues(isObjectWithValues(isValue)),
     }, {
-        breakpoints: isObjectWithValues(isValue)
+        breakpoints: isObjectWithValues(isValue),
+        breakpoints_data: isObjectWithValues(isObjectWithValues(isNumber))
     })))),
     modes: isObjectWithValues(isObjectWithValues(isValue)),
     "Map list": isObjectWithValues(isNumber),
@@ -471,6 +474,9 @@ async function updatePatchNotes() {
         after_patch_data = cleanupProperties(after_patch_data, calculation_units);
     }
     let changes = convert_to_changes(before_patch_data, after_patch_data);
+    if (siteState.show_breakpoints) {
+        changes = removeRedundantBreakpoints(changes, after_patch_data);
+    }
     let hero_section = document.getElementsByClassName("PatchNotes-section-hero_update")[0];
     hero_section.innerHTML = "";
     if (changes.general) {
@@ -1141,9 +1147,13 @@ export function calculateBreakpoints(patch_data, calculation_units) {
                 throw new Error("Invalid state");
             }
             let damage_options = {};
+            let damage_option_data = {};
             if (typeof patch_data.general["Quick melee damage"] == "number" && heroData.general["has overridden melee"] !== true) {
                 damage_options["Melee"] = {};
+                damage_option_data["Melee"] = {};
+                damage_option_data["Melee"][""] = {};
                 damage_options["Melee"][""] = patch_data.general["Quick melee damage"];
+                damage_option_data["Melee"][""]["normal"] = 1;
             }
             for (let ability in heroData.abilities) {
                 let max_damage_instances = 1;
@@ -1188,27 +1198,38 @@ export function calculateBreakpoints(patch_data, calculation_units) {
                 }
                 ability_damage_option_set = ability_damage_option_set.filter((dmg_case) => dmg_case[1] > 0);
                 damage_options[ability] = {};
+                damage_option_data[ability] = {};
                 for (let ability_damage_option of ability_damage_option_set) {
                     let label = Object.entries(ability_damage_option[0]).map((e) => e[1] > 1 ? `${e[1]}x ${e[0]}` : e[0]).join(" + ");
                     damage_options[ability][label] = ability_damage_option[1];
+                    damage_option_data[ability][label] = ability_damage_option[0];
                 }
             }
             let breakpointDamage = { "": 0 };
+            let breakpointDamageData = { "": {} };
             for (let ability in damage_options) {
                 for (let damageEntry in breakpointDamage) {
                     for (let damageOption in damage_options[ability]) {
-                        breakpointDamage[`${damageEntry}, ${ability}${damageOption === "" ? "" : " "}${damageOption}`] = breakpointDamage[damageEntry] + damage_options[ability][damageOption];
+                        let label = `${damageEntry}, ${ability}${damageOption === "" ? "" : " "}${damageOption}`;
+                        breakpointDamage[label] = breakpointDamage[damageEntry] + damage_options[ability][damageOption];
+                        breakpointDamageData[label] = structuredClone(breakpointDamageData[damageEntry]);
+                        for (let ability_use in damage_option_data[ability][damageOption]) {
+                            breakpointDamageData[label][`${ability} ${ability_use}`] = damage_option_data[ability][damageOption][ability_use];
+                        }
                     }
                 }
             }
             let breakpointDamageEntries = {};
+            let breakpointDamageDataEntries = {};
             for (let breakpoint in breakpointDamage) {
                 let breakpointHealth = damageBreakPointHealthValues.findLast((v) => v <= breakpointDamage[breakpoint]);
                 if (breakpointHealth !== undefined) {
                     breakpointDamageEntries[`Breakpoint for ${breakpoint.substring(2)}`] = breakpointHealth;
+                    breakpointDamageDataEntries[`Breakpoint for ${breakpoint.substring(2)}`] = breakpointDamageData[breakpoint];
                 }
             }
             heroData.breakpoints = breakpointDamageEntries;
+            heroData.breakpoints_data = breakpointDamageDataEntries;
         }
     }
     return patch_data;
@@ -1341,7 +1362,6 @@ export function calculateRates(patch_data, calculation_units) {
     return patch_data;
 }
 function cleanupProperties(patch_data, calculation_units) {
-    // return patch_data;
     for (let role in patch_data.heroes) {
         for (let hero in patch_data.heroes[role]) {
             if (!isKeyOf(patch_data.heroes[role], hero)) {
@@ -1452,6 +1472,107 @@ function cleanupProperties(patch_data, calculation_units) {
         }
     }
     return patch_data;
+}
+function removeRedundantBreakpoints(changes, after_patch_data) {
+    for (let role in changes.heroes) {
+        const roleData = changes.heroes[role];
+        if (Array.isArray(roleData)) {
+            throw new Error("Not supported: role missing from one patch");
+        }
+        for (let hero of Object.keys(roleData).sort()) {
+            if (!isKeyOf(roleData, hero)) {
+                throw new Error("Invalid state");
+            }
+            if (hero == "general")
+                continue;
+            let heroData = roleData[hero];
+            let display_as_new = false;
+            if (Array.isArray(heroData)) {
+                if (heroData[1] !== undefined) {
+                    heroData = heroData[1];
+                    display_as_new = true;
+                }
+                else {
+                    continue;
+                }
+            }
+            if (heroData === undefined) {
+                throw new Error("Invalid state");
+            }
+            if (!heroData.breakpoints)
+                continue;
+            if (!heroData.breakpoints_data)
+                continue;
+            let breakpoints = heroData.breakpoints;
+            let breakpoints_data = heroData.breakpoints_data;
+            if (Array.isArray(breakpoints))
+                continue;
+            if (Array.isArray(breakpoints_data))
+                continue;
+            //TODO use es2024 Object.groupBy when typescript 5.7 releases
+            let similar_breakpoints = {};
+            for (let breakpoint in breakpoints) {
+                let breakpoint_data = breakpoints_data[breakpoint];
+                if (Array.isArray(breakpoint_data)) {
+                    if (breakpoint_data[0] === undefined) {
+                        breakpoint_data = breakpoint_data[1];
+                    }
+                    else if (breakpoint_data[1] === undefined) {
+                        breakpoint_data = breakpoint_data[0];
+                    }
+                }
+                let unchanged_breakpoint_data = {};
+                for (let damage_type in breakpoint_data) {
+                    let count = breakpoint_data[damage_type];
+                    if (Array.isArray(count)) {
+                        if (count[0] === undefined) {
+                            count = count[1];
+                        }
+                        else if (count[1] === undefined) {
+                            count = count[0];
+                        }
+                        else {
+                            throw new Error("Invalid state");
+                        }
+                    }
+                    unchanged_breakpoint_data[damage_type] = count;
+                }
+                if (!(`${breakpoints[breakpoint]}` in similar_breakpoints))
+                    similar_breakpoints[`${breakpoints[breakpoint]}`] = [];
+                similar_breakpoints[`${breakpoints[breakpoint]}`].push([breakpoint, unchanged_breakpoint_data]);
+            }
+            let breakpoints_to_remove = [];
+            for (let breakpoint_type in similar_breakpoints) {
+                let breakpoints = similar_breakpoints[breakpoint_type];
+                for (let breakpoint of breakpoints) {
+                    let sub_breakpoint = breakpoints.find((other_breakpoint) => breakpoint[0] !== other_breakpoint[0] && isSubBreakpoint(breakpoint[1], other_breakpoint[1]));
+                    if (sub_breakpoint !== undefined) {
+                        breakpoints_to_remove.push(breakpoint[0]);
+                        breakpoints.splice(breakpoints.indexOf(breakpoint), 1);
+                    }
+                }
+            }
+            console.log(breakpoints_to_remove);
+            if (Array.isArray(heroData.breakpoints))
+                throw new Error("Invalid state");
+            console.log(Object.entries(heroData.breakpoints).length);
+            for (let remove_breakpoint of breakpoints_to_remove) {
+                delete heroData.breakpoints[remove_breakpoint];
+            }
+            roleData[hero] = heroData;
+        }
+        changes.heroes[role] = roleData;
+    }
+    return changes;
+}
+function isSubBreakpoint(possible_super_breakpoint, possible_sub_breakpoint) {
+    for (let damage_type in possible_sub_breakpoint) {
+        if (!(damage_type in possible_super_breakpoint))
+            return false;
+        if (possible_super_breakpoint[damage_type] < possible_sub_breakpoint[damage_type])
+            return false;
+    }
+    return true;
 }
 let patch_options = Object.entries(patchList)
     .flatMap(([k, v]) => v
