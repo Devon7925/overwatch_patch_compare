@@ -327,7 +327,8 @@
                         "Overhealth generation per enemy": 100,
                         "Detection radius": 13,
                         "Allied Overhealth transfer ratio": 1.5,
-                        "Effect duration": 7
+                        "Effect duration": 7,
+                        "Base shield": 100
                     },
                     "Roll": {
                         "Cast time": 0.4,
@@ -772,7 +773,8 @@
             },
             "Echo": {
                 "general": {
-                    "Base health": 250
+                    "Base health": 250,
+                    "Model size": 1.0
                 },
                 "abilities": {
                     "Sticky Bombs": {

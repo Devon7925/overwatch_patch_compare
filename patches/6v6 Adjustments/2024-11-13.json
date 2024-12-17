@@ -21,8 +21,8 @@
         "tank": {
             "general": {
                 "Critical headshot damage reduction": 25,
-                "Knockback resistance": 12,
-                "Ultimate generation reduction": 15,
+                "Knockback resistance": 0,
+                "Ultimate generation reduction": 0,
                 "Damage passive effect reduction": 0,
                 "Adjusted sleep duration": 5
             },
@@ -104,12 +104,12 @@
                         "Critical multiplier": 2,
                         "Reload time": 1.5,
                         "Recovery time": 0.75,
-                        "Damage per pellet": 7.5,
+                        "Damage per pellet": 7.25,
                         "Pellet count": 10
                     },
                     "Jagged Blade": {
                         "Pull distance": 17.629,
-                        "Projectile size": 0.35,
+                        "Projectile size": 0.3,
                         "Impact damage": 65,
                         "Cooldown": 6,
                         "Damage over time": 30
@@ -300,7 +300,7 @@
                     "Piledriver": {
                         "Movement lockout duration for enemies": 0.75,
                         "Cooldown": 10,
-                        "Maximum damage": 90
+                        "Maximum damage": 80
                     },
                     "Minefield": {
                         "Health": 45,
@@ -321,10 +321,10 @@
                     },
                     "Adaptive Shield": {
                         "Ally overhealth cap": 0,
-                        "Overhealth generation per enemy": 75,
+                        "Overhealth generation per enemy": 50,
                         "Detection radius": 13,
                         "Effect duration": 7,
-                        "Base shield": 100
+                        "Base shield": 150
                     },
                     "Roll": {
                         "Cast time": 0.4,
@@ -425,7 +425,7 @@
                         "Empowered Rocket Punch knockback radius": 3,
                         "Minimum time before cancel option becomes available": 0.12,
                         "Empowered damage multiplier": 1.5,
-                        "Angle required for wall slam": 44
+                        "Angle required for wall slam": 55
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 1750,
@@ -475,8 +475,8 @@
             },
             "Mauga": {
                 "general": {
-                    "Base health": 300,
-                    "Armor health": 200,
+                    "Base health": 325,
+                    "Armor health": 175,
                     "Model Size": 0.91,
                     "Head hit volume": 0.85
                 },
@@ -490,20 +490,20 @@
                         "Minimum damage falloff range": 30,
                         "Fire rate multiplier for firing both guns": 0,
                         "Spread for firing both guns": 0.85,
-                        "Incendiary Chaingun burn duration": 4,
+                        "Incendiary Chaingun burn duration": 3,
                         "Critical multiplier": 2,
                         "Recovery time": 0.055555,
                         "Damage": 3.25,
                         "Reload time": 2.2
                     },
                     "Overrun": {
-                        "Cooldown": 8,
+                        "Cooldown": 6,
                         "Damage": 50,
                         "Knockback damage": 20,
                         "Damage reduction": 50,
                         "can be interrupted by Hack": false,
                         "Critical multiplier": 2,
-                        "Movement speed increase": 150
+                        "Movement speed increase": 165
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": 12,
@@ -514,7 +514,7 @@
                     },
                     "Cage Fight": {
                         "Ultimate cost": 2400,
-                        "Duration": 7,
+                        "Duration": 6,
                         "grants infinite ammo": false
                     },
                     "Berserker": {
@@ -578,7 +578,7 @@
                 },
                 "abilities": {
                     "Tesla Cannon": {
-                        "Damage per second": 60,
+                        "Damage per second": 57.5,
                         "ignores armor damage reduction": true,
                         "Ammo": 100,
                         "Reload time": 1.7,
@@ -765,7 +765,7 @@
             "Echo": {
                 "general": {
                     "Base health": 200,
-                    "Model size": 1.0
+                    "Model size": 0.94
                 },
                 "abilities": {
                     "Sticky Bombs": {
@@ -831,7 +831,7 @@
                 },
                 "abilities": {
                     "Shuriken": {
-                        "Damage per bullet": 28.5,
+                        "Damage per bullet": 27.5,
                         "Projectile size": 0.175,
                         "Ammo": 30,
                         "Critical multiplier": 2,
@@ -874,7 +874,7 @@
                         "Projectile size": 0.1,
                         "has arrow draw progress preserved while wall climbing": false,
                         "Critical multiplier": 2,
-                        "Maximum charge time": 0.87,
+                        "Maximum charge time": 0.8,
                         "Recovery time": 0.5
                     },
                     "Storm Arrows": {
@@ -890,7 +890,8 @@
                         "Ultimate cost": 1680,
                         "Critical multiplier": 2,
                         "Damage per second": 150,
-                        "Projectile size": 0.175
+                        "Projectile size": 0.175,
+                        "damages enemy buildable objects": true
                     },
                     "Sonic Arrow": {
                         "does impact sound plat for enemies": true,
@@ -932,7 +933,7 @@
                         "Damage": 600,
                         "Radius": 10,
                         "Cast time": 1.536,
-                        "Health": 100,
+                        "Health": 80,
                         "Duration": 10
                     },
                     "Steel Trap": {
@@ -942,7 +943,7 @@
                         "Projectile speed": 15,
                         "prevents all movement for its target": true,
                         "Cooldown": 10,
-                        "Health": 100
+                        "Health": 80
                     },
                     "Total Mayhem": {
                         "Bullets per burst": 6,
@@ -1432,7 +1433,7 @@
                 },
                 "general": {
                     "Base health": 200,
-                    "Movement speed": 5.5,
+                    "Movement speed": 6,
                     "has overridden melee": true
                 }
             },
@@ -1512,7 +1513,7 @@
                         "Damage": 60,
                         "Projectile size": 0.275,
                         "Effect duration": 3,
-                        "Cooldown": 11
+                        "Cooldown": 12
                     },
                     "Nano Boost": {
                         "Ultimate cost": 2300
@@ -1613,7 +1614,7 @@
                 "abilities": {
                     "Solar Rifle": {
                         "Damage": 70,
-                        "Critical multiplier": 1.57142857,
+                        "Critical multiplier": 1.7142857142857142,
                         "Ammo": 12,
                         "Maximum charge time": 0.65,
                         "Projectile size": 0.13,
@@ -1689,7 +1690,7 @@
                     },
                     "Hyper Ring": {
                         "Increased movement speed": 50,
-                        "Cooldown": 16,
+                        "Cooldown": 19,
                         "Duration": 8,
                         "Speed boost duration": 3,
                         "Area of effect size": 8,
@@ -1699,7 +1700,7 @@
                     "Orbital Ray": {
                         "Damage boost": 35,
                         "Ultimate cost": 3050,
-                        "Healing per second": 60,
+                        "Healing per second": 35,
                         "Duration": 10,
                         "Radius": 8,
                         "Deploy range": 4,
@@ -1719,7 +1720,7 @@
                         "Projectile size": 0.225,
                         "Damage": 55,
                         "Critical multiplier": 2,
-                        "Recovery time": 0.55,
+                        "Recovery time": 0.5,
                         "Reload time": 1,
                         "Ammo refresh time": 0.65
                     },
@@ -1800,12 +1801,12 @@
                         "Duration": 11,
                         "Ultimate cost": 2000,
                         "Overhealth conversion rate": 50,
-                        "Time before overhealth begins to drain": 2.5
+                        "Time before overhealth begins to drain": 6
                     },
                     "Life Grip": {
                         "Cooldown": 19,
                         "Ability lockout duration": 0.75,
-                        "Healing": 50
+                        "Healing": 75
                     }
                 }
             },
@@ -1908,7 +1909,7 @@
                         "Damage per second": 60,
                         "Secondary fire target acquisition radius": 0.7,
                         "Lingering heal duration": 3,
-                        "Self-healing": 24
+                        "Self-healing": 30
                     },
                     "Coalescence": {
                         "Self-heal per second": 55,

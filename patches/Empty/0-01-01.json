@@ -2,10 +2,22 @@
     "general": {},
     "heroes": {
         "tank": {
-            "general": {}
+            "general": {},
+            "Wrecking Ball": {
+                "abilities": {
+                    "Adaptive Shield": {
+                        "Base shield": 100
+                    }
+                }
+            }
         },
         "damage": {
-            "general": {}
+            "general": {},
+            "Echo": {
+                "general": {
+                    "Model size": 1.0
+                }
+            }
         },
         "support": {
             "general": {}

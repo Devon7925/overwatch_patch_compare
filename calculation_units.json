@@ -667,7 +667,8 @@
                         "Overhealth generation per enemy": [],
                         "Detection radius": [],
                         "Allied Overhealth transfer ratio": [],
-                        "Effect duration": []
+                        "Effect duration": [],
+                        "Base shield": []
                     },
                     "Piledriver": {
                         "Movement lockout duration for enemies": [],
@@ -1561,7 +1562,8 @@
                 "general": {
                     "Base health": [
                         "health"
-                    ]
+                    ],
+                    "Model size": []
                 },
                 "abilities": {
                     "Glide": {

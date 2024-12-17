@@ -332,7 +332,8 @@
                         "Overhealth generation per enemy": "none",
                         "Detection radius": "none",
                         "Allied Overhealth transfer ratio": "none",
-                        "Effect duration": "seconds"
+                        "Effect duration": "seconds",
+                        "Base shield": "none"
                     },
                     "Piledriver": {
                         "Movement lockout duration for enemies": "seconds",
@@ -816,7 +817,8 @@
             },
             "Echo": {
                 "general": {
-                    "Base health": "none"
+                    "Base health": "none",
+                    "Model size": "relative percent"
                 },
                 "abilities": {
                     "Glide": {
@@ -1470,7 +1472,7 @@
             "Venture": {
                 "general": {
                     "Base health": "none",
-                    "Movement speed": "none",
+                    "Movement speed": "meters per second",
                     "has overridden melee": "flag"
                 },
                 "abilities": {
@@ -1789,7 +1791,7 @@
                     "Orbital Ray": {
                         "Damage boost": "percent",
                         "Ultimate cost": "none",
-                        "Healing per second": "none",
+                        "Healing per second": "health per second",
                         "Duration": "seconds",
                         "Radius": "meters",
                         "Deploy range": "meters",
