@@ -3,7 +3,7 @@
 
 import { autoTypeguard, hasOwnProperty, isArrayMatchingTypeguard, isBoolean, isKeyOf, isLiteral, isNumber, isObjectWithValues, isString, isTupleMatchingTypeguards, partialTypeguard, unionTypeguard } from "./utils.js"
 
-type Unit = "none" | "percent" | "meters" | "seconds" | "health per second" | "meters per second" | "relative percent" | "flag"
+type Unit = "none" | "percent" | "meters" | "seconds" | "health per second" | "meters per second" | "relative percent" | "flag" | "degrees"
 type WithRemainder<T extends string, R extends any[]> = T extends any ? [T, ...R] : never
 type WithAppend<T extends string | [string, ...any], R extends string> = R extends any ? (T extends [infer First extends string, ...infer Rest extends any[]] ? [`${First}${R}`, ...Rest] : T extends string ? `${T}${R}` : never) : never
 
@@ -209,7 +209,8 @@ const isUnit = unionTypeguard<Unit>([
     isLiteral("health per second"),
     isLiteral("meters per second"),
     isLiteral("relative percent"),
-    isLiteral("flag")
+    isLiteral("flag"),
+    isLiteral("degrees"),
 ])
 type SFA = Omit<Units["heroes"][string], "general">
 const isUnits = autoTypeguard<Units>({
@@ -287,7 +288,7 @@ let hero_images: { [key: string]: string } = {};
 let ability_images: { [key: string]: string } = {};
 export let patches: { [key: string]: PatchData } = {};
 
-let promises = [];
+let promises: Promise<unknown>[] = [];
 promises.push(fetch("./units.json")
     .then((res) => res.text())
     .then((text) => JSON.parse(text))
@@ -379,61 +380,63 @@ export function getChangeText(name: string, change: [any, any] | string | number
             return `${prefix}${new_value}% ${name.toLowerCase()}.`;
         } else if (units == "meters") {
             return `${prefix}${new_value} meter ${name.toLowerCase()}.`;
+        } else if (units == "meters per second") {
+            return `${prefix}${new_value} meter per second ${name.toLowerCase()}.`;
+        } else if (units == "health per second") {
+            return `${prefix}${new_value} health per second ${name.toLowerCase()}.`;
         } else if (units == "seconds") {
             return `${prefix}${new_value} second ${name.toLowerCase()}.`;
+        } else if (units == "degrees") {
+            return `${prefix}${new_value} degree ${name.toLowerCase()}.`;
         } else if (units == "flag") {
             if (new_value === false) {
                 return `No longer ${name}.`;
             } else {
                 return `Now ${name}.`;
             }
+        } else if (units == "none" || units == "relative percent") {
+            return `${prefix}${new_value} ${name.toLowerCase()}.`;
+        } else {
+            let x:never = units;
+            throw new Error("Invalid units")
         }
-        return `${prefix}${new_value} ${name.toLowerCase()}.`;
     } else if (typeof change[0] == "number") {
+        let change_type = "increased";
+        if (change[0] > change[1]) {
+            change_type = "reduced";
+        }
         if (change[1] === undefined) {
             return `${name} removed.`;
         } else if (units == "percent") {
-            let change_type = "increased";
-            if (change[0] > change[1]) {
-                change_type = "reduced";
-            }
             return `${name} ${change_type} from ${change[0]}% to ${change[1]}%.`;
         } else if (units == "health per second") {
-            let change_type = "increased";
-            if (change[0] > change[1]) {
-                change_type = "reduced";
-            }
             return `${name} ${change_type} from ${change[0]} to ${change[1]} health per second.`;
         } else if (units == "meters per second") {
-            let change_type = "increased";
-            if (change[0] > change[1]) {
-                change_type = "reduced";
-            }
             return `${name} ${change_type} from ${change[0]} to ${change[1]} meters per second.`;
         } else if (units == "seconds") {
-            let change_type = "increased";
-            if (change[0] > change[1]) {
-                change_type = "reduced";
-            }
             return `${name} ${change_type} from ${change[0]} to ${change[1]} seconds.`;
         } else if (units == "meters") {
-            let change_type = "increased";
-            if (change[0] > change[1]) {
-                change_type = "reduced";
-            }
             return `${name} ${change_type} from ${change[0]} to ${change[1]} meters.`;
+        } else if (units == "degrees") {
+            return `${name} ${change_type} from ${change[0]} to ${change[1]} degrees.`;
         } else if (units == "relative percent") {
             if (change[0] > change[1]) {
                 return `${name} reduced by ${round(100 * (1.0 - change[1] / change[0]), 2)}%.`;
             } else {
                 return `${name} increased by ${round(100 * (change[1] / change[0] - 1.0), 2)}%.`;
             }
+        } else if (units == "none") {
+            return `${name} ${change_type} from ${change[0]} to ${change[1]}.`;
+        } else if (units == "flag") {
+            let change_type = "Now";
+            if (change[0]) {
+                change_type = "No longer";
+            }
+            return `${change_type} ${name}.`;
+        } else {
+            let x:never = units;
+            throw new Error("Invalid units")
         }
-        let change_type = "increased";
-        if (change[0] > change[1]) {
-            change_type = "reduced";
-        }
-        return `${name} ${change_type} from ${change[0]} to ${change[1]}.`;
     } else if (typeof change[0] == "boolean") {
         let change_type = "Now";
         if (change[0]) {
@@ -1632,7 +1635,7 @@ function removeRedundantBreakpoints(changes: Changes<PatchData>, after_patch_dat
                     similar_breakpoints[`${breakpoints[breakpoint]}`] = []
                 similar_breakpoints[`${breakpoints[breakpoint]}`].push([breakpoint, unchanged_breakpoint_data])
             }
-            let breakpoints_to_remove = []
+            let breakpoints_to_remove: string[] = []
             for(let breakpoint_type in similar_breakpoints) {
                 let breakpoints = similar_breakpoints[breakpoint_type]
                 for(let breakpoint of breakpoints) {

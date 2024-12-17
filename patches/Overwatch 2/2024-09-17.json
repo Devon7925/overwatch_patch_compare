@@ -431,7 +431,8 @@
                         "Minimum empowered wall stun": 0.25,
                         "Empowered Rocket Punch knockback radius": 3,
                         "Minimum time before cancel option becomes available": 0.12,
-                        "Empowered damage multiplier": 1.5
+                        "Empowered damage multiplier": 1.5,
+                        "Angle required for wall slam": 44
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 2145,
@@ -509,7 +510,8 @@
                         "Knockback damage": 30,
                         "Damage reduction": 50,
                         "can be interrupted by Hack": false,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Movement speed increase": 150
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": 12,
@@ -1780,7 +1782,8 @@
                         "Health": 1200,
                         "Duration": 15,
                         "Ultimate cost": 2200,
-                        "Overhealth conversion rate": 50
+                        "Overhealth conversion rate": 50,
+                        "Time before overhealth begins to drain": 2.5
                     },
                     "Life Grip": {
                         "Cooldown": 19,

@@ -842,7 +842,8 @@
                                 "critical multiplier",
                                 "empowered"
                             ]
-                        ]
+                        ],
+                        "Angle required for wall slam": []
                     },
                     "Seismic Slam": {
                         "Damage": [
@@ -994,7 +995,8 @@
                                 "critical multiplier",
                                 "critical"
                             ]
-                        ]
+                        ],
+                        "Movement speed increase": []
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": [],
@@ -1846,7 +1848,8 @@
                                 "headshot"
                             ]
                         ],
-                        "Projectile size": []
+                        "Projectile size": [],
+                        "damages enemy buildable objects": []
                     }
                 }
             },
@@ -3596,7 +3599,8 @@
                         "Health": [],
                         "Duration": [],
                         "Ultimate cost": [],
-                        "Overhealth conversion rate": []
+                        "Overhealth conversion rate": [],
+                        "Time before overhealth begins to drain": []
                     }
                 }
             },

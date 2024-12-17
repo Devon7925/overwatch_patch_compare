@@ -416,7 +416,8 @@
                         "Minimum empowered wall stun": 0.25,
                         "Empowered Rocket Punch knockback radius": 3,
                         "Minimum time before cancel option becomes available": 0.12,
-                        "Empowered damage multiplier": 1.5
+                        "Empowered damage multiplier": 1.5,
+                        "Angle required for wall slam": 44
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 1680,

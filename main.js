@@ -108,7 +108,8 @@ const isUnit = unionTypeguard([
     isLiteral("health per second"),
     isLiteral("meters per second"),
     isLiteral("relative percent"),
-    isLiteral("flag")
+    isLiteral("flag"),
+    isLiteral("degrees"),
 ]);
 const isUnits = autoTypeguard({
     general: isObjectWithValues(isUnit),
@@ -273,8 +274,17 @@ export function getChangeText(name, change, units, display_as_new) {
         else if (units == "meters") {
             return `${prefix}${new_value} meter ${name.toLowerCase()}.`;
         }
+        else if (units == "meters per second") {
+            return `${prefix}${new_value} meter per second ${name.toLowerCase()}.`;
+        }
+        else if (units == "health per second") {
+            return `${prefix}${new_value} health per second ${name.toLowerCase()}.`;
+        }
         else if (units == "seconds") {
             return `${prefix}${new_value} second ${name.toLowerCase()}.`;
+        }
+        else if (units == "degrees") {
+            return `${prefix}${new_value} degree ${name.toLowerCase()}.`;
         }
         else if (units == "flag") {
             if (new_value === false) {
@@ -284,46 +294,39 @@ export function getChangeText(name, change, units, display_as_new) {
                 return `Now ${name}.`;
             }
         }
-        return `${prefix}${new_value} ${name.toLowerCase()}.`;
+        else if (units == "none" || units == "relative percent") {
+            return `${prefix}${new_value} ${name.toLowerCase()}.`;
+        }
+        else {
+            let x = units;
+            throw new Error("Invalid units");
+        }
     }
     else if (typeof change[0] == "number") {
+        let change_type = "increased";
+        if (change[0] > change[1]) {
+            change_type = "reduced";
+        }
         if (change[1] === undefined) {
             return `${name} removed.`;
         }
         else if (units == "percent") {
-            let change_type = "increased";
-            if (change[0] > change[1]) {
-                change_type = "reduced";
-            }
             return `${name} ${change_type} from ${change[0]}% to ${change[1]}%.`;
         }
         else if (units == "health per second") {
-            let change_type = "increased";
-            if (change[0] > change[1]) {
-                change_type = "reduced";
-            }
             return `${name} ${change_type} from ${change[0]} to ${change[1]} health per second.`;
         }
         else if (units == "meters per second") {
-            let change_type = "increased";
-            if (change[0] > change[1]) {
-                change_type = "reduced";
-            }
             return `${name} ${change_type} from ${change[0]} to ${change[1]} meters per second.`;
         }
         else if (units == "seconds") {
-            let change_type = "increased";
-            if (change[0] > change[1]) {
-                change_type = "reduced";
-            }
             return `${name} ${change_type} from ${change[0]} to ${change[1]} seconds.`;
         }
         else if (units == "meters") {
-            let change_type = "increased";
-            if (change[0] > change[1]) {
-                change_type = "reduced";
-            }
             return `${name} ${change_type} from ${change[0]} to ${change[1]} meters.`;
+        }
+        else if (units == "degrees") {
+            return `${name} ${change_type} from ${change[0]} to ${change[1]} degrees.`;
         }
         else if (units == "relative percent") {
             if (change[0] > change[1]) {
@@ -333,11 +336,20 @@ export function getChangeText(name, change, units, display_as_new) {
                 return `${name} increased by ${round(100 * (change[1] / change[0] - 1.0), 2)}%.`;
             }
         }
-        let change_type = "increased";
-        if (change[0] > change[1]) {
-            change_type = "reduced";
+        else if (units == "none") {
+            return `${name} ${change_type} from ${change[0]} to ${change[1]}.`;
         }
-        return `${name} ${change_type} from ${change[0]} to ${change[1]}.`;
+        else if (units == "flag") {
+            let change_type = "Now";
+            if (change[0]) {
+                change_type = "No longer";
+            }
+            return `${change_type} ${name}.`;
+        }
+        else {
+            let x = units;
+            throw new Error("Invalid units");
+        }
     }
     else if (typeof change[0] == "boolean") {
         let change_type = "Now";

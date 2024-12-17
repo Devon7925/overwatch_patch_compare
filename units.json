@@ -433,7 +433,8 @@
                         "Minimum empowered wall stun": "seconds",
                         "Empowered Rocket Punch knockback radius": "meters",
                         "Minimum time before cancel option becomes available": "seconds",
-                        "Empowered damage multiplier": "none"
+                        "Empowered damage multiplier": "none",
+                        "Angle required for wall slam": "degrees"
                     },
                     "Seismic Slam": {
                         "Damage": "none",
@@ -527,7 +528,8 @@
                         "Knockback damage": "none",
                         "Damage reduction": "percent",
                         "can be interrupted by Hack": "flag",
-                        "Critical multiplier": "none"
+                        "Critical multiplier": "none",
+                        "Movement speed increase": "percent"
                     },
                     "Cardiac Overdrive": {
                         "Cooldown": "seconds",
@@ -952,7 +954,8 @@
                         "Ultimate cost": "none",
                         "Critical multiplier": "none",
                         "Projectile size": "meters",
-                        "Damage per second": "none"
+                        "Damage per second": "none",
+                        "damages enemy buildable objects": "flag"
                     }
                 }
             },
@@ -1897,7 +1900,8 @@
                         "Health": "none",
                         "Duration": "seconds",
                         "Ultimate cost": "none",
-                        "Overhealth conversion rate": "percent"
+                        "Overhealth conversion rate": "percent",
+                        "Time before overhealth begins to drain": "seconds"
                     }
                 }
             },
@@ -2005,7 +2009,7 @@
                         "Damage per second": "none",
                         "Secondary fire target acquisition radius": "meters",
                         "Lingering heal duration": "seconds",
-                        "Self-healing": "none"
+                        "Self-healing": "health per second"
                     },
                     "Fade": {
                         "can be activated while affected by mobility-locking effects": "flag",
