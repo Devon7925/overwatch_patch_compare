@@ -173,7 +173,8 @@
                         "Early charge rate": 62.5,
                         "can be interrupted by hack": true,
                         "pierces through barriers upon impact": true,
-                        "Overhealth": 100
+                        "Overhealth": 100,
+                        "Pull radius": 8.5
                     },
                     "Augmented Fusion Driver": {
                         "Projectile size": 0.225,
@@ -400,7 +401,8 @@
                     },
                     "Seismic Slam": {
                         "Damage": 40,
-                        "Cooldown": 6
+                        "Cooldown": 6,
+                        "Shockwave range": 18
                     },
                     "Power Block": {
                         "Cooldown": 8,
@@ -1315,7 +1317,8 @@
                         "Turret damage": 13,
                         "Cooldown": 12,
                         "Turret base health": 225,
-                        "Turret recovery time": 0.256
+                        "Turret recovery time": 0.256,
+                        "Build time": 3
                     },
                     "Overload": {
                         "Overhealth": 100,
@@ -1530,7 +1533,8 @@
                         "Cooldown": 13,
                         "Heal over time": 75,
                         "Additional self heal over time": 75,
-                        "Self healing rate": 100
+                        "Self healing rate": 100,
+                        "Radius": 10
                     },
                     "Immortality Field": {
                         "Health": 100,
@@ -1631,7 +1635,8 @@
                         "projectile impact and explosion are blocked by barriers": true,
                         "Projectile size": 0.75,
                         "Sunstruck duration": 6,
-                        "Environment collision projectile size": 0.15
+                        "Environment collision projectile size": 0.15,
+                        "Explosion radius": 8
                     },
                     "Solar Rifle Alt Fire": {
                         "Healing per second": 110,

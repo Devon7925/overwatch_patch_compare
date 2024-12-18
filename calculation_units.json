@@ -191,7 +191,8 @@
                             "reload time"
                         ],
                         "Projectile speed": [],
-                        "Projectile radius": []
+                        "Projectile radius": [],
+                        "center projectile has no spread": []
                     },
                     "Spike Guard": {
                         "Damage": [
@@ -500,7 +501,8 @@
                         "Early charge rate": [],
                         "can be interrupted by hack": [],
                         "pierces through barriers upon impact": [],
-                        "Overhealth": []
+                        "Overhealth": [],
+                        "Pull radius": []
                     }
                 }
             },
@@ -952,7 +954,8 @@
                             ]
                         ],
                         "Cooldown": [],
-                        "Slow": []
+                        "Slow": [],
+                        "Shockwave range": []
                     },
                     "Power Block": {
                         "Cooldown": [],
@@ -1181,7 +1184,9 @@
                         "Slow": [],
                         "Radius": [],
                         "Damage per second": [],
-                        "passes through enemy heroes": []
+                        "passes through enemy heroes": [],
+                        "interrupts horizontal momentum when first affecting a target": [],
+                        "slowing field ignores barriers for line of sight": []
                     },
                     "Annihilation": {
                         "Ultimate cost": [],
@@ -1354,7 +1359,8 @@
                             ]
                         ],
                         "Cast time": [],
-                        "Recovery time": []
+                        "Recovery time": [],
+                        "usable during mobility locking affects": []
                     },
                     "Dynamite": {
                         "Cooldown": [],
@@ -2774,7 +2780,8 @@
                         "Turret base health": [],
                         "Turret recovery time": [
                             "time between shots"
-                        ]
+                        ],
+                        "Build time": []
                     },
                     "Overload": {
                         "Overhealth": [],
@@ -2935,6 +2942,7 @@
                         "Cooldown start": [],
                         "Cooldown reduction while burrowed": [],
                         "Cooldown acceleration while burrowed": [],
+                        "cooldown reduction applies when burrow is active instead of only when underground": [],
                         "Impact damage": [
                             [
                                 "damage instance",
@@ -3261,7 +3269,8 @@
                                 "self"
                             ]
                         ],
-                        "Self healing rate": []
+                        "Self healing rate": [],
+                        "Radius": []
                     },
                     "Immortality Field": {
                         "Health": [],
@@ -3425,7 +3434,8 @@
                         "projectile impact and explosion are blocked by barriers": [],
                         "Projectile size": [],
                         "Sunstruck duration": [],
-                        "Environment collision projectile size": []
+                        "Environment collision projectile size": [],
+                        "Explosion radius": []
                     }
                 }
             },
@@ -3776,7 +3786,8 @@
                         "Movement speed": []
                     },
                     "Sound Barrier": {
-                        "Ultimate cost": []
+                        "Ultimate cost": [],
+                        "Gravity during cast time": []
                     }
                 }
             },

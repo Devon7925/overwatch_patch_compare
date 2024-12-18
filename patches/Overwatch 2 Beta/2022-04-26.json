@@ -115,7 +115,8 @@
                         "Early charge rate": 50,
                         "can be interrupted by hack": false,
                         "pierces through barriers upon impact": false,
-                        "Overhealth": 100
+                        "Overhealth": 100,
+                        "Pull radius": 8.5
                     },
                     "Augmented Fusion Driver": {
                         "Projectile size": 0.3,
@@ -337,7 +338,8 @@
                     "Seismic Slam": {
                         "Damage": 50,
                         "Cooldown": 7,
-                        "Slow": 30
+                        "Slow": 30,
+                        "Shockwave range": 18
                     },
                     "Power Block": {
                         "Cooldown": 8,
@@ -1126,7 +1128,8 @@
                         "Turret damage": 14,
                         "Cooldown": 10,
                         "Turret base health": 250,
-                        "Turret recovery time": 0.256
+                        "Turret recovery time": 0.256,
+                        "Build time": 3
                     },
                     "Overload": {
                         "Overhealth": 100,
@@ -1297,7 +1300,8 @@
                         "Instant healing": 0,
                         "Instant healing on allies <50% HP": 0,
                         "Heal over time": 100,
-                        "Self healing rate": 200
+                        "Self healing rate": 200,
+                        "Radius": 10
                     },
                     "Immortality Field": {
                         "Health": 150,

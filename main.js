@@ -299,7 +299,7 @@ export function getChangeText(name, change, units, display_as_new) {
         }
         else {
             let x = units;
-            throw new Error("Invalid units");
+            throw new Error(`Invalid units "${units}" for ${name}`);
         }
     }
     else if (typeof change[0] == "number") {
@@ -348,7 +348,7 @@ export function getChangeText(name, change, units, display_as_new) {
         }
         else {
             let x = units;
-            throw new Error("Invalid units");
+            throw new Error(`Invalid units "${units}" for ${name}`);
         }
     }
     else if (typeof change[0] == "boolean") {

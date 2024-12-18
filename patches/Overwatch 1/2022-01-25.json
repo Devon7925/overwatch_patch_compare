@@ -1028,7 +1028,8 @@
                         "Turret damage": 14,
                         "Cooldown": 10,
                         "Turret base health": 250,
-                        "Turret recovery time": 0.256
+                        "Turret recovery time": 0.256,
+                        "Build time": 3
                     },
                     "Overload": {
                         "Overhealth": 100,
@@ -1196,7 +1197,8 @@
                         "Instant healing": 0,
                         "Instant healing on allies <50% HP": 0,
                         "Heal over time": 75,
-                        "Self healing rate": 200
+                        "Self healing rate": 200,
+                        "Radius": 10
                     },
                     "Immortality Field": {
                         "Health": 150,

@@ -398,7 +398,7 @@ export function getChangeText(name: string, change: [any, any] | string | number
             return `${prefix}${new_value} ${name.toLowerCase()}.`;
         } else {
             let x:never = units;
-            throw new Error("Invalid units")
+            throw new Error(`Invalid units "${units}" for ${name}`)
         }
     } else if (typeof change[0] == "number") {
         let change_type = "increased";
@@ -435,7 +435,7 @@ export function getChangeText(name: string, change: [any, any] | string | number
             return `${change_type} ${name}.`;
         } else {
             let x:never = units;
-            throw new Error("Invalid units")
+            throw new Error(`Invalid units "${units}" for ${name}`)
         }
     } else if (typeof change[0] == "boolean") {
         let change_type = "Now";

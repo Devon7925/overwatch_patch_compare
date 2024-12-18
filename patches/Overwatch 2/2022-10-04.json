@@ -173,7 +173,8 @@
                         "Early charge rate": 50,
                         "can be interrupted by hack": false,
                         "pierces through barriers upon impact": false,
-                        "Overhealth": 100
+                        "Overhealth": 100,
+                        "Pull radius": 8.5
                     },
                     "Augmented Fusion Driver": {
                         "Projectile size": 0.15,
@@ -392,7 +393,8 @@
                     },
                     "Seismic Slam": {
                         "Damage": 50,
-                        "Cooldown": 7
+                        "Cooldown": 7,
+                        "Shockwave range": 18
                     },
                     "Power Block": {
                         "Cooldown": 8,
@@ -1181,7 +1183,8 @@
                         "Turret damage": 14,
                         "Cooldown": 10,
                         "Turret base health": 250,
-                        "Turret recovery time": 0.256
+                        "Turret recovery time": 0.256,
+                        "Build time": 3
                     },
                     "Overload": {
                         "Overhealth": 100,
@@ -1352,7 +1355,8 @@
                         "Instant healing": 50,
                         "Instant healing on allies <50% HP": 40,
                         "Heal over time": 50,
-                        "Self healing rate": 100
+                        "Self healing rate": 100,
+                        "Radius": 10
                     },
                     "Immortality Field": {
                         "Health": 150,
@@ -1486,7 +1490,7 @@
                     },
                     "Crossfade": {
                         "Crossfade self-healing penalty for the duration of Amp It Up": 60,
-                        "Self healing per second": 10
+                        "Self healing per second": 6.4
                     },
                     "Amp It Up": {
                         "Cooldown": 12,

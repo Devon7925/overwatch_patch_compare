@@ -101,7 +101,8 @@
                         "Ammo": "none",
                         "Reload time": "seconds",
                         "Projectile speed": "meters per second",
-                        "Projectile radius": "meters"
+                        "Projectile radius": "meters",
+                        "center projectile has no spread": "flag"
                     },
                     "Spike Guard": {
                         "Damage": "none",
@@ -244,7 +245,8 @@
                         "Early charge rate": "none",
                         "can be interrupted by hack": "flag",
                         "pierces through barriers upon impact": "flag",
-                        "Overhealth": "none"
+                        "Overhealth": "none",
+                        "Pull radius": "meters"
                     }
                 }
             },
@@ -489,7 +491,8 @@
                     "Seismic Slam": {
                         "Damage": "none",
                         "Cooldown": "seconds",
-                        "Slow": "percent"
+                        "Slow": "percent",
+                        "Shockwave range": "meters"
                     },
                     "Power Block": {
                         "Cooldown": "seconds",
@@ -638,7 +641,9 @@
                         "Slow": "percent",
                         "Radius": "meters",
                         "passes through enemy heroes": "flag",
-                        "Damage per second": "none"
+                        "Damage per second": "none",
+                        "interrupts horizontal momentum when first affecting a target": "flag",
+                        "slowing field ignores barriers for line of sight": "flag"
                     },
                     "Annihilation": {
                         "Ultimate cost": "none",
@@ -698,7 +703,8 @@
             "general": {
                 "Healing reduction inflicted on hit": "percent",
                 "Movement speed bonus on elimination": "percent",
-                "Reload speed bonus on elimination": "percent"
+                "Reload speed bonus on elimination": "percent",
+                "Damage passive duration": "seconds"
             },
             "Ashe": {
                 "general": {
@@ -729,7 +735,8 @@
                         "Damage per pellet": "none",
                         "Pellet count": "none",
                         "Cast time": "seconds",
-                        "Recovery time": "seconds"
+                        "Recovery time": "seconds",
+                        "usable during mobility locking affects": "flag"
                     },
                     "Dynamite": {
                         "Cooldown": "seconds",
@@ -1460,7 +1467,8 @@
                         "Turret damage": "none",
                         "Cooldown": "seconds",
                         "Turret base health": "none",
-                        "Turret recovery time": "seconds"
+                        "Turret recovery time": "seconds",
+                        "Build time": "seconds"
                     },
                     "Overload": {
                         "Overhealth": "none",
@@ -1545,6 +1553,7 @@
                         "Cooldown start": "none",
                         "Cooldown reduction while burrowed": "percent",
                         "Cooldown acceleration while burrowed": "percent",
+                        "cooldown reduction applies when burrow is active instead of only when underground": "flag",
                         "Impact damage": "none",
                         "Damage over time": "none",
                         "Cooldown": "seconds",
@@ -1686,7 +1695,8 @@
                         "Instant healing on allies <50% HP": "none",
                         "Heal over time": "none",
                         "Additional self heal over time": "none",
-                        "Self healing rate": "percent"
+                        "Self healing rate": "percent",
+                        "Radius": "meters"
                     },
                     "Immortality Field": {
                         "Health": "none",
@@ -1787,7 +1797,8 @@
                         "projectile impact and explosion are blocked by barriers": "flag",
                         "Projectile size": "meters",
                         "Sunstruck duration": "seconds",
-                        "Environment collision projectile size": "meters"
+                        "Environment collision projectile size": "meters",
+                        "Explosion radius": "meters"
                     }
                 }
             },
@@ -1995,7 +2006,8 @@
                         "Movement speed": "seconds"
                     },
                     "Sound Barrier": {
-                        "Ultimate cost": "none"
+                        "Ultimate cost": "none",
+                        "Gravity during cast time": "percent"
                     }
                 }
             },
