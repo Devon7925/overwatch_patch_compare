@@ -152,6 +152,9 @@
                 "general": {
                     "Base health": [
                         "health"
+                    ],
+                    "Base armor": [
+                        "health"
                     ]
                 },
                 "abilities": {
@@ -202,7 +205,8 @@
                         ],
                         "Damage reduction": [],
                         "Movement speed penalty": [],
-                        "Damage reduction angle": []
+                        "Damage reduction angle": [],
+                        "Maximum duration": []
                     },
                     "Violent Leap": {
                         "Damage": [

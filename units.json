@@ -85,7 +85,8 @@
             },
             "Hazard": {
                 "general": {
-                    "Base health": "none"
+                    "Base health": "none",
+                    "Base armor": "none"
                 },
                 "abilities": {
                     "Vault": {
@@ -107,7 +108,8 @@
                         "Recovery time": "seconds",
                         "Damage reduction": "percent",
                         "Movement speed penalty": "percent",
-                        "Damage reduction angle": "degrees"
+                        "Damage reduction angle": "degrees",
+                        "Maximum duration": "seconds"
                     },
                     "Violent Leap": {
                         "Damage": "none",
