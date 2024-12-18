@@ -6,6 +6,7 @@
         "Armor minimum damage reduction": "percent",
         "Armor maximum damage reduction": "percent",
         "Armor flat damage reduction": "none",
+        "Out-of-combat health regeneration delay": "seconds",
         "Out-of-combat health regeneration": "none",
         "Role lock": "none",
         "Ultimate percent retained on swap": "percent",
@@ -110,7 +111,8 @@
                         "Damage reduction": "percent",
                         "Movement speed penalty": "percent",
                         "Damage reduction angle": "degrees",
-                        "Maximum duration": "seconds"
+                        "Maximum duration": "seconds",
+                        "Recharge rate": "percent"
                     },
                     "Violent Leap": {
                         "Damage": "none",
@@ -1878,7 +1880,8 @@
                     },
                     "Healing Ofuda": {
                         "Projectile speed": "meters per second",
-                        "Recovery time": "seconds"
+                        "Recovery time": "seconds",
+                        "Healing per projectile": "none"
                     },
                     "Swift Step": {
                         "Cooldown": "seconds",

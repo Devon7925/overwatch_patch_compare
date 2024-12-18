@@ -6,6 +6,7 @@
         "Armor minimum damage reduction": [],
         "Armor maximum damage reduction": [],
         "Armor flat damage reduction": [],
+        "Out-of-combat health regeneration delay": [],
         "Out-of-combat health regeneration": [],
         "Role lock": [],
         "Ultimate percent retained on swap": [],
@@ -207,7 +208,8 @@
                         "Damage reduction": [],
                         "Movement speed penalty": [],
                         "Damage reduction angle": [],
-                        "Maximum duration": []
+                        "Maximum duration": [],
+                        "Recharge rate": []
                     },
                     "Violent Leap": {
                         "Damage": [
@@ -3578,6 +3580,12 @@
                         "Projectile speed": [],
                         "Recovery time": [
                             "time between shots"
+                        ],
+                        "Healing per projectile": [
+                            [
+                                "healing instance",
+                                "normal"
+                            ]
                         ]
                     },
                     "Swift Step": {

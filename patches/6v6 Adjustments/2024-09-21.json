@@ -6,6 +6,7 @@
         "Armor minimum damage reduction": 0,
         "Armor maximum damage reduction": 50,
         "Armor flat damage reduction": 7,
+        "Out-of-combat health regeneration delay": 5,
         "Out-of-combat health regeneration": "10",
         "Role lock": "2-2-2",
         "Ultimate percent retained on swap": 0,
@@ -1688,7 +1689,7 @@
                     "Hyper Ring": {
                         "Increased movement speed": 50,
                         "Cooldown": 13,
-                        "Duration": 8,
+                        "Duration": 6,
                         "Speed boost duration": 3,
                         "Area of effect size": 8,
                         "Max deploy range": 17,
@@ -1745,7 +1746,8 @@
                     },
                     "Healing Ofuda": {
                         "Projectile speed": 18,
-                        "Recovery time": 0.9
+                        "Recovery time": 0.9,
+                        "Healing per projectile": 13
                     }
                 }
             },

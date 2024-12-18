@@ -6,6 +6,7 @@
         "Armor minimum damage reduction": 30,
         "Armor maximum damage reduction": 30,
         "Armor flat damage reduction": 0,
+        "Out-of-combat health regeneration delay": 5,
         "Out-of-combat health regeneration": "20",
         "Role lock": "1-2-2",
         "Ultimate percent retained on swap": 15,
@@ -1677,7 +1678,8 @@
                     },
                     "Healing Ofuda": {
                         "Projectile speed": 18,
-                        "Recovery time": 0.9
+                        "Recovery time": 0.9,
+                        "Healing per projectile": 13
                     }
                 }
             },

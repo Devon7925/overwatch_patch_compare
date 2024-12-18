@@ -6,6 +6,7 @@
         "Armor minimum damage reduction": 0,
         "Armor maximum damage reduction": 50,
         "Armor flat damage reduction": 10,
+        "Out-of-combat health regeneration delay": 5,
         "Out-of-combat health regeneration": "10 + 5% of max hp",
         "Role lock": "1-2-2",
         "Ultimate percent retained on swap": 15,
@@ -362,7 +363,7 @@
                     "Projected Barrier": {
                         "Cooldown start": "ability use",
                         "shares cooldown with Particle Barrier": true,
-                        "Cooldown": 8,
+                        "Cooldown": 9,
                         "Health": 225,
                         "Duration": 2.25,
                         "Size": 1
@@ -1682,7 +1683,7 @@
                     "Hyper Ring": {
                         "Increased movement speed": 50,
                         "Cooldown": 14,
-                        "Duration": 8,
+                        "Duration": 6,
                         "Speed boost duration": 3,
                         "Area of effect size": 8,
                         "Max deploy range": 17,
@@ -1737,7 +1738,8 @@
                     },
                     "Healing Ofuda": {
                         "Projectile speed": 18,
-                        "Recovery time": 0.9
+                        "Recovery time": 0.9,
+                        "Healing per projectile": 13
                     }
                 }
             },
