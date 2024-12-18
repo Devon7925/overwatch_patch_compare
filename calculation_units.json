@@ -148,6 +148,100 @@
                     }
                 }
             },
+            "Hazard": {
+                "general": {
+                    "Base health": [
+                        "health"
+                    ]
+                },
+                "abilities": {
+                    "Vault": {
+                        "Movement speed": [],
+                        "Minimum obstacle height to trigger": []
+                    },
+                    "Bonespur": {
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "pellet"
+                            ]
+                        ],
+                        "Pellet count": [
+                            [
+                                "damage instance",
+                                "pellet"
+                            ]
+                        ],
+                        "Critical multiplier": [
+                            [
+                                "critical multiplier",
+                                "pellet"
+                            ]
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Ammo": [
+                            "ammo"
+                        ],
+                        "Reload time": [
+                            "reload time"
+                        ],
+                        "Projectile speed": [],
+                        "Projectile radius": []
+                    },
+                    "Spike Guard": {
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "pellet"
+                            ]
+                        ],
+                        "Recovery time": [
+                            "time between shots"
+                        ],
+                        "Damage reduction": [],
+                        "Movement speed penalty": [],
+                        "Damage reduction angle": []
+                    },
+                    "Violent Leap": {
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "slash"
+                            ]
+                        ],
+                        "Post-slash recovery time": [],
+                        "Cooldown": []
+                    },
+                    "Jagged Wall": {
+                        "Cooldown": [],
+                        "Deployed duration": [],
+                        "Health": [],
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Damage recovery time per target": [
+                            "time between shots"
+                        ],
+                        "Knockback speed": []
+                    },
+                    "Downpour": {
+                        "Damage": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
+                        "Duration": [],
+                        "Airbourne momentum lost by casting dounpour": [],
+                        "Ultimate cost": []
+                    }
+                }
+            },
             "Junker Queen": {
                 "general": {
                     "Base health": [

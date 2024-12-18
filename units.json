@@ -83,6 +83,53 @@
                     }
                 }
             },
+            "Hazard": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "Vault": {
+                        "Movement speed": "meters per second",
+                        "Minimum obstacle height to trigger": "meters"
+                    },
+                    "Bonespur": {
+                        "Damage": "none",
+                        "Pellet count": "none",
+                        "Critical multiplier": "none",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time": "seconds",
+                        "Projectile speed": "meters per second",
+                        "Projectile radius": "meters"
+                    },
+                    "Spike Guard": {
+                        "Damage": "none",
+                        "Recovery time": "seconds",
+                        "Damage reduction": "percent",
+                        "Movement speed penalty": "percent",
+                        "Damage reduction angle": "degrees"
+                    },
+                    "Violent Leap": {
+                        "Damage": "none",
+                        "Post-slash recovery time": "seconds",
+                        "Cooldown": "seconds"
+                    },
+                    "Jagged Wall": {
+                        "Cooldown": "seconds",
+                        "Deployed duration": "seconds",
+                        "Health": "none",
+                        "Damage": "none",
+                        "Damage recovery time per target": "seconds",
+                        "Knockback speed": "meters per second"
+                    },
+                    "Downpour": {
+                        "Damage": "none",
+                        "Duration": "seconds",
+                        "Airbourne momentum lost by casting dounpour": "percent",
+                        "Ultimate cost": "none"
+                    }
+                }
+            },
             "Junker Queen": {
                 "general": {
                     "Base health": "none",
