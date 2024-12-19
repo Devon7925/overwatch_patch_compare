@@ -343,24 +343,24 @@ export function getChangeText(name: string, change: [any, any] | string | number
     if (typeof change[1] === "number") {
         change[1] = round(change[1], 2)
     }
+    const unitDisplayMap: Partial<Record<DisplayUnit, string>> = {
+        "percent": "%",
+        "meters": " meters",
+        "meters per second": " meters per second",
+        "health per second": " health per second",
+        "seconds": " seconds",
+        "degrees": " degrees",
+    }
     if (change[0] === undefined) {
         let new_value = change[1];
         if (!Array.isArray(change)) {
             new_value = change;
         }
         let prefix = display_as_new ? "" : "There is now "
-        if (units == "percent") {
-            return `${prefix}${new_value}% ${name.toLowerCase()}.`;
-        } else if (units == "meters") {
-            return `${prefix}${new_value} meter ${name.toLowerCase()}.`;
-        } else if (units == "meters per second") {
-            return `${prefix}${new_value} meter per second ${name.toLowerCase()}.`;
-        } else if (units == "health per second") {
-            return `${prefix}${new_value} health per second ${name.toLowerCase()}.`;
-        } else if (units == "seconds") {
-            return `${prefix}${new_value} second ${name.toLowerCase()}.`;
-        } else if (units == "degrees") {
-            return `${prefix}${new_value} degree ${name.toLowerCase()}.`;
+        if (units == undefined) {
+            return `${prefix}${new_value} ${name.toLowerCase()}.`;
+        } else if (unitDisplayMap[units]) {
+            return `${prefix}${new_value}${unitDisplayMap[units]} ${name.toLowerCase()}.`;
         } else if (units == "flag") {
             if (new_value === false) {
                 return `No longer ${name}.`;
@@ -369,11 +369,8 @@ export function getChangeText(name: string, change: [any, any] | string | number
             }
         } else if (units == "relative percent") {
             return `${prefix}${new_value} ${name.toLowerCase()}.`;
-        } else if (units == undefined) {
-            return `${prefix}${new_value} ${name.toLowerCase()}.`;
         } else {
             // Exhaustiveness check
-            let x: never = units;
             throw new Error(`Invalid units "${units}" for ${name}`)
         }
     } else if (typeof change[0] == "number") {
@@ -383,18 +380,10 @@ export function getChangeText(name: string, change: [any, any] | string | number
         }
         if (change[1] === undefined) {
             return `${name} removed.`;
-        } else if (units == "percent") {
-            return `${name} ${change_type} from ${change[0]}% to ${change[1]}%.`;
-        } else if (units == "health per second") {
-            return `${name} ${change_type} from ${change[0]} to ${change[1]} health per second.`;
-        } else if (units == "meters per second") {
-            return `${name} ${change_type} from ${change[0]} to ${change[1]} meters per second.`;
-        } else if (units == "seconds") {
-            return `${name} ${change_type} from ${change[0]} to ${change[1]} seconds.`;
-        } else if (units == "meters") {
-            return `${name} ${change_type} from ${change[0]} to ${change[1]} meters.`;
-        } else if (units == "degrees") {
-            return `${name} ${change_type} from ${change[0]} to ${change[1]} degrees.`;
+        } else if (units == undefined) {
+            return `${name} ${change_type} from ${change[0]} to ${change[1]}.`;
+        } else if (unitDisplayMap[units] != undefined) {
+            return `${name} ${change_type} from ${change[0]}% to ${change[1]}${unitDisplayMap[units]}.`;
         } else if (units == "relative percent") {
             if (change[0] > change[1]) {
                 return `${name} reduced by ${round(100 * (1.0 - change[1] / change[0]), 2)}%.`;
@@ -407,11 +396,8 @@ export function getChangeText(name: string, change: [any, any] | string | number
                 change_type = "No longer";
             }
             return `${change_type} ${name}.`;
-        } else if (units == undefined) {
-            return `${name} ${change_type} from ${change[0]} to ${change[1]}.`;
         } else {
             // Exhaustiveness check
-            let x: never = units;
             throw new Error(`Invalid units "${units}" for ${name}`)
         }
     } else if (typeof change[0] == "boolean") {
@@ -953,7 +939,7 @@ export function calculatePreArmorProperties(patch_data: PatchData, calculation_u
                             .map(([key, calc_units]) => [calc_units, heroData.abilities[ability][key]] as const)
                             .filter((entry): entry is [Unit[], number] => typeof entry[1] === "number")
                             .map(([calc_units, multiplier]) =>
-                                [getUnitDataOfType(calc_units, "critical multiplier"), multiplier] as const)
+                                [getUnitArrayDataOfType(calc_units, "critical multiplier"), multiplier] as const)
                             .flatMap(([crit_types, multiplier]) => crit_types.map((crit_type) => [crit_type, multiplier] as const))
                     for (let total_damage_type in total_damage) {
                         for (let situation of total_damage[total_damage_type]) {
