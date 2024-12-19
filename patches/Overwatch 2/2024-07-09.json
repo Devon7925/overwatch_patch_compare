@@ -14,7 +14,10 @@
         "has stranded spawn feature": true,
         "Overhealth ultimate charge generation rate": 50,
         "uses dynamic calculation for armor": true,
-        "can phase type abilities cleanse mobility lock": false
+        "can phase type abilities cleanse mobility lock": false,
+        "Damage over time armor mitigation": 0,
+        "Lightning armor mitigation": 0,
+        "Beam armor mitigation": 30
     },
     "heroes": {
         "tank": {
@@ -591,7 +594,6 @@
                 "abilities": {
                     "Tesla Cannon": {
                         "Damage per second": 75,
-                        "ignores armor damage reduction": true,
                         "Ammo": 100,
                         "Reload time": 1.7,
                         "Ammo per second": 20

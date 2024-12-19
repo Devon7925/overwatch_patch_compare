@@ -19,6 +19,7 @@ type CalculationUnit =
         | "total" | "total crit",
         " damage" | " healing">
     | ["situation", Situation]
+    | ["special armor mitigation", DamageType]
     | ["critical multiplier", CritType] | ["critical multiplier", CritType, DamageType] | "bullets per burst" | "ammo" | "charges" | "reload time" | "health" | "breakpoint damage" | "time between shots" | "burst recovery time" | "reload time per ammo" | "ammo per shot" | "damage per second" | "healing per second"
 type Value = string | number | boolean
 type Hero = "D.Va" |
@@ -90,11 +91,6 @@ type CalculationUnits = PatchStructure<CalculationUnit[]>
 
 const damageBreakPointHealthValues = [150, 175, 200, 225, 250, 300] as const;
 type SpecialArmorBehavior = ["flat percent mit", number] | undefined
-const specialArmorBehaviorDamageTypes: { [damage_type: string]: SpecialArmorBehavior } = {
-    "damage over time": ["flat percent mit", 0],
-    "lightning": ["flat percent mit", 0],
-    "beam": ["flat percent mit", 0.3],
-}
 
 const patchList = await fetch("./patch_list.json")
     .then((res) => res.text())
@@ -243,6 +239,7 @@ const isCalculationUnit = unionTypeguard<CalculationUnit>([
     isTupleMatchingTypeguards(isLiteral("total instance crit healing"), isString, isString),
     isTupleMatchingTypeguards(isLiteral("total crit healing"), isString, isString),
     isTupleMatchingTypeguards(isLiteral("situation"), isString),
+    isTupleMatchingTypeguards(isLiteral("special armor mitigation"), isString),
     isTupleMatchingTypeguards(isLiteral("critical multiplier"), isString),
     isTupleMatchingTypeguards(isLiteral("critical multiplier"), isString, isString),
     isLiteral("ammo"),
@@ -397,8 +394,9 @@ export function getChangeText(name: string, change: [any, any] | string | number
         } else if (units == "none" || units == "relative percent") {
             return `${prefix}${new_value} ${name.toLowerCase()}.`;
         } else {
-            let x:never = units;
-            throw new Error(`Invalid units "${units}" for ${name}`)
+            return `${prefix}${new_value} ${name.toLowerCase()}.`;
+            // let x: never = units;
+            // throw new Error(`Invalid units "${units}" for ${name}`)
         }
     } else if (typeof change[0] == "number") {
         let change_type = "increased";
@@ -434,8 +432,9 @@ export function getChangeText(name: string, change: [any, any] | string | number
             }
             return `${change_type} ${name}.`;
         } else {
-            let x:never = units;
-            throw new Error(`Invalid units "${units}" for ${name}`)
+            return `${name} ${change_type} from ${change[0]} to ${change[1]}.`;
+            // let x: never = units;
+            // throw new Error(`Invalid units "${units}" for ${name}`)
         }
     } else if (typeof change[0] == "boolean") {
         let change_type = "Now";
@@ -555,9 +554,12 @@ async function updatePatchNotes() {
         before_patch_data = calculatePreArmorProperties(before_patch_data, calculation_units)
         after_patch_data = calculatePreArmorProperties(after_patch_data, calculation_units)
     }
+    let before_special_armor_behaviors = getSpecialArmorBehaviors(before_patch_data, calculation_units);
+    let after_special_armor_behaviors = getSpecialArmorBehaviors(after_patch_data, calculation_units);
+
     if (siteState.apply_to_armor) {
-        before_patch_data = applyArmor(before_patch_data, calculation_units)
-        after_patch_data = applyArmor(after_patch_data, calculation_units)
+        before_patch_data = applyArmor(before_patch_data, calculation_units, before_special_armor_behaviors)
+        after_patch_data = applyArmor(after_patch_data, calculation_units, after_special_armor_behaviors)
     }
     if (siteState.show_calculated_properties) {
         before_patch_data = calculatePostArmorProperties(before_patch_data, calculation_units)
@@ -1024,7 +1026,25 @@ function applyArmorToStat(stat: number, min_damage_reduction: number, max_damage
     return Math.min(Math.max(stat - flat_damage_reduction, stat * (1 - max_damage_reduction)), stat * (1 - min_damage_reduction))
 }
 
-export function applyArmor(patch_data: PatchData, calculation_units: CalculationUnits): PatchData {
+function getSpecialArmorBehaviors(patch_data: PatchData, calculation_units: CalculationUnits): { [damage_type: string]: SpecialArmorBehavior } {
+    const special_armor_behaviors: { [damage_type: string]: SpecialArmorBehavior } = {};
+
+    for (let key in calculation_units.general) {
+        let types = calculation_units.general[key].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == "special armor mitigation").map((unit) => unit[1])
+
+        if (typeof patch_data.general[key] !== "number") {
+            continue;
+        }
+
+        for (let type of types) {
+            special_armor_behaviors[type] = ["flat percent mit", patch_data.general[key] / 100]
+        }
+    }
+
+    return special_armor_behaviors;
+}
+
+export function applyArmor(patch_data: PatchData, calculation_units: CalculationUnits, special_armor_behaviors: { [damage_type: string]: SpecialArmorBehavior }): PatchData {
     let min_damage_reduction = 0;
     let max_damage_reduction = 1;
     let flat_damage_reduction = 0;
@@ -1067,7 +1087,7 @@ export function applyArmor(patch_data: PatchData, calculation_units: Calculation
                             throw new Error("should not have multiple damage types")
                         }
                         if (damage_type.length > 0) {
-                            let possible_special_behavior = specialArmorBehaviorDamageTypes[damage_type[0]];
+                            let possible_special_behavior = special_armor_behaviors[damage_type[0]];
                             if (possible_special_behavior !== undefined) {
                                 if (possible_special_behavior[0] === "flat percent mit") {
                                     heroData.abilities[ability][ability_property] = (1 - possible_special_behavior[1]) * heroData.abilities[ability][ability_property]
@@ -1600,30 +1620,30 @@ function removeRedundantBreakpoints(changes: Changes<PatchData>, after_patch_dat
             if (heroData === undefined) {
                 throw new Error("Invalid state")
             }
-            if(!heroData.breakpoints) continue;
-            if(!heroData.breakpoints_data) continue;
+            if (!heroData.breakpoints) continue;
+            if (!heroData.breakpoints_data) continue;
             let breakpoints = heroData.breakpoints;
             let breakpoints_data = heroData.breakpoints_data;
-            if(Array.isArray(breakpoints)) continue;
-            if(Array.isArray(breakpoints_data)) continue;
+            if (Array.isArray(breakpoints)) continue;
+            if (Array.isArray(breakpoints_data)) continue;
             //TODO use es2024 Object.groupBy when typescript 5.7 releases
-            let similar_breakpoints:{[key:string]: [string, {[key:string]: number}][]}= {};
-            for(let breakpoint in breakpoints) {
+            let similar_breakpoints: { [key: string]: [string, { [key: string]: number }][] } = {};
+            for (let breakpoint in breakpoints) {
                 let breakpoint_data = breakpoints_data[breakpoint];
-                if(Array.isArray(breakpoint_data)) {
-                    if(breakpoint_data[0] === undefined) {
+                if (Array.isArray(breakpoint_data)) {
+                    if (breakpoint_data[0] === undefined) {
                         breakpoint_data = breakpoint_data[1]
-                    } else if(breakpoint_data[1] === undefined) {
+                    } else if (breakpoint_data[1] === undefined) {
                         breakpoint_data = breakpoint_data[0]
                     }
                 }
-                let unchanged_breakpoint_data: {[key:string]: number} = {};
+                let unchanged_breakpoint_data: { [key: string]: number } = {};
                 for (let damage_type in breakpoint_data) {
                     let count = breakpoint_data[damage_type];
                     if (Array.isArray(count)) {
-                        if(count[0] === undefined) {
+                        if (count[0] === undefined) {
                             count = count[1]
-                        } else if(count[1] === undefined) {
+                        } else if (count[1] === undefined) {
                             count = count[0]
                         } else {
                             throw new Error("Invalid state")
@@ -1631,25 +1651,25 @@ function removeRedundantBreakpoints(changes: Changes<PatchData>, after_patch_dat
                     }
                     unchanged_breakpoint_data[damage_type] = count
                 }
-                if(!(`${breakpoints[breakpoint]}` in similar_breakpoints))
+                if (!(`${breakpoints[breakpoint]}` in similar_breakpoints))
                     similar_breakpoints[`${breakpoints[breakpoint]}`] = []
                 similar_breakpoints[`${breakpoints[breakpoint]}`].push([breakpoint, unchanged_breakpoint_data])
             }
             let breakpoints_to_remove: string[] = []
-            for(let breakpoint_type in similar_breakpoints) {
+            for (let breakpoint_type in similar_breakpoints) {
                 let breakpoints = similar_breakpoints[breakpoint_type]
-                for(let breakpoint of breakpoints) {
+                for (let breakpoint of breakpoints) {
                     let sub_breakpoint = breakpoints.find((other_breakpoint) => breakpoint[0] !== other_breakpoint[0] && isSubBreakpoint(breakpoint[1], other_breakpoint[1]))
-                    if(sub_breakpoint !== undefined) {
+                    if (sub_breakpoint !== undefined) {
                         breakpoints_to_remove.push(breakpoint[0])
                         breakpoints.splice(breakpoints.indexOf(breakpoint), 1)
                     }
                 }
             }
             console.log(breakpoints_to_remove)
-            
-            if(Array.isArray(heroData.breakpoints)) throw new Error("Invalid state")
-                console.log(Object.entries(heroData.breakpoints).length)
+
+            if (Array.isArray(heroData.breakpoints)) throw new Error("Invalid state")
+            console.log(Object.entries(heroData.breakpoints).length)
             for (let remove_breakpoint of breakpoints_to_remove) {
                 delete heroData.breakpoints[remove_breakpoint];
             }
@@ -1660,10 +1680,10 @@ function removeRedundantBreakpoints(changes: Changes<PatchData>, after_patch_dat
     return changes;
 }
 
-function isSubBreakpoint(possible_super_breakpoint:{[key:string]: number}, possible_sub_breakpoint: {[key:string]: number}): boolean {
-    for(let damage_type in possible_sub_breakpoint) {
-        if(!(damage_type in possible_super_breakpoint)) return false;
-        if(possible_super_breakpoint[damage_type] < possible_sub_breakpoint[damage_type]) return false;
+function isSubBreakpoint(possible_super_breakpoint: { [key: string]: number }, possible_sub_breakpoint: { [key: string]: number }): boolean {
+    for (let damage_type in possible_sub_breakpoint) {
+        if (!(damage_type in possible_super_breakpoint)) return false;
+        if (possible_super_breakpoint[damage_type] < possible_sub_breakpoint[damage_type]) return false;
     }
     return true;
 }

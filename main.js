@@ -2,11 +2,6 @@
 // cant use because firefox dumb https://bugzilla.mozilla.org/show_bug.cgi?id=1736059
 import { autoTypeguard, isArrayMatchingTypeguard, isKeyOf, isLiteral, isNumber, isObjectWithValues, isString, isTupleMatchingTypeguards, partialTypeguard, unionTypeguard } from "./utils.js";
 const damageBreakPointHealthValues = [150, 175, 200, 225, 250, 300];
-const specialArmorBehaviorDamageTypes = {
-    "damage over time": ["flat percent mit", 0],
-    "lightning": ["flat percent mit", 0],
-    "beam": ["flat percent mit", 0.3],
-};
 const patchList = await fetch("./patch_list.json")
     .then((res) => res.text())
     .then((text) => JSON.parse(text, (key, value) => {
@@ -141,6 +136,7 @@ const isCalculationUnit = unionTypeguard([
     isTupleMatchingTypeguards(isLiteral("total instance crit healing"), isString, isString),
     isTupleMatchingTypeguards(isLiteral("total crit healing"), isString, isString),
     isTupleMatchingTypeguards(isLiteral("situation"), isString),
+    isTupleMatchingTypeguards(isLiteral("special armor mitigation"), isString),
     isTupleMatchingTypeguards(isLiteral("critical multiplier"), isString),
     isTupleMatchingTypeguards(isLiteral("critical multiplier"), isString, isString),
     isLiteral("ammo"),
@@ -298,8 +294,9 @@ export function getChangeText(name, change, units, display_as_new) {
             return `${prefix}${new_value} ${name.toLowerCase()}.`;
         }
         else {
-            let x = units;
-            throw new Error(`Invalid units "${units}" for ${name}`);
+            return `${prefix}${new_value} ${name.toLowerCase()}.`;
+            // let x: never = units;
+            // throw new Error(`Invalid units "${units}" for ${name}`)
         }
     }
     else if (typeof change[0] == "number") {
@@ -347,8 +344,9 @@ export function getChangeText(name, change, units, display_as_new) {
             return `${change_type} ${name}.`;
         }
         else {
-            let x = units;
-            throw new Error(`Invalid units "${units}" for ${name}`);
+            return `${name} ${change_type} from ${change[0]} to ${change[1]}.`;
+            // let x: never = units;
+            // throw new Error(`Invalid units "${units}" for ${name}`)
         }
     }
     else if (typeof change[0] == "boolean") {
@@ -467,9 +465,11 @@ async function updatePatchNotes() {
         before_patch_data = calculatePreArmorProperties(before_patch_data, calculation_units);
         after_patch_data = calculatePreArmorProperties(after_patch_data, calculation_units);
     }
+    let before_special_armor_behaviors = getSpecialArmorBehaviors(before_patch_data, calculation_units);
+    let after_special_armor_behaviors = getSpecialArmorBehaviors(after_patch_data, calculation_units);
     if (siteState.apply_to_armor) {
-        before_patch_data = applyArmor(before_patch_data, calculation_units);
-        after_patch_data = applyArmor(after_patch_data, calculation_units);
+        before_patch_data = applyArmor(before_patch_data, calculation_units, before_special_armor_behaviors);
+        after_patch_data = applyArmor(after_patch_data, calculation_units, after_special_armor_behaviors);
     }
     if (siteState.show_calculated_properties) {
         before_patch_data = calculatePostArmorProperties(before_patch_data, calculation_units);
@@ -936,7 +936,20 @@ export function calculatePreArmorProperties(patch_data, calculation_units) {
 function applyArmorToStat(stat, min_damage_reduction, max_damage_reduction, flat_damage_reduction) {
     return Math.min(Math.max(stat - flat_damage_reduction, stat * (1 - max_damage_reduction)), stat * (1 - min_damage_reduction));
 }
-export function applyArmor(patch_data, calculation_units) {
+function getSpecialArmorBehaviors(patch_data, calculation_units) {
+    const special_armor_behaviors = {};
+    for (let key in calculation_units.general) {
+        let types = calculation_units.general[key].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == "special armor mitigation").map((unit) => unit[1]);
+        if (typeof patch_data.general[key] !== "number") {
+            continue;
+        }
+        for (let type of types) {
+            special_armor_behaviors[type] = ["flat percent mit", patch_data.general[key] / 100];
+        }
+    }
+    return special_armor_behaviors;
+}
+export function applyArmor(patch_data, calculation_units, special_armor_behaviors) {
     let min_damage_reduction = 0;
     let max_damage_reduction = 1;
     let flat_damage_reduction = 0;
@@ -979,7 +992,7 @@ export function applyArmor(patch_data, calculation_units) {
                             throw new Error("should not have multiple damage types");
                         }
                         if (damage_type.length > 0) {
-                            let possible_special_behavior = specialArmorBehaviorDamageTypes[damage_type[0]];
+                            let possible_special_behavior = special_armor_behaviors[damage_type[0]];
                             if (possible_special_behavior !== undefined) {
                                 if (possible_special_behavior[0] === "flat percent mit") {
                                     heroData.abilities[ability][ability_property] = (1 - possible_special_behavior[1]) * heroData.abilities[ability][ability_property];

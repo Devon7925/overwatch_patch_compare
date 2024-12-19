@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Healing per projectile"
-new_value = 13
-process_json_files(folder_path, 'heroes/support/Kiriko/abilities/Healing Ofuda/Healing per projectile', new_property_name, new_value, rename=False)
+new_property_name = "Beam armor mitigation"
+new_value = 30
+process_json_files(folder_path, 'general/Beam armor mitigation', new_property_name, new_value, rename=False)

@@ -16,7 +16,10 @@
         "Non wave respawn time reduction": [],
         "can phase type abilities cleanse mobility lock": [],
         "uses dynamic calculation for armor": [],
-        "Quick melee damage": []
+        "Quick melee damage": [],
+        "Damage over time armor mitigation": [["special armor mitigation", "damage over time"]],
+        "Lightning armor mitigation": [["special armor mitigation", "lightning"]],
+        "Beam armor mitigation": [["special armor mitigation", "beam"]]
     },
     "heroes": {
         "tank": {

@@ -16,7 +16,10 @@
         "uses dynamic calculation for armor": true,
         "can phase type abilities cleanse mobility lock": false,
         "Max wave respawn time": 6,
-        "Non wave respawn time reduction": 2
+        "Non wave respawn time reduction": 2,
+        "Damage over time armor mitigation": 0,
+        "Lightning armor mitigation": 0,
+        "Beam armor mitigation": 30
     },
     "heroes": {
         "tank": {
@@ -643,7 +646,6 @@
                 "abilities": {
                     "Tesla Cannon": {
                         "Damage per second": 70,
-                        "ignores armor damage reduction": true,
                         "Ammo": 100,
                         "Reload time": 1.7,
                         "Ammo per second": 20
