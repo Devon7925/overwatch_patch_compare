@@ -50,6 +50,30 @@ type Primatives = string | number | boolean
 export type JSONObj = { [key: string]: JSONObj } | JSONObj[] | Primatives
 export type NullableJSONObj = undefined | { [key: string]: NullableJSONObj } | NullableJSONObj[] | Primatives
 
+export function reorder<T extends { [key: string]: any }>(to_reorder: T, pattern: { [key: string]: any }): T {
+    let reordered: { [key: string]: any } = {}
+    for (let key in pattern) {
+        if (key in to_reorder) {
+            if (typeof pattern[key] === "object" && !Array.isArray(pattern[key])) {
+                reordered[key] = reorder(to_reorder[key], pattern[key])
+            } else {
+                reordered[key] = to_reorder[key]
+            }
+        }
+    }
+    for (let key in to_reorder) {
+        if (!(key in reordered)) {
+            reordered[key] = to_reorder[key]
+        }
+    }
+    return reordered as T
+}
+
+export type Rest<T extends any[]> = T extends [infer _, ...infer Rest extends any[]] ? Rest : []
+export function rest<T extends any[]>(array: T): Rest<T> {
+    return array.slice(1) as Rest<T>
+}
+
 /**
  * Waits for a given amount of time and then resolves.
  * 

@@ -1,7 +1,7 @@
 // import units from "./units.json" with { type: "json" };
 // cant use because firefox dumb https://bugzilla.mozilla.org/show_bug.cgi?id=1736059
 
-import { autoTypeguard, hasOwnProperty, isArrayMatchingTypeguard, isBoolean, isKeyOf, isLiteral, isNumber, isObjectWithValues, isString, isTupleMatchingTypeguards, partialTypeguard, Tail, unionTypeguard, UnwrapSingleton } from "./utils.js"
+import { autoTypeguard, isArrayMatchingTypeguard, isKeyOf, isLiteral, isNumber, isObjectWithValues, isString, isTupleMatchingTypeguards, partialTypeguard, reorder, Rest, rest, unionTypeguard, UnwrapSingleton } from "./utils.js"
 
 type DisplayUnit = "percent" | "meters" | "seconds" | "health per second" | "meters per second" | "relative percent" | "flag" | "degrees"
 type WithRemainder<T extends string, R extends any[]> = T extends any ? [T, ...R] : never
@@ -117,7 +117,7 @@ type SiteState = {
     after_dmg_boost: number,
 };
 let siteState: SiteState;
-let defaultSiteState: SiteState = {
+const DEFAULT_SITE_STATE: SiteState = {
     before_patch: "Overwatch 2:recent",
     after_patch: "Overwatch 2:latest",
     show_calculated_properties: false,
@@ -125,10 +125,6 @@ let defaultSiteState: SiteState = {
     apply_to_armor: false,
     before_dmg_boost: 1,
     after_dmg_boost: 1,
-}
-type Rest<T extends any[]> = T extends [infer _, ...infer Rest extends any[]] ? Rest : []
-function rest<T extends any[]>(array: T): Rest<T> {
-    return array.slice(1) as Rest<T>
 }
 
 function patch_from_path(joined_path: string) {
@@ -148,7 +144,7 @@ function patch_from_path(joined_path: string) {
 }
 
 {
-    siteState = structuredClone(defaultSiteState)
+    siteState = structuredClone(DEFAULT_SITE_STATE)
     {
         let url_before = urlParams.get("before")
         if (url_before) {
@@ -429,17 +425,18 @@ export function getChangeText(name: string, change: [any, any] | string | number
     }
 }
 
-let patch_before_box = document.querySelector<HTMLSelectElement>("select#patch_before")!;
-let patch_after_box = document.querySelector<HTMLSelectElement>("select#patch_after")!;
-let display_calculated_properties_box = document.querySelector<HTMLInputElement>("input#disp_calc_props")!;
-let display_breakpoints_box = document.querySelector<HTMLInputElement>("input#disp_breakpoints")!;
-let apply_damage_to_armor_box = document.querySelector<HTMLInputElement>("input#apply_damage_to_armor")!;
-let last_patch_button = document.querySelector<HTMLButtonElement>("button#last_patch_button")!;
-let next_patch_button = document.querySelector<HTMLButtonElement>("button#next_patch_button")!;
-let patch_before_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost")!;
-let patch_before_dmg_boost_slider = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost_slider")!;
-let patch_after_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_after_dmg_boost")!;
-let patch_after_dmg_boost_slider = document.querySelector<HTMLInputElement>("input#patch_after_dmg_boost_slider")!;
+const patch_before_box = document.querySelector<HTMLSelectElement>("select#patch_before")!;
+const patch_after_box = document.querySelector<HTMLSelectElement>("select#patch_after")!;
+const display_calculated_properties_box = document.querySelector<HTMLInputElement>("input#disp_calc_props")!;
+const display_breakpoints_box = document.querySelector<HTMLInputElement>("input#disp_breakpoints")!;
+const apply_damage_to_armor_box = document.querySelector<HTMLInputElement>("input#apply_damage_to_armor")!;
+const last_patch_button = document.querySelector<HTMLButtonElement>("button#last_patch_button")!;
+const next_patch_button = document.querySelector<HTMLButtonElement>("button#next_patch_button")!;
+const patch_before_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost")!;
+const patch_before_dmg_boost_slider = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost_slider")!;
+const patch_after_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_after_dmg_boost")!;
+const patch_after_dmg_boost_slider = document.querySelector<HTMLInputElement>("input#patch_after_dmg_boost_slider")!;
+
 pair_box_slider(patch_before_dmg_boost, patch_before_dmg_boost_slider);
 pair_box_slider(patch_after_dmg_boost, patch_after_dmg_boost_slider);
 function pair_box_slider(patch_after_dmg_boost: HTMLInputElement, patch_after_dmg_boost_slider: HTMLInputElement) {
@@ -468,13 +465,17 @@ type FilteredUnits<T extends Unit[0]> = Extract<Unit, [T, ...any]>
 function getUnitsOfType<T extends Unit[0]>(units: Unit[], type: T): FilteredUnits<T>[] {
     return units.filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == type) as FilteredUnits<T>[]
 }
-type FilteredUnitData<T extends Unit[0]> = UnwrapSingleton<Tail<FilteredUnits<T>>>
+type FilteredArrayUnitData<T extends Unit[0]> = Rest<FilteredUnits<T>>
+function getUnitArrayDataOfType<T extends Unit[0]>(units: Unit[], type: T): FilteredArrayUnitData<T>[] {
+    return getUnitsOfType(units, type).map(rest) as FilteredArrayUnitData<T>[]
+}
+type FilteredUnitData<T extends Unit[0]> = UnwrapSingleton<FilteredArrayUnitData<T>>
 function getUnitDataOfType<T extends Unit[0]>(units: Unit[], type: T): FilteredUnitData<T>[] {
-    return getUnitsOfType(units, type).map((unit => unit.slice(1))).map((unit) => unit.length == 1 ? unit[0] : unit) as FilteredUnitData<T>[]
+    return getUnitArrayDataOfType(units, type).map((unit) => unit.length == 1 ? unit[0] : unit) as FilteredUnitData<T>[]
 }
 
 function getDisplayUnit(units: Unit[]): DisplayUnit | undefined {
-    if(units == undefined) {
+    if (units == undefined) {
         return undefined
     }
     let display_units = getUnitDataOfType(units, "display unit")
@@ -484,25 +485,50 @@ function getDisplayUnit(units: Unit[]): DisplayUnit | undefined {
     return display_units[0]
 }
 
+function processPatch(patch: PatchData, multiplier: number): PatchData {
+    let patch_data = structuredClone(patch);
+    verifyPatchNotes(patch_data, units)
+    patch_data = reorder(patch_data, units)
+    patch_data = applyDamageMultiplier(patch_data, multiplier, units)
+    if (siteState.show_calculated_properties) {
+        patch_data = calculatePreArmorProperties(patch_data, units)
+    }
+    let special_armor_behaviors = getSpecialArmorBehaviors(patch_data, units);
+
+    if (siteState.apply_to_armor) {
+        patch_data = applyArmor(patch_data, units, special_armor_behaviors)
+    }
+    if (siteState.show_calculated_properties) {
+        patch_data = calculatePostArmorProperties(patch_data, units)
+    }
+    if (siteState.show_breakpoints) {
+        patch_data = calculateBreakpoints(patch_data, units)
+    }
+    if (siteState.show_calculated_properties) {
+        patch_data = calculateRates(patch_data, units)
+        patch_data = cleanupProperties(patch_data, units)
+    }
+    return patch_data
+}
+
 async function updatePatchNotes() {
     patch_before_box.value = siteState.before_patch;
     patch_after_box.value = siteState.after_patch;
     display_calculated_properties_box.checked = siteState.show_calculated_properties
-    if (siteState.show_calculated_properties) {
-        (display_breakpoints_box.parentElement?.parentElement?.parentElement as HTMLElement).style.display = "flex";
-        (apply_damage_to_armor_box.parentElement?.parentElement?.parentElement as HTMLElement).style.display = "flex";
-        (patch_before_dmg_boost.parentElement?.parentElement as HTMLElement).style.display = "flex";
-        (patch_after_dmg_boost.parentElement?.parentElement as HTMLElement).style.display = "flex";
-    } else {
-        (display_breakpoints_box.parentElement?.parentElement?.parentElement as HTMLElement).style.display = "none";
-        (apply_damage_to_armor_box.parentElement?.parentElement?.parentElement as HTMLElement).style.display = "none";
-        (patch_before_dmg_boost.parentElement?.parentElement as HTMLElement).style.display = "none";
-        (patch_after_dmg_boost.parentElement?.parentElement as HTMLElement).style.display = "none";
+
+    let extra_controls_display = "flex"
+    if (!siteState.show_calculated_properties) {
+        extra_controls_display = "none"
         siteState.before_dmg_boost = 1
         siteState.after_dmg_boost = 1
         siteState.show_breakpoints = false;
         siteState.apply_to_armor = false;
     }
+    (display_breakpoints_box.parentElement?.parentElement?.parentElement as HTMLElement).style.display = extra_controls_display;
+    (apply_damage_to_armor_box.parentElement?.parentElement?.parentElement as HTMLElement).style.display = extra_controls_display;
+    (patch_before_dmg_boost.parentElement?.parentElement as HTMLElement).style.display = extra_controls_display;
+    (patch_after_dmg_boost.parentElement?.parentElement as HTMLElement).style.display = extra_controls_display;
+
     display_breakpoints_box.checked = siteState.show_breakpoints
     apply_damage_to_armor_box.checked = siteState.apply_to_armor
     patch_before_dmg_boost.value = "" + (100 * siteState.before_dmg_boost)
@@ -514,11 +540,11 @@ async function updatePatchNotes() {
         let urlParams = new URLSearchParams();
         let key: keyof typeof siteState
         for (key in siteState) {
-            if (siteState[key] !== defaultSiteState[key]) {
+            if (siteState[key] !== DEFAULT_SITE_STATE[key]) {
                 urlParams.append(key, `${siteState[key]}`)
             }
         }
-        window.history.replaceState(siteState, "", "index.html?" + urlParams)
+        window.history.replaceState(siteState, "", "?" + urlParams)
     }
 
     {
@@ -544,47 +570,20 @@ async function updatePatchNotes() {
                     patches[`${versionType}:${version}`] = patch;
                 })
         }))
-    let before_patch_data = structuredClone(patches[siteState.before_patch]);
-    let after_patch_data = structuredClone(patches[siteState.after_patch]);
-    verifyPatchNotes(before_patch_data, units)
-    verifyPatchNotes(after_patch_data, units)
-    before_patch_data = reorder(before_patch_data, units)
-    after_patch_data = reorder(after_patch_data, units)
-    before_patch_data = applyDamageMultiplier(before_patch_data, parseFloat(patch_before_dmg_boost_slider.value) / 100, units)
-    after_patch_data = applyDamageMultiplier(after_patch_data, parseFloat(patch_after_dmg_boost_slider.value) / 100, units)
-    if (siteState.show_calculated_properties) {
-        before_patch_data = calculatePreArmorProperties(before_patch_data, units)
-        after_patch_data = calculatePreArmorProperties(after_patch_data, units)
-    }
-    let before_special_armor_behaviors = getSpecialArmorBehaviors(before_patch_data, units);
-    let after_special_armor_behaviors = getSpecialArmorBehaviors(after_patch_data, units);
-
-    if (siteState.apply_to_armor) {
-        before_patch_data = applyArmor(before_patch_data, units, before_special_armor_behaviors)
-        after_patch_data = applyArmor(after_patch_data, units, after_special_armor_behaviors)
-    }
-    if (siteState.show_calculated_properties) {
-        before_patch_data = calculatePostArmorProperties(before_patch_data, units)
-        after_patch_data = calculatePostArmorProperties(after_patch_data, units)
-    }
-    if (siteState.show_breakpoints) {
-        before_patch_data = calculateBreakpoints(before_patch_data, units)
-        after_patch_data = calculateBreakpoints(after_patch_data, units)
-    }
-    if (siteState.show_calculated_properties) {
-        before_patch_data = calculateRates(before_patch_data, units)
-        after_patch_data = calculateRates(after_patch_data, units)
-        before_patch_data = cleanupProperties(before_patch_data, units)
-        after_patch_data = cleanupProperties(after_patch_data, units)
-    }
+    let before_patch_data = processPatch(patches[siteState.before_patch], parseFloat(patch_before_dmg_boost_slider.value) / 100);
+    let after_patch_data = processPatch(patches[siteState.after_patch], parseFloat(patch_after_dmg_boost_slider.value) / 100);
     let changes = convert_to_changes(before_patch_data, after_patch_data);
     if (siteState.show_breakpoints) {
         changes = removeRedundantBreakpoints(changes, after_patch_data);
     }
-    let hero_section = document.getElementsByClassName("PatchNotes-section-hero_update")[0];
-    hero_section.innerHTML = "";
+    displayPatchNotes(changes)
+}
+
+function displayPatchNotes(changes: Changes<PatchData>) {
+    let hero_section = document.getElementsByClassName("PatchNotes-section-hero_update")[0]
+    hero_section.innerHTML = ""
     if (changes.general) {
-        let changeRender = "";
+        let changeRender = ""
         for (let generalRule in changes.general) {
             changeRender += `<li>${getChangeText(generalRule, changes.general[generalRule], getDisplayUnit(units.general[generalRule]), false)}</li>`
         }
@@ -601,10 +600,10 @@ async function updatePatchNotes() {
                     </div>
                 </div>
             </div>
-        `;
+        `
     }
     for (let role in changes.heroes) {
-        let generalChangeRender = "";
+        let generalChangeRender = ""
         const roleData = changes.heroes[role]
         if (Array.isArray(roleData)) {
             throw new Error("Not supported: role missing from one patch")
@@ -619,34 +618,27 @@ async function updatePatchNotes() {
                         ${generalChangeRender}
                     </ul>
                 </div>
-            `;
+            `
         }
-        let heroChanges = "";
+        let heroChanges = ""
         for (let hero of Object.keys(roleData).sort()) {
             if (!isKeyOf(roleData, hero)) {
                 throw new Error("Invalid state")
             }
-            if (hero == "general") continue;
-            let generalChangesRender = "";
-            let heroData = roleData[hero];
+            if (hero == "general") continue
+            let generalChangesRender = ""
+            let heroData = roleData[hero]
             let display_as_new = false
             if (Array.isArray(heroData)) {
                 if (heroData[1] !== undefined) {
-                    heroData = heroData[1];
+                    heroData = heroData[1]
                     display_as_new = true
                 } else {
-                    heroChanges += `
-                    <div class="PatchNotesHeroUpdate">
-                        <div class="PatchNotesHeroUpdate-header"><img class="PatchNotesHeroUpdate-icon" src="${hero_images[hero]}">
-                            <h5 class="PatchNotesHeroUpdate-name">${hero}</h5>
-                        </div>
-                        <div class="PatchNotesHeroUpdate-body">
-                            <div class="PatchNotesHeroUpdate-generalUpdates">
-                                <ul><li>Removed</li></ul>
-                            </div>
-                        </div>
-                    </div>`;
-                    continue;
+                    heroChanges += renderHeroChanges(hero, `
+                        <ul>
+                            <li>Removed</li>
+                        </ul>`, "", "")
+                    continue
                 }
             }
             if (heroData === undefined) {
@@ -659,50 +651,135 @@ async function updatePatchNotes() {
                 throw new Error("Invalid state")
             }
             if (heroData.general) {
-                generalChangesRender += "<ul>";
+                generalChangesRender += "<ul>"
                 for (let property in heroData.general) {
                     generalChangesRender += `<li>${getChangeText(property, heroData.general[property], getDisplayUnit(units.heroes[role][hero].general[property]), display_as_new)}</li>`
                 }
-                generalChangesRender += "</ul>";
+                generalChangesRender += "</ul>"
             }
-            let abilities = "";
+            let abilities = ""
             for (let ability in heroData.abilities) {
-                let ability_changes = "";
-                let abilityData = heroData.abilities[ability];
+                let ability_changes = ""
+                let abilityData = heroData.abilities[ability]
                 let display_ability_as_new = display_as_new
                 if (Array.isArray(abilityData)) {
                     if (abilityData[1] != undefined) {
-                        abilityData = abilityData[1];
+                        abilityData = abilityData[1]
                         display_ability_as_new = true
                     } else {
-                        abilities += `
-                            <div class="PatchNotesAbilityUpdate">
-                                <div class="PatchNotesAbilityUpdate-icon-container"><img class="PatchNotesAbilityUpdate-icon" src="${ability_images[ability]}">
-                                </div>
-                                <div class="PatchNotesAbilityUpdate-text">
-                                    <div class="PatchNotesAbilityUpdate-name">${ability}</div>
-                                    <div class="PatchNotesAbilityUpdate-detailList">
-                                        <ul>
-                                            <li>Removed</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                        continue;
+                        abilities += renderAbility(ability, false, `<li>Removed</li>`)
+                        continue
                     }
                 }
                 for (let stat in abilityData) {
                     if (!units.heroes[role][hero].abilities[ability]) {
                         console.error(`Missing ability units for ${hero} - ${ability}`)
-                        break;
+                        break
                     }
                     if (!(stat in units.heroes[role][hero].abilities[ability])) {
                         console.error(`Missing units for ${hero} - ${ability} - ${stat}`)
                     }
-                    ability_changes += `<li>${getChangeText(stat, abilityData[stat], getDisplayUnit(units.heroes[role][hero].abilities[ability][stat]), display_ability_as_new)}</li>`;
+                    ability_changes += `<li>${getChangeText(stat, abilityData[stat], getDisplayUnit(units.heroes[role][hero].abilities[ability][stat]), display_ability_as_new)}</li>`
                 }
-                abilities += `
+                abilities += renderAbility(ability, display_ability_as_new, ability_changes)
+            }
+            let breakpointsRender = ""
+            if (heroData.breakpoints) {
+                if (Array.isArray(heroData.breakpoints)) {
+                    throw new Error("Invalid State")
+                }
+                for (let property in heroData.breakpoints) {
+                    if (Array.isArray(heroData.breakpoints[property])) {
+                        if (heroData.breakpoints[property][0] === DAMAGE_BREAK_POINT_VALUES.at(-1)) continue
+                        if (heroData.breakpoints[property][1] === DAMAGE_BREAK_POINT_VALUES.at(-1)) continue
+                    } else if (typeof heroData.breakpoints[property] === "number") {
+                        if (heroData.breakpoints[property] === DAMAGE_BREAK_POINT_VALUES.at(-1)) continue
+                    }
+                    breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], undefined, true)}</li>`
+                }
+            }
+            heroChanges += renderHeroChanges(hero, generalChangesRender, abilities, `<ul>${breakpointsRender}</ul>`)
+        }
+        hero_section.innerHTML += `
+        <div class="PatchNotes-section PatchNotes-section-hero_update">
+            <h4 class="PatchNotes-sectionTitle">${role}</h4>
+            ${generalChangeRender}
+            <div class="PatchNotes-update PatchNotes-section-hero_update"></div>
+            ${heroChanges}
+        </div>
+        `
+    }
+    if (changes["Map list"]) {
+        let change_render = ""
+        for (let map in changes["Map list"]) {
+            let map_change = changes["Map list"][map]
+            if (!Array.isArray(map_change)) {
+                map_change = [undefined, map_change]
+            }
+            if (map_change[0] === undefined) {
+                change_render += `<li>New map ${map}.</li>`
+            } else {
+                change_render += `<li>${map} majorly updated.</li>`
+            }
+        }
+        hero_section.innerHTML += `
+            <div class="PatchNotes-section PatchNotes-section-generic_update">
+                <h4 class="PatchNotes-sectionTitle">Map Updates</h4>
+                <div class="PatchNotes-update PatchNotes-section-generic_update"></div>
+                <div class="PatchNotesGeneralUpdate">
+                    <div class="PatchNotesGeneralUpdate-description">
+                        <ul>
+                            ${change_render}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        `
+    }
+
+    if (changes.modes) {
+        let changeRender = ""
+        for (let mode in changes.modes) {
+            if (Array.isArray(changes.modes[mode])) {
+                if (changes.modes[mode][1] == undefined) {
+                    changeRender += renderModeChanges(mode, "<li>Removed</li>")
+                } else {
+                    let mode_changes = "<li>Mode added</li>"
+                    for (let change in changes.modes[mode][1]) {
+                        mode_changes += `<li>${getChangeText(change, [undefined, changes.modes[mode][1][change]], getDisplayUnit(units.modes[mode][change]), true)}</li>`
+                    }
+                    changeRender += renderModeChanges(mode, mode_changes)
+                }
+                continue
+            }
+            let mode_changes = ""
+            for (let change in changes.modes[mode]) {
+                mode_changes += `<li>${getChangeText(change, changes.modes[mode][change], getDisplayUnit(units.modes[mode][change]), false)}</li>`
+            }
+            changeRender += renderModeChanges(mode, mode_changes)
+        }
+        hero_section.innerHTML += `
+            <div class="PatchNotes-section PatchNotes-section-generic_update">
+                <h4 class="PatchNotes-sectionTitle">Mode Updates</h4>
+                <div class="PatchNotes-update PatchNotes-section-generic_update"></div>
+                <div class="PatchNotesGeneralUpdate">
+                    ${changeRender}
+                </div>
+            </div>
+        `
+    }
+}
+
+function renderModeChanges(mode: string, changes: string) {
+    return `
+                            <div class="PatchNotesGeneralUpdate-title">${mode}</div>
+                            <div class="PatchNotesGeneralUpdate-description">
+                                <ul>${changes}</ul>
+                            </div>`
+}
+
+function renderAbility(ability: string, display_ability_as_new: boolean, ability_changes: string) {
+    return `
                     <div class="PatchNotesAbilityUpdate">
                         <div class="PatchNotesAbilityUpdate-icon-container"><img class="PatchNotesAbilityUpdate-icon" src="${ability_images[ability]}">
                         </div>
@@ -715,26 +792,11 @@ async function updatePatchNotes() {
                             </div>
                         </div>
                     </div>
-                `;
-            }
-            let breakpointsRender = ""
-            if (heroData.breakpoints) {
-                if (Array.isArray(heroData.breakpoints)) {
-                    throw new Error("Invalid State")
-                }
-                breakpointsRender += "<ul>";
-                for (let property in heroData.breakpoints) {
-                    if (Array.isArray(heroData.breakpoints[property])) {
-                        if (heroData.breakpoints[property][0] === DAMAGE_BREAK_POINT_VALUES.at(-1)) continue
-                        if (heroData.breakpoints[property][1] === DAMAGE_BREAK_POINT_VALUES.at(-1)) continue
-                    } else if (typeof heroData.breakpoints[property] === "number") {
-                        if (heroData.breakpoints[property] === DAMAGE_BREAK_POINT_VALUES.at(-1)) continue
-                    }
-                    breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], undefined, true)}</li>`
-                }
-                breakpointsRender += "</ul>";
-            }
-            heroChanges += `
+                `
+}
+
+function renderHeroChanges(hero: string, generalChangesRender: string, abilities: string, breakpointsRender: string) {
+    return `
             <div class="PatchNotesHeroUpdate">
                 <div class="PatchNotesHeroUpdate-header"><img class="PatchNotesHeroUpdate-icon" src="${hero_images[hero]}">
                     <h5 class="PatchNotesHeroUpdate-name">${hero}</h5>
@@ -750,98 +812,13 @@ async function updatePatchNotes() {
                     ${breakpointsRender}
                     </div>
                 </div>
-            </div>`;
-        }
-        hero_section.innerHTML += `
-        <div class="PatchNotes-section PatchNotes-section-hero_update">
-            <h4 class="PatchNotes-sectionTitle">${role}</h4>
-            ${generalChangeRender}
-            <div class="PatchNotes-update PatchNotes-section-hero_update"></div>
-            ${heroChanges}
-        </div>
-        `;
-    }
-    if (changes["Map list"]) {
-        let change_render = "";
-        for (let map in changes["Map list"]) {
-            let map_change = changes["Map list"][map];
-            if (!Array.isArray(map_change)) {
-                map_change = [undefined, map_change]
-            }
-            if (map_change[0] === undefined) {
-                change_render += `<li>New map ${map}.</li>`;
-            } else {
-                change_render += `<li>${map} majorly updated.</li>`;
-            }
-        }
-        hero_section.innerHTML += `
-            <div class="PatchNotes-section PatchNotes-section-generic_update">
-                <h4 class="PatchNotes-sectionTitle">Map Updates</h4>
-                <div class="PatchNotes-update PatchNotes-section-generic_update"></div>
-                <div class="PatchNotesGeneralUpdate">
-                    <div class="PatchNotesGeneralUpdate-description">
-                        <ul>
-                            ${change_render}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        `;
-    }
-
-    if (changes.modes) {
-        let changeRender = "";
-        for (let mode in changes.modes) {
-            if (Array.isArray(changes.modes[mode])) {
-                if (changes.modes[mode][1] == undefined) {
-                    changeRender += `
-                            <div class="PatchNotesGeneralUpdate-title">${mode}</div>
-                            <div class="PatchNotesGeneralUpdate-description">
-                                <ul>Removed</ul>
-                            </div>`
-                } else {
-                    let mode_changes = "";
-                    for (let change in changes.modes[mode][1]) {
-                        mode_changes += `<li>${getChangeText(change, [undefined, changes.modes[mode][1][change]], getDisplayUnit(units.modes[mode][change]), true)}</li>`
-                    }
-                    changeRender += `
-                            <div class="PatchNotesGeneralUpdate-title">${mode}</div>
-                            <div class="PatchNotesGeneralUpdate-description">
-                                <ul><li>Mode added</li>${mode_changes}</ul>
-                            </div>`
-                }
-                continue;
-            }
-            let mode_changes = "";
-            for (let change in changes.modes[mode]) {
-                mode_changes += `<li>${getChangeText(change, changes.modes[mode][change], getDisplayUnit(units.modes[mode][change]), false)}</li>`
-            }
-            changeRender += `
-                    <div class="PatchNotesGeneralUpdate-title">${mode}</div>
-                    <div class="PatchNotesGeneralUpdate-description">
-                        <ul>${mode_changes}</ul>
-                    </div>`
-        }
-        hero_section.innerHTML += `
-            <div class="PatchNotes-section PatchNotes-section-generic_update">
-                <h4 class="PatchNotes-sectionTitle">Mode Updates</h4>
-                <div class="PatchNotes-update PatchNotes-section-generic_update"></div>
-                <div class="PatchNotesGeneralUpdate">
-                    ${changeRender}
-                </div>
-            </div>
-        `;
-    }
+            </div>`
 }
 
 export function verifyPatchNotes(patch_data: PatchData, units: CalculationUnits) {
     for (let general_property in patch_data.general) {
         let property_units = units.general[general_property]
         if (property_units === undefined) {
-            console.error(`Cannot find calculation units for ${general_property}`)
-        }
-        let display_units = units.general[general_property]
-        if (display_units === undefined) {
             console.error(`Cannot find units for ${general_property}`)
         }
     }
@@ -854,36 +831,24 @@ export function verifyPatchNotes(patch_data: PatchData, units: CalculationUnits)
             if (hero == "general") continue;
             let heroData = patch_data.heroes[role][hero];
             let heroUnits = units.heroes[role][hero];
-            let heroDisplayUnits = units.heroes[role][hero];
             if (heroData === undefined) {
                 throw new Error("Invalid state")
             }
             if (heroUnits === undefined) {
                 throw new Error("Invalid state")
             }
-            if (heroDisplayUnits === undefined) {
-                throw new Error("Invalid state")
-            }
 
             for (let general_property in heroData.general) {
                 let property_units = heroUnits.general[general_property]
                 if (property_units === undefined) {
-                    console.error(`Cannot find calculation units for ${hero} - ${general_property}`)
-                }
-                let display_units = heroDisplayUnits.general[general_property]
-                if (display_units === undefined) {
-                    console.error(`Cannot find display units for ${hero} - ${general_property}`)
+                    console.error(`Cannot find units for ${hero} - ${general_property}`)
                 }
             }
             for (let ability in heroData.abilities) {
                 for (let ability_property in heroData.abilities[ability]) {
                     let property_units = heroUnits.abilities[ability][ability_property]
                     if (property_units === undefined) {
-                        console.error(`Cannot find calculation units for ${hero} - ${ability} - ${ability_property}`)
-                    }
-                    let display_units = heroDisplayUnits.abilities[ability][ability_property]
-                    if (display_units === undefined) {
-                        console.error(`Cannot find display units for ${hero} - ${ability} - ${ability_property}`)
+                        console.error(`Cannot find units for ${hero} - ${ability} - ${ability_property}`)
                     }
                 }
             }
@@ -1251,8 +1216,8 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: C
             if (typeof patch_data.general["Quick melee damage"] == "number" && heroData.general["has overridden melee"] !== true) {
                 damage_options["Melee"] = {}
                 damage_option_data["Melee"] = {}
-                damage_option_data["Melee"][""] = {}
                 damage_options["Melee"][""] = patch_data.general["Quick melee damage"]
+                damage_option_data["Melee"][""] = {}
                 damage_option_data["Melee"][""]["normal"] = 1
             }
             for (let ability in heroData.abilities) {
@@ -1502,7 +1467,7 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                     let crit_damage_type_damage: { [key: string]: { [key: string]: number } } = {}
                     for (let property in abilityData) {
                         if (typeof abilityData[property] === "number") {
-                            let property_damage_types = getUnitDataOfType(abilityDataUnits[property], `total ${damage_or_healing}`).map((unit) => unit[0]);
+                            let property_damage_types = getUnitArrayDataOfType(abilityDataUnits[property], `total ${damage_or_healing}`).map((unit) => unit[0]);
                             let situations = getUnitDataOfType(abilityDataUnits[property], "situation");
                             for (let property_damage_type of property_damage_types) {
                                 if (!(property_damage_type in damage_type_damage)) {
@@ -1515,7 +1480,7 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                                     }
                                 }
                             }
-                            let crit_property_damage_types = getUnitDataOfType(abilityDataUnits[property], `total crit ${damage_or_healing}`).map((unit) => unit[0]);
+                            let crit_property_damage_types = getUnitArrayDataOfType(abilityDataUnits[property], `total crit ${damage_or_healing}`).map((unit) => unit[0]);
                             for (let property_damage_type of crit_property_damage_types) {
                                 if (!(property_damage_type in crit_damage_type_damage)) {
                                     crit_damage_type_damage[property_damage_type] = {}
@@ -1528,7 +1493,7 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                     }
                     for (let property in abilityData) {
                         if (typeof abilityData[property] === "number") {
-                            let property_damage_types = getUnitDataOfType(abilityDataUnits[property], `total instance ${damage_or_healing}`).map((unit) => unit[0])
+                            let property_damage_types = getUnitArrayDataOfType(abilityDataUnits[property], `total instance ${damage_or_healing}`).map((unit) => unit[0])
                             let situations = getUnitDataOfType(abilityDataUnits[property], "situation");
                             for (let property_damage_type of property_damage_types) {
                                 for (let situation of situations) {
@@ -1705,23 +1670,20 @@ apply_damage_to_armor_box.onchange = async function () {
     await updatePatchNotes()
 };
 
-patch_before_dmg_boost.onchange = async function () {
-    siteState.before_dmg_boost = parseFloat((this as HTMLInputElement).value) / 100.0;
+async function update_before_damage_boost(event: Event) {
+    siteState.before_dmg_boost = parseFloat((event.target as HTMLInputElement).value) / 100.0;
     await updatePatchNotes()
-};
-patch_before_dmg_boost_slider.onchange = async function () {
-    siteState.before_dmg_boost = parseFloat((this as HTMLInputElement).value) / 100.0;
+}
+async function update_after_damage_boost(event: Event) {
+    siteState.after_dmg_boost = parseFloat((event.target as HTMLInputElement).value) / 100.0;
     await updatePatchNotes()
-};
+}
 
-patch_after_dmg_boost.onchange = async function () {
-    siteState.after_dmg_boost = parseFloat((this as HTMLInputElement).value) / 100.0;
-    await updatePatchNotes()
-};
-patch_after_dmg_boost_slider.onchange = async function () {
-    siteState.after_dmg_boost = parseFloat((this as HTMLInputElement).value) / 100.0;
-    await updatePatchNotes()
-};
+patch_before_dmg_boost.onchange = update_before_damage_boost;
+patch_before_dmg_boost_slider.onchange = update_before_damage_boost;
+
+patch_after_dmg_boost.onchange = update_after_damage_boost;
+patch_after_dmg_boost_slider.onchange = update_after_damage_boost;
 
 window.addEventListener("popstate", async (event) => {
     if (event.state) {
@@ -1730,51 +1692,21 @@ window.addEventListener("popstate", async (event) => {
     }
 });
 
-last_patch_button.onclick = async function () {
+async function shiftPatches(shift: number) {
     let before_path = siteState.before_patch.split(":");
     let before_index = patchList[before_path[0]].indexOf(before_path[1]);
-    if (before_index > 0) {
-        siteState.before_patch = `${before_path[0]}:${patchList[before_path[0]][before_index - 1]}`
+    if (before_index + shift >= 0 && before_index + shift < patchList[before_path[0]].length) {
+        siteState.before_patch = `${before_path[0]}:${patchList[before_path[0]][before_index + shift]}`
     }
     let after_path = siteState.after_patch.split(":");
     let after_index = patchList[after_path[0]].indexOf(after_path[1]);
-    if (after_index > 0) {
-        siteState.after_patch = `${after_path[0]}:${patchList[after_path[0]][after_index - 1]}`
+    if (after_index + shift >= 0 && after_index + shift < patchList[after_path[0]].length) {
+        siteState.after_patch = `${after_path[0]}:${patchList[after_path[0]][after_index + shift]}`
     }
     await updatePatchNotes()
-};
+}
 
-next_patch_button.onclick = async function () {
-    let before_path = siteState.before_patch.split(":");
-    let before_index = patchList[before_path[0]].indexOf(before_path[1]);
-    if (before_index < patchList[before_path[0]].length) {
-        siteState.before_patch = `${before_path[0]}:${patchList[before_path[0]][before_index + 1]}`
-    }
-    let after_path = siteState.after_patch.split(":");
-    let after_index = patchList[after_path[0]].indexOf(after_path[1]);
-    if (after_index < patchList[after_path[0]].length) {
-        siteState.after_patch = `${after_path[0]}:${patchList[after_path[0]][after_index + 1]}`
-    }
-    await updatePatchNotes()
-};
+last_patch_button.onclick = async () => shiftPatches(-1);
+next_patch_button.onclick = async () => shiftPatches(1);
 
 await updatePatchNotes();
-
-function reorder<T extends { [key: string]: any }>(to_reorder: T, pattern: { [key: string]: any }): T {
-    let reordered: { [key: string]: any } = {}
-    for (let key in pattern) {
-        if (key in to_reorder) {
-            if (typeof pattern[key] === "object" && !Array.isArray(pattern[key])) {
-                reordered[key] = reorder(to_reorder[key], pattern[key])
-            } else {
-                reordered[key] = to_reorder[key]
-            }
-        }
-    }
-    for (let key in to_reorder) {
-        if (!(key in reordered)) {
-            reordered[key] = to_reorder[key]
-        }
-    }
-    return reordered as T
-}
