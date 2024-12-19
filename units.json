@@ -204,6 +204,16 @@
                     "Model size": "relative percent"
                 },
                 "abilities": {
+                    "Fusion Driver": {
+                        "Damage": "none",
+                        "Spread": "degrees",
+                        "Movement speed reduction": "percent",
+                        "Projectile speed": "meters per second",
+                        "Recovery time": "seconds",
+                        "Ammo": "none",
+                        "Reload time": "seconds",
+                        "Critical multiplier": "none"
+                    },
                     "Augmented Fusion Driver": {
                         "Damage": "none",
                         "Critical multiplier": "none",
@@ -216,6 +226,12 @@
                         "Recovery time": "seconds",
                         "Ammo": "none",
                         "Reload time per ammo": "seconds"
+                    },
+                    "Halt": {
+                        "Projectile speed": "meters per second",
+                        "Range": "meters",
+                        "Cast time": "seconds",
+                        "Cooldown": "seconds"
                     },
                     "Energy Javelin": {
                         "Direct damage": "none",
@@ -235,10 +251,23 @@
                         "Cooldown reduction per early cancel second": "seconds",
                         "Heat generation reduction": "percent"
                     },
+                    "Protective Barrier": {
+                        "Health": "none",
+                        "Projectile speed": "meters per second",
+                        "Duration": "seconds",
+                        "Cooldown": "seconds"
+                    },
                     "Javelin Spin": {
                         "Cooldown": "seconds",
                         "Bonus movement speed": "percent",
                         "has reduced knockback": "flag"
+                    },
+                    "Supercharger": {
+                        "Health": "none",
+                        "Range": "meters",
+                        "Cast time": "seconds",
+                        "Ultimate cost": "none",
+                        "Duration": "seconds"
                     },
                     "Terra Surge": {
                         "Ultimate cost": "none",
@@ -870,6 +899,52 @@
                         "Final damage rate": "none",
                         "Damage rate": "none",
                         "Maximum duration": "seconds"
+                    }
+                }
+            },
+            "Doomfist": {
+                "general": {
+                    "Base health": "none"
+                },
+                "abilities": {
+                    "The Best Defense": {
+                        "Overhealth generation": "none",
+                        "Delay before Overhealth begins to drain": "seconds",
+                        "Maximum temporary health": "none"
+                    },
+                    "Hand Cannon": {
+                        "Minimum damage": "none",
+                        "Maximum damage": "none",
+                        "Projectile size": "meters",
+                        "Pellet count": "none",
+                        "Critical multiplier": "none"
+                    },
+                    "Seismic Slam": {
+                        "Damage": "none",
+                        "Cooldown": "seconds"
+                    },
+                    "Rising Uppercut": {
+                        "Cooldown": "seconds",
+                        "Damage": "none",
+                        "Movement speed": "meters per second",
+                        "Range": "meters",
+                        "Duration": "seconds"
+                    },
+                    "Rocket Punch": {
+                        "Minimum knockback": "none",
+                        "Maximum knockback": "none",
+                        "Wall stun": "seconds",
+                        "Max impact damage": "none",
+                        "Max wall slam damage": "none",
+                        "Damage reduction on AoE affected targets": "percent",
+                        "Cooldown": "seconds",
+                        "Min impact damage": "none",
+                        "Min wall slam damage": "none",
+                        "Minimum time before cancel option becomes available": "seconds"
+                    },
+                    "Meteor Strike": {
+                        "Ultimate cost": "none",
+                        "Minimum damage": "none"
                     }
                 }
             },
@@ -2183,6 +2258,7 @@
             "Unlock time for final objective points": "seconds",
             "Decay rate on final objective for attackers": "none",
             "Capture time multiplier for defenders on B and D points": "none"
-        }
+        },
+        "Assault": {}
     }
 }

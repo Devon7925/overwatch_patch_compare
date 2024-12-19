@@ -4033,6 +4033,7 @@
             "Robot checkpoint delay time": [],
             "Robot speed multiplier when pushing barrier": [],
             "Decreased vertical contest hitbox": []
-        }
+        },
+        "Assault": {}
     }
 }
