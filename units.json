@@ -378,14 +378,14 @@
                         ],
                         "Pellet count": [
                             [
-                                "damage instance",
+                                "pellet count",
                                 "pellet"
                             ]
                         ],
                         "Critical multiplier": [
                             [
                                 "critical multiplier",
-                                "pellet"
+                                "headshot"
                             ]
                         ],
                         "Recovery time": [
