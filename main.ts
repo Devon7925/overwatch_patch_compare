@@ -961,16 +961,11 @@ export function calculatePreArmorProperties(patch_data: PatchData, calculation_u
                 for (let damage_or_healing of ["damage", "healing"] as const) {
                     let total_damage = Object.keys(abilityData)
                         .flatMap((property) => {
-                            let situations = abilityDataUnits[property]
-                                .filter((unit) => Array.isArray(unit))
-                                .filter((unit) => unit[0] === "situation")
-                                .map((unit) => unit[1])
+                            let situations = getUnitDataOfType(abilityDataUnits[property], "situation")
                             if (situations.length == 0) {
                                 situations.push("normal")
                             }
-                            return abilityDataUnits[property]
-                                .filter((unit) => Array.isArray(unit))
-                                .filter((unit) => unit[0] === `${damage_or_healing} instance`)
+                            return getUnitsOfType(abilityDataUnits[property], `${damage_or_healing} instance`)
                                 .map((unit) => [unit[1], abilityData[property], situations] as const)
                         })
                         .reduce<{ [key: string]: [string, number][] }>((acc, [dmg_type, amount, situations]) => {
@@ -993,10 +988,7 @@ export function calculatePreArmorProperties(patch_data: PatchData, calculation_u
                             .map(([key, calc_units]) => [calc_units, heroData.abilities[ability][key]] as const)
                             .filter((entry): entry is [Unit[], number] => typeof entry[1] === "number")
                             .map(([calc_units, multiplier]) =>
-                                [calc_units
-                                    .filter((unit) => Array.isArray(unit))
-                                    .filter((unit) => unit[0] === "critical multiplier")
-                                    .map((unit) => rest(unit)), multiplier] as const)
+                                [getUnitDataOfType(calc_units, "critical multiplier"), multiplier] as const)
                             .flatMap(([crit_types, multiplier]) => crit_types.map((crit_type) => [crit_type, multiplier] as const))
                     for (let total_damage_type in total_damage) {
                         for (let situation of total_damage[total_damage_type]) {
@@ -1028,7 +1020,7 @@ function getSpecialArmorBehaviors(patch_data: PatchData, calculation_units: Calc
     const special_armor_behaviors: { [damage_type: string]: SpecialArmorBehavior } = {};
 
     for (let key in calculation_units.general) {
-        let types = calculation_units.general[key].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == "special armor mitigation").map((unit) => unit[1])
+        let types = getUnitDataOfType(calculation_units.general[key], "special armor mitigation")
 
         if (typeof patch_data.general[key] !== "number") {
             continue;
@@ -1148,25 +1140,18 @@ export function calculatePostArmorProperties(patch_data: PatchData, calculation_
                     for (let ability_property in abilityData) {
                         let property_units = abilityDataUnits[ability_property]
                         if (typeof abilityData[ability_property] === "number") {
-                            let situations = property_units
-                                .filter((unit) => Array.isArray(unit))
-                                .filter((unit) => unit[0] == "situation");
+                            let situations = getUnitsOfType(property_units, "situation");
+                            let situations_display = situations.map((s) => s[1]).join(", ");
                             let damage = abilityData[ability_property]
                             {
-                                let damage_types = property_units
-                                    .filter((unit) => Array.isArray(unit))
-                                    .filter((unit) => unit[0] == `total instance ${damage_or_healing}`)
-                                    .map((unit) => unit[1]);
+                                let damage_types = getUnitDataOfType(property_units, `total instance ${damage_or_healing}`);
                                 for (let damage_type of damage_types) {
-                                    abilityData[`Total ${damage_type} ${situations.map((s) => s[1]).join(", ")} ${damage_or_healing}`] = damage
-                                    abilityDataUnits[`Total ${damage_type} ${situations.map((s) => s[1]).join(", ")} ${damage_or_healing}`] = [[`total ${damage_or_healing}`, damage_type], ...situations]
+                                    abilityData[`Total ${damage_type} ${situations_display} ${damage_or_healing}`] = damage
+                                    abilityDataUnits[`Total ${damage_type} ${situations_display} ${damage_or_healing}`] = [[`total ${damage_or_healing}`, damage_type], ...situations]
                                 }
                             }
                             {
-                                let damage_types = property_units
-                                    .filter((unit) => Array.isArray(unit))
-                                    .filter((unit): unit is [`total instance crit ${typeof damage_or_healing}`, string, string] => unit[0] == `total instance crit ${damage_or_healing}`)
-                                    .map((unit) => [unit[1], unit[2]] as const);
+                                let damage_types = getUnitDataOfType(property_units, `total instance crit ${damage_or_healing}`);
                                 for (let [damage_type, crit_type] of damage_types) {
                                     abilityData[`Total ${damage_type} ${crit_type} ${damage_or_healing}`] = damage
                                     abilityDataUnits[`Total ${damage_type} ${crit_type} ${damage_or_healing}`] = [[`total crit ${damage_or_healing}`, damage_type, crit_type], ...situations]
@@ -1183,10 +1168,10 @@ export function calculatePostArmorProperties(patch_data: PatchData, calculation_
                                 for (let ability_property in abilityData) {
                                     let property_units = abilityDataUnits[ability_property]
                                     if (typeof abilityData[ability_property] === "number") {
-                                        if (property_units.filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total ${damage_or_healing}`).map((unit) => unit[1]).includes(damage_type)) {
+                                        if (getUnitDataOfType(property_units, `total ${damage_or_healing}`).includes(damage_type)) {
                                             abilityData[ability_property] *= multiplier
                                         }
-                                        if (property_units.filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total crit ${damage_or_healing}`).map((unit) => unit[1]).includes(damage_type)) {
+                                        if (getUnitDataOfType(property_units, `total crit ${damage_or_healing}`).map((unit) => unit[0]).includes(damage_type)) {
                                             abilityData[ability_property] *= multiplier
                                         }
                                     }
@@ -1202,12 +1187,9 @@ export function calculatePostArmorProperties(patch_data: PatchData, calculation_
                             if (typeof abilityData[ability_property] === "number") {
                                 let damage = abilityData[ability_property]
                                 {
-                                    let damage_types = property_units.filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total ${damage_or_healing}`).map((unit) => unit[1]);
+                                    let damage_types = getUnitsOfType(property_units, `total ${damage_or_healing}`);
                                     if (damage_types.length > 0) {
-                                        let situations = property_units
-                                            .filter((unit) => Array.isArray(unit))
-                                            .filter((unit) => unit[0] == "situation")
-                                            .map((unit) => unit[1]);
+                                        let situations = getUnitDataOfType(property_units, "situation");
                                         for (let situation of situations) {
                                             if (!(situation in total_damage)) {
                                                 total_damage[situation] = 0
@@ -1217,7 +1199,7 @@ export function calculatePostArmorProperties(patch_data: PatchData, calculation_
                                     }
                                 }
                                 {
-                                    let damage_types = property_units.filter((unit) => Array.isArray(unit)).filter((unit): unit is [`total crit ${typeof damage_or_healing}`, string, string] => unit[0] == `total crit ${damage_or_healing}`).map((unit) => [unit[1], unit[2]] as const);
+                                    let damage_types = getUnitDataOfType(property_units, `total crit ${damage_or_healing}`);
                                     for (let [_, crit_type] of damage_types) {
                                         if (!(crit_type in total_crit_damage)) {
                                             total_crit_damage[crit_type] = 0
@@ -1504,8 +1486,8 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                     let damage_type_instance_damage: { [key: string]: { [key: string]: number } } = {}
                     for (let property in abilityData) {
                         if (typeof abilityData[property] === "number") {
-                            let property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `${damage_or_healing} instance`).map((unit) => unit[1])
-                            let situations = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == "situation").map((unit) => unit[1]);
+                            let property_damage_types = getUnitDataOfType(abilityDataUnits[property], `${damage_or_healing} instance`)
+                            let situations = getUnitDataOfType(abilityDataUnits[property], "situation");
                             for (let property_damage_type of property_damage_types) {
                                 if (!(property_damage_type in damage_type_instance_damage)) {
                                     damage_type_instance_damage[property_damage_type] = {}
@@ -1520,8 +1502,8 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                     let crit_damage_type_damage: { [key: string]: { [key: string]: number } } = {}
                     for (let property in abilityData) {
                         if (typeof abilityData[property] === "number") {
-                            let property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total ${damage_or_healing}`).map((unit) => unit[1]);
-                            let situations = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == "situation").map((unit) => unit[1]);
+                            let property_damage_types = getUnitDataOfType(abilityDataUnits[property], `total ${damage_or_healing}`).map((unit) => unit[0]);
+                            let situations = getUnitDataOfType(abilityDataUnits[property], "situation");
                             for (let property_damage_type of property_damage_types) {
                                 if (!(property_damage_type in damage_type_damage)) {
                                     damage_type_damage[property_damage_type] = {}
@@ -1533,7 +1515,7 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                                     }
                                 }
                             }
-                            let crit_property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total crit ${damage_or_healing}`).map((unit) => unit[1]);
+                            let crit_property_damage_types = getUnitDataOfType(abilityDataUnits[property], `total crit ${damage_or_healing}`).map((unit) => unit[0]);
                             for (let property_damage_type of crit_property_damage_types) {
                                 if (!(property_damage_type in crit_damage_type_damage)) {
                                     crit_damage_type_damage[property_damage_type] = {}
@@ -1546,8 +1528,8 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                     }
                     for (let property in abilityData) {
                         if (typeof abilityData[property] === "number") {
-                            let property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total instance ${damage_or_healing}`).map((unit) => unit[1])
-                            let situations = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == "situation").map((unit) => unit[1]);
+                            let property_damage_types = getUnitDataOfType(abilityDataUnits[property], `total instance ${damage_or_healing}`).map((unit) => unit[0])
+                            let situations = getUnitDataOfType(abilityDataUnits[property], "situation");
                             for (let property_damage_type of property_damage_types) {
                                 for (let situation of situations) {
                                     if (damage_type_damage[property_damage_type][situation] === abilityData[property]) {
@@ -1555,7 +1537,7 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                                     }
                                 }
                             }
-                            let property_crit_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total instance crit ${damage_or_healing}`).map((unit) => unit[1]);
+                            let property_crit_damage_types = getUnitDataOfType(abilityDataUnits[property], `total instance crit ${damage_or_healing}`).map((unit) => unit[0]);
                             for (let property_damage_type of property_crit_damage_types) {
                                 for (let situation of situations) {
                                     if (crit_damage_type_damage[property_damage_type][situation] === abilityData[property]) {
@@ -1568,7 +1550,7 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                     if (Object.keys(damage_type_damage).length == 1) {
                         for (let property in abilityData) {
                             if (typeof abilityData[property] === "number") {
-                                let property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total ${damage_or_healing}`).map((unit) => unit[1]);
+                                let property_damage_types = getUnitDataOfType(abilityDataUnits[property], `total ${damage_or_healing}`);
                                 if (property_damage_types.length > 0) {
                                     delete abilityData[property]
                                     continue
@@ -1579,7 +1561,7 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Calculation
                     if (Object.keys(crit_damage_type_damage).length == 1) {
                         for (let property in abilityData) {
                             if (typeof abilityData[property] === "number") {
-                                let crit_property_damage_types = abilityDataUnits[property].filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == `total crit ${damage_or_healing}`).map((unit) => unit[1]);
+                                let crit_property_damage_types = getUnitDataOfType(abilityDataUnits[property], `total crit ${damage_or_healing}`);
                                 if (crit_property_damage_types.length > 0) {
                                     delete abilityData[property]
                                     continue
