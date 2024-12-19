@@ -202,7 +202,8 @@ export const Y:<T extends Function>(a:(b:T)=>T)=>T = U ((h:Function) => (f:Funct
  * Converts a tuple into an array of typeguards for the tuple's elements.
  */
 type TupleToTypeguards<T extends unknown[]> = { [K in keyof T]: (data: unknown) => data is T[K] }
-type Tail<T extends unknown[]> = T extends [T[0], ...infer V] ? V : never
+export type Tail<T extends unknown[]> = T extends [T[0], ...infer V] ? V : never
+export type UnwrapSingleton<T extends unknown[]> = T extends [infer V] ? V : T
 type Push<T extends unknown[], V> = [...T, V];
 type UnionToIntersection<U> = (U extends unknown ? (k: U) => void : never) extends ((k: infer I) => void) ? I : never
 type LastOf<T> = UnionToIntersection<T extends unknown ? () => T : never> extends () => (infer R) ? R : never

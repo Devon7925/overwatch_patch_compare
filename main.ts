@@ -1,9 +1,9 @@
 // import units from "./units.json" with { type: "json" };
 // cant use because firefox dumb https://bugzilla.mozilla.org/show_bug.cgi?id=1736059
 
-import { autoTypeguard, hasOwnProperty, isArrayMatchingTypeguard, isBoolean, isKeyOf, isLiteral, isNumber, isObjectWithValues, isString, isTupleMatchingTypeguards, partialTypeguard, unionTypeguard } from "./utils.js"
+import { autoTypeguard, hasOwnProperty, isArrayMatchingTypeguard, isBoolean, isKeyOf, isLiteral, isNumber, isObjectWithValues, isString, isTupleMatchingTypeguards, partialTypeguard, Tail, unionTypeguard, UnwrapSingleton } from "./utils.js"
 
-type Unit = "none" | "percent" | "meters" | "seconds" | "health per second" | "meters per second" | "relative percent" | "flag" | "degrees"
+type DisplayUnit = "percent" | "meters" | "seconds" | "health per second" | "meters per second" | "relative percent" | "flag" | "degrees"
 type WithRemainder<T extends string, R extends any[]> = T extends any ? [T, ...R] : never
 type WithAppend<T extends string | [string, ...any], R extends string> = R extends any ? (T extends [infer First extends string, ...infer Rest extends any[]] ? [`${First}${R}`, ...Rest] : T extends string ? `${T}${R}` : never) : never
 
@@ -11,7 +11,7 @@ type Situation = string
 type DamageType = string
 type CritType = string
 
-type CalculationUnit =
+type Unit =
     WithRemainder<"damage instance" | "healing instance" | "pellet count" | "bullets per burst", [DamageType]>
     | WithAppend<
         WithRemainder<"total instance" | "total", [DamageType]>
@@ -20,6 +20,7 @@ type CalculationUnit =
         " damage" | " healing">
     | ["situation", Situation]
     | ["special armor mitigation", DamageType]
+    | ["display unit", DisplayUnit]
     | ["critical multiplier", CritType] | ["critical multiplier", CritType, DamageType] | "bullets per burst" | "ammo" | "charges" | "reload time" | "health" | "breakpoint damage" | "time between shots" | "burst recovery time" | "reload time per ammo" | "ammo per shot" | "damage per second" | "healing per second"
 type Value = string | number | boolean
 type Hero = "D.Va" |
@@ -86,10 +87,10 @@ type PatchData = PatchStructure<Value> & {
         [map: string]: number
     }
 }
-type Units = PatchStructure<Unit>
-type CalculationUnits = PatchStructure<CalculationUnit[]>
+type Units = PatchStructure<DisplayUnit>
+type CalculationUnits = PatchStructure<Unit[]>
 
-const damageBreakPointHealthValues = [150, 175, 200, 225, 250, 300] as const;
+const DAMAGE_BREAK_POINT_VALUES = [150, 175, 200, 225, 250, 300] as const;
 type SpecialArmorBehavior = ["flat percent mit", number] | undefined
 
 const patchList = await fetch("./patch_list.json")
@@ -197,8 +198,7 @@ function patch_from_path(joined_path: string) {
     window.history.replaceState(siteState, "", "index.html?" + newUrlParams)
 }
 
-const isUnit = unionTypeguard<Unit>([
-    isLiteral("none"),
+const isDisplayUnit = unionTypeguard<DisplayUnit>([
     isLiteral("percent"),
     isLiteral("meters"),
     isLiteral("seconds"),
@@ -208,19 +208,7 @@ const isUnit = unionTypeguard<Unit>([
     isLiteral("flag"),
     isLiteral("degrees"),
 ])
-type SFA = Omit<Units["heroes"][string], "general">
-const isUnits = autoTypeguard<Units>({
-    general: isObjectWithValues(isUnit),
-    heroes: isObjectWithValues(partialTypeguard("general" as const, isObjectWithValues(isUnit), isObjectWithValues(autoTypeguard({
-        general: isObjectWithValues(isUnit),
-        abilities: isObjectWithValues(isObjectWithValues(isUnit)),
-    }, {
-        breakpoints: isObjectWithValues(isUnit),
-        breakpoints_data: isObjectWithValues(isObjectWithValues(isNumber))
-    })))),
-    modes: isObjectWithValues(isObjectWithValues(isUnit)),
-}, {})
-const isCalculationUnit = unionTypeguard<CalculationUnit>([
+const isUnit = unionTypeguard<Unit>([
     isLiteral("bullets per burst"),
     isTupleMatchingTypeguards(isLiteral("damage instance"), isString),
     isTupleMatchingTypeguards(isLiteral("healing instance"), isString),
@@ -240,6 +228,7 @@ const isCalculationUnit = unionTypeguard<CalculationUnit>([
     isTupleMatchingTypeguards(isLiteral("total crit healing"), isString, isString),
     isTupleMatchingTypeguards(isLiteral("situation"), isString),
     isTupleMatchingTypeguards(isLiteral("special armor mitigation"), isString),
+    isTupleMatchingTypeguards(isLiteral("display unit"), isDisplayUnit),
     isTupleMatchingTypeguards(isLiteral("critical multiplier"), isString),
     isTupleMatchingTypeguards(isLiteral("critical multiplier"), isString, isString),
     isLiteral("ammo"),
@@ -255,15 +244,15 @@ const isCalculationUnit = unionTypeguard<CalculationUnit>([
     isLiteral("healing per second"),
 ])
 const isCalculationUnits = autoTypeguard<CalculationUnits>({
-    general: isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit)),
-    heroes: isObjectWithValues(partialTypeguard("general" as const, isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit)), isObjectWithValues(autoTypeguard({
-        general: isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit)),
-        abilities: isObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit))),
+    general: isObjectWithValues(isArrayMatchingTypeguard(isUnit)),
+    heroes: isObjectWithValues(partialTypeguard("general" as const, isObjectWithValues(isArrayMatchingTypeguard(isUnit)), isObjectWithValues(autoTypeguard({
+        general: isObjectWithValues(isArrayMatchingTypeguard(isUnit)),
+        abilities: isObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isUnit))),
     }, {
-        breakpoints: isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit)),
+        breakpoints: isObjectWithValues(isArrayMatchingTypeguard(isUnit)),
         breakpoints_data: isObjectWithValues(isObjectWithValues(isNumber))
     })))),
-    modes: isObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isCalculationUnit)))
+    modes: isObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isUnit)))
 }, {})
 const isValue = unionTypeguard<Value>([isString, isNumber, isLiteral(false), isLiteral(true)])
 const isPatchData = autoTypeguard<PatchData>({
@@ -279,8 +268,7 @@ const isPatchData = autoTypeguard<PatchData>({
     "Map list": isObjectWithValues(isNumber),
 }, {})
 
-let units: Units;
-let calculation_units: CalculationUnits;
+let units: CalculationUnits;
 let hero_images: { [key: string]: string } = {};
 let ability_images: { [key: string]: string } = {};
 export let patches: { [key: string]: PatchData } = {};
@@ -289,19 +277,11 @@ let promises: Promise<unknown>[] = [];
 promises.push(fetch("./units.json")
     .then((res) => res.text())
     .then((text) => JSON.parse(text))
-    .then((possible_units) => {
-        if (!isUnits(possible_units)) throw new Error("Units is incorrect")
-        return possible_units
-    })
-    .then((units_data) => units = units_data))
-promises.push(fetch("./calculation_units.json")
-    .then((res) => res.text())
-    .then((text) => JSON.parse(text))
     .then((possible_calculation_units) => {
         if (!isCalculationUnits(possible_calculation_units)) throw new Error("Calculation units is incorrect")
         return possible_calculation_units
     })
-    .then((calculation_units_data) => calculation_units = calculation_units_data))
+    .then((units_data) => units = units_data))
 promises.push(fetch("./hero_images.json")
     .then((res) => res.text())
     .then((text) => JSON.parse(text))
@@ -357,7 +337,7 @@ export function convert_to_changes(before: any, after: any) {
     return [before, after];
 }
 
-export function getChangeText(name: string, change: [any, any] | string | number | boolean, units: Unit, display_as_new: boolean) {
+export function getChangeText(name: string, change: [any, any] | string | number | boolean, units: DisplayUnit | undefined, display_as_new: boolean) {
     if (!Array.isArray(change)) {
         change = [undefined, change]
     }
@@ -391,12 +371,14 @@ export function getChangeText(name: string, change: [any, any] | string | number
             } else {
                 return `Now ${name}.`;
             }
-        } else if (units == "none" || units == "relative percent") {
+        } else if (units == "relative percent") {
+            return `${prefix}${new_value} ${name.toLowerCase()}.`;
+        } else if (units == undefined) {
             return `${prefix}${new_value} ${name.toLowerCase()}.`;
         } else {
-            return `${prefix}${new_value} ${name.toLowerCase()}.`;
-            // let x: never = units;
-            // throw new Error(`Invalid units "${units}" for ${name}`)
+            // Exhaustiveness check
+            let x: never = units;
+            throw new Error(`Invalid units "${units}" for ${name}`)
         }
     } else if (typeof change[0] == "number") {
         let change_type = "increased";
@@ -423,18 +405,18 @@ export function getChangeText(name: string, change: [any, any] | string | number
             } else {
                 return `${name} increased by ${round(100 * (change[1] / change[0] - 1.0), 2)}%.`;
             }
-        } else if (units == "none") {
-            return `${name} ${change_type} from ${change[0]} to ${change[1]}.`;
         } else if (units == "flag") {
             let change_type = "Now";
             if (change[0]) {
                 change_type = "No longer";
             }
             return `${change_type} ${name}.`;
-        } else {
+        } else if (units == undefined) {
             return `${name} ${change_type} from ${change[0]} to ${change[1]}.`;
-            // let x: never = units;
-            // throw new Error(`Invalid units "${units}" for ${name}`)
+        } else {
+            // Exhaustiveness check
+            let x: never = units;
+            throw new Error(`Invalid units "${units}" for ${name}`)
         }
     } else if (typeof change[0] == "boolean") {
         let change_type = "Now";
@@ -480,6 +462,26 @@ function pair_box_slider(patch_after_dmg_boost: HTMLInputElement, patch_after_dm
         oldValue = patch_after_dmg_boost_slider.value
         patch_after_dmg_boost.value = oldValue
     }
+}
+
+type FilteredUnits<T extends Unit[0]> = Extract<Unit, [T, ...any]>
+function getUnitsOfType<T extends Unit[0]>(units: Unit[], type: T): FilteredUnits<T>[] {
+    return units.filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == type) as FilteredUnits<T>[]
+}
+type FilteredUnitData<T extends Unit[0]> = UnwrapSingleton<Tail<FilteredUnits<T>>>
+function getUnitDataOfType<T extends Unit[0]>(units: Unit[], type: T): FilteredUnitData<T>[] {
+    return getUnitsOfType(units, type).map((unit => unit.slice(1))).map((unit) => unit.length == 1 ? unit[0] : unit) as FilteredUnitData<T>[]
+}
+
+function getDisplayUnit(units: Unit[]): DisplayUnit | undefined {
+    if(units == undefined) {
+        return undefined
+    }
+    let display_units = getUnitDataOfType(units, "display unit")
+    if (display_units.length > 1) {
+        throw new Error(`More than one display unit`)
+    }
+    return display_units[0]
 }
 
 async function updatePatchNotes() {
@@ -544,36 +546,36 @@ async function updatePatchNotes() {
         }))
     let before_patch_data = structuredClone(patches[siteState.before_patch]);
     let after_patch_data = structuredClone(patches[siteState.after_patch]);
-    verifyPatchNotes(before_patch_data, calculation_units, units)
-    verifyPatchNotes(after_patch_data, calculation_units, units)
+    verifyPatchNotes(before_patch_data, units)
+    verifyPatchNotes(after_patch_data, units)
     before_patch_data = reorder(before_patch_data, units)
     after_patch_data = reorder(after_patch_data, units)
-    before_patch_data = applyDamageMultiplier(before_patch_data, parseFloat(patch_before_dmg_boost_slider.value) / 100, calculation_units)
-    after_patch_data = applyDamageMultiplier(after_patch_data, parseFloat(patch_after_dmg_boost_slider.value) / 100, calculation_units)
+    before_patch_data = applyDamageMultiplier(before_patch_data, parseFloat(patch_before_dmg_boost_slider.value) / 100, units)
+    after_patch_data = applyDamageMultiplier(after_patch_data, parseFloat(patch_after_dmg_boost_slider.value) / 100, units)
     if (siteState.show_calculated_properties) {
-        before_patch_data = calculatePreArmorProperties(before_patch_data, calculation_units)
-        after_patch_data = calculatePreArmorProperties(after_patch_data, calculation_units)
+        before_patch_data = calculatePreArmorProperties(before_patch_data, units)
+        after_patch_data = calculatePreArmorProperties(after_patch_data, units)
     }
-    let before_special_armor_behaviors = getSpecialArmorBehaviors(before_patch_data, calculation_units);
-    let after_special_armor_behaviors = getSpecialArmorBehaviors(after_patch_data, calculation_units);
+    let before_special_armor_behaviors = getSpecialArmorBehaviors(before_patch_data, units);
+    let after_special_armor_behaviors = getSpecialArmorBehaviors(after_patch_data, units);
 
     if (siteState.apply_to_armor) {
-        before_patch_data = applyArmor(before_patch_data, calculation_units, before_special_armor_behaviors)
-        after_patch_data = applyArmor(after_patch_data, calculation_units, after_special_armor_behaviors)
+        before_patch_data = applyArmor(before_patch_data, units, before_special_armor_behaviors)
+        after_patch_data = applyArmor(after_patch_data, units, after_special_armor_behaviors)
     }
     if (siteState.show_calculated_properties) {
-        before_patch_data = calculatePostArmorProperties(before_patch_data, calculation_units)
-        after_patch_data = calculatePostArmorProperties(after_patch_data, calculation_units)
+        before_patch_data = calculatePostArmorProperties(before_patch_data, units)
+        after_patch_data = calculatePostArmorProperties(after_patch_data, units)
     }
     if (siteState.show_breakpoints) {
-        before_patch_data = calculateBreakpoints(before_patch_data, calculation_units)
-        after_patch_data = calculateBreakpoints(after_patch_data, calculation_units)
+        before_patch_data = calculateBreakpoints(before_patch_data, units)
+        after_patch_data = calculateBreakpoints(after_patch_data, units)
     }
     if (siteState.show_calculated_properties) {
-        before_patch_data = calculateRates(before_patch_data, calculation_units)
-        after_patch_data = calculateRates(after_patch_data, calculation_units)
-        before_patch_data = cleanupProperties(before_patch_data, calculation_units)
-        after_patch_data = cleanupProperties(after_patch_data, calculation_units)
+        before_patch_data = calculateRates(before_patch_data, units)
+        after_patch_data = calculateRates(after_patch_data, units)
+        before_patch_data = cleanupProperties(before_patch_data, units)
+        after_patch_data = cleanupProperties(after_patch_data, units)
     }
     let changes = convert_to_changes(before_patch_data, after_patch_data);
     if (siteState.show_breakpoints) {
@@ -584,7 +586,7 @@ async function updatePatchNotes() {
     if (changes.general) {
         let changeRender = "";
         for (let generalRule in changes.general) {
-            changeRender += `<li>${getChangeText(generalRule, changes.general[generalRule], units.general[generalRule], false)}</li>`
+            changeRender += `<li>${getChangeText(generalRule, changes.general[generalRule], getDisplayUnit(units.general[generalRule]), false)}</li>`
         }
         hero_section.innerHTML += `
             <div class="PatchNotes-section PatchNotes-section-generic_update">
@@ -609,7 +611,7 @@ async function updatePatchNotes() {
         }
         if (roleData.general) {
             for (let generalRule in roleData.general) {
-                generalChangeRender += `<li>${getChangeText(generalRule, roleData.general[generalRule], units.heroes[role].general[generalRule], false)}</li>`
+                generalChangeRender += `<li>${getChangeText(generalRule, roleData.general[generalRule], getDisplayUnit(units.heroes[role].general[generalRule]), false)}</li>`
             }
             generalChangeRender = `
                 <div class="PatchNotes-sectionDescription">
@@ -653,13 +655,13 @@ async function updatePatchNotes() {
             if (units.heroes[role][hero] === undefined) {
                 throw new Error(`Units is missing hero ${hero}`)
             }
-            if (calculation_units.heroes[role][hero] === undefined) {
+            if (units.heroes[role][hero] === undefined) {
                 throw new Error("Invalid state")
             }
             if (heroData.general) {
                 generalChangesRender += "<ul>";
                 for (let property in heroData.general) {
-                    generalChangesRender += `<li>${getChangeText(property, heroData.general[property], units.heroes[role][hero].general[property], display_as_new)}</li>`
+                    generalChangesRender += `<li>${getChangeText(property, heroData.general[property], getDisplayUnit(units.heroes[role][hero].general[property]), display_as_new)}</li>`
                 }
                 generalChangesRender += "</ul>";
             }
@@ -695,14 +697,10 @@ async function updatePatchNotes() {
                         console.error(`Missing ability units for ${hero} - ${ability}`)
                         break;
                     }
-                    if (!units.heroes[role][hero].abilities[ability][stat]) {
-                        if (calculation_units.heroes[role][hero].abilities[ability][stat]) {
-                            units.heroes[role][hero].abilities[ability][stat] = "none"
-                        } else {
-                            console.error(`Missing units for ${hero} - ${ability} - ${stat}`)
-                        }
+                    if (!(stat in units.heroes[role][hero].abilities[ability])) {
+                        console.error(`Missing units for ${hero} - ${ability} - ${stat}`)
                     }
-                    ability_changes += `<li>${getChangeText(stat, abilityData[stat], units.heroes[role][hero].abilities[ability][stat], display_ability_as_new)}</li>`;
+                    ability_changes += `<li>${getChangeText(stat, abilityData[stat], getDisplayUnit(units.heroes[role][hero].abilities[ability][stat]), display_ability_as_new)}</li>`;
                 }
                 abilities += `
                     <div class="PatchNotesAbilityUpdate">
@@ -727,12 +725,12 @@ async function updatePatchNotes() {
                 breakpointsRender += "<ul>";
                 for (let property in heroData.breakpoints) {
                     if (Array.isArray(heroData.breakpoints[property])) {
-                        if (heroData.breakpoints[property][0] === damageBreakPointHealthValues.at(-1)) continue
-                        if (heroData.breakpoints[property][1] === damageBreakPointHealthValues.at(-1)) continue
+                        if (heroData.breakpoints[property][0] === DAMAGE_BREAK_POINT_VALUES.at(-1)) continue
+                        if (heroData.breakpoints[property][1] === DAMAGE_BREAK_POINT_VALUES.at(-1)) continue
                     } else if (typeof heroData.breakpoints[property] === "number") {
-                        if (heroData.breakpoints[property] === damageBreakPointHealthValues.at(-1)) continue
+                        if (heroData.breakpoints[property] === DAMAGE_BREAK_POINT_VALUES.at(-1)) continue
                     }
-                    breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], "none", true)}</li>`
+                    breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], undefined, true)}</li>`
                 }
                 breakpointsRender += "</ul>";
             }
@@ -804,7 +802,7 @@ async function updatePatchNotes() {
                 } else {
                     let mode_changes = "";
                     for (let change in changes.modes[mode][1]) {
-                        mode_changes += `<li>${getChangeText(change, [undefined, changes.modes[mode][1][change]], units.modes[mode][change], true)}</li>`
+                        mode_changes += `<li>${getChangeText(change, [undefined, changes.modes[mode][1][change]], getDisplayUnit(units.modes[mode][change]), true)}</li>`
                     }
                     changeRender += `
                             <div class="PatchNotesGeneralUpdate-title">${mode}</div>
@@ -816,7 +814,7 @@ async function updatePatchNotes() {
             }
             let mode_changes = "";
             for (let change in changes.modes[mode]) {
-                mode_changes += `<li>${getChangeText(change, changes.modes[mode][change], units.modes[mode][change], false)}</li>`
+                mode_changes += `<li>${getChangeText(change, changes.modes[mode][change], getDisplayUnit(units.modes[mode][change]), false)}</li>`
             }
             changeRender += `
                     <div class="PatchNotesGeneralUpdate-title">${mode}</div>
@@ -836,15 +834,15 @@ async function updatePatchNotes() {
     }
 }
 
-export function verifyPatchNotes(patch_data: PatchData, calculation_units: CalculationUnits, units: Units) {
+export function verifyPatchNotes(patch_data: PatchData, units: CalculationUnits) {
     for (let general_property in patch_data.general) {
-        let property_units = calculation_units.general[general_property]
+        let property_units = units.general[general_property]
         if (property_units === undefined) {
-            console.log(`Cannot find calculation units for ${general_property}`)
+            console.error(`Cannot find calculation units for ${general_property}`)
         }
         let display_units = units.general[general_property]
         if (display_units === undefined) {
-            console.log(`Cannot find units for ${general_property}`)
+            console.error(`Cannot find units for ${general_property}`)
         }
     }
 
@@ -855,7 +853,7 @@ export function verifyPatchNotes(patch_data: PatchData, calculation_units: Calcu
             }
             if (hero == "general") continue;
             let heroData = patch_data.heroes[role][hero];
-            let heroUnits = calculation_units.heroes[role][hero];
+            let heroUnits = units.heroes[role][hero];
             let heroDisplayUnits = units.heroes[role][hero];
             if (heroData === undefined) {
                 throw new Error("Invalid state")
@@ -870,22 +868,22 @@ export function verifyPatchNotes(patch_data: PatchData, calculation_units: Calcu
             for (let general_property in heroData.general) {
                 let property_units = heroUnits.general[general_property]
                 if (property_units === undefined) {
-                    console.log(`Cannot find calculation units for ${hero} - ${general_property}`)
+                    console.error(`Cannot find calculation units for ${hero} - ${general_property}`)
                 }
                 let display_units = heroDisplayUnits.general[general_property]
                 if (display_units === undefined) {
-                    console.log(`Cannot find display units for ${hero} - ${general_property}`)
+                    console.error(`Cannot find display units for ${hero} - ${general_property}`)
                 }
             }
             for (let ability in heroData.abilities) {
                 for (let ability_property in heroData.abilities[ability]) {
                     let property_units = heroUnits.abilities[ability][ability_property]
                     if (property_units === undefined) {
-                        console.log(`Cannot find calculation units for ${hero} - ${ability} - ${ability_property}`)
+                        console.error(`Cannot find calculation units for ${hero} - ${ability} - ${ability_property}`)
                     }
                     let display_units = heroDisplayUnits.abilities[ability][ability_property]
                     if (display_units === undefined) {
-                        console.log(`Cannot find display units for ${hero} - ${ability} - ${ability_property}`)
+                        console.error(`Cannot find display units for ${hero} - ${ability} - ${ability_property}`)
                     }
                 }
             }
@@ -893,11 +891,11 @@ export function verifyPatchNotes(patch_data: PatchData, calculation_units: Calcu
     }
     for (let mode in patch_data.modes) {
         if (units.modes[mode] === undefined) {
-            console.log(`Cannot find units for ${mode}`)
+            console.error(`Cannot find units for ${mode}`)
         }
         for (let change in patch_data.modes[mode]) {
             if (units.modes[mode][change] === undefined) {
-                console.log(`Cannot find units for ${mode} - ${change}`)
+                console.error(`Cannot find units for ${mode} - ${change}`)
             }
         }
     }
@@ -926,7 +924,7 @@ export function applyDamageMultiplier(patch_data: PatchData, multiplier: number,
                 for (let ability_property in heroData.abilities[ability]) {
                     let property_units = heroUnits.abilities[ability][ability_property]
                     if (property_units === undefined) {
-                        console.log(`Cannot find calculation units for ${ability} - ${ability_property}`)
+                        console.error(`Cannot find calculation units for ${ability} - ${ability_property}`)
                     }
                     if (typeof heroData.abilities[ability][ability_property] === "number") {
                         if (property_units.some((unit) => ["damage instance"].includes(unit[0]))) {
@@ -993,7 +991,7 @@ export function calculatePreArmorProperties(patch_data: PatchData, calculation_u
                     let crit_data =
                         Object.entries(heroUnits.abilities[ability])
                             .map(([key, calc_units]) => [calc_units, heroData.abilities[ability][key]] as const)
-                            .filter((entry): entry is [CalculationUnit[], number] => typeof entry[1] === "number")
+                            .filter((entry): entry is [Unit[], number] => typeof entry[1] === "number")
                             .map(([calc_units, multiplier]) =>
                                 [calc_units
                                     .filter((unit) => Array.isArray(unit))
@@ -1341,7 +1339,7 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: C
             let breakpointDamageEntries: { [key: string]: number } = {}
             let breakpointDamageDataEntries: { [key: string]: { [ability_use: string]: number } } = {}
             for (let breakpoint in breakpointDamage) {
-                let breakpointHealth = damageBreakPointHealthValues.findLast((v) => v <= breakpointDamage[breakpoint]);
+                let breakpointHealth = DAMAGE_BREAK_POINT_VALUES.findLast((v) => v <= breakpointDamage[breakpoint]);
                 if (breakpointHealth !== undefined) {
                     breakpointDamageEntries[`Breakpoint for ${breakpoint.substring(2)}`] = breakpointHealth
                     breakpointDamageDataEntries[`Breakpoint for ${breakpoint.substring(2)}`] = breakpointDamageData[breakpoint]
@@ -1666,10 +1664,8 @@ function removeRedundantBreakpoints(changes: Changes<PatchData>, after_patch_dat
                     }
                 }
             }
-            console.log(breakpoints_to_remove)
 
             if (Array.isArray(heroData.breakpoints)) throw new Error("Invalid state")
-            console.log(Object.entries(heroData.breakpoints).length)
             for (let remove_breakpoint of breakpoints_to_remove) {
                 delete heroData.breakpoints[remove_breakpoint];
             }
@@ -1786,7 +1782,7 @@ function reorder<T extends { [key: string]: any }>(to_reorder: T, pattern: { [ke
     let reordered: { [key: string]: any } = {}
     for (let key in pattern) {
         if (key in to_reorder) {
-            if (typeof pattern[key] === "object") {
+            if (typeof pattern[key] === "object" && !Array.isArray(pattern[key])) {
                 reordered[key] = reorder(to_reorder[key], pattern[key])
             } else {
                 reordered[key] = to_reorder[key]
