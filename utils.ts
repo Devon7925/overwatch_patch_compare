@@ -1,10 +1,10 @@
 
 
-type CapitalLetter = "A"|"B"|"C"|"D"|"E"|"F"|"G"|"H"|"I"|"J"|"K"|"L"|"M"|"N"|"O"|"P"|"Q"|"R"|"S"|"T"|"U"|"V"|"W"|"X"|"Y"|"Z"
+type CapitalLetter = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
 type LowerLetter = Lowercase<CapitalLetter>
-type Whitespace = " "|"\t"|"\n"|"\r"
-type Character = LowerLetter|CapitalLetter|Whitespace|"<"|">"|"="|"\""|"'"|"."|"/"
-type MapV<V extends string, M extends string> = M extends `${infer C extends Character}${infer Rest extends string}` ? `${C}${MapV<V, Rest>}` : M extends `${infer _ extends string}${infer Rest extends string}`?`${V}${MapV<V, Rest>}`:M
+type Whitespace = " " | "\t" | "\n" | "\r"
+type Character = LowerLetter | CapitalLetter | Whitespace | "<" | ">" | "=" | "\"" | "'" | "." | "/"
+type MapV<V extends string, M extends string> = M extends `${infer C extends Character}${infer Rest extends string}` ? `${C}${MapV<V, Rest>}` : M extends `${infer _ extends string}${infer Rest extends string}` ? `${V}${MapV<V, Rest>}` : M
 type Map<T extends string[], U extends string> = { [K in keyof T]: MapV<T[K], U> }
 type JoinStrings<T extends string[]> = T extends [T[0], ...infer V extends string[]] ? `${T[0]}${JoinStrings<V>}` : ""
 
@@ -24,9 +24,9 @@ declare global {
     }
 
     interface Array<T extends string> {
-        map<V extends string[], U extends string>(this:string[] extends V?never:V, u: (value: string, index: number, array: V) => U):Map<V, U>
+        map<V extends string[], U extends string>(this: string[] extends V ? never : V, u: (value: string, index: number, array: V) => U): Map<V, U>
         map<U>(callbackfn: (value: T, index: number, array: T[]) => U, thisArg?: any): U[];
-        join<V extends T[]>(this: V):JoinStrings<V>;
+        join<V extends T[]>(this: V): JoinStrings<V>;
         join(separator?: string): string;
     }
 }
@@ -174,7 +174,7 @@ export function deepAssign(address: { [key: string]: NullableJSONObj }, value: {
         if (hasOwnProperty(address, k)) {
             const addressVal = address[k]
             const valueVal = value[k]
-            if(valueVal === undefined) throw new Error(`valueVal is undefined for key ${k}`)
+            if (valueVal === undefined) throw new Error(`valueVal is undefined for key ${k}`)
             if (isObject(addressVal) && isObject(valueVal)) {
                 deepAssign(addressVal, valueVal)
                 continue;
@@ -191,12 +191,12 @@ type SelfRecursive<O> = (fn: SelfRecursive<O>) => O
  * @param f The function to apply to itself
  * @returns The result of applying f to itself.
  */
-export const U:<T>(f:SelfRecursive<T>) => T = f => f (f)
+export const U: <T>(f: SelfRecursive<T>) => T = f => f(f)
 /**
  * Y Combinator (https://en.wikipedia.org/wiki/Fixed-point_combinator#Y_combinator). Takes a function that takes itself as an argument and returns something. Returns the thing that the function argument returns.
  * Used for creating anonymous recursive functions.
  */
-export const Y:<T extends Function>(a:(b:T)=>T)=>T = U ((h:Function) => (f:Function) => f ((x:any) => h (h) (f) (x)))
+export const Y: <T extends Function>(a: (b: T) => T) => T = U((h: Function) => (f: Function) => f((x: any) => h(h)(f)(x)))
 
 /**
  * Converts a tuple into an array of typeguards for the tuple's elements.
@@ -367,7 +367,7 @@ export function isLiteral<T extends any>(literal: T): (value: unknown) => value 
  * @param value The value to check.
  * @returns Whether the value is an object and not an array.
  */
-export function isObject(value: unknown): value is {[key:string|number|symbol]: unknown} {
+export function isObject(value: unknown): value is { [key: string | number | symbol]: unknown } {
     return typeof value === "object" && value !== null && !Array.isArray(value)
 }
 
@@ -390,14 +390,14 @@ type TagLookup = {
     "p": HTMLParagraphElement,
 }
 type HTMLTags = TuplifyUnion<keyof TagLookup>
-type StringToElem<T extends string> = StripWhitespace<T> extends `<${infer Tag extends HTMLTags[number]} ${infer Rest}`? Rest extends `${string}</${Tag}>`?TagLookup[Tag]: never : never
+type StringToElem<T extends string> = StripWhitespace<T> extends `<${infer Tag extends HTMLTags[number]} ${infer Rest}` ? Rest extends `${string}</${Tag}>` ? TagLookup[Tag] : never : never
 /**
  * Converts a html string to a {@link Element}
  * 
  * @param string The html string to convert.
  * @returns The {@link Element} that was created from the html string.
  */
-export function stringToElement<T extends string>(string: T):StringToElem<T> {
+export function stringToElement<T extends string>(string: T): StringToElem<T> {
     if (!parser) parser = new DOMParser()
     const children = parser.parseFromString(string, 'text/html').body.children
     if (!children || !children[0]) throw new Error("Invalid HTML")
