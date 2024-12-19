@@ -43,7 +43,7 @@
                     },
                     "Defense Matrix": {
                         "Cooldown": 1,
-                        "Maximum Duration": 3,
+                        "Maximum Duration": 2,
                         "Recharge rate": 16.67
                     },
                     "Self Destruct": {
