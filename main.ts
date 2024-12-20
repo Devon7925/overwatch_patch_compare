@@ -352,6 +352,13 @@ export function getChangeText(name: string, change: [any, any] | string | number
         } else if (unitDisplayMap[units]) {
             return `${prefix}${new_value}${unitDisplayMap[units]} ${name.toLowerCase()}.`;
         } else if (units == "flag") {
+            if (display_as_new) {
+                if (new_value === false) {
+                    return `Doesn't ${name}.`;
+                } else {
+                    return `Does ${name}.`;
+                }
+            }
             if (new_value === false) {
                 return `No longer ${name}.`;
             } else {
@@ -373,7 +380,7 @@ export function getChangeText(name: string, change: [any, any] | string | number
         } else if (units == undefined) {
             return `${name} ${change_type} from ${change[0]} to ${change[1]}.`;
         } else if (unitDisplayMap[units] != undefined) {
-            return `${name} ${change_type} from ${change[0]}% to ${change[1]}${unitDisplayMap[units]}.`;
+            return `${name} ${change_type} from ${change[0]} to ${change[1]}${unitDisplayMap[units]}.`;
         } else if (units == "relative percent") {
             if (change[0] > change[1]) {
                 return `${name} reduced by ${round(100 * (1.0 - change[1] / change[0]), 2)}%.`;
@@ -381,11 +388,7 @@ export function getChangeText(name: string, change: [any, any] | string | number
                 return `${name} increased by ${round(100 * (change[1] / change[0] - 1.0), 2)}%.`;
             }
         } else if (units == "flag") {
-            let change_type = "Now";
-            if (change[0]) {
-                change_type = "No longer";
-            }
-            return `${change_type} ${name}.`;
+            throw new Error(`Number ${name} should not be a flag`)
         } else {
             // Exhaustiveness check
             throw new Error(`Invalid units "${units}" for ${name}`)
@@ -488,49 +491,7 @@ function processPatch(patch: PatchData, multiplier: number): PatchData {
 }
 
 async function updatePatchNotes() {
-    patch_before_box.value = siteState.before_patch;
-    patch_after_box.value = siteState.after_patch;
-    display_calculated_properties_box.checked = siteState.show_calculated_properties
-
-    let extra_controls_display = "flex"
-    if (!siteState.show_calculated_properties) {
-        extra_controls_display = "none"
-        siteState.before_dmg_boost = 1
-        siteState.after_dmg_boost = 1
-        siteState.show_breakpoints = false;
-        siteState.apply_to_armor = false;
-    }
-    (display_breakpoints_box.parentElement?.parentElement?.parentElement as HTMLElement).style.display = extra_controls_display;
-    (apply_damage_to_armor_box.parentElement?.parentElement?.parentElement as HTMLElement).style.display = extra_controls_display;
-    (patch_before_dmg_boost.parentElement?.parentElement as HTMLElement).style.display = extra_controls_display;
-    (patch_after_dmg_boost.parentElement?.parentElement as HTMLElement).style.display = extra_controls_display;
-
-    display_breakpoints_box.checked = siteState.show_breakpoints
-    apply_damage_to_armor_box.checked = siteState.apply_to_armor
-    patch_before_dmg_boost.value = "" + (100 * siteState.before_dmg_boost)
-    patch_before_dmg_boost_slider.value = "" + (100 * siteState.before_dmg_boost)
-    patch_after_dmg_boost.value = "" + (100 * siteState.after_dmg_boost)
-    patch_after_dmg_boost_slider.value = "" + (100 * siteState.after_dmg_boost)
-
-    {
-        let urlParams = new URLSearchParams();
-        let key: keyof typeof siteState
-        for (key in siteState) {
-            if (siteState[key] !== DEFAULT_SITE_STATE[key]) {
-                urlParams.append(key, `${siteState[key]}`)
-            }
-        }
-        window.history.replaceState(siteState, "", "?" + urlParams)
-    }
-
-    {
-        let before_patch_path = siteState.before_patch.split(":")
-        let after_patch_path = siteState.after_patch.split(":")
-        const last_patch_exists = (before_patch_path[0] === after_patch_path[0]) && patchList[before_patch_path[0]].indexOf(before_patch_path[1]) > 0;
-        const next_patch_exists = (before_patch_path[0] === after_patch_path[0]) && patchList[after_patch_path[0]].indexOf(after_patch_path[1]) < patchList[after_patch_path[0]].length - 1;
-        last_patch_button.style.visibility = last_patch_exists ? 'visible' : 'hidden';
-        next_patch_button.style.visibility = next_patch_exists ? 'visible' : 'hidden';
-    }
+    resetUI()
 
     await Promise.all([siteState.before_patch, siteState.after_patch]
         .filter((patch) => !(patch in patchList))
@@ -553,6 +514,52 @@ async function updatePatchNotes() {
         changes = removeRedundantBreakpoints(changes, after_patch_data);
     }
     displayPatchNotes(changes)
+}
+
+function resetUI() {
+    patch_before_box.value = siteState.before_patch
+    patch_after_box.value = siteState.after_patch
+    display_calculated_properties_box.checked = siteState.show_calculated_properties
+
+    let extra_controls_display = "flex"
+    if (!siteState.show_calculated_properties) {
+        extra_controls_display = "none"
+        siteState.before_dmg_boost = 1
+        siteState.after_dmg_boost = 1
+        siteState.show_breakpoints = false
+        siteState.apply_to_armor = false
+    }
+    (display_breakpoints_box.parentElement?.parentElement?.parentElement as HTMLElement).style.display = extra_controls_display;
+    (apply_damage_to_armor_box.parentElement?.parentElement?.parentElement as HTMLElement).style.display = extra_controls_display;
+    (patch_before_dmg_boost.parentElement?.parentElement as HTMLElement).style.display = extra_controls_display;
+    (patch_after_dmg_boost.parentElement?.parentElement as HTMLElement).style.display = extra_controls_display
+
+    display_breakpoints_box.checked = siteState.show_breakpoints
+    apply_damage_to_armor_box.checked = siteState.apply_to_armor
+    patch_before_dmg_boost.value = "" + (100 * siteState.before_dmg_boost)
+    patch_before_dmg_boost_slider.value = "" + (100 * siteState.before_dmg_boost)
+    patch_after_dmg_boost.value = "" + (100 * siteState.after_dmg_boost)
+    patch_after_dmg_boost_slider.value = "" + (100 * siteState.after_dmg_boost)
+
+    {
+        let urlParams = new URLSearchParams()
+        let key: keyof typeof siteState
+        for (key in siteState) {
+            if (siteState[key] !== DEFAULT_SITE_STATE[key]) {
+                urlParams.append(key, `${siteState[key]}`)
+            }
+        }
+        window.history.replaceState(siteState, "", "?" + urlParams)
+    }
+
+    {
+        let before_patch_path = siteState.before_patch.split(":")
+        let after_patch_path = siteState.after_patch.split(":")
+        const last_patch_exists = (before_patch_path[0] === after_patch_path[0]) && patchList[before_patch_path[0]].indexOf(before_patch_path[1]) > 0
+        const next_patch_exists = (before_patch_path[0] === after_patch_path[0]) && patchList[after_patch_path[0]].indexOf(after_patch_path[1]) < patchList[after_patch_path[0]].length - 1
+        last_patch_button.style.visibility = last_patch_exists ? 'visible' : 'hidden'
+        next_patch_button.style.visibility = next_patch_exists ? 'visible' : 'hidden'
+    }
 }
 
 function displayPatchNotes(changes: Changes<PatchData>) {
@@ -610,10 +617,7 @@ function displayPatchNotes(changes: Changes<PatchData>) {
                     heroData = heroData[1]
                     display_as_new = true
                 } else {
-                    heroChanges += renderHeroChanges(hero, `
-                        <ul>
-                            <li>Removed</li>
-                        </ul>`, "", "")
+                    heroChanges += renderHeroChanges(hero, `<li>Removed</li>`, "", "")
                     continue
                 }
             }
@@ -627,11 +631,9 @@ function displayPatchNotes(changes: Changes<PatchData>) {
                 throw new Error("Invalid state")
             }
             if (heroData.general) {
-                generalChangesRender += "<ul>"
                 for (let property in heroData.general) {
                     generalChangesRender += `<li>${getChangeText(property, heroData.general[property], getDisplayUnit(units.heroes[role][hero].general[property]), display_as_new)}</li>`
                 }
-                generalChangesRender += "</ul>"
             }
             let abilities = ""
             for (let ability in heroData.abilities) {
@@ -778,13 +780,15 @@ function renderHeroChanges(hero: string, generalChangesRender: string, abilities
             </div>
             <div class="PatchNotesHeroUpdate-body">
                 <div class="PatchNotesHeroUpdate-generalUpdates">
-                ${generalChangesRender}
+                    <ul>
+                        ${generalChangesRender}
+                    </ul>
                 </div>
                 <div class="PatchNotesHeroUpdate-abilitiesList">
-                ${abilities}
+                    ${abilities}
                 </div>
                 <div class="PatchNotesHeroUpdate-generalUpdates">
-                ${breakpointsRender}
+                    ${breakpointsRender}
                 </div>
             </div>
         </div>`
@@ -861,6 +865,7 @@ function forEachHero(patch_data: PatchData, calculation_units: Units, callback: 
         }
     }
 }
+
 function forEachAbility(patch_data: PatchData, calculation_units: Units, callback: (abilityData: NonNullable<PatchData["heroes"][string][Hero]>["abilities"][string], abilityUnits: NonNullable<Units["heroes"][string][Hero]>["abilities"][string], ability: string, heroData: NonNullable<PatchData["heroes"][string][Hero]>) => void) {
     forEachHero(patch_data, calculation_units, (heroData, heroUnits) => {
         for (let ability in heroData.abilities) {
@@ -870,6 +875,11 @@ function forEachAbility(patch_data: PatchData, calculation_units: Units, callbac
             callback(abilityData, abilityDataUnits, ability, heroData)
         }
     })
+}
+
+function assignValueAndUnits<T, U>(patch_data: { [key: string]: T }, calculation_units: { [key: string]: U }, property: string, value: T, units: U) {
+    patch_data[property] = value
+    calculation_units[property] = units
 }
 
 export function applyDamageMultiplier(patch_data: PatchData, multiplier: number, calculation_units: Units): PatchData {
@@ -906,16 +916,19 @@ export function calculatePreArmorProperties(patch_data: PatchData, calculation_u
                 })
                 .reduce<{ [key: string]: [string, number][] }>((acc, [dmg_type, amount, situations]) => {
                     if (!(dmg_type in acc)) acc[dmg_type] = [];
-                    if (typeof amount === "number") {
-                        for (let situation of situations) {
-                            let idx = acc[dmg_type].findIndex((v) => v[0] === situation);
-                            if (idx === -1) {
-                                acc[dmg_type].push([situation, amount])
-                            } else {
-                                acc[dmg_type][idx][1] += amount;
-                            }
+                    if (typeof amount !== "number") {
+                        return acc
+                    }
+
+                    for (let situation of situations) {
+                        let idx = acc[dmg_type].findIndex((v) => v[0] === situation);
+                        if (idx === -1) {
+                            acc[dmg_type].push([situation, amount])
+                        } else {
+                            acc[dmg_type][idx][1] += amount;
                         }
                     }
+
                     return acc
                 }, {})
 
@@ -928,16 +941,14 @@ export function calculatePreArmorProperties(patch_data: PatchData, calculation_u
                     .flatMap(([crit_types, multiplier]) => crit_types.map((crit_type) => [crit_type, multiplier] as const))
             for (let total_damage_type in total_damage) {
                 for (let situation of total_damage[total_damage_type]) {
-                    abilityData[`Total ${total_damage_type} ${situation[0]} instance ${damage_or_healing}`] = situation[1]
-                    abilityUnits[`Total ${total_damage_type} ${situation[0]} instance ${damage_or_healing}`] = [[`total instance ${damage_or_healing}`, total_damage_type], ["situation", situation[0]]]
+                    assignValueAndUnits(abilityData, abilityUnits, `Total ${total_damage_type} ${situation[0]} instance ${damage_or_healing}`, situation[1], [[`total instance ${damage_or_healing}`, total_damage_type], ["situation", situation[0]]])
 
                     for (let [crit_type, critical_multiplier] of crit_data) {
                         let adj_critical_multiplier = 1
                         if (crit_type[1] === undefined || crit_type[1] === total_damage_type) {
                             adj_critical_multiplier = critical_multiplier
                         }
-                        abilityData[`Total ${total_damage_type} ${situation[0]} instance ${crit_type} ${damage_or_healing}`] = situation[1] * adj_critical_multiplier
-                        abilityUnits[`Total ${total_damage_type} ${situation[0]} instance ${crit_type} ${damage_or_healing}`] = [[`total instance crit ${damage_or_healing}`, total_damage_type, crit_type[0]], ["situation", situation[0]]]
+                        assignValueAndUnits(abilityData, abilityUnits, `Total ${total_damage_type} ${situation[0]} instance ${crit_type} ${damage_or_healing}`, situation[1] * adj_critical_multiplier, [[`total instance crit ${damage_or_healing}`, total_damage_type, crit_type[0]], ["situation", situation[0]]])
                     }
                 }
             }
@@ -1003,6 +1014,9 @@ export function applyArmor(patch_data: PatchData, calculation_units: Units, spec
                     if (possible_special_behavior !== undefined) {
                         if (possible_special_behavior[0] === "flat percent mit") {
                             abilityData[ability_property] = (1 - possible_special_behavior[1]) * abilityData[ability_property]
+                        } else {
+                            // exhaustiveness check
+                            let x: never = possible_special_behavior[0]
                         }
                     } else {
                         abilityData[ability_property] = applyArmorToStat(abilityData[ability_property], min_damage_reduction, max_damage_reduction, flat_damage_reduction)
@@ -1032,14 +1046,11 @@ export function calculatePostArmorProperties(patch_data: PatchData, calculation_
     })
     forEachAbility(patch_data, calculation_units, (abilityData, abilityUnits, ability, heroData) => {
         if (typeof abilityData["Alt fire of"] == "string") {
-            if (!("Ammo" in abilityData) && "Ammo" in heroData.abilities[abilityData["Alt fire of"]]) {
-                heroData.abilities[ability]["Ammo"] = heroData.abilities[abilityData["Alt fire of"]]["Ammo"];
-            }
-            if ("Reload time" in heroData.abilities[abilityData["Alt fire of"]]) {
-                heroData.abilities[ability]["Reload time"] = heroData.abilities[abilityData["Alt fire of"]]["Reload time"];
-            }
-            if ("Reload time per ammo" in heroData.abilities[abilityData["Alt fire of"]]) {
-                heroData.abilities[ability]["Reload time per ammo"] = heroData.abilities[abilityData["Alt fire of"]]["Reload time per ammo"];
+            const ALT_FIRE_TRANSFER_PROPERTIES = ["Ammo", "Reload time", "Reload time per ammo"]
+            for (let alt_fire_transfer_property of ALT_FIRE_TRANSFER_PROPERTIES) {
+                if (!(alt_fire_transfer_property in abilityData) && alt_fire_transfer_property in heroData.abilities[abilityData["Alt fire of"]]) {
+                    heroData.abilities[ability][alt_fire_transfer_property] = heroData.abilities[abilityData["Alt fire of"]][alt_fire_transfer_property];
+                }
             }
         }
         for (let damage_or_healing of ["damage", "healing"] as const) {
@@ -1052,34 +1063,33 @@ export function calculatePostArmorProperties(patch_data: PatchData, calculation_
                     {
                         let damage_types = getUnitDataOfType(property_units, `total instance ${damage_or_healing}`);
                         for (let damage_type of damage_types) {
-                            abilityData[`Total ${damage_type} ${situations_display} ${damage_or_healing}`] = damage
-                            abilityUnits[`Total ${damage_type} ${situations_display} ${damage_or_healing}`] = [[`total ${damage_or_healing}`, damage_type], ...situations]
+                            assignValueAndUnits(abilityData, abilityUnits, `Total ${damage_type} ${situations_display} ${damage_or_healing}`, damage, [[`total ${damage_or_healing}`, damage_type], ...situations])
                         }
                     }
                     {
                         let damage_types = getUnitDataOfType(property_units, `total instance crit ${damage_or_healing}`);
                         for (let [damage_type, crit_type] of damage_types) {
-                            abilityData[`Total ${damage_type} ${crit_type} ${damage_or_healing}`] = damage
-                            abilityUnits[`Total ${damage_type} ${crit_type} ${damage_or_healing}`] = [[`total crit ${damage_or_healing}`, damage_type, crit_type], ...situations]
+                            assignValueAndUnits(abilityData, abilityUnits, `Total ${damage_type} ${crit_type} ${damage_or_healing}`, damage, [[`total crit ${damage_or_healing}`, damage_type, crit_type], ...situations])
                         }
                     }
                 }
             }
             for (let pellet_count_ability_property in abilityData) {
+                if (typeof abilityData[pellet_count_ability_property] !== "number") {
+                    continue;
+                }
                 let pellet_count_property_units = abilityUnits[pellet_count_ability_property]
-                if (typeof abilityData[pellet_count_ability_property] === "number") {
-                    let multiplier_types = pellet_count_property_units.filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == "pellet count" || unit[0] == "bullets per burst").map((unit) => unit[1]);
-                    let multiplier = abilityData[pellet_count_ability_property]
-                    for (let damage_type of multiplier_types) {
-                        for (let ability_property in abilityData) {
-                            let property_units = abilityUnits[ability_property]
-                            if (typeof abilityData[ability_property] === "number") {
-                                if (getUnitDataOfType(property_units, `total ${damage_or_healing}`).includes(damage_type)) {
-                                    abilityData[ability_property] *= multiplier
-                                }
-                                if (getUnitDataOfType(property_units, `total crit ${damage_or_healing}`).map((unit) => unit[0]).includes(damage_type)) {
-                                    abilityData[ability_property] *= multiplier
-                                }
+                let multiplier_types = pellet_count_property_units.filter((unit) => Array.isArray(unit)).filter((unit) => unit[0] == "pellet count" || unit[0] == "bullets per burst").map((unit) => unit[1]);
+                let multiplier = abilityData[pellet_count_ability_property]
+                for (let damage_type of multiplier_types) {
+                    for (let ability_property in abilityData) {
+                        let property_units = abilityUnits[ability_property]
+                        if (typeof abilityData[ability_property] === "number") {
+                            if (getUnitDataOfType(property_units, `total ${damage_or_healing}`).includes(damage_type)) {
+                                abilityData[ability_property] *= multiplier
+                            }
+                            if (getUnitDataOfType(property_units, `total crit ${damage_or_healing}`).map((unit) => unit[0]).includes(damage_type)) {
+                                abilityData[ability_property] *= multiplier
                             }
                         }
                     }
@@ -1116,15 +1126,13 @@ export function calculatePostArmorProperties(patch_data: PatchData, calculation_
                     }
                 }
                 for (let total_damage_situation in total_damage) {
-                    abilityData[`Total ${total_damage_situation} ${damage_or_healing}`] = total_damage[total_damage_situation]
-                    abilityUnits[`Total ${total_damage_situation} ${damage_or_healing}`] = [`total ${damage_or_healing}`, ["situation", total_damage_situation]]
+                    assignValueAndUnits(abilityData, abilityUnits, `Total ${total_damage_situation} ${damage_or_healing}`, total_damage[total_damage_situation], [`total ${damage_or_healing}`, ["situation", total_damage_situation]])
                     if (damage_or_healing === "damage") {
                         abilityUnits[`Total ${total_damage_situation} ${damage_or_healing}`].push("breakpoint damage")
                     }
                 }
                 for (let crit_damage_type in total_crit_damage) {
-                    abilityData[`Total ${crit_damage_type} ${damage_or_healing}`] = total_crit_damage[crit_damage_type]
-                    abilityUnits[`Total ${crit_damage_type} ${damage_or_healing}`] = [`total crit ${damage_or_healing}`]
+                    assignValueAndUnits(abilityData, abilityUnits, `Total ${crit_damage_type} ${damage_or_healing}`, total_crit_damage[crit_damage_type], [`total crit ${damage_or_healing}`])
                     if (damage_or_healing === "damage") {
                         abilityUnits[`Total ${crit_damage_type} ${damage_or_healing}`].push("breakpoint damage")
                     }
@@ -1141,29 +1149,29 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: U
         let damage_options: { [key: string]: { [key: string]: number } } = {};
         let damage_option_data: { [ability: string]: { [label: string]: { [ability_usage: string]: number } } } = {};
         if (typeof patch_data.general["Quick melee damage"] == "number" && heroData.general["has overridden melee"] !== true) {
-            damage_options["Melee"] = {}
-            damage_option_data["Melee"] = {}
-            damage_options["Melee"][""] = patch_data.general["Quick melee damage"]
-            damage_option_data["Melee"][""] = {}
-            damage_option_data["Melee"][""]["normal"] = 1
+            damage_options["Melee"] = {
+                "": patch_data.general["Quick melee damage"]
+            }
+            damage_option_data["Melee"] = {
+                "": {
+                    "normal": 1
+                }
+            }
         }
         for (let ability in heroData.abilities) {
             let max_damage_instances = 1;
             let ability_damage_options: { [key: string]: number } = {}
             for (let ability_property in heroData.abilities[ability]) {
                 for (let property_unit of heroUnits.abilities[ability][ability_property]) {
+                    if (typeof heroData.abilities[ability][ability_property] !== "number") {
+                        continue
+                    }
                     if (property_unit == "breakpoint damage") {
-                        if (typeof heroData.abilities[ability][ability_property] === "number") {
-                            ability_damage_options[ability_property] = heroData.abilities[ability][ability_property]
-                        }
+                        ability_damage_options[ability_property] = heroData.abilities[ability][ability_property]
                     } else if (property_unit == "ammo") {
-                        if (typeof heroData.abilities[ability][ability_property] === "number") {
-                            max_damage_instances = Math.max(max_damage_instances, Math.min(3, heroData.abilities[ability][ability_property]))
-                        }
+                        max_damage_instances = Math.max(max_damage_instances, Math.min(3, heroData.abilities[ability][ability_property]))
                     } else if (property_unit == "charges") {
-                        if (typeof heroData.abilities[ability][ability_property] === "number") {
-                            max_damage_instances = Math.max(max_damage_instances, heroData.abilities[ability][ability_property])
-                        }
+                        max_damage_instances = Math.max(max_damage_instances, heroData.abilities[ability][ability_property])
                     } else if (property_unit == "time between shots") {
                         max_damage_instances = Math.max(max_damage_instances, 3)
                     }
@@ -1254,16 +1262,13 @@ export function calculateRates(patch_data: PatchData, calculation_units: Units) 
                 crit_damage_per_second /= time_between_shots
                 healing_per_second /= time_between_shots
                 if (damage_per_second > 0) {
-                    abilityData["Damage per second"] = damage_per_second
-                    abilityDataUnits["Damage per second"] = ["damage per second"]
+                    assignValueAndUnits(abilityData, abilityDataUnits, "Damage per second", damage_per_second, ["damage per second"])
                 }
                 if (crit_damage_per_second > 0) {
-                    abilityData["Critical damage per second"] = crit_damage_per_second
-                    abilityDataUnits["Critical damage per second"] = []
+                    assignValueAndUnits(abilityData, abilityDataUnits, "Critical damage per second", crit_damage_per_second, [])
                 }
                 if (healing_per_second > 0) {
-                    abilityData["Healing per second"] = healing_per_second
-                    abilityDataUnits["Healing per second"] = ["healing per second"]
+                    assignValueAndUnits(abilityData, abilityDataUnits, "Healing per second", healing_per_second, ["healing per second"])
                 }
             }
         }
@@ -1318,13 +1323,11 @@ export function calculateRates(patch_data: PatchData, calculation_units: Units) 
             }
             const reload_multiplier = time_before_reload / (time_before_reload + reload_time)
             if (damage_per_second > 0) {
-                abilityData["Damage per second(including reload)"] = damage_per_second * reload_multiplier
-                abilityDataUnits["Damage per second(including reload)"] = []
+                assignValueAndUnits(abilityData, abilityDataUnits, "Damage per second(including reload)", damage_per_second * reload_multiplier, [])
             }
             if (healing_per_second > 0) {
                 let healing_per_second_incl_reload = healing_per_second * reload_multiplier
-                abilityData["Healing per second(including reload)"] = healing_per_second_incl_reload
-                abilityDataUnits["Healing per second(including reload)"] = []
+                assignValueAndUnits(abilityData, abilityDataUnits, "Healing per second(including reload)", healing_per_second_incl_reload, [])
             }
         }
     })
@@ -1337,16 +1340,17 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Units) {
         for (let damage_or_healing of ["damage", "healing"]) {
             let damage_type_instance_damage: { [key: string]: { [key: string]: number } } = {}
             for (let property in abilityData) {
-                if (typeof abilityData[property] === "number") {
-                    let property_damage_types = getUnitDataOfType(abilityDataUnits[property], `${damage_or_healing} instance`)
-                    let situations = getUnitDataOfType(abilityDataUnits[property], "situation");
-                    for (let property_damage_type of property_damage_types) {
-                        if (!(property_damage_type in damage_type_instance_damage)) {
-                            damage_type_instance_damage[property_damage_type] = {}
-                        }
-                        for (let situation of situations) {
-                            damage_type_instance_damage[property_damage_type][situation] = abilityData[property]
-                        }
+                if (typeof abilityData[property] !== "number") {
+                    continue;
+                }
+                let property_damage_types = getUnitDataOfType(abilityDataUnits[property], `${damage_or_healing} instance`)
+                let situations = getUnitDataOfType(abilityDataUnits[property], "situation");
+                for (let property_damage_type of property_damage_types) {
+                    if (!(property_damage_type in damage_type_instance_damage)) {
+                        damage_type_instance_damage[property_damage_type] = {}
+                    }
+                    for (let situation of situations) {
+                        damage_type_instance_damage[property_damage_type][situation] = abilityData[property]
                     }
                 }
             }
