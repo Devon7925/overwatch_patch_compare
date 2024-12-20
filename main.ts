@@ -799,37 +799,23 @@ export function verifyPatchNotes(patch_data: PatchData, units: Units) {
         }
     }
 
-    for (let role in patch_data.heroes) {
-        for (let hero in patch_data.heroes[role]) {
-            if (!isKeyOf(patch_data.heroes[role], hero)) {
-                throw new Error("Invalid state")
+    forEachHero(patch_data, units, (heroData, heroUnits, hero) => {
+        for (let general_property in heroData.general) {
+            let property_units = heroUnits.general[general_property]
+            if (property_units === undefined) {
+                console.error(`Cannot find units for ${hero} - ${general_property}`)
             }
-            if (hero == "general") continue;
-            let heroData = patch_data.heroes[role][hero];
-            let heroUnits = units.heroes[role][hero];
-            if (heroData === undefined) {
-                throw new Error("Invalid state")
-            }
-            if (heroUnits === undefined) {
-                throw new Error("Invalid state")
-            }
-
-            for (let general_property in heroData.general) {
-                let property_units = heroUnits.general[general_property]
+        }
+        for (let ability in heroData.abilities) {
+            for (let ability_property in heroData.abilities[ability]) {
+                let property_units = heroUnits.abilities[ability][ability_property]
                 if (property_units === undefined) {
-                    console.error(`Cannot find units for ${hero} - ${general_property}`)
-                }
-            }
-            for (let ability in heroData.abilities) {
-                for (let ability_property in heroData.abilities[ability]) {
-                    let property_units = heroUnits.abilities[ability][ability_property]
-                    if (property_units === undefined) {
-                        console.error(`Cannot find units for ${hero} - ${ability} - ${ability_property}`)
-                    }
+                    console.error(`Cannot find units for ${hero} - ${ability} - ${ability_property}`)
                 }
             }
         }
-    }
+    })
+    
     for (let mode in patch_data.modes) {
         if (units.modes[mode] === undefined) {
             console.error(`Cannot find units for ${mode}`)
@@ -883,16 +869,16 @@ export function applyDamageMultiplier(patch_data: PatchData, multiplier: number,
     if (typeof patch_data.general["Quick melee damage"] == "number") {
         patch_data.general["Quick melee damage"] *= multiplier
     }
-    forEachAbility(patch_data, calculation_units, (abilityData, abilityUnits, ability) => {
+    forEachAbility(patch_data, calculation_units, (abilityData, abilityUnits) => {
         for (let ability_property in abilityData) {
             let property_units = abilityUnits[ability_property]
-            if (property_units === undefined) {
-                console.error(`Cannot find calculation units for ${ability} - ${ability_property}`)
+
+            if (typeof abilityData[ability_property] !== "number") {
+                continue;
             }
-            if (typeof abilityData[ability_property] === "number") {
-                if (property_units.some((unit) => ["damage instance"].includes(unit[0]))) {
-                    abilityData[ability_property] *= multiplier
-                }
+            
+            if (property_units.some((unit) => ["damage instance"].includes(unit[0]))) {
+                abilityData[ability_property] *= multiplier
             }
         }
     })
