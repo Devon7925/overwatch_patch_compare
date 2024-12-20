@@ -627,9 +627,6 @@ function displayPatchNotes(changes: Changes<PatchData>) {
             if (units.heroes[role][hero] === undefined) {
                 throw new Error(`Units is missing hero ${hero}`)
             }
-            if (units.heroes[role][hero] === undefined) {
-                throw new Error("Invalid state")
-            }
             if (heroData.general) {
                 for (let property in heroData.general) {
                     generalChangesRender += `<li>${getChangeText(property, heroData.general[property], getDisplayUnit(units.heroes[role][hero].general[property]), display_as_new)}</li>`
