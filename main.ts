@@ -89,7 +89,6 @@ type PatchData = PatchStructure<Value> & {
 }
 type Units = PatchStructure<Unit[]>
 
-const DAMAGE_BREAK_POINT_VALUES = [150, 175, 200, 225, 250, 300] as const;
 type SpecialArmorBehavior = ["flat percent mit", number] | undefined
 
 const patchList = await fetch("./patch_list.json")
@@ -464,7 +463,7 @@ function getDisplayUnit(units: Unit[]): DisplayUnit | undefined {
     return display_units[0]
 }
 
-function processPatch(patch: PatchData, multiplier: number): PatchData {
+function processPatch(patch: PatchData, multiplier: number): [PatchData, number | null] {
     let patch_data = structuredClone(patch);
     verifyPatchNotes(patch_data, units)
     patch_data = reorder(patch_data, units)
@@ -480,14 +479,17 @@ function processPatch(patch: PatchData, multiplier: number): PatchData {
     if (siteState.show_calculated_properties) {
         patch_data = calculatePostArmorProperties(patch_data, units)
     }
+    let max_damage_break_point: number | null = null
     if (siteState.show_breakpoints) {
-        patch_data = calculateBreakpoints(patch_data, units)
+        let damage_break_point_values = getBreakpointHealthValues(patch_data)
+        patch_data = calculateBreakpoints(patch_data, units, damage_break_point_values)
+        max_damage_break_point = damage_break_point_values.at(-1) || null
     }
     if (siteState.show_calculated_properties) {
         patch_data = calculateRates(patch_data, units)
         patch_data = cleanupProperties(patch_data, units)
     }
-    return patch_data
+    return [patch_data, max_damage_break_point]
 }
 
 async function updatePatchNotes() {
@@ -507,13 +509,25 @@ async function updatePatchNotes() {
                     patches[`${versionType}:${version}`] = patch;
                 })
         }))
-    let before_patch_data = processPatch(patches[siteState.before_patch], parseFloat(patch_before_dmg_boost_slider.value) / 100);
-    let after_patch_data = processPatch(patches[siteState.after_patch], parseFloat(patch_after_dmg_boost_slider.value) / 100);
+    let [before_patch_data, before_max_breakpoint] = processPatch(patches[siteState.before_patch], parseFloat(patch_before_dmg_boost_slider.value) / 100);
+    let [after_patch_data, after_max_breakpoint] = processPatch(patches[siteState.after_patch], parseFloat(patch_after_dmg_boost_slider.value) / 100);
     let changes = convert_to_changes(before_patch_data, after_patch_data);
     if (siteState.show_breakpoints) {
         changes = removeRedundantBreakpoints(changes, after_patch_data);
     }
-    displayPatchNotes(changes)
+
+    let breakpoint_data: [number, number] | null = [0, 0]
+    if(before_max_breakpoint !== null) {
+        breakpoint_data[0] = before_max_breakpoint
+    }
+    if(after_max_breakpoint !== null) {
+        breakpoint_data[1] = after_max_breakpoint
+    }
+    if(before_max_breakpoint === null && after_max_breakpoint === null) {
+        breakpoint_data = null
+    }
+
+    displayPatchNotes(changes, breakpoint_data);
 }
 
 function resetUI() {
@@ -562,7 +576,7 @@ function resetUI() {
     }
 }
 
-function displayPatchNotes(changes: Changes<PatchData>) {
+function displayPatchNotes(changes: Changes<PatchData>, breakpoint_data: [number, number] | null) {
     let hero_section = document.getElementsByClassName("PatchNotes-section-hero_update")[0]
     hero_section.innerHTML = ""
     if (changes.general) {
@@ -660,15 +674,18 @@ function displayPatchNotes(changes: Changes<PatchData>) {
             }
             let breakpointsRender = ""
             if (heroData.breakpoints) {
+                if (breakpoint_data === null) {
+                    throw new Error("Invalid State")
+                }
                 if (Array.isArray(heroData.breakpoints)) {
                     throw new Error("Invalid State")
                 }
                 for (let property in heroData.breakpoints) {
                     if (Array.isArray(heroData.breakpoints[property])) {
-                        if (heroData.breakpoints[property][0] === DAMAGE_BREAK_POINT_VALUES.at(-1)) continue
-                        if (heroData.breakpoints[property][1] === DAMAGE_BREAK_POINT_VALUES.at(-1)) continue
+                        if (heroData.breakpoints[property][0] === breakpoint_data[0]) continue
+                        if (heroData.breakpoints[property][1] === breakpoint_data[1]) continue
                     } else if (typeof heroData.breakpoints[property] === "number") {
-                        if (heroData.breakpoints[property] === DAMAGE_BREAK_POINT_VALUES.at(-1)) continue
+                        if (heroData.breakpoints[property] === Math.max(breakpoint_data[0], breakpoint_data[1])) continue
                     }
                     breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], undefined, true)}</li>`
                 }
@@ -1127,7 +1144,7 @@ export function calculatePostArmorProperties(patch_data: PatchData, calculation_
     return patch_data
 }
 
-export function calculateBreakpoints(patch_data: PatchData, calculation_units: Units): PatchData {
+export function calculateBreakpoints(patch_data: PatchData, calculation_units: Units, damage_break_point_values: number[]): PatchData {
     forEachHero(patch_data, calculation_units, (heroData, heroUnits) => {
         let damage_options: { [key: string]: { [key: string]: number } } = {};
         let damage_option_data: { [ability: string]: { [label: string]: { [ability_usage: string]: number } } } = {};
@@ -1142,7 +1159,6 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: U
             }
         }
         for (let ability in heroData.abilities) {
-            console.log(ability)
             let ability_damage_options: { [key: string]: [number, number] } = {}
             let ability_normal_max_damage_instances:number | null = null;
             
@@ -1172,7 +1188,6 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: U
                 for (let property_unit of heroUnits.abilities[ability][ability_property]) {
                     if (property_unit == "breakpoint damage") {
                         is_damage_property = true
-                        console.log(heroUnits.abilities[ability][ability_property])
                     } else if (Array.isArray(property_unit) && property_unit[0] == "situation" && property_unit[1] == "cast") {
                         max_damage_instances = 1
                     }
@@ -1180,7 +1195,6 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: U
                 
                 if (is_damage_property) {
                     ability_damage_options[ability_property] = [heroData.abilities[ability][ability_property], max_damage_instances]
-                    console.log(ability_damage_options[ability_property])
                 }
             }
 
@@ -1227,7 +1241,7 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: U
         let breakpointDamageEntries: { [key: string]: number } = {}
         let breakpointDamageDataEntries: { [key: string]: { [ability_use: string]: number } } = {}
         for (let breakpoint in breakpointDamage) {
-            let breakpointHealth = DAMAGE_BREAK_POINT_VALUES.findLast((v) => v <= breakpointDamage[breakpoint]);
+            let breakpointHealth = damage_break_point_values.findLast((v) => v <= breakpointDamage[breakpoint]);
             if (breakpointHealth !== undefined) {
                 breakpointDamageEntries[`Breakpoint for ${breakpoint.substring(2)}`] = breakpointHealth
                 breakpointDamageDataEntries[`Breakpoint for ${breakpoint.substring(2)}`] = breakpointDamageData[breakpoint]
@@ -1238,6 +1252,31 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: U
     })
 
     return patch_data
+}
+
+function getBreakpointHealthValues(patch_data: PatchData) {
+    let damage_break_point_values: number[] = []
+
+    for (let role in patch_data.heroes) {
+        if (role == "tank") continue
+        for (let hero in patch_data.heroes[role]) {
+            if (!isKeyOf(patch_data.heroes[role], hero)) {
+                throw new Error("Invalid state")
+            }
+            if (hero == "general") continue
+            let heroData = patch_data.heroes[role][hero]
+            if (heroData === undefined) {
+                throw new Error("Invalid state")
+            }
+
+            if (typeof heroData.general["Total health"] === "number") {
+                damage_break_point_values.push(heroData.general["Total health"])
+            }
+        }
+    }
+    damage_break_point_values = [...new Set(damage_break_point_values)]
+    damage_break_point_values.sort((a, b) => a - b)
+    return damage_break_point_values
 }
 
 export function calculateRates(patch_data: PatchData, calculation_units: Units) {
@@ -1497,11 +1536,15 @@ function removeRedundantBreakpoints(changes: Changes<PatchData>, after_patch_dat
             let breakpoints_to_remove: string[] = []
             for (let breakpoint_type in similar_breakpoints) {
                 let breakpoints = similar_breakpoints[breakpoint_type]
-                for (let breakpoint of breakpoints) {
+                let breakpoint_idx = 0;
+                while (breakpoint_idx < breakpoints.length) {
+                    let breakpoint = breakpoints[breakpoint_idx]
                     let sub_breakpoint = breakpoints.find((other_breakpoint) => breakpoint[0] !== other_breakpoint[0] && isSubBreakpoint(breakpoint[1], other_breakpoint[1]))
                     if (sub_breakpoint !== undefined) {
                         breakpoints_to_remove.push(breakpoint[0])
-                        breakpoints.splice(breakpoints.indexOf(breakpoint), 1)
+                        breakpoints.splice(breakpoint_idx, 1)
+                    } else {
+                        breakpoint_idx += 1
                     }
                 }
             }
