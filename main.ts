@@ -1142,36 +1142,59 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: U
             }
         }
         for (let ability in heroData.abilities) {
-            let max_damage_instances = 1;
-            let ability_damage_options: { [key: string]: number } = {}
+            console.log(ability)
+            let ability_damage_options: { [key: string]: [number, number] } = {}
+            let ability_normal_max_damage_instances:number | null = null;
+            
             for (let ability_property in heroData.abilities[ability]) {
+                if (typeof heroData.abilities[ability][ability_property] !== "number") {
+                    continue
+                }
                 for (let property_unit of heroUnits.abilities[ability][ability_property]) {
-                    if (typeof heroData.abilities[ability][ability_property] !== "number") {
-                        continue
-                    }
-                    if (property_unit == "breakpoint damage") {
-                        ability_damage_options[ability_property] = heroData.abilities[ability][ability_property]
-                    } else if (property_unit == "ammo") {
-                        max_damage_instances = Math.max(max_damage_instances, Math.min(3, heroData.abilities[ability][ability_property]))
+                    if (property_unit == "ammo") {
+                        ability_normal_max_damage_instances = Math.min(3, heroData.abilities[ability][ability_property])
                     } else if (property_unit == "charges") {
-                        max_damage_instances = Math.max(max_damage_instances, heroData.abilities[ability][ability_property])
-                    } else if (property_unit == "time between shots") {
-                        max_damage_instances = Math.max(max_damage_instances, 3)
+                        ability_normal_max_damage_instances = heroData.abilities[ability][ability_property]
+                    } else if (property_unit == "time between shots" && ability_normal_max_damage_instances == null) {
+                        ability_normal_max_damage_instances = 3
                     }
+                }
+            }
+            if(ability_normal_max_damage_instances == null) {
+                ability_normal_max_damage_instances = 1;
+            }
+            for (let ability_property in heroData.abilities[ability]) {
+                let is_damage_property = false
+                let max_damage_instances:number = ability_normal_max_damage_instances;
+                if (typeof heroData.abilities[ability][ability_property] !== "number") {
+                    continue
+                }
+                for (let property_unit of heroUnits.abilities[ability][ability_property]) {
+                    if (property_unit == "breakpoint damage") {
+                        is_damage_property = true
+                        console.log(heroUnits.abilities[ability][ability_property])
+                    } else if (Array.isArray(property_unit) && property_unit[0] == "situation" && property_unit[1] == "cast") {
+                        max_damage_instances = 1
+                    }
+                }
+                
+                if (is_damage_property) {
+                    ability_damage_options[ability_property] = [heroData.abilities[ability][ability_property], max_damage_instances]
+                    console.log(ability_damage_options[ability_property])
                 }
             }
 
             let ability_damage_option_set: [{ [dmg_case: string]: number }, number][] = [[{}, 0]]
             for (let damage_option in ability_damage_options) {
-                for (let i = 0; i < max_damage_instances; i++) {
-                    for (let damage_option_set_element of ability_damage_option_set) {
-                        if (Object.values(damage_option_set_element[0]).reduce((s, a) => s + a, 0) < max_damage_instances) {
-                            let new_damage_option_set_element = structuredClone(damage_option_set_element)
+                for (let i = 0; i < ability_damage_options[damage_option][1]; i++) {
+                    for (let damage_option_set_element of structuredClone(ability_damage_option_set)) {
+                        if (Object.values(damage_option_set_element[0]).reduce((s, a) => s + a, 0) < ability_normal_max_damage_instances) {
+                            let new_damage_option_set_element = damage_option_set_element
                             if (!(damage_option in new_damage_option_set_element[0])) {
                                 new_damage_option_set_element[0][damage_option] = 0
                             }
                             new_damage_option_set_element[0][damage_option] += 1
-                            new_damage_option_set_element[1] += ability_damage_options[damage_option]
+                            new_damage_option_set_element[1] += ability_damage_options[damage_option][0]
 
                             ability_damage_option_set.push(new_damage_option_set_element)
                         }
