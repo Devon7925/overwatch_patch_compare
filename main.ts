@@ -21,6 +21,7 @@ type Unit =
     | ["situation", Situation]
     | ["special armor mitigation", DamageType]
     | ["display unit", DisplayUnit]
+    | ["damage per second", DamageType]
     | ["critical multiplier", CritType] | ["critical multiplier", CritType, DamageType] | "bullets per burst" | "ammo" | "charges" | "reload time" | "health" | "breakpoint damage" | "time between shots" | "burst recovery time" | "reload time per ammo" | "ammo per shot" | "damage per second" | "healing per second"
 type Value = string | number | boolean
 type Hero = "D.Va" |
@@ -223,6 +224,7 @@ const isUnit = unionTypeguard<Unit>([
     isTupleMatchingTypeguards(isLiteral("situation"), isString),
     isTupleMatchingTypeguards(isLiteral("special armor mitigation"), isString),
     isTupleMatchingTypeguards(isLiteral("display unit"), isDisplayUnit),
+    isTupleMatchingTypeguards(isLiteral("damage per second"), isString),
     isTupleMatchingTypeguards(isLiteral("critical multiplier"), isString),
     isTupleMatchingTypeguards(isLiteral("critical multiplier"), isString, isString),
     isLiteral("ammo"),
@@ -904,6 +906,17 @@ export function applyDamageMultiplier(patch_data: PatchData, multiplier: number,
 
 export function calculatePreArmorProperties(patch_data: PatchData, calculation_units: Units) {
     forEachAbility(patch_data, calculation_units, (abilityData, abilityUnits) => {
+        for (let ability_property in abilityData) {
+            let property_units = abilityUnits[ability_property]
+
+            if (typeof abilityData[ability_property] !== "number") {
+                continue;
+            }
+
+            if (property_units.some((unit) => Array.isArray(unit) && unit[0] === "damage per second")) {
+                abilityUnits[ability_property].push("damage per second")
+            }
+        }
         for (let damage_or_healing of ["damage", "healing"] as const) {
             let total_damage = Object.keys(abilityData)
                 .flatMap((property) => {
@@ -1004,7 +1017,7 @@ export function applyArmor(patch_data: PatchData, calculation_units: Units, spec
             if (typeof abilityData[ability_property] === "number") {
                 let damage_type = property_units
                     .filter((unit) => Array.isArray(unit))
-                    .filter((unit) => unit[0] == "total instance damage" || unit[0] == "total instance crit damage")
+                    .filter((unit) => unit[0] == "total instance damage" || unit[0] == "total instance crit damage" || unit[0] == "damage per second")
                     .map(unit => unit[1]);
                 if (damage_type.length > 1) {
                     throw new Error("should not have multiple damage types")

@@ -1675,7 +1675,7 @@
                     },
                     "Particle Cannon": {
                         "Maximum damage per second": [
-                            "damage per second"
+                            ["damage per second", "beam"]
                         ],
                         "Minimum damage per second": [],
                         "Beam width": [
@@ -2528,7 +2528,7 @@
                 "abilities": {
                     "Tesla Cannon": {
                         "Damage per second": [
-                            "damage per second"
+                            ["damage per second", "lightning"]
                         ],
                         "ignores armor damage reduction": [
                             [
@@ -5356,7 +5356,9 @@
                                 "health per second"
                             ]
                         ],
-                        "Damage per second per level": [],
+                        "Damage per second per level": [
+                            ["damage per second", "beam"]
+                        ],
                         "Beam width": [
                             [
                                 "display unit",
@@ -5450,7 +5452,9 @@
                     },
                     "Sentry Turret": {
                         "Health": [],
-                        "Damage per second": [],
+                        "Damage per second": [
+                            ["damage per second", "beam"]
+                        ],
                         "reveals enemy heroes to allies while dealing damage and for 1 additional second afterwards": [
                             [
                                 "display unit",
@@ -7812,7 +7816,9 @@
                 },
                 "abilities": {
                     "Biotic Grasp": {
-                        "Damage per second": [],
+                        "Damage per second": [
+                            ["damage per second", "beam"]
+                        ],
                         "Secondary fire target acquisition radius": [
                             [
                                 "display unit",
