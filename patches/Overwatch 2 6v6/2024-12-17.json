@@ -393,13 +393,14 @@
                         "Ammo per second": 20
                     },
                     "Particle Barrier": {
+                        "Cooldown start": "barrier expiry",
                         "shares cooldown with Projected Barrier": false,
                         "Cooldown": 10,
                         "Health": 200,
                         "Duration": 2
                     },
                     "Projected Barrier": {
-                        "Cooldown start": "ability use",
+                        "Cooldown start": "barrier expiry",
                         "shares cooldown with Particle Barrier": false,
                         "Cooldown": 8,
                         "Health": 200,
