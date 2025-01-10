@@ -1457,6 +1457,7 @@
                     },
                     "Widow's Kiss Alt Fire": {
                         "Alt fire of": "Widow's Kiss",
+                        "Projectile size": 0.05,
                         "Maximum damage falloff scalar": 50,
                         "Falloff minimum range": 50,
                         "Falloff maximum range": 70,
