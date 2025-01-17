@@ -289,7 +289,8 @@
                         "requires fireball speed for max duration to begin": false,
                         "Knockback": 22,
                         "Cooldown": 5,
-                        "Maximum duration": 6
+                        "Maximum duration": 6,
+                        "Respawn cooldown": 5
                     },
                     "Piledriver": {
                         "Movement lockout duration for enemies": 0.5,
@@ -624,7 +625,8 @@
                     },
                     "Combat Roll": {
                         "Damage reduction": 50,
-                        "can be blocked by enemy player collision": true
+                        "can be blocked by enemy player collision": true,
+                        "can be used mid-air": true
                     },
                     "Flashbang": {
                         "Duration": 1.2,
@@ -759,7 +761,8 @@
                         "Critical multiplier": 2,
                         "Bullets per burst": 5,
                         "Damage per bullet": 65,
-                        "Burst recovery time": 0.24
+                        "Burst recovery time": 0.24,
+                        "Richochets": 1
                     },
                     "Dragonstrike": {
                         "Speed": 12,
@@ -1522,7 +1525,8 @@
                     },
                     "Fade": {
                         "can be activated while affected by mobility-locking effects": true,
-                        "Cooldown": 7
+                        "Cooldown": 7,
+                        "can jump much higher while using this ability": true
                     },
                     "Biotic Orb": {
                         "Healing Orb capacity": 250,

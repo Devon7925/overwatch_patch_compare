@@ -1133,6 +1133,12 @@
                 "general": {
                     "Base health": [
                         "health"
+                    ],
+                    "Enemy Ultimate Charge reduction": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
                     ]
                 },
                 "abilities": {
@@ -1550,6 +1556,12 @@
                                 "seconds"
                             ]
                         ],
+                        "Respawn cooldown": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
                         "Impact damage": [
                             [
                                 "damage instance",
@@ -1613,6 +1625,12 @@
                                 "seconds"
                             ]
                         ],
+                        "Cast time": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
                         "Base shield": []
                     },
                     "Piledriver": {
@@ -1650,6 +1668,12 @@
                                 "display unit",
                                 "seconds"
                             ]
+                        ],
+                        "Sticks to walls": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
                         ]
                     }
                 }
@@ -1675,7 +1699,10 @@
                     },
                     "Particle Cannon": {
                         "Maximum damage per second": [
-                            ["damage per second", "beam"]
+                            [
+                                "damage per second",
+                                "beam"
+                            ]
                         ],
                         "Minimum damage per second": [],
                         "Beam width": [
@@ -2528,7 +2555,10 @@
                 "abilities": {
                     "Tesla Cannon": {
                         "Damage per second": [
-                            ["damage per second", "lightning"]
+                            [
+                                "damage per second",
+                                "lightning"
+                            ]
                         ],
                         "ignores armor damage reduction": [
                             [
@@ -3219,6 +3249,12 @@
                                 "display unit",
                                 "flag"
                             ]
+                        ],
+                        "can be used mid-air": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
                         ]
                     },
                     "Flashbang": {
@@ -3430,7 +3466,13 @@
                     },
                     "Meteor Strike": {
                         "Ultimate cost": [],
-                        "Minimum damage": []
+                        "Minimum damage": [],
+                        "Cooldown rate acceleration": [
+                            [
+                                "display unit",
+                                "percent"
+                            ]
+                        ]
                     }
                 }
             },
@@ -3885,7 +3927,8 @@
                                 "display unit",
                                 "seconds"
                             ]
-                        ]
+                        ],
+                        "Richochets": []
                     },
                     "Lunge": {
                         "Cooldown": [
@@ -5357,7 +5400,10 @@
                             ]
                         ],
                         "Damage per second per level": [
-                            ["damage per second", "beam"]
+                            [
+                                "damage per second",
+                                "beam"
+                            ]
                         ],
                         "Beam width": [
                             [
@@ -5453,7 +5499,10 @@
                     "Sentry Turret": {
                         "Health": [],
                         "Damage per second": [
-                            ["damage per second", "beam"]
+                            [
+                                "damage per second",
+                                "beam"
+                            ]
                         ],
                         "reveals enemy heroes to allies while dealing damage and for 1 additional second afterwards": [
                             [
@@ -7817,7 +7866,10 @@
                 "abilities": {
                     "Biotic Grasp": {
                         "Damage per second": [
-                            ["damage per second", "beam"]
+                            [
+                                "damage per second",
+                                "beam"
+                            ]
                         ],
                         "Secondary fire target acquisition radius": [
                             [
@@ -7849,6 +7901,12 @@
                             [
                                 "display unit",
                                 "seconds"
+                            ]
+                        ],
+                        "can jump much higher while using this ability": [
+                            [
+                                "display unit",
+                                "flag"
                             ]
                         ]
                     },

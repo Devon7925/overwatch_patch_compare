@@ -128,7 +128,8 @@
             },
             "Roadhog": {
                 "general": {
-                    "Base health": 600
+                    "Base health": 600,
+                    "Enemy Ultimate Charge reduction": 25
                 },
                 "abilities": {
                     "Scrap Gun": {
@@ -224,7 +225,8 @@
                         "requires fireball speed for max duration to begin": false,
                         "Knockback": 16,
                         "Cooldown": 5,
-                        "Maximum duration": 6
+                        "Maximum duration": 6,
+                        "Respawn cooldown": 5
                     },
                     "Piledriver": {
                         "Movement lockout duration for enemies": 0.5,
@@ -277,12 +279,14 @@
                     },
                     "Particle Barrier": {
                         "Cooldown start": "barrier expiry",
+                        "shares cooldown with Projected Barrier": false,
                         "Cooldown": 10,
                         "Health": 200,
                         "Duration": 2
                     },
                     "Projected Barrier": {
                         "Cooldown start": "barrier expiry",
+                        "shares cooldown with Particle Barrier": false,
                         "Cooldown": 8,
                         "Health": 200,
                         "Duration": 2,
@@ -484,7 +488,8 @@
                         "Maximum damage falloff scalar": 30
                     },
                     "Combat Roll": {
-                        "can be blocked by enemy player collision": true
+                        "can be blocked by enemy player collision": true,
+                        "can be used mid-air": true
                     },
                     "Flashbang": {
                         "Effect": "Applies stun on hit",
@@ -555,7 +560,8 @@
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 1680,
-                        "Minimum damage": 15
+                        "Minimum damage": 15,
+                        "Cooldown rate acceleration": 100
                     }
                 }
             },
@@ -660,7 +666,8 @@
                         "Critical multiplier": 2,
                         "Bullets per burst": 5,
                         "Damage per bullet": 70,
-                        "Burst recovery time": 0.24
+                        "Burst recovery time": 0.24,
+                        "Richochets": 1
                     },
                     "Dragonstrike": {
                         "Speed": 12,
@@ -1372,7 +1379,8 @@
                     },
                     "Fade": {
                         "can be activated while affected by mobility-locking effects": true,
-                        "Cooldown": 6
+                        "Cooldown": 6,
+                        "can jump much higher while using this ability": true
                     },
                     "Biotic Orb": {
                         "Healing Orb capacity": 300,

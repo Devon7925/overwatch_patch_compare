@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Beam armor mitigation"
-new_value = 30
-process_json_files(folder_path, 'general/Beam armor mitigation', new_property_name, new_value, rename=False)
+new_property_name = "Respawn cooldown"
+new_value = 5
+process_json_files(folder_path, 'heroes/tank/Wrecking Ball/abilities/Grappling Claw/Respawn cooldown', new_property_name, new_value, rename=False)
