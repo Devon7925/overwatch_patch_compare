@@ -52,7 +52,8 @@
                     "Self Destruct": {
                         "Ultimate cost": 1545,
                         "Maximum damage": 900,
-                        "Inner explosion radius": 4
+                        "Inner explosion radius": 4,
+                        "prevents building ultimate charge for duration": true
                     },
                     "Light Gun": {
                         "Projectile size": 0.2,
@@ -75,7 +76,7 @@
                     "Call Mech": {
                         "Ultimate cost": 318,
                         "Damage": 250,
-                        "Radius": 3
+                        "Radius": 2.5
                     }
                 }
             },
@@ -248,7 +249,8 @@
                         "Critical multiplier": 2,
                         "Damage": 5,
                         "Recovery time": 0.04,
-                        "Ammo": 80
+                        "Ammo": 80,
+                        "Maximum damage falloff scalar": 30
                     },
                     "Adaptive Shield": {
                         "Ally overhealth cap": 0,
@@ -412,14 +414,16 @@
                         "Recovery time": 0.266,
                         "Ammo": 12,
                         "Reload time per ammo": 0.25,
-                        "Reload time": 0.5
+                        "Reload time": 0.5,
+                        "Maximum damage falloff scalar": 30
                     },
                     "The Viper Alt Fire": {
                         "Projectile size": 0.0,
                         "Damage": 75,
                         "Critical multiplier": 2,
                         "Recovery time": 0.65,
-                        "Alt fire of": "The Viper"
+                        "Alt fire of": "The Viper",
+                        "Maximum damage falloff scalar": 30
                     },
                     "Dynamite": {
                         "Cooldown": 12,
@@ -456,7 +460,8 @@
                         "Ammo": 300,
                         "Reload time": 2.1,
                         "Recovery time": 0.03333333333333333,
-                        "Damage": 15
+                        "Damage": 15,
+                        "Maximum damage falloff scalar": 30
                     },
                     "Configuration: Tank": {},
                     "Configuration: Recon": {
@@ -466,7 +471,8 @@
                         "Reload time": 1.5,
                         "Recovery time": 0.125,
                         "Critical multiplier": 2,
-                        "Spread": 1.2
+                        "Spread": 1.2,
+                        "Maximum damage falloff scalar": 30
                     },
                     "Reconfigure": {}
                 }
@@ -514,7 +520,8 @@
                         "Damage": 50,
                         "Recovery time": 0.13,
                         "Alt fire of": "Peacekeeper",
-                        "Additional reload delay": 0.358
+                        "Additional reload delay": 0.358,
+                        "Maximum damage falloff scalar": 30
                     }
                 }
             },
@@ -881,7 +888,8 @@
                         "Critical multiplier": 2,
                         "Reload time": 1.5,
                         "Number of shots to reach maximum recoil": 4,
-                        "Recoil": 1
+                        "Recoil": 1,
+                        "Maximum damage falloff scalar": 30
                     },
                     "Biotic Field": {
                         "Cooldown": 15,
@@ -1119,7 +1127,8 @@
                         "Ammo": 35,
                         "Recovery time": 0.1,
                         "Damage": 13,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Maximum damage falloff scalar": 30
                     },
                     "Widow's Kiss Alt Fire": {
                         "Alt fire of": "Widow's Kiss",
@@ -1198,7 +1207,8 @@
                         "Burst recovery time": 0.096,
                         "Bullets per burst": 3,
                         "Reload time": 1.5,
-                        "Recoil": 1.0
+                        "Recoil": 1.0,
+                        "Maximum damage falloff scalar": 30
                     },
                     "Regenerative Burst": {
                         "Cooldown": 15,

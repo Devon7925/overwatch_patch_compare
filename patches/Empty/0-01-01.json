@@ -2,13 +2,78 @@
     "general": {},
     "heroes": {
         "tank": {
-            "general": {}
+            "general": {},
+            "Wrecking Ball": {
+                "abilities": {
+                    "Quad Cannons": {
+                        "Maximum damage falloff scalar": 30
+                    }
+                }
+            },
+            "D.Va": {
+                "abilities": {
+                    "Self Destruct": {
+                        "prevents building ultimate charge for duration": true
+                    }
+                }
+            }
         },
         "damage": {
-            "general": {}
+            "general": {},
+            "Ashe": {
+                "abilities": {
+                    "The Viper": {
+                        "Maximum damage falloff scalar": 30
+                    },
+                    "The Viper Alt Fire": {
+                        "Maximum damage falloff scalar": 30
+                    }
+                }
+            },
+            "Bastion": {
+                "abilities": {
+                    "Configuration: Assault": {
+                        "Maximum damage falloff scalar": 30
+                    },
+                    "Configuration: Recon": {
+                        "Maximum damage falloff scalar": 30
+                    }
+                }
+            },
+            "Cassidy": {
+                "abilities": {
+                    "Fan the Hammer": {
+                        "Maximum damage falloff scalar": 30
+                    }
+                }
+            },
+            "Soldier: 76": {
+                "abilities": {
+                    "Heavy Pulse Rifle": {
+                        "Maximum damage falloff scalar": 30
+                    }
+                }
+            },
+            "Widowmaker": {
+                "abilities": {
+                    "Widow's Kiss": {
+                        "Maximum damage falloff scalar": 30
+                    },
+                    "Widow's Kiss Alt Fire": {
+                        "Maximum damage falloff scalar": 30
+                    }
+                }
+            }
         },
         "support": {
-            "general": {}
+            "general": {},
+            "Baptiste": {
+                "abilities": {
+                    "Biotic Launcher": {
+                        "Maximum damage falloff scalar": 30
+                    }
+                }
+            }
         }
     },
     "Map list": {},

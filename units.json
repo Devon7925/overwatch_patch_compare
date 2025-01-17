@@ -294,6 +294,12 @@
                                 "display unit",
                                 "meters"
                             ]
+                        ],
+                        "prevents building ultimate charge for duration": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
                         ]
                     },
                     "Light Gun": {
@@ -1547,6 +1553,12 @@
                                 "display unit",
                                 "seconds"
                             ]
+                        ],
+                        "Maximum damage falloff scalar": [
+                            [
+                                "display unit",
+                                "percent"
+                            ]
                         ]
                     },
                     "Grappling Claw": {
@@ -2759,6 +2771,12 @@
                                 "display unit",
                                 "seconds"
                             ]
+                        ],
+                        "Maximum damage falloff scalar": [
+                            [
+                                "display unit",
+                                "percent"
+                            ]
                         ]
                     },
                     "The Viper Alt Fire": {
@@ -2803,6 +2821,12 @@
                             [
                                 "display unit",
                                 "seconds"
+                            ]
+                        ],
+                        "Maximum damage falloff scalar": [
+                            [
+                                "display unit",
+                                "percent"
                             ]
                         ]
                     },
@@ -2983,6 +3007,12 @@
                                 "display unit",
                                 "seconds"
                             ]
+                        ],
+                        "Maximum damage falloff scalar": [
+                            [
+                                "display unit",
+                                "percent"
+                            ]
                         ]
                     },
                     "Configuration: Assault": {
@@ -3039,7 +3069,13 @@
                                 "seconds"
                             ]
                         ],
-                        "Healing per second": []
+                        "Healing per second": [],
+                        "Maximum damage falloff scalar": [
+                            [
+                                "display unit",
+                                "percent"
+                            ]
+                        ]
                     },
                     "A-36 Tactical Grenade": {
                         "Self damage rate": [],
@@ -3234,6 +3270,12 @@
                             [
                                 "display unit",
                                 "seconds"
+                            ]
+                        ],
+                        "Maximum damage falloff scalar": [
+                            [
+                                "display unit",
+                                "percent"
                             ]
                         ]
                     },
@@ -4947,6 +4989,12 @@
                                 "critical multiplier",
                                 "headshot"
                             ]
+                        ],
+                        "Maximum damage falloff scalar": [
+                            [
+                                "display unit",
+                                "percent"
+                            ]
                         ]
                     },
                     "Helix Rocket": {
@@ -6133,6 +6181,12 @@
                                 "display unit",
                                 "seconds"
                             ]
+                        ],
+                        "Maximum damage falloff scalar": [
+                            [
+                                "display unit",
+                                "percent"
+                            ]
                         ]
                     },
                     "Widow's Kiss Alt Fire": {
@@ -6458,6 +6512,12 @@
                             [
                                 "display unit",
                                 "relative percent"
+                            ]
+                        ],
+                        "Maximum damage falloff scalar": [
+                            [
+                                "display unit",
+                                "percent"
                             ]
                         ]
                     },
