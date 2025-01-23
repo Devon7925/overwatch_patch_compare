@@ -63,6 +63,13 @@
                         "Maximum damage falloff scalar": 30
                     }
                 }
+            },
+            "Echo": {
+                "abilities": {
+                    "Focusing Beam": {
+                        "Base damage per second": 50
+                    }
+                }
             }
         },
         "support": {

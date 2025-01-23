@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "prevents building ultimate charge for duration"
-new_value = True
-process_json_files(folder_path, 'heroes/tank/D.Va/abilities/Self Destruct/prevents building ultimate charge for duration', new_property_name, new_value, rename=False)
+new_property_name = "Base damage per second"
+new_value = 50
+process_json_files(folder_path, 'heroes/damage/Echo/abilities/Focusing Beam/Base damage per second', new_property_name, new_value, rename=False)

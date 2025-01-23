@@ -3660,6 +3660,7 @@
                                 "meters"
                             ]
                         ],
+                        "Base damage per second": [],
                         "Maximum damage per second": [],
                         "Cooldown": [
                             [

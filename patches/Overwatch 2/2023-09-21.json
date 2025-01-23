@@ -754,7 +754,8 @@
                     "Focusing Beam": {
                         "Width": 0.2,
                         "Maximum damage per second": 175,
-                        "Cooldown": 8
+                        "Cooldown": 8,
+                        "Base damage per second": 50
                     },
                     "Flight": {
                         "Cooldown": 6,
