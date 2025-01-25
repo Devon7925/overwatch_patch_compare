@@ -3297,6 +3297,12 @@
                                 "display unit",
                                 "flag"
                             ]
+                        ],
+                        "Movement speed": [
+                            [
+                                "display unit",
+                                "meters per second"
+                            ]
                         ]
                     },
                     "Flashbang": {
@@ -3678,6 +3684,7 @@
                                 "flag"
                             ]
                         ],
+                        "Minimum health when exiting Duplicate": [],
                         "Maximum combined health": [],
                         "D.va copy health": [],
                         "D.va copy armor": [],
@@ -6453,6 +6460,14 @@
                     ]
                 },
                 "abilities": {
+                    "Exo-Boots": {
+                        "Charge time": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ]
+                    },
                     "Biotic Launcher": {
                         "Damage per bullet": [
                             [
@@ -8042,7 +8057,8 @@
                         ],
                         "Damage per second": [
                             "damage per second"
-                        ]
+                        ],
+                        "Resource regeneration multiplier": []
                     }
                 }
             },

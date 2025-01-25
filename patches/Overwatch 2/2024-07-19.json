@@ -752,7 +752,8 @@
                     "Combat Roll": {
                         "Damage reduction": 50,
                         "can be blocked by enemy player collision": false,
-                        "can be used mid-air": true
+                        "can be used mid-air": true,
+                        "Movement speed": 15
                     },
                     "Flashbang": {
                         "Effect": "Applies hinder on hit",
@@ -801,7 +802,8 @@
                         "Ultimate gain multiplier": 4.5,
                         "Ultimate cost": 1850,
                         "has predetermined tank health pools": false,
-                        "Maximum combined health": 350
+                        "Maximum combined health": 350,
+                        "Minimum health when exiting Duplicate": 100
                     },
                     "Tri-shot": {
                         "Projectile size": 0.175,
@@ -1562,6 +1564,9 @@
                         "Ammo": 13,
                         "Recovery time": 0.9,
                         "Alt fire of": "Biotic Launcher"
+                    },
+                    "Exo-Boots": {
+                        "Charge time": 1
                     }
                 }
             },
@@ -1915,7 +1920,8 @@
                         "can use fade during duration": true,
                         "Ultimate cost": 2900,
                         "Bonus movement speed": 40,
-                        "Damage per second": 70
+                        "Damage per second": 70,
+                        "Resource regeneration multiplier": 3
                     },
                     "Fade": {
                         "can be activated while affected by mobility-locking effects": false,
