@@ -261,7 +261,8 @@
                 "abilities": {
                     "Experimental Barrier": {
                         "Movement speed": 16.5,
-                        "Regeneration rate": 85
+                        "Regeneration rate": 85,
+                        "Cooldown": 2
                     },
                     "Kinetic Grasp": {
                         "Cooldown": 12,
@@ -820,7 +821,8 @@
                         "Width": 0.25,
                         "Maximum damage per second": 175,
                         "Cooldown": 8,
-                        "Base damage per second": 50
+                        "Base damage per second": 50,
+                        "Duration": 2
                     },
                     "Flight": {
                         "Cooldown": 6,
@@ -1056,7 +1058,8 @@
                     "Hover Jets": {
                         "requires landing to recharge fuel": true,
                         "Speed Boost": 40,
-                        "can be activated without fuel to slow decent": true
+                        "can be activated without fuel to slow decent": true,
+                        "Fuel regeneration per second": 43
                     }
                 }
             },
@@ -1370,7 +1373,8 @@
                         "Ammo": 40,
                         "Damage per pellet": 6,
                         "Pellet count": 2,
-                        "Ammo per shot": 2
+                        "Ammo per shot": 2,
+                        "Maximum falloff range": 20
                     },
                     "Recall": {
                         "Cooldown": 12,
@@ -1860,12 +1864,15 @@
                         "Ultimate cost": 2550
                     },
                     "Harmony Orb": {
-                        "Time to wear off when not in line-of-sight": 5
+                        "Time to wear off when not in line-of-sight": 5,
+                        "Projectile speed": 90
                     },
                     "Orb of Discord": {
                         "Reapplication cooldown": 7,
                         "Range": 40,
-                        "Time to wear off the target when not in line-of-sight": 1.5
+                        "Time to wear off the target when not in line-of-sight": 1.5,
+                        "Projectile speed": 90,
+                        "Damage amplification": 25
                     },
                     "Orb of Destruction Alt Fire": {
                         "Alt fire of": "Orb of Destruction",

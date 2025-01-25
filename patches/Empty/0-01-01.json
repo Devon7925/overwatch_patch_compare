@@ -5,14 +5,7 @@
             "general": {}
         },
         "damage": {
-            "general": {},
-            "Echo": {
-                "abilities": {
-                    "Duplicate": {
-                        "Minimum health when exiting Duplicate": 100
-                    }
-                }
-            }
+            "general": {}
         },
         "support": {
             "general": {}

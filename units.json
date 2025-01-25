@@ -1439,7 +1439,13 @@
                     },
                     "Experimental Barrier": {
                         "Movement speed": [],
-                        "Regeneration rate": []
+                        "Regeneration rate": [],
+                        "Cooldown": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ]
                     },
                     "Kinetic Grasp": {
                         "Cooldown": [
@@ -3673,6 +3679,12 @@
                                 "display unit",
                                 "seconds"
                             ]
+                        ],
+                        "Duration": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
                         ]
                     },
                     "Duplicate": {
@@ -4454,6 +4466,12 @@
                             [
                                 "display unit",
                                 "flag"
+                            ]
+                        ],
+                        "Fuel regeneration per second": [
+                            [
+                                "display unit",
+                                "percent"
                             ]
                         ]
                     },
@@ -5828,6 +5846,12 @@
                             ]
                         ],
                         "Minimum falloff range": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
+                        "Maximum falloff range": [
                             [
                                 "display unit",
                                 "meters"
@@ -8177,9 +8201,21 @@
                                 "display unit",
                                 "seconds"
                             ]
+                        ],
+                        "Projectile speed": [
+                            [
+                                "display unit",
+                                "meters per second"
+                            ]
                         ]
                     },
                     "Orb of Discord": {
+                        "Damage amplification": [
+                            [
+                                "display unit",
+                                "percent"
+                            ]
+                        ],
                         "Reapplication cooldown": [
                             [
                                 "display unit",
@@ -8196,6 +8232,12 @@
                             [
                                 "display unit",
                                 "seconds"
+                            ]
+                        ],
+                        "Projectile speed": [
+                            [
+                                "display unit",
+                                "meters per second"
                             ]
                         ]
                     },
