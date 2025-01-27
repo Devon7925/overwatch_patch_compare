@@ -8,7 +8,21 @@
             "general": {}
         },
         "support": {
-            "general": {}
+            "general": {},
+            "Moira": {
+                "abilities": {
+                    "Biotic Grasp": {
+                        "Healing resource consumption per second": 12.5
+                    }
+                }
+            },
+            "Baptiste": {
+                "abilities": {
+                    "Amplification Matrix": {
+                        "Width": 9
+                    }
+                }
+            }
         }
     },
     "Map list": {},

@@ -1228,7 +1228,8 @@
                         "Cooldown": 23
                     },
                     "Amplification Matrix": {
-                        "Ultimate cost": 2318
+                        "Ultimate cost": 2318,
+                        "Width": 9
                     },
                     "Biotic Launcher Alt Fire": {
                         "Explosion healing": 60,
@@ -1384,7 +1385,8 @@
                         "Damage per second": 50,
                         "Secondary fire target acquisition radius": 0.6,
                         "Lingering heal duration": 2,
-                        "Self-healing": 20
+                        "Self-healing": 20,
+                        "Healing resource consumption per second": 12.5
                     },
                     "Coalescence": {
                         "Self-heal per second": 50,

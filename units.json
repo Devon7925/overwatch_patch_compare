@@ -3990,7 +3990,13 @@
                                 "seconds"
                             ]
                         ],
-                        "Richochets": []
+                        "Richochets": [],
+                        "is uncancellable": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ]
                     },
                     "Lunge": {
                         "Cooldown": [
@@ -4408,6 +4414,12 @@
                             [
                                 "display unit",
                                 "seconds"
+                            ]
+                        ],
+                        "cannot be destroyed while dead": [
+                            [
+                                "display unit",
+                                "flag"
                             ]
                         ]
                     },
@@ -5622,6 +5634,12 @@
                                 "display unit",
                                 "seconds"
                             ]
+                        ],
+                        "cannot be destroyed while dead": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
                         ]
                     },
                     "Photon Barrier": {
@@ -5771,6 +5789,12 @@
                             [
                                 "display unit",
                                 "seconds"
+                            ]
+                        ],
+                        "cannot be destroyed while dead": [
+                            [
+                                "display unit",
+                                "flag"
                             ]
                         ]
                     },
@@ -6470,6 +6494,12 @@
                                 "display unit",
                                 "seconds"
                             ]
+                        ],
+                        "collides with full health allies": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
                         ]
                     },
                     "Nano Boost": {
@@ -6685,6 +6715,12 @@
                         ]
                     },
                     "Amplification Matrix": {
+                        "Width": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
                         "Ultimate cost": []
                     }
                 }
@@ -7987,6 +8023,12 @@
                             [
                                 "display unit",
                                 "health per second"
+                            ]
+                        ],
+                        "Healing resource consumption per second": [
+                            [
+                                "display unit",
+                                "percent"
                             ]
                         ]
                     },
