@@ -15,7 +15,8 @@
         "can phase type abilities cleanse mobility lock": false,
         "Damage over time armor mitigation": 0,
         "Lightning armor mitigation": 30,
-        "Beam armor mitigation": 30
+        "Beam armor mitigation": 30,
+        "Elevator behavior": "activation"
     },
     "heroes": {
         "tank": {
@@ -1164,7 +1165,7 @@
                         "Projectile size": 0.0,
                         "Spread": 5,
                         "Recovery time": 0.8,
-                        "Damage per pellet": 3.75,
+                        "Damage per pellet": 12.5,
                         "Critical multiplier": 2,
                         "Pellet count": 10,
                         "Alt fire of": "Rivet Gun"
@@ -1247,7 +1248,8 @@
                     "Grappling Hook": {
                         "Cooldown": 12,
                         "Range": 20,
-                        "Move speed": 20
+                        "Move speed": 20,
+                        "Minimum range": 2
                     },
                     "Venom Mine": {
                         "Cooldown": 15,

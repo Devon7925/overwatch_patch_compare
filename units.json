@@ -111,7 +111,8 @@
                 "display unit",
                 "percent"
             ]
-        ]
+        ],
+        "Elevator behavior": []
     },
     "heroes": {
         "tank": {
@@ -5033,7 +5034,14 @@
                                 "display unit",
                                 "percent"
                             ]
-                        ]
+                        ],
+                        "Maximum spread": [
+                            [
+                                "display unit",
+                                "degrees"
+                            ]
+                        ],
+                        "Bullets until reaching maximum spread": []
                     },
                     "Helix Rocket": {
                         "Projectile size": [
@@ -6329,6 +6337,12 @@
                             [
                                 "display unit",
                                 "meters per second"
+                            ]
+                        ],
+                        "Minimum range": [
+                            [
+                                "display unit",
+                                "meters"
                             ]
                         ]
                     },
