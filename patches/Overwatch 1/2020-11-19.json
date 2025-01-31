@@ -184,8 +184,9 @@
                 "abilities": {
                     "Experimental Barrier": {
                         "Movement speed": 16.5,
-                        "Regeneration rate": 120,
-                        "Cooldown": 1
+                        "Regeneration rate": 80,
+                        "Cooldown": 1,
+                        "Health": 700
                     },
                     "Kinetic Grasp": {
                         "Cooldown": 12,
@@ -643,7 +644,7 @@
                         "Damage": 120
                     },
                     "Shuriken Alt Fire": {
-                        "Damage per pellet": 29,
+                        "Damage per pellet": 28,
                         "Projectile size": 0.1,
                         "Critical multiplier": 2,
                         "Alt fire of": "Shuriken",
@@ -1388,7 +1389,9 @@
                         "Secondary fire target acquisition radius": 0.6,
                         "Lingering heal duration": 2,
                         "Self-healing": 20,
-                        "Healing resource consumption per second": 12.5
+                        "Healing resource consumption per second": 12.5,
+                        "Healing per second": 70,
+                        "Resource generation from damage per second": 14
                     },
                     "Coalescence": {
                         "Self-heal per second": 50,
@@ -1444,7 +1447,8 @@
                         "Bullets per burst": 5,
                         "Maximum charge time": 2.62,
                         "Recovery time": 0.6,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Time between shots": 0.111
                     }
                 }
             }

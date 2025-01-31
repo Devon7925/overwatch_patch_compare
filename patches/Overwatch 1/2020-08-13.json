@@ -14,9 +14,10 @@
         "uses dynamic calculation for armor": false,
         "can phase type abilities cleanse mobility lock": true,
         "Damage over time armor mitigation": 0,
-        "Lightning armor mitigation": 30,
-        "Beam armor mitigation": 30,
-        "Elevator behavior": "cycle"
+        "Lightning armor mitigation": 20,
+        "Beam armor mitigation": 20,
+        "Elevator behavior": "cycle",
+        "has random shotgun rotation": true
     },
     "heroes": {
         "tank": {
@@ -84,7 +85,7 @@
             "Orisa": {
                 "general": {
                     "Base health": 200,
-                    "Armor health": 200,
+                    "Armor health": 250,
                     "Model size": 1.0
                 },
                 "abilities": {
@@ -101,15 +102,15 @@
                         "Damage": 11,
                         "Spread": 1.2,
                         "Movement speed reduction": 30,
-                        "Projectile speed": 120,
+                        "Projectile speed": 90,
                         "Recovery time": 0.08333333333333333,
                         "Ammo": 150,
                         "Reload time": 2.55,
                         "Critical multiplier": 2
                     },
                     "Halt": {
-                        "Projectile speed": 25,
-                        "Range": 5,
+                        "Projectile speed": 30,
+                        "Range": 4,
                         "Cast time": 0.1,
                         "Cooldown": 8
                     },
@@ -144,7 +145,7 @@
                         "has secondary fire": true,
                         "Recovery time": 0.85,
                         "Reload time": 2,
-                        "Damage per pellet": 6
+                        "Damage per pellet": 7
                     },
                     "Take a Breather": {
                         "Damage reduction": 50,
@@ -157,7 +158,7 @@
                     "Chain Hook": {
                         "Cooldown": 8,
                         "Projectile size": 0.5,
-                        "Enemy final position distance": 3,
+                        "Enemy final position distance": 3.5,
                         "Cooldown start": "ability start",
                         "Impact damage": 30
                     },
@@ -305,7 +306,7 @@
                     "Particle Cannon Alt Fire": {
                         "Projectile size": 0.2,
                         "Alt fire of": "Particle Cannon",
-                        "Ammo per shot": 25,
+                        "Ammo per shot": 20,
                         "Max damage": 95,
                         "Recovery time": 1
                     },
@@ -413,14 +414,14 @@
                         "Critical multiplier": 2,
                         "Damage": 40,
                         "Recovery time": 0.266,
-                        "Ammo": 12,
+                        "Ammo": 15,
                         "Reload time per ammo": 0.25,
                         "Reload time": 0.5,
                         "Maximum damage falloff scalar": 50
                     },
                     "The Viper Alt Fire": {
                         "Projectile size": 0.0,
-                        "Damage": 80,
+                        "Damage": 85,
                         "Critical multiplier": 2,
                         "Recovery time": 0.7,
                         "Alt fire of": "The Viper",
@@ -428,7 +429,7 @@
                     },
                     "Dynamite": {
                         "Cooldown": 12,
-                        "Explosion damage": 50,
+                        "Explosion damage": 75,
                         "Damage over time": 100,
                         "Duration": 5,
                         "Range": 5
@@ -490,18 +491,18 @@
                         "Damage": 70,
                         "Critical multiplier": 2,
                         "Ammo": 6,
-                        "Recovery time": 0.5,
+                        "Recovery time": 0.42,
                         "Reload time": 1.5,
                         "Maximum damage falloff scalar": 50
                     },
                     "Combat Roll": {
                         "can be blocked by enemy player collision": true,
                         "can be used mid-air": false,
-                        "Movement speed": 18
+                        "Movement speed": 15
                     },
                     "Flashbang": {
                         "Effect": "Applies stun on hit",
-                        "Duration": 0.8,
+                        "Duration": 0.7,
                         "Maximum travel time": 0.23,
                         "Explosion damage": 25,
                         "Cooldown": 10,
@@ -707,7 +708,7 @@
                 "abilities": {
                     "Frag Launcher": {
                         "Projectile size": 0.2,
-                        "Direct damage": 40,
+                        "Direct damage": 50,
                         "Explosion damage": 80,
                         "Recovery time": 0.6667,
                         "Ammo": 5,
@@ -808,7 +809,7 @@
                         "Explosion self damage": 50,
                         "Direct damage": 40,
                         "Explosion damage": 80,
-                        "Recovery time": 0.85,
+                        "Recovery time": 0.75,
                         "Ammo": 6,
                         "Reload time": 1.5
                     },
@@ -1019,8 +1020,8 @@
                     "Photon Projector Alt Fire": {
                         "Minimum projectile size": 0.04,
                         "Maximum projectile size": 0.5,
-                        "Maximum impact damage": 60,
-                        "Maximum explosion damage": 60,
+                        "Maximum impact damage": 70,
+                        "Maximum explosion damage": 70,
                         "Maximum charge time": 1,
                         "Ammo per shot": 7,
                         "Alt fire of": "Photon Projector",
@@ -1070,8 +1071,8 @@
                         "Ammo per shot": 3,
                         "Projectile size": 0.0,
                         "Spread": 5,
-                        "Recovery time": 0.8,
-                        "Damage per pellet": 12.5,
+                        "Recovery time": 0.6,
+                        "Damage per pellet": 10.5,
                         "Critical multiplier": 2,
                         "Pellet count": 10,
                         "Alt fire of": "Rivet Gun"
@@ -1134,7 +1135,7 @@
                         "Projectile size": 0.0,
                         "Shots to reach maximum spread": 3,
                         "Reload time": 1.5,
-                        "Ammo": 35,
+                        "Ammo": 30,
                         "Recovery time": 0.1,
                         "Damage": 13,
                         "Critical multiplier": 2,
@@ -1142,14 +1143,11 @@
                     },
                     "Widow's Kiss Alt Fire": {
                         "Alt fire of": "Widow's Kiss",
-                        "Maximum damage falloff scalar": 50,
-                        "Falloff minimum range": 60,
-                        "Falloff maximum range": 85,
                         "Critical multiplier": 2.5,
                         "Maximum damage": 120,
                         "Maximum charge time": 1,
                         "Recovery time": 0.5,
-                        "Ammo per shot": 5
+                        "Ammo per shot": 3
                     },
                     "Grappling Hook": {
                         "Cooldown": 12,
@@ -1177,7 +1175,7 @@
                 },
                 "abilities": {
                     "Biotic Rifle": {
-                        "Ammo": 12,
+                        "Ammo": 14,
                         "Unscoped projectile size": 0,
                         "Enemy scoped projectile size": 0.0,
                         "Ally scoped projectile size": 0.3,
@@ -1225,8 +1223,7 @@
                         "Cooldown": 15,
                         "Instant healing": 0,
                         "Instant healing on allies <50% HP": 0,
-                        "Heal over time": 75,
-                        "Self healing rate": 200,
+                        "Heal over time": 150,
                         "Radius": 10
                     },
                     "Immortality Field": {
@@ -1235,12 +1232,12 @@
                         "Cooldown": 23
                     },
                     "Amplification Matrix": {
-                        "Ultimate cost": 2000,
+                        "Ultimate cost": 2350,
                         "Width": 5
                     },
                     "Biotic Launcher Alt Fire": {
                         "Explosion healing": 50,
-                        "Ammo": 10,
+                        "Ammo": 12,
                         "Recovery time": 0.8,
                         "Alt fire of": "Biotic Launcher"
                     },
@@ -1390,12 +1387,12 @@
                 "abilities": {
                     "Biotic Grasp": {
                         "Damage per second": 50,
-                        "Secondary fire target acquisition radius": 0.6,
-                        "Lingering heal duration": 2,
+                        "Secondary fire target acquisition radius": 0.95,
+                        "Lingering heal duration": 4,
                         "Self-healing": 20,
-                        "Healing resource consumption per second": 14,
-                        "Healing per second": 70,
-                        "Resource generation from damage per second": 14
+                        "Healing resource consumption per second": 11,
+                        "Healing per second": 65,
+                        "Resource generation from damage per second": 9
                     },
                     "Coalescence": {
                         "Self-heal per second": 50,

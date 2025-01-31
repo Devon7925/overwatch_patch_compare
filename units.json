@@ -112,7 +112,13 @@
                 "percent"
             ]
         ],
-        "Elevator behavior": []
+        "Elevator behavior": [],
+        "has random shotgun rotation": [
+            [
+                "display unit",
+                "flag"
+            ]
+        ]
     },
     "heroes": {
         "tank": {
@@ -1439,6 +1445,7 @@
                         ]
                     },
                     "Experimental Barrier": {
+                        "Health": [],
                         "Movement speed": [],
                         "Regeneration rate": [],
                         "Cooldown": [
@@ -6768,6 +6775,12 @@
                                 "display unit",
                                 "flag"
                             ]
+                        ],
+                        "Self healing rate": [
+                            [
+                                "display unit",
+                                "percent"
+                            ]
                         ]
                     },
                     "Rocket Flail": {
@@ -8044,6 +8057,13 @@
                                 "display unit",
                                 "percent"
                             ]
+                        ],
+                        "Healing per second": [],
+                        "Resource generation from damage per second": [
+                            [
+                                "display unit",
+                                "percent"
+                            ]
                         ]
                     },
                     "Fade": {
@@ -8206,7 +8226,12 @@
                     },
                     "Orb of Destruction Alt Fire": {
                         "Alt fire of": [],
-                        "Damage per bullet": [],
+                        "Damage per bullet": [
+                            [
+                                "damage instance",
+                                "normal"
+                            ]
+                        ],
                         "Bullets per burst": [
                             "bullets per burst",
                             [
@@ -8228,6 +8253,13 @@
                         ],
                         "Maximum charge time": [
                             "time between shots",
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
+                        "Time between shots": [
+                            "burst recovery time",
                             [
                                 "display unit",
                                 "seconds"

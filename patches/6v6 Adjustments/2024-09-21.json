@@ -262,7 +262,8 @@
                     "Experimental Barrier": {
                         "Movement speed": 20,
                         "Regeneration rate": 80,
-                        "Cooldown": 2
+                        "Cooldown": 2,
+                        "Health": 700
                     },
                     "Kinetic Grasp": {
                         "Cooldown": 13,
@@ -1935,7 +1936,9 @@
                         "Secondary fire target acquisition radius": 0.7,
                         "Lingering heal duration": 3,
                         "Self-healing": 24,
-                        "Healing resource consumption per second": 12.5
+                        "Healing resource consumption per second": 12.5,
+                        "Healing per second": 70,
+                        "Resource generation from damage per second": 14
                     },
                     "Coalescence": {
                         "Self-heal per second": 55,
@@ -1997,7 +2000,8 @@
                         "Bullets per burst": 5,
                         "Maximum charge time": 2.62,
                         "Recovery time": 0.6,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "Time between shots": 0.111
                     }
                 }
             }
