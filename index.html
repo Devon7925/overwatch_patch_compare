@@ -24,6 +24,7 @@
     <meta name="google-site-verification" content="L1eFn6rOKhgFmBRd0kMzR_iF9M0xAygRsWpm6mmexv8">
     <meta name="referrer" content="no-referrer-when-downgrade">
     <link rel="icon" type="image/x-icon" href="https://static.playoverwatch.com/img/favicon-2f5255d1c6.ico">
+    <link rel="stylesheet" href="styles.css">
     <style type="text/css">
         @font-face {
             font-display: swap;
@@ -7037,9 +7038,49 @@
             <div class="PatchNotes-list" style="position: relative;">
                 <div class="PatchNotes-body" style="max-width: 100%; width: 100%;">
                     <div class="PatchNotes-patch PatchNotes-live" style="padding-left: 2vw;">
-                        <div>
-                            <button class="button" id="last_patch_button">← Last Patch</button>
-                            <button class="button" id="next_patch_button" style="float: right;">Next Patch →</button>
+                        <div class="meta-controls-holder">
+                            <button class="button change-patch-button" id="last_patch_button">← Last Patch</button>
+                            <div class="patches-holder">
+                                <div class="patch-controls-holder">
+                                    <label class="label">Patch Before:</label>
+                                    <div class="control">
+                                        <span class="select">
+                                            <select name="patch_before" id="patch_before" class="patch-selector">
+                                            </select>
+                                        </span>
+                                    </div>
+                                    <div class="field is-horizontal has-addons">
+                                        <div class="control">
+                                            <input type="text" value="100" class="input" id="patch_before_dmg_boost">
+                                        </div>
+                                        <div class="control">
+                                            <div class="input">
+                                                <input type="range" min="0" max="300" value="100" class="dmg_boost_slider" id="patch_before_dmg_boost_slider">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="patch-controls-holder">
+                                    <label class="label">Patch After:</label>
+                                    <div class="control">
+                                        <span class="select">
+                                            <select name="patch_after" id="patch_after" class="patch-selector">
+                                            </select>
+                                        </span>
+                                    </div>
+                                    <div class="field is-horizontal has-addons">
+                                        <div class="control">
+                                            <input type="text" value="100" class="input" id="patch_after_dmg_boost">
+                                        </div>
+                                        <div class="control">
+                                            <div class="input">
+                                                <input type="range" min="0" max="300" value="100" class="dmg_boost_slider" id="patch_after_dmg_boost_slider">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="button change-patch-button" id="next_patch_button" style="order: 3">Next Patch →</button>
                         </div>
                         <div class="field">
                             <div class="control">
@@ -7065,52 +7106,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="fixed-grid has-2-cols">
-                            <div class="grid">
-                                <div class="cell">
-                                    <label class="label">Patch Before:</label>
-                                </div>
-                                <div class="cell">
-                                    <label class="label">Patch After:</label>
-                                </div>
-                                <div class="cell field is-horizontal">
-                                    <div class="control">
-                                        <span class="select">
-                                            <select name="patch_before" id="patch_before" class="patch-selector">
-                                            </select>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="cell field is-horizontal">
-                                    <div class="control">
-                                        <span class="select">
-                                            <select name="patch_after" id="patch_after" class="patch-selector">
-                                            </select>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="cell field is-horizontal has-addons">
-                                    <div class="control">
-                                        <input type="text" value="100" class="input" id="patch_before_dmg_boost">
-                                    </div>
-                                    <div class="control">
-                                        <div class="input">
-                                            <input type="range" min="0" max="300" value="100" class="dmg_boost_slider" id="patch_before_dmg_boost_slider">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cell field is-horizontal has-addons">
-                                    <div class="control">
-                                        <input type="text" value="100" class="input" id="patch_after_dmg_boost">
-                                    </div>
-                                    <div class="control">
-                                        <div class="input">
-                                            <input type="range" min="0" max="300" value="100" class="dmg_boost_slider" id="patch_after_dmg_boost_slider">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <hr class="has-background-grey-dark">
                         <div class="PatchNotes-section PatchNotes-section-hero_update">
                             <div class="PatchNotes-update PatchNotes-section-hero_update"></div>
                         </div>

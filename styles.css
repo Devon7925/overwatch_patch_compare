@@ -1,0 +1,34 @@
+.meta-controls-holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.button.change-patch-button {
+    height: var(--bulma-control-height);
+}
+
+.patch-controls-holder {
+    margin: 1em;
+    display: grid;
+    grid-auto-flow: row;
+    grid-row-gap: 10px;
+}
+
+.patches-holder {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    order: 4;
+}
+@media (min-width: 768px) {
+    .meta-controls-holder {
+        flex-wrap: nowrap;
+    }
+
+    .patches-holder {
+        order: 2;
+    }
+}
