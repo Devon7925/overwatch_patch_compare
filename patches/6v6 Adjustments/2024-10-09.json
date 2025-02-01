@@ -77,7 +77,8 @@
                         "Projectile speed": 50,
                         "Cooldown": 7,
                         "Bullets per burst": 18,
-                        "Burst recovery time": 0.09090909090909091
+                        "Burst recovery time": 0.09090909090909091,
+                        "Cast time": 0.25
                     },
                     "Eject Mech": {
                         "Pilot damage immunity while ejecting": 0.4
@@ -833,7 +834,8 @@
                         "Maximum damage per second": 175,
                         "Cooldown": 10,
                         "Base damage per second": 50,
-                        "Duration": 2
+                        "Duration": 2,
+                        "Range": 16
                     },
                     "Flight": {
                         "Cooldown": 6,
@@ -864,7 +866,8 @@
                     },
                     "Deflect": {
                         "Duration": 1.5,
-                        "Cooldown": 8
+                        "Cooldown": 8,
+                        "can be cancelled manually": true
                     },
                     "Dragonblade": {
                         "Ultimate cost": 1750,
@@ -878,7 +881,8 @@
                         "Alt fire of": "Shuriken",
                         "Recovery time": 0.68,
                         "Ammo per shot": 3,
-                        "Pellet count": 3
+                        "Pellet count": 3,
+                        "Spread": 9
                     },
                     "Swift Strike": {
                         "Cooldown": 8,
@@ -948,7 +952,9 @@
                         "Minimum damage": 45.833333333333336,
                         "Charges": 2,
                         "Health": 25,
-                        "Range": 3
+                        "Range": 3,
+                        "Trigger delay": 0.1,
+                        "Projectile speed": 25
                     },
                     "RIP-Tire": {
                         "Ultimate cost": 1925,
@@ -956,7 +962,8 @@
                         "Radius": 10,
                         "Cast time": 1.536,
                         "Health": 100,
-                        "Duration": 10
+                        "Duration": 10,
+                        "Delay before regaining control after end": 0.9
                     },
                     "Steel Trap": {
                         "Arming time": 0.75,
@@ -970,7 +977,8 @@
                     "Total Mayhem": {
                         "Bullets per burst": 6,
                         "Cast time": 0.7,
-                        "Explosion damage": 50
+                        "Explosion damage": 50,
+                        "Spread": 1.5
                     }
                 }
             },
@@ -997,7 +1005,8 @@
                         "Min duration": 0.44,
                         "Recovery time": 0.24,
                         "Cooldown": 12,
-                        "Ammo restored per second": 15
+                        "Ammo restored per second": 15,
+                        "acts as solid object for interactions": true
                     },
                     "Ice Wall": {
                         "Health per pillar": 275,
@@ -1624,7 +1633,9 @@
                         "Cooldown": 4
                     },
                     "Barrier Shield": {
-                        "Barrier Shield health": 250
+                        "Barrier Shield health": 250,
+                        "Regeneration rate": 85,
+                        "Cooldown when destroyed": 5
                     },
                     "Shield Bash": {
                         "Cooldown": 5,
@@ -1957,7 +1968,10 @@
                         "Damage orb biotic energy per damage dealt": 0.2,
                         "Healing Orb capacity": 300,
                         "Cooldown": 8,
-                        "can fire damage orb": true
+                        "can fire damage orb": true,
+                        "Damage radius": 4,
+                        "Projectile speed": 20,
+                        "Duration": 7
                     }
                 }
             },

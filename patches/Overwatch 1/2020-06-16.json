@@ -14,9 +14,10 @@
         "uses dynamic calculation for armor": false,
         "can phase type abilities cleanse mobility lock": true,
         "Damage over time armor mitigation": 0,
-        "Lightning armor mitigation": 30,
-        "Beam armor mitigation": 30,
-        "Elevator behavior": "cycle"
+        "Lightning armor mitigation": 20,
+        "Beam armor mitigation": 20,
+        "Elevator behavior": "cycle",
+        "has random shotgun rotation": true
     },
     "heroes": {
         "tank": {
@@ -35,7 +36,7 @@
                     "Fusion Cannons": {
                         "Spread": 4,
                         "Projectile size": 0.0,
-                        "Movement speed penalty": 40,
+                        "Movement speed penalty": 50,
                         "Recovery time": 0.15,
                         "Critical multiplier": 2,
                         "Damage per pellet": 2.0,
@@ -46,7 +47,7 @@
                         "Cooldown": 4
                     },
                     "Defense Matrix": {
-                        "Cooldown": 1,
+                        "Cooldown": 1.5,
                         "Maximum Duration": 2,
                         "Recharge rate": 16.67
                     },
@@ -72,7 +73,7 @@
                         "Cooldown": 8,
                         "Bullets per burst": 18,
                         "Burst recovery time": 0.09090909090909091,
-                        "Cast time": 0.25
+                        "Cast time": 0.5
                     },
                     "Eject Mech": {},
                     "Call Mech": {
@@ -85,7 +86,7 @@
             "Orisa": {
                 "general": {
                     "Base health": 200,
-                    "Armor health": 250,
+                    "Armor health": 200,
                     "Model size": 1.0
                 },
                 "abilities": {
@@ -109,8 +110,8 @@
                         "Critical multiplier": 2
                     },
                     "Halt": {
-                        "Projectile speed": 25,
-                        "Range": 5,
+                        "Projectile speed": 20,
+                        "Range": 7,
                         "Cast time": 0.1,
                         "Cooldown": 8
                     },
@@ -135,7 +136,7 @@
                 },
                 "abilities": {
                     "Scrap Gun": {
-                        "Ammo": 5,
+                        "Ammo": 6,
                         "Pellet projectile size": 0.0,
                         "Shrapnel projectile size": 0.075,
                         "Pellet count": 25,
@@ -143,7 +144,7 @@
                         "Secondary fire pre-detonation damage": 50,
                         "Secondary fire max range": 8,
                         "has secondary fire": true,
-                        "Recovery time": 0.85,
+                        "Recovery time": 0.7,
                         "Reload time": 2,
                         "Damage per pellet": 6
                     },
@@ -185,12 +186,12 @@
                 "abilities": {
                     "Experimental Barrier": {
                         "Movement speed": 16.5,
-                        "Regeneration rate": 80,
+                        "Regeneration rate": 120,
                         "Cooldown": 1,
-                        "Health": 700
+                        "Health": 900
                     },
                     "Kinetic Grasp": {
-                        "Cooldown": 12,
+                        "Cooldown": 10,
                         "Overhealth generation from damage mitigated": 60
                     },
                     "Accretion": {
@@ -306,7 +307,7 @@
                     "Particle Cannon Alt Fire": {
                         "Projectile size": 0.2,
                         "Alt fire of": "Particle Cannon",
-                        "Ammo per shot": 25,
+                        "Ammo per shot": 20,
                         "Max damage": 95,
                         "Recovery time": 1
                     },
@@ -414,21 +415,21 @@
                         "Critical multiplier": 2,
                         "Damage": 40,
                         "Recovery time": 0.266,
-                        "Ammo": 12,
+                        "Ammo": 15,
                         "Reload time per ammo": 0.25,
                         "Reload time": 0.5,
                         "Maximum damage falloff scalar": 50
                     },
                     "The Viper Alt Fire": {
                         "Projectile size": 0.0,
-                        "Damage": 80,
+                        "Damage": 85,
                         "Critical multiplier": 2,
                         "Recovery time": 0.7,
                         "Alt fire of": "The Viper",
                         "Maximum damage falloff scalar": 50
                     },
                     "Dynamite": {
-                        "Cooldown": 12,
+                        "Cooldown": 10,
                         "Explosion damage": 75,
                         "Damage over time": 100,
                         "Duration": 5,
@@ -495,7 +496,7 @@
                         "Damage": 70,
                         "Critical multiplier": 2,
                         "Ammo": 6,
-                        "Recovery time": 0.5,
+                        "Recovery time": 0.42,
                         "Reload time": 1.5,
                         "Maximum damage falloff scalar": 50
                     },
@@ -631,7 +632,7 @@
                 },
                 "abilities": {
                     "Shuriken": {
-                        "Damage per bullet": 28,
+                        "Damage per bullet": 30,
                         "Projectile size": 0.1,
                         "Ammo": 30,
                         "Critical multiplier": 2,
@@ -651,11 +652,11 @@
                         "Damage": 120
                     },
                     "Shuriken Alt Fire": {
-                        "Damage per pellet": 28,
+                        "Damage per pellet": 30,
                         "Projectile size": 0.1,
                         "Critical multiplier": 2,
                         "Alt fire of": "Shuriken",
-                        "Recovery time": 0.75,
+                        "Recovery time": 0.65,
                         "Ammo per shot": 3,
                         "Pellet count": 3,
                         "Spread": 9
@@ -715,7 +716,7 @@
                 "abilities": {
                     "Frag Launcher": {
                         "Projectile size": 0.2,
-                        "Direct damage": 40,
+                        "Direct damage": 50,
                         "Explosion damage": 80,
                         "Recovery time": 0.6667,
                         "Ammo": 5,
@@ -729,7 +730,7 @@
                         "Charges": 2,
                         "Health": 25,
                         "Range": 3,
-                        "Trigger delay": 0.1,
+                        "Trigger delay": 0.156,
                         "Projectile speed": 25
                     },
                     "RIP-Tire": {
@@ -739,7 +740,7 @@
                         "Cast time": 1.536,
                         "Health": 100,
                         "Duration": 10,
-                        "Delay before regaining control after end": 0.9
+                        "Delay before regaining control after end": 1.5
                     },
                     "Steel Trap": {
                         "Arming time": 0.5,
@@ -821,7 +822,7 @@
                         "Explosion self damage": 50,
                         "Direct damage": 40,
                         "Explosion damage": 80,
-                        "Recovery time": 0.85,
+                        "Recovery time": 0.75,
                         "Ammo": 6,
                         "Reload time": 1.5
                     },
@@ -832,7 +833,7 @@
                         "Direct damage": 10,
                         "Explosion damage": 30,
                         "Recovery time": 0.032,
-                        "Duration": 2.5
+                        "Duration": 3
                     },
                     "Concussive Blast": {
                         "Projectile size": 0.15,
@@ -848,9 +849,8 @@
                     },
                     "Hover Jets": {
                         "requires landing to recharge fuel": false,
-                        "Speed Boost": 20,
                         "can be activated without fuel to slow decent": false,
-                        "Fuel regeneration per second": 35
+                        "Fuel regeneration per second": 50
                     }
                 }
             },
@@ -1020,7 +1020,7 @@
                     "Teleporter": {
                         "Base health": 50,
                         "Shield health": 250,
-                        "Cooldown": 10,
+                        "Cooldown": 12,
                         "Build time": 2,
                         "Cooldown start": "teleporter destroyed",
                         "cannot be destroyed while dead": true
@@ -1032,8 +1032,8 @@
                     "Photon Projector Alt Fire": {
                         "Minimum projectile size": 0.04,
                         "Maximum projectile size": 0.5,
-                        "Maximum impact damage": 60,
-                        "Maximum explosion damage": 60,
+                        "Maximum impact damage": 70,
+                        "Maximum explosion damage": 70,
                         "Maximum charge time": 1,
                         "Ammo per shot": 7,
                         "Alt fire of": "Photon Projector",
@@ -1083,8 +1083,8 @@
                         "Ammo per shot": 3,
                         "Projectile size": 0.0,
                         "Spread": 5,
-                        "Recovery time": 0.8,
-                        "Damage per pellet": 12.5,
+                        "Recovery time": 0.6,
+                        "Damage per pellet": 10.5,
                         "Critical multiplier": 2,
                         "Pellet count": 10,
                         "Alt fire of": "Rivet Gun"
@@ -1147,7 +1147,7 @@
                         "Projectile size": 0.0,
                         "Shots to reach maximum spread": 3,
                         "Reload time": 1.5,
-                        "Ammo": 35,
+                        "Ammo": 30,
                         "Recovery time": 0.1,
                         "Damage": 13,
                         "Critical multiplier": 2,
@@ -1155,14 +1155,11 @@
                     },
                     "Widow's Kiss Alt Fire": {
                         "Alt fire of": "Widow's Kiss",
-                        "Maximum damage falloff scalar": 50,
-                        "Falloff minimum range": 60,
-                        "Falloff maximum range": 85,
                         "Critical multiplier": 2.5,
                         "Maximum damage": 120,
                         "Maximum charge time": 1,
                         "Recovery time": 0.5,
-                        "Ammo per shot": 5
+                        "Ammo per shot": 3
                     },
                     "Grappling Hook": {
                         "Cooldown": 12,
@@ -1190,7 +1187,7 @@
                 },
                 "abilities": {
                     "Biotic Rifle": {
-                        "Ammo": 12,
+                        "Ammo": 14,
                         "Unscoped projectile size": 0,
                         "Enemy scoped projectile size": 0.0,
                         "Ally scoped projectile size": 0.3,
@@ -1238,8 +1235,7 @@
                         "Cooldown": 15,
                         "Instant healing": 0,
                         "Instant healing on allies <50% HP": 0,
-                        "Heal over time": 75,
-                        "Self healing rate": 200,
+                        "Heal over time": 150,
                         "Radius": 10
                     },
                     "Immortality Field": {
@@ -1253,7 +1249,7 @@
                     },
                     "Biotic Launcher Alt Fire": {
                         "Explosion healing": 50,
-                        "Ammo": 10,
+                        "Ammo": 12,
                         "Recovery time": 0.8,
                         "Alt fire of": "Biotic Launcher"
                     },
@@ -1264,15 +1260,16 @@
             },
             "Brigitte": {
                 "general": {
-                    "Base health": 150,
+                    "Base health": 200,
                     "Armor health": 50,
                     "has overridden melee": true
                 },
                 "abilities": {
                     "Inspire": {
-                        "Healing per second": 15,
+                        "Healing per second": 21,
                         "Duration": 6,
-                        "triggers from Shield Bash damage": false
+                        "triggers from Shield Bash damage": false,
+                        "Self healing rate": 50
                     },
                     "Rocket Flail": {
                         "Damage": 35,
@@ -1281,7 +1278,9 @@
                     "Repair Pack": {
                         "Cooldown": 6,
                         "Range": 30,
-                        "Healing over time": 55
+                        "Healing over time": 55,
+                        "gives temporary armor to full health targets": true,
+                        "Maximum temporary armor": 50
                     },
                     "Rally": {
                         "Ultimate cost": 2800,
@@ -1298,9 +1297,9 @@
                         "Cooldown": 4
                     },
                     "Barrier Shield": {
-                        "Barrier Shield health": 250,
-                        "Regeneration rate": 85,
-                        "Cooldown when destroyed": 5
+                        "Barrier Shield health": 200,
+                        "Regeneration rate": 100,
+                        "Cooldown when destroyed": 3
                     },
                     "Shield Bash": {
                         "Cooldown": 7,
@@ -1405,12 +1404,12 @@
                 "abilities": {
                     "Biotic Grasp": {
                         "Damage per second": 50,
-                        "Secondary fire target acquisition radius": 0.6,
-                        "Lingering heal duration": 2,
+                        "Secondary fire target acquisition radius": 0.95,
+                        "Lingering heal duration": 4,
                         "Self-healing": 20,
-                        "Healing resource consumption per second": 14,
-                        "Healing per second": 70,
-                        "Resource generation from damage per second": 14
+                        "Healing resource consumption per second": 11,
+                        "Healing per second": 65,
+                        "Resource generation from damage per second": 9
                     },
                     "Coalescence": {
                         "Self-heal per second": 50,
@@ -1467,10 +1466,10 @@
                         "Damage per bullet": 48,
                         "Projectile size": 0.15,
                         "Bullets per burst": 5,
-                        "Maximum charge time": 2.62,
+                        "Maximum charge time": 3.0,
                         "Recovery time": 0.6,
                         "Critical multiplier": 2,
-                        "Time between shots": 0.111
+                        "Time between shots": 0.118
                     }
                 }
             }

@@ -2,13 +2,75 @@
     "general": {},
     "heroes": {
         "tank": {
-            "general": {}
+            "general": {},
+            "D.Va": {
+                "abilities": {
+                    "Micro Missiles": {
+                        "Cast time": 0.25
+                    }
+                }
+            }
         },
         "damage": {
-            "general": {}
+            "general": {},
+            "Junkrat": {
+                "abilities": {
+                    "Concussion Mine": {
+                        "Trigger delay": 0.1,
+                        "Projectile speed": 25
+                    },
+                    "RIP-Tire": {
+                        "Delay before regaining control after end": 0.9
+                    },
+                    "Total Mayhem": {
+                        "Spread": 1.5
+                    }
+                }
+            },
+            "Echo": {
+                "abilities": {
+                    "Focusing Beam": {
+                        "Range": 16
+                    }
+                }
+            },
+            "Genji": {
+                "abilities": {
+                    "Shuriken Alt Fire": {
+                        "Spread": 9
+                    },
+                    "Deflect": {
+                        "can be cancelled manually": true
+                    }
+                }
+            },
+            "Mei": {
+                "abilities": {
+                    "Cryofreeze": {
+                        "acts as solid object for interactions": true
+                    }
+                }
+            }
         },
         "support": {
-            "general": {}
+            "general": {},
+            "Brigitte": {
+                "abilities": {
+                    "Barrier Shield": {
+                        "Regeneration rate": 85,
+                        "Cooldown when destroyed": 5
+                    }
+                }
+            },
+            "Moira": {
+                "abilities": {
+                    "Biotic Orb": {
+                        "Damage radius": 4,
+                        "Projectile speed": 20,
+                        "Duration": 7
+                    }
+                }
+            }
         }
     },
     "Map list": {},

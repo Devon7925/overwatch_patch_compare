@@ -291,6 +291,12 @@
                                 "display unit",
                                 "seconds"
                             ]
+                        ],
+                        "Cast time": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
                         ]
                     },
                     "Self Destruct": {
@@ -2979,7 +2985,15 @@
                             ]
                         ]
                     },
-                    "Self-Repair": {},
+                    "Self-Repair": {
+                        "Healing per second": [],
+                        "Drain rate per second": [
+                            [
+                                "display unit",
+                                "percent"
+                            ]
+                        ]
+                    },
                     "Configuration: Recon": {
                         "Damage": [
                             [
@@ -3054,6 +3068,7 @@
                                 "relative percent"
                             ]
                         ],
+                        "Shots until maximum spread": [],
                         "Recovery time": [
                             "time between shots",
                             [
@@ -3693,6 +3708,12 @@
                                 "display unit",
                                 "seconds"
                             ]
+                        ],
+                        "Range": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
                         ]
                     },
                     "Duplicate": {
@@ -3813,6 +3834,12 @@
                                 "meters"
                             ]
                         ],
+                        "Spread": [
+                            [
+                                "display unit",
+                                "degrees"
+                            ]
+                        ],
                         "Recovery time": [
                             "time between shots",
                             [
@@ -3859,6 +3886,12 @@
                             [
                                 "display unit",
                                 "seconds"
+                            ]
+                        ],
+                        "can be cancelled manually": [
+                            [
+                                "display unit",
+                                "flag"
                             ]
                         ]
                     },
@@ -4066,7 +4099,8 @@
                                 "display unit",
                                 "seconds"
                             ]
-                        ]
+                        ],
+                        "Spread": []
                     },
                     "Frag Launcher": {
                         "Direct damage": [
@@ -4124,6 +4158,12 @@
                                 "meters"
                             ]
                         ],
+                        "Projectile speed": [
+                            [
+                                "display unit",
+                                "meters per second"
+                            ]
+                        ],
                         "Maximum damage": [
                             [
                                 "damage instance",
@@ -4153,6 +4193,12 @@
                         "Health": [],
                         "Charges": [
                             "charges"
+                        ],
+                        "Trigger delay": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
                         ]
                     },
                     "Steel Trap": {
@@ -4223,6 +4269,12 @@
                         ],
                         "Health": [],
                         "Duration": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
+                        "Delay before regaining control after end": [
                             [
                                 "display unit",
                                 "seconds"
@@ -4393,6 +4445,12 @@
                             [
                                 "display unit",
                                 "seconds"
+                            ]
+                        ],
+                        "acts as solid object for interactions": [
+                            [
+                                "display unit",
+                                "flag"
                             ]
                         ]
                     },
@@ -6799,7 +6857,14 @@
                         ]
                     },
                     "Barrier Shield": {
-                        "Barrier Shield health": []
+                        "Barrier Shield health": [],
+                        "Regeneration rate": [],
+                        "Cooldown when destroyed": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ]
                     },
                     "Shield Bash": {
                         "Cooldown": [
@@ -6877,7 +6942,14 @@
                                 "healing instance",
                                 "normal"
                             ]
-                        ]
+                        ],
+                        "gives temporary armor to full health targets": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
+                        "Maximum temporary armor": []
                     },
                     "Rally": {
                         "Ultimate cost": [],
@@ -8093,6 +8165,24 @@
                             [
                                 "display unit",
                                 "flag"
+                            ]
+                        ],
+                        "Damage radius": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
+                        "Projectile speed": [
+                            [
+                                "display unit",
+                                "meters per second"
+                            ]
+                        ],
+                        "Duration": [
+                            [
+                                "display unit",
+                                "seconds"
                             ]
                         ],
                         "Cooldown": [
