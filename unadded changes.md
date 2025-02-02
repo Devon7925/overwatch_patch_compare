@@ -10,5 +10,9 @@
         * Concussion Mine `Ricochet distance off of enemy players greatly reduced` how much?
     * Doom changes
     * Ashe Secondary Fire `Now reaches max zoom halfway through Ashe's aim down sights, instead of at its conclusion`
+* 2020/04 
+    * `Improved the accuracy of Tracer's blink movement such that Tracer will more likely end up where the crosshair is pointing` its a little unclear exactly what was changed here
+    * Ashe timing changes since the numbers aren't listed
+* 2020/03 Mei `Player collision now allows large heroes to fit through 1 pillar gaps` how so? I presume hitbox reduced, but how much and does it only apply to players or also bullets.
 
 

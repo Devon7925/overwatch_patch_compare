@@ -20,7 +20,8 @@
         "Damage over time armor mitigation": 0,
         "Lightning armor mitigation": 0,
         "Beam armor mitigation": 30,
-        "Elevator behavior": "activation"
+        "Elevator behavior": "activation",
+        "Maximum lower carryover time": 120
     },
     "heroes": {
         "tank": {
@@ -325,11 +326,13 @@
                         "Stun duration": 0.5,
                         "Projectile size": 0.9,
                         "Cooldown": 10,
-                        "Explosion damage": 30
+                        "Explosion damage": 30,
+                        "Cast time": 0.65
                     },
                     "Gravitic Flux": {
                         "requires line-of-sight": true,
-                        "Ultimate cost": 2275
+                        "Ultimate cost": 2275,
+                        "Flight speed boost": 30
                     },
                     "Hyperspheres": {
                         "Projectile size": 0.35,
@@ -700,7 +703,8 @@
                         "Ammo": 12,
                         "Reload time per ammo": 0.25,
                         "Reload time": 0.5,
-                        "Maximum damage falloff scalar": 30
+                        "Maximum damage falloff scalar": 30,
+                        "Shots to reach maximum spread": 6
                     },
                     "The Viper Alt Fire": {
                         "Projectile size": 0.08,
@@ -1594,7 +1598,8 @@
                     },
                     "Sleep Dart": {
                         "Cooldown": 12,
-                        "Projectile size": 0.2
+                        "Projectile size": 0.2,
+                        "Sleep duration": 5
                     },
                     "Biotic Grenade": {
                         "Healing": 100,

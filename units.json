@@ -118,6 +118,12 @@
                 "display unit",
                 "flag"
             ]
+        ],
+        "Maximum lower carryover time": [
+            [
+                "display unit",
+                "seconds"
+            ]
         ]
     },
     "heroes": {
@@ -1482,7 +1488,25 @@
                                 "normal"
                             ]
                         ],
+                        "Minimum stun duration": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
+                        "Maximum stun duration": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
                         "Stun duration": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
+                        "Cast time": [
                             [
                                 "display unit",
                                 "seconds"
@@ -1512,6 +1536,12 @@
                             [
                                 "display unit",
                                 "flag"
+                            ]
+                        ],
+                        "Flight speed boost": [
+                            [
+                                "display unit",
+                                "percent"
                             ]
                         ],
                         "Ultimate cost": []
@@ -2181,7 +2211,12 @@
                         ]
                     },
                     "Earthshatter": {
-                        "Knockdown duration": [],
+                        "Knockdown duration": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
                         "Shockwave range": [],
                         "Ultimate cost": [],
                         "Critical damage": []
@@ -2775,6 +2810,7 @@
                                 "seconds"
                             ]
                         ],
+                        "Shots to reach maximum spread": [],
                         "Ammo": [
                             "ammo"
                         ],
@@ -4347,10 +4383,10 @@
                                 "seconds"
                             ]
                         ],
-                        "stuns on freeze": [
+                        "Freeze stun duration": [
                             [
                                 "display unit",
-                                "flag"
+                                "seconds"
                             ]
                         ],
                         "Freeze rate": [
@@ -6540,6 +6576,12 @@
                             [
                                 "display unit",
                                 "meters"
+                            ]
+                        ],
+                        "Sleep duration": [
+                            [
+                                "display unit",
+                                "seconds"
                             ]
                         ]
                     },
