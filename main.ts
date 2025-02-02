@@ -92,6 +92,20 @@ type Units = PatchStructure<Unit[]>
 
 type SpecialArmorBehavior = ["flat percent mit", number] | undefined
 
+const patch_type_before_box = document.querySelector<HTMLSelectElement>("select#patch_type_before")!;
+const patch_type_after_box = document.querySelector<HTMLSelectElement>("select#patch_type_after")!;
+const patch_before_box = document.querySelector<HTMLSelectElement>("select#patch_before")!;
+const patch_after_box = document.querySelector<HTMLSelectElement>("select#patch_after")!;
+const display_calculated_properties_box = document.querySelector<HTMLInputElement>("input#disp_calc_props")!;
+const display_breakpoints_box = document.querySelector<HTMLInputElement>("input#disp_breakpoints")!;
+const apply_damage_to_armor_box = document.querySelector<HTMLInputElement>("input#apply_damage_to_armor")!;
+const last_patch_button = document.querySelector<HTMLButtonElement>("button#last_patch_button")!;
+const next_patch_button = document.querySelector<HTMLButtonElement>("button#next_patch_button")!;
+const patch_before_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost")!;
+const patch_before_dmg_boost_slider = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost_slider")!;
+const patch_after_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_after_dmg_boost")!;
+const patch_after_dmg_boost_slider = document.querySelector<HTMLInputElement>("input#patch_after_dmg_boost_slider")!;
+
 const patchList = await fetch("./patch_list.json")
     .then((res) => res.text())
     .then((text) => JSON.parse(text, (key, value) => {
@@ -107,8 +121,8 @@ const patchList = await fetch("./patch_list.json")
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 type SiteState = {
-    before_patch: string,
-    after_patch: string,
+    before_patch: [string, string],
+    after_patch: [string, string],
     show_calculated_properties: boolean,
     show_breakpoints: boolean,
     apply_to_armor: boolean,
@@ -117,8 +131,8 @@ type SiteState = {
 };
 let siteState: SiteState;
 const DEFAULT_SITE_STATE: SiteState = {
-    before_patch: "Overwatch 2:recent",
-    after_patch: "Overwatch 2:latest",
+    before_patch: ["Overwatch 2", "recent"],
+    after_patch: ["Overwatch 2", "latest"],
     show_calculated_properties: false,
     show_breakpoints: false,
     apply_to_armor: false,
@@ -126,8 +140,7 @@ const DEFAULT_SITE_STATE: SiteState = {
     after_dmg_boost: 1,
 }
 
-function patch_from_path(joined_path: string) {
-    let path = joined_path.split(":");
+function patch_from_path(path: [string, string]): [string, string] {
     let versionType = path[0];
     let version = "";
     if (path[1] == "oldest") {
@@ -139,7 +152,16 @@ function patch_from_path(joined_path: string) {
     } else {
         version = path[1];
     }
-    return `${versionType}:${version}`
+    return [versionType, version]
+}
+{
+    let patch_type_options = Object.entries(patchList)
+    .map(([k, v], i) => `<option value=\"${k}\">${k}</option>`).join();
+
+    let patch_type_selectors = document.getElementsByClassName("patch-type-selector");
+    for (let i = 0; i < patch_type_selectors.length; i++) {
+    patch_type_selectors[i].innerHTML = patch_type_options;
+}
 }
 
 {
@@ -147,19 +169,19 @@ function patch_from_path(joined_path: string) {
     {
         let url_before = urlParams.get("before")
         if (url_before) {
-            siteState.before_patch = url_before
+            siteState.before_patch = url_before.split(":", 2) as [string, string]
         }
         let url_after = urlParams.get("after")
         if (url_after) {
-            siteState.after_patch = url_after
+            siteState.after_patch = url_after.split(":", 2) as [string, string]
         }
         url_before = urlParams.get("before_patch")
         if (url_before) {
-            siteState.before_patch = url_before
+            siteState.before_patch = url_before.split(":", 2) as [string, string]
         }
         url_after = urlParams.get("after_patch")
         if (url_after) {
-            siteState.after_patch = url_after
+            siteState.after_patch = url_after.split(":", 2) as [string, string]
         }
     }
     if (urlParams.get("show_calculated_properties")) {
@@ -182,13 +204,22 @@ function patch_from_path(joined_path: string) {
 
     siteState.before_patch = patch_from_path(siteState.before_patch)
     siteState.after_patch = patch_from_path(siteState.after_patch)
+    patch_type_before_box.value = siteState.before_patch[0];
+    patch_type_after_box.value = siteState.after_patch[0];
 }
 
 {
     let newUrlParams = new URLSearchParams();
-    let key: keyof typeof siteState;
-    for (key in siteState) {
-        newUrlParams.append(key, `${siteState[key]}`)
+    let encoded:{[key: string]: any} = structuredClone(siteState);
+    if (Array.isArray(encoded["before_patch"])) {
+        encoded["before_patch"] = encoded["before_patch"].join(":")
+    }
+    if (Array.isArray(encoded["after_patch"])) {
+        encoded["after_patch"] = encoded["after_patch"].join(":")
+    }
+
+    for (let key in encoded) {
+        newUrlParams.append(key, `${encoded[key]}`)
     }
     window.history.replaceState(siteState, "", "index.html?" + newUrlParams)
 }
@@ -266,7 +297,7 @@ const isPatchData = autoTypeguard<PatchData>({
 
 let units: Units;
 let image_map: { [key: string]: string } = {};
-export let patches: { [key: string]: PatchData } = {};
+export let patches: { [key: string]: { [key: string]: PatchData } } = {};
 
 let promises: Promise<unknown>[] = [];
 promises.push(fetch("./units.json")
@@ -405,18 +436,6 @@ export function getChangeText(name: string, change: [any, any] | string | number
     }
 }
 
-const patch_before_box = document.querySelector<HTMLSelectElement>("select#patch_before")!;
-const patch_after_box = document.querySelector<HTMLSelectElement>("select#patch_after")!;
-const display_calculated_properties_box = document.querySelector<HTMLInputElement>("input#disp_calc_props")!;
-const display_breakpoints_box = document.querySelector<HTMLInputElement>("input#disp_breakpoints")!;
-const apply_damage_to_armor_box = document.querySelector<HTMLInputElement>("input#apply_damage_to_armor")!;
-const last_patch_button = document.querySelector<HTMLButtonElement>("button#last_patch_button")!;
-const next_patch_button = document.querySelector<HTMLButtonElement>("button#next_patch_button")!;
-const patch_before_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost")!;
-const patch_before_dmg_boost_slider = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost_slider")!;
-const patch_after_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_after_dmg_boost")!;
-const patch_after_dmg_boost_slider = document.querySelector<HTMLInputElement>("input#patch_after_dmg_boost_slider")!;
-
 pair_box_slider(patch_before_dmg_boost, patch_before_dmg_boost_slider);
 pair_box_slider(patch_after_dmg_boost, patch_after_dmg_boost_slider);
 function pair_box_slider(patch_after_dmg_boost: HTMLInputElement, patch_after_dmg_boost_slider: HTMLInputElement) {
@@ -498,34 +517,34 @@ async function updatePatchNotes() {
     resetUI()
 
     await Promise.all([siteState.before_patch, siteState.after_patch]
-        .filter((patch) => !(patch in patchList))
+        .filter((patch) => !(patch[0] in patches) || !(patch[1] in patches[patch[0]]))
         .map(async (patch) => {
-            let [versionType, version] = patch.split(":")
-            return fetch(`./patches/${versionType}/${version}.json`)
+            return fetch(`./patches/${patch[0]}/${patch[1]}.json`)
                 .then((res) => res.text())
                 .then((text) => {
-                    let patch = JSON.parse(text);
-                    if (!isPatchData(patch)) {
+                    let patch_data = JSON.parse(text);
+                    if (!isPatchData(patch_data)) {
                         throw new Error("Invalid patch data")
                     }
-                    patches[`${versionType}:${version}`] = patch;
+                    if(patches[patch[0]] === undefined) patches[patch[0]] = {}
+                    patches[patch[0]][patch[1]] = patch_data;
                 })
         }))
-    let [before_patch_data, before_max_breakpoint] = processPatch(patches[siteState.before_patch], parseFloat(patch_before_dmg_boost_slider.value) / 100);
-    let [after_patch_data, after_max_breakpoint] = processPatch(patches[siteState.after_patch], parseFloat(patch_after_dmg_boost_slider.value) / 100);
+    let [before_patch_data, before_max_breakpoint] = processPatch(patches[siteState.before_patch[0]][siteState.before_patch[1]], parseFloat(patch_before_dmg_boost_slider.value) / 100);
+    let [after_patch_data, after_max_breakpoint] = processPatch(patches[siteState.after_patch[0]][siteState.after_patch[1]], parseFloat(patch_after_dmg_boost_slider.value) / 100);
     let changes = convert_to_changes(before_patch_data, after_patch_data);
     if (siteState.show_breakpoints) {
         changes = removeRedundantBreakpoints(changes, after_patch_data);
     }
 
     let breakpoint_data: [number, number] | null = [0, 0]
-    if(before_max_breakpoint !== null) {
+    if (before_max_breakpoint !== null) {
         breakpoint_data[0] = before_max_breakpoint
     }
-    if(after_max_breakpoint !== null) {
+    if (after_max_breakpoint !== null) {
         breakpoint_data[1] = after_max_breakpoint
     }
-    if(before_max_breakpoint === null && after_max_breakpoint === null) {
+    if (before_max_breakpoint === null && after_max_breakpoint === null) {
         breakpoint_data = null
     }
 
@@ -533,8 +552,10 @@ async function updatePatchNotes() {
 }
 
 function resetUI() {
-    patch_before_box.value = siteState.before_patch
-    patch_after_box.value = siteState.after_patch
+    patch_type_before_box.value = siteState.before_patch[0]
+    patch_type_after_box.value = siteState.after_patch[0]
+    patch_before_box.value = siteState.before_patch[1]
+    patch_after_box.value = siteState.after_patch[1]
     display_calculated_properties_box.checked = siteState.show_calculated_properties
 
     let extra_controls_display = "flex"
@@ -562,17 +583,19 @@ function resetUI() {
         let key: keyof typeof siteState
         for (key in siteState) {
             if (siteState[key] !== DEFAULT_SITE_STATE[key]) {
-                urlParams.append(key, `${siteState[key]}`)
+                let encoding:any = siteState[key];
+                if(Array.isArray(encoding)) {
+                    encoding = encoding.join(":")
+                }
+                urlParams.append(key, `${encoding}`)
             }
         }
         window.history.replaceState(siteState, "", "?" + urlParams)
     }
 
     {
-        let before_patch_path = siteState.before_patch.split(":")
-        let after_patch_path = siteState.after_patch.split(":")
-        const last_patch_exists = (before_patch_path[0] === after_patch_path[0]) && patchList[before_patch_path[0]].indexOf(before_patch_path[1]) > 0
-        const next_patch_exists = (before_patch_path[0] === after_patch_path[0]) && patchList[after_patch_path[0]].indexOf(after_patch_path[1]) < patchList[after_patch_path[0]].length - 1
+        const last_patch_exists = (siteState.before_patch[0] === siteState.after_patch[0]) && patchList[siteState.before_patch[0]].indexOf(siteState.before_patch[1]) > 0
+        const next_patch_exists = (siteState.before_patch[0] === siteState.after_patch[0]) && patchList[siteState.before_patch[0]].indexOf(siteState.after_patch[1]) < patchList[siteState.after_patch[0]].length - 1
         last_patch_button.style.visibility = last_patch_exists ? 'visible' : 'hidden'
         next_patch_button.style.visibility = next_patch_exists ? 'visible' : 'hidden'
     }
@@ -834,7 +857,7 @@ export function verifyPatchNotes(patch_data: PatchData, units: Units) {
             }
         }
     })
-    
+
     for (let mode in patch_data.modes) {
         if (units.modes[mode] === undefined) {
             console.error(`Cannot find units for ${mode}`)
@@ -895,7 +918,7 @@ export function applyDamageMultiplier(patch_data: PatchData, multiplier: number,
             if (typeof abilityData[ability_property] !== "number") {
                 continue;
             }
-            
+
             if (property_units.some((unit) => ["damage instance"].includes(unit[0]))) {
                 abilityData[ability_property] *= multiplier
             }
@@ -1173,8 +1196,8 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: U
         }
         for (let ability in heroData.abilities) {
             let ability_damage_options: { [key: string]: [number, number] } = {}
-            let ability_normal_max_damage_instances:number | null = null;
-            
+            let ability_normal_max_damage_instances: number | null = null;
+
             for (let ability_property in heroData.abilities[ability]) {
                 if (typeof heroData.abilities[ability][ability_property] !== "number") {
                     continue
@@ -1189,12 +1212,12 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: U
                     }
                 }
             }
-            if(ability_normal_max_damage_instances == null) {
+            if (ability_normal_max_damage_instances == null) {
                 ability_normal_max_damage_instances = 1;
             }
             for (let ability_property in heroData.abilities[ability]) {
                 let is_damage_property = false
-                let max_damage_instances:number = ability_normal_max_damage_instances;
+                let max_damage_instances: number = ability_normal_max_damage_instances;
                 if (typeof heroData.abilities[ability][ability_property] !== "number") {
                     continue
                 }
@@ -1205,7 +1228,7 @@ export function calculateBreakpoints(patch_data: PatchData, calculation_units: U
                         max_damage_instances = 1
                     }
                 }
-                
+
                 if (is_damage_property) {
                     ability_damage_options[ability_property] = [heroData.abilities[ability][ability_property], max_damage_instances]
                 }
@@ -1581,27 +1604,40 @@ function isSubBreakpoint(possible_super_breakpoint: { [key: string]: number }, p
     return true;
 }
 
-let patch_options = Object.entries(patchList)
-    .flatMap(([k, v]) => v
-        .map((p) => {
-            let split_date = p.split("-").map((s) => parseInt(s))
-            let pretty_date = new Date(split_date[0], split_date[1] - 1, split_date[2])
-            return `<option value=\"${k}:${p}\">${k} - ${pretty_date.toLocaleDateString()}</option>`
-        })
-    ).join();
+function update_after_type_change(type_selector: HTMLSelectElement) {
+    let main_selector = type_selector.parentElement?.parentElement?.parentElement?.getElementsByClassName("patch-selector")[0] as HTMLSelectElement;
+    let type = type_selector.value
 
-let patch_selectors = document.getElementsByClassName("patch-selector");
-for (let i = 0; i < patch_selectors.length; i++) {
-    patch_selectors[i].innerHTML = patch_options;
+    let patch_options = patchList[type].map((p, i) => {
+                let split_date = p.split("-").map((s) => parseInt(s))
+                let pretty_date = new Date(split_date[0], split_date[1] - 1, split_date[2])
+                return `<option value=\"${p}\" ${i==0?"selected":""}>${pretty_date.toLocaleDateString()}</option>`
+            }).join();
+    main_selector.innerHTML = patch_options;
+    main_selector.value = patchList[type][0]
 }
 
+patch_type_before_box.onchange = async function () {
+    update_after_type_change(patch_type_before_box)
+    siteState.before_patch[0] = patch_type_before_box.value
+    siteState.before_patch[1] = patchList[patch_type_before_box.value][0]
+
+    await updatePatchNotes()
+};
+patch_type_after_box.onchange = async function () {
+    update_after_type_change(patch_type_after_box)
+    siteState.after_patch[0] = patch_type_after_box.value
+    siteState.after_patch[1] = patchList[patch_type_after_box.value][0]
+
+    await updatePatchNotes()
+};
 patch_before_box.onchange = async function () {
-    siteState.before_patch = (this as HTMLSelectElement).value;
+    siteState.before_patch[1] = (this as HTMLSelectElement).value;
     await updatePatchNotes()
 };
 
 patch_after_box.onchange = async function () {
-    siteState.after_patch = (this as HTMLSelectElement).value;
+    siteState.after_patch[1] = (this as HTMLSelectElement).value;
     await updatePatchNotes()
 };
 
@@ -1637,21 +1673,28 @@ patch_after_dmg_boost_slider.onchange = update_after_damage_boost;
 
 window.addEventListener("popstate", async (event) => {
     if (event.state) {
-        siteState = event.state;
+        let encoded = event.state;
+        if(typeof encoded.before_patch == "string") {
+            encoded.before_patch = encoded.before_patch.split(":")
+        }
+        if(typeof encoded.after_patch == "string") {
+            encoded.after_patch = encoded.after_patch.split(":")
+        }
+        siteState = encoded;
         await updatePatchNotes()
     }
 });
 
 async function shiftPatches(shift: number) {
-    let before_path = siteState.before_patch.split(":");
+    let before_path = siteState.before_patch;
     let before_index = patchList[before_path[0]].indexOf(before_path[1]);
     if (before_index + shift >= 0 && before_index + shift < patchList[before_path[0]].length) {
-        siteState.before_patch = `${before_path[0]}:${patchList[before_path[0]][before_index + shift]}`
+        siteState.before_patch = [before_path[0], patchList[before_path[0]][before_index + shift]]
     }
-    let after_path = siteState.after_patch.split(":");
+    let after_path = siteState.after_patch;
     let after_index = patchList[after_path[0]].indexOf(after_path[1]);
     if (after_index + shift >= 0 && after_index + shift < patchList[after_path[0]].length) {
-        siteState.after_patch = `${after_path[0]}:${patchList[after_path[0]][after_index + shift]}`
+        siteState.after_patch = [after_path[0], patchList[after_path[0]][after_index + shift]]
     }
     await updatePatchNotes()
 }
@@ -1659,4 +1702,6 @@ async function shiftPatches(shift: number) {
 last_patch_button.onclick = async () => shiftPatches(-1);
 next_patch_button.onclick = async () => shiftPatches(1);
 
+update_after_type_change(patch_type_before_box)
+update_after_type_change(patch_type_after_box)
 await updatePatchNotes();

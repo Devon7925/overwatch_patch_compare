@@ -996,7 +996,6 @@
                         "Maximum slow": 30,
                         "Minimum slow": 30,
                         "Duration before slow falls off between primary fire hits": 0.6,
-                        "stuns on freeze": false,
                         "Reload time": 1.5,
                         "Freeze rate": 1.3,
                         "Recovery time": 0.05,
