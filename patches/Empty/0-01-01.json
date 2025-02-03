@@ -10,6 +10,20 @@
                         "can be interrupted before targets begin falling": true
                     }
                 }
+            },
+            "Reinhardt": {
+                "abilities": {
+                    "Barrier Field": {
+                        "Movement speed penalty": 30
+                    }
+                }
+            },
+            "Zarya": {
+                "abilities": {
+                    "Particle Cannon Alt Fire": {
+                        "Explosion radius": 2.5
+                    }
+                }
             }
         },
         "damage": {

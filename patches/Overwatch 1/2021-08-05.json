@@ -86,7 +86,7 @@
             "Orisa": {
                 "general": {
                     "Base health": 200,
-                    "Armor health": 200,
+                    "Armor health": 250,
                     "Model size": 1.0
                 },
                 "abilities": {
@@ -314,7 +314,8 @@
                         "Alt fire of": "Particle Cannon",
                         "Ammo per shot": 25,
                         "Max damage": 95,
-                        "Recovery time": 1
+                        "Recovery time": 1,
+                        "Explosion radius": 2.5
                     },
                     "Energy": {
                         "Energy degeneration rate": 1.8,
@@ -339,7 +340,8 @@
                     },
                     "Barrier Field": {
                         "Barrier health": 1600,
-                        "Regeneration rate": 200
+                        "Regeneration rate": 200,
+                        "Movement speed penalty": 30
                     },
                     "Charge": {
                         "Cooldown": 10,

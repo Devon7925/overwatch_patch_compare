@@ -379,7 +379,8 @@
                         "Alt fire of": "Particle Cannon",
                         "Ammo per shot": 25,
                         "Max damage": 95,
-                        "Recovery time": 1
+                        "Recovery time": 1,
+                        "Explosion radius": 2.5
                     },
                     "Energy": {
                         "Energy degeneration rate": 2,
@@ -463,7 +464,8 @@
                     },
                     "Barrier Field": {
                         "Barrier health": 1400,
-                        "Regeneration rate": 144
+                        "Regeneration rate": 144,
+                        "Movement speed penalty": 30
                     },
                     "Charge": {
                         "Cooldown": 7,

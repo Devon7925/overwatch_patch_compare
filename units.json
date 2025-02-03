@@ -1820,6 +1820,12 @@
                                 "normal"
                             ]
                         ],
+                        "Explosion radius": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
                         "Recovery time": [
                             "time between shots",
                             [
@@ -2182,6 +2188,12 @@
                             [
                                 "display unit",
                                 "health per second"
+                            ]
+                        ],
+                        "Movement speed penalty": [
+                            [
+                                "display unit",
+                                "percent"
                             ]
                         ]
                     },

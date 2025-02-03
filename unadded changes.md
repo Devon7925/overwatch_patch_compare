@@ -14,5 +14,6 @@
     * `Improved the accuracy of Tracer's blink movement such that Tracer will more likely end up where the crosshair is pointing` its a little unclear exactly what was changed here
     * Ashe timing changes since the numbers aren't listed
 * 2020/03 Mei `Player collision now allows large heroes to fit through 1 pillar gaps` how so? I presume hitbox reduced, but how much and does it only apply to players or also bullets.
+* 2019/11 `Mei's Icewall, Baptiste's Immortality Field, and Sigma's Gravitic Flux will now more heavily prefer edges over placing as far away as possible` how much?
 
 
