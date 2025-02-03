@@ -17,8 +17,7 @@
         "Lightning armor mitigation": 20,
         "Beam armor mitigation": 20,
         "Elevator behavior": "cycle",
-        "has random shotgun rotation": true,
-        "Maximum lower carryover time": 120
+        "has random shotgun rotation": true
     },
     "heroes": {
         "tank": {
@@ -45,7 +44,7 @@
                     },
                     "Boosters": {
                         "Impact damage": 10,
-                        "Cooldown": 4
+                        "Cooldown": 3
                     },
                     "Defense Matrix": {
                         "Cooldown": 1.5,
@@ -101,7 +100,7 @@
                         "Heat generation reduction": 50
                     },
                     "Fusion Driver": {
-                        "Damage": 11,
+                        "Damage": 10,
                         "Spread": 1.2,
                         "Movement speed reduction": 30,
                         "Projectile speed": 90,
@@ -166,7 +165,7 @@
                         "Impact damage": 30
                     },
                     "Whole Hog": {
-                        "Knockback": 14,
+                        "Knockback": 12,
                         "Damage per pellet": 7,
                         "Ultimate cost": 2567,
                         "disables other abilities and automatically fires": true,
@@ -198,16 +197,16 @@
                     },
                     "Accretion": {
                         "Direct damage": 30,
-                        "Stun duration": 0.8,
+                        "Minimum stun duration": 0.5,
+                        "Maximum stun duration": 3.0,
                         "Projectile size": 0.9,
                         "Cooldown": 10,
                         "Explosion damage": 40,
-                        "Cast time": 0.65
+                        "Cast time": 0.75
                     },
                     "Gravitic Flux": {
                         "requires line-of-sight": true,
-                        "Ultimate cost": 1950,
-                        "Flight speed boost": 30,
+                        "Ultimate cost": 2150,
                         "Impact slow duration": 0.6,
                         "can be interrupted before targets begin falling": true
                     },
@@ -238,7 +237,7 @@
                         "Cooldown": 5
                     },
                     "Piledriver": {
-                        "Movement lockout duration for enemies": 0.5,
+                        "Movement lockout duration for enemies": 1.0,
                         "Cooldown": 10,
                         "Maximum damage": 100
                     },
@@ -331,7 +330,7 @@
                 },
                 "abilities": {
                     "Steadfast": {
-                        "Knockback reduction": 30
+                        "Knockback reduction": 50
                     },
                     "Rocket Hammer": {
                         "Damage": 75,
@@ -354,7 +353,7 @@
                         "Projectile size": 0.85
                     },
                     "Earthshatter": {
-                        "Knockdown duration": 2.5,
+                        "Knockdown duration": 3,
                         "Shockwave range": 20,
                         "Ultimate cost": 1530
                     }
@@ -421,11 +420,11 @@
                         "Critical multiplier": 2,
                         "Damage": 40,
                         "Recovery time": 0.266,
-                        "Ammo": 15,
+                        "Ammo": 12,
                         "Reload time per ammo": 0.25,
                         "Reload time": 0.5,
                         "Maximum damage falloff scalar": 50,
-                        "Shots to reach maximum spread": 6
+                        "Shots to reach maximum spread": 4
                     },
                     "The Viper Alt Fire": {
                         "Projectile size": 0.0,
@@ -514,7 +513,7 @@
                     },
                     "Flashbang": {
                         "Effect": "Applies stun on hit",
-                        "Duration": 0.7,
+                        "Duration": 0.85,
                         "Maximum travel time": 0.23,
                         "Explosion damage": 25,
                         "Cooldown": 10,
@@ -587,53 +586,6 @@
                     }
                 }
             },
-            "Echo": {
-                "general": {
-                    "Base health": 200,
-                    "Model size": 1.0
-                },
-                "abilities": {
-                    "Sticky Bombs": {
-                        "Explosion damage": 25,
-                        "Direct damage": 5,
-                        "Projectile size": 0.18,
-                        "Bullets per shot": 6
-                    },
-                    "Duplicate": {
-                        "Ultimate gain multiplier": 5.5,
-                        "Ultimate cost": 1950,
-                        "has predetermined tank health pools": false,
-                        "Minimum health when exiting Duplicate": 200
-                    },
-                    "Tri-shot": {
-                        "Projectile size": 0.1,
-                        "Critical multiplier": 2,
-                        "Damage per pellet": 17,
-                        "Pellet count": 3,
-                        "Recovery time": 0.33333,
-                        "Reload time": 1.5,
-                        "Ammo": 15
-                    },
-                    "Focusing Beam": {
-                        "Width": 0.2,
-                        "Maximum damage per second": 200,
-                        "Cooldown": 8,
-                        "Base damage per second": 50,
-                        "Duration": 2.5,
-                        "Range": 20
-                    },
-                    "Flight": {
-                        "Cooldown": 6,
-                        "Duration": 3,
-                        "Dash speed": 28,
-                        "Flight speed": 8
-                    },
-                    "Glide": {
-                        "Movement speed": 50,
-                        "Vertical speed": 4
-                    }
-                }
-            },
             "Genji": {
                 "general": {
                     "Base health": 200
@@ -664,7 +616,7 @@
                         "Projectile size": 0.1,
                         "Critical multiplier": 2,
                         "Alt fire of": "Shuriken",
-                        "Recovery time": 0.65,
+                        "Recovery time": 0.75,
                         "Ammo per shot": 3,
                         "Pellet count": 3,
                         "Spread": 12
@@ -774,12 +726,12 @@
                 },
                 "abilities": {
                     "Endothermic Blaster": {
-                        "Ammo": 120,
+                        "Ammo": 200,
                         "Projectile size": 0.555,
                         "Maximum slow": 70,
                         "Minimum slow": 20,
                         "Duration before slow falls off between primary fire hits": 1.0,
-                        "Freeze stun duration": 1.3,
+                        "Freeze stun duration": 1.5,
                         "Reload time": 1.5,
                         "Freeze rate": 1,
                         "Recovery time": 0.05,
@@ -796,7 +748,7 @@
                     "Ice Wall": {
                         "Health per pillar": 400,
                         "Range": 35,
-                        "Cooldown": 13,
+                        "Cooldown": 10,
                         "Duration": 5,
                         "Pillar count": 5,
                         "Recovery time": 0.5,
@@ -807,7 +759,7 @@
                         "Cast time": 0.5,
                         "Range": 10,
                         "Damage per second": 20,
-                        "Duration": 4.25,
+                        "Duration": 5,
                         "Projectile speed": 20
                     },
                     "Endothermic Blaster Alt Fire": {
@@ -815,7 +767,7 @@
                         "Damage": 75,
                         "Recovery time": 0.8,
                         "Alt fire of": "Endothermic Blaster",
-                        "Ammo per shot": 10,
+                        "Ammo per shot": 20,
                         "Critical multiplier": 2
                     }
                 }
@@ -829,8 +781,8 @@
                         "Projectile speed": 35,
                         "Projectile size": 0.2,
                         "Explosion self damage": 50,
-                        "Direct damage": 40,
-                        "Explosion damage": 80,
+                        "Direct damage": 55,
+                        "Explosion damage": 65,
                         "Recovery time": 0.75,
                         "Ammo": 6,
                         "Reload time": 1.5
@@ -938,7 +890,7 @@
                         "Projectile size": 0.225,
                         "Explosion damage": 80,
                         "Direct damage": 40,
-                        "Cooldown": 6
+                        "Cooldown": 8
                     },
                     "Sprint": {
                         "Increased movement speed": 50,
@@ -975,7 +927,7 @@
                         "Critical multiplier": 2,
                         "Recovery time": 0.05,
                         "Ammo": 60,
-                        "Maximum spread": 2.4
+                        "Maximum spread": 2.7
                     },
                     "Stealth": {
                         "is passive": false,
@@ -1041,8 +993,8 @@
                     "Photon Projector Alt Fire": {
                         "Minimum projectile size": 0.04,
                         "Maximum projectile size": 0.5,
-                        "Maximum impact damage": 70,
-                        "Maximum explosion damage": 70,
+                        "Maximum impact damage": 60,
+                        "Maximum explosion damage": 60,
                         "Maximum charge time": 1,
                         "Ammo per shot": 7,
                         "Alt fire of": "Photon Projector",
@@ -1166,7 +1118,7 @@
                         "Alt fire of": "Widow's Kiss",
                         "Critical multiplier": 2.5,
                         "Maximum damage": 120,
-                        "Maximum charge time": 0.9,
+                        "Maximum charge time": 0.75,
                         "Recovery time": 0.5,
                         "Ammo per shot": 3
                     },
@@ -1242,7 +1194,7 @@
                         "Maximum damage falloff scalar": 50
                     },
                     "Regenerative Burst": {
-                        "Cooldown": 13,
+                        "Cooldown": 15,
                         "Instant healing": 0,
                         "Instant healing on allies <50% HP": 0,
                         "Heal over time": 150,
@@ -1265,7 +1217,7 @@
                         "Alt fire of": "Biotic Launcher"
                     },
                     "Exo-Boots": {
-                        "Charge time": 0.7
+                        "Charge time": 1.0
                     }
                 }
             },
@@ -1289,9 +1241,9 @@
                     "Repair Pack": {
                         "Cooldown": 6,
                         "Range": 30,
-                        "Healing over time": 55,
+                        "Healing over time": 60,
                         "gives temporary armor to full health targets": true,
-                        "Maximum temporary armor": 50
+                        "Maximum temporary armor": 75
                     },
                     "Rally": {
                         "Ultimate cost": 2800,

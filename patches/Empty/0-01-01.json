@@ -2,7 +2,15 @@
     "general": {},
     "heroes": {
         "tank": {
-            "general": {}
+            "general": {},
+            "Sigma": {
+                "abilities": {
+                    "Gravitic Flux": {
+                        "Impact slow duration": 0.6,
+                        "can be interrupted before targets begin falling": true
+                    }
+                }
+            }
         },
         "damage": {
             "general": {}

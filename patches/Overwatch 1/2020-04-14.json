@@ -94,7 +94,7 @@
                     "Fortify": {
                         "Duration": 4,
                         "Cooldown start": "ability end",
-                        "Cooldown": 12,
+                        "Cooldown": 10,
                         "immune to taking forced critical hit damage": false,
                         "Damage reduction": 40,
                         "disables critical damage": false,
@@ -114,7 +114,8 @@
                         "Projectile speed": 20,
                         "Range": 7,
                         "Cast time": 0.1,
-                        "Cooldown": 8
+                        "Cooldown": 8,
+                        "Snare duration": 0.65
                     },
                     "Protective Barrier": {
                         "Health": 600,
@@ -207,7 +208,9 @@
                     "Gravitic Flux": {
                         "requires line-of-sight": true,
                         "Ultimate cost": 1950,
-                        "Flight speed boost": 30
+                        "Flight speed boost": 30,
+                        "Impact slow duration": 0.6,
+                        "can be interrupted before targets begin falling": true
                     },
                     "Hyperspheres": {
                         "Projectile size": 0.25,
@@ -564,7 +567,8 @@
                         "Damage": 50,
                         "Movement speed": 10,
                         "Range": 5,
-                        "Duration": 0.6
+                        "Duration": 0.6,
+                        "Recovery time": 0.35
                     },
                     "Rocket Punch": {
                         "Minimum knockback": 15,
@@ -683,7 +687,8 @@
                         "has arrow draw progress preserved while wall climbing": true,
                         "Critical multiplier": 2,
                         "Maximum charge time": 0.732,
-                        "Recovery time": 0.5
+                        "Recovery time": 0.5,
+                        "Maximum projectile speed": 110
                     },
                     "Storm Arrows": {
                         "Cooldown": 10,
@@ -1162,7 +1167,7 @@
                         "Alt fire of": "Widow's Kiss",
                         "Critical multiplier": 2.5,
                         "Maximum damage": 120,
-                        "Maximum charge time": 1,
+                        "Maximum charge time": 0.9,
                         "Recovery time": 0.5,
                         "Ammo per shot": 3
                     },
@@ -1247,7 +1252,8 @@
                     "Immortality Field": {
                         "Health": 200,
                         "Minimum health threshold": 20,
-                        "Cooldown": 23
+                        "Cooldown": 25,
+                        "Maximum duration": 5
                     },
                     "Amplification Matrix": {
                         "Ultimate cost": 2350,

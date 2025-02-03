@@ -967,6 +967,12 @@
                                 "seconds"
                             ]
                         ],
+                        "Snare duration": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
                         "Cooldown": [
                             [
                                 "display unit",
@@ -1538,10 +1544,22 @@
                                 "flag"
                             ]
                         ],
+                        "can be interrupted before targets begin falling": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
                         "Flight speed boost": [
                             [
                                 "display unit",
                                 "percent"
+                            ]
+                        ],
+                        "Impact slow duration":  [
+                            [
+                                "display unit",
+                                "seconds"
                             ]
                         ],
                         "Ultimate cost": []
@@ -3466,6 +3484,12 @@
                                 "percent"
                             ]
                         ],
+                        "locks player's aim": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
                         "Ultimate cost": [],
                         "Initial damage rate": [],
                         "Secondary damage rate": [],
@@ -3539,6 +3563,12 @@
                             ]
                         ],
                         "Duration": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
+                        "Recovery time": [
                             [
                                 "display unit",
                                 "seconds"
@@ -3993,6 +4023,12 @@
                             [
                                 "display unit",
                                 "seconds"
+                            ]
+                        ],
+                        "Maximum projectile speed": [
+                            [
+                                "display unit",
+                                "meters per second"
                             ]
                         ]
                     },
@@ -6826,6 +6862,12 @@
                             [
                                 "display unit",
                                 "percent"
+                            ]
+                        ],
+                        "Maximum duration": [
+                            [
+                                "display unit",
+                                "seconds"
                             ]
                         ],
                         "Cooldown": [

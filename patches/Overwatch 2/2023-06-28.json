@@ -271,7 +271,9 @@
                     "Gravitic Flux": {
                         "requires line-of-sight": true,
                         "Ultimate cost": 2090,
-                        "Flight speed boost": 30
+                        "Flight speed boost": 30,
+                        "Impact slow duration": 0.6,
+                        "can be interrupted before targets begin falling": true
                     },
                     "Hyperspheres": {
                         "Projectile size": 0.25,
@@ -831,7 +833,8 @@
                         "has arrow draw progress preserved while wall climbing": true,
                         "Critical multiplier": 2,
                         "Maximum charge time": 0.732,
-                        "Recovery time": 0.5
+                        "Recovery time": 0.5,
+                        "Maximum projectile speed": 110
                     },
                     "Storm Arrows": {
                         "Cooldown": 10,
@@ -1366,7 +1369,7 @@
                         "Falloff maximum range": 60,
                         "Critical multiplier": 2.5,
                         "Maximum damage": 120,
-                        "Maximum charge time": 1,
+                        "Maximum charge time": 0.9,
                         "Recovery time": 0.5,
                         "Ammo per shot": 5
                     },
@@ -1455,7 +1458,8 @@
                     "Immortality Field": {
                         "Health": 150,
                         "Minimum health threshold": 25,
-                        "Cooldown": 23
+                        "Cooldown": 23,
+                        "Maximum duration": 5
                     },
                     "Amplification Matrix": {
                         "Ultimate cost": 2318,
