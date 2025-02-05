@@ -49,7 +49,8 @@
                     "Defense Matrix": {
                         "Cooldown": 2.0,
                         "Maximum Duration": 2,
-                        "Recharge rate": 16.67
+                        "Recharge rate": 16.67,
+                        "Delay before regeneration begins": 0.75
                     },
                     "Self Destruct": {
                         "Ultimate cost": 1545,
@@ -193,7 +194,8 @@
                     },
                     "Kinetic Grasp": {
                         "Cooldown": 13,
-                        "Overhealth generation from damage mitigated": 40
+                        "Overhealth generation from damage mitigated": 40,
+                        "blocks Chain Hook and Whipshot": true
                     },
                     "Accretion": {
                         "Direct damage": 30,
@@ -208,7 +210,8 @@
                         "requires line-of-sight": true,
                         "Ultimate cost": 2150,
                         "Impact slow duration": 0.9,
-                        "can be interrupted before targets begin falling": false
+                        "can be interrupted before targets begin falling": false,
+                        "Startup cast time": 0.6
                     },
                     "Hyperspheres": {
                         "Projectile size": 0.25,
@@ -394,7 +397,7 @@
                         "Alt fire of": "Tesla Cannon"
                     },
                     "Barrier Projector": {
-                        "Health": 800,
+                        "Health": 700,
                         "Duration": 9,
                         "Cooldown": 13
                     }
@@ -581,7 +584,8 @@
                         "Cooldown": 4,
                         "Min impact damage": 50,
                         "Min wall slam damage": 50,
-                        "Minimum time before cancel option becomes available": 0.25
+                        "Minimum time before cancel option becomes available": 0.25,
+                        "Maximum charge time": 1.4
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 1680,
@@ -919,7 +923,7 @@
                         "activates on terrain collision": false,
                         "Projectile speed": 25,
                         "Cooldown start": "Ability use",
-                        "Cooldown": 5
+                        "Cooldown": 6
                     },
                     "Machine Pistol": {
                         "Projectile size": 0.0,
@@ -991,7 +995,8 @@
                     },
                     "Photon Barrier": {
                         "Ultimate cost": 1675,
-                        "Barrier health": 4000
+                        "Barrier health": 4000,
+                        "Duration": 12
                     },
                     "Photon Projector Alt Fire": {
                         "Minimum projectile size": 0.04,
@@ -1305,7 +1310,8 @@
                     },
                     "Crossfade": {
                         "Crossfade self-healing penalty for the duration of Amp It Up": 60,
-                        "Self healing per second": 5
+                        "Self healing per second": 5,
+                        "Speed boost": 25
                     },
                     "Amp It Up": {
                         "Cooldown": 12,
@@ -1347,7 +1353,8 @@
                         "Healing": 60,
                         "Ultimate cost": 1818,
                         "disconnects Caduceus Staff from its target on activation": true,
-                        "force enables passive healing": false
+                        "force enables passive healing": false,
+                        "chain beams ignore enemy barriers": true
                     },
                     "Guardian Angel": {
                         "Active duration on jump/crouch cancel": 1,

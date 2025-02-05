@@ -2,29 +2,7 @@
     "general": {},
     "heroes": {
         "tank": {
-            "general": {},
-            "Sigma": {
-                "abilities": {
-                    "Gravitic Flux": {
-                        "Impact slow duration": 0.6,
-                        "can be interrupted before targets begin falling": true
-                    }
-                }
-            },
-            "Reinhardt": {
-                "abilities": {
-                    "Barrier Field": {
-                        "Movement speed penalty": 30
-                    }
-                }
-            },
-            "Zarya": {
-                "abilities": {
-                    "Particle Cannon Alt Fire": {
-                        "Explosion radius": 2.5
-                    }
-                }
-            }
+            "general": {}
         },
         "damage": {
             "general": {}

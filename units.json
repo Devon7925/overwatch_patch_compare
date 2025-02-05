@@ -237,6 +237,12 @@
                                 "display unit",
                                 "percent"
                             ]
+                        ],
+                        "Delay before regeneration begins": [
+                            [
+                                "display unit",
+                                "percent"
+                            ]
                         ]
                     },
                     "Boosters": {
@@ -1466,6 +1472,18 @@
                         "Health": [],
                         "Movement speed": [],
                         "Regeneration rate": [],
+                        "being hacked keeps barrier": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
+                        "Cast time": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
                         "Cooldown": [
                             [
                                 "display unit",
@@ -1484,6 +1502,12 @@
                             [
                                 "display unit",
                                 "percent"
+                            ]
+                        ],
+                        "blocks Chain Hook and Whipshot": [
+                            [
+                                "display unit",
+                                "flag"
                             ]
                         ]
                     },
@@ -1557,6 +1581,12 @@
                             ]
                         ],
                         "Impact slow duration":  [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
+                        "Startup cast time":  [
                             [
                                 "display unit",
                                 "seconds"
@@ -1785,6 +1815,12 @@
                             ]
                         ],
                         "Minimum damage per second": [],
+                        "Beam width scales with energy": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
                         "Beam width": [
                             [
                                 "display unit",
@@ -3053,6 +3089,12 @@
                     },
                     "Self-Repair": {
                         "Healing per second": [],
+                        "consumes resource while at full health": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
                         "Drain rate per second": [
                             [
                                 "display unit",
@@ -3598,6 +3640,12 @@
                         ],
                         "Max impact damage": [],
                         "Max wall slam damage": [],
+                        "Maximum charge time": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
                         "Damage reduction on AoE affected targets": [
                             [
                                 "display unit",
@@ -5800,8 +5848,14 @@
                         ]
                     },
                     "Photon Barrier": {
-                        "Ultimate cost": [],
-                        "Barrier health": []
+                        "Duration": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
+                        "Barrier health": [],
+                        "Ultimate cost": []
                     }
                 }
             },
@@ -6757,6 +6811,12 @@
                             [
                                 "display unit",
                                 "percent"
+                            ]
+                        ],
+                        "has random spread": [
+                            [
+                                "display unit",
+                                "flag"
                             ]
                         ]
                     },
@@ -7984,6 +8044,12 @@
                                 "percent"
                             ]
                         ],
+                        "Speed boost": [
+                            [
+                                "display unit",
+                                "percent"
+                            ]
+                        ],
                         "Self healing per second": []
                     },
                     "Amp It Up": {
@@ -8172,6 +8238,12 @@
                             ]
                         ],
                         "force enables passive healing": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
+                        "chain beams ignore enemy barriers": [
                             [
                                 "display unit",
                                 "flag"

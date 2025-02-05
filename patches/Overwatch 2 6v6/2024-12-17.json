@@ -51,7 +51,8 @@
                     "Defense Matrix": {
                         "Cooldown": 1,
                         "Maximum Duration": 2,
-                        "Recharge rate": 16.67
+                        "Recharge rate": 16.67,
+                        "Delay before regeneration begins": 0.75
                     },
                     "Self Destruct": {
                         "Ultimate cost": 1700,
@@ -309,7 +310,8 @@
                     },
                     "Kinetic Grasp": {
                         "Cooldown": 12,
-                        "Overhealth generation from damage mitigated": 60
+                        "Overhealth generation from damage mitigated": 60,
+                        "blocks Chain Hook and Whipshot": true
                     },
                     "Accretion": {
                         "Direct damage": 60,
@@ -324,7 +326,8 @@
                         "Ultimate cost": 2300,
                         "Flight speed boost": 30,
                         "Impact slow duration": 0.6,
-                        "can be interrupted before targets begin falling": true
+                        "can be interrupted before targets begin falling": true,
+                        "Startup cast time": 0.6
                     },
                     "Hyperspheres": {
                         "Projectile size": 0.32,
@@ -1358,7 +1361,8 @@
                     },
                     "Photon Barrier": {
                         "Ultimate cost": 2025,
-                        "Barrier health": 4000
+                        "Barrier health": 4000,
+                        "Duration": 12
                     },
                     "Photon Projector Alt Fire": {
                         "Minimum projectile size": 0.085,
@@ -1925,7 +1929,8 @@
                     },
                     "Crossfade": {
                         "Crossfade self-healing penalty for the duration of Amp It Up": 0,
-                        "Self healing per second": 9.6
+                        "Self healing per second": 9.6,
+                        "Speed boost": 25
                     },
                     "Amp It Up": {
                         "Cooldown": 12,
@@ -1966,7 +1971,8 @@
                         "Healing": 60,
                         "Ultimate cost": 2000,
                         "disconnects Caduceus Staff from its target on activation": false,
-                        "force enables passive healing": true
+                        "force enables passive healing": true,
+                        "chain beams ignore enemy barriers": true
                     },
                     "Guardian Angel": {
                         "Active duration on jump/crouch cancel": 1,
