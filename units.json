@@ -119,6 +119,12 @@
                 "flag"
             ]
         ],
+        "friendly and hostile slowing effects stack": [
+            [
+                "display unit",
+                "flag"
+            ]
+        ],
         "Maximum lower carryover time": [
             [
                 "display unit",
@@ -242,6 +248,12 @@
                             [
                                 "display unit",
                                 "percent"
+                            ]
+                        ],
+                        "Length": [
+                            [
+                                "display unit",
+                                "meters"
                             ]
                         ]
                     },
@@ -1095,6 +1107,12 @@
                                 "display unit",
                                 "seconds"
                             ]
+                        ],
+                        "deploy cancels reload": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
                         ]
                     },
                     "Javelin Spin": {
@@ -1580,13 +1598,13 @@
                                 "percent"
                             ]
                         ],
-                        "Impact slow duration":  [
+                        "Impact slow duration": [
                             [
                                 "display unit",
                                 "seconds"
                             ]
                         ],
-                        "Startup cast time":  [
+                        "Startup cast time": [
                             [
                                 "display unit",
                                 "seconds"
@@ -1777,6 +1795,18 @@
                             [
                                 "display unit",
                                 "seconds"
+                            ]
+                        ],
+                        "Cast time": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
+                        "Projectile speed": [
+                            [
+                                "display unit",
+                                "meters per second"
                             ]
                         ],
                         "Sticks to walls": [
@@ -3585,7 +3615,13 @@
                             ]
                         ],
                         "Pellet count": [],
-                        "Critical multiplier": []
+                        "Critical multiplier": [],
+                        "quick melee pauses reload": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ]
                     },
                     "Seismic Slam": {
                         "Damage": [],
@@ -5645,6 +5681,12 @@
                                 "percent"
                             ]
                         ],
+                        "Cast time": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
                         "destroys Lifeweaver's Tree of Life": [
                             [
                                 "display unit",
@@ -5833,11 +5875,35 @@
                                 "seconds"
                             ]
                         ],
+                        "Maximum range": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
+                        "Automatic destruction range": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
+                        "Interact range": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
                         "Cooldown start": [],
                         "Maximum lifetime": [
                             [
                                 "display unit",
                                 "seconds"
+                            ]
+                        ],
+                        "manually breakable": [
+                            [
+                                "display unit",
+                                "flag"
                             ]
                         ],
                         "cannot be destroyed while dead": [
@@ -6956,6 +7022,12 @@
                                 "meters"
                             ]
                         ],
+                        "Duration": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
                         "Ultimate cost": []
                     }
                 }
@@ -7067,6 +7139,18 @@
                                 "normal"
                             ]
                         ],
+                        "Projectile speed": [
+                            [
+                                "display unit",
+                                "meters per second"
+                            ]
+                        ],
+                        "Recovery time": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
                         "Cooldown": [
                             [
                                 "display unit",
@@ -7081,12 +7165,6 @@
                                 "normal"
                             ]
                         ],
-                        "Cooldown": [
-                            [
-                                "display unit",
-                                "seconds"
-                            ]
-                        ],
                         "Range": [
                             [
                                 "display unit",
@@ -7099,13 +7177,26 @@
                                 "normal"
                             ]
                         ],
+                        "Healing duration": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
+                        "Cooldown": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
                         "gives temporary armor to full health targets": [
                             [
                                 "display unit",
                                 "flag"
                             ]
                         ],
-                        "Maximum temporary armor": []
+                        "Maximum temporary armor": [],
+                        "Charges": []
                     },
                     "Rally": {
                         "Ultimate cost": [],
@@ -8704,6 +8795,19 @@
             "Decay rate on final objective for attackers": [],
             "Capture time multiplier for defenders on B and D points": []
         },
-        "Assault": {}
+        "Assault": {
+            "Additional time for first point capture": [
+                [
+                    "display unit",
+                    "seconds"
+                ]
+            ],
+            "Max respawn time of defenders after point A capture": [
+                [
+                    "display unit",
+                    "seconds"
+                ]
+            ]
+        }
     }
 }

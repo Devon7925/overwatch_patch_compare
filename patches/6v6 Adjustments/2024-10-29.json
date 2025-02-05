@@ -56,7 +56,8 @@
                         "Cooldown": 1.5,
                         "Maximum Duration": 2,
                         "Recharge rate": 15,
-                        "Delay before regeneration begins": 0.75
+                        "Delay before regeneration begins": 0.75,
+                        "Length": 10
                     },
                     "Self Destruct": {
                         "Ultimate cost": 1540,
@@ -326,7 +327,9 @@
                         "Damage": 130,
                         "Explosion knockback": 10,
                         "Ultimate cost": 1540,
-                        "Arming time": 1.25
+                        "Arming time": 1.25,
+                        "Cast time": 0.1,
+                        "Projectile speed": 12
                     },
                     "Quad Cannons": {
                         "Projectile size": 0.05,
@@ -1240,7 +1243,8 @@
                         "Ability lockout duration": 3,
                         "Damage of current health": 25,
                         "destroys Lifeweaver's Tree of Life": false,
-                        "destroys Mei's Blizzard": true
+                        "destroys Mei's Blizzard": true,
+                        "Cast time": 0.35
                     },
                     "Translocator": {
                         "destroys breakables while in flight": true,
@@ -1326,7 +1330,11 @@
                         "Cooldown": 12,
                         "Build time": 1,
                         "Maximum lifetime": 10,
-                        "Cooldown start": "teleporter placed"
+                        "Cooldown start": "teleporter placed",
+                        "Maximum range": 30,
+                        "Automatic destruction range": 40,
+                        "manually breakable": true,
+                        "Interact range": 1.5
                     },
                     "Photon Barrier": {
                         "Ultimate cost": 1680,
@@ -1603,7 +1611,8 @@
                     },
                     "Amplification Matrix": {
                         "Ultimate cost": 2440,
-                        "Width": 9
+                        "Width": 9,
+                        "Duration": 10
                     },
                     "Biotic Launcher Alt Fire": {
                         "Explosion healing": 35,
@@ -1637,7 +1646,9 @@
                         "Instant healing": 30,
                         "Cooldown": 5,
                         "Range": 25,
-                        "Healing over time": 50
+                        "Healing over time": 50,
+                        "Charges": 3,
+                        "Healing duration": 2
                     },
                     "Rally": {
                         "Ultimate cost": 2625,
@@ -1651,7 +1662,9 @@
                     },
                     "Whipshot": {
                         "Damage": 70,
-                        "Cooldown": 4
+                        "Cooldown": 4,
+                        "Projectile speed": 80,
+                        "Recovery time": 0.3
                     },
                     "Barrier Shield": {
                         "Barrier Shield health": 250,
