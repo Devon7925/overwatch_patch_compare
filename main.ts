@@ -602,7 +602,12 @@ function resetUI() {
 }
 
 function displayPatchNotes(changes: Changes<PatchData>, breakpoint_data: [number, number] | null) {
+    console.log(changes)
     let hero_section = document.getElementsByClassName("PatchNotes-section-hero_update")[0]
+    if(Object.keys(changes).length === 0) {
+        hero_section.innerHTML = "<h2>No changes to show</h2>"
+        return;
+    }
     hero_section.innerHTML = ""
     if (changes.general) {
         let changeRender = ""
