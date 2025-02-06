@@ -527,9 +527,6 @@
                     "has overridden melee": true
                 },
                 "abilities": {
-                    "Steadfast": {
-                        "Knockback reduction": 0
-                    },
                     "Rocket Hammer": {
                         "Damage": 100,
                         "Recovery time": 0.96,
