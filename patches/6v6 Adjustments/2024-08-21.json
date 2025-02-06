@@ -957,7 +957,8 @@
                         "Recovery time": 0.6667,
                         "Ammo": 5,
                         "Reload time": 1.5,
-                        "Projectile size reduction": 50
+                        "Projectile size reduction": 50,
+                        "Projectile speed": 25
                     },
                     "Concussion Mine": {
                         "Cooldown": 8,
@@ -1115,7 +1116,8 @@
                     "Shadow Step": {
                         "Cast time": 1.2,
                         "Cooldown": 8,
-                        "Range": 35
+                        "Range": 35,
+                        "Time to exit shadow step": 0.5
                     },
                     "Death Blossom": {
                         "Ultimate cost": 1900,

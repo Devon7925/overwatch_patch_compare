@@ -125,6 +125,12 @@
                 "flag"
             ]
         ],
+        "long range placement abilities blockable by railings": [
+            [
+                "display unit",
+                "flag"
+            ]
+        ],
         "Maximum lower carryover time": [
             [
                 "display unit",
@@ -4283,6 +4289,12 @@
                                 "normal"
                             ]
                         ],
+                        "Projectile speed": [
+                            [
+                                "display unit",
+                                "meters per second"
+                            ]
+                        ],
                         "Projectile size": [
                             [
                                 "display unit",
@@ -5002,7 +5014,16 @@
                     },
                     "Shadow Step": {
                         "Cast time": [
-                            "time between shots"
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
+                        "Time to exit shadow step": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
                         ],
                         "Cooldown": [
                             [
@@ -5014,6 +5035,12 @@
                             [
                                 "display unit",
                                 "meters"
+                            ]
+                        ],
+                        "disabled in air": [
+                            [
+                                "display unit",
+                                "flag"
                             ]
                         ]
                     },
