@@ -16,6 +16,7 @@
 * 2020/03 Mei `Player collision now allows large heroes to fit through 1 pillar gaps` how so? I presume hitbox reduced, but how much and does it only apply to players or also bullets.
 * 2019/11 `Mei's Icewall, Baptiste's Immortality Field, and Sigma's Gravitic Flux will now more heavily prefer edges over placing as far away as possible` how much?
 * 2019/03 `Grenades now bounce less but explode sooner` how much sooner? how much less?
+2019/02 `Knockback distance is now more consistent` I need numbers.
 
 
 

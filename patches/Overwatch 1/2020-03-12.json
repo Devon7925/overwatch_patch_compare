@@ -18,7 +18,8 @@
         "Beam armor mitigation": 20,
         "Elevator behavior": "cycle",
         "has random shotgun rotation": true,
-        "Maximum lower carryover time": 120
+        "Maximum lower carryover time": 120,
+        "Damage boost application time": "projectile fire"
     },
     "heroes": {
         "tank": {
@@ -797,7 +798,8 @@
                         "Explosion damage": 65,
                         "Recovery time": 0.75,
                         "Ammo": 6,
-                        "Reload time": 1.5
+                        "Reload time": 1.5,
+                        "Minimum explosion damage": 20
                     },
                     "Barrage": {
                         "Ultimate cost": 2105,
@@ -1121,7 +1123,9 @@
                 "abilities": {
                     "Infra-Sight": {
                         "Ultimate cost": 1566,
-                        "Duration": 15
+                        "Duration": 15,
+                        "reveals enemy health bars": true,
+                        "cancelled on death": true
                     },
                     "Widow's Kiss": {
                         "Projectile size": 0.0,
@@ -1190,7 +1194,8 @@
                         "collides with full health allies": true
                     },
                     "Nano Boost": {
-                        "Ultimate cost": 2090
+                        "Ultimate cost": 2090,
+                        "Healing": 250
                     }
                 }
             },
@@ -1275,7 +1280,8 @@
                         "has bigger shield": false,
                         "Additional barrier health": 0,
                         "Shield bash stun duration": 0,
-                        "Bonus movement speed": 30
+                        "Bonus movement speed": 30,
+                        "Maximum armor duration": 30
                     },
                     "Whipshot": {
                         "Damage": 70,
@@ -1482,6 +1488,8 @@
         "Hollywood": 1,
         "King's Row": 1,
         "Numbani": 1,
+        "Paris": 1,
+        "Horizon Lunar Colony": 1,
         "Hanamura": 1,
         "Volskaya": 1,
         "Temple of Anubis": 1

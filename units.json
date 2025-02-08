@@ -131,12 +131,25 @@
                 "flag"
             ]
         ],
+        "flying heroes are immune to knockbacks and slows": [
+            [
+                "display unit",
+                "flag"
+            ]
+        ],
+        "shield health damaged before temporary armor": [
+            [
+                "display unit",
+                "flag"
+            ]
+        ],
         "Maximum lower carryover time": [
             [
                 "display unit",
                 "seconds"
             ]
-        ]
+        ],
+        "Damage boost application time": []
     },
     "heroes": {
         "tank": {
@@ -1765,6 +1778,12 @@
                                 "seconds"
                             ]
                         ],
+                        "cancels Roll mode": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
                         "Base shield": []
                     },
                     "Piledriver": {
@@ -1903,6 +1922,12 @@
                             [
                                 "display unit",
                                 "seconds"
+                            ]
+                        ],
+                        "explosion radius scales with energy": [
+                            [
+                                "display unit",
+                                "flag"
                             ]
                         ],
                         "Ammo": [
@@ -4764,6 +4789,7 @@
                                 "max splash"
                             ]
                         ],
+                        "Minimum explosion damage": [],
                         "Projectile speed": [
                             [
                                 "display unit",
@@ -5380,6 +5406,18 @@
                             ]
                         ],
                         "prevents critical hits": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
+                        "cannot target RIP-Tire": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
+                        "cannot target Immortality Field": [
                             [
                                 "display unit",
                                 "flag"
@@ -6694,6 +6732,18 @@
                                 "seconds"
                             ]
                         ],
+                        "reveals enemy health bars": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
+                        "cancelled on death": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
                         "Ultimate cost": []
                     }
                 }
@@ -6819,6 +6869,7 @@
                         ]
                     },
                     "Nano Boost": {
+                        "Healing": [],
                         "Ultimate cost": []
                     }
                 }
@@ -7226,7 +7277,6 @@
                         "Charges": []
                     },
                     "Rally": {
-                        "Ultimate cost": [],
                         "resets Shield Bash cooldown upon activation": [
                             [
                                 "display unit",
@@ -7253,12 +7303,19 @@
                                 "seconds"
                             ]
                         ],
+                        "Maximum armor duration": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
                         "Bonus movement speed": [
                             [
                                 "display unit",
                                 "percent"
                             ]
-                        ]
+                        ],
+                        "Ultimate cost": []
                     }
                 }
             },
@@ -8073,13 +8130,13 @@
                         "Movement speed": [
                             [
                                 "display unit",
-                                "meters per second"
+                                "percent"
                             ]
                         ],
                         "Wall leap speed increase": [
                             [
                                 "display unit",
-                                "meters per second"
+                                "percent"
                             ]
                         ]
                     },

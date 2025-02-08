@@ -19,7 +19,8 @@
         "Lightning armor mitigation": 0,
         "Beam armor mitigation": 30,
         "Elevator behavior": "activation",
-        "Maximum lower carryover time": 120
+        "Maximum lower carryover time": 120,
+        "Damage boost application time": "projectile fire"
     },
     "heroes": {
         "tank": {
@@ -1059,7 +1060,8 @@
                         "Explosion damage": 80,
                         "Recovery time": 0.85,
                         "Ammo": 6,
-                        "Reload time": 1.5
+                        "Reload time": 1.5,
+                        "Minimum explosion damage": 20
                     },
                     "Barrage": {
                         "Ultimate cost": 2100,
@@ -1491,7 +1493,9 @@
                 "abilities": {
                     "Infra-Sight": {
                         "Ultimate cost": 1540,
-                        "Duration": 15
+                        "Duration": 15,
+                        "reveals enemy health bars": true,
+                        "cancelled on death": true
                     },
                     "Widow's Kiss": {
                         "Projectile size": 0.05,
@@ -1567,7 +1571,8 @@
                         "Cooldown": 12
                     },
                     "Nano Boost": {
-                        "Ultimate cost": 2100
+                        "Ultimate cost": 2100,
+                        "Healing": 250
                     }
                 }
             },
@@ -1651,7 +1656,8 @@
                         "has bigger shield": true,
                         "Additional barrier health": 450,
                         "Shield bash stun duration": 0.5,
-                        "Bonus movement speed": 15
+                        "Bonus movement speed": 15,
+                        "Maximum armor duration": 30
                     },
                     "Whipshot": {
                         "Damage": 70,
