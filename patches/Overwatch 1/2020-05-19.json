@@ -166,10 +166,11 @@
                         "Projectile size": 0.5,
                         "Enemy final position distance": 3.5,
                         "Cooldown start": "ability start",
-                        "Impact damage": 30
+                        "Impact damage": 30,
+                        "Pull delay": 0.3
                     },
                     "Whole Hog": {
-                        "Knockback": 14,
+                        "Knockback": 12,
                         "Damage per pellet": 7,
                         "Ultimate cost": 2567,
                         "disables other abilities and automatically fires": true,
@@ -568,7 +569,8 @@
                     },
                     "Seismic Slam": {
                         "Damage": 125,
-                        "Cooldown": 6
+                        "Cooldown": 6,
+                        "Maximum range": 15
                     },
                     "Rising Uppercut": {
                         "Cooldown": 6,
@@ -593,7 +595,9 @@
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 1680,
-                        "Minimum damage": 15
+                        "Minimum damage": 15,
+                        "Inner ring damage radius": 2.0,
+                        "Outer ring maximum damage": 200
                     }
                 }
             },
@@ -1087,7 +1091,8 @@
                     "Molten Core": {
                         "Ultimate cost": 2136,
                         "Projectile size": 0.205,
-                        "Impact damage": 25
+                        "Impact damage": 25,
+                        "Pool damage per second": 160
                     },
                     "Deploy Turret": {
                         "Turret damage": 14,
@@ -1303,7 +1308,8 @@
                         "Healing per second": 21,
                         "Duration": 6,
                         "triggers from Shield Bash damage": false,
-                        "Self healing rate": 50
+                        "Self healing rate": 50,
+                        "Cooldown": 1
                     },
                     "Rocket Flail": {
                         "Damage": 35,

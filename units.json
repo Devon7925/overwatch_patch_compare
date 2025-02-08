@@ -1321,6 +1321,12 @@
                         ]
                     },
                     "Chain Hook": {
+                        "Pull delay": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
                         "Cooldown": [
                             [
                                 "display unit",
@@ -3656,6 +3662,18 @@
                     },
                     "Seismic Slam": {
                         "Damage": [],
+                        "Maximum range": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
+                        "targets have loss of air control": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
                         "Cooldown": [
                             [
                                 "display unit",
@@ -3737,6 +3755,13 @@
                     "Meteor Strike": {
                         "Ultimate cost": [],
                         "Minimum damage": [],
+                        "Inner ring damage radius": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
+                        "Outer ring maximum damage": [],
                         "Cooldown rate acceleration": [
                             [
                                 "display unit",
@@ -5423,6 +5448,12 @@
                                 "flag"
                             ]
                         ],
+                        "affects Helix Rocket aim": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
                         "Duration": [
                             [
                                 "display unit",
@@ -6175,6 +6206,7 @@
                                 "normal"
                             ]
                         ],
+                        "Pool damage per second": [],
                         "Ultimate cost": []
                     }
                 }
@@ -7129,6 +7161,12 @@
                     "Inspire": {
                         "Healing per second": [],
                         "Duration": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
+                        "Cooldown": [
                             [
                                 "display unit",
                                 "seconds"

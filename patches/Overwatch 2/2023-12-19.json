@@ -231,7 +231,8 @@
                         "Projectile size": 0.5,
                         "Enemy final position distance": 4,
                         "Cooldown start": "ability end",
-                        "Impact damage": 5
+                        "Impact damage": 5,
+                        "Pull delay": 0.3
                     },
                     "Whole Hog": {
                         "Knockback": 14,
@@ -1350,7 +1351,8 @@
                     "Molten Core": {
                         "Ultimate cost": 2136,
                         "Projectile size": 0.205,
-                        "Impact damage": 25
+                        "Impact damage": 25,
+                        "Pool damage per second": 160
                     },
                     "Deploy Turret": {
                         "Turret damage": 11,
@@ -1573,7 +1575,8 @@
                     "Inspire": {
                         "Healing per second": 15,
                         "Duration": 5,
-                        "triggers from Shield Bash damage": true
+                        "triggers from Shield Bash damage": true,
+                        "Cooldown": 1
                     },
                     "Rocket Flail": {
                         "Damage": 35,
