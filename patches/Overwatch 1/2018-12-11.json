@@ -20,7 +20,8 @@
         "long range placement abilities blockable by railings": true,
         "Damage boost application time": "projectile hit",
         "flying heroes are immune to knockbacks and slows": true,
-        "shield health damaged before temporary armor": true
+        "shield health damaged before temporary armor": true,
+        "ally outlines are visible through walls": true
     },
     "heroes": {
         "tank": {
@@ -153,7 +154,9 @@
                         "has secondary fire": true,
                         "Recovery time": 0.7,
                         "Reload time": 2,
-                        "Damage per pellet": 6
+                        "Damage per pellet": 6,
+                        "Minimum falloff range": 15,
+                        "Maximum falloff range": 30
                     },
                     "Take a Breather": {
                         "Damage reduction": 50,
@@ -476,7 +479,8 @@
                     "Combat Roll": {
                         "can be blocked by enemy player collision": true,
                         "can be used mid-air": false,
-                        "Movement speed": 15
+                        "Movement speed": 15,
+                        "Cooldown": 6
                     },
                     "Flashbang": {
                         "Effect": "Applies stun on hit",
@@ -523,7 +527,8 @@
                         "Projectile size": 0.0,
                         "Pellet count": 11,
                         "Critical multiplier": 2,
-                        "quick melee pauses reload": true
+                        "quick melee pauses reload": true,
+                        "Minimum damage falloff range": 15
                     },
                     "Seismic Slam": {
                         "Damage": 125,
@@ -760,7 +765,9 @@
                         "Recovery time": 0.75,
                         "Ammo": 6,
                         "Reload time": 1.5,
-                        "Minimum explosion damage": 16.25
+                        "Minimum explosion damage": 16.25,
+                        "Knockback": 7,
+                        "Self knockback": 14
                     },
                     "Barrage": {
                         "Ultimate cost": 1900,
@@ -989,7 +996,8 @@
                 "general": {
                     "Base health": 200,
                     "Armor health": 0,
-                    "Weapon swap time": 0.5
+                    "Weapon swap time": 0.5,
+                    "Head hit volume": 0.9
                 },
                 "abilities": {
                     "Rivet Gun": {
@@ -998,7 +1006,9 @@
                         "Critical multiplier": 2,
                         "Recovery time": 0.6,
                         "Damage": 70,
-                        "Reload time": 2
+                        "Reload time": 2,
+                        "Projectile speed": 70,
+                        "hits change turret target": true
                     },
                     "Molten Core": {
                         "Ultimate cost": 2150,
@@ -1012,7 +1022,8 @@
                         "Turret base health": 250,
                         "Turret recovery time": 0.256,
                         "Build time": 3,
-                        "cannot be destroyed while dead": true
+                        "cannot be destroyed while dead": true,
+                        "Deploy method": "thrown projectile"
                     },
                     "Overload": {
                         "Overhealth": 150,
@@ -1109,7 +1120,8 @@
                     "Grappling Hook": {
                         "Cooldown": 10,
                         "Range": 20,
-                        "Move speed": 20
+                        "Move speed": 20,
+                        "retains momentum when used on environments or structures without a ledge": true
                     },
                     "Venom Mine": {
                         "Cooldown": 15,
@@ -1211,7 +1223,8 @@
                         "Knockback scalar": 1,
                         "Stun duration": 0.9,
                         "stopped by barriers": true,
-                        "Distance travelled": 7
+                        "Distance travelled": 7,
+                        "is counter charge ability": true
                     }
                 }
             },
@@ -1410,14 +1423,20 @@
         },
         "Escort": {
             "Attackers cart healing": 10,
-            "Time until cart rollback": 10
+            "Time until cart rollback": 10,
+            "Setup time": 45,
+            "Second round Assemble Your Team time": 25
         },
         "Hybrid": {
             "Attackers cart healing": 10,
-            "Time until cart rollback": 10
+            "Time until cart rollback": 10,
+            "Setup time": 45,
+            "Second round Assemble Your Team time": 25
         },
         "Assault": {
-            "Additional time for first point capture": 180
+            "Additional time for first point capture": 180,
+            "Setup time": 45,
+            "Second round Assemble Your Team time": 25
         }
     }
 }

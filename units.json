@@ -143,6 +143,12 @@
                 "flag"
             ]
         ],
+        "ally outlines are visible through walls": [
+            [
+                "display unit",
+                "flag"
+            ]
+        ],
         "Maximum lower carryover time": [
             [
                 "display unit",
@@ -1249,11 +1255,29 @@
                                 "headshot"
                             ]
                         ],
+                        "Minimum falloff range": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
+                        "Maximum falloff range": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
                         "Secondary fire pre-detonation damage": [],
                         "Secondary fire max range": [
                             [
                                 "display unit",
                                 "meters"
+                            ]
+                        ],
+                        "secondary fire has no falloff": [
+                            [
+                                "display unit",
+                                "flag"
                             ]
                         ],
                         "has secondary fire": [
@@ -2348,6 +2372,18 @@
                             [
                                 "display unit",
                                 "seconds"
+                            ]
+                        ],
+                        "hits enemies that enter the damage cone after the “wave” has passed that area": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
+                        "damages enemies behind barriers blocking it, even if the barrier is later dropped or destroyed": [
+                            [
+                                "display unit",
+                                "flag"
                             ]
                         ],
                         "Shockwave range": [],
@@ -3507,6 +3543,12 @@
                                 "display unit",
                                 "meters per second"
                             ]
+                        ],
+                        "Cooldown": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
                         ]
                     },
                     "Flashbang": {
@@ -3646,6 +3688,12 @@
                         "Minimum damage": [],
                         "Maximum damage": [],
                         "Projectile size": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
+                        "Minimum damage falloff range": [
                             [
                                 "display unit",
                                 "meters"
@@ -4815,6 +4863,18 @@
                             ]
                         ],
                         "Minimum explosion damage": [],
+                        "Knockback": [
+                            [
+                                "display unit",
+                                "meters per second"
+                            ]
+                        ],
+                        "Self knockback": [
+                            [
+                                "display unit",
+                                "meters per second"
+                            ]
+                        ],
                         "Projectile speed": [
                             [
                                 "display unit",
@@ -6029,6 +6089,12 @@
                     "Armor health": [
                         "health"
                     ],
+                    "Head hit volume": [
+                        [
+                            "display unit",
+                            "relative percent"
+                        ]
+                    ],
                     "Weapon swap time": [
                         [
                             "display unit",
@@ -6037,6 +6103,11 @@
                     ]
                 },
                 "abilities": {
+                    "Scrap Collector": {
+                        "Scrap per second": [],
+                        "Scrap per pickup": [],
+                        "Max scrap": []
+                    },
                     "Forge Hammer": {
                         "Recovery time": [
                             "time between shots",
@@ -6069,6 +6140,18 @@
                             [
                                 "display unit",
                                 "meters"
+                            ]
+                        ],
+                        "Projectile speed": [
+                            [
+                                "display unit",
+                                "meters per second"
+                            ]
+                        ],
+                        "hits change turret target": [
+                            [
+                                "display unit",
+                                "flag"
                             ]
                         ],
                         "Recovery time": [
@@ -6138,21 +6221,30 @@
                         ]
                     },
                     "Deploy Turret": {
+                        "Deploy method": [],
                         "Turret damage": [
                             [
                                 "damage instance",
                                 "normal"
                             ]
                         ],
-                        "Cooldown": [
+                        "Level 1 turret base health": [],
+                        "Turret base health": [],
+                        "Level 3 turret base health": [],
+                        "Turret level 1 recovery time": [
                             [
                                 "display unit",
                                 "seconds"
                             ]
                         ],
-                        "Turret base health": [],
                         "Turret recovery time": [
                             "time between shots",
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
+                        "Turret level 3 recovery time": [
                             [
                                 "display unit",
                                 "seconds"
@@ -6164,12 +6256,46 @@
                                 "seconds"
                             ]
                         ],
+                        "starts at level 1": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
+                        "can redeploy turret while it's active": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
                         "cannot be destroyed while dead": [
                             [
                                 "display unit",
                                 "flag"
                             ]
+                        ],
+                        "cannot be manually destroyed": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
+                        "deploy cancelled on death": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
+                        "Cooldown": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
                         ]
+                    },
+                    "Armor Pack": {
+                        "Scrap cost": [],
+                        "Temporary armor": []
                     },
                     "Overload": {
                         "Overhealth": [],
@@ -6207,6 +6333,13 @@
                             ]
                         ],
                         "Pool damage per second": [],
+                        "upgrades turret to level 3": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
+                        "Bonus armor": [],
                         "Ultimate cost": []
                     }
                 }
@@ -6709,6 +6842,12 @@
                             [
                                 "display unit",
                                 "meters"
+                            ]
+                        ],
+                        "retains momentum when used on environments or structures without a ledge": [
+                            [
+                                "display unit",
+                                "flag"
                             ]
                         ]
                     },
@@ -7236,6 +7375,12 @@
                             ]
                         ],
                         "stopped by barriers": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
+                        "is counter charge ability": [
                             [
                                 "display unit",
                                 "flag"
@@ -8835,6 +8980,18 @@
                     "display unit",
                     "seconds"
                 ]
+            ],
+            "Setup time": [
+                [
+                    "display unit",
+                    "seconds"
+                ]
+            ],
+            "Second round Assemble Your Team time": [
+                [
+                    "display unit",
+                    "seconds"
+                ]
             ]
         },
         "Flashpoint": {
@@ -8854,6 +9011,18 @@
         "Hybrid": {
             "Attackers cart healing": [],
             "Time until cart rollback": [
+                [
+                    "display unit",
+                    "seconds"
+                ]
+            ],
+            "Setup time": [
+                [
+                    "display unit",
+                    "seconds"
+                ]
+            ],
+            "Second round Assemble Your Team time": [
                 [
                     "display unit",
                     "seconds"
@@ -8925,6 +9094,18 @@
                 ]
             ],
             "Max respawn time of defenders after point A capture": [
+                [
+                    "display unit",
+                    "seconds"
+                ]
+            ],
+            "Setup time": [
+                [
+                    "display unit",
+                    "seconds"
+                ]
+            ],
+            "Second round Assemble Your Team time": [
                 [
                     "display unit",
                     "seconds"

@@ -29,6 +29,13 @@
         * `Horizontal recoil decreased slightly`
     * Roadhog - Chain hook
         * `Now greatly reduces the target’s momentum upon being hooked`
+* 2018/10 Torb
+    * Alternate fire `Spread randomization readjusted`
+    * Forge Hammer `Radius increased to align with Quick Melee`
+* 2018/09 Reinhardt
+    * `Now consistently hits enemies near walls` feels like a bug fix
+    * `Always travels up inclines and around the payload` feels like a bug fix
+
 
 
 

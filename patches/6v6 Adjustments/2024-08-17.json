@@ -20,7 +20,8 @@
         "Beam armor mitigation": 30,
         "Elevator behavior": "activation",
         "Maximum lower carryover time": 120,
-        "Damage boost application time": "projectile fire"
+        "Damage boost application time": "projectile fire",
+        "ally outlines are visible through walls": true
     },
     "heroes": {
         "tank": {
@@ -215,7 +216,9 @@
                         "Recovery time": 0.8,
                         "Reload time": 1.75,
                         "Damage per pellet": 5.1953125,
-                        "Damage per shrapnel": 12.237980769230768
+                        "Damage per shrapnel": 12.237980769230768,
+                        "Minimum falloff range": 15,
+                        "Maximum falloff range": 30
                     },
                     "Take a Breather": {
                         "Damage reduction": 40,
@@ -763,7 +766,8 @@
                         "Damage reduction": 50,
                         "can be blocked by enemy player collision": false,
                         "can be used mid-air": true,
-                        "Movement speed": 15
+                        "Movement speed": 15,
+                        "Cooldown": 6
                     },
                     "Flashbang": {
                         "Effect": "Applies hinder on hit",
@@ -1062,7 +1066,9 @@
                         "Recovery time": 0.85,
                         "Ammo": 6,
                         "Reload time": 1.5,
-                        "Minimum explosion damage": 20
+                        "Minimum explosion damage": 20,
+                        "Knockback": 7,
+                        "Self knockback": 14
                     },
                     "Barrage": {
                         "Ultimate cost": 2100,
@@ -1354,7 +1360,8 @@
                 "general": {
                     "Base health": 200,
                     "Armor health": 50,
-                    "Weapon swap time": 0.4
+                    "Weapon swap time": 0.4,
+                    "Head hit volume": 0.9
                 },
                 "abilities": {
                     "Rivet Gun": {
@@ -1363,7 +1370,9 @@
                         "Critical multiplier": 2,
                         "Recovery time": 0.51,
                         "Damage": 70,
-                        "Reload time": 2
+                        "Reload time": 2,
+                        "Projectile speed": 70,
+                        "hits change turret target": true
                     },
                     "Molten Core": {
                         "Ultimate cost": 2142,
@@ -1376,7 +1385,8 @@
                         "Cooldown": 12,
                         "Turret base health": 200,
                         "Turret recovery time": 0.256,
-                        "Build time": 3
+                        "Build time": 3,
+                        "Deploy method": "thrown projectile"
                     },
                     "Overload": {
                         "Overhealth": 100,
@@ -1527,7 +1537,8 @@
                         "Cooldown": 12,
                         "Range": 20,
                         "Move speed": 20,
-                        "Minimum range": 2
+                        "Minimum range": 2,
+                        "retains momentum when used on environments or structures without a ledge": true
                     },
                     "Venom Mine": {
                         "Cooldown": 15,
@@ -1679,7 +1690,8 @@
                         "Cooldown": 5,
                         "Damage": 50,
                         "Knockback scalar": 2,
-                        "Distance travelled": 12
+                        "Distance travelled": 12,
+                        "is counter charge ability": true
                     }
                 }
             },
@@ -2041,20 +2053,28 @@
         },
         "Escort": {
             "Attackers cart healing": 10,
-            "Time until cart rollback": 10
+            "Time until cart rollback": 10,
+            "Setup time": 45,
+            "Second round Assemble Your Team time": 25
         },
         "Flashpoint": {
             "Seconds per percent": 0.82
         },
         "Hybrid": {
             "Attackers cart healing": 10,
-            "Time until cart rollback": 10
+            "Time until cart rollback": 10,
+            "Setup time": 45,
+            "Second round Assemble Your Team time": 25
         },
         "Push": {
             "Time limit": 600,
             "Forward spawn respawn timer": 12,
             "Robot checkpoint delay time": 9,
             "Robot speed multiplier when pushing barrier": 1.1
+        },
+        "Assault": {
+            "Setup time": 45,
+            "Second round Assemble Your Team time": 25
         }
     }
 }
