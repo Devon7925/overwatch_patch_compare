@@ -285,9 +285,9 @@ const isCalculationUnits = autoTypeguard<Units>({
 const isValue = unionTypeguard<Value>([isString, isNumber, isLiteral(false), isLiteral(true)])
 const isPatchData = erroringAutoTypeguard<PatchData>({
     general: isObjectWithValues(isValue),
-    heroes: erroringIsObjectWithValues(partialTypeguard("general" as const, isObjectWithValues(isValue), isObjectWithValues(autoTypeguard({
-        general: isObjectWithValues(isValue),
-        abilities: isObjectWithValues(isObjectWithValues(isValue)),
+    heroes: erroringIsObjectWithValues(partialTypeguard("general" as const, erroringIsObjectWithValues(isValue), erroringIsObjectWithValues(erroringAutoTypeguard({
+        general: erroringIsObjectWithValues(isValue),
+        abilities: erroringIsObjectWithValues(erroringIsObjectWithValues(isValue)),
     }, {
         breakpoints: isObjectWithValues(isValue),
         breakpoints_data: isObjectWithValues(isObjectWithValues(isNumber))

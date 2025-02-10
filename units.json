@@ -1444,6 +1444,12 @@
                                 "seconds"
                             ]
                         ],
+                        "restores ammo on completion": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
                         "Ultimate cost": [],
                         "disables other abilities and automatically fires": [
                             [
@@ -2899,7 +2905,12 @@
                         ]
                     },
                     "Primal Rage": {
-                        "Ultimate cost": [],
+                        "restores ammo on completion": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
                         "Cast time": [
                             "time between shots",
                             [
@@ -2920,7 +2931,8 @@
                                 "normal"
                             ]
                         ],
-                        "Maximum health gained": []
+                        "Maximum health gained": [],
+                        "Ultimate cost": []
                     }
                 }
             }
@@ -3779,6 +3791,12 @@
                                 "seconds"
                             ]
                         ],
+                        "impacts Symmetra's deployables": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
                         "Damage reduction on AoE affected targets": [
                             [
                                 "display unit",
@@ -4162,7 +4180,12 @@
                         ]
                     },
                     "Dragonblade": {
-                        "Ultimate cost": [],
+                        "restores ammo on completion": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
                         "Recovery time": [
                             "time between shots",
                             [
@@ -4175,7 +4198,8 @@
                                 "damage instance",
                                 "normal"
                             ]
-                        ]
+                        ],
+                        "Ultimate cost": []
                     }
                 }
             },
@@ -4265,6 +4289,12 @@
                         ]
                     },
                     "Storm Arrows": {
+                        "Maximum duration": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
                         "Cooldown": [
                             [
                                 "display unit",
@@ -4525,7 +4555,6 @@
                         "Health": []
                     },
                     "RIP-Tire": {
-                        "Ultimate cost": [],
                         "Cast time": [
                             "time between shots",
                             [
@@ -4557,7 +4586,14 @@
                                 "display unit",
                                 "seconds"
                             ]
-                        ]
+                        ],
+                        "restores ammo on completion": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
+                        "Ultimate cost": []
                     }
                 }
             },
@@ -4681,6 +4717,24 @@
                             [
                                 "display unit",
                                 "seconds"
+                            ]
+                        ],
+                        "Minimum damage falloff range": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
+                        "Maximum damage falloff range": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
+                        "Maximum damage falloff scalar": [
+                            [
+                                "display unit",
+                                "percent"
                             ]
                         ],
                         "Ammo per shot": [
@@ -5019,6 +5073,12 @@
                             [
                                 "display unit",
                                 "seconds"
+                            ]
+                        ],
+                        "restores ammo on completion": [
+                            [
+                                "display unit",
+                                "flag"
                             ]
                         ],
                         "Ultimate cost": []
@@ -5593,6 +5653,12 @@
                                 "meters"
                             ]
                         ],
+                        "can contest objectives": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
                         "Cancelled by damage": [
                             [
                                 "display unit",
@@ -5768,6 +5834,7 @@
                         ]
                     },
                     "Translocator": {
+                        "Health": [],
                         "destroys breakables while in flight": [
                             [
                                 "display unit",
@@ -5800,6 +5867,12 @@
                             ]
                         ],
                         "Stealth cooldown reduction on teleport": [
+                            [
+                                "display unit",
+                                "seconds"
+                            ]
+                        ],
+                        "Max duration": [
                             [
                                 "display unit",
                                 "seconds"
@@ -5892,6 +5965,12 @@
                             [
                                 "damage per second",
                                 "beam"
+                            ]
+                        ],
+                        "Range": [
+                            [
+                                "display unit",
+                                "meters"
                             ]
                         ],
                         "Beam width": [
@@ -7040,6 +7119,12 @@
                         ]
                     },
                     "Nano Boost": {
+                        "Range": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
                         "Healing": [],
                         "Ultimate cost": []
                     }
@@ -8396,6 +8481,12 @@
                         ]
                     },
                     "Crossfade": {
+                        "Radius": [
+                            [
+                                "display unit",
+                                "meters"
+                            ]
+                        ],
                         "Crossfade self-healing penalty for the duration of Amp It Up": [
                             [
                                 "display unit",
@@ -8439,13 +8530,14 @@
                         ]
                     },
                     "Sound Barrier": {
-                        "Ultimate cost": [],
+                        "Overhealth": [],
                         "Gravity during cast time": [
                             [
                                 "display unit",
                                 "percent"
                             ]
-                        ]
+                        ],
+                        "Ultimate cost": []
                     }
                 }
             },
@@ -8658,6 +8750,12 @@
                         ],
                         "Healing per second": [],
                         "Resource generation from damage per second": [
+                            [
+                                "display unit",
+                                "percent"
+                            ]
+                        ],
+                        "Passive resource regeneration per second": [
                             [
                                 "display unit",
                                 "percent"
@@ -8946,6 +9044,12 @@
                         ]
                     },
                     "Transcendence": {
+                        "restores ammo on completion": [
+                            [
+                                "display unit",
+                                "flag"
+                            ]
+                        ],
                         "Ultimate cost": []
                     }
                 }

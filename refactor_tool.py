@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "retains momentum when used on environments or structures without a ledge"
-new_value = True
-process_json_files(folder_path, 'heroes/damage/Widowmaker/abilities/Grappling Hook/retains momentum when used on environments or structures without a ledge', new_property_name, new_value, rename=False)
+new_property_name = "Health"
+new_value = 5
+process_json_files(folder_path, 'heroes/damage/Sombra/abilities/Translocator/Health', new_property_name, new_value, rename=False)

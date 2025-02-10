@@ -35,6 +35,13 @@
 * 2018/09 Reinhardt
     * `Now consistently hits enemies near walls` feels like a bug fix
     * `Always travels up inclines and around the payload` feels like a bug fix
+* 2018/08
+    * Reinhardt `Decorative insignia no longer protrudes from the shield’s surface`
+    * Sombra `Reduced the size of Sombra’s head hit volume`
+* 2018/07
+    * When final objectives on non-control maps are contested for extended amounts of time and attackers have an advantage in numbers, the respawn time for defenders now increases even faster
+    * Sombra Translocator `Radius reduced`
+
 
 
 

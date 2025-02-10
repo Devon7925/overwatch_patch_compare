@@ -181,7 +181,8 @@
                         "cancelled by stuns": true,
                         "Pellet count": 16,
                         "Recovery time": 0.125,
-                        "Critical multiplier": 2
+                        "Critical multiplier": 2,
+                        "restores ammo on completion": true
                     }
                 }
             },
@@ -388,7 +389,8 @@
                         "Damage": 40,
                         "Maximum health gained": 500,
                         "Cast time": 0.224,
-                        "Recovery time": 0.432
+                        "Recovery time": 0.432,
+                        "restores ammo on completion": true
                     },
                     "Jet Pack": {
                         "Cooldown": 5,
@@ -628,7 +630,8 @@
                     "Dragonblade": {
                         "Ultimate cost": 1700,
                         "Recovery time": 0.9,
-                        "Damage": 120
+                        "Damage": 120,
+                        "restores ammo on completion": true
                     },
                     "Shuriken Alt Fire": {
                         "Damage per pellet": 28,
@@ -668,7 +671,8 @@
                         "Damage per bullet": 70,
                         "Burst recovery time": 0.3,
                         "Richochets": 0,
-                        "is uncancellable": true
+                        "is uncancellable": true,
+                        "Maximum duration": 5
                     },
                     "Dragonstrike": {
                         "Speed": 12,
@@ -721,7 +725,8 @@
                         "Cast time": 1.536,
                         "Health": 100,
                         "Duration": 10,
-                        "Delay before regaining control after end": 1.5
+                        "Delay before regaining control after end": 1.5,
+                        "restores ammo on completion": true
                     },
                     "Steel Trap": {
                         "Arming time": 0.5,
@@ -817,7 +822,8 @@
                         "Direct damage": 10,
                         "Explosion damage": 30,
                         "Recovery time": 0.032,
-                        "Duration": 3
+                        "Duration": 3,
+                        "restores ammo on completion": true
                     },
                     "Concussive Blast": {
                         "Projectile size": 0.15,
@@ -941,7 +947,8 @@
                         "activates on terrain collision": false,
                         "Projectile speed": 25,
                         "Cooldown start": "Ability end",
-                        "Cooldown": 4
+                        "Cooldown": 4,
+                        "Health": 5
                     },
                     "Machine Pistol": {
                         "Projectile size": 0.0,
@@ -994,7 +1001,8 @@
                         "Beam decay rate": 0.8333333333333334,
                         "Ammo per second": 7,
                         "Reload time": 1.5,
-                        "Maximum beam level": 3
+                        "Maximum beam level": 3,
+                        "Range": 12
                     },
                     "Sentry Turret": {
                         "Health": 30,
@@ -1210,7 +1218,8 @@
                     },
                     "Nano Boost": {
                         "Ultimate cost": 2090,
-                        "Healing": 250
+                        "Healing": 250,
+                        "Range": 40
                     }
                 }
             },
@@ -1345,12 +1354,14 @@
                         "Cooldown": 4
                     },
                     "Sound Barrier": {
-                        "Ultimate cost": 2950
+                        "Ultimate cost": 2950,
+                        "Overhealth": 750
                     },
                     "Crossfade": {
                         "Crossfade self-healing penalty for the duration of Amp It Up": 60,
                         "Self healing per second": 5,
-                        "Speed boost": 20
+                        "Speed boost": 20,
+                        "Radius": 12
                     },
                     "Amp It Up": {
                         "Cooldown": 12,
@@ -1421,7 +1432,8 @@
                         "Self-healing": 30,
                         "Healing resource consumption per second": 11,
                         "Healing per second": 80,
-                        "Resource generation from damage per second": 9
+                        "Resource generation from damage per second": 9,
+                        "Passive resource regeneration per second": 2.4
                     },
                     "Coalescence": {
                         "Self-heal per second": 50,
@@ -1460,7 +1472,8 @@
                         "Reload time": 1.5
                     },
                     "Transcendence": {
-                        "Ultimate cost": 2318
+                        "Ultimate cost": 2318,
+                        "restores ammo on completion": true
                     },
                     "Harmony Orb": {
                         "Time to wear off when not in line-of-sight": 3,
