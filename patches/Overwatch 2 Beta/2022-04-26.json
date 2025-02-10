@@ -470,17 +470,6 @@
                         "Alt fire of": "Tesla Cannon"
                     }
                 }
-            },
-            "Junker Queen": {
-                "abilities": {
-                    "Commanding Shout": {
-                        "Movement speed bonus": 30
-                    },
-                    "Scattergun": {
-                        "Total damage": {},
-                        "Pellet count": 10
-                    }
-                }
             }
         },
         "damage": {

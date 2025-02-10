@@ -266,6 +266,27 @@ export function isObjectWithValues<T>(typeguard: (x: unknown) => x is T) {
 }
 
 /**
+ * Typeguards for a given object to have values all of the type for the given typeguard.
+ * 
+ * @param typeguard The typeguard to check the values of the object against.
+ * @returns A typeguard for the object to have values all of the type for the given typeguard.
+ */
+export function erroringIsObjectWithValues<T>(typeguard: (x: unknown) => x is T) {
+    return (data: unknown): data is { [key: string]: T } => {
+        if (!isObject(data)) {
+            console.error("is not object")
+            return false
+        }
+        for (let key in data) {
+            if(!typeguard(data[key])) {
+                console.error(key, "does not match typeguard")
+            }
+        }
+        return true
+    }
+}
+
+/**
  * Typeguards for whether the given object matches one of the given typeguards.
  * 
  * @param aTypeGuard The first typeguard to check the object against.
@@ -487,6 +508,34 @@ export function autoTypeguard<T extends {}>(typeGuardRequiredKeys: { [key in For
         for (const key in typeGuardOptionalKeys) {
             const optionalKey = key as ForcedOptionalKey<T>
             if (!checkOptionalProperty<T>()(data, optionalKey, typeGuardOptionalKeys[optionalKey])) return false
+        }
+        return true
+    }
+}
+
+/**
+ * Creates a automatic typeguard for the given type.
+ * 
+ * @param typeGuardRequiredKeys An object from required keys on the type to the typeguard for that key.
+ * @param typeGuardOptionalKeys An object from optional keys on the type to the typeguard for that key.
+ * @returns A typeguard for the given type.
+ */
+export function erroringAutoTypeguard<T extends {}>(typeGuardRequiredKeys: { [key in ForcedRequiredKey<T>]-?: (d: unknown) => d is T[key] }, typeGuardOptionalKeys: { [key in ForcedOptionalKey<T>]-?: (d: unknown) => d is T[key] }): (data: unknown) => data is CheckNotUnion<T> {
+    return function (data: unknown): data is CheckNotUnion<T> {
+        if (data === null || data === undefined || typeof data !== "object" || Array.isArray(data)) return false
+        for (const key in typeGuardRequiredKeys) {
+            const requiredKey = key as ForcedRequiredKey<T>
+            if (!checkRequiredProperty<T>()(data, requiredKey, typeGuardRequiredKeys[requiredKey])) {
+                console.error(requiredKey, "is invalid")
+                return false
+            }
+        }
+        for (const key in typeGuardOptionalKeys) {
+            const optionalKey = key as ForcedOptionalKey<T>
+            if (!checkOptionalProperty<T>()(data, optionalKey, typeGuardOptionalKeys[optionalKey])) {
+                console.error(optionalKey, "is invalid")
+                return false
+            }
         }
         return true
     }

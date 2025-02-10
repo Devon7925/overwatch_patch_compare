@@ -1,7 +1,7 @@
 // import units from "./units.json" with { type: "json" };
 // cant use because firefox dumb https://bugzilla.mozilla.org/show_bug.cgi?id=1736059
 
-import { autoTypeguard, isArrayMatchingTypeguard, isKeyOf, isLiteral, isNumber, isObjectWithValues, isString, isTupleMatchingTypeguards, partialTypeguard, reorder, Rest, rest, unionTypeguard, UnwrapSingleton } from "./utils.js"
+import { autoTypeguard, erroringAutoTypeguard, erroringIsObjectWithValues, isArrayMatchingTypeguard, isKeyOf, isLiteral, isNumber, isObjectWithValues, isString, isTupleMatchingTypeguards, partialTypeguard, reorder, Rest, rest, unionTypeguard, UnwrapSingleton } from "./utils.js"
 
 type DisplayUnit = "percent" | "meters" | "seconds" | "health per second" | "meters per second" | "relative percent" | "flag" | "degrees"
 type WithRemainder<T extends string, R extends any[]> = T extends any ? [T, ...R] : never
@@ -131,7 +131,7 @@ type SiteState = {
 };
 let siteState: SiteState;
 const DEFAULT_SITE_STATE: SiteState = {
-    before_patch: ["Overwatch 2", "recent"],
+    before_patch: ["Previous", "previous"],
     after_patch: ["Overwatch 2", "latest"],
     show_calculated_properties: false,
     show_breakpoints: false,
@@ -154,14 +154,15 @@ function patch_from_path(path: [string, string]): [string, string] {
     }
     return [versionType, version]
 }
+
 {
     let patch_type_options = Object.entries(patchList)
-    .map(([k, v], i) => `<option value=\"${k}\">${k}</option>`).join();
+        .map(([k, v], i) => `<option value="${k}">${k}</option>`).join();
 
     let patch_type_selectors = document.getElementsByClassName("patch-type-selector");
     for (let i = 0; i < patch_type_selectors.length; i++) {
-    patch_type_selectors[i].innerHTML = patch_type_options;
-}
+        patch_type_selectors[i].innerHTML = patch_type_options;
+    }
 }
 
 {
@@ -210,7 +211,7 @@ function patch_from_path(path: [string, string]): [string, string] {
 
 {
     let newUrlParams = new URLSearchParams();
-    let encoded:{[key: string]: any} = structuredClone(siteState);
+    let encoded: { [key: string]: any } = structuredClone(siteState);
     if (Array.isArray(encoded["before_patch"])) {
         encoded["before_patch"] = encoded["before_patch"].join(":")
     }
@@ -282,9 +283,9 @@ const isCalculationUnits = autoTypeguard<Units>({
     modes: isObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isUnit)))
 }, {})
 const isValue = unionTypeguard<Value>([isString, isNumber, isLiteral(false), isLiteral(true)])
-const isPatchData = autoTypeguard<PatchData>({
+const isPatchData = erroringAutoTypeguard<PatchData>({
     general: isObjectWithValues(isValue),
-    heroes: isObjectWithValues(partialTypeguard("general" as const, isObjectWithValues(isValue), isObjectWithValues(autoTypeguard({
+    heroes: erroringIsObjectWithValues(partialTypeguard("general" as const, isObjectWithValues(isValue), isObjectWithValues(autoTypeguard({
         general: isObjectWithValues(isValue),
         abilities: isObjectWithValues(isObjectWithValues(isValue)),
     }, {
@@ -516,7 +517,9 @@ function processPatch(patch: PatchData, multiplier: number): [PatchData, number 
 async function updatePatchNotes() {
     resetUI()
 
-    await Promise.all([siteState.before_patch, siteState.after_patch]
+    let before_patch = resolvePatch(siteState.before_patch)
+    let after_patch = resolvePatch(siteState.after_patch)
+    await Promise.all([before_patch, after_patch]
         .filter((patch) => !(patch[0] in patches) || !(patch[1] in patches[patch[0]]))
         .map(async (patch) => {
             return fetch(`./patches/${patch[0]}/${patch[1]}.json`)
@@ -524,14 +527,15 @@ async function updatePatchNotes() {
                 .then((text) => {
                     let patch_data = JSON.parse(text);
                     if (!isPatchData(patch_data)) {
+                        console.error("Invalid patch data", patch_data)
                         throw new Error("Invalid patch data")
                     }
-                    if(patches[patch[0]] === undefined) patches[patch[0]] = {}
+                    if (patches[patch[0]] === undefined) patches[patch[0]] = {}
                     patches[patch[0]][patch[1]] = patch_data;
                 })
         }))
-    let [before_patch_data, before_max_breakpoint] = processPatch(patches[siteState.before_patch[0]][siteState.before_patch[1]], parseFloat(patch_before_dmg_boost_slider.value) / 100);
-    let [after_patch_data, after_max_breakpoint] = processPatch(patches[siteState.after_patch[0]][siteState.after_patch[1]], parseFloat(patch_after_dmg_boost_slider.value) / 100);
+    let [before_patch_data, before_max_breakpoint] = processPatch(patches[before_patch[0]][before_patch[1]], parseFloat(patch_before_dmg_boost_slider.value) / 100);
+    let [after_patch_data, after_max_breakpoint] = processPatch(patches[after_patch[0]][after_patch[1]], parseFloat(patch_after_dmg_boost_slider.value) / 100);
     let changes = convert_to_changes(before_patch_data, after_patch_data);
     if (siteState.show_breakpoints) {
         changes = removeRedundantBreakpoints(changes, after_patch_data);
@@ -551,11 +555,16 @@ async function updatePatchNotes() {
     displayPatchNotes(changes, breakpoint_data);
 }
 
+function resolvePatch(patch: [string, string]): [string, string] {
+    if(patch[0] == "Previous") {
+        return getPreviousPatch()
+    }
+    return patch
+}
+
 function resetUI() {
-    patch_type_before_box.value = siteState.before_patch[0]
-    patch_type_after_box.value = siteState.after_patch[0]
-    patch_before_box.value = siteState.before_patch[1]
-    patch_after_box.value = siteState.after_patch[1]
+    updatePatchSelectors(siteState.before_patch, patch_type_before_box, patch_before_box);
+    updatePatchSelectors(siteState.after_patch, patch_type_after_box, patch_after_box);
     display_calculated_properties_box.checked = siteState.show_calculated_properties
 
     let extra_controls_display = "flex"
@@ -583,8 +592,8 @@ function resetUI() {
         let key: keyof typeof siteState
         for (key in siteState) {
             if (siteState[key] !== DEFAULT_SITE_STATE[key]) {
-                let encoding:any = siteState[key];
-                if(Array.isArray(encoding)) {
+                let encoding: any = siteState[key];
+                if (Array.isArray(encoding)) {
                     encoding = encoding.join(":")
                 }
                 urlParams.append(key, `${encoding}`)
@@ -594,16 +603,21 @@ function resetUI() {
     }
 
     {
-        const last_patch_exists = (siteState.before_patch[0] === siteState.after_patch[0]) && patchList[siteState.before_patch[0]].indexOf(siteState.before_patch[1]) > 0
-        const next_patch_exists = (siteState.before_patch[0] === siteState.after_patch[0]) && patchList[siteState.before_patch[0]].indexOf(siteState.after_patch[1]) < patchList[siteState.after_patch[0]].length - 1
+        const last_patch_exists = !patchEquals(siteState.after_patch, getShiftedPatch(siteState.after_patch, -1)) && !patchEquals(siteState.before_patch, getShiftedPatch(siteState.before_patch, -1))
+        const next_patch_exists = !patchEquals(siteState.after_patch, getShiftedPatch(siteState.after_patch, 1)) && !patchEquals(siteState.before_patch, getShiftedPatch(siteState.before_patch, 1))
         last_patch_button.style.visibility = last_patch_exists ? 'visible' : 'hidden'
         next_patch_button.style.visibility = next_patch_exists ? 'visible' : 'hidden'
     }
 }
 
+function patchEquals(patch1: [string, string], patch2: [string, string]) {
+    if(patch1[0] == "Previous") return false;
+    return patch1[0] == patch2[0] && patch1[1] == patch2[1];
+}
+
 function displayPatchNotes(changes: Changes<PatchData>, breakpoint_data: [number, number] | null) {
     let hero_section = document.getElementsByClassName("PatchNotes-section-hero_update")[0]
-    if(Object.keys(changes).length === 0) {
+    if (Object.keys(changes).length === 0) {
         hero_section.innerHTML = "<h2>No changes to show</h2>"
         return;
     }
@@ -1608,28 +1622,83 @@ function isSubBreakpoint(possible_super_breakpoint: { [key: string]: number }, p
     return true;
 }
 
-function update_after_type_change(type_selector: HTMLSelectElement) {
-    let main_selector = type_selector.parentElement?.parentElement?.parentElement?.getElementsByClassName("patch-selector")[0] as HTMLSelectElement;
-    let type = type_selector.value
+const CATEGORY_PREV_MAP: {[k: string]: string} = {
+    "Overwatch 2": "Overwatch 2 Beta",
+    "Overwatch 2 Beta": "Overwatch 1",
+    "Overwatch 2 6v6": "6v6 Adjustments",
+    "6v6 Adjustments": "Overwatch 1",
+    "Overwatch 1": "Empty",
+    "Empty": "Empty",
+}
 
-    let patch_options = patchList[type].map((p, i) => {
-                let split_date = p.split("-").map((s) => parseInt(s))
-                let pretty_date = new Date(split_date[0], split_date[1] - 1, split_date[2])
-                return `<option value=\"${p}\" ${i==0?"selected":""}>${pretty_date.toLocaleDateString()}</option>`
-            }).join();
-    main_selector.innerHTML = patch_options;
-    main_selector.value = patchList[type][0]
+const CATEGORY_POST_MAP: {[k: string]: string | undefined} = {
+    "Overwatch 2": undefined,
+    "Overwatch 2 Beta": "Overwatch 2",
+    "Overwatch 2 6v6": undefined,
+    "6v6 Adjustments": "Overwatch 2 6v6",
+    "Overwatch 1": "Overwatch 2 Beta",
+    "Empty": "Overwatch 1",
+}
+
+function getShiftedPatch(patch: [string, string], shift: number): [string, string] {
+    let category = patch[0]
+    if(category == "Previous") {
+        return patch;
+    }
+
+    let patch_idx = patchList[patch[0]].indexOf(patch[1]) + shift
+    while(patch_idx < 0) {
+        category = CATEGORY_PREV_MAP[patch[0]];
+        patch_idx += patchList[category].length;
+    }
+    while(patch_idx >= patchList[category].length) {
+        let post_category = CATEGORY_POST_MAP[patch[0]];
+        if (post_category == undefined) {
+            return [category, patchList[category][patchList[category].length-1]]
+        }
+        patch_idx -= patchList[category].length;
+        category = post_category;
+    }
+    return [category, patchList[category][patch_idx]]
+}
+
+function getPreviousPatch(): [string, string] {
+    if(siteState.after_patch[0] != "Previous") {
+        return getShiftedPatch(siteState.after_patch, -1)
+    }
+    if(siteState.before_patch[0] != "Previous") {
+        return getShiftedPatch(siteState.before_patch, -1)
+    }
+    return ["Empty", "0-01-01"]
+}
+
+function updatePatchSelectors(patch: [string, string], type_selector: HTMLSelectElement, main_selector: HTMLSelectElement) {
+    type_selector.value = patch[0];
+
+    if(patch[0] == "Previous") {
+        let p = getPreviousPatch()[1];
+        let split_date = p.split("-").map((s) => parseInt(s))
+        let pretty_date = new Date(split_date[0], split_date[1] - 1, split_date[2])
+        main_selector.innerHTML = `<option value="previous" selected>${pretty_date.toLocaleDateString()}</option>`;
+        return;
+    } else {
+        let patch_options = patchList[patch[0]].map((p, i) => {
+            let split_date = p.split("-").map((s) => parseInt(s))
+            let pretty_date = new Date(split_date[0], split_date[1] - 1, split_date[2])
+            return `<option value=\"${p}\" ${p == patch[1] ? "selected" : ""}>${pretty_date.toLocaleDateString()}</option>`
+        }).join();
+        main_selector.innerHTML = patch_options;
+    }
+    main_selector.value = patch[1]
 }
 
 patch_type_before_box.onchange = async function () {
-    update_after_type_change(patch_type_before_box)
     siteState.before_patch[0] = patch_type_before_box.value
     siteState.before_patch[1] = patchList[patch_type_before_box.value][0]
 
     await updatePatchNotes()
 };
 patch_type_after_box.onchange = async function () {
-    update_after_type_change(patch_type_after_box)
     siteState.after_patch[0] = patch_type_after_box.value
     siteState.after_patch[1] = patchList[patch_type_after_box.value][0]
 
@@ -1678,10 +1747,10 @@ patch_after_dmg_boost_slider.onchange = update_after_damage_boost;
 window.addEventListener("popstate", async (event) => {
     if (event.state) {
         let encoded = event.state;
-        if(typeof encoded.before_patch == "string") {
+        if (typeof encoded.before_patch == "string") {
             encoded.before_patch = encoded.before_patch.split(":")
         }
-        if(typeof encoded.after_patch == "string") {
+        if (typeof encoded.after_patch == "string") {
             encoded.after_patch = encoded.after_patch.split(":")
         }
         siteState = encoded;
@@ -1690,22 +1759,16 @@ window.addEventListener("popstate", async (event) => {
 });
 
 async function shiftPatches(shift: number) {
-    let before_path = siteState.before_patch;
-    let before_index = patchList[before_path[0]].indexOf(before_path[1]);
-    if (before_index + shift >= 0 && before_index + shift < patchList[before_path[0]].length) {
-        siteState.before_patch = [before_path[0], patchList[before_path[0]][before_index + shift]]
+    if(siteState.before_patch[0] != "Previous") {
+        siteState.before_patch = getShiftedPatch(siteState.before_patch, shift);
     }
-    let after_path = siteState.after_patch;
-    let after_index = patchList[after_path[0]].indexOf(after_path[1]);
-    if (after_index + shift >= 0 && after_index + shift < patchList[after_path[0]].length) {
-        siteState.after_patch = [after_path[0], patchList[after_path[0]][after_index + shift]]
+    if(siteState.after_patch[0] != "Previous") {
+        siteState.after_patch = getShiftedPatch(siteState.after_patch, shift);
     }
-    await updatePatchNotes()
+    await updatePatchNotes();
 }
 
 last_patch_button.onclick = async () => shiftPatches(-1);
 next_patch_button.onclick = async () => shiftPatches(1);
 
-update_after_type_change(patch_type_before_box)
-update_after_type_change(patch_type_after_box)
 await updatePatchNotes();
