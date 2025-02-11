@@ -88,7 +88,22 @@ type PatchData = PatchStructure<Value> & {
         [map: string]: number
     }
 }
-type Units = PatchStructure<Unit[]>
+type UnitsStructure<T> = {
+    general: { [key: string]: T },
+    roles: { [key: string]: { [key: string]: T } },
+    heroes: {
+        [key in Hero]?: {
+            general: { [key: string]: T },
+            abilities: { [key: string]: { [key: string]: T } }
+            breakpoints?: { [key: string]: T },
+            breakpoints_data?: { [key: string]: { [key: string]: number } }
+        }
+    },
+    "modes": {
+        [key: string]: { [key: string]: T }
+    }
+}
+type Units = UnitsStructure<Unit[]>
 
 type SpecialArmorBehavior = ["flat percent mit", number] | undefined
 
@@ -271,15 +286,16 @@ const isUnit = unionTypeguard<Unit>([
     isLiteral("damage per second"),
     isLiteral("healing per second"),
 ])
-const isCalculationUnits = autoTypeguard<Units>({
+const isCalculationUnits = erroringAutoTypeguard<Units>({
     general: isObjectWithValues(isArrayMatchingTypeguard(isUnit)),
-    heroes: isObjectWithValues(partialTypeguard("general" as const, isObjectWithValues(isArrayMatchingTypeguard(isUnit)), isObjectWithValues(autoTypeguard({
+    roles: erroringIsObjectWithValues(erroringIsObjectWithValues(isArrayMatchingTypeguard(isUnit))),
+    heroes: erroringIsObjectWithValues(autoTypeguard({
         general: isObjectWithValues(isArrayMatchingTypeguard(isUnit)),
         abilities: isObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isUnit))),
     }, {
         breakpoints: isObjectWithValues(isArrayMatchingTypeguard(isUnit)),
         breakpoints_data: isObjectWithValues(isObjectWithValues(isNumber))
-    })))),
+    })),
     modes: isObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isUnit)))
 }, {})
 const isValue = unionTypeguard<Value>([isString, isNumber, isLiteral(false), isLiteral(true)])
@@ -488,7 +504,7 @@ function getDisplayUnit(units: Unit[]): DisplayUnit | undefined {
 function processPatch(patch: PatchData, multiplier: number): [PatchData, number | null] {
     let patch_data = structuredClone(patch);
     verifyPatchNotes(patch_data, units)
-    patch_data = reorder(patch_data, units)
+    patch_data = patchReorder(patch_data, units)
     patch_data = applyDamageMultiplier(patch_data, multiplier, units)
     if (siteState.show_calculated_properties) {
         patch_data = calculatePreArmorProperties(patch_data, units)
@@ -537,6 +553,7 @@ async function updatePatchNotes() {
     let [before_patch_data, before_max_breakpoint] = processPatch(patches[before_patch[0]][before_patch[1]], parseFloat(patch_before_dmg_boost_slider.value) / 100);
     let [after_patch_data, after_max_breakpoint] = processPatch(patches[after_patch[0]][after_patch[1]], parseFloat(patch_after_dmg_boost_slider.value) / 100);
     let changes = convert_to_changes(before_patch_data, after_patch_data);
+    changes = fixRoleSwaps(changes);
     if (siteState.show_breakpoints) {
         changes = removeRedundantBreakpoints(changes, after_patch_data);
     }
@@ -650,7 +667,7 @@ function displayPatchNotes(changes: Changes<PatchData>, breakpoint_data: [number
         }
         if (roleData.general) {
             for (let generalRule in roleData.general) {
-                generalChangeRender += `<li>${getChangeText(generalRule, roleData.general[generalRule], getDisplayUnit(units.heroes[role].general[generalRule]), false)}</li>`
+                generalChangeRender += `<li>${getChangeText(generalRule, roleData.general[generalRule], getDisplayUnit(units.roles[role][generalRule]), false)}</li>`
             }
             generalChangeRender = `
                 <div class="PatchNotes-sectionDescription">
@@ -674,19 +691,19 @@ function displayPatchNotes(changes: Changes<PatchData>, breakpoint_data: [number
                     heroData = heroData[1]
                     display_as_new = true
                 } else {
-                    heroChanges += renderHeroChanges(hero, `<li>Removed</li>`, "", "")
+                    heroChanges += renderHeroChanges(hero, false, `<li>Removed</li>`, "", "")
                     continue
                 }
             }
             if (heroData === undefined) {
                 throw new Error("Invalid state")
             }
-            if (units.heroes[role][hero] === undefined) {
+            if (units.heroes[hero] === undefined) {
                 throw new Error(`Units is missing hero ${hero}`)
             }
             if (heroData.general) {
                 for (let property in heroData.general) {
-                    generalChangesRender += `<li>${getChangeText(property, heroData.general[property], getDisplayUnit(units.heroes[role][hero].general[property]), display_as_new)}</li>`
+                    generalChangesRender += `<li>${getChangeText(property, heroData.general[property], getDisplayUnit(units.heroes[hero].general[property]), display_as_new)}</li>`
                 }
             }
             let abilities = ""
@@ -704,14 +721,14 @@ function displayPatchNotes(changes: Changes<PatchData>, breakpoint_data: [number
                     }
                 }
                 for (let stat in abilityData) {
-                    if (!units.heroes[role][hero].abilities[ability]) {
+                    if (!units.heroes[hero].abilities[ability]) {
                         console.error(`Missing ability units for ${hero} - ${ability}`)
                         break
                     }
-                    if (!(stat in units.heroes[role][hero].abilities[ability])) {
+                    if (!(stat in units.heroes[hero].abilities[ability])) {
                         console.error(`Missing units for ${hero} - ${ability} - ${stat}`)
                     }
-                    ability_changes += `<li>${getChangeText(stat, abilityData[stat], getDisplayUnit(units.heroes[role][hero].abilities[ability][stat]), display_ability_as_new)}</li>`
+                    ability_changes += `<li>${getChangeText(stat, abilityData[stat], getDisplayUnit(units.heroes[hero].abilities[ability][stat]), display_ability_as_new)}</li>`
                 }
                 abilities += renderAbility(ability, display_ability_as_new, ability_changes)
             }
@@ -733,7 +750,7 @@ function displayPatchNotes(changes: Changes<PatchData>, breakpoint_data: [number
                     breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], undefined, true)}</li>`
                 }
             }
-            heroChanges += renderHeroChanges(hero, generalChangesRender, abilities, `<ul>${breakpointsRender}</ul>`)
+            heroChanges += renderHeroChanges(hero, display_as_new, generalChangesRender, abilities, `<ul>${breakpointsRender}</ul>`)
         }
         hero_section.innerHTML += `
         <div class="PatchNotes-section PatchNotes-section-hero_update">
@@ -829,11 +846,11 @@ function renderAbility(ability: string, display_ability_as_new: boolean, ability
         </div>`
 }
 
-function renderHeroChanges(hero: string, generalChangesRender: string, abilities: string, breakpointsRender: string) {
+function renderHeroChanges(hero: string, display_as_new: boolean, generalChangesRender: string, abilities: string, breakpointsRender: string) {
     return `
         <div class="PatchNotesHeroUpdate">
             <div class="PatchNotesHeroUpdate-header"><img class="PatchNotesHeroUpdate-icon" src="${image_map[hero]}">
-                <h5 class="PatchNotesHeroUpdate-name">${hero}</h5>
+                <h5 class="PatchNotesHeroUpdate-name">${display_as_new?"(NEW) ":""}${hero}</h5>
             </div>
             <div class="PatchNotesHeroUpdate-body">
                 <div class="PatchNotesHeroUpdate-generalUpdates">
@@ -888,7 +905,7 @@ export function verifyPatchNotes(patch_data: PatchData, units: Units) {
     }
 }
 
-function forEachHero(patch_data: PatchData, calculation_units: Units, callback: (heroData: NonNullable<PatchData["heroes"][string][Hero]>, heroUnits: NonNullable<Units["heroes"][string][Hero]>, hero: string) => void) {
+function forEachHero(patch_data: PatchData, calculation_units: Units, callback: (heroData: NonNullable<PatchData["heroes"][string][Hero]>, heroUnits: NonNullable<Units["heroes"][Hero]>, hero: string) => void) {
     for (let role in patch_data.heroes) {
         for (let hero in patch_data.heroes[role]) {
             if (!isKeyOf(patch_data.heroes[role], hero)) {
@@ -896,7 +913,7 @@ function forEachHero(patch_data: PatchData, calculation_units: Units, callback: 
             }
             if (hero == "general") continue;
             let heroData = patch_data.heroes[role][hero];
-            let heroUnits = calculation_units.heroes[role][hero];
+            let heroUnits = calculation_units.heroes[hero];
             if (heroData === undefined) {
                 throw new Error("Invalid state")
             }
@@ -909,7 +926,7 @@ function forEachHero(patch_data: PatchData, calculation_units: Units, callback: 
     }
 }
 
-function forEachAbility(patch_data: PatchData, calculation_units: Units, callback: (abilityData: NonNullable<PatchData["heroes"][string][Hero]>["abilities"][string], abilityUnits: NonNullable<Units["heroes"][string][Hero]>["abilities"][string], ability: string, heroData: NonNullable<PatchData["heroes"][string][Hero]>) => void) {
+function forEachAbility(patch_data: PatchData, calculation_units: Units, callback: (abilityData: NonNullable<PatchData["heroes"][string][Hero]>["abilities"][string], abilityUnits: NonNullable<Units["heroes"][Hero]>["abilities"][string], ability: string, heroData: NonNullable<PatchData["heroes"][string][Hero]>) => void) {
     forEachHero(patch_data, calculation_units, (heroData, heroUnits) => {
         for (let ability in heroData.abilities) {
             const abilityData = heroData.abilities[ability];
@@ -923,6 +940,28 @@ function forEachAbility(patch_data: PatchData, calculation_units: Units, callbac
 function assignValueAndUnits<T, U>(patch_data: { [key: string]: T }, calculation_units: { [key: string]: U }, property: string, value: T, units: U) {
     patch_data[property] = value
     calculation_units[property] = units
+}
+
+export function patchReorder(to_reorder: PatchData, pattern: Units): PatchData {
+    let reordered: { [key: string]: any } = {}
+    reordered["general"] = reorder(to_reorder["general"], pattern["general"]);
+    reordered["modes"] = reorder(to_reorder["modes"], pattern["modes"]);
+    reordered["Map list"] = to_reorder["Map list"];
+    
+    reordered["heroes"] = {}
+    for(let role in to_reorder["heroes"]) {
+        reordered["heroes"][role] = {}
+        reordered["heroes"][role]["general"] = reorder(to_reorder["heroes"][role]["general"], pattern["roles"][role])
+
+        for(let hero in to_reorder["heroes"][role]) {
+            let heroData = to_reorder["heroes"][role][hero as Hero];
+            if(heroData == undefined) throw new Error("Invalid state");
+            let unitData = pattern["heroes"][hero as Hero];
+            if(unitData == undefined) throw new Error("Invalid state");
+            reordered["heroes"][role][hero] = reorder(heroData, unitData)
+        }
+    }
+    return reordered as PatchData
 }
 
 export function applyDamageMultiplier(patch_data: PatchData, multiplier: number, calculation_units: Units): PatchData {
@@ -1528,6 +1567,65 @@ function cleanupProperties(patch_data: PatchData, calculation_units: Units) {
     })
 
     return patch_data
+}
+
+function fixRoleSwaps(changes: Changes<PatchData>): Changes<PatchData> {
+    let newInRoleHeroes: [string, string][] = []
+    for (let role in changes.heroes) {
+        const roleData = changes.heroes[role]
+        if (Array.isArray(roleData)) {
+            throw new Error("Not supported: role missing from one patch")
+        }
+        for (let hero of Object.keys(roleData).sort()) {
+            if (!isKeyOf(roleData, hero)) {
+                throw new Error("Invalid state")
+            }
+            if (hero == "general") continue;
+            let heroData = roleData[hero];
+            if (Array.isArray(heroData)) {
+                if (heroData[1] !== undefined) {
+                    newInRoleHeroes.push([role, hero])
+                } else {
+                    continue;
+                }
+            }
+        }
+    }
+
+    for (let role in changes.heroes) {
+        const roleData = changes.heroes[role]
+        if (Array.isArray(roleData)) {
+            throw new Error("Not supported: role missing from one patch")
+        }
+        for (let hero of Object.keys(roleData).sort()) {
+            if (!isKeyOf(roleData, hero)) {
+                throw new Error("Invalid state")
+            }
+            if (hero == "general") continue;
+            let heroData = roleData[hero];
+            if (!Array.isArray(heroData)) continue;
+            if(heroData[0] === undefined) continue;
+
+            let newSlot = newInRoleHeroes.find((h) => h[1] == hero);
+            if(newSlot == undefined) continue;
+
+            let newRole = changes.heroes[newSlot[0]]
+            if (Array.isArray(newRole)) {
+                throw new Error("Invalid state")
+            }
+            let after_changes = newRole[hero];
+            if(!Array.isArray(after_changes)) throw new Error("Invalid state");
+            let after_hero = after_changes[1];
+            if(after_hero == undefined) throw new Error("Invalid state");
+
+            heroData[0].general["Role"] = role
+            after_hero.general["Role"] = newSlot[0]
+            newRole[hero] = convert_to_changes(heroData[0], after_hero);
+
+            delete roleData[hero];
+        }
+    }
+    return changes;
 }
 
 function removeRedundantBreakpoints(changes: Changes<PatchData>, after_patch_data: PatchData): Changes<PatchData> {

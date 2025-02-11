@@ -521,18 +521,23 @@
                         "Maximum temporary health": 150
                     },
                     "Hand Cannon": {
-                        "Minimum damage": 16.5,
-                        "Maximum damage": 55,
+                        "Maximum damage falloff scalar": 30,
+                        "Damage per pellet": 6,
                         "Projectile size": 0.0,
                         "Pellet count": 11,
                         "Critical multiplier": 2,
                         "quick melee pauses reload": true,
-                        "Minimum damage falloff range": 15
+                        "Minimum damage falloff range": 15,
+                        "Ammo": 4,
+                        "Reload time per ammo": 0.65,
+                        "Recovery time": 0.336
                     },
                     "Seismic Slam": {
                         "Damage": 125,
                         "Cooldown": 6,
-                        "Maximum range": 15
+                        "Shockwave range": 15,
+                        "has different behavior between being activated in the air or on the ground": true,
+                        "pulls in enemies": true
                     },
                     "Rising Uppercut": {
                         "Cooldown": 6,
@@ -553,13 +558,15 @@
                         "Min impact damage": 50,
                         "Min wall slam damage": 50,
                         "Minimum time before cancel option becomes available": 0.25,
-                        "Maximum charge time": 1
+                        "Maximum charge time": 1,
+                        "Angle required for wall slam": 44
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 1500,
                         "Minimum damage": 15,
                         "Inner ring damage radius": 2.0,
-                        "Outer ring maximum damage": 200
+                        "Outer ring maximum damage": 200,
+                        "Cast recovery time": 1.0
                     }
                 }
             },

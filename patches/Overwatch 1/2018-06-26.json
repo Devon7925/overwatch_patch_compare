@@ -419,18 +419,23 @@
                         "Maximum temporary health": 150
                     },
                     "Hand Cannon": {
-                        "Minimum damage": 16.5,
-                        "Maximum damage": 55,
+                        "Maximum damage falloff scalar": 30,
+                        "Damage per pellet": 6,
                         "Projectile size": 0.0,
                         "Pellet count": 11,
                         "Critical multiplier": 2,
-                        "quick melee pauses reload": true
+                        "quick melee pauses reload": true,
+                        "Ammo": 4,
+                        "Reload time per ammo": 0.65,
+                        "Recovery time": 0.336
                     },
                     "Seismic Slam": {
                         "Damage": 125,
                         "Cooldown": 7,
-                        "Maximum range": 20,
-                        "targets have loss of air control": true
+                        "Shockwave range": 20,
+                        "targets have loss of air control": true,
+                        "has different behavior between being activated in the air or on the ground": true,
+                        "pulls in enemies": true
                     },
                     "Rising Uppercut": {
                         "Cooldown": 7,
@@ -452,13 +457,15 @@
                         "Min wall slam damage": 50,
                         "Minimum time before cancel option becomes available": 0.25,
                         "Maximum charge time": 1,
-                        "impacts Symmetra's deployables": true
+                        "impacts Symmetra's deployables": true,
+                        "Angle required for wall slam": 44
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 1500,
                         "Minimum damage": 15,
                         "Inner ring damage radius": 1.5,
-                        "Outer ring maximum damage": 300
+                        "Outer ring maximum damage": 300,
+                        "Cast recovery time": 1.0
                     }
                 }
             },

@@ -429,12 +429,14 @@
                         "Ammo": 4,
                         "Recovery time": 0.336,
                         "Damage per pellet": 5.0,
-                        "Minimum damage per pellet": 1.5
+                        "Maximum damage falloff scalar": 30,
+                        "Minimum damage falloff range": 15
                     },
                     "Seismic Slam": {
                         "Damage": 50,
                         "Cooldown": 6,
-                        "Shockwave range": 18
+                        "Shockwave range": 18,
+                        "cancelable": true
                     },
                     "Power Block": {
                         "Cooldown": 7,
@@ -460,14 +462,20 @@
                         "Empowered Rocket Punch knockback radius": 3,
                         "Minimum time before cancel option becomes available": 0.12,
                         "Empowered damage multiplier": 1.5,
-                        "Angle required for wall slam": 44
+                        "Angle required for wall slam": 44,
+                        "Maximum charge time": 1
                     },
                     "Meteor Strike": {
                         "Ultimate cost": 2145,
                         "Healing while in air": 75,
                         "Minimum damage": 50,
                         "empowers Rocket Punch on landing": true,
-                        "Enemy slow duration": 3
+                        "Enemy slow duration": 3,
+                        "Inner ring damage radius": 2,
+                        "Outer ring maximum damage": 100,
+                        "Cast recovery time": 0.5,
+                        "Enemy slow": 50,
+                        "Cooldown rate acceleration": 100
                     }
                 }
             },

@@ -280,6 +280,7 @@ export function erroringIsObjectWithValues<T>(typeguard: (x: unknown) => x is T)
         for (let key in data) {
             if(!typeguard(data[key])) {
                 console.error(key, "does not match typeguard")
+                return false;
             }
         }
         return true
