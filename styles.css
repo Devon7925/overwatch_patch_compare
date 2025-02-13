@@ -11,6 +11,8 @@
 
 .patch-controls-holder {
     margin: 1em;
+    margin-top: 0;
+    margin-bottom: 0;
     display: grid;
     grid-auto-flow: row;
     grid-row-gap: 10px;
@@ -21,8 +23,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    text-align: center;
     order: 4;
 }
+
 @media (min-width: 768px) {
     .meta-controls-holder {
         flex-wrap: nowrap;
@@ -31,4 +35,17 @@
     .patches-holder {
         order: 2;
     }
+}
+
+blz-button {
+    min-height: var(--semantic-size-input-height-lg-desktop);
+    height: var(--semantic-size-input-height-lg-desktop);
+    display: inline-flex;
+    position: relative;
+    color: black;
+    text-transform: capitalize;
+}
+
+.PatchNotesPagination blz-button-group.space {
+    display: inline-flex;
 }

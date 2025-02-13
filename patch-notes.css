@@ -1,0 +1,2032 @@
+.PatchNotes-filters {
+    text-align: center;
+    vertical-align: middle
+}
+
+.PatchNotes-filters .PatchNotes-dates {
+    display: inline-block;
+    margin-right: 4px
+}
+
+.PatchNotes-filters .edd-root-focused .edd-head {
+    color: #f06414
+}
+
+.PatchNotes-filters .edd-root {
+    border-radius: 2px;
+    display: inline-block;
+    opacity: 1;
+    position: relative;
+    text-align: left;
+    width: auto;
+    z-index: 1
+}
+
+.PatchNotes-filters .edd-root:not(:first-child) {
+    margin-left: 10px
+}
+
+.PatchNotes-filters .edd-body, .PatchNotes-filters .edd-head {
+    -webkit-font-smoothing: antialiased;
+    background: hsla(0, 0%, 100%, .7);
+    font-family: Config, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase
+}
+
+:lang(ja) .PatchNotes-filters .edd-body, :lang(ja) .PatchNotes-filters .edd-head {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotes-filters .edd-body, :lang(zh) .PatchNotes-filters .edd-head {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotes-filters .edd-body, :lang(ko) .PatchNotes-filters .edd-head {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotes-filters .edd-body, :lang(ru) .PatchNotes-filters .edd-head {
+    font-family: TTInterphasesPro
+}
+
+.PatchNotes-filters .edd-body::part(content), .PatchNotes-filters .edd-head::part(content) {
+    color: #333d47
+}
+
+@media (min-width:720px) {
+    .PatchNotes-filters .edd-body, .PatchNotes-filters .edd-head {
+        font-size: 24px
+    }
+}
+
+.PatchNotes-filters .edd-head {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    display: -ms-grid;
+    display: grid;
+    height: 48px;
+    min-width: 115px
+}
+
+@media (min-width:720px) {
+    .PatchNotes-filters .edd-head {
+        font-size: 24px;
+        height: var(--size-700)
+    }
+}
+
+.PatchNotes-filters .edd-root-open .edd-head {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+.PatchNotes-filters .edd-body {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background: hsla(0, 0%, 100%, .7);
+    border: 2px solid #fff;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-top: none
+}
+
+@-webkit-keyframes pulsate {
+    0% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0
+    }
+}
+
+.PatchNotes-filters-liveExperiment .PatchNotes-type-experimental:after {
+    -webkit-animation: pulsate 2s ease-out;
+    animation: pulsate 2s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    background-color: #ff7926;
+    border-radius: 100%;
+    -webkit-box-shadow: 0 0 5px 0 rgba(252, 154, 2, .4);
+    box-shadow: 0 0 5px 0 rgba(252, 154, 2, .4);
+    content: "";
+    height: 7px;
+    opacity: .5;
+    position: absolute;
+    -webkit-transform: translate(9px, 1px);
+    transform: translate(9px, 1px);
+    width: 7px
+}
+
+@media (min-width:720px) {
+    .PatchNotes-filters-liveExperiment .PatchNotes-type-experimental:after {
+        height: 10px;
+        -webkit-transform: translate(13px, 2px);
+        transform: translate(13px, 2px);
+        width: 10px
+    }
+}
+
+.PatchNotes-patch .PatchNotesGeneralUpdate+.PatchNotesGeneralUpdate {
+    margin-top: 20px
+}
+
+.PatchNotes-patch .PatchNotesGeneralUpdate-title {
+    -webkit-font-smoothing: antialiased;
+    font-family: Config, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    margin: 10px 0
+}
+
+:lang(ja) .PatchNotes-patch .PatchNotesGeneralUpdate-title {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotes-patch .PatchNotesGeneralUpdate-title {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotes-patch .PatchNotesGeneralUpdate-title {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotes-patch .PatchNotesGeneralUpdate-title {
+    font-family: TTInterphasesPro
+}
+
+@media (min-width:720px) {
+    .PatchNotes-patch .PatchNotesGeneralUpdate-title {
+        font-size: 20px
+    }
+}
+
+.PatchNotes-patch .PatchNotesGeneralUpdate .PatchNotes-dev {
+    margin-bottom: 10px
+}
+
+.PatchNotes-patch .PatchNotesHeroUpdate {
+    border: 2px solid rgba(0, 0, 0, .2);
+    border-radius: 2px;
+    margin-top: 50px
+}
+
+.PatchNotes-patch .PatchNotesHeroUpdate-header {
+    background-color: rgba(0, 0, 0, .1);
+    padding: 15px 10px;
+    position: relative
+}
+
+.PatchNotes-patch .PatchNotesHeroUpdate-icon {
+    background-color: #9b9da2;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    bottom: 8px;
+    position: absolute;
+    width: 90px
+}
+
+.PatchNotes-patch .PatchNotesHeroUpdate-icon+.PatchNotesHeroUpdate-name {
+    padding-left: 100px
+}
+
+.PatchNotes-patch .PatchNotesHeroUpdate-name {
+    -webkit-font-smoothing: antialiased;
+    font-family: Config, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 21px;
+    text-transform: uppercase
+}
+
+:lang(ja) .PatchNotes-patch .PatchNotesHeroUpdate-name {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotes-patch .PatchNotesHeroUpdate-name {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotes-patch .PatchNotesHeroUpdate-name {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotes-patch .PatchNotesHeroUpdate-name {
+    font-family: TTInterphasesPro
+}
+
+@media (min-width:1200px) {
+    .PatchNotes-patch .PatchNotesHeroUpdate-name {
+        font-size: 21px;
+        line-height: 25px
+    }
+}
+
+@media (min-width:1400px) {
+    .PatchNotes-patch .PatchNotesHeroUpdate-name {
+        font-size: 24px;
+        line-height: 27px
+    }
+}
+
+:lang(ja) .PatchNotes-patch .PatchNotesHeroUpdate-name, :lang(ko) .PatchNotes-patch .PatchNotesHeroUpdate-name, :lang(zh) .PatchNotes-patch .PatchNotesHeroUpdate-name {
+    letter-spacing: .8px;
+    line-height: 24px
+}
+
+@media (min-width:1200px) {
+    :lang(ja) .PatchNotes-patch .PatchNotesHeroUpdate-name, :lang(ko) .PatchNotes-patch .PatchNotesHeroUpdate-name, :lang(zh) .PatchNotes-patch .PatchNotesHeroUpdate-name {
+        line-height: 27px
+    }
+}
+
+@media (min-width:1400px) {
+    :lang(ja) .PatchNotes-patch .PatchNotesHeroUpdate-name, :lang(ko) .PatchNotes-patch .PatchNotesHeroUpdate-name, :lang(zh) .PatchNotes-patch .PatchNotesHeroUpdate-name {
+        line-height: 30px
+    }
+}
+
+.PatchNotes-patch .PatchNotesHeroUpdate-body {
+    padding: 5px 20px
+}
+
+.PatchNotes-patch .PatchNotes-dev, .PatchNotes-patch .PatchNotesHeroUpdate-abilitiesList, .PatchNotes-patch .PatchNotesHeroUpdate-generalUpdates {
+    margin: 15px 0
+}
+
+.PatchNotes-patch .PatchNotesHeroUpdate-generalTitle {
+    font-weight: 700
+}
+
+.PatchNotes-patch .PatchNotesAbilityUpdate {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.PatchNotes-patch .PatchNotesAbilityUpdate+.PatchNotesAbilityUpdate, .PatchNotes-patch .PatchNotesAbilityUpdate-general+.PatchNotesAbilityUpdate {
+    margin-top: 10px
+}
+
+.PatchNotes-patch .PatchNotesAbilityUpdate-icon-container, .PatchNotes-patch .PatchNotesAbilityUpdate-icon-container--empty {
+    background-color: hsla(223, 4%, 62%, .5);
+    border: 2px solid hsla(0, 0%, 100%, .6);
+    border-radius: 2px;
+    height: 40px;
+    min-width: 40px;
+    padding: 5px;
+    position: relative;
+    width: 40px
+}
+
+@media (min-width:960px) {
+    .PatchNotes-patch .PatchNotesAbilityUpdate-icon-container, .PatchNotes-patch .PatchNotesAbilityUpdate-icon-container--empty {
+        height: 45px;
+        min-width: 45px;
+        width: 45px
+    }
+}
+
+.PatchNotes-patch .PatchNotesAbilityUpdate-icon-container--empty {
+    background-color: hsla(223, 4%, 62%, .5);
+    border: 0;
+    height: 45px
+}
+
+.PatchNotes-patch .PatchNotesAbilityUpdate-icon {
+    left: 50%;
+    max-width: 80%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+.PatchNotes-patch .PatchNotesAbilityUpdate-name {
+    font-weight: 700
+}
+
+.PatchNotes-patch .PatchNotesAbilityUpdate-text {
+    padding-left: 10px
+}
+
+.PatchNotes-patch .PatchNotesAbilityUpdate-text img {
+    width: 100%
+}
+
+.PatchNotesMapUpdate+.PatchNotesMapUpdate {
+    margin-top: 20px
+}
+
+.PatchNotesMapUpdate-beforeAfterText, .PatchNotesMapUpdate-name {
+    -webkit-font-smoothing: antialiased;
+    font-family: Config, sans-serif;
+    font-size: 18px;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 21px;
+    margin: 30px 0;
+    text-transform: uppercase
+}
+
+:lang(ja) .PatchNotesMapUpdate-beforeAfterText, :lang(ja) .PatchNotesMapUpdate-name {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotesMapUpdate-beforeAfterText, :lang(zh) .PatchNotesMapUpdate-name {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotesMapUpdate-beforeAfterText, :lang(ko) .PatchNotesMapUpdate-name {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotesMapUpdate-beforeAfterText, :lang(ru) .PatchNotesMapUpdate-name {
+    font-family: TTInterphasesPro
+}
+
+@media (min-width:1200px) {
+    .PatchNotesMapUpdate-beforeAfterText, .PatchNotesMapUpdate-name {
+        font-size: 21px;
+        line-height: 25px
+    }
+}
+
+@media (min-width:1400px) {
+    .PatchNotesMapUpdate-beforeAfterText, .PatchNotesMapUpdate-name {
+        font-size: 24px;
+        line-height: 27px
+    }
+}
+
+:lang(ja) .PatchNotesMapUpdate-beforeAfterText, :lang(ja) .PatchNotesMapUpdate-name, :lang(ko) .PatchNotesMapUpdate-beforeAfterText, :lang(ko) .PatchNotesMapUpdate-name, :lang(zh) .PatchNotesMapUpdate-beforeAfterText, :lang(zh) .PatchNotesMapUpdate-name {
+    letter-spacing: .8px;
+    line-height: 24px
+}
+
+@media (min-width:1200px) {
+    :lang(ja) .PatchNotesMapUpdate-beforeAfterText, :lang(ja) .PatchNotesMapUpdate-name, :lang(ko) .PatchNotesMapUpdate-beforeAfterText, :lang(ko) .PatchNotesMapUpdate-name, :lang(zh) .PatchNotesMapUpdate-beforeAfterText, :lang(zh) .PatchNotesMapUpdate-name {
+        line-height: 27px
+    }
+}
+
+@media (min-width:1400px) {
+    :lang(ja) .PatchNotesMapUpdate-beforeAfterText, :lang(ja) .PatchNotesMapUpdate-name, :lang(ko) .PatchNotesMapUpdate-beforeAfterText, :lang(ko) .PatchNotesMapUpdate-name, :lang(zh) .PatchNotesMapUpdate-beforeAfterText, :lang(zh) .PatchNotesMapUpdate-name {
+        line-height: 30px
+    }
+}
+
+.PatchNotesMapUpdate-beforeAfterText {
+    margin-top: 30px
+}
+
+.PatchNotesMapUpdate-comparisonSlider blz-icon#left-arrow, .PatchNotesMapUpdate-comparisonSlider blz-icon#right-arrow, .PatchNotesMapUpdate-comparisonSlider::part(left-arrow), .PatchNotesMapUpdate-comparisonSlider::part(right-arrow) {
+    color: #212529
+}
+
+.PatchNotesMapUpdate-comparisonSlider [slot=after], .PatchNotesMapUpdate-comparisonSlider [slot=before] {
+    border-radius: 4px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    position: relative
+}
+
+.PatchNotesMapUpdate-comparisonSlider [slot=after]:after, .PatchNotesMapUpdate-comparisonSlider [slot=before]:after {
+    border: 2px solid hsla(0, 0%, 100%, .2);
+    border-radius: 4px;
+    bottom: 0;
+    content: "";
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+.PatchNotesTooltip {
+    border-radius: 4px;
+    -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+    margin-top: 0;
+    opacity: 1;
+    -webkit-transition: opacity .2s ease;
+    transition: opacity .2s ease;
+    width: auto
+}
+
+@media (min-width:480px) {
+    .PatchNotesTooltip {
+        margin-left: 10px;
+        margin-right: 10px
+    }
+}
+
+@media (min-width:960px) {
+    .PatchNotesTooltip {
+        display: inline-block;
+        margin: 30px 0;
+        max-width: 450px;
+        vertical-align: top;
+        width: calc(100% - 750px)
+    }
+}
+
+.PatchNotesTooltip-header {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: hsla(0, 0%, 100%, .8);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    color: #000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-weight: 700;
+    text-transform: uppercase
+}
+
+.PatchNotesTooltip-title {
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-family: Config, sans-serif;
+    font-size: 16px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 19px;
+    text-transform: uppercase
+}
+
+:lang(ja) .PatchNotesTooltip-title {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotesTooltip-title {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotesTooltip-title {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotesTooltip-title {
+    font-family: TTInterphasesPro
+}
+
+@media (min-width:1200px) {
+    .PatchNotesTooltip-title {
+        font-size: 18px;
+        line-height: 21px
+    }
+}
+
+@media (min-width:1400px) {
+    .PatchNotesTooltip-title {
+        font-size: 21px;
+        line-height: 25px
+    }
+}
+
+:lang(ja) .PatchNotesTooltip-title, :lang(ko) .PatchNotesTooltip-title, :lang(zh) .PatchNotesTooltip-title {
+    letter-spacing: .8px;
+    line-height: 21px
+}
+
+@media (min-width:1200px) {
+    :lang(ja) .PatchNotesTooltip-title, :lang(ko) .PatchNotesTooltip-title, :lang(zh) .PatchNotesTooltip-title {
+        line-height: 24px
+    }
+}
+
+@media (min-width:1400px) {
+    :lang(ja) .PatchNotesTooltip-title, :lang(ko) .PatchNotesTooltip-title, :lang(zh) .PatchNotesTooltip-title {
+        line-height: 27px
+    }
+}
+
+.PatchNotesTooltip-icon {
+    fill: #000;
+    height: 25px;
+    margin-left: -3px;
+    margin-right: 8px;
+    width: 25px
+}
+
+.PatchNotesTooltip-body, .PatchNotesTooltip-header {
+    padding: 5px 15px
+}
+
+@media (min-width:1200px) {
+    .PatchNotesTooltip-body, .PatchNotesTooltip-header {
+        padding: 15px 20px
+    }
+}
+
+.PatchNotesTooltip-body {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, .2);
+    border-bottom: 1px solid hsla(0, 0%, 100%, .2);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-left: 1px solid hsla(0, 0%, 100%, .2);
+    border-right: 1px solid hsla(0, 0%, 100%, .2);
+    color: hsla(0, 0%, 100%, .9);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, .2)
+}
+
+.PatchNotesTooltip-description, .PatchNotesTooltip-link {
+    -webkit-font-smoothing: antialiased;
+    font-family: Config, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    margin: 0
+}
+
+:lang(ja) .PatchNotesTooltip-description, :lang(ja) .PatchNotesTooltip-link {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotesTooltip-description, :lang(zh) .PatchNotesTooltip-link {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotesTooltip-description, :lang(ko) .PatchNotesTooltip-link {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotesTooltip-description, :lang(ru) .PatchNotesTooltip-link {
+    font-family: TTInterphasesPro
+}
+
+@media (min-width:720px) {
+    .PatchNotesTooltip-description, .PatchNotesTooltip-link {
+        font-size: 20px
+    }
+}
+
+.PatchNotesTooltip-description a, .PatchNotesTooltip-link a {
+    color: #ffab2e;
+    text-decoration: underline
+}
+
+.PatchNotesTooltip-description a:hover, .PatchNotesTooltip-link a:hover {
+    color: #fff
+}
+
+.PatchNotesTooltip-links {
+    margin-top: 3px
+}
+
+@media (min-width:1200px) {
+    .PatchNotesTooltip-links {
+        margin-top: 5px
+    }
+}
+
+.PatchNotesTooltip-link {
+    padding-top: 5px
+}
+
+.PatchNotes-error {
+    margin: 0
+}
+
+.PatchNotes-list--loadingTooltip .PatchNotesTooltip {
+    opacity: 0
+}
+
+.PatchNotesPagination {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 30px;
+    text-shadow: none
+}
+
+.PatchNotesPagination blz-button-group {
+    -webkit-box-pack: right;
+    -ms-flex-pack: right;
+    justify-content: right;
+    width: 100%
+}
+
+.PatchNotesPagination blz-button-group.space {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.PatchNotesPagination blz-button-group.left {
+    -webkit-box-pack: left;
+    -ms-flex-pack: left;
+    justify-content: left
+}
+
+@media (min-width:1200px) {
+    .PatchNotesPagination {
+        margin-top: 50px
+    }
+}
+
+.PatchNotesPaginationLink {
+    -webkit-box-flex: initial;
+    -ms-flex: initial;
+    flex: initial;
+    font-weight: 700
+}
+
+.PatchNotesPaginationLink .PatchNotesPaginationLink-icon {
+    fill: #000;
+    height: 1em;
+    width: 1em
+}
+
+.PatchNotesPaginationLink--next {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row
+}
+
+.PatchNotesPaginationLink--next .PatchNotesPaginationLink-icon {
+    margin-right: .33em;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg)
+}
+
+.PatchNotesPaginationLink--prev {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse
+}
+
+.PatchNotesPaginationLink--prev .PatchNotesPaginationLink-icon {
+    margin-left: .33em;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg)
+}
+
+.PatchNotesPaginationLink-text {
+    display: none
+}
+
+@media (min-width:960px) {
+    .PatchNotesPaginationLink-text {
+        display: block
+    }
+}
+
+.PatchNotesPaginationLink-text--mobile {
+    display: block
+}
+
+@media (min-width:960px) {
+    .PatchNotesPaginationLink-text--mobile {
+        display: none
+    }
+}
+
+.edd-root, .edd-root *, .edd-root :after, .edd-root :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+.edd-root {
+    background: hsla(0, 0%, 100%, .7);
+    border-radius: 2px;
+    display: inline-block;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 100%
+}
+
+.edd-root::part(content) {
+    color: #333d47
+}
+
+.edd-root.edd-root-open-below {
+    border-radius: 2px 2px 0 0
+}
+
+.edd-root-disabled {
+    color: #ccc;
+    cursor: not-allowed
+}
+
+.edd-head {
+    padding-right: 30px;
+    position: relative
+}
+
+.edd-value {
+    display: inline-block;
+    padding: 8px 12px;
+    vertical-align: middle;
+    width: 100%
+}
+
+.edd-arrow {
+    color: #666;
+    height: 10px;
+    pointer-events: none;
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 5px);
+    -webkit-transition: -webkit-transform .15s;
+    transition: -webkit-transform .15s;
+    transition: transform .15s;
+    transition: transform .15s, -webkit-transform .15s;
+    width: 14px
+}
+
+.edd-root-disabled .edd-arrow {
+    color: #ccc
+}
+
+.edd-arrow:before {
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    content: "";
+    height: 8px;
+    position: absolute;
+    right: 2px;
+    top: 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 50% 25%;
+    transform-origin: 50% 25%;
+    width: 8px
+}
+
+.edd-root-open .edd-arrow {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.edd-group-label, .edd-option, .edd-value {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.edd-option, .edd-root:not(.edd-root-disabled) .edd-value {
+    cursor: pointer
+}
+
+.edd-select {
+    height: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 0
+}
+
+.edd-root-native .edd-select {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%
+}
+
+.edd-body {
+    background: #f2f2f2;
+    border-radius: 0 0 2px 2px;
+    border-top: 3px solid #fff;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    z-index: 999
+}
+
+.edd-root-open .edd-body {
+    opacity: 1;
+    pointer-events: all;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: opacity .2s, -webkit-transform .1s cubic-bezier(.25, .46, .45, .94);
+    transition: opacity .2s, -webkit-transform .1s cubic-bezier(.25, .46, .45, .94);
+    transition: opacity .2s, transform .1s cubic-bezier(.25, .46, .45, .94);
+    transition: opacity .2s, transform .1s cubic-bezier(.25, .46, .45, .94), -webkit-transform .1s cubic-bezier(.25, .46, .45, .94)
+}
+
+.edd-root-open-above .edd-body {
+    bottom: 100%
+}
+
+.edd-root-open-below .edd-body {
+    top: 100%
+}
+
+.edd-items-list {
+    -webkit-overflow-scrolling: touch;
+    max-height: 0;
+    overflow: auto;
+    -webkit-transition: max-height .2s cubic-bezier(.25, .46, .45, .94);
+    transition: max-height .2s cubic-bezier(.25, .46, .45, .94)
+}
+
+.edd-items-list::-webkit-scrollbar {
+    width: 12px
+}
+
+.edd-items-list::-webkit-scrollbar-track {
+    background: #efefef
+}
+
+.edd-items-list::-webkit-scrollbar-thumb {
+    background: #ccc
+}
+
+.edd-group-label {
+    color: #555;
+    padding: 4px 8px 4px 0
+}
+
+.edd-group-has-label {
+    padding-left: 22px
+}
+
+.edd-option {
+    padding: 8px 12px;
+    position: relative
+}
+
+.edd-option-focused:not(.edd-option-disabled), .edd-option-selected {
+    color: #e45401
+}
+
+.edd-group-disabled .edd-option, .edd-option-disabled {
+    color: #ccc;
+    cursor: default
+}
+
+.edd-gradient-bottom, .edd-gradient-top {
+    background-image: -webkit-gradient(linear, left bottom, left top, from(hsla(0, 0%, 100%, 0)), color-stop(40%, #fff), color-stop(60%, #fff), to(hsla(0, 0%, 100%, 0)));
+    background-image: linear-gradient(0deg, hsla(0, 0%, 100%, 0), #fff 40%, #fff 60%, hsla(0, 0%, 100%, 0));
+    background-repeat: repeat-x;
+    background-size: 100% 200%;
+    content: "";
+    height: 32px;
+    left: 2px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 12px;
+    -webkit-transition: opacity .1s;
+    transition: opacity .1s
+}
+
+.edd-gradient-top {
+    background-position: bottom;
+    top: 0
+}
+
+.edd-gradient-bottom {
+    background-position: top;
+    bottom: 0
+}
+
+.edd-body-scrollable .edd-gradient-bottom, .edd-body-scrollable .edd-gradient-top {
+    opacity: 1
+}
+
+.edd-body-scrollable.edd-body-at-bottom .edd-gradient-bottom, .edd-body-scrollable.edd-body-at-top .edd-gradient-top {
+    opacity: 0
+}
+
+.PatchNotes {
+    margin-bottom: 0;
+    margin-top: 0;
+    overflow-x: clip;
+    position: relative;
+    z-index: 15
+}
+
+@media (min-width:960px) {
+    .PatchNotes {
+        margin-bottom: -19px
+    }
+}
+
+.PatchNotes .background-image:after {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, .08)), color-stop(49.48%, transparent), to(transparent));
+    background: linear-gradient(180deg, rgba(0, 0, 0, .08), transparent 49.48%, transparent);
+    background-blend-mode: color-burn;
+    content: "";
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%
+}
+
+.PatchNotes .background-image[bp="md lg"], .PatchNotes .background-image[bp="xl+"] {
+    -webkit-mask-box-image: url(img/dividers/Inverse_Bottom_Divider-674f48cafc.svg);
+    -webkit-mask-box-image-slice: 20 350 fill;
+    mask-border: url(img/dividers/Inverse_Bottom_Divider-674f48cafc.svg);
+    mask-border-slice: 20 350 fill;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat
+}
+
+.PatchNotes h1 {
+    -webkit-font-smoothing: antialiased;
+    color: #1d253a;
+    font-family: Config, sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 39px;
+    text-transform: uppercase
+}
+
+:lang(ja) .PatchNotes h1 {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotes h1 {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotes h1 {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotes h1 {
+    font-family: TTInterphasesPro
+}
+
+@media (min-width:960px) {
+    .PatchNotes h1 {
+        font-size: 60px;
+        line-height: 66px
+    }
+}
+
+@media (min-width:1400px) {
+    .PatchNotes h1 {
+        font-size: 60px;
+        line-height: 66px
+    }
+}
+
+.PatchNotesBody {
+    -webkit-font-smoothing: antialiased;
+    background-color: #004da7;
+    font-family: Config, sans-serif;
+    font-style: normal
+}
+
+:lang(ja) .PatchNotesBody {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotesBody {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotesBody {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotesBody {
+    font-family: TTInterphasesPro
+}
+
+.PatchNotesBody .background-image {
+    background-size: auto !important
+}
+
+.PatchNotes-sectionDescription {
+    -webkit-font-smoothing: antialiased;
+    font-family: Config, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500
+}
+
+:lang(ja) .PatchNotes-sectionDescription {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotes-sectionDescription {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotes-sectionDescription {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotes-sectionDescription {
+    font-family: TTInterphasesPro
+}
+
+@media (min-width:720px) {
+    .PatchNotes-sectionDescription {
+        font-size: 20px
+    }
+}
+
+.PatchNotes-list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    min-height: 400px;
+    padding-bottom: 50px;
+    padding-top: 0;
+    min-height: 100vh;
+}
+
+@media (min-width:960px) {
+    .PatchNotes-list {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.PatchNotes-body {
+    display: inline-block;
+    color: hsla(0, 0%, 100%, .9);
+    opacity: 1;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+    -webkit-transition: opacity .2s ease;
+    transition: opacity .2s ease;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 1500px;
+}
+
+.PatchNotes-body .anchor {
+    position: relative;
+    top: -48px
+}
+
+@media (min-width:960px) {
+    .PatchNotes-body .anchor {
+        top: calc(var(--nav-height)*-1)
+    }
+}
+
+.PatchNotes-exp-past+.PatchNotes-patch {
+    margin-top: 10px;
+    padding-top: 0
+}
+
+.PatchNotes-labels {
+    color: hsla(0, 0%, 100%, .7);
+    margin-bottom: 5px;
+    text-transform: uppercase
+}
+
+.PatchNotes-exp {
+    -webkit-font-smoothing: antialiased;
+    color: #4b535d;
+    display: inline-block;
+    font-family: Config, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    margin-right: .75em;
+    padding-bottom: 5px;
+    padding-right: .75em;
+    position: relative;
+    text-transform: uppercase
+}
+
+:lang(ja) .PatchNotes-exp {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotes-exp {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotes-exp {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotes-exp {
+    font-family: TTInterphasesPro
+}
+
+@media (min-width:960px) {
+    .PatchNotes-exp {
+        font-size: 24px;
+        line-height: 33px
+    }
+}
+
+@media (min-width:1200px) {
+    .PatchNotes-exp {
+        font-size: 24px;
+        line-height: 33px
+    }
+}
+
+.PatchNotes-exp:after {
+    bottom: 5px;
+    color: #4b535d;
+    content: "|";
+    position: absolute;
+    right: -2px
+}
+
+.PatchNotes-exp-live {
+    color: #fe4c40
+}
+
+.PatchNotes-exp-past {
+    color: #00a0ea;
+    padding-top: 30px
+}
+
+.PatchNotes-exp-past:after {
+    display: none
+}
+
+.PatchNotes-date {
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-family: Config, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700
+}
+
+:lang(ja) .PatchNotes-date {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotes-date {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotes-date {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotes-date {
+    font-family: TTInterphasesPro
+}
+
+@media (min-width:720px) {
+    .PatchNotes-date {
+        font-size: 20px
+    }
+}
+
+.PatchNotes-patchTitle, .PatchNotes-sectionTitle {
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    font-family: Config, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700
+}
+
+:lang(ja) .PatchNotes-patchTitle, :lang(ja) .PatchNotes-sectionTitle {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotes-patchTitle, :lang(zh) .PatchNotes-sectionTitle {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotes-patchTitle, :lang(ko) .PatchNotes-sectionTitle {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotes-patchTitle, :lang(ru) .PatchNotes-sectionTitle {
+    font-family: TTInterphasesPro
+}
+
+.PatchNotes-sectionTitle {
+    margin-bottom: 10px
+}
+
+@media (min-width:1200px) {
+    .PatchNotes-patchTitle {
+        font-size: 36px
+    }
+}
+
+.PatchNotes-section {
+    margin: 35px 0
+}
+
+.PatchNotes-patch .PatchNotes-dev {
+    -webkit-font-smoothing: antialiased;
+    border-left: 5px solid #ffab2e;
+    font-family: Config, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    padding-left: 15px
+}
+
+:lang(ja) .PatchNotes-patch .PatchNotes-dev {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotes-patch .PatchNotes-dev {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotes-patch .PatchNotes-dev {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotes-patch .PatchNotes-dev {
+    font-family: TTInterphasesPro
+}
+
+.PatchNotes-patch .PatchNotes-dev ul {
+    padding-left: 20px
+}
+
+.PatchNotesTop {
+    margin-top: 35px;
+    text-align: center;
+    text-shadow: none
+}
+
+.PatchNotesTop .PatchNotesTop-link {
+    position: relative;
+    text-decoration: none;
+    width: 100%
+}
+
+@media (min-width:480px) {
+    .PatchNotesTop .PatchNotesTop-link {
+        width: auto
+    }
+}
+
+.PatchNotes-patch {
+    border-bottom: 1px solid hsla(0, 0%, 100%, .3);
+}
+
+.PatchNotes-patch:last-child {
+    border-bottom: none
+}
+
+.PatchNotes-patch ul {
+    list-style-type: disc;
+    padding-left: 40px
+}
+
+.PatchNotes-patch ul li {
+    -webkit-font-smoothing: antialiased;
+    font-family: Config, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500
+}
+
+:lang(ja) .PatchNotes-patch ul li {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotes-patch ul li {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotes-patch ul li {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotes-patch ul li {
+    font-family: TTInterphasesPro
+}
+
+@media (min-width:720px) {
+    .PatchNotes-patch ul li {
+        font-size: 20px
+    }
+}
+
+.PatchNotes-patch a {
+    color: #ffab2e;
+    text-decoration: underline
+}
+
+.PatchNotes-patch.PatchNotes-patch--legacy h1, .PatchNotes-patch.PatchNotes-patch--legacy h2 {
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    font-family: Config, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700
+}
+
+:lang(ja) .PatchNotes-patch.PatchNotes-patch--legacy h1, :lang(ja) .PatchNotes-patch.PatchNotes-patch--legacy h2 {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotes-patch.PatchNotes-patch--legacy h1, :lang(zh) .PatchNotes-patch.PatchNotes-patch--legacy h2 {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotes-patch.PatchNotes-patch--legacy h1, :lang(ko) .PatchNotes-patch.PatchNotes-patch--legacy h2 {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotes-patch.PatchNotes-patch--legacy h1, :lang(ru) .PatchNotes-patch.PatchNotes-patch--legacy h2 {
+    font-family: TTInterphasesPro
+}
+
+.PatchNotes-patch.PatchNotes-patch--legacy h1 strong, .PatchNotes-patch.PatchNotes-patch--legacy h2 strong {
+    font-weight: 400
+}
+
+.PatchNotes-patch.PatchNotes-patch--legacy h3 {
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    font-family: Config, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    padding-top: 20px
+}
+
+:lang(ja) .PatchNotes-patch.PatchNotes-patch--legacy h3 {
+    font-family: UDTypos
+}
+
+:lang(zh) .PatchNotes-patch.PatchNotes-patch--legacy h3 {
+    font-family: Noto Sans TC, sans-serif
+}
+
+:lang(ko) .PatchNotes-patch.PatchNotes-patch--legacy h3 {
+    font-family: YoonMagazinePro;
+    word-break: keep-all
+}
+
+:lang(ru) .PatchNotes-patch.PatchNotes-patch--legacy h3 {
+    font-family: TTInterphasesPro
+}
+
+.PatchNotes-patch.PatchNotes-patch--legacy h3 u {
+    text-decoration: none
+}
+
+.PatchNotes-list--loadingBody .PatchNotes-body {
+    opacity: 0
+}
+
+.section {
+    position: relative
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px
+}
+
+.background, .background-image, .background-video, [slot=background] {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%
+}
+
+.background-image {
+    background-image: var(--background-url)
+}
+
+@media (-webkit-min-device-pixel-ratio:2), (min-resolution:192dpi) {
+    .background-image {
+        background-image: var(--background-url-2x, var(--background-url))
+    }
+}
+
+.background-video {
+    -o-object-fit: cover;
+    object-fit: cover
+}
+
+[slot=media] {
+    width: 100%
+}
+
+[slot=media] * {
+    height: inherit;
+    width: inherit
+}
+
+div[slot=description] p:only-child {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    margin-block-end: 0;
+    margin-block-start: 0
+}
+
+blz-comparison-slider blz-image, blz-comparison-slider blz-video, blz-comparison-slider div {
+    height: 100%;
+    width: 100%
+}
+
+blz-lightbox blz-image, blz-lightbox blz-video {
+    left: 0;
+    position: absolute;
+    top: 0
+}
+
+@font-face {
+    font-family: Blizzard;
+    font-style: normal;
+    font-weight: 300;
+    src: local("Blizzard Light"), local("Blizzard-Light"), url(/fonts/blizzard-5d1ab6b169.light.woff) format("woff")
+}
+
+@font-face {
+    font-family: Blizzard;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Blizzard"), local("Blizzard"), url(/fonts/blizzard-6374a0ee30.regular.woff) format("woff")
+}
+
+@font-face {
+    font-family: Blizzard;
+    font-style: italic;
+    font-weight: 400;
+    src: local("Blizzard Italic"), local("Blizzard-Italic"), url(/fonts/blizzard-62a0ea0338.regular-italic.woff) format("woff")
+}
+
+@font-face {
+    font-family: Blizzard;
+    font-style: normal;
+    font-weight: 700;
+    src: local("Blizzard Bold"), local("Blizzard-Bold"), url(/fonts/blizzard-8cc5a1ab59.bold.woff) format("woff")
+}
+
+@font-face {
+    font-family: Blizzard;
+    font-style: normal;
+    font-weight: 300;
+    src: local("Blizzard"), local("Blizzard"), url(/fonts/blizzard-ab08c2290e.woff) format("woff")
+}
+
+@font-face {
+    font-family: FuturaNo2D;
+    font-style: normal;
+    font-weight: 600;
+    src: url(/fonts/FuturaNo2D-DemiBold-8635bfcad5.woff) format("woff")
+}
+
+@font-face {
+    font-family: Big Noodle Too;
+    font-style: normal;
+    font-weight: 400;
+    src: url(/fonts/big-noodle-too-254c7f1a1d.woff) format("woff")
+}
+
+@font-face {
+    font-family: Big Noodle Too;
+    font-style: italic;
+    font-weight: 400;
+    src: url(/fonts/big-noodle-too-oblique-1eed6dbdd0.woff) format("woff")
+}
+
+@font-face {
+    font-family: Koverwatch;
+    font-style: normal;
+    font-weight: 400;
+    src: url(/fonts/koverwatch-webfont-1f961d9e70.woff) format("woff")
+}
+
+@font-face {
+    font-family: BlackFit77;
+    font-style: normal;
+    font-weight: 400;
+    src: url(/fonts/yoonblackfit77-webfont-b750e4c5e7.woff) format("woff")
+}
+
+@font-face {
+    font-family: UDTypos;
+    font-style: normal;
+    font-weight: 400;
+    src: url(/fonts/UDTypos512B_P_H-6ca23e86d3.TTF) format("truetype")
+}
+
+@font-face {
+    font-family: DFSoGeiStd;
+    font-style: normal;
+    font-weight: 400;
+    src: url(/fonts/DFSoGeiStd-W9-5bbf115585.ttf) format("truetype")
+}
+
+@font-face {
+    font-family: Config;
+    font-style: normal;
+    font-weight: 400;
+    src: url(/fonts/config-regular-2-4827d82b2c.otf) format("opentype")
+}
+
+@font-face {
+    font-family: Config;
+    font-style: italic;
+    font-weight: 400;
+    src: url(/fonts/config-italic-2-86070cb7c6.otf) format("opentype")
+}
+
+@font-face {
+    font-family: Config;
+    font-style: normal;
+    font-weight: 500;
+    src: url(/fonts/config-medium-874eac0568.otf) format("opentype")
+}
+
+@font-face {
+    font-family: Config;
+    font-style: normal;
+    font-weight: 700;
+    src: url(/fonts/config-bold-2-83c4e66e13.otf) format("opentype")
+}
+
+@font-face {
+    font-family: Config;
+    font-style: italic;
+    font-weight: 700;
+    src: url(/fonts/config-bolditalic-2) format("opentype")
+}
+
+@font-face {
+    font-family: YoonMagazinePro;
+    font-style: normal;
+    font-weight: 400;
+    src: url(fonts/YoonMagazinePro750-b9ea8b95f6.otf) format("opentype")
+}
+
+@font-face {
+    font-family: YoonMagazinePro;
+    font-style: normal;
+    font-weight: 500;
+    src: url(fonts/YoonMagazinePro770-47a1e8c771.otf) format("opentype")
+}
+
+@font-face {
+    font-family: YoonMagazinePro;
+    font-style: normal;
+    font-weight: 700;
+    src: url(fonts/YoonMagazinePro780-79acc06769.otf) format("opentype")
+}
+
+@font-face {
+    font-family: TTInterphasesPro;
+    font-style: normal;
+    font-weight: 400;
+    src: url(fonts/tt_interphases_pro_condensed_regular-e7e91e0dce.otf) format("opentype")
+}
+
+@font-face {
+    font-family: TTInterphasesPro;
+    font-style: normal;
+    font-weight: 500;
+    src: url(fonts/tt_interphases_pro_condensed_medium-1f882f4eba.otf) format("opentype")
+}
+
+@font-face {
+    font-family: TTInterphasesPro;
+    font-style: normal;
+    font-weight: 700;
+    src: url(fonts/tt_interphases_pro_condensed_bold-0f78b2be8e.otf) format("opentype")
+}
+
+@font-face {
+    font-family: Bulevar;
+    font-style: normal;
+    font-weight: 400;
+    src: url(fonts/Bulevar-Regular-081dd96c27.otf) format("opentype")
+}
+
+:root {
+    --font-default: "Config";
+    --font-default-weight: 500;
+    --font-accent: "Config";
+    --font-accent-weight: 700
+}
+
+:root[lang=ko-KR] {
+    --font-default: "YoonMagazinePro";
+    --font-default-weight: 500;
+    --font-accent: "YoonMagazinePro";
+    --font-accent-weight: 700
+}
+
+:root[lang=ru-RU] {
+    --font-default: "TTInterphasesPro";
+    --font-default-weight: 500;
+    --font-accent: "TTInterphasesPro";
+    --font-accent-weight: 700
+}
+
+:root[lang=ja-JP] {
+    --font-default: "UDTypos";
+    --font-default-weight: 500;
+    --font-accent: "UDTypos";
+    --font-accent-weight: 700
+}
+
+blz-header h2, blz-header h3 {
+    text-transform: uppercase
+}
+
+.ow-ana-color {
+    background-color: #9c978a
+}
+
+.ow-ashe-color {
+    background-color: #b3a05f
+}
+
+.ow-bastion-color {
+    background-color: #24f9f8
+}
+
+.ow-baptiste-color {
+    background-color: #2892a8
+}
+
+.ow-brigitte-color {
+    background-color: #efb016
+}
+
+.ow-doomfist-color {
+    background-color: #762c21
+}
+
+.ow-dva-color {
+    background-color: #ee4bb5
+}
+
+.ow-echo-color {
+    background-color: #89c8ff
+}
+
+.ow-genji-color {
+    background-color: #abe50b
+}
+
+.ow-hanzo-color {
+    background-color: #837c46
+}
+
+.ow-junkrat-color {
+    background-color: #fbd73a
+}
+
+.ow-lucio-color {
+    background-color: #aaf531
+}
+
+.ow-cassidy-color {
+    background-color: #c23f46
+}
+
+.ow-mei-color {
+    background-color: #87d7f6
+}
+
+.ow-mercy-color {
+    background-color: #fcd849
+}
+
+.ow-moira-color {
+    background-color: #7112f4
+}
+
+.ow-orisa-color {
+    background-color: #ccb370
+}
+
+.ow-pharah-color {
+    background-color: #3461a4
+}
+
+.ow-reaper-color {
+    background-color: #333
+}
+
+.ow-reinhardt-color {
+    background-color: #b9b5ad
+}
+
+.ow-roadhog-color {
+    background-color: #54515a
+}
+
+.ow-sigma-color {
+    background-color: #3ba
+}
+
+.ow-soldier-76-color {
+    background-color: #525d9b
+}
+
+.ow-sombra-color {
+    background-color: #9762ec
+}
+
+.ow-symmetra-color {
+    background-color: #3e90b5
+}
+
+.ow-torbjorn-color {
+    background-color: #b04a33
+}
+
+.ow-tracer-color {
+    background-color: #ffcf35
+}
+
+.ow-widowmaker-color {
+    background-color: #af5e9e
+}
+
+.ow-winston-color {
+    background-color: #595959
+}
+
+.ow-wrecking-ball-color {
+    background-color: #4a575f
+}
+
+.ow-zarya-color {
+    background-color: #ff73c1
+}
+
+.ow-zenyatta-color {
+    background-color: #e1c931
+}
+
+blz-button {
+    border-radius: 2px;
+    -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .1);
+    opacity: .9;
+    position: relative;
+    z-index: 1
+}
+
+blz-button:hover {
+    opacity: 1
+}
+
+blz-button::part(content) {
+    font-weight: 600;
+    text-transform: uppercase
+}
+
+@media (min-width:960px) {
+    blz-button::part(content) {
+        font-weight: 700
+    }
+}
+
+blz-button[type=primary], blz-button[type=submit] {
+    background: #f06414
+}
+
+blz-button[type=primary]::part(content), blz-button[type=submit]::part(content) {
+    color: #fff
+}
+
+blz-button[type=primary]:before, blz-button[type=submit]:before {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: #f06414;
+    border-radius: 2px;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: .8;
+    position: absolute;
+    top: 0;
+    -webkit-transition: all 80ms ease;
+    transition: all 80ms ease;
+    width: 100%;
+    z-index: -1
+}
+
+blz-button[type=primary]:focus, blz-button[type=primary]:hover, blz-button[type=submit]:focus, blz-button[type=submit]:hover {
+    cursor: pointer
+}
+
+blz-button[type=primary]:focus:before, blz-button[type=primary]:hover:before, blz-button[type=submit]:focus:before, blz-button[type=submit]:hover:before {
+    left: -2px;
+    opacity: 1;
+    width: calc(100% + 4px)
+}
+
+blz-button[type=primary]:active:before, blz-button[type=submit]:active:before {
+    border: 0;
+    opacity: .8
+}
+
+blz-button[type=primary]:focus:not(.focus-visible), blz-button[type=submit]:focus:not(.focus-visible) {
+    outline: 0
+}
+
+blz-button[type=default] {
+    background: #fff
+}
+
+blz-button[type=default]::part(content) {
+    color: #000
+}
+
+blz-button[type=default]:before {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: #fff;
+    border-radius: 2px;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: .8;
+    position: absolute;
+    top: 0;
+    -webkit-transition: all 80ms ease;
+    transition: all 80ms ease;
+    width: 100%;
+    z-index: -1
+}
+
+blz-button[type=default]:focus, blz-button[type=default]:hover {
+    cursor: pointer
+}
+
+blz-button[type=default]:focus:before, blz-button[type=default]:hover:before {
+    left: -2px;
+    opacity: 1;
+    width: calc(100% + 4px)
+}
+
+blz-button[type=default]:active:before {
+    border: 0;
+    opacity: .8
+}
+
+blz-button[type=default]:focus:not(.focus-visible) {
+    outline: 0
+}
+
+blz-button[type=tertiary] {
+    background: #05a0fa
+}
+
+blz-button[type=tertiary]::part(content) {
+    color: #fff
+}
+
+blz-button[type=tertiary]:before {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: #05a0fa;
+    border-radius: 2px;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: .8;
+    position: absolute;
+    top: 0;
+    -webkit-transition: all 80ms ease;
+    transition: all 80ms ease;
+    width: 100%;
+    z-index: -1
+}
+
+blz-button[type=tertiary]:focus, blz-button[type=tertiary]:hover {
+    cursor: pointer
+}
+
+blz-button[type=tertiary]:focus:before, blz-button[type=tertiary]:hover:before {
+    left: -2px;
+    opacity: 1;
+    width: calc(100% + 4px)
+}
+
+blz-button[type=tertiary]:active:before {
+    border: 0;
+    opacity: .8
+}
+
+blz-button[type=tertiary]:focus:not(.focus-visible) {
+    outline: 0
+}
+
+select[is=blz-dropdown] {
+    background-color: hsla(0, 0%, 100%, .9);
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' fill='none' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    border-radius: 2px;
+    color: rgba(29, 37, 58, .9);
+    cursor: pointer;
+    outline: none;
+    text-shadow: 0 4px 10px hsla(0, 0%, 100%, .4);
+    text-transform: uppercase;
+    width: auto
+}
+
+select[is=blz-dropdown].selected, select[is=blz-dropdown]:focus-visible, select[is=blz-dropdown]:focus:focus-visible, select[is=blz-dropdown]:hover {
+    background-color: hsla(0, 0%, 100%, .9);
+    color: rgba(29, 37, 58, .9);
+    text-shadow: 0 4px 10px hsla(0, 0%, 100%, .4)
+}
+
+select[is=blz-dropdown] option {
+    background-color: hsla(0, 0%, 100%, .7);
+    color: rgba(29, 37, 58, .9);
+    cursor: pointer;
+    text-shadow: 0 4px 10px hsla(0, 0%, 100%, .4);
+    text-transform: uppercase
+}
+
+blz-video [slot=thumbnail-play] {
+    -webkit-filter: drop-shadow(0 9px 10px rgba(0, 0, 0, .25));
+    filter: drop-shadow(0 9px 10px rgba(0, 0, 0, .25));
+    height: var(--size-800);
+    width: var(--size-800)
+}

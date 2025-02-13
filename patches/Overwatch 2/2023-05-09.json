@@ -1847,19 +1847,6 @@
                         "Time between shots": 0.111
                     }
                 }
-            },
-            "Illari": {
-                "abilities": {
-                    "Captive Sun": {
-                        "Environment collision projectile size": 0.15,
-                        "Explosion radius": 8
-                    },
-                    "Solar Rifle Alt Fire": {
-                        "Recharge rate": 0.3448275862068966,
-                        "Depletion rate": 0.3333333333333333
-                    },
-                    "Solar Rifle": {}
-                }
             }
         }
     },
