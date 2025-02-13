@@ -212,3 +212,29 @@ blz-button svg {
 .PatchNotesPagination blz-button-group.space {
     display: inline-flex;
 }
+
+.patch-selector {
+    min-width: 9em;
+}
+
+#swap-centerer {
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+    height: 0px;
+}
+
+#swap-patches-button {
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin-top: -50px;
+}
+
+
+
+@media (max-width: 1032px) {
+    #swap-patches-button {
+        margin-top: -10px;
+    }
+}

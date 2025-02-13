@@ -116,6 +116,7 @@ const display_breakpoints_box = document.querySelector<HTMLInputElement>("input#
 const apply_damage_to_armor_box = document.querySelector<HTMLInputElement>("input#apply_damage_to_armor")!;
 const last_patch_buttons = document.querySelectorAll<HTMLButtonElement>(".last_patch_button")!;
 const next_patch_buttons = document.querySelectorAll<HTMLButtonElement>(".next_patch_button")!;
+const swap_patches_button = document.querySelector<HTMLButtonElement>("#swap-patches-button")!;
 const patch_before_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost")!;
 const patch_before_dmg_boost_slider = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost_slider")!;
 const patch_after_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_after_dmg_boost")!;
@@ -1870,5 +1871,16 @@ async function shiftPatches(shift: number) {
 
 last_patch_buttons.forEach((last_patch_button) => last_patch_button.addEventListener("click", async () => shiftPatches(-1), false));
 next_patch_buttons.forEach((next_patch_button) => next_patch_button.addEventListener("click", async () => shiftPatches(1), false));
+swap_patches_button.addEventListener("click", async () => {
+    let temp_patch = siteState.before_patch;
+    siteState.before_patch = siteState.after_patch;
+    siteState.after_patch = temp_patch;
+
+    let temp_boost = siteState.before_dmg_boost;
+    siteState.before_dmg_boost = siteState.after_dmg_boost;
+    siteState.after_dmg_boost = temp_boost;
+    
+    await updatePatchNotes();
+}, false);
 
 await updatePatchNotes();
