@@ -114,8 +114,8 @@ const patch_after_box = document.querySelector<HTMLSelectElement>("select#patch_
 const display_calculated_properties_box = document.querySelector<HTMLInputElement>("input#disp_calc_props")!;
 const display_breakpoints_box = document.querySelector<HTMLInputElement>("input#disp_breakpoints")!;
 const apply_damage_to_armor_box = document.querySelector<HTMLInputElement>("input#apply_damage_to_armor")!;
-const last_patch_button = document.querySelector<HTMLButtonElement>("button#last_patch_button")!;
-const next_patch_button = document.querySelector<HTMLButtonElement>("button#next_patch_button")!;
+const last_patch_buttons = document.querySelectorAll<HTMLButtonElement>(".last_patch_button")!;
+const next_patch_buttons = document.querySelectorAll<HTMLButtonElement>(".next_patch_button")!;
 const patch_before_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost")!;
 const patch_before_dmg_boost_slider = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost_slider")!;
 const patch_after_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_after_dmg_boost")!;
@@ -622,8 +622,8 @@ function resetUI() {
     {
         const last_patch_exists = !patchEquals(siteState.after_patch, getShiftedPatch(siteState.after_patch, -1)) && !patchEquals(siteState.before_patch, getShiftedPatch(siteState.before_patch, -1))
         const next_patch_exists = !patchEquals(siteState.after_patch, getShiftedPatch(siteState.after_patch, 1)) && !patchEquals(siteState.before_patch, getShiftedPatch(siteState.before_patch, 1))
-        last_patch_button.style.visibility = last_patch_exists ? 'visible' : 'hidden'
-        next_patch_button.style.visibility = next_patch_exists ? 'visible' : 'hidden'
+        last_patch_buttons.forEach((last_patch_button) => last_patch_button.style.visibility = last_patch_exists ? 'visible' : 'hidden')
+        next_patch_buttons.forEach((next_patch_button) => next_patch_button.style.visibility = next_patch_exists ? 'visible' : 'hidden')
     }
 }
 
@@ -954,10 +954,12 @@ export function patchReorder(to_reorder: PatchData, pattern: Units): PatchData {
         reordered["heroes"][role]["general"] = reorder(to_reorder["heroes"][role]["general"], pattern["roles"][role])
 
         for(let hero in to_reorder["heroes"][role]) {
+            if(hero == "general") continue;
+
             let heroData = to_reorder["heroes"][role][hero as Hero];
             if(heroData == undefined) throw new Error("Invalid state");
             let unitData = pattern["heroes"][hero as Hero];
-            if(unitData == undefined) throw new Error("Invalid state");
+            if(unitData == undefined) throw new Error(`Invalid state: no unit data for hero ${hero}`);
             reordered["heroes"][role][hero] = reorder(heroData, unitData)
         }
     }
@@ -1866,7 +1868,7 @@ async function shiftPatches(shift: number) {
     await updatePatchNotes();
 }
 
-last_patch_button.onclick = async () => shiftPatches(-1);
-next_patch_button.onclick = async () => shiftPatches(1);
+last_patch_buttons.forEach((last_patch_button) => last_patch_button.addEventListener("click", async () => shiftPatches(-1), false));
+next_patch_buttons.forEach((next_patch_button) => next_patch_button.addEventListener("click", async () => shiftPatches(1), false));
 
 await updatePatchNotes();

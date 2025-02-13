@@ -36,14 +36,177 @@
         order: 2;
     }
 }
+:root {
+    --font-size-100: var(--font-size-100-sm);
+    --font-size-200: var(--font-size-200-sm);
+    --font-size-300: var(--font-size-300-sm);
+    --font-size-400: var(--font-size-400-sm);
+    --font-size-500: var(--font-size-500-sm);
+    --font-size-600: var(--font-size-600-sm);
+    --font-size-700: var(--font-size-700-sm);
+    --font-size-800: var(--font-size-800-sm);
+    --font-size-900: var(--font-size-900-sm);
+    --resize-250: var(--resize-250-sm);
+    --resize-300: var(--resize-300-sm);
+    --resize-400: var(--resize-400-sm);
+    --resize-500: var(--resize-500-sm);
+    --resize-600: var(--resize-600-sm);
+    --resize-700: var(--resize-700-sm);
+    --resize-800: var(--resize-800-sm);
+    --resize-900: var(--resize-900-sm);
+    --resize-1000: var(--resize-1000-sm);
+    --row-gap-spacious: var(--row-gap-spacious-sm);
+    --col-gap-spacious: var(--col-gap-spacious-sm);
+    --section-padding-vertical: var(--section-padding-vertical-sm);
+    --section-padding-horizontal: var(--section-padding-horizontal-sm);
+    --announcement-banner-space-padding: var(
+        --announcement-banner-space-padding-desktop-vertical
+      ) var(--announcement-banner-space-padding-desktop-horizontal);
+    --announcement-banner-sticky-space-padding: var(
+        --announcement-banner-sticky-space-padding-desktop-vertical
+      ) var(--announcement-banner-sticky-space-padding-desktop-horizontal);
+    --announcement-banner-content-gap-horizontal: var(
+      --announcement-banner-content-gap-horizontal-desktop
+    );
+    --announcement-banner-content-gap-vertical: var(
+      --announcement-banner-content-gap-vertical-desktop
+    );
+    --button-space-padding-xl: var(--button-space-padding-xl-desktop-vertical) var(--button-space-padding-xl-desktop-horizontal);
+    --button-space-padding-lg: var(--button-space-padding-lg-desktop-vertical) var(--button-space-padding-lg-desktop-horizontal);
+    --button-space-padding-md: var(--button-space-padding-md-desktop-vertical) var(--button-space-padding-md-desktop-horizontal);
+    --base-card-space-padding-lg: var(
+        --base-card-space-padding-lg-desktop-vertical
+      ) var(--base-card-space-padding-lg-desktop-horizontal);
+    --base-card-space-padding-md: var(
+        --base-card-space-padding-md-desktop-vertical
+      ) var(--base-card-space-padding-md-desktop-horizontal);
+    --base-card-space-padding-sm: var(
+        --base-card-space-padding-sm-desktop-vertical
+      ) var(--base-card-space-padding-sm-desktop-horizontal);
+    --badge-space-padding-md: var(--badge-space-md-desktop-top) var(--badge-space-md-desktop-horizontal) var(--badge-space-md-desktop-bottom) var(--badge-space-md-desktop-horizontal);
+    --content-block-row-gap-margin-top: var(
+      --content-block-row-gap-margin-top-desktop
+    );
+    --section-padding: var(--semantic-section-space-vertical-md-desktop) var(--semantic-section-space-horizontal-desktop);
+    --button-height-md: var(--button-height-md-desktop);
+    --button-height-sm: var(--button-height-sm-desktop);
+    --countdown-timer-height-sm: var(--countdown-timer-height-sm-desktop);
+    --semantic-title-text-lg: var(--semantic-title-text-lg-desktop);
+    --semantic-title-text-md: var(--semantic-title-text-md-desktop);
+    --semantic-title-text-sm: var(--semantic-title-text-sm-desktop);
+    --semantic-heading-text-xxl: var(--semantic-heading-text-xxl-desktop);
+    --semantic-heading-text-xl: var(--semantic-heading-text-xl-desktop);
+    --semantic-heading-text-lg: var(--semantic-heading-text-lg-desktop);
+    --semantic-heading-text-md: var(--semantic-heading-text-md-desktop);
+    --semantic-heading-text-sm: var(--semantic-heading-text-sm-desktop);
+    --semantic-subheading-text-lg: var(--semantic-subheading-text-lg-desktop);
+    --semantic-subheading-text-md: var(--semantic-subheading-text-md-desktop);
+    --semantic-body-text-xxl: var(--semantic-body-text-xxl-desktop);
+    --semantic-body-text-xl: var(--semantic-body-text-xl-desktop);
+    --semantic-body-text-lg: var(--semantic-body-text-lg-desktop);
+    --semantic-body-text-md: var(--semantic-body-text-md-desktop);
+    --semantic-body-text-sm: var(--semantic-body-text-sm-desktop);
+    --semantic-body-text-xs: var(--semantic-body-text-xs-desktop);
+    --announcement-banner-font-heading: var(
+      --announcement-banner-font-heading-desktop
+    );
+    --announcement-banner-font-subtext: var(
+      --announcement-banner-font-subtext-desktop
+    );
+    --badge-font-text: var(--badge-font-text-desktop);
+    --button-font-label-lg: var(--button-font-label-lg-desktop);
+    --button-font-label-md: var(--button-font-label-md-desktop);
+    --button-font-label-sm: var(--button-font-label-sm-desktop);
+    --content-block-font-subheading-lg: var(
+      --content-block-font-subheading-lg-desktop
+    );
+    --content-block-font-subheading-md: var(
+      --content-block-font-subheading-md-desktop
+    );
+    --content-block-font-heading-lg: var(
+      --content-block-font-heading-lg-desktop
+    );
+    --content-block-font-heading-md: var(
+      --content-block-font-heading-md-desktop
+    );
+    --content-block-font-heading-sm: var(
+      --content-block-font-heading-sm-desktop
+    );
+    --content-block-font-heading-xs: var(
+      --content-block-font-heading-xs-desktop
+    );
+    --content-block-font-callout-lg: var(
+      --content-block-font-callout-lg-desktop
+    );
+    --content-block-font-callout-md: var(
+      --content-block-font-callout-md-desktop
+    );
+    --content-block-font-callout-sm: var(
+      --content-block-font-callout-sm-desktop
+    );
+    --content-block-font-callout-xs: var(
+      --content-block-font-callout-xs-desktop
+    );
+    --content-block-font-description-lg: var(
+      --content-block-font-description-lg-desktop
+    );
+    --content-block-font-description-md: var(
+      --content-block-font-description-md-desktop
+    );
+    --content-block-font-description-sm: var(
+      --content-block-font-description-sm-desktop
+    );
+    --content-block-font-description-xs: var(
+      --content-block-font-description-xs-desktop
+    );
+    --header-heading-font-xl: var(--header-heading-font-xl-desktop);
+    --header-heading-font-lg: var(--header-heading-font-lg-desktop);
+    --header-heading-font-md: var(--header-heading-font-md-desktop);
+    --header-heading-font-sm: var(--header-heading-font-sm-desktop);
+    --header-heading-font-xs: var(--header-heading-font-xs-desktop);
+    --header-heading-font-xxs: var(--header-heading-font-xxs-desktop);
+    --input-font-md: var(--input-font-md-desktop);
+    --input-font-sm: var(--input-font-sm-desktop);
+    --tooltip-font-text: var(--tooltip-font-text-desktop);
+    --price-font-label-xl: var(--price-font-label-xl-desktop);
+    --price-font-label-lg: var(--price-font-label-lg-desktop);
+    --price-font-label-md: var(--price-font-label-md-desktop);
+    --price-font-label-sm: var(--price-font-label-sm-desktop);
+    --price-font-label-discount-xl: var(--price-font-label-discount-xl-desktop);
+    --price-font-label-discount-lg: var(--price-font-label-discount-lg-desktop);
+    --price-font-label-discount-md: var(--price-font-label-discount-md-desktop);
+    --price-font-label-discount-sm: var(--price-font-label-discount-sm-desktop);
+    --tab-standard-font-label: var(--tab-standard-font-label-desktop);
+}
 
 blz-button {
     min-height: var(--semantic-size-input-height-lg-desktop);
     height: var(--semantic-size-input-height-lg-desktop);
     display: inline-flex;
-    position: relative;
     color: black;
-    text-transform: capitalize;
+    gap: 10px;
+    padding: var(--button-space-padding-lg);
+    font: var(--button-font-label-lg);
+    line-height: normal;
+    user-select: none;
+    cursor: pointer;
+    text-rendering: initial !important;
+    overflow-wrap: break-word;
+    align-items: center;
+}
+
+blz-icon {
+    width: var(--global-size-300);
+    height: var(--global-size-300);
+}
+
+blz-button span {
+    text-transform: uppercase;
+    margin-left: 4px;
+}
+
+blz-button svg {
+    fill: none;
 }
 
 .PatchNotesPagination blz-button-group.space {
