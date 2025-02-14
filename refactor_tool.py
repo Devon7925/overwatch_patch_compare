@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Cooldown rate acceleration"
-new_value = 100
-process_json_files(folder_path, 'heroes/tank/Doomfist/abilities/Meteor Strike/Cooldown rate acceleration', new_property_name, new_value, rename=False)
+new_property_name = "Maximum deployed"
+new_value = 3
+process_json_files(folder_path, 'heroes/Symmetra/abilities/Sentry Turret/Maximum deployed', new_property_name, new_value, rename=False)

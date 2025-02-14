@@ -373,7 +373,7 @@ export function convert_to_changes(before: any, after: any, preserved_keys: stri
                 real_changes = true;
             }
         }
-        if(!real_changes) {
+        if (!real_changes) {
             return {};
         }
         return result;
@@ -679,9 +679,21 @@ function displayPatchNotes(changes: Changes<PatchData>, breakpoint_data: [number
     const heroesData = changes.heroes
     for (let role in changes.roles) {
         let generalChangeRender = ""
-        const roleData = changes.roles[role]
+        let roleData = changes.roles[role]
+        let isNewRole = false;
         if (Array.isArray(roleData)) {
-            throw new Error("Not supported: role missing from one patch")
+            if(roleData[1] != undefined) {
+                isNewRole = true;
+                roleData = roleData[1];
+            } else {
+                hero_section.innerHTML += `
+                <div class="PatchNotes-section PatchNotes-section-hero_update">
+                    <h4 class="PatchNotes-sectionTitle">${role} Removed</h4>
+                    <div class="PatchNotes-update PatchNotes-section-hero_update"></div>
+                </div>
+                `;
+                continue;
+            }
         }
 
         for (let generalRule in roleData) {

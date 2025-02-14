@@ -1,9 +1,5 @@
 {
-  "roles": {
-    "tank": {},
-    "damage": {},
-    "support": {}
-  },
+  "roles": {},
   "heroes": {},
   "general": {},
   "Map list": {},

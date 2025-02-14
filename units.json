@@ -155,7 +155,13 @@
                 "seconds"
             ]
         ],
-        "Damage boost application time": []
+        "Damage boost application time": [],
+        "Sound distance": [
+            [
+                "display unit",
+                "relative percent"
+            ]
+        ]
     },
     "roles": {
         "tank": {
@@ -2407,6 +2413,12 @@
                             "seconds"
                         ]
                     ],
+                    "Bonus movement speed": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
                     "Ultimate cost": []
                 }
             }
@@ -3788,6 +3800,12 @@
                         [
                             "display unit",
                             "seconds"
+                        ]
+                    ],
+                    "Range": [
+                        [
+                            "display unit",
+                            "meters"
                         ]
                     ]
                 }
@@ -5941,8 +5959,15 @@
                             "relative percent"
                         ]
                     ],
+                    "Level 3 damage multiplier": [],
                     "Ammo per second": [],
                     "gains ammo from damaging barriers with primary fire": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "locks on to targets": [
                         [
                             "display unit",
                             "flag"
@@ -5998,6 +6023,18 @@
                             "seconds"
                         ]
                     ],
+                    "pieces shields": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "Projectile speed": [
+                        [
+                            "display unit",
+                            "meters per second"
+                        ]
+                    ],
                     "Ammo per shot": [
                         "ammo per shot"
                     ],
@@ -6034,6 +6071,9 @@
                             "flag"
                         ]
                     ],
+                    "Placement method": [],
+                    "Charges": [],
+                    "Maximum deployed": [],
                     "Movement speed reduction per turret": [
                         [
                             "display unit",
@@ -6048,6 +6088,7 @@
                     ]
                 },
                 "Teleporter": {
+                    "Entry location": [],
                     "Base health": [
                         "health"
                     ],
@@ -6097,6 +6138,12 @@
                             "flag"
                         ]
                     ],
+                    "only allows player teleports": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
                     "cannot be destroyed while dead": [
                         [
                             "display unit",
@@ -6112,6 +6159,24 @@
                         ]
                     ],
                     "Barrier health": [],
+                    "Movement speed": [
+                        [
+                            "display unit",
+                            "meters per second"
+                        ]
+                    ],
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Ultimate cost": []
+                },
+                "Shield Generator": {
+                    "Base health": [],
+                    "Shield health": [],
+                    "Shield generation": [],
                     "Ultimate cost": []
                 }
             }
