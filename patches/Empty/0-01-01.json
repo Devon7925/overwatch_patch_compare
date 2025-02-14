@@ -1,16 +1,11 @@
 {
-    "general": {},
-    "heroes": {
-        "tank": {
-            "general": {}
-        },
-        "damage": {
-            "general": {}
-        },
-        "support": {
-            "general": {}
-        }
-    },
-    "Map list": {},
-    "modes": {}
+  "roles": {
+    "tank": {},
+    "damage": {},
+    "support": {}
+  },
+  "heroes": {},
+  "general": {},
+  "Map list": {},
+  "modes": {}
 }

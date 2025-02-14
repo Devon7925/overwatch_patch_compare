@@ -397,6 +397,11 @@ export function isString(value: unknown): value is string {
     return typeof value === "string"
 }
 
+export function erroringIsString(value: unknown): value is string {
+    if(typeof value !== "string") console.error(value, "is not a string")
+    return typeof value === "string"
+}
+
 /**
  * Returns a typeguard for whether the given value is the given string literal
  * 
