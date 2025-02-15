@@ -771,7 +771,8 @@
                     "Health": 100,
                     "Duration": 10,
                     "Delay before regaining control after end": 0.9,
-                    "restores ammo on completion": true
+                    "restores ammo on completion": true,
+                    "Movement speed": 12
                 },
                 "Steel Trap": {
                     "Arming time": 0.5,
@@ -806,7 +807,8 @@
                     "Reload time": 1.5,
                     "Freeze rate": 1,
                     "Recovery time": 0.05,
-                    "Damage": 2.75
+                    "Damage": 2.75,
+                    "pierces through enemies": true
                 },
                 "Cryofreeze": {
                     "Healing per second": 37.5,
@@ -919,7 +921,8 @@
                     "Damage per second": 170,
                     "Duration": 3,
                     "Movement speed reduction": 50,
-                    "Range": 8
+                    "Range": 8,
+                    "restores ammo on completion": true
                 },
                 "The Reaping": {
                     "Lifesteal percentage": 30
@@ -1364,7 +1367,8 @@
                     "Additional barrier health": 0,
                     "Shield bash stun duration": 0,
                     "Bonus movement speed": 30,
-                    "Maximum armor duration": 30
+                    "Maximum armor duration": 30,
+                    "Maximum overhealth": 100
                 },
                 "Whipshot": {
                     "Damage": 70,
@@ -1384,7 +1388,8 @@
                     "Stun duration": 0.75,
                     "stopped by barriers": true,
                     "Distance travelled": 7,
-                    "is counter charge ability": true
+                    "is counter charge ability": true,
+                    "Cone angle": 60
                 }
             }
         },

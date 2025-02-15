@@ -41,6 +41,7 @@
 * 2018/07
     * When final objectives on non-control maps are contested for extended amounts of time and attackers have an advantage in numbers, the respawn time for defenders now increases even faster
     * Sombra Translocator `Radius reduced`
+* 2018/05 Genji Deflect `Hitbox size has been reduced`
 
 
 

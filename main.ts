@@ -925,8 +925,13 @@ export function verifyPatchNotes(patch_data: PatchData, units: Units) {
             }
         }
         for (let ability in heroData.abilities) {
+            let ability_units= heroUnits.abilities[ability];
+            if (ability_units === undefined) {
+                console.error(`Cannot find units for ${hero} - ${ability}`);
+                continue;
+            }
             for (let ability_property in heroData.abilities[ability]) {
-                let property_units = heroUnits.abilities[ability][ability_property]
+                let property_units = heroUnits.abilities[ability][ability_property];
                 if (property_units === undefined) {
                     console.error(`Cannot find units for ${hero} - ${ability} - ${ability_property}`)
                 }

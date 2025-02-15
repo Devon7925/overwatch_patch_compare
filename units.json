@@ -4262,6 +4262,26 @@
                         ]
                     ]
                 },
+                "Scatter Arrow": {
+                    "Damage per fragment": [
+                        [
+                            "damage instance",
+                            "normal"
+                        ]
+                    ],
+                    "Fragments": [
+                        [
+                            "pellet count",
+                            "normal"
+                        ]
+                    ],
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
                 "Storm Arrows": {
                     "Maximum duration": [
                         [
@@ -4561,6 +4581,12 @@
                             "seconds"
                         ]
                     ],
+                    "Movement speed": [
+                        [
+                            "display unit",
+                            "meters per second"
+                        ]
+                    ],
                     "restores ammo on completion": [
                         [
                             "display unit",
@@ -4652,6 +4678,12 @@
                         [
                             "display unit",
                             "seconds"
+                        ]
+                    ],
+                    "pierces through enemies": [
+                        [
+                            "display unit",
+                            "flag"
                         ]
                     ],
                     "Ammo": [
@@ -5125,10 +5157,10 @@
                             "flag"
                         ]
                     ],
-                    "Cooldown": [
+                    "uncancellable": [
                         [
                             "display unit",
-                            "seconds"
+                            "flag"
                         ]
                     ],
                     "Max duration": [
@@ -5154,6 +5186,12 @@
                         [
                             "display unit",
                             "percent"
+                        ]
+                    ],
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
                         ]
                     ]
                 },
@@ -5207,6 +5245,12 @@
                         [
                             "display unit",
                             "meters"
+                        ]
+                    ],
+                    "restores ammo on completion": [
+                        [
+                            "display unit",
+                            "flag"
                         ]
                     ],
                     "Ultimate cost": []
@@ -7057,6 +7101,12 @@
                             "meters"
                         ]
                     ],
+                    "collides with full health allies": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
                     "Recovery time": [
                         "time between shots",
                         [
@@ -7474,6 +7524,12 @@
                             "seconds"
                         ]
                     ],
+                    "Cone angle": [
+                        [
+                            "display unit",
+                            "degrees"
+                        ]
+                    ],
                     "stopped by barriers": [
                         [
                             "display unit",
@@ -7598,6 +7654,7 @@
                             "percent"
                         ]
                     ],
+                    "Maximum overhealth": [],
                     "Ultimate cost": []
                 }
             }
@@ -8421,6 +8478,18 @@
                             "display unit",
                             "percent"
                         ]
+                    ],
+                    "cannot go around corners": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "last used wall is unusable": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
                     ]
                 },
                 "Sonic Amplifier": {
@@ -8482,10 +8551,17 @@
                         ]
                     ],
                     "Knockback": [],
+                    "Ammo consumption": [],
                     "Movement lockout duration": [
                         [
                             "display unit",
                             "seconds"
+                        ]
+                    ],
+                    "disabled while reloading": [
+                        [
+                            "display unit",
+                            "flag"
                         ]
                     ],
                     "Cooldown": [
