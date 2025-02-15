@@ -852,7 +852,9 @@
                 "Base health": 200
             },
             "abilities": {
-                "Opportunist": {},
+                "Opportunist": {
+                    "Maximum health percent to reveal enemy health bars": 50
+                },
                 "EMP": {
                     "Ultimate cost": 1450,
                     "Ability lockout duration": 1.5,
@@ -899,7 +901,8 @@
                     "reveals enemies": false,
                     "Cooldown on interrupt": 2,
                     "Stun duration on Bob": 5,
-                    "destroys immortality field": false
+                    "destroys immortality field": false,
+                    "disables passives": true
                 }
             }
         },

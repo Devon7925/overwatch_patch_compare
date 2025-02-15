@@ -1179,7 +1179,8 @@
             },
             "abilities": {
                 "Opportunist": {
-                    "Damage boost on hacked targets": 25
+                    "Damage boost on hacked targets": 25,
+                    "Maximum health percent to reveal enemy health bars": 50
                 },
                 "EMP": {
                     "Ultimate cost": 1640,
@@ -1228,7 +1229,8 @@
                     "reveals enemies": true,
                     "Cooldown on interrupt": 4,
                     "Stun duration on Bob": 10,
-                    "destroys immortality field": true
+                    "destroys immortality field": true,
+                    "disables passives": true
                 }
             }
         },

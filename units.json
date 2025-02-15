@@ -149,6 +149,12 @@
                 "flag"
             ]
         ],
+        "turrets target shields": [
+            [
+                "display unit",
+                "flag"
+            ]
+        ],
         "Maximum lower carryover time": [
             [
                 "display unit",
@@ -5697,6 +5703,12 @@
                     ]
                 },
                 "Opportunist": {
+                    "Maximum health percent to reveal enemy health bars": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
                     "Damage boost on hacked targets": [
                         [
                             "display unit",
@@ -5763,18 +5775,6 @@
                             "flag"
                         ]
                     ],
-                    "Cooldown on successful enemy hero hack": [
-                        [
-                            "display unit",
-                            "seconds"
-                        ]
-                    ],
-                    "Cooldown": [
-                        [
-                            "display unit",
-                            "seconds"
-                        ]
-                    ],
                     "Health pack hacked duration": [
                         [
                             "display unit",
@@ -5799,10 +5799,22 @@
                             "flag"
                         ]
                     ],
-                    "Cooldown on interrupt": [
+                    "disables passives": [
                         [
                             "display unit",
-                            "seconds"
+                            "flag"
+                        ]
+                    ],
+                    "gives ultimate charge for healing": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "destroys immortality field": [
+                        [
+                            "display unit",
+                            "flag"
                         ]
                     ],
                     "Stun duration on Bob": [
@@ -5811,10 +5823,22 @@
                             "seconds"
                         ]
                     ],
-                    "destroys immortality field": [
+                    "Cooldown on interrupt": [
                         [
                             "display unit",
-                            "flag"
+                            "seconds"
+                        ]
+                    ],
+                    "Cooldown on successful enemy hero hack": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
                         ]
                     ]
                 },
@@ -5947,6 +5971,12 @@
                         ]
                     ],
                     "deals additional damage to base shield health pools": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "blocked by small objects": [
                         [
                             "display unit",
                             "flag"

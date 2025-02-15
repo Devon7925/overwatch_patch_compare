@@ -1317,7 +1317,11 @@
                     "reveals enemies": true,
                     "Cooldown on interrupt": 4,
                     "Stun duration on Bob": 10,
-                    "destroys immortality field": true
+                    "destroys immortality field": true,
+                    "disables passives": true
+                },
+                "Opportunist": {
+                    "Maximum health percent to reveal enemy health bars": 50
                 }
             }
         },
