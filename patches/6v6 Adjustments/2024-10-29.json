@@ -2022,7 +2022,10 @@
                     "Activation healing": 50,
                     "Early healing per second": 90,
                     "Early healing duration": 2,
-                    "chain beams ignore enemy barriers": true
+                    "chain beams ignore enemy barriers": true,
+                    "Duration": 15,
+                    "Additional Guardian Angel speed": 7,
+                    "disables Resurrect slow": true
                 },
                 "Guardian Angel": {
                     "Active duration on jump/crouch cancel": 1,
@@ -2036,7 +2039,10 @@
                 },
                 "Resurrect": {
                     "souls over death pits hidden": false,
-                    "freezes soul in place": true
+                    "freezes soul in place": true,
+                    "Cast time": 1.75,
+                    "Movement speed reduction during cast": 75,
+                    "interruptable": true
                 }
             }
         },

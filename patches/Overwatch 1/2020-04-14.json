@@ -1263,7 +1263,7 @@
                     "Unscoped projectile size": 0,
                     "Enemy scoped projectile size": 0.0,
                     "Ally scoped projectile size": 0.3,
-                    "Damage": 75,
+                    "Damage": 70,
                     "Healing": 75,
                     "Recovery time": 0.8,
                     "Reload time": 1.5
@@ -1474,7 +1474,10 @@
                     "Ultimate cost": 1818,
                     "disconnects Caduceus Staff from its target on activation": true,
                     "force enables passive healing": false,
-                    "chain beams ignore enemy barriers": true
+                    "chain beams ignore enemy barriers": true,
+                    "Duration": 15,
+                    "Additional Guardian Angel speed": 7,
+                    "disables Resurrect slow": true
                 },
                 "Guardian Angel": {
                     "Active duration on jump/crouch cancel": 1,
@@ -1487,7 +1490,10 @@
                 },
                 "Resurrect": {
                     "souls over death pits hidden": true,
-                    "freezes soul in place": false
+                    "freezes soul in place": false,
+                    "Cast time": 1.75,
+                    "Movement speed reduction during cast": 75,
+                    "interruptable": true
                 }
             }
         },

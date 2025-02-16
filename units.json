@@ -8786,7 +8786,25 @@
                     ]
                 },
                 "Resurrect": {
+                    "Cast time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Movement speed reduction during cast": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
                     "souls over death pits hidden": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "interruptable": [
                         [
                             "display unit",
                             "flag"
@@ -8818,6 +8836,36 @@
                         [
                             "display unit",
                             "flag"
+                        ]
+                    ],
+                    "disables Resurrect slow": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "makes Resurrect instant": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "grants a bonus Resurrect charge": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "Additional Guardian Angel speed": [
+                        [
+                            "display unit",
+                            "meters per second"
+                        ]
+                    ],
+                    "Duration": [
+                        [
+                            "display unit",
+                            "seconds"
                         ]
                     ],
                     "Activation healing": [],

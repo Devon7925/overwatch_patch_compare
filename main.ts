@@ -677,130 +677,132 @@ function displayPatchNotes(changes: Changes<PatchData>, breakpoint_data: [number
         `
     }
     const heroesData = changes.heroes
-    for (let role in changes.roles) {
-        let generalChangeRender = ""
-        let roleData = changes.roles[role]
-        let isNewRole = false;
-        if (Array.isArray(roleData)) {
-            if(roleData[1] != undefined) {
-                isNewRole = true;
-                roleData = roleData[1];
-            } else {
-                hero_section.innerHTML += `
-                <div class="PatchNotes-section PatchNotes-section-hero_update">
-                    <h4 class="PatchNotes-sectionTitle">${role} Removed</h4>
-                    <div class="PatchNotes-update PatchNotes-section-hero_update"></div>
-                </div>
-                `;
-                continue;
-            }
-        }
-
-        for (let generalRule in roleData) {
-            generalChangeRender += `<li>${getChangeText(generalRule, roleData[generalRule], getDisplayUnit(units.roles[role][generalRule]), false)}</li>`
-        }
-        if (generalChangeRender != "") {
-            generalChangeRender = `
-                <div class="PatchNotes-sectionDescription">
-                    <ul>
-                        ${generalChangeRender}
-                    </ul>
-                </div>
-            `;
-        }
-
-        let heroChanges = ""
-        for (let hero of Object.keys(heroesData).sort()) {
-            if (!isKeyOf(heroesData, hero)) {
-                throw new Error("Invalid state")
-            }
-            let generalChangesRender = ""
-            let heroData = heroesData[hero]
-
-            let display_as_new = false
-            if (Array.isArray(heroData)) {
-                if (heroData[1] !== undefined) {
-                    heroData = heroData[1]
-                    display_as_new = true
+    if (heroesData != undefined) {
+        for (let role in changes.roles) {
+            let generalChangeRender = ""
+            let roleData = changes.roles[role]
+            let isNewRole = false;
+            if (Array.isArray(roleData)) {
+                if (roleData[1] != undefined) {
+                    isNewRole = true;
+                    roleData = roleData[1];
                 } else {
-                    heroChanges += renderHeroChanges(hero, false, `<li>Removed</li>`, "", "")
-                    continue
+                    hero_section.innerHTML += `
+                    <div class="PatchNotes-section PatchNotes-section-hero_update">
+                        <h4 class="PatchNotes-sectionTitle">${role} Removed</h4>
+                        <div class="PatchNotes-update PatchNotes-section-hero_update"></div>
+                    </div>
+                    `;
+                    continue;
                 }
             }
-            if (heroData === undefined) {
-                throw new Error("Invalid state")
+
+            for (let generalRule in roleData) {
+                generalChangeRender += `<li>${getChangeText(generalRule, roleData[generalRule], getDisplayUnit(units.roles[role][generalRule]), false)}</li>`
+            }
+            if (generalChangeRender != "") {
+                generalChangeRender = `
+                    <div class="PatchNotes-sectionDescription">
+                        <ul>
+                            ${generalChangeRender}
+                        </ul>
+                    </div>
+                `;
             }
 
-            if (Array.isArray(heroData.role)) {
-                if (heroData.role[1] != role) continue
-            } else if (heroData.role != role) continue
-
-            if (units.heroes[hero] === undefined) {
-                throw new Error(`Units is missing hero ${hero}`)
-            }
-            if (Array.isArray(heroData.role)) {
-                generalChangesRender += `<li>${getChangeText("Role", heroData.role, undefined, display_as_new)}</li>`
-            }
-            if (heroData.general) {
-                for (let property in heroData.general) {
-                    generalChangesRender += `<li>${getChangeText(property, heroData.general[property], getDisplayUnit(units.heroes[hero].general[property]), display_as_new)}</li>`
+            let heroChanges = ""
+            for (let hero of Object.keys(heroesData).sort()) {
+                if (!isKeyOf(heroesData, hero)) {
+                    throw new Error("Invalid state")
                 }
-            }
-            let abilities = ""
-            for (let ability in heroData.abilities) {
-                let ability_changes = ""
-                let abilityData = heroData.abilities[ability]
-                let display_ability_as_new = display_as_new
-                if (Array.isArray(abilityData)) {
-                    if (abilityData[1] != undefined) {
-                        abilityData = abilityData[1]
-                        display_ability_as_new = true
+                let generalChangesRender = ""
+                let heroData = heroesData[hero]
+
+                let display_as_new = false
+                if (Array.isArray(heroData)) {
+                    if (heroData[1] !== undefined) {
+                        heroData = heroData[1]
+                        display_as_new = true
                     } else {
-                        abilities += renderAbility(ability, false, `<li>Removed</li>`)
+                        heroChanges += renderHeroChanges(hero, false, `<li>Removed</li>`, "", "")
                         continue
                     }
                 }
-                for (let stat in abilityData) {
-                    if (!units.heroes[hero].abilities[ability]) {
-                        console.error(`Missing ability units for ${hero} - ${ability}`)
-                        break
-                    }
-                    if (!(stat in units.heroes[hero].abilities[ability])) {
-                        console.error(`Missing units for ${hero} - ${ability} - ${stat}`)
-                    }
-                    ability_changes += `<li>${getChangeText(stat, abilityData[stat], getDisplayUnit(units.heroes[hero].abilities[ability][stat]), display_ability_as_new)}</li>`
+                if (heroData === undefined) {
+                    throw new Error("Invalid state")
                 }
-                abilities += renderAbility(ability, display_ability_as_new, ability_changes)
+
+                if (Array.isArray(heroData.role)) {
+                    if (heroData.role[1] != role) continue
+                } else if (heroData.role != role) continue
+
+                if (units.heroes[hero] === undefined) {
+                    throw new Error(`Units is missing hero ${hero}`)
+                }
+                if (Array.isArray(heroData.role)) {
+                    generalChangesRender += `<li>${getChangeText("Role", heroData.role, undefined, display_as_new)}</li>`
+                }
+                if (heroData.general) {
+                    for (let property in heroData.general) {
+                        generalChangesRender += `<li>${getChangeText(property, heroData.general[property], getDisplayUnit(units.heroes[hero].general[property]), display_as_new)}</li>`
+                    }
+                }
+                let abilities = ""
+                for (let ability in heroData.abilities) {
+                    let ability_changes = ""
+                    let abilityData = heroData.abilities[ability]
+                    let display_ability_as_new = display_as_new
+                    if (Array.isArray(abilityData)) {
+                        if (abilityData[1] != undefined) {
+                            abilityData = abilityData[1]
+                            display_ability_as_new = true
+                        } else {
+                            abilities += renderAbility(ability, false, `<li>Removed</li>`)
+                            continue
+                        }
+                    }
+                    for (let stat in abilityData) {
+                        if (!units.heroes[hero].abilities[ability]) {
+                            console.error(`Missing ability units for ${hero} - ${ability}`)
+                            break
+                        }
+                        if (!(stat in units.heroes[hero].abilities[ability])) {
+                            console.error(`Missing units for ${hero} - ${ability} - ${stat}`)
+                        }
+                        ability_changes += `<li>${getChangeText(stat, abilityData[stat], getDisplayUnit(units.heroes[hero].abilities[ability][stat]), display_ability_as_new)}</li>`
+                    }
+                    abilities += renderAbility(ability, display_ability_as_new, ability_changes)
+                }
+                let breakpointsRender = ""
+                if (heroData.breakpoints) {
+                    if (breakpoint_data === null) {
+                        throw new Error("Invalid State")
+                    }
+                    if (Array.isArray(heroData.breakpoints)) {
+                        throw new Error("Invalid State")
+                    }
+                    for (let property in heroData.breakpoints) {
+                        if (Array.isArray(heroData.breakpoints[property])) {
+                            if (heroData.breakpoints[property][0] === breakpoint_data[0]) continue
+                            if (heroData.breakpoints[property][1] === breakpoint_data[1]) continue
+                        } else if (typeof heroData.breakpoints[property] === "number") {
+                            if (heroData.breakpoints[property] === Math.max(breakpoint_data[0], breakpoint_data[1])) continue
+                        }
+                        breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], undefined, true)}</li>`
+                    }
+                }
+                heroChanges += renderHeroChanges(hero, display_as_new, generalChangesRender, abilities, `<ul>${breakpointsRender}</ul>`)
             }
-            let breakpointsRender = ""
-            if (heroData.breakpoints) {
-                if (breakpoint_data === null) {
-                    throw new Error("Invalid State")
-                }
-                if (Array.isArray(heroData.breakpoints)) {
-                    throw new Error("Invalid State")
-                }
-                for (let property in heroData.breakpoints) {
-                    if (Array.isArray(heroData.breakpoints[property])) {
-                        if (heroData.breakpoints[property][0] === breakpoint_data[0]) continue
-                        if (heroData.breakpoints[property][1] === breakpoint_data[1]) continue
-                    } else if (typeof heroData.breakpoints[property] === "number") {
-                        if (heroData.breakpoints[property] === Math.max(breakpoint_data[0], breakpoint_data[1])) continue
-                    }
-                    breakpointsRender += `<li>${getChangeText(property, heroData.breakpoints[property], undefined, true)}</li>`
-                }
-            }
-            heroChanges += renderHeroChanges(hero, display_as_new, generalChangesRender, abilities, `<ul>${breakpointsRender}</ul>`)
+            if (generalChangeRender == "" && heroChanges == "") continue;
+            hero_section.innerHTML += `
+            <div class="PatchNotes-section PatchNotes-section-hero_update">
+                <h4 class="PatchNotes-sectionTitle">${isNewRole ? "(NEW) " : ""}${role}</h4>
+                ${generalChangeRender}
+                <div class="PatchNotes-update PatchNotes-section-hero_update"></div>
+                ${heroChanges}
+            </div>
+            `
         }
-        if (generalChangeRender == "" && heroChanges == "") continue;
-        hero_section.innerHTML += `
-        <div class="PatchNotes-section PatchNotes-section-hero_update">
-            <h4 class="PatchNotes-sectionTitle">${role}</h4>
-            ${generalChangeRender}
-            <div class="PatchNotes-update PatchNotes-section-hero_update"></div>
-            ${heroChanges}
-        </div>
-        `
     }
     if (changes["Map list"]) {
         let change_render = ""
@@ -925,7 +927,7 @@ export function verifyPatchNotes(patch_data: PatchData, units: Units) {
             }
         }
         for (let ability in heroData.abilities) {
-            let ability_units= heroUnits.abilities[ability];
+            let ability_units = heroUnits.abilities[ability];
             if (ability_units === undefined) {
                 console.error(`Cannot find units for ${hero} - ${ability}`);
                 continue;

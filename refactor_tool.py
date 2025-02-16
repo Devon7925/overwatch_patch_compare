@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Maximum health percent to reveal enemy health bars"
-new_value = 50
-process_json_files(folder_path, 'heroes/Sombra/abilities/Opportunist/Maximum health percent to reveal enemy health bars', new_property_name, new_value, rename=False)
+new_property_name = "interruptable"
+new_value = True
+process_json_files(folder_path, 'heroes/Mercy/abilities/Resurrect/interruptable', new_property_name, new_value, rename=False)

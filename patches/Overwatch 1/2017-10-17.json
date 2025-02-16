@@ -24,7 +24,7 @@
                     "Pellet count": 11
                 },
                 "Boosters": {
-                    "Impact damage": 10,
+                    "Impact damage": 25,
                     "Cooldown": 5
                 },
                 "Defense Matrix": {
@@ -50,7 +50,7 @@
                 },
                 "Micro Missiles": {
                     "Projectile size": 0.1,
-                    "Explosion damage": 4,
+                    "Explosion damage": 6,
                     "Direct damage": 3,
                     "Projectile speed": 40,
                     "Cooldown": 8,
@@ -404,13 +404,13 @@
                 },
                 "Hand Cannon": {
                     "Maximum damage falloff scalar": 30,
-                    "Damage per pellet": 6,
+                    "Damage per pellet": 11,
                     "Projectile size": 0.0,
-                    "Pellet count": 11,
+                    "Pellet count": 6,
                     "Critical multiplier": 2,
                     "quick melee pauses reload": true,
                     "Ammo": 4,
-                    "Reload time per ammo": 0.65,
+                    "Reload time per ammo": 0.8,
                     "Recovery time": 0.336
                 },
                 "Seismic Slam": {
@@ -509,18 +509,12 @@
                     "Critical multiplier": 2,
                     "Maximum charge time": 0.732,
                     "Recovery time": 0.5,
-                    "Maximum projectile speed": 125
+                    "Maximum projectile speed": 85
                 },
-                "Storm Arrows": {
-                    "Cooldown": 8,
-                    "Projectile size": 0.1,
-                    "Critical multiplier": 2,
-                    "Bullets per burst": 6,
-                    "Damage per bullet": 70,
-                    "Burst recovery time": 0.3,
-                    "Richochets": 0,
-                    "is uncancellable": true,
-                    "Maximum duration": 6
+                "Scatter Arrow": {
+                    "Cooldown": 10,
+                    "Fragments": 6,
+                    "Damage per fragment": 75
                 },
                 "Dragonstrike": {
                     "Speed": 12,
@@ -532,12 +526,9 @@
                 "Sonic Arrow": {
                     "does impact sound plat for enemies": false,
                     "has visual effect when deployed": false,
-                    "Cooldown": 12,
-                    "Range": 7,
-                    "Duration": 6
-                },
-                "Lunge": {
-                    "Cooldown": 4
+                    "Cooldown": 20,
+                    "Range": 10,
+                    "Duration": 10
                 }
             }
         },
@@ -548,7 +539,7 @@
             },
             "abilities": {
                 "Frag Launcher": {
-                    "Projectile size": 0.2,
+                    "Projectile size": 0.3,
                     "Direct damage": 40,
                     "Explosion damage": 80,
                     "Recovery time": 0.6667,
@@ -560,7 +551,6 @@
                     "Cooldown": 8,
                     "Projectile size": 0.1,
                     "Maximum damage": 120,
-                    "Minimum damage": 20,
                     "Charges": 2,
                     "Health": 25,
                     "Range": 3,
@@ -575,7 +565,7 @@
                     "Health": 100,
                     "Duration": 10,
                     "Delay before regaining control after end": 1.5,
-                    "Movement speed": 12
+                    "Movement speed": 13
                 },
                 "Steel Trap": {
                     "Arming time": 0.5,
@@ -606,12 +596,11 @@
                     "Maximum slow": 90,
                     "Minimum slow": 30,
                     "Duration before slow falls off between primary fire hits": 1.5,
-                    "Freeze stun duration": 1.5,
+                    "Freeze stun duration": 1,
                     "Reload time": 1.5,
                     "Freeze rate": 1,
                     "Recovery time": 0.05,
-                    "Damage": 2.25,
-                    "pierces through enemies": true
+                    "Damage": 2.25
                 },
                 "Cryofreeze": {
                     "Healing per second": 37.5,
@@ -643,7 +632,7 @@
                     "Damage": 75,
                     "Recovery time": 0.8,
                     "Alt fire of": "Endothermic Blaster",
-                    "Ammo per shot": 20,
+                    "Ammo per shot": 25,
                     "Critical multiplier": 2,
                     "Minimum damage falloff range": 25,
                     "Maximum damage falloff range": 45,
@@ -726,8 +715,7 @@
                     "Damage per second": 170,
                     "Duration": 3,
                     "Movement speed reduction": 50,
-                    "Range": 8,
-                    "restores ammo on completion": true
+                    "Range": 8
                 },
                 "The Reaping": {
                     "Lifesteal percentage": 20
@@ -738,7 +726,8 @@
                     "Max duration": 3,
                     "Min duration": 0.4,
                     "Recovery time": 0.4,
-                    "Movement speed": 50
+                    "Movement speed": 25,
+                    "uncancellable": true
                 }
             }
         },
@@ -796,13 +785,14 @@
             },
             "abilities": {
                 "Opportunist": {
-                    "Maximum health percent to reveal enemy health bars": 50
+                    "Maximum health percent to reveal enemy health bars": 100
                 },
                 "EMP": {
                     "Ultimate cost": 1450,
                     "Ability lockout duration": 1.5,
                     "destroys Mei's Blizzard": false,
                     "deals additional damage to base shield health pools": true,
+                    "blocked by small objects": true,
                     "Cast time": 0.2
                 },
                 "Translocator": {
@@ -812,7 +802,7 @@
                     "Projectile speed": 25,
                     "Cooldown start": "Ability end",
                     "Cooldown": 4,
-                    "Max duration": 20
+                    "Max duration": 15
                 },
                 "Machine Pistol": {
                     "Projectile size": 0.0,
@@ -823,7 +813,7 @@
                     "Critical multiplier": 2,
                     "Recovery time": 0.05,
                     "Ammo": 60,
-                    "Maximum spread": 2.7
+                    "Maximum spread": 3
                 },
                 "Stealth": {
                     "is passive": false,
@@ -837,17 +827,16 @@
                     "Maximum duration": 6
                 },
                 "Hack": {
-                    "Cast time": 0.65,
+                    "Cast time": 0.8,
                     "cancels Stealth when hacking an enemy hero": true,
                     "Cooldown on successful enemy hero hack": 8,
                     "Health pack hacked duration": 60,
                     "Ability lockout duration": 6,
                     "can hack hacked enemies": true,
                     "reveals enemies": false,
-                    "Cooldown on interrupt": 2,
                     "Stun duration on Bob": 5,
                     "destroys immortality field": false,
-                    "disables passives": true
+                    "gives ultimate charge for healing": true
                 }
             }
         },
@@ -1009,7 +998,7 @@
                     "Projectile size": 0.25,
                     "Ultimate cost": 1100,
                     "Direct damage": 5,
-                    "Explosion damage": 300,
+                    "Explosion damage": 400,
                     "Radius": 4,
                     "Duration": 1,
                     "Cast time": 0.144,
@@ -1075,14 +1064,15 @@
             },
             "abilities": {
                 "Biotic Rifle": {
-                    "Ammo": 14,
+                    "Ammo": 10,
                     "Unscoped projectile size": 0,
                     "Enemy scoped projectile size": 0.0,
                     "Ally scoped projectile size": 0.3,
-                    "Damage": 70,
+                    "Damage": 60,
                     "Healing": 75,
                     "Recovery time": 0.8,
-                    "Reload time": 1.5
+                    "Reload time": 1.5,
+                    "collides with full health allies": true
                 },
                 "Sleep Dart": {
                     "Cooldown": 12,
@@ -1100,64 +1090,6 @@
                 "Nano Boost": {
                     "Ultimate cost": 1850,
                     "Range": 30
-                }
-            }
-        },
-        "Brigitte": {
-            "role": "support",
-            "general": {
-                "Base health": 200,
-                "Armor health": 50,
-                "has overridden melee": true
-            },
-            "abilities": {
-                "Inspire": {
-                    "Healing per second": 16,
-                    "Duration": 5,
-                    "triggers from Shield Bash damage": false,
-                    "Cooldown": 1.5
-                },
-                "Rocket Flail": {
-                    "Damage": 35,
-                    "Recovery time": 0.6
-                },
-                "Repair Pack": {
-                    "Cooldown": 6,
-                    "Range": 30,
-                    "Instant healing": 150,
-                    "gives temporary armor to full health targets": true,
-                    "Maximum temporary armor": 75
-                },
-                "Rally": {
-                    "Ultimate cost": 2275,
-                    "resets Shield Bash cooldown upon activation": false,
-                    "Extra armor health": 0,
-                    "builds self overhealth": true,
-                    "has bigger shield": false,
-                    "Additional barrier health": 0,
-                    "Shield bash stun duration": 0,
-                    "Bonus movement speed": 30,
-                    "Maximum overhealth": 100
-                },
-                "Whipshot": {
-                    "Damage": 70,
-                    "Cooldown": 4,
-                    "Projectile speed": 60,
-                    "Recovery time": 0.6
-                },
-                "Barrier Shield": {
-                    "Barrier Shield health": 600,
-                    "Regeneration rate": 100,
-                    "Cooldown when destroyed": 3
-                },
-                "Shield Bash": {
-                    "Cooldown": 6,
-                    "Damage": 50,
-                    "Knockback scalar": 1,
-                    "Stun duration": 0.9,
-                    "stopped by barriers": false,
-                    "Distance travelled": 7,
-                    "Cone angle": 60
                 }
             }
         },
@@ -1182,6 +1114,8 @@
                     "Damage": 25,
                     "Knockback": 7,
                     "Movement lockout duration": 0.3,
+                    "disabled while reloading": true,
+                    "Ammo consumption": 4,
                     "Cooldown": 4
                 },
                 "Sound Barrier": {
@@ -1204,7 +1138,9 @@
                 "Wall Ride": {
                     "Cooldown": 0.5,
                     "Movement speed": 20,
-                    "Wall leap speed increase": 2.5
+                    "Wall leap speed increase": 2.5,
+                    "cannot go around corners": true,
+                    "last used wall is unusable": true
                 }
             }
         },
@@ -1236,9 +1172,10 @@
                     "Ultimate cost": 1900,
                     "disconnects Caduceus Staff from its target on activation": true,
                     "force enables passive healing": false,
-                    "Duration": 15,
-                    "Additional Guardian Angel speed": 7,
-                    "disables Resurrect slow": true
+                    "makes Resurrect instant": true,
+                    "grants a bonus Resurrect charge": true,
+                    "Duration": 20,
+                    "Additional Guardian Angel speed": 14
                 },
                 "Guardian Angel": {
                     "Active duration on jump/crouch cancel": 1,
@@ -1252,47 +1189,7 @@
                 "Resurrect": {
                     "souls over death pits hidden": true,
                     "freezes soul in place": false,
-                    "Cast time": 1.75,
-                    "Movement speed reduction during cast": 75,
-                    "interruptable": true
-                }
-            }
-        },
-        "Moira": {
-            "role": "support",
-            "general": {
-                "Base health": 200
-            },
-            "abilities": {
-                "Biotic Grasp": {
-                    "Damage per second": 50,
-                    "Secondary fire target acquisition radius": 0.95,
-                    "Lingering heal duration": 3,
-                    "Self-healing": 30,
-                    "Healing resource consumption per second": 11,
-                    "Healing per second": 80,
-                    "Resource generation from damage per second": 9,
-                    "Passive resource regeneration per second": 2
-                },
-                "Coalescence": {
-                    "Self-heal per second": 50,
-                    "can use fade during duration": false,
-                    "Ultimate cost": 2100,
-                    "Bonus movement speed": 50,
-                    "Damage per second": 70
-                },
-                "Fade": {
-                    "can be activated while affected by mobility-locking effects": true,
-                    "Cooldown": 6,
-                    "can jump much higher while using this ability": false
-                },
-                "Biotic Orb": {
-                    "Healing Orb capacity": 300,
-                    "Cooldown": 10,
-                    "can fire damage orb": true,
-                    "Damage radius": 5,
-                    "Projectile speed": 16,
-                    "Duration": 10
+                    "Cast time": 0
                 }
             }
         },
@@ -1333,7 +1230,7 @@
                     "Maximum charge time": 3.0,
                     "Recovery time": 0.6,
                     "Critical multiplier": 2,
-                    "Time between shots": 0.118
+                    "Time between shots": 0.1
                 }
             }
         }
@@ -1360,7 +1257,8 @@
         "Damage boost application time": "projectile hit",
         "flying heroes are immune to knockbacks and slows": true,
         "shield health damaged before temporary armor": true,
-        "Sound distance": 1
+        "Sound distance": 1,
+        "turrets target shields": true
     },
     "Map list": {
         "Busan": 1,
@@ -1370,11 +1268,9 @@
         "Oasis": 1,
         "Dorado": 1,
         "Junkertown": 1,
-        "Rialto": 1,
         "Route 66": 1,
         "Shambali Monastery": 1,
         "Watchpoint: Gibraltar": 1,
-        "Blizzard World": 1,
         "Eichenwalde": 1,
         "Hollywood": 1,
         "King's Row": 1,
