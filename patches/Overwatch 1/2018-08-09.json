@@ -20,7 +20,8 @@
                     "Recovery time": 0.15,
                     "Critical multiplier": 2,
                     "Damage per pellet": 2.0,
-                    "Pellet count": 11
+                    "Pellet count": 11,
+                    "can be used while flying": true
                 },
                 "Boosters": {
                     "Impact damage": 10,
@@ -107,6 +108,7 @@
                     "deploy cancels reload": true
                 },
                 "Supercharger": {
+                    "interrupted when Orisa is stunned during cast time": true,
                     "Health": 200,
                     "Range": 25,
                     "Cast time": 0.4,
@@ -291,7 +293,8 @@
                 "Barrier Field": {
                     "Barrier health": 2000,
                     "Regeneration rate": 200,
-                    "Movement speed penalty": 50
+                    "Movement speed penalty": 50,
+                    "can independently rotate camera using primary fire": true
                 },
                 "Charge": {
                     "Cooldown": 10,
@@ -902,7 +905,8 @@
                     "Cooldown on interrupt": 2,
                     "Stun duration on Bob": 5,
                     "destroys immortality field": false,
-                    "disables passives": true
+                    "disables passives": true,
+                    "can cancel cancellable ultimates during their cast time": true
                 }
             }
         },
@@ -1289,7 +1293,6 @@
                     "Healing": 50,
                     "Ultimate cost": 1900,
                     "disconnects Caduceus Staff from its target on activation": true,
-                    "force enables passive healing": false,
                     "Duration": 15,
                     "Additional Guardian Angel speed": 7,
                     "disables Resurrect slow": true
@@ -1298,7 +1301,8 @@
                     "Active duration on jump/crouch cancel": 1,
                     "Cooldown": 1.5,
                     "can launch straight up with crouch": false,
-                    "has meter GA cancel": false
+                    "has meter GA cancel": false,
+                    "can glide past a targeted ally using the jump key": true
                 },
                 "Angelic Descent": {
                     "Slows ascent speed": false
@@ -1308,7 +1312,8 @@
                     "freezes soul in place": false,
                     "Cast time": 1.75,
                     "Movement speed reduction during cast": 75,
-                    "interruptable": true
+                    "interruptable": true,
+                    "Cooldown": 30
                 }
             }
         },

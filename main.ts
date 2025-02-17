@@ -289,8 +289,8 @@ const isCalculationUnits = erroringAutoTypeguard<Units>({
     general: isObjectWithValues(isArrayMatchingTypeguard(isUnit)),
     roles: erroringIsObjectWithValues(erroringIsObjectWithValues(isArrayMatchingTypeguard(isUnit))),
     heroes: erroringIsObjectWithValues(autoTypeguard({
-        general: isObjectWithValues(isArrayMatchingTypeguard(isUnit)),
-        abilities: isObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isUnit))),
+        general: erroringIsObjectWithValues(isArrayMatchingTypeguard(isUnit)),
+        abilities: erroringIsObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isUnit))),
     }, {
         breakpoints: isObjectWithValues(isArrayMatchingTypeguard(isUnit)),
         breakpoints_data: isObjectWithValues(isObjectWithValues(isNumber))

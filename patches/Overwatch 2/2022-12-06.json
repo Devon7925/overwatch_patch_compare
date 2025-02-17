@@ -1706,7 +1706,6 @@
                     "Healing": 60,
                     "Ultimate cost": 1818,
                     "disconnects Caduceus Staff from its target on activation": true,
-                    "force enables passive healing": false,
                     "chain beams ignore enemy barriers": true,
                     "Duration": 15,
                     "Additional Guardian Angel speed": 7,

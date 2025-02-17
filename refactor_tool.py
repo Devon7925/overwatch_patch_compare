@@ -47,9 +47,9 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
                 with open(file_path, 'w', encoding='utf-8') as file:
                     json.dump(data, file, ensure_ascii=False, indent=4)
 
-folder_path = 'patches'
+folder_path = 'patches/Overwatch 1'
 
 # Example usage for adding
-new_property_name = "interruptable"
+new_property_name = "can independently rotate camera using primary fire"
 new_value = True
-process_json_files(folder_path, 'heroes/Mercy/abilities/Resurrect/interruptable', new_property_name, new_value, rename=False)
+process_json_files(folder_path, 'heroes/Reinhardt/abilities/Barrier Field/can independently rotate camera using primary fire', new_property_name, new_value, rename=False)

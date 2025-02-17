@@ -155,6 +155,12 @@
                 "flag"
             ]
         ],
+        "ultimate charge depletes during use": [
+            [
+                "display unit",
+                "flag"
+            ]
+        ],
         "Maximum lower carryover time": [
             [
                 "display unit",
@@ -248,6 +254,12 @@
                     ]
                 },
                 "Fusion Cannons": {
+                    "can be used while flying": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
                     "Damage per pellet": [
                         [
                             "damage instance",
@@ -1211,13 +1223,19 @@
                             "seconds"
                         ]
                     ],
-                    "Ultimate cost": [],
                     "Duration": [
                         [
                             "display unit",
                             "seconds"
                         ]
-                    ]
+                    ],
+                    "interrupted when Orisa is stunned during cast time": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "Ultimate cost": []
                 },
                 "Terra Surge": {
                     "Ultimate cost": [],
@@ -2481,6 +2499,12 @@
                         [
                             "display unit",
                             "percent"
+                        ]
+                    ],
+                    "can independently rotate camera using primary fire": [
+                        [
+                            "display unit",
+                            "flag"
                         ]
                     ]
                 },
@@ -4160,12 +4184,6 @@
                     ]
                 },
                 "Dragonblade": {
-                    "restores ammo on completion": [
-                        [
-                            "display unit",
-                            "flag"
-                        ]
-                    ],
                     "Recovery time": [
                         "time between shots",
                         [
@@ -4177,6 +4195,18 @@
                         [
                             "damage instance",
                             "normal"
+                        ]
+                    ],
+                    "restores ammo on completion": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "interrupted when Genji is stunned": [
+                        [
+                            "display unit",
+                            "flag"
                         ]
                     ],
                     "Ultimate cost": []
@@ -5812,6 +5842,12 @@
                         ]
                     ],
                     "destroys immortality field": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "can cancel cancellable ultimates during their cast time": [
                         [
                             "display unit",
                             "flag"
@@ -8506,7 +8542,7 @@
                     "Wall leap speed increase": [
                         [
                             "display unit",
-                            "percent"
+                            "meters per second"
                         ]
                     ],
                     "cannot go around corners": [
@@ -8783,6 +8819,12 @@
                             "display unit",
                             "flag"
                         ]
+                    ],
+                    "has a bug preventing Mercy’s momentum from slowing down correctly when Guardian Angel was canceled": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
                     ]
                 },
                 "Resurrect": {
@@ -8815,7 +8857,32 @@
                             "display unit",
                             "flag"
                         ]
-                    ]
+                    ],
+                    "resets Guardian Angel cooldown": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "resurrects all players within range": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "grants invulnerability during cast": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Ultimate cost": []
                 },
                 "Valkyrie": {
                     "Healing": [],
@@ -8854,6 +8921,18 @@
                         [
                             "display unit",
                             "flag"
+                        ]
+                    ],
+                    "resets Resurrect cooldown": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "Reduced resurrect cooldown during use": [
+                        [
+                            "display unit",
+                            "seconds"
                         ]
                     ],
                     "Additional Guardian Angel speed": [
@@ -9381,6 +9460,12 @@
                 [
                     "display unit",
                     "seconds"
+                ]
+            ],
+            "has only one tick": [
+                [
+                    "display unit",
+                    "flag"
                 ]
             ]
         }
