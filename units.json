@@ -1163,6 +1163,12 @@
                     ]
                 },
                 "Protective Barrier": {
+                    "Scale": [
+                        [
+                            "display unit",
+                            "relative percent"
+                        ]
+                    ],
                     "Health": [],
                     "Projectile speed": [
                         [
@@ -1360,6 +1366,12 @@
                     ]
                 },
                 "Take a Breather": {
+                    "Movement speed": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
                     "Damage reduction": [
                         [
                             "display unit",
@@ -7062,6 +7074,12 @@
                     ]
                 },
                 "Venom Mine": {
+                    "makes affected targets visible through walls": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
                     "Cooldown": [
                         [
                             "display unit",
@@ -9322,7 +9340,8 @@
                     "display unit",
                     "flag"
                 ]
-            ]
+            ],
+            "Rounds": []
         },
         "Escort": {
             "Attackers cart healing": [],

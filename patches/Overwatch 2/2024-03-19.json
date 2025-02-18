@@ -1527,7 +1527,8 @@
                     "Range": 3,
                     "Projectile speed": 20,
                     "Cast time": 0.19,
-                    "Recovery time": 0.78
+                    "Recovery time": 0.78,
+                    "makes affected targets visible through walls": true
                 }
             }
         },
@@ -2067,7 +2068,8 @@
         "Control": {
             "Start locked time": 30,
             "Seconds per percent": 1.2,
-            "triggers overtime after capping point at 99%": true
+            "triggers overtime after capping point at 99%": true,
+            "Rounds": 3
         },
         "Escort": {
             "Attackers cart healing": 10,

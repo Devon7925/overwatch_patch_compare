@@ -42,6 +42,10 @@
     * When final objectives on non-control maps are contested for extended amounts of time and attackers have an advantage in numbers, the respawn time for defenders now increases even faster
     * Sombra Translocator `Radius reduced`
 * 2018/05 Genji Deflect `Hitbox size has been reduced`
+* 2017/08
+    * Junkrat RIP-Tire `There is no longer a time limit when wall climbing`
+    * Orisa `Barrier shape has been changed to allow for more coverage from enemies that are below the barrier`
+    * `Defensive spawn times will now slowly increase earlier in the battle when the attacking team has more players on the objective`
 
 
 
