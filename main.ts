@@ -73,6 +73,7 @@ type PatchStructure<T> = {
             role: string,
             general: { [key: string]: T },
             abilities: { [key: string]: { [key: string]: T } }
+            perks?: { [key: string]: { [key: string]: T } }
             breakpoints?: { [key: string]: T },
             breakpoints_data?: { [key: string]: { [key: string]: number } }
         }
@@ -93,6 +94,7 @@ type UnitsStructure<T> = {
         [key in Hero]?: {
             general: { [key: string]: T },
             abilities: { [key: string]: { [key: string]: T } }
+            perks?: { [key: string]: { [key: string]: T } }
             breakpoints?: { [key: string]: T },
             breakpoints_data?: { [key: string]: { [key: string]: number } }
         }
@@ -292,6 +294,7 @@ const isCalculationUnits = erroringAutoTypeguard<Units>({
         general: erroringIsObjectWithValues(isArrayMatchingTypeguard(isUnit)),
         abilities: erroringIsObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isUnit))),
     }, {
+        perks: erroringIsObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isUnit))),
         breakpoints: isObjectWithValues(isArrayMatchingTypeguard(isUnit)),
         breakpoints_data: isObjectWithValues(isObjectWithValues(isNumber))
     })),
@@ -306,6 +309,7 @@ const isPatchData = erroringAutoTypeguard<PatchData>({
         general: erroringIsObjectWithValues(isValue),
         abilities: erroringIsObjectWithValues(erroringIsObjectWithValues(isValue)),
     }, {
+        perks: erroringIsObjectWithValues(erroringIsObjectWithValues(isValue)),
         breakpoints: isObjectWithValues(isValue),
         breakpoints_data: isObjectWithValues(isObjectWithValues(isNumber))
     })),
@@ -772,6 +776,42 @@ function displayPatchNotes(changes: Changes<PatchData>, breakpoint_data: [number
                         ability_changes += `<li>${getChangeText(stat, abilityData[stat], getDisplayUnit(units.heroes[hero].abilities[ability][stat]), display_ability_as_new)}</li>`
                     }
                     abilities += renderAbility(ability, display_ability_as_new, ability_changes)
+                }
+                
+                if (Array.isArray(heroData.perks)) {
+                    if(heroData.perks[1] != undefined) {
+                        heroData.perks = heroData.perks[1]
+                    } else {
+                        abilities += "<li>Perks removed</li>";
+                        heroData.perks = undefined;
+                    }
+                }
+                if("perks" in heroData) {
+                    for (let ability in heroData.perks) {
+                        let ability_changes = ""
+                        let abilityData = heroData.perks[ability]
+                        let display_ability_as_new = display_as_new
+                        if (Array.isArray(abilityData)) {
+                            if (abilityData[1] != undefined) {
+                                abilityData = abilityData[1]
+                                display_ability_as_new = true
+                            } else {
+                                abilities += renderAbility(ability, false, `<li>Removed</li>`)
+                                continue
+                            }
+                        }
+                        for (let stat in abilityData) {
+                            if (!units.heroes[hero].abilities[ability]) {
+                                console.error(`Missing ability units for ${hero} - ${ability}`)
+                                break
+                            }
+                            if (!(stat in units.heroes[hero].abilities[ability])) {
+                                console.error(`Missing units for ${hero} - ${ability} - ${stat}`)
+                            }
+                            ability_changes += `<li>${getChangeText(stat, abilityData[stat], getDisplayUnit(units.heroes[hero].abilities[ability][stat]), display_ability_as_new)}</li>`
+                        }
+                        abilities += renderAbility(ability, display_ability_as_new, ability_changes)
+                    }
                 }
                 let breakpointsRender = ""
                 if (heroData.breakpoints) {
