@@ -46,6 +46,8 @@
     * Junkrat RIP-Tire `There is no longer a time limit when wall climbing`
     * Orisa `Barrier shape has been changed to allow for more coverage from enemies that are below the barrier`
     * `Defensive spawn times will now slowly increase earlier in the battle when the attacking team has more players on the objective`
+* 2017/08
+    * Cassidy `Stunned targets are now slowed heavily, meaning they're less likely to escape while stunned (especially while in the air)`
 
 
 

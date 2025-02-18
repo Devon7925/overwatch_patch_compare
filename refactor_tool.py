@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Rounds"
-new_value = 3
-process_json_files(folder_path, 'modes/Control/Rounds', new_property_name, new_value, rename=False)
+new_property_name = "disables mobility abilities"
+new_value = True
+process_json_files(folder_path, 'heroes/Zarya/abilities/Graviton Surge/disables mobility abilities', new_property_name, new_value, rename=False)

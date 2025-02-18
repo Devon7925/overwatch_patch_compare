@@ -314,7 +314,8 @@
                     "Ultimate cost": 2100,
                     "Radius": 6,
                     "Duration": 3.5,
-                    "Projectile size": 0.05
+                    "Projectile size": 0.05,
+                    "disables mobility abilities": true
                 },
                 "Particle Cannon Alt Fire": {
                     "Projectile size": 0.2,
