@@ -48,6 +48,9 @@
     * `Defensive spawn times will now slowly increase earlier in the battle when the attacking team has more players on the objective`
 * 2017/08
     * Cassidy `Stunned targets are now slowed heavily, meaning they're less likely to escape while stunned (especially while in the air)`
+*2017/05
+    * Genij `Removed the attack delay from Genji’s wall climbing ability, allowing him to engage with enemies immediately after he finishes climbing`
+    * Hanzo `Removed the attack cooldown from Hanzo’s wall climbing ability, allowing him to engage with enemies immediately after he finishes climbing`
 
 
 

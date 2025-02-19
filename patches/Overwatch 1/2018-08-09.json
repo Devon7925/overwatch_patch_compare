@@ -121,7 +121,8 @@
         "Roadhog": {
             "role": "tank",
             "general": {
-                "Base health": 600
+                "Base health": 600,
+                "Head hitbox size": 0.8
             },
             "abilities": {
                 "Scrap Gun": {
@@ -314,7 +315,8 @@
                     "Shockwave range": 20,
                     "hits enemies that enter the damage cone after the “wave” has passed that area": true,
                     "damages enemies behind barriers blocking it, even if the barrier is later dropped or destroyed": true,
-                    "Ultimate cost": 1350
+                    "Ultimate cost": 1350,
+                    "Height": 2
                 }
             }
         },
@@ -443,7 +445,8 @@
                     "Maximum duration": 6,
                     "Final damage rate": 275,
                     "locks player's aim": true,
-                    "Range": 200
+                    "Range": 200,
+                    "Delay before lock-on starts": 0.2
                 },
                 "Fan the Hammer": {
                     "Damage": 45,
@@ -800,7 +803,8 @@
                     "Max duration": 3,
                     "Min duration": 0.4,
                     "Recovery time": 0.4,
-                    "Movement speed": 50
+                    "Movement speed": 50,
+                    "refills ammo": true
                 }
             }
         },

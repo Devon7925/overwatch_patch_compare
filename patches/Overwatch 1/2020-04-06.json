@@ -120,7 +120,8 @@
         "Roadhog": {
             "role": "tank",
             "general": {
-                "Base health": 600
+                "Base health": 600,
+                "Head hitbox size": 0.8
             },
             "abilities": {
                 "Scrap Gun": {
@@ -359,7 +360,8 @@
                 "Earthshatter": {
                     "Knockdown duration": 3,
                     "Shockwave range": 20,
-                    "Ultimate cost": 1530
+                    "Ultimate cost": 1530,
+                    "Height": 2
                 }
             }
         },
@@ -536,7 +538,8 @@
                     "Damage rate": 260,
                     "Maximum duration": 6,
                     "Final damage rate": 550,
-                    "Range": 200
+                    "Range": 200,
+                    "Delay before lock-on starts": 0.2
                 },
                 "Fan the Hammer": {
                     "Damage": 50,
@@ -891,7 +894,8 @@
                     "Max duration": 3,
                     "Min duration": 0.4,
                     "Recovery time": 0.4,
-                    "Movement speed": 50
+                    "Movement speed": 50,
+                    "refills ammo": true
                 }
             }
         },

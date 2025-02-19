@@ -1280,6 +1280,12 @@
                         "display unit",
                         "percent"
                     ]
+                ],
+                "Head hitbox size": [
+                    [
+                        "display unit",
+                        "relative percent"
+                    ]
                 ]
             },
             "abilities": {
@@ -2588,7 +2594,18 @@
                             "flag"
                         ]
                     ],
-                    "Shockwave range": [],
+                    "Shockwave range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Height": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
                     "Ultimate cost": [],
                     "Critical damage": []
                 }
@@ -3844,6 +3861,12 @@
                     "Secondary damage rate": [],
                     "Final damage rate": [],
                     "Damage rate": [],
+                    "Delay before lock-on starts": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
                     "Maximum duration": [
                         [
                             "display unit",
@@ -5158,7 +5181,8 @@
                             "display unit",
                             "percent"
                         ]
-                    ]
+                    ],
+                    "Soul orb healing": []
                 },
                 "Hellfire Shotguns": {
                     "Damage per pellet": [
@@ -5212,6 +5236,12 @@
                         ]
                     ],
                     "uncancellable": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "refills ammo": [
                         [
                             "display unit",
                             "flag"

@@ -112,11 +112,11 @@
             "role": "tank",
             "general": {
                 "Base health": 600,
-                "Head hitbox size": 0.8
+                "Head hitbox size": 1
             },
             "abilities": {
                 "Scrap Gun": {
-                    "Ammo": 5,
+                    "Ammo": 4,
                     "Pellet projectile size": 0.0,
                     "Shrapnel projectile size": 0.075,
                     "Pellet count": 25,
@@ -125,9 +125,9 @@
                     "Secondary fire max range": 8,
                     "has secondary fire": true,
                     "secondary fire has no falloff": true,
-                    "Recovery time": 0.7,
+                    "Recovery time": 1.0,
                     "Reload time": 2,
-                    "Damage per pellet": 6,
+                    "Damage per pellet": 9,
                     "Minimum falloff range": 10,
                     "Maximum falloff range": 20
                 },
@@ -368,14 +368,14 @@
                     "Max movement speed penalty": 70,
                     "Min movement speed penalty": 70,
                     "Ultimate cost": 1475,
-                    "Initial damage rate": 100,
+                    "Initial damage rate": 20,
                     "Secondary damage rate": 275,
                     "Damage rate": 260,
                     "Maximum duration": 6,
                     "Final damage rate": 275,
                     "locks player's aim": true,
                     "Range": 70,
-                    "Delay before lock-on starts": 0.2
+                    "Delay before lock-on starts": 0.8
                 },
                 "Fan the Hammer": {
                     "Damage": 45,
@@ -651,7 +651,7 @@
                     "Range": 8
                 },
                 "The Reaping": {
-                    "Lifesteal percentage": 20
+                    "Soul orb healing": 50
                 },
                 "Wraith Form": {
                     "can be activated while affected by mobility-locking effects": true,
@@ -1205,7 +1205,6 @@
         "Hollywood": 1,
         "King's Row": 1,
         "Numbani": 1,
-        "Horizon Lunar Colony": 1,
         "Hanamura": 1,
         "Volskaya": 1,
         "Temple of Anubis": 1

@@ -74,7 +74,7 @@
                     "Heat generation reduction": 50
                 },
                 "Fusion Driver": {
-                    "Damage": 11,
+                    "Damage": 12,
                     "Spread": 1.5,
                     "Movement speed reduction": 50,
                     "Projectile speed": 75,
@@ -94,7 +94,7 @@
                     "Health": 900,
                     "Projectile speed": 25,
                     "Duration": 20,
-                    "Cooldown": 8,
+                    "Cooldown": 12,
                     "deploy cancels reload": true,
                     "Scale": 1.0
                 },
@@ -112,11 +112,11 @@
             "role": "tank",
             "general": {
                 "Base health": 600,
-                "Head hitbox size": 0.8
+                "Head hitbox size": 1
             },
             "abilities": {
                 "Scrap Gun": {
-                    "Ammo": 5,
+                    "Ammo": 4,
                     "Pellet projectile size": 0.0,
                     "Shrapnel projectile size": 0.075,
                     "Pellet count": 25,
@@ -125,9 +125,9 @@
                     "Secondary fire max range": 8,
                     "has secondary fire": true,
                     "secondary fire has no falloff": true,
-                    "Recovery time": 0.7,
+                    "Recovery time": 1.0,
                     "Reload time": 2,
-                    "Damage per pellet": 6,
+                    "Damage per pellet": 9,
                     "Minimum falloff range": 10,
                     "Maximum falloff range": 20
                 },
@@ -246,7 +246,7 @@
                     "hits enemies that enter the damage cone after the “wave” has passed that area": true,
                     "damages enemies behind barriers blocking it, even if the barrier is later dropped or destroyed": true,
                     "Ultimate cost": 1350,
-                    "Height": 2
+                    "Height": 3
                 }
             }
         },
@@ -368,14 +368,14 @@
                     "Max movement speed penalty": 70,
                     "Min movement speed penalty": 70,
                     "Ultimate cost": 1475,
-                    "Initial damage rate": 100,
+                    "Initial damage rate": 20,
                     "Secondary damage rate": 275,
                     "Damage rate": 260,
                     "Maximum duration": 6,
                     "Final damage rate": 275,
                     "locks player's aim": true,
                     "Range": 70,
-                    "Delay before lock-on starts": 0.2
+                    "Delay before lock-on starts": 0.8
                 },
                 "Fan the Hammer": {
                     "Damage": 45,
@@ -438,10 +438,10 @@
                 "Storm Bow": {
                     "Maximum damage": 125,
                     "Projectile size": 0.1,
-                    "has arrow draw progress preserved while wall climbing": true,
+                    "has arrow draw progress preserved while wall climbing": false,
                     "Critical multiplier": 2,
                     "Maximum charge time": 0.732,
-                    "Recovery time": 0.5,
+                    "Recovery time": 0.55,
                     "Maximum projectile speed": 85
                 },
                 "Scatter Arrow": {
@@ -651,7 +651,7 @@
                     "Range": 8
                 },
                 "The Reaping": {
-                    "Lifesteal percentage": 20
+                    "Soul orb healing": 50
                 },
                 "Wraith Form": {
                     "can be activated while affected by mobility-locking effects": true,
@@ -660,8 +660,7 @@
                     "Min duration": 0.4,
                     "Recovery time": 0.4,
                     "Movement speed": 25,
-                    "uncancellable": true,
-                    "refills ammo": true
+                    "uncancellable": true
                 }
             }
         },
@@ -672,7 +671,7 @@
             },
             "abilities": {
                 "Heavy Pulse Rifle": {
-                    "Damage": 19,
+                    "Damage": 20,
                     "Projectile size": 0.0,
                     "Ammo": 25,
                     "Recovery time": 0.111111111,
@@ -1205,7 +1204,6 @@
         "Hollywood": 1,
         "King's Row": 1,
         "Numbani": 1,
-        "Horizon Lunar Colony": 1,
         "Hanamura": 1,
         "Volskaya": 1,
         "Temple of Anubis": 1
