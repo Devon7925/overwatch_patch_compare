@@ -18,6 +18,12 @@
                 "seconds"
             ]
         ],
+        "Damage reduction cap": [
+            [
+                "display unit",
+                "percent"
+            ]
+        ],
         "Armor minimum damage reduction": [
             [
                 "display unit",
@@ -917,6 +923,12 @@
                     "health"
                 ],
                 "Model size": [
+                    [
+                        "display unit",
+                        "relative percent"
+                    ]
+                ],
+                "Head hitbox size": [
                     [
                         "display unit",
                         "relative percent"
@@ -2057,6 +2069,12 @@
                             "flag"
                         ]
                     ],
+                    "protects Zarya from knockback": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
                     "Cooldown": [
                         [
                             "display unit",
@@ -2075,6 +2093,12 @@
                 "Projected Barrier": {
                     "Cooldown start": [],
                     "shares cooldown with Particle Barrier": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "protects Zarya from knockback": [
                         [
                             "display unit",
                             "flag"
@@ -3103,6 +3127,7 @@
                     ]
                 },
                 "Barrier Projector": {
+                    "Cooldown start": [],
                     "Health": [],
                     "Cooldown": [
                         [
@@ -4453,6 +4478,12 @@
             },
             "abilities": {
                 "Total Mayhem": {
+                    "prevents explosion self damage": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
                     "Explosion damage": [
                         [
                             "damage instance",
@@ -5896,6 +5927,12 @@
                         ]
                     ],
                     "can cancel cancellable ultimates during their cast time": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "reveals hacked health packs through walls": [
                         [
                             "display unit",
                             "flag"
@@ -8626,6 +8663,12 @@
                             "normal"
                         ]
                     ],
+                    "Projectile speed": [
+                        [
+                            "display unit",
+                            "meters per second"
+                        ]
+                    ],
                     "Projectile size": [
                         [
                             "display unit",
@@ -8684,6 +8727,12 @@
                             "flag"
                         ]
                     ],
+                    "ignores vertical orientation when knocking targets back": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
                     "Cooldown": [
                         [
                             "display unit",
@@ -8710,6 +8759,7 @@
                             "percent"
                         ]
                     ],
+                    "Healing per second": [],
                     "Self healing per second": []
                 },
                 "Amp It Up": {
@@ -9433,6 +9483,18 @@
                     "display unit",
                     "seconds"
                 ]
+            ],
+            "requires first tick before tiebreaking": [
+                [
+                    "display unit",
+                    "flag"
+                ]
+            ],
+            "control point progress can tiebreak": [
+                [
+                    "display unit",
+                    "flag"
+                ]
             ]
         },
         "Push": {
@@ -9518,6 +9580,18 @@
                 ]
             ],
             "has only one tick": [
+                [
+                    "display unit",
+                    "flag"
+                ]
+            ],
+            "requires first tick before tiebreaking": [
+                [
+                    "display unit",
+                    "flag"
+                ]
+            ],
+            "control point progress can tiebreak": [
                 [
                     "display unit",
                     "flag"

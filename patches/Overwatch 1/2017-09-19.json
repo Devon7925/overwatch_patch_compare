@@ -72,7 +72,8 @@
             "general": {
                 "Base health": 200,
                 "Armor health": 200,
-                "Model size": 1.0
+                "Model size": 1.0,
+                "Head hitbox size": 0.85
             },
             "abilities": {
                 "Fortify": {
@@ -299,7 +300,8 @@
                 "Barrier Projector": {
                     "Health": 600,
                     "Duration": 6,
-                    "Cooldown": 13
+                    "Cooldown": 13,
+                    "Cooldown start": "ability start"
                 }
             }
         },
@@ -589,7 +591,8 @@
                     "Bullets per burst": 6,
                     "Cast time": 1.0,
                     "Explosion damage": 50,
-                    "Spread": 1
+                    "Spread": 1,
+                    "prevents explosion self damage": true
                 }
             }
         },
@@ -846,7 +849,8 @@
                     "reveals enemies": false,
                     "Stun duration on Bob": 5,
                     "destroys immortality field": false,
-                    "gives ultimate charge for healing": true
+                    "gives ultimate charge for healing": true,
+                    "reveals hacked health packs through walls": true
                 }
             }
         },
@@ -1119,7 +1123,8 @@
                     "Critical multiplier": 2,
                     "Recovery time": 0.93,
                     "Bullets per burst": 4,
-                    "Burst recovery time": 0.112
+                    "Burst recovery time": 0.112,
+                    "Projectile speed": 50
                 },
                 "Soundwave": {
                     "Damage": 25,
@@ -1137,7 +1142,8 @@
                     "Crossfade self-healing penalty for the duration of Amp It Up": 60,
                     "Self healing per second": 5,
                     "Speed boost": 30,
-                    "Radius": 10
+                    "Radius": 10,
+                    "Healing per second": 16
                 },
                 "Amp It Up": {
                     "Cooldown": 12,
@@ -1273,7 +1279,8 @@
         "shield health damaged before temporary armor": true,
         "Sound distance": 1,
         "turrets target shields": true,
-        "ultimate charge depletes during use": true
+        "ultimate charge depletes during use": true,
+        "Damage reduction cap": 50
     },
     "Map list": {
         "Busan": 1,
@@ -1312,13 +1319,17 @@
             "Attackers cart healing": 10,
             "Time until cart rollback": 10,
             "Setup time": 60,
-            "Second round Assemble Your Team time": 10
+            "Second round Assemble Your Team time": 10,
+            "requires first tick before tiebreaking": true,
+            "control point progress can tiebreak": true
         },
         "Assault": {
             "Additional time for first point capture": 180,
             "Setup time": 60,
             "Second round Assemble Your Team time": 10,
-            "has only one tick": true
+            "has only one tick": true,
+            "requires first tick before tiebreaking": true,
+            "control point progress can tiebreak": true
         }
     }
 }

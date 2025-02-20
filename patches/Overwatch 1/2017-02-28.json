@@ -1,7 +1,8 @@
 {
     "roles": {
         "tank": {},
-        "damage": {},
+        "offense": {},
+        "defense": {},
         "support": {}
     },
     "heroes": {
@@ -20,17 +21,16 @@
                     "Recovery time": 0.15,
                     "Critical multiplier": 2,
                     "Damage per pellet": 2.0,
-                    "Pellet count": 11,
-                    "can be used while flying": true
+                    "Pellet count": 11
                 },
                 "Boosters": {
-                    "Impact damage": 10,
+                    "Impact damage": 25,
                     "Cooldown": 5
                 },
                 "Defense Matrix": {
-                    "Cooldown": 2.0,
-                    "Maximum Duration": 2,
-                    "Recharge rate": 12.5,
+                    "Cooldown": 1.0,
+                    "Maximum Duration": 4,
+                    "Recharge rate": 10,
                     "Delay before regeneration begins": 1.0,
                     "Length": 15
                 },
@@ -48,16 +48,6 @@
                     "Ammo": 20,
                     "Critical multiplier": 2
                 },
-                "Micro Missiles": {
-                    "Projectile size": 0.1,
-                    "Explosion damage": 4,
-                    "Direct damage": 3,
-                    "Projectile speed": 40,
-                    "Cooldown": 8,
-                    "Bullets per burst": 18,
-                    "Burst recovery time": 0.09090909090909091,
-                    "Cast time": 0.5
-                },
                 "Eject Mech": {},
                 "Call Mech": {
                     "Ultimate cost": 350,
@@ -66,68 +56,15 @@
                 }
             }
         },
-        "Orisa": {
-            "role": "tank",
-            "general": {
-                "Base health": 200,
-                "Armor health": 200,
-                "Model size": 1.0,
-                "Head hitbox size": 0.85
-            },
-            "abilities": {
-                "Fortify": {
-                    "Duration": 4,
-                    "Cooldown start": "ability end",
-                    "Cooldown": 10,
-                    "immune to taking forced critical hit damage": false,
-                    "Damage reduction": 50,
-                    "disables critical damage": false,
-                    "Heat generation reduction": 50
-                },
-                "Fusion Driver": {
-                    "Damage": 11,
-                    "Spread": 1.2,
-                    "Movement speed reduction": 50,
-                    "Projectile speed": 90,
-                    "Recovery time": 0.08333333333333333,
-                    "Ammo": 150,
-                    "Reload time": 2.55,
-                    "Critical multiplier": 2
-                },
-                "Halt": {
-                    "Projectile speed": 20,
-                    "Range": 7,
-                    "Cast time": 0.1,
-                    "Cooldown": 8,
-                    "Snare duration": 1
-                },
-                "Protective Barrier": {
-                    "Health": 900,
-                    "Projectile speed": 25,
-                    "Duration": 20,
-                    "Cooldown": 8,
-                    "deploy cancels reload": true,
-                    "Scale": 1.2
-                },
-                "Supercharger": {
-                    "interrupted when Orisa is stunned during cast time": true,
-                    "Health": 200,
-                    "Range": 25,
-                    "Cast time": 0.4,
-                    "Ultimate cost": 1500,
-                    "Duration": 15
-                }
-            }
-        },
         "Roadhog": {
             "role": "tank",
             "general": {
                 "Base health": 600,
-                "Head hitbox size": 0.8
+                "Head hitbox size": 1
             },
             "abilities": {
                 "Scrap Gun": {
-                    "Ammo": 5,
+                    "Ammo": 4,
                     "Pellet projectile size": 0.0,
                     "Shrapnel projectile size": 0.075,
                     "Pellet count": 25,
@@ -135,30 +72,31 @@
                     "Secondary fire pre-detonation damage": 50,
                     "Secondary fire max range": 8,
                     "has secondary fire": true,
-                    "Recovery time": 0.7,
+                    "secondary fire has no falloff": true,
+                    "Recovery time": 1.0,
                     "Reload time": 2,
-                    "Damage per pellet": 6,
-                    "Minimum falloff range": 15,
-                    "Maximum falloff range": 30
+                    "Damage per pellet": 9,
+                    "Minimum falloff range": 10,
+                    "Maximum falloff range": 20
                 },
                 "Take a Breather": {
-                    "Damage reduction": 50,
                     "Cooldown": 8,
                     "Maximum healing": 300,
                     "Maximum Time": 1,
                     "Recovery": 0.5,
-                    "Cast time": 0.5
+                    "Cast time": 0.5,
+                    "Movement speed": 0
                 },
                 "Chain Hook": {
                     "Cooldown": 8,
                     "Projectile size": 0.5,
                     "Enemy final position distance": 3.5,
-                    "Cooldown start": "ability start",
+                    "Cooldown start": "ability end",
                     "Impact damage": 30,
-                    "Pull delay": 0.3
+                    "Pull delay": 0.5
                 },
                 "Whole Hog": {
-                    "Knockback": 10,
+                    "Knockback": 8,
                     "Damage per pellet": 7,
                     "Ultimate cost": 2300,
                     "disables other abilities and automatically fires": true,
@@ -167,65 +105,7 @@
                     "cancelled by stuns": true,
                     "Pellet count": 16,
                     "Recovery time": 0.125,
-                    "Critical multiplier": 2,
-                    "restores ammo on completion": true
-                }
-            }
-        },
-        "Wrecking Ball": {
-            "role": "tank",
-            "general": {
-                "Base health": 500,
-                "Armor health": 100,
-                "Shield health": 0
-            },
-            "abilities": {
-                "Grappling Claw": {
-                    "Impact damage": 50,
-                    "can be retracted": false,
-                    "Cooldown if fireball speed is not achieved": 5,
-                    "requires fireball speed for max duration to begin": false,
-                    "Knockback": 22,
-                    "Cooldown": 5
-                },
-                "Piledriver": {
-                    "Movement lockout duration for enemies": 1.0,
-                    "Cooldown": 10,
-                    "Maximum damage": 100
-                },
-                "Minefield": {
-                    "Health": 50,
-                    "Damage": 130,
-                    "Explosion knockback": 5,
-                    "Ultimate cost": 1375,
-                    "Arming time": 1.5,
-                    "Sticks to walls": true,
-                    "Cast time": 0.25,
-                    "Projectile speed": 10
-                },
-                "Quad Cannons": {
-                    "Projectile size": 0.0,
-                    "Automatic reload time while transformed": 2,
-                    "Number of shots to reach max spread": 20,
-                    "Reload time": 1.6,
-                    "Critical multiplier": 2,
-                    "Damage": 5,
-                    "Recovery time": 0.04,
-                    "Ammo": 80,
-                    "Maximum damage falloff scalar": 50
-                },
-                "Adaptive Shield": {
-                    "Ally overhealth cap": 0,
-                    "Overhealth generation per enemy": 100,
-                    "Detection radius": 8,
-                    "Effect duration": 7,
-                    "Base shield": 100,
-                    "Cast time": 0.2,
-                    "cancels Roll mode": true
-                },
-                "Roll": {
-                    "Cast time": 0.4,
-                    "Move speed": 10
+                    "Critical multiplier": 2
                 }
             }
         },
@@ -247,6 +127,7 @@
                 "Particle Barrier": {
                     "Cooldown start": "barrier expiry",
                     "shares cooldown with Projected Barrier": false,
+                    "protects Zarya from knockback": true,
                     "Cooldown": 10,
                     "Health": 200,
                     "Duration": 2
@@ -254,6 +135,7 @@
                 "Projected Barrier": {
                     "Cooldown start": "barrier expiry",
                     "shares cooldown with Particle Barrier": false,
+                    "protects Zarya from knockback": true,
                     "Cooldown": 8,
                     "Health": 200,
                     "Duration": 2,
@@ -261,10 +143,9 @@
                 },
                 "Graviton Surge": {
                     "Ultimate cost": 1875,
-                    "Radius": 6,
+                    "Radius": 8,
                     "Duration": 4,
-                    "Projectile size": 0.05,
-                    "disables mobility abilities": true
+                    "Projectile size": 0.05
                 },
                 "Particle Cannon Alt Fire": {
                     "Projectile size": 0.2,
@@ -275,7 +156,7 @@
                     "explosion radius scales with energy": true
                 },
                 "Energy": {
-                    "Energy degeneration rate": 1.6,
+                    "Energy degeneration rate": 2,
                     "Energy degeneration delay": 1
                 }
             }
@@ -290,14 +171,13 @@
             "abilities": {
                 "Rocket Hammer": {
                     "Damage": 75,
-                    "Recovery time": 0.96,
+                    "Recovery time": 1.05,
                     "Knockback": 10
                 },
                 "Barrier Field": {
                     "Barrier health": 2000,
                     "Regeneration rate": 200,
-                    "Movement speed penalty": 50,
-                    "can independently rotate camera using primary fire": true
+                    "Movement speed penalty": 50
                 },
                 "Charge": {
                     "Cooldown": 10,
@@ -313,8 +193,10 @@
                 "Earthshatter": {
                     "Knockdown duration": 3,
                     "Shockwave range": 20,
+                    "hits enemies that enter the damage cone after the “wave” has passed that area": true,
+                    "damages enemies behind barriers blocking it, even if the barrier is later dropped or destroyed": true,
                     "Ultimate cost": 1350,
-                    "Height": 2
+                    "Height": 3
                 }
             }
         },
@@ -336,8 +218,7 @@
                     "Damage": 40,
                     "Maximum health gained": 500,
                     "Cast time": 0.224,
-                    "Recovery time": 0.432,
-                    "restores ammo on completion": true
+                    "Recovery time": 0.432
                 },
                 "Jet Pack": {
                     "Cooldown": 5,
@@ -356,62 +237,12 @@
                     "Health": 600,
                     "Duration": 6,
                     "Cooldown": 13,
-                    "Cooldown start": "ability start"
-                }
-            }
-        },
-        "Ashe": {
-            "role": "damage",
-            "general": {
-                "Base health": 200
-            },
-            "abilities": {
-                "B.O.B": {
-                    "Ultimate cost": 2000,
-                    "Weapon damage": 14,
-                    "has tank passive": false,
-                    "Health": 1200,
-                    "prefers to shoot at enemy targets that Ashe damage with her rifle": false,
-                    "Recovery time": 0.125,
-                    "Charge damage": 120
-                },
-                "The Viper": {
-                    "Projectile size": 0.0,
-                    "Critical multiplier": 2,
-                    "Damage": 40,
-                    "Recovery time": 0.266,
-                    "Ammo": 12,
-                    "Reload time per ammo": 0.3,
-                    "Reload time": 0.5,
-                    "Maximum damage falloff scalar": 50,
-                    "Shots to reach maximum spread": 4
-                },
-                "The Viper Alt Fire": {
-                    "Projectile size": 0.0,
-                    "Damage": 85,
-                    "Critical multiplier": 2,
-                    "Recovery time": 0.7,
-                    "Alt fire of": "The Viper",
-                    "Maximum damage falloff scalar": 50
-                },
-                "Dynamite": {
-                    "Cooldown": 10,
-                    "Explosion damage": 75,
-                    "Damage over time": 100,
-                    "Duration": 5,
-                    "Range": 5
-                },
-                "Coach Gun": {
-                    "Cooldown": 10,
-                    "Damage per pellet": 6,
-                    "Pellet count": 15,
-                    "Cast time": 0.16,
-                    "Recovery time": 0.4
+                    "Cooldown start": "barrier expiry"
                 }
             }
         },
         "Bastion": {
-            "role": "damage",
+            "role": "defense",
             "general": {
                 "Base health": 200,
                 "Armor health": 100,
@@ -419,7 +250,7 @@
             },
             "abilities": {
                 "Ironclad": {
-                    "Damage reduction": 20
+                    "Damage reduction": 35
                 },
                 "Self-Repair": {
                     "Healing per second": 75,
@@ -430,30 +261,30 @@
                     "Shots until maximum spread": 40,
                     "Movement speed penalty": 100,
                     "Cooldown": 12,
-                    "Spread": 3,
+                    "Spread": 4.5,
                     "Min spread": 2,
                     "Ammo": 300,
                     "Reload time": 2.1,
                     "Recovery time": 0.03333333333333333,
                     "Damage": 15,
-                    "Maximum damage falloff scalar": 50
+                    "Maximum damage falloff scalar": 30
                 },
                 "Configuration: Tank": {},
                 "Configuration: Recon": {
                     "Projectile size": 0.0,
                     "Damage": 20,
-                    "Ammo": 35,
+                    "Ammo": 25,
                     "Reload time": 1.5,
                     "Recovery time": 0.125,
                     "Critical multiplier": 2,
                     "Spread": 1.5,
-                    "Maximum damage falloff scalar": 50
+                    "Maximum damage falloff scalar": 30
                 },
                 "Reconfigure": {}
             }
         },
         "Cassidy": {
-            "role": "damage",
+            "role": "offense",
             "general": {
                 "Base health": 200
             },
@@ -467,13 +298,13 @@
                     "Ammo": 6,
                     "Recovery time": 0.5,
                     "Reload time": 1.5,
-                    "Maximum damage falloff scalar": 50
+                    "Maximum damage falloff scalar": 30
                 },
                 "Combat Roll": {
                     "can be blocked by enemy player collision": true,
                     "can be used mid-air": false,
                     "Movement speed": 15,
-                    "Cooldown": 6
+                    "Cooldown": 8
                 },
                 "Flashbang": {
                     "Effect": "Applies stun on hit",
@@ -488,17 +319,17 @@
                     "Max movement speed penalty": 70,
                     "Min movement speed penalty": 70,
                     "Ultimate cost": 1475,
-                    "Initial damage rate": 100,
+                    "Initial damage rate": 20,
                     "Secondary damage rate": 275,
                     "Damage rate": 260,
                     "Maximum duration": 6,
                     "Final damage rate": 275,
                     "locks player's aim": true,
-                    "Range": 200,
-                    "Delay before lock-on starts": 0.2
+                    "Range": 70,
+                    "Delay before lock-on starts": 0.8
                 },
                 "Fan the Hammer": {
-                    "Damage": 55,
+                    "Damage": 45,
                     "Recovery time": 0.13,
                     "Alt fire of": "Peacekeeper",
                     "Additional reload delay": 0.358,
@@ -506,70 +337,8 @@
                 }
             }
         },
-        "Doomfist": {
-            "role": "damage",
-            "general": {
-                "Base health": 250
-            },
-            "abilities": {
-                "The Best Defense": {
-                    "Overhealth generation": 35,
-                    "Delay before Overhealth begins to drain": 1,
-                    "Maximum temporary health": 150
-                },
-                "Hand Cannon": {
-                    "Maximum damage falloff scalar": 30,
-                    "Damage per pellet": 6,
-                    "Projectile size": 0.0,
-                    "Pellet count": 11,
-                    "Critical multiplier": 2,
-                    "quick melee pauses reload": true,
-                    "Minimum damage falloff range": 15,
-                    "Ammo": 4,
-                    "Reload time per ammo": 0.65,
-                    "Recovery time": 0.336
-                },
-                "Seismic Slam": {
-                    "Damage": 125,
-                    "Cooldown": 7,
-                    "Shockwave range": 15,
-                    "has different behavior between being activated in the air or on the ground": true,
-                    "pulls in enemies": true
-                },
-                "Rising Uppercut": {
-                    "Cooldown": 7,
-                    "Damage": 50,
-                    "Movement speed": 10,
-                    "Range": 5,
-                    "Duration": 0.6,
-                    "Recovery time": 0.3
-                },
-                "Rocket Punch": {
-                    "Minimum knockback": 15,
-                    "Maximum knockback": 35,
-                    "Wall stun": 0.0,
-                    "Max impact damage": 100,
-                    "Max wall slam damage": 150,
-                    "Damage reduction on AoE affected targets": 0,
-                    "Cooldown": 4,
-                    "Min impact damage": 50,
-                    "Min wall slam damage": 50,
-                    "Minimum time before cancel option becomes available": 0.25,
-                    "Maximum charge time": 1,
-                    "Angle required for wall slam": 44
-                },
-                "Meteor Strike": {
-                    "Ultimate cost": 1500,
-                    "Minimum damage": 15,
-                    "Inner ring damage radius": 2.0,
-                    "Outer ring maximum damage": 200,
-                    "Cast recovery time": 1.0,
-                    "Bonus movement speed": 200
-                }
-            }
-        },
         "Genji": {
-            "role": "damage",
+            "role": "offense",
             "general": {
                 "Base health": 200
             },
@@ -593,7 +362,7 @@
                     "Ultimate cost": 1500,
                     "Recovery time": 0.9,
                     "Damage": 120,
-                    "restores ammo on completion": true
+                    "interrupted when Genji is stunned": true
                 },
                 "Shuriken Alt Fire": {
                     "Damage per pellet": 28,
@@ -612,7 +381,7 @@
             }
         },
         "Hanzo": {
-            "role": "damage",
+            "role": "defense",
             "general": {
                 "Base health": 200
             },
@@ -620,22 +389,16 @@
                 "Storm Bow": {
                     "Maximum damage": 125,
                     "Projectile size": 0.1,
-                    "has arrow draw progress preserved while wall climbing": true,
+                    "has arrow draw progress preserved while wall climbing": false,
                     "Critical multiplier": 2,
                     "Maximum charge time": 0.732,
-                    "Recovery time": 0.5,
-                    "Maximum projectile speed": 125
+                    "Recovery time": 0.55,
+                    "Maximum projectile speed": 85
                 },
-                "Storm Arrows": {
+                "Scatter Arrow": {
                     "Cooldown": 10,
-                    "Projectile size": 0.1,
-                    "Critical multiplier": 2,
-                    "Bullets per burst": 6,
-                    "Damage per bullet": 70,
-                    "Burst recovery time": 0.3,
-                    "Richochets": 0,
-                    "is uncancellable": true,
-                    "Maximum duration": 5
+                    "Fragments": 6,
+                    "Damage per fragment": 75
                 },
                 "Dragonstrike": {
                     "Speed": 12,
@@ -647,23 +410,20 @@
                 "Sonic Arrow": {
                     "does impact sound plat for enemies": false,
                     "has visual effect when deployed": false,
-                    "Cooldown": 12,
-                    "Range": 7,
-                    "Duration": 6
-                },
-                "Lunge": {
-                    "Cooldown": 5
+                    "Cooldown": 20,
+                    "Range": 10,
+                    "Duration": 10
                 }
             }
         },
         "Junkrat": {
-            "role": "damage",
+            "role": "defense",
             "general": {
                 "Base health": 200
             },
             "abilities": {
                 "Frag Launcher": {
-                    "Projectile size": 0.2,
+                    "Projectile size": 0.3,
                     "Direct damage": 40,
                     "Explosion damage": 80,
                     "Recovery time": 0.6667,
@@ -675,8 +435,7 @@
                     "Cooldown": 8,
                     "Projectile size": 0.1,
                     "Maximum damage": 120,
-                    "Minimum damage": 20,
-                    "Charges": 2,
+                    "Charges": 1,
                     "Health": 25,
                     "Range": 3,
                     "Trigger delay": 0.156,
@@ -690,8 +449,7 @@
                     "Health": 100,
                     "Duration": 10,
                     "Delay before regaining control after end": 1.5,
-                    "restores ammo on completion": true,
-                    "Movement speed": 12
+                    "Movement speed": 10
                 },
                 "Steel Trap": {
                     "Arming time": 0.5,
@@ -706,13 +464,12 @@
                     "Bullets per burst": 6,
                     "Cast time": 1.0,
                     "Explosion damage": 50,
-                    "Spread": 1,
-                    "prevents explosion self damage": true
+                    "Spread": 1
                 }
             }
         },
         "Mei": {
-            "role": "damage",
+            "role": "defense",
             "general": {
                 "Base health": 250
             },
@@ -723,12 +480,11 @@
                     "Maximum slow": 90,
                     "Minimum slow": 30,
                     "Duration before slow falls off between primary fire hits": 1.5,
-                    "Freeze stun duration": 1.5,
+                    "Freeze stun duration": 1,
                     "Reload time": 1.5,
                     "Freeze rate": 1,
                     "Recovery time": 0.05,
-                    "Damage": 2.25,
-                    "pierces through enemies": true
+                    "Damage": 2.25
                 },
                 "Cryofreeze": {
                     "Healing per second": 37.5,
@@ -760,13 +516,16 @@
                     "Damage": 75,
                     "Recovery time": 0.8,
                     "Alt fire of": "Endothermic Blaster",
-                    "Ammo per shot": 20,
-                    "Critical multiplier": 2
+                    "Ammo per shot": 25,
+                    "Critical multiplier": 2,
+                    "Minimum damage falloff range": 25,
+                    "Maximum damage falloff range": 45,
+                    "Maximum damage falloff scalar": 30
                 }
             }
         },
         "Pharah": {
-            "role": "damage",
+            "role": "offense",
             "general": {
                 "Base health": 200
             },
@@ -775,13 +534,13 @@
                     "Projectile speed": 35,
                     "Projectile size": 0.2,
                     "Explosion self damage": 50,
-                    "Direct damage": 55,
-                    "Explosion damage": 65,
-                    "Recovery time": 0.75,
+                    "Direct damage": 40,
+                    "Explosion damage": 80,
+                    "Recovery time": 0.9,
                     "Ammo": 6,
                     "Reload time": 1.5,
-                    "Minimum explosion damage": 16.25,
-                    "Knockback": 7,
+                    "Minimum explosion damage": 20,
+                    "Knockback": 8.75,
                     "Self knockback": 14
                 },
                 "Barrage": {
@@ -791,12 +550,11 @@
                     "Direct damage": 10,
                     "Explosion damage": 30,
                     "Recovery time": 0.032,
-                    "Duration": 3,
-                    "restores ammo on completion": true
+                    "Duration": 3
                 },
                 "Concussive Blast": {
                     "Projectile size": 0.15,
-                    "Cooldown": 9,
+                    "Cooldown": 12,
                     "Explosion damage": 0,
                     "Explosion radius": 8,
                     "Knockback": 20.8
@@ -814,7 +572,7 @@
             }
         },
         "Reaper": {
-            "role": "damage",
+            "role": "offense",
             "general": {
                 "Base health": 250
             },
@@ -841,11 +599,10 @@
                     "Damage per second": 170,
                     "Duration": 3,
                     "Movement speed reduction": 50,
-                    "Range": 8,
-                    "restores ammo on completion": true
+                    "Range": 8
                 },
                 "The Reaping": {
-                    "Lifesteal percentage": 50
+                    "Soul orb healing": 50
                 },
                 "Wraith Form": {
                     "can be activated while affected by mobility-locking effects": true,
@@ -853,28 +610,28 @@
                     "Max duration": 3,
                     "Min duration": 0.4,
                     "Recovery time": 0.4,
-                    "Movement speed": 50,
-                    "refills ammo": true
+                    "Movement speed": 25,
+                    "uncancellable": true
                 }
             }
         },
         "Soldier: 76": {
-            "role": "damage",
+            "role": "offense",
             "general": {
                 "Base health": 200
             },
             "abilities": {
                 "Heavy Pulse Rifle": {
-                    "Damage": 19,
+                    "Damage": 20,
                     "Projectile size": 0.0,
                     "Ammo": 25,
                     "Recovery time": 0.111111111,
                     "Critical multiplier": 2,
                     "Reload time": 1.5,
                     "Number of shots to reach maximum recoil": 4,
-                    "Maximum damage falloff scalar": 50,
+                    "Maximum damage falloff scalar": 30,
                     "Maximum spread": 2.4,
-                    "Bullets until reaching maximum spread": 9
+                    "Bullets until reaching maximum spread": 6
                 },
                 "Biotic Field": {
                     "Cooldown": 15,
@@ -889,6 +646,7 @@
                     "prevents critical hits": true,
                     "cannot target RIP-Tire": true,
                     "cannot target Immortality Field": true,
+                    "affects Helix Rocket aim": true,
                     "Cast time": 1.2,
                     "Duration": 6
                 },
@@ -905,19 +663,20 @@
             }
         },
         "Sombra": {
-            "role": "damage",
+            "role": "offense",
             "general": {
                 "Base health": 200
             },
             "abilities": {
                 "Opportunist": {
-                    "Maximum health percent to reveal enemy health bars": 50
+                    "Maximum health percent to reveal enemy health bars": 100
                 },
                 "EMP": {
                     "Ultimate cost": 1450,
                     "Ability lockout duration": 1.5,
                     "destroys Mei's Blizzard": false,
                     "deals additional damage to base shield health pools": true,
+                    "blocked by small objects": true,
                     "Cast time": 0.2
                 },
                 "Translocator": {
@@ -926,8 +685,8 @@
                     "activates on terrain collision": false,
                     "Projectile speed": 25,
                     "Cooldown start": "Ability end",
-                    "Cooldown": 4,
-                    "Health": 5
+                    "Cooldown": 6,
+                    "Max duration": 15
                 },
                 "Machine Pistol": {
                     "Projectile size": 0.0,
@@ -938,133 +697,145 @@
                     "Critical multiplier": 2,
                     "Recovery time": 0.05,
                     "Ammo": 60,
-                    "Maximum spread": 2.7
+                    "Maximum spread": 3
                 },
                 "Stealth": {
                     "is passive": false,
                     "Cooldown": 6,
-                    "Movement speed": 50,
+                    "Movement speed": 70,
                     "Fade out duration": 0.375,
                     "Fade in duration": 1.0,
                     "Enemy detection radius": 2,
-                    "Cancelled by damage": true
+                    "Cancelled by damage": true,
+                    "can contest objectives": true,
+                    "Maximum duration": 6
                 },
                 "Hack": {
-                    "Cast time": 0.65,
+                    "Cast time": 0.8,
                     "cancels Stealth when hacking an enemy hero": true,
                     "Cooldown on successful enemy hero hack": 8,
                     "Health pack hacked duration": 60,
                     "Ability lockout duration": 6,
                     "can hack hacked enemies": true,
                     "reveals enemies": false,
-                    "Cooldown on interrupt": 2,
                     "Stun duration on Bob": 5,
                     "destroys immortality field": false,
-                    "disables passives": true,
-                    "can cancel cancellable ultimates during their cast time": true,
-                    "reveals hacked health packs through walls": true
+                    "gives ultimate charge for healing": true
                 }
             }
         },
         "Symmetra": {
-            "role": "damage",
+            "role": "support",
             "general": {
                 "Base health": 100,
                 "Shield health": 100
             },
             "abilities": {
                 "Photon Projector": {
-                    "gains ammo from damaging barriers with primary fire": true,
-                    "Ammo": 70,
+                    "Ammo": 100,
                     "Projectile speed": 25,
-                    "Damage per second per level": 65,
+                    "Damage per second per level": 30,
+                    "Level 3 damage multiplier": 4,
                     "Beam width": 0.3,
-                    "Beam charge rate": 0.7,
+                    "Beam charge rate": 1.2,
                     "Beam decay rate": 0.8333333333333334,
                     "Ammo per second": 7,
                     "Reload time": 1.5,
                     "Maximum beam level": 3,
-                    "Range": 12
+                    "Range": 7,
+                    "locks on to targets": true
                 },
                 "Sentry Turret": {
                     "Health": 30,
-                    "Damage per second": 50,
+                    "Damage per second": 30,
                     "reveals enemy heroes to allies while dealing damage and for 1 additional second afterwards": false,
-                    "Movement speed reduction per turret": 20,
-                    "Travel speed": 15,
-                    "Placement method": "projectile",
-                    "Charges": 3,
-                    "Maximum deployed": 3
+                    "Movement speed reduction per turret": 15,
+                    "Placement method": "set in place",
+                    "Charges": 6,
+                    "Maximum deployed": 6
+                },
+                "Photon Barrier": {
+                    "Barrier health": 1000,
+                    "Cooldown": 10,
+                    "Movement speed": 5.5
                 },
                 "Teleporter": {
                     "Base health": 50,
-                    "Shield health": 250,
-                    "Cooldown": 12,
+                    "Shield health": 350,
                     "Build time": 2,
-                    "Cooldown start": "teleporter placed",
                     "cannot be destroyed while dead": true,
-                    "Maximum range": 25,
-                    "Maximum lifetime": 10,
                     "Interact range": 1,
-                    "Entry location": "in front of Symmetra"
+                    "Entry location": "in spawn",
+                    "only allows player teleports": true
                 },
-                "Photon Barrier": {
+                "Shield Generator": {
+                    "Base health": 50,
+                    "Shield health": 350,
                     "Ultimate cost": 1500,
-                    "Barrier health": 5000,
-                    "Duration": 15
+                    "Shield generation": 75
                 },
                 "Photon Projector Alt Fire": {
                     "Minimum projectile size": 0.04,
                     "Maximum projectile size": 0.5,
-                    "Maximum impact damage": 60,
-                    "Maximum explosion damage": 60,
-                    "Maximum charge time": 1,
+                    "Maximum impact damage": 130,
+                    "Maximum charge time": 2,
                     "Ammo per shot": 7,
                     "Alt fire of": "Photon Projector",
                     "Recovery time": 0.1,
-                    "Projectile speed": 25
+                    "pieces shields": true,
+                    "Projectile speed": 10
                 }
             }
         },
         "Torbjörn": {
-            "role": "damage",
+            "role": "defense",
             "general": {
                 "Base health": 200,
                 "Armor health": 0,
                 "Weapon swap time": 0.5,
-                "Head hit volume": 0.9
+                "Head hit volume": 1.0
             },
             "abilities": {
+                "Scrap Collector": {
+                    "Scrap per second": 2,
+                    "Scrap per pickup": 15,
+                    "Max scrap": 200
+                },
                 "Rivet Gun": {
                     "Ammo": 18,
                     "Projectile size": 0.105,
                     "Critical multiplier": 2,
                     "Recovery time": 0.6,
-                    "Damage": 70,
-                    "Reload time": 2,
+                    "Damage": 60,
+                    "Reload time": 2.2,
                     "Projectile speed": 70,
-                    "hits change turret target": true
+                    "hits change turret target": false
                 },
                 "Molten Core": {
                     "Ultimate cost": 2150,
-                    "Projectile size": 0.205,
-                    "Impact damage": 25,
-                    "Pool damage per second": 160
+                    "upgrades turret to level 3": true,
+                    "Bonus armor": 250
                 },
                 "Deploy Turret": {
                     "Turret damage": 14,
-                    "Cooldown": 10,
-                    "Turret base health": 250,
+                    "Cooldown": 2,
+                    "Level 1 turret base health": 150,
+                    "Turret base health": 300,
+                    "Level 3 turret base health": 800,
+                    "Turret level 1 recovery time": 0.5,
                     "Turret recovery time": 0.256,
+                    "Turret level 3 recovery time": 0.2,
                     "Build time": 3,
                     "cannot be destroyed while dead": true,
-                    "Deploy method": "thrown projectile"
+                    "cannot be manually destroyed": true,
+                    "starts at level 1": true,
+                    "can redeploy turret while it's active": true,
+                    "Deploy method": "manual placement",
+                    "deploy cancelled on death": true
                 },
-                "Overload": {
-                    "Overhealth": 150,
-                    "Duration": 5,
-                    "Cooldown": 12,
-                    "Movement speed": 30
+                "Armor Pack": {
+                    "Scrap cost": 50,
+                    "Temporary armor": 75
                 },
                 "Forge Hammer": {
                     "Damage": 55,
@@ -1074,8 +845,8 @@
                     "Ammo per shot": 3,
                     "Projectile size": 0.0,
                     "Spread": 5,
-                    "Recovery time": 0.6,
-                    "Damage per pellet": 12.5,
+                    "Recovery time": 0.8,
+                    "Damage per pellet": 15,
                     "Critical multiplier": 2,
                     "Pellet count": 10,
                     "Alt fire of": "Rivet Gun"
@@ -1083,7 +854,7 @@
             }
         },
         "Tracer": {
-            "role": "damage",
+            "role": "offense",
             "general": {
                 "Base health": 150,
                 "Model size": 1
@@ -1111,7 +882,7 @@
                     "Projectile size": 0.25,
                     "Ultimate cost": 1100,
                     "Direct damage": 5,
-                    "Explosion damage": 300,
+                    "Explosion damage": 400,
                     "Radius": 4,
                     "Duration": 1,
                     "Cast time": 0.144,
@@ -1127,7 +898,7 @@
             }
         },
         "Widowmaker": {
-            "role": "damage",
+            "role": "defense",
             "general": {
                 "Base health": 200
             },
@@ -1143,8 +914,7 @@
                     "Ammo": 30,
                     "Recovery time": 0.1,
                     "Damage": 13,
-                    "Critical multiplier": 2,
-                    "Maximum damage falloff scalar": 50
+                    "Critical multiplier": 2
                 },
                 "Widow's Kiss Alt Fire": {
                     "Alt fire of": "Widow's Kiss",
@@ -1155,10 +925,9 @@
                     "Ammo per shot": 3
                 },
                 "Grappling Hook": {
-                    "Cooldown": 10,
+                    "Cooldown": 12,
                     "Range": 20,
-                    "Move speed": 20,
-                    "retains momentum when used on environments or structures without a ledge": true
+                    "Move speed": 20
                 },
                 "Venom Mine": {
                     "Cooldown": 15,
@@ -1169,7 +938,7 @@
                     "Projectile speed": 20,
                     "Cast time": 0.19,
                     "Recovery time": 0.78,
-                    "makes affected targets visible through walls": true
+                    "makes affected targets visible through walls": false
                 }
             }
         },
@@ -1180,14 +949,15 @@
             },
             "abilities": {
                 "Biotic Rifle": {
-                    "Ammo": 14,
+                    "Ammo": 10,
                     "Unscoped projectile size": 0,
                     "Enemy scoped projectile size": 0.0,
                     "Ally scoped projectile size": 0.3,
-                    "Damage": 70,
+                    "Damage": 80,
                     "Healing": 75,
                     "Recovery time": 0.8,
-                    "Reload time": 1.5
+                    "Reload time": 1.5,
+                    "collides with full health allies": true
                 },
                 "Sleep Dart": {
                     "Cooldown": 12,
@@ -1204,68 +974,7 @@
                 },
                 "Nano Boost": {
                     "Ultimate cost": 1850,
-                    "Healing": 300,
-                    "Range": 40
-                }
-            }
-        },
-        "Brigitte": {
-            "role": "support",
-            "general": {
-                "Base health": 200,
-                "Armor health": 50,
-                "has overridden melee": true
-            },
-            "abilities": {
-                "Inspire": {
-                    "Healing per second": 16.5,
-                    "Duration": 6,
-                    "triggers from Shield Bash damage": false,
-                    "Cooldown": 1
-                },
-                "Rocket Flail": {
-                    "Damage": 35,
-                    "Recovery time": 0.6
-                },
-                "Repair Pack": {
-                    "Cooldown": 6,
-                    "Range": 30,
-                    "Instant healing": 150,
-                    "gives temporary armor to full health targets": true,
-                    "Maximum temporary armor": 75
-                },
-                "Rally": {
-                    "Ultimate cost": 2275,
-                    "resets Shield Bash cooldown upon activation": false,
-                    "Extra armor health": 0,
-                    "builds self overhealth": true,
-                    "has bigger shield": false,
-                    "Additional barrier health": 0,
-                    "Shield bash stun duration": 0,
-                    "Bonus movement speed": 30,
-                    "Maximum armor duration": 30,
-                    "Maximum overhealth": 100
-                },
-                "Whipshot": {
-                    "Damage": 70,
-                    "Cooldown": 4,
-                    "Projectile speed": 60,
-                    "Recovery time": 0.6
-                },
-                "Barrier Shield": {
-                    "Barrier Shield health": 500,
-                    "Regeneration rate": 100,
-                    "Cooldown when destroyed": 3
-                },
-                "Shield Bash": {
-                    "Cooldown": 7,
-                    "Damage": 1,
-                    "Knockback scalar": 1,
-                    "Stun duration": 0.9,
-                    "stopped by barriers": true,
-                    "Distance travelled": 7,
-                    "is counter charge ability": true,
-                    "Cone angle": 60
+                    "Range": 30
                 }
             }
         },
@@ -1279,42 +988,45 @@
                 "Sonic Amplifier": {
                     "Reload time": 1.5,
                     "Ammo": 20,
-                    "Damage per bullet": 20,
+                    "Damage per bullet": 16,
                     "Projectile size": 0.15,
                     "Critical multiplier": 2,
                     "Recovery time": 0.93,
                     "Bullets per burst": 4,
                     "Burst recovery time": 0.112,
-                    "Projectile speed": 50
+                    "Projectile speed": 40
                 },
                 "Soundwave": {
                     "Damage": 25,
                     "Knockback": 7,
                     "Movement lockout duration": 0.3,
-                    "Cooldown": 4
+                    "disabled while reloading": true,
+                    "Ammo consumption": 4,
+                    "Cooldown": 4,
+                    "ignores vertical orientation when knocking targets back": true
                 },
                 "Sound Barrier": {
                     "Ultimate cost": 2650,
-                    "Overhealth": 750
+                    "Overhealth": 500
                 },
                 "Crossfade": {
                     "Crossfade self-healing penalty for the duration of Amp It Up": 60,
                     "Self healing per second": 5,
                     "Speed boost": 30,
-                    "Radius": 12,
-                    "Healing per second": 16
+                    "Radius": 30,
+                    "Healing per second": 12
                 },
                 "Amp It Up": {
                     "Cooldown": 12,
-                    "Healing per second": 52,
+                    "Healing per second": 40,
                     "Duration": 3,
                     "Recovery time": 0.69,
                     "Movement speed": 70
                 },
                 "Wall Ride": {
                     "Cooldown": 0.5,
-                    "Movement speed": 20,
-                    "Wall leap speed increase": 2.5
+                    "cannot go around corners": true,
+                    "last used wall is unusable": true
                 }
             }
         },
@@ -1330,7 +1042,7 @@
                     "Healing per second": 15
                 },
                 "Caduceus Staff": {
-                    "Healing per second": 50,
+                    "Healing per second": 60,
                     "Secondary fire damage boost": 30
                 },
                 "Caduceus Blaster": {
@@ -1341,20 +1053,12 @@
                     "Recovery time": 0.2,
                     "Damage": 20
                 },
-                "Valkyrie": {
-                    "Healing": 60,
-                    "Ultimate cost": 1625,
-                    "disconnects Caduceus Staff from its target on activation": true,
-                    "Duration": 15,
-                    "Additional Guardian Angel speed": 7,
-                    "disables Resurrect slow": true
-                },
                 "Guardian Angel": {
                     "Active duration on jump/crouch cancel": 1,
                     "Cooldown": 1.5,
                     "can launch straight up with crouch": false,
                     "has meter GA cancel": false,
-                    "can glide past a targeted ally using the jump key": true
+                    "has a bug preventing Mercy’s momentum from slowing down correctly when Guardian Angel was canceled": true
                 },
                 "Angelic Descent": {
                     "Slows ascent speed": false
@@ -1362,48 +1066,11 @@
                 "Resurrect": {
                     "souls over death pits hidden": true,
                     "freezes soul in place": false,
-                    "Cast time": 1.75,
-                    "Movement speed reduction during cast": 75,
-                    "interruptable": true,
-                    "Cooldown": 30
-                }
-            }
-        },
-        "Moira": {
-            "role": "support",
-            "general": {
-                "Base health": 200
-            },
-            "abilities": {
-                "Biotic Grasp": {
-                    "Damage per second": 50,
-                    "Secondary fire target acquisition radius": 0.95,
-                    "Lingering heal duration": 3,
-                    "Self-healing": 30,
-                    "Healing resource consumption per second": 11,
-                    "Healing per second": 80,
-                    "Resource generation from damage per second": 9,
-                    "Passive resource regeneration per second": 2.4
-                },
-                "Coalescence": {
-                    "Self-heal per second": 50,
-                    "can use fade during duration": false,
-                    "Ultimate cost": 2100,
-                    "Bonus movement speed": 50,
-                    "Damage per second": 70
-                },
-                "Fade": {
-                    "can be activated while affected by mobility-locking effects": true,
-                    "Cooldown": 6,
-                    "can jump much higher while using this ability": false
-                },
-                "Biotic Orb": {
-                    "Healing Orb capacity": 300,
-                    "Cooldown": 10,
-                    "can fire damage orb": true,
-                    "Damage radius": 5,
-                    "Projectile speed": 16,
-                    "Duration": 10
+                    "Cast time": 0,
+                    "resets Guardian Angel cooldown": true,
+                    "resurrects all players within range": true,
+                    "grants invulnerability during cast": true,
+                    "Ultimate cost": 1900
                 }
             }
         },
@@ -1423,8 +1090,7 @@
                     "Reload time": 1.5
                 },
                 "Transcendence": {
-                    "Ultimate cost": 2075,
-                    "restores ammo on completion": true
+                    "Ultimate cost": 2075
                 },
                 "Harmony Orb": {
                     "Time to wear off when not in line-of-sight": 3,
@@ -1443,9 +1109,9 @@
                     "Projectile size": 0.15,
                     "Bullets per burst": 5,
                     "Maximum charge time": 3.0,
-                    "Recovery time": 0.6,
+                    "Recovery time": 1.0,
                     "Critical multiplier": 2,
-                    "Time between shots": 0.118
+                    "Time between shots": 0.1
                 }
             }
         }
@@ -1456,7 +1122,7 @@
         "Knockdown time": 2,
         "Armor minimum damage reduction": 0,
         "Armor maximum damage reduction": 50,
-        "Armor flat damage reduction": 3,
+        "Armor flat damage reduction": 5,
         "Role lock": "Open queue",
         "Ultimate percent retained on swap": 0,
         "Quick melee damage": 30,
@@ -1472,9 +1138,10 @@
         "Damage boost application time": "projectile hit",
         "flying heroes are immune to knockbacks and slows": true,
         "shield health damaged before temporary armor": true,
-        "ally outlines are visible through walls": true,
-        "Sound distance": 1.25,
-        "Damage reduction cap": 50
+        "Sound distance": 1,
+        "turrets target shields": true,
+        "ultimate charge depletes during use": true,
+        "Damage reduction cap": 70
     },
     "Map list": {
         "Busan": 1,
@@ -1483,17 +1150,13 @@
         "Nepal": 1,
         "Oasis": 1,
         "Dorado": 1,
-        "Junkertown": 1,
-        "Rialto": 1,
         "Route 66": 1,
         "Shambali Monastery": 1,
         "Watchpoint: Gibraltar": 1,
-        "Blizzard World": 1,
-        "Eichenwalde": 1,
+        "Eichenwalde": 0,
         "Hollywood": 1,
         "King's Row": 1,
         "Numbani": 1,
-        "Horizon Lunar Colony": 2,
         "Hanamura": 1,
         "Volskaya": 1,
         "Temple of Anubis": 1
@@ -1503,26 +1166,27 @@
             "Start locked time": 30,
             "Seconds per percent": 1.2,
             "triggers overtime after capping point at 99%": false,
-            "Rounds": 3
+            "Rounds": 5
         },
         "Escort": {
             "Attackers cart healing": 10,
             "Time until cart rollback": 10,
-            "Setup time": 45,
-            "Second round Assemble Your Team time": 25
+            "Setup time": 60,
+            "Second round Assemble Your Team time": 10
         },
         "Hybrid": {
             "Attackers cart healing": 10,
             "Time until cart rollback": 10,
-            "Setup time": 45,
-            "Second round Assemble Your Team time": 25,
+            "Setup time": 60,
+            "Second round Assemble Your Team time": 10,
             "requires first tick before tiebreaking": true,
             "control point progress can tiebreak": true
         },
         "Assault": {
             "Additional time for first point capture": 180,
-            "Setup time": 45,
-            "Second round Assemble Your Team time": 25,
+            "Setup time": 60,
+            "Second round Assemble Your Team time": 10,
+            "has only one tick": true,
             "requires first tick before tiebreaking": true,
             "control point progress can tiebreak": true
         }

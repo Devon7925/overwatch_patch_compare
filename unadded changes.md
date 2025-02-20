@@ -51,6 +51,10 @@
 *2017/05
     * Genij `Removed the attack delay from Genji’s wall climbing ability, allowing him to engage with enemies immediately after he finishes climbing`
     * Hanzo `Removed the attack cooldown from Hanzo’s wall climbing ability, allowing him to engage with enemies immediately after he finishes climbing`
+* 2017/03
+    * `On Route 66, the attacking team is now given 60 additional seconds after pushing the payload to the first checkpoint.`
+    * Sombra `Sound effects and VO distance has been reduced to 15 meters when Sombra enters or exits Stealth`
+    * Zenyatta `Weapon spread has been removed`
 
 
 
