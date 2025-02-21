@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Damage reduction cap"
-new_value = 50
-process_json_files(folder_path, 'general/Damage reduction cap', new_property_name, new_value, rename=False)
+new_property_name = "Line of sight check origin"
+new_value = "Roadhog's position"
+process_json_files(folder_path, 'heroes/Roadhog/abilities/Chain Hook/Line of sight check origin', new_property_name, new_value, rename=False)

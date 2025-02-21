@@ -9,8 +9,8 @@
         "D.Va": {
             "role": "tank",
             "general": {
-                "Base health": 400,
-                "Armor health": 200,
+                "Base health": 200,
+                "Armor health": 400,
                 "Pilot health": 150
             },
             "abilities": {
@@ -20,8 +20,8 @@
                     "Movement speed penalty": 50,
                     "Recovery time": 0.15,
                     "Critical multiplier": 2,
-                    "Damage per pellet": 2.0,
-                    "Pellet count": 11
+                    "Damage per pellet": 3.0,
+                    "Pellet count": 8
                 },
                 "Boosters": {
                     "Impact damage": 25,
@@ -32,7 +32,8 @@
                     "Maximum Duration": 4,
                     "Recharge rate": 10,
                     "Delay before regeneration begins": 1.0,
-                    "Length": 15
+                    "Length": 15,
+                    "requires shots to travel a minimum distance before being blocked": true
                 },
                 "Self Destruct": {
                     "Ultimate cost": 1400,
@@ -53,59 +54,6 @@
                     "Ultimate cost": 350,
                     "Damage": 50,
                     "Radius": 3.0
-                }
-            }
-        },
-        "Orisa": {
-            "role": "tank",
-            "general": {
-                "Base health": 200,
-                "Armor health": 200,
-                "Model size": 1.0,
-                "Head hitbox size": 1.0
-            },
-            "abilities": {
-                "Fortify": {
-                    "Duration": 4,
-                    "Cooldown start": "ability end",
-                    "Cooldown": 10,
-                    "immune to taking forced critical hit damage": false,
-                    "Damage reduction": 50,
-                    "disables critical damage": false,
-                    "Heat generation reduction": 50
-                },
-                "Fusion Driver": {
-                    "Damage": 12,
-                    "Spread": 1.5,
-                    "Movement speed reduction": 50,
-                    "Projectile speed": 75,
-                    "Recovery time": 0.08333333333333333,
-                    "Ammo": 150,
-                    "Reload time": 2.55,
-                    "Critical multiplier": 2
-                },
-                "Halt": {
-                    "Projectile speed": 20,
-                    "Range": 7,
-                    "Cast time": 0.1,
-                    "Cooldown": 8,
-                    "Snare duration": 1
-                },
-                "Protective Barrier": {
-                    "Health": 900,
-                    "Projectile speed": 25,
-                    "Duration": 20,
-                    "Cooldown": 12,
-                    "deploy cancels reload": true,
-                    "Scale": 1.0
-                },
-                "Supercharger": {
-                    "interrupted when Orisa is stunned during cast time": false,
-                    "Health": 200,
-                    "Range": 25,
-                    "Cast time": 0.4,
-                    "Ultimate cost": 1750,
-                    "Duration": 15
                 }
             }
         },
@@ -131,7 +79,7 @@
                     "Damage per pellet": 9,
                     "Minimum falloff range": 10,
                     "Maximum falloff range": 20,
-                    "Spread": 20.1
+                    "Spread": 25
                 },
                 "Take a Breather": {
                     "Cooldown": 8,
@@ -142,15 +90,13 @@
                     "Movement speed": 0
                 },
                 "Chain Hook": {
-                    "Cooldown": 8,
+                    "Cooldown": 6,
                     "Projectile size": 0.5,
-                    "Enemy final position distance": 3.5,
+                    "Enemy final position distance": 2,
                     "Cooldown start": "ability end",
                     "Impact damage": 30,
                     "Pull delay": 0.5,
-                    "Maximum angle change": 70,
-                    "cancelled if target leaves line of sight before being pulled": true,
-                    "Line of sight check origin": "Roadhog's position"
+                    "Line of sight check origin": "hook's position"
                 },
                 "Whole Hog": {
                     "Knockback": 8,
@@ -184,6 +130,7 @@
                 "Particle Barrier": {
                     "Cooldown start": "barrier expiry",
                     "shares cooldown with Projected Barrier": false,
+                    "protects Zarya from knockback": true,
                     "Cooldown": 10,
                     "Health": 200,
                     "Duration": 2
@@ -191,6 +138,7 @@
                 "Projected Barrier": {
                     "Cooldown start": "barrier expiry",
                     "shares cooldown with Particle Barrier": false,
+                    "protects Zarya from knockback": true,
                     "Cooldown": 8,
                     "Health": 200,
                     "Duration": 2,
@@ -292,7 +240,7 @@
                     "Health": 600,
                     "Duration": 6,
                     "Cooldown": 13,
-                    "Cooldown start": "ability start"
+                    "Cooldown start": "barrier expiry"
                 }
             }
         },
@@ -304,38 +252,39 @@
                 "Model size": 1
             },
             "abilities": {
-                "Ironclad": {
-                    "Damage reduction": 20
-                },
                 "Self-Repair": {
                     "Healing per second": 75,
-                    "Drain rate per second": 25,
-                    "consumes resource while at full health": true
+                    "interrupted by damage": true,
+                    "Movement speed penalty": 100
                 },
                 "Configuration: Assault": {
                     "Shots until maximum spread": 40,
                     "Movement speed penalty": 100,
                     "Cooldown": 12,
-                    "Spread": 3,
-                    "Ammo": 300,
+                    "Spread": 2,
+                    "Min spread": 1.7,
+                    "Ammo": 200,
                     "Reload time": 2.1,
                     "Recovery time": 0.03333333333333333,
                     "Damage": 15,
-                    "Maximum damage falloff scalar": 30
+                    "Maximum damage falloff scalar": 30,
+                    "Critical multiplier": 2
                 },
-                "Configuration: Tank": {},
+                "Configuration: Tank": {
+                    "Bonus armor": 150
+                },
                 "Configuration: Recon": {
                     "Projectile size": 0.0,
                     "Damage": 20,
-                    "Ammo": 25,
+                    "Ammo": 20,
                     "Reload time": 1.5,
                     "Recovery time": 0.125,
                     "Critical multiplier": 2,
-                    "Spread": 1.5,
+                    "Spread": 2.0,
                     "Maximum damage falloff scalar": 30
                 },
                 "Reconfigure": {
-                    "Cast time into turret": 1.0
+                    "Cast time into turret": 1.5
                 }
             }
         },
@@ -520,8 +469,7 @@
                     "Bullets per burst": 6,
                     "Cast time": 1.0,
                     "Explosion damage": 50,
-                    "Spread": 1,
-                    "prevents explosion self damage": true
+                    "Spread": 1
                 }
             }
         },
@@ -549,7 +497,8 @@
                     "Min duration": 0.44,
                     "Recovery time": 0.24,
                     "Cooldown": 12,
-                    "acts as solid object for interactions": false
+                    "acts as solid object for interactions": false,
+                    "prevents ally targeting": true
                 },
                 "Ice Wall": {
                     "Health per pillar": 500,
@@ -742,7 +691,7 @@
                     "activates on terrain collision": false,
                     "Projectile speed": 25,
                     "Cooldown start": "Ability end",
-                    "Cooldown": 4,
+                    "Cooldown": 6,
                     "Max duration": 15
                 },
                 "Machine Pistol": {
@@ -768,17 +717,16 @@
                     "Maximum duration": 6
                 },
                 "Hack": {
-                    "Cast time": 0.8,
+                    "Cast time": 1.0,
                     "cancels Stealth when hacking an enemy hero": true,
-                    "Cooldown on successful enemy hero hack": 8,
+                    "Cooldown on successful enemy hero hack": 12,
                     "Health pack hacked duration": 60,
                     "Ability lockout duration": 6,
                     "can hack hacked enemies": true,
                     "reveals enemies": false,
                     "Stun duration on Bob": 5,
                     "destroys immortality field": false,
-                    "gives ultimate charge for healing": true,
-                    "reveals hacked health packs through walls": true
+                    "gives ultimate charge for healing": true
                 }
             }
         },
@@ -1011,7 +959,7 @@
                     "Unscoped projectile size": 0,
                     "Enemy scoped projectile size": 0.0,
                     "Ally scoped projectile size": 0.3,
-                    "Damage": 60,
+                    "Damage": 80,
                     "Healing": 75,
                     "Recovery time": 0.8,
                     "Reload time": 1.5,
@@ -1026,10 +974,10 @@
                     "Healing": 100,
                     "Damage": 60,
                     "Projectile size": 0.2,
-                    "Effect duration": 4,
+                    "Effect duration": 5,
                     "Cooldown": 10,
                     "collides with full health allies": true,
-                    "Ally healing boost": 50
+                    "Ally healing boost": 100
                 },
                 "Nano Boost": {
                     "Ultimate cost": 1850,
@@ -1085,7 +1033,8 @@
                 "Wall Ride": {
                     "Cooldown": 0.5,
                     "cannot go around corners": true,
-                    "last used wall is unusable": true
+                    "last used wall is unusable": true,
+                    "can only go forward": true
                 }
             }
         },
@@ -1128,7 +1077,6 @@
                     "Cast time": 0,
                     "resets Guardian Angel cooldown": true,
                     "resurrects all players within range": true,
-                    "grants invulnerability during cast": true,
                     "Ultimate cost": 1900
                 }
             }
@@ -1168,7 +1116,7 @@
                     "Projectile size": 0.15,
                     "Bullets per burst": 5,
                     "Maximum charge time": 3.0,
-                    "Recovery time": 0.6,
+                    "Recovery time": 1.0,
                     "Critical multiplier": 2,
                     "Time between shots": 0.1
                 }
@@ -1201,7 +1149,7 @@
         "Sound distance": 1,
         "turrets target shields": true,
         "ultimate charge depletes during use": true,
-        "Damage reduction cap": 50
+        "Damage reduction cap": 70
     },
     "Map list": {
         "Busan": 1,
@@ -1213,7 +1161,7 @@
         "Route 66": 1,
         "Shambali Monastery": 1,
         "Watchpoint: Gibraltar": 1,
-        "Eichenwalde": 0,
+        "Eichenwalde": -1,
         "Hollywood": 1,
         "King's Row": 1,
         "Numbani": 1,

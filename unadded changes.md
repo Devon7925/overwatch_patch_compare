@@ -55,6 +55,8 @@
     * `On Route 66, the attacking team is now given 60 additional seconds after pushing the payload to the first checkpoint.`
     * Sombra `Sound effects and VO distance has been reduced to 15 meters when Sombra enters or exits Stealth`
     * Zenyatta `Weapon spread has been removed`
+* 2017/02
+    * Torbjorn `Ammo is now loaded earlier in the reload animation`
 
 
 

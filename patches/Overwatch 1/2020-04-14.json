@@ -138,7 +138,8 @@
                     "Reload time": 2,
                     "Damage per pellet": 6,
                     "Minimum falloff range": 15,
-                    "Maximum falloff range": 30
+                    "Maximum falloff range": 30,
+                    "Spread": 20.1
                 },
                 "Take a Breather": {
                     "Damage reduction": 50,
@@ -154,7 +155,10 @@
                     "Enemy final position distance": 3.5,
                     "Cooldown start": "ability start",
                     "Impact damage": 30,
-                    "Pull delay": 0.3
+                    "Pull delay": 0.3,
+                    "Maximum angle change": 70,
+                    "cancelled if target leaves line of sight before being pulled": true,
+                    "Line of sight check origin": "Roadhog's position"
                 },
                 "Whole Hog": {
                     "Knockback": 10,
@@ -496,7 +500,9 @@
                     "Spread": 1.5,
                     "Maximum damage falloff scalar": 50
                 },
-                "Reconfigure": {}
+                "Reconfigure": {
+                    "Cast time into turret": 1.0
+                }
             }
         },
         "Cassidy": {
@@ -1294,7 +1300,8 @@
                     "Projectile size": 0.2,
                     "Effect duration": 4,
                     "Cooldown": 10,
-                    "collides with full health allies": true
+                    "collides with full health allies": true,
+                    "Ally healing boost": 50
                 },
                 "Nano Boost": {
                     "Ultimate cost": 2090,
@@ -1597,6 +1604,7 @@
         }
     },
     "general": {
+        "has attacker advantage timer": true,
         "Respawn time": 10,
         "Overtime respawn time": 13,
         "Knockdown time": 2,

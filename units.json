@@ -12,6 +12,12 @@
                 "seconds"
             ]
         ],
+        "has attacker advantage timer": [
+            [
+                "display unit",
+                "flag"
+            ]
+        ],
         "Knockdown time": [
             [
                 "display unit",
@@ -316,6 +322,12 @@
                         [
                             "display unit",
                             "seconds"
+                        ]
+                    ],
+                    "requires shots to travel a minimum distance before being blocked": [
+                        [
+                            "display unit",
+                            "flag"
                         ]
                     ],
                     "Recharge rate": [
@@ -1327,6 +1339,12 @@
                             "shrapnel"
                         ]
                     ],
+                    "Spread": [
+                        [
+                            "display unit",
+                            "degrees"
+                        ]
+                    ],
                     "Shrapnel projectile size": [],
                     "Critical multiplier": [
                         [
@@ -1436,12 +1454,6 @@
                             "seconds"
                         ]
                     ],
-                    "Cooldown": [
-                        [
-                            "display unit",
-                            "seconds"
-                        ]
-                    ],
                     "Projectile size": [
                         [
                             "display unit",
@@ -1459,6 +1471,25 @@
                         [
                             "damage instance",
                             "normal"
+                        ]
+                    ],
+                    "Line of sight check origin": [],
+                    "Maximum angle change": [
+                        [
+                            "display unit",
+                            "degrees"
+                        ]
+                    ],
+                    "cancelled if target leaves line of sight before being pulled": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
                         ]
                     ]
                 },
@@ -3431,6 +3462,18 @@
                             "display unit",
                             "percent"
                         ]
+                    ],
+                    "interrupted by damage": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "Movement speed penalty": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
                     ]
                 },
                 "Configuration: Recon": {
@@ -3487,6 +3530,12 @@
                         [
                             "damage instance",
                             "normal"
+                        ]
+                    ],
+                    "Critical multiplier": [
+                        [
+                            "critical multiplier",
+                            "headshot"
                         ]
                     ],
                     "Movement speed penalty": [
@@ -3596,9 +3645,17 @@
                             "healing instance",
                             "normal"
                         ]
+                    ],
+                    "Cast time into turret": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
                     ]
                 },
-                "Configuration: Tank": {},
+                "Configuration: Tank": {
+                    "Bonus armor": []
+                },
                 "Configuration: Artillery": {
                     "Ultimate cost": [],
                     "Projectile size": [
@@ -4894,6 +4951,12 @@
                         ]
                     ],
                     "acts as solid object for interactions": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "prevents ally targeting": [
                         [
                             "display unit",
                             "flag"
@@ -7327,6 +7390,12 @@
                             "seconds"
                         ]
                     ],
+                    "Ally healing boost": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
                     "Cooldown": [
                         [
                             "display unit",
@@ -8647,6 +8716,12 @@
                             "display unit",
                             "flag"
                         ]
+                    ],
+                    "can only go forward": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
                     ]
                 },
                 "Sonic Amplifier": {
@@ -8919,6 +8994,12 @@
                         ]
                     ],
                     "launches up when reaching destination": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "can glide past a targeted ally using the jump key": [
                         [
                             "display unit",
                             "flag"
