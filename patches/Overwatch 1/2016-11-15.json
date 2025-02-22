@@ -133,7 +133,8 @@
                     "protects Zarya from knockback": true,
                     "Cooldown": 10,
                     "Health": 200,
-                    "Duration": 2
+                    "Duration": 2,
+                    "piercing attacks deal double damage to barrier": true
                 },
                 "Projected Barrier": {
                     "Cooldown start": "barrier expiry",
@@ -142,7 +143,8 @@
                     "Cooldown": 8,
                     "Health": 200,
                     "Duration": 2,
-                    "Size": 1
+                    "Size": 1,
+                    "piercing attacks deal double damage to barrier": true
                 },
                 "Graviton Surge": {
                     "Ultimate cost": 1875,
@@ -749,7 +751,7 @@
                     "Ammo per second": 7,
                     "Reload time": 1.5,
                     "Maximum beam level": 3,
-                    "Range": 7,
+                    "Range": 5,
                     "locks on to targets": true
                 },
                 "Sentry Turret": {
@@ -758,29 +760,22 @@
                     "reveals enemy heroes to allies while dealing damage and for 1 additional second afterwards": false,
                     "Movement speed reduction per turret": 15,
                     "Placement method": "set in place",
-                    "Charges": 6,
-                    "Maximum deployed": 6,
-                    "Cooldown": 10
+                    "Charges": 3,
+                    "Maximum deployed": 3,
+                    "Cooldown": 12
                 },
-                "Photon Barrier": {
-                    "Barrier health": 1000,
-                    "Cooldown": 10,
-                    "Movement speed": 5.5
+                "Photon Shield": {
+                    "Added shield health": 25,
+                    "Range": 20,
+                    "Cooldown": 1
                 },
                 "Teleporter": {
-                    "Base health": 50,
-                    "Shield health": 350,
+                    "Base health": 200,
                     "Build time": 2,
                     "cannot be destroyed while dead": true,
                     "Interact range": 1,
                     "Entry location": "in spawn",
                     "only allows player teleports": true
-                },
-                "Shield Generator": {
-                    "Base health": 50,
-                    "Shield health": 350,
-                    "Ultimate cost": 1500,
-                    "Shield generation": 75
                 },
                 "Photon Projector Alt Fire": {
                     "Minimum projectile size": 0.04,
@@ -1158,7 +1153,6 @@
         "Ilios": 1,
         "Lijiang Tower": 1,
         "Nepal": 1,
-        "Oasis": 1,
         "Dorado": 1,
         "Route 66": 1,
         "Shambali Monastery": 1,

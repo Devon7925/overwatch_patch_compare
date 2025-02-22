@@ -57,6 +57,8 @@
     * Zenyatta `Weapon spread has been removed`
 * 2017/02
     * Torbjorn `Ammo is now loaded earlier in the reload animation`
+*2016/11
+    * Pharah `Minimum explosion knockback has been decreased to 0%`
 
 
 

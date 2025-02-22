@@ -224,7 +224,8 @@
                 },
                 "Energy": {
                     "Energy degeneration rate": 2,
-                    "Energy degeneration delay": 1
+                    "Energy degeneration delay": 1,
+                    "Energy conversion rate": 20
                 }
             }
         },
@@ -889,7 +890,8 @@
                     "Movement speed reduction per turret": 15,
                     "Placement method": "set in place",
                     "Charges": 6,
-                    "Maximum deployed": 6
+                    "Maximum deployed": 6,
+                    "Cooldown": 10
                 },
                 "Photon Barrier": {
                     "Barrier health": 1000,

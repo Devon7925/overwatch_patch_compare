@@ -125,6 +125,12 @@
             ]
         ],
         "Elevator behavior": [],
+        "ultimate charge gained from deployable damage": [
+            [
+                "display unit",
+                "flag"
+            ]
+        ],
         "has random shotgun rotation": [
             [
                 "display unit",
@@ -2012,6 +2018,12 @@
                             "display unit",
                             "seconds"
                         ]
+                    ],
+                    "Energy conversion rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
                     ]
                 },
                 "Particle Cannon": {
@@ -2106,6 +2118,12 @@
                             "flag"
                         ]
                     ],
+                    "piercing attacks deal double damage to barrier": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
                     "Cooldown": [
                         [
                             "display unit",
@@ -2130,6 +2148,12 @@
                         ]
                     ],
                     "protects Zarya from knockback": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "piercing attacks deal double damage to barrier": [
                         [
                             "display unit",
                             "flag"
@@ -6343,6 +6367,12 @@
                             "display unit",
                             "meters per second"
                         ]
+                    ],
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
                     ]
                 },
                 "Teleporter": {
@@ -6406,6 +6436,21 @@
                         [
                             "display unit",
                             "flag"
+                        ]
+                    ]
+                },
+                "Photon Shield": {
+                    "Added shield health": [],
+                    "Range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
                         ]
                     ]
                 },
@@ -7210,6 +7255,12 @@
                     ]
                 },
                 "Venom Mine": {
+                    "has self damage": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
                     "makes affected targets visible through walls": [
                         [
                             "display unit",
@@ -7410,6 +7461,12 @@
                     ]
                 },
                 "Nano Boost": {
+                    "Speed boost": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
                     "Range": [
                         [
                             "display unit",

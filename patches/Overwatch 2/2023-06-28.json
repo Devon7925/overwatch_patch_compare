@@ -394,7 +394,8 @@
                 },
                 "Energy": {
                     "Energy degeneration rate": 2,
-                    "Energy degeneration delay": 2
+                    "Energy degeneration delay": 2,
+                    "Energy conversion rate": 20
                 }
             }
         },
@@ -1287,7 +1288,8 @@
                     "Travel speed": 20,
                     "Placement method": "projectile",
                     "Charges": 3,
-                    "Maximum deployed": 3
+                    "Maximum deployed": 3,
+                    "Cooldown": 10
                 },
                 "Teleporter": {
                     "Base health": 50,

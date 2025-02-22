@@ -9,7 +9,7 @@
         "D.Va": {
             "role": "tank",
             "general": {
-                "Base health": 200,
+                "Base health": 100,
                 "Armor health": 400,
                 "Pilot health": 150
             },
@@ -17,7 +17,7 @@
                 "Fusion Cannons": {
                     "Spread": 4,
                     "Projectile size": 0.0,
-                    "Movement speed penalty": 50,
+                    "Movement speed penalty": 60,
                     "Recovery time": 0.15,
                     "Critical multiplier": 2,
                     "Damage per pellet": 3.0,
@@ -36,7 +36,7 @@
                     "requires shots to travel a minimum distance before being blocked": true
                 },
                 "Self Destruct": {
-                    "Ultimate cost": 1400,
+                    "Ultimate cost": 1120,
                     "Maximum damage": 900,
                     "Inner explosion radius": 4,
                     "prevents building ultimate charge for duration": false
@@ -101,7 +101,7 @@
                 "Whole Hog": {
                     "Knockback": 8,
                     "Damage per pellet": 7,
-                    "Ultimate cost": 2300,
+                    "Ultimate cost": 1840,
                     "disables other abilities and automatically fires": true,
                     "Projectile size": 0.0,
                     "Maximum duration": 6,
@@ -133,7 +133,8 @@
                     "protects Zarya from knockback": true,
                     "Cooldown": 10,
                     "Health": 200,
-                    "Duration": 2
+                    "Duration": 2,
+                    "piercing attacks deal double damage to barrier": true
                 },
                 "Projected Barrier": {
                     "Cooldown start": "barrier expiry",
@@ -142,10 +143,11 @@
                     "Cooldown": 8,
                     "Health": 200,
                     "Duration": 2,
-                    "Size": 1
+                    "Size": 1,
+                    "piercing attacks deal double damage to barrier": true
                 },
                 "Graviton Surge": {
-                    "Ultimate cost": 1875,
+                    "Ultimate cost": 1500,
                     "Radius": 8,
                     "Duration": 4,
                     "Projectile size": 0.05
@@ -161,7 +163,7 @@
                 "Energy": {
                     "Energy degeneration rate": 2,
                     "Energy degeneration delay": 1,
-                    "Energy conversion rate": 20
+                    "Energy conversion rate": 25
                 }
             }
         },
@@ -199,7 +201,7 @@
                     "Shockwave range": 20,
                     "hits enemies that enter the damage cone after the “wave” has passed that area": true,
                     "damages enemies behind barriers blocking it, even if the barrier is later dropped or destroyed": true,
-                    "Ultimate cost": 1350,
+                    "Ultimate cost": 1080,
                     "Height": 3
                 }
             }
@@ -218,7 +220,7 @@
                     "Ammo per second": 20
                 },
                 "Primal Rage": {
-                    "Ultimate cost": 1400,
+                    "Ultimate cost": 1120,
                     "Damage": 40,
                     "Maximum health gained": 500,
                     "Cast time": 0.224,
@@ -324,7 +326,7 @@
                 "Deadeye": {
                     "Max movement speed penalty": 70,
                     "Min movement speed penalty": 70,
-                    "Ultimate cost": 1475,
+                    "Ultimate cost": 1180,
                     "Initial damage rate": 20,
                     "Secondary damage rate": 275,
                     "Damage rate": 260,
@@ -365,7 +367,7 @@
                     "can be cancelled manually": false
                 },
                 "Dragonblade": {
-                    "Ultimate cost": 1500,
+                    "Ultimate cost": 1200,
                     "Recovery time": 0.9,
                     "Damage": 120,
                     "interrupted when Genji is stunned": true
@@ -408,7 +410,7 @@
                 },
                 "Dragonstrike": {
                     "Speed": 12,
-                    "Ultimate cost": 1500,
+                    "Ultimate cost": 1200,
                     "Critical multiplier": 2,
                     "Damage per second": 150,
                     "Projectile size": 0.1
@@ -448,7 +450,7 @@
                     "Projectile speed": 20
                 },
                 "RIP-Tire": {
-                    "Ultimate cost": 1550,
+                    "Ultimate cost": 1240,
                     "Damage": 600,
                     "Radius": 10,
                     "Cast time": 1.536,
@@ -511,7 +513,7 @@
                     "cannot be destroyed while dead": true
                 },
                 "Blizzard": {
-                    "Ultimate cost": 1425,
+                    "Ultimate cost": 1000,
                     "Cast time": 0.5,
                     "Range": 10,
                     "Damage per second": 20,
@@ -546,12 +548,12 @@
                     "Recovery time": 0.9,
                     "Ammo": 6,
                     "Reload time": 1.5,
-                    "Minimum explosion damage": 20,
+                    "Minimum explosion damage": 17.5,
                     "Knockback": 8.75,
                     "Self knockback": 14
                 },
                 "Barrage": {
-                    "Ultimate cost": 1900,
+                    "Ultimate cost": 1520,
                     "Projectile size": 0.075,
                     "instantly refills Hover Jets fuel": false,
                     "Direct damage": 10,
@@ -567,7 +569,7 @@
                     "Knockback": 20.8
                 },
                 "Jump Jet": {
-                    "Vertical boost height": 10.5,
+                    "Vertical boost height": 7.75,
                     "Cooldown": 10,
                     "affected by directional input": false
                 },
@@ -602,7 +604,7 @@
                     "Time to exit shadow step": 1.0
                 },
                 "Death Blossom": {
-                    "Ultimate cost": 1900,
+                    "Ultimate cost": 1520,
                     "Damage per second": 170,
                     "Duration": 3,
                     "Movement speed reduction": 50,
@@ -629,7 +631,7 @@
             },
             "abilities": {
                 "Heavy Pulse Rifle": {
-                    "Damage": 20,
+                    "Damage": 17,
                     "Projectile size": 0.0,
                     "Ammo": 25,
                     "Recovery time": 0.111111111,
@@ -637,7 +639,7 @@
                     "Reload time": 1.5,
                     "Number of shots to reach maximum recoil": 4,
                     "Maximum damage falloff scalar": 30,
-                    "Maximum spread": 2.4,
+                    "Maximum spread": 2.2,
                     "Bullets until reaching maximum spread": 6
                 },
                 "Biotic Field": {
@@ -648,7 +650,7 @@
                     "Cast time": 0.54
                 },
                 "Tactical Visor": {
-                    "Ultimate cost": 2000,
+                    "Ultimate cost": 1600,
                     "removes damage falloff": false,
                     "prevents critical hits": true,
                     "cannot target RIP-Tire": true,
@@ -666,68 +668,6 @@
                 "Sprint": {
                     "Increased movement speed": 50,
                     "Recovery time": 0.5
-                }
-            }
-        },
-        "Sombra": {
-            "role": "offense",
-            "general": {
-                "Base health": 200
-            },
-            "abilities": {
-                "Opportunist": {
-                    "Maximum health percent to reveal enemy health bars": 100
-                },
-                "EMP": {
-                    "Ultimate cost": 1450,
-                    "Ability lockout duration": 1.5,
-                    "destroys Mei's Blizzard": false,
-                    "deals additional damage to base shield health pools": true,
-                    "blocked by small objects": true,
-                    "Cast time": 0.2
-                },
-                "Translocator": {
-                    "destroys breakables while in flight": false,
-                    "can be manually activated": true,
-                    "activates on terrain collision": false,
-                    "Projectile speed": 25,
-                    "Cooldown start": "Ability end",
-                    "Cooldown": 6,
-                    "Max duration": 15
-                },
-                "Machine Pistol": {
-                    "Projectile size": 0.0,
-                    "Damage": 8,
-                    "Minimum Spread": 0.5,
-                    "Number of shots until max spread": 3,
-                    "Reload time": 1.4,
-                    "Critical multiplier": 2,
-                    "Recovery time": 0.05,
-                    "Ammo": 60,
-                    "Maximum spread": 3
-                },
-                "Stealth": {
-                    "is passive": false,
-                    "Cooldown": 6,
-                    "Movement speed": 70,
-                    "Fade out duration": 0.375,
-                    "Fade in duration": 1.0,
-                    "Enemy detection radius": 2,
-                    "Cancelled by damage": true,
-                    "can contest objectives": true,
-                    "Maximum duration": 6
-                },
-                "Hack": {
-                    "Cast time": 1.0,
-                    "cancels Stealth when hacking an enemy hero": true,
-                    "Cooldown on successful enemy hero hack": 12,
-                    "Health pack hacked duration": 60,
-                    "Ability lockout duration": 6,
-                    "can hack hacked enemies": true,
-                    "reveals enemies": false,
-                    "Stun duration on Bob": 5,
-                    "destroys immortality field": false,
-                    "gives ultimate charge for healing": true
                 }
             }
         },
@@ -749,7 +689,7 @@
                     "Ammo per second": 7,
                     "Reload time": 1.5,
                     "Maximum beam level": 3,
-                    "Range": 7,
+                    "Range": 5,
                     "locks on to targets": true
                 },
                 "Sentry Turret": {
@@ -758,29 +698,22 @@
                     "reveals enemy heroes to allies while dealing damage and for 1 additional second afterwards": false,
                     "Movement speed reduction per turret": 15,
                     "Placement method": "set in place",
-                    "Charges": 6,
-                    "Maximum deployed": 6,
-                    "Cooldown": 10
+                    "Charges": 3,
+                    "Maximum deployed": 3,
+                    "Cooldown": 12
                 },
-                "Photon Barrier": {
-                    "Barrier health": 1000,
-                    "Cooldown": 10,
-                    "Movement speed": 5.5
+                "Photon Shield": {
+                    "Added shield health": 25,
+                    "Range": 20,
+                    "Cooldown": 1
                 },
                 "Teleporter": {
-                    "Base health": 50,
-                    "Shield health": 350,
+                    "Base health": 200,
                     "Build time": 2,
                     "cannot be destroyed while dead": true,
                     "Interact range": 1,
                     "Entry location": "in spawn",
                     "only allows player teleports": true
-                },
-                "Shield Generator": {
-                    "Base health": 50,
-                    "Shield health": 350,
-                    "Ultimate cost": 1500,
-                    "Shield generation": 75
                 },
                 "Photon Projector Alt Fire": {
                     "Minimum projectile size": 0.04,
@@ -805,8 +738,7 @@
             },
             "abilities": {
                 "Scrap Collector": {
-                    "Scrap per second": 2,
-                    "Scrap per pickup": 15,
+                    "Scrap per pickup": 25,
                     "Max scrap": 200
                 },
                 "Rivet Gun": {
@@ -820,7 +752,7 @@
                     "hits change turret target": false
                 },
                 "Molten Core": {
-                    "Ultimate cost": 2150,
+                    "Ultimate cost": 1720,
                     "upgrades turret to level 3": true,
                     "Bonus armor": 250
                 },
@@ -846,8 +778,8 @@
                     "Temporary armor": 75
                 },
                 "Forge Hammer": {
-                    "Damage": 55,
-                    "Recovery time": 0.75
+                    "Damage": 75,
+                    "Recovery time": 0.95
                 },
                 "Rivet Gun Alt Fire": {
                     "Ammo per shot": 3,
@@ -888,7 +820,7 @@
                 },
                 "Pulse Bomb": {
                     "Projectile size": 0.25,
-                    "Ultimate cost": 1100,
+                    "Ultimate cost": 880,
                     "Direct damage": 5,
                     "Explosion damage": 400,
                     "Radius": 4,
@@ -912,7 +844,7 @@
             },
             "abilities": {
                 "Infra-Sight": {
-                    "Ultimate cost": 1400,
+                    "Ultimate cost": 1120,
                     "Duration": 15
                 },
                 "Widow's Kiss": {
@@ -928,7 +860,7 @@
                     "Alt fire of": "Widow's Kiss",
                     "Critical multiplier": 2.5,
                     "Maximum damage": 120,
-                    "Maximum charge time": 0.75,
+                    "Maximum charge time": 0.9,
                     "Recovery time": 0.5,
                     "Ammo per shot": 3
                 },
@@ -946,7 +878,8 @@
                     "Projectile speed": 20,
                     "Cast time": 0.19,
                     "Recovery time": 0.78,
-                    "makes affected targets visible through walls": false
+                    "makes affected targets visible through walls": false,
+                    "has self damage": true
                 }
             }
         },
@@ -982,8 +915,9 @@
                     "Ally healing boost": 100
                 },
                 "Nano Boost": {
-                    "Ultimate cost": 1850,
-                    "Range": 30
+                    "Ultimate cost": 1480,
+                    "Range": 30,
+                    "Speed boost": 30
                 }
             }
         },
@@ -1015,7 +949,7 @@
                     "ignores vertical orientation when knocking targets back": true
                 },
                 "Sound Barrier": {
-                    "Ultimate cost": 2650,
+                    "Ultimate cost": 2120,
                     "Overhealth": 500
                 },
                 "Crossfade": {
@@ -1027,7 +961,7 @@
                 },
                 "Amp It Up": {
                     "Cooldown": 12,
-                    "Healing per second": 40,
+                    "Healing per second": 45,
                     "Duration": 3,
                     "Recovery time": 0.69,
                     "Movement speed": 70
@@ -1048,7 +982,7 @@
             },
             "abilities": {
                 "Regeneration": {
-                    "Delay": 1,
+                    "Delay": 3,
                     "Healing per second": 15
                 },
                 "Caduceus Staff": {
@@ -1079,7 +1013,7 @@
                     "Cast time": 0,
                     "resets Guardian Angel cooldown": true,
                     "resurrects all players within range": true,
-                    "Ultimate cost": 1900
+                    "Ultimate cost": 1520
                 }
             }
         },
@@ -1099,7 +1033,7 @@
                     "Reload time": 1.5
                 },
                 "Transcendence": {
-                    "Ultimate cost": 2075
+                    "Ultimate cost": 1660
                 },
                 "Harmony Orb": {
                     "Time to wear off when not in line-of-sight": 3,
@@ -1151,14 +1085,14 @@
         "Sound distance": 1,
         "turrets target shields": true,
         "ultimate charge depletes during use": true,
-        "Damage reduction cap": 70
+        "Damage reduction cap": 70,
+        "ultimate charge gained from deployable damage": true
     },
     "Map list": {
         "Busan": 1,
         "Ilios": 1,
         "Lijiang Tower": 1,
         "Nepal": 1,
-        "Oasis": 1,
         "Dorado": 1,
         "Route 66": 1,
         "Shambali Monastery": 1,
