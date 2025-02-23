@@ -600,7 +600,8 @@
                     "Ultimate cost": 1500,
                     "Recovery time": 0.9,
                     "Damage": 120,
-                    "restores ammo on completion": true
+                    "restores ammo on completion": true,
+                    "Duration": 6
                 },
                 "Shuriken Alt Fire": {
                     "Damage per pellet": 28,
@@ -615,7 +616,8 @@
                 "Swift Strike": {
                     "Cooldown": 8,
                     "Damage": 50
-                }
+                },
+                "Cyber-agility": {}
             }
         },
         "Hanzo": {
@@ -631,7 +633,8 @@
                     "Critical multiplier": 2,
                     "Maximum charge time": 0.732,
                     "Recovery time": 0.5,
-                    "Maximum projectile speed": 125
+                    "Maximum projectile speed": 125,
+                    "Movement speed penalty": 30
                 },
                 "Storm Arrows": {
                     "Cooldown": 10,
@@ -760,7 +763,8 @@
                     "Range": 10,
                     "Damage per second": 20,
                     "Duration": 5,
-                    "Projectile speed": 20
+                    "Projectile speed": 20,
+                    "pierces barriers": true
                 },
                 "Endothermic Blaster Alt Fire": {
                     "Projectile size": 0.1,
@@ -1160,7 +1164,8 @@
                     "Maximum damage": 120,
                     "Maximum charge time": 0.75,
                     "Recovery time": 0.5,
-                    "Ammo per shot": 3
+                    "Ammo per shot": 3,
+                    "Zoom in animation time": 0.33
                 },
                 "Grappling Hook": {
                     "Cooldown": 10,
@@ -1209,7 +1214,8 @@
                     "Effect duration": 4,
                     "Cooldown": 10,
                     "collides with full health allies": true,
-                    "Ally healing boost": 50
+                    "Ally healing boost": 50,
+                    "Splash radius": 4
                 },
                 "Nano Boost": {
                     "Ultimate cost": 1850,
@@ -1374,7 +1380,8 @@
                     "Cast time": 1.75,
                     "Movement speed reduction during cast": 75,
                     "interruptable": true,
-                    "Cooldown": 30
+                    "Cooldown": 30,
+                    "Delay after resurrection before player can shoot and use abilities": 2.25
                 }
             }
         },
@@ -1495,7 +1502,6 @@
         "Junkertown": 1,
         "Rialto": 1,
         "Route 66": 1,
-        "Shambali Monastery": 1,
         "Watchpoint: Gibraltar": 1,
         "Blizzard World": 1,
         "Eichenwalde": 1,

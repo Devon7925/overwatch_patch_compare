@@ -550,7 +550,7 @@
                     "Projectile size": 0.6,
                     "Damage": 60,
                     "Recovery time": 0.6,
-                    "Pierces barriers": true
+                    "pierces barriers": true
                 },
                 "Block": {
                     "reduces damage from stuck projectiles": false
@@ -836,7 +836,8 @@
                     "Ultimate cost": 1931,
                     "Recovery time": 0.9,
                     "Damage": 110,
-                    "restores ammo on completion": true
+                    "restores ammo on completion": true,
+                    "Duration": 6
                 },
                 "Shuriken Alt Fire": {
                     "Damage per pellet": 27,
@@ -851,7 +852,8 @@
                 "Swift Strike": {
                     "Cooldown": 8,
                     "Damage": 50
-                }
+                },
+                "Cyber-agility": {}
             }
         },
         "Hanzo": {
@@ -867,7 +869,8 @@
                     "Critical multiplier": 2,
                     "Maximum charge time": 0.732,
                     "Recovery time": 0.5,
-                    "Maximum projectile speed": 110
+                    "Maximum projectile speed": 110,
+                    "Movement speed penalty": 30
                 },
                 "Storm Arrows": {
                     "Cooldown": 10,
@@ -1000,7 +1003,8 @@
                     "Range": 10,
                     "Damage per second": 20,
                     "Duration": 4.25,
-                    "Projectile speed": 20
+                    "Projectile speed": 20,
+                    "pierces barriers": true
                 },
                 "Endothermic Blaster Alt Fire": {
                     "Projectile size": 0.1,
@@ -1452,7 +1456,8 @@
                     "Maximum damage": 120,
                     "Maximum charge time": 0.9,
                     "Recovery time": 0.5,
-                    "Ammo per shot": 5
+                    "Ammo per shot": 5,
+                    "Zoom in animation time": 0.33
                 },
                 "Grappling Hook": {
                     "Cooldown": 12,
@@ -1501,7 +1506,8 @@
                     "Projectile size": 0.2,
                     "Effect duration": 3.5,
                     "Cooldown": 10,
-                    "Ally healing boost": 50
+                    "Ally healing boost": 50,
+                    "Splash radius": 4
                 },
                 "Nano Boost": {
                     "Ultimate cost": 2090,
@@ -1817,7 +1823,8 @@
                     "freezes soul in place": true,
                     "Cast time": 1.75,
                     "Movement speed reduction during cast": 75,
-                    "interruptable": true
+                    "interruptable": true,
+                    "Delay after resurrection before player can shoot and use abilities": 2.25
                 }
             }
         },

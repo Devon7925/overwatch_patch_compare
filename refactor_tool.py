@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "Energy conversion rate"
-new_value = 20
-process_json_files(folder_path, 'heroes/Zarya/abilities/Energy/Energy conversion rate', new_property_name, new_value, rename=False)
+new_property_name = "Cyber-agility"
+new_value = {}
+process_json_files(folder_path, 'heroes/Genji/abilities/Cyber-agility', new_property_name, new_value, rename=False)

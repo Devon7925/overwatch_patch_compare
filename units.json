@@ -173,10 +173,10 @@
                 "flag"
             ]
         ],
-        "ultimate charge depletes during use": [
+        "Ultimate charge deplete time": [
             [
                 "display unit",
-                "flag"
+                "seconds"
             ]
         ],
         "Maximum lower carryover time": [
@@ -345,7 +345,7 @@
                     "Delay before regeneration begins": [
                         [
                             "display unit",
-                            "percent"
+                            "seconds"
                         ]
                     ],
                     "Length": [
@@ -1484,6 +1484,12 @@
                         [
                             "display unit",
                             "degrees"
+                        ]
+                    ],
+                    "hooked players out of line of sight take the shortest path instead of being moved back to original hook position": [
+                        [
+                            "display unit",
+                            "flag"
                         ]
                     ],
                     "cancelled if target leaves line of sight before being pulled": [
@@ -2987,7 +2993,7 @@
                             "seconds"
                         ]
                     ],
-                    "Pierces barriers": [
+                    "pierces barriers": [
                         [
                             "display unit",
                             "flag"
@@ -3956,6 +3962,12 @@
                             "percent"
                         ]
                     ],
+                    "ultimate charge drained in two steps": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
                     "locks player's aim": [
                         [
                             "display unit",
@@ -4192,6 +4204,14 @@
                 ]
             },
             "abilities": {
+                "Cyber-agility": {
+                    "wall climb resets double jump": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ]
+                },
                 "Shuriken": {
                     "Damage per bullet": [
                         [
@@ -4297,6 +4317,24 @@
                     ]
                 },
                 "Swift Strike": {
+                    "deals damage to traps": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "interrupts quick melee attacks": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "bypasses traps": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
                     "Cooldown": [
                         [
                             "display unit",
@@ -4342,6 +4380,12 @@
                         [
                             "damage instance",
                             "normal"
+                        ]
+                    ],
+                    "Duration": [
+                        [
+                            "display unit",
+                            "seconds"
                         ]
                     ],
                     "restores ammo on completion": [
@@ -4410,6 +4454,12 @@
                         [
                             "display unit",
                             "meters per second"
+                        ]
+                    ],
+                    "Movement speed penalty": [
+                        [
+                            "display unit",
+                            "percent"
                         ]
                     ]
                 },
@@ -5047,6 +5097,12 @@
                         [
                             "display unit",
                             "seconds"
+                        ]
+                    ],
+                    "pierces barriers": [
+                        [
+                            "display unit",
+                            "flag"
                         ]
                     ],
                     "Ultimate cost": []
@@ -7208,6 +7264,12 @@
                             "seconds"
                         ]
                     ],
+                    "Zoom in animation time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
                     "Ammo": [
                         "ammo"
                     ],
@@ -7430,6 +7492,12 @@
                         ]
                     ],
                     "Projectile size": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Splash radius": [
                         [
                             "display unit",
                             "meters"
@@ -8918,7 +8986,7 @@
                     "Movement speed": [
                         [
                             "display unit",
-                            "seconds"
+                            "percent"
                         ]
                     ]
                 },
@@ -9071,6 +9139,12 @@
                 },
                 "Resurrect": {
                     "Cast time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Delay after resurrection before player can shoot and use abilities": [
                         [
                             "display unit",
                             "seconds"

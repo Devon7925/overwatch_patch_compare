@@ -57,8 +57,16 @@
     * Zenyatta `Weapon spread has been removed`
 * 2017/02
     * Torbjorn `Ammo is now loaded earlier in the reload animation`
-*2016/11
+* 2016/11
     * Pharah `Minimum explosion knockback has been decreased to 0%`
+* 2016/10 Junkrat Riptire `Ability now activates more quickly`
+* 2016/09
+    * Reverted a recent change that reduced the size of heroes' projectiles
+    * Most hero abilities will no longer interrupt quick melee attacks
+    * Ultimate abilities will now interrupt quick melee attacks
+    * Soldier: 76
+        * Bullet spread now happens more quickly when unloading fully-automatic pulse fire
+        * Significantly Increased bullet spread recovery time
 
 
 
