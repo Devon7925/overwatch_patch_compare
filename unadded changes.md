@@ -67,6 +67,8 @@
     * Soldier: 76
         * Bullet spread now happens more quickly when unloading fully-automatic pulse fire
         * Significantly Increased bullet spread recovery time
+* 2016/07
+    * Spread recovery will begin after a short delay (rather than instantly)
 
 
 

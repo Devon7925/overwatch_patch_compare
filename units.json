@@ -12,6 +12,30 @@
                 "seconds"
             ]
         ],
+        "map dependent respawn times": [
+            [
+                "display unit",
+                "flag"
+            ]
+        ],
+        "Initial overtime duration": [
+            [
+                "display unit",
+                "seconds"
+            ]
+        ],
+        "Secondary overtime duration": [
+            [
+                "display unit",
+                "seconds"
+            ]
+        ],
+        "Self-healing charges ultimates": [
+            [
+                "display unit",
+                "flag"
+            ]
+        ],
         "has attacker advantage timer": [
             [
                 "display unit",
@@ -422,12 +446,23 @@
                     ]
                 },
                 "Self Destruct": {
-                    "Ultimate cost": [],
                     "Maximum damage": [],
+                    "Explosion delay": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
                     "Inner explosion radius": [
                         [
                             "display unit",
                             "meters"
+                        ]
+                    ],
+                    "has self damage": [
+                        [
+                            "display unit",
+                            "flag"
                         ]
                     ],
                     "prevents building ultimate charge for duration": [
@@ -435,7 +470,8 @@
                             "display unit",
                             "flag"
                         ]
-                    ]
+                    ],
+                    "Ultimate cost": []
                 },
                 "Light Gun": {
                     "Damage": [
@@ -3684,7 +3720,8 @@
                     ]
                 },
                 "Configuration: Tank": {
-                    "Bonus armor": []
+                    "Bonus armor": [],
+                    "Ultimate cost": []
                 },
                 "Configuration: Artillery": {
                     "Ultimate cost": [],
@@ -3875,6 +3912,12 @@
                         ]
                     ],
                     "Maximum travel time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Recovery time": [
                         [
                             "display unit",
                             "seconds"
@@ -9048,6 +9091,12 @@
                             "display unit",
                             "percent"
                         ]
+                    ],
+                    "damage boost stacks": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
                     ]
                 },
                 "Caduceus Blaster": {
@@ -9175,6 +9224,12 @@
                         ]
                     ],
                     "resets Guardian Angel cooldown": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "disables movement during activation": [
                         [
                             "display unit",
                             "flag"
@@ -9614,6 +9669,13 @@
                             "flag"
                         ]
                     ],
+                    "Movement speed increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Healing per second": [],
                     "Ultimate cost": []
                 }
             }
@@ -9767,6 +9829,12 @@
             "Capture time multiplier for defenders on B and D points": []
         },
         "Assault": {
+            "Time to capture first point": [
+                [
+                    "display unit",
+                    "seconds"
+                ]
+            ],
             "Additional time for first point capture": [
                 [
                     "display unit",

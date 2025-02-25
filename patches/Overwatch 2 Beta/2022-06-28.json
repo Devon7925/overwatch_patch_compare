@@ -679,7 +679,8 @@
                     "Projectile speed": 25,
                     "Projectile size": 0.1,
                     "Seeking radius": 3,
-                    "Impact damage": 1
+                    "Impact damage": 1,
+                    "Recovery time": 0.35
                 },
                 "Deadeye": {
                     "Max movement speed penalty": 70,
@@ -1768,7 +1769,10 @@
         "Damage boost application time": "projectile fire",
         "ally outlines are visible through walls": true,
         "Sound distance": 1.25,
-        "Damage reduction cap": 50
+        "Damage reduction cap": 50,
+        "Initial overtime duration": 5,
+        "Secondary overtime duration": 3,
+        "Self-healing charges ultimates": true
     },
     "Map list": {
         "Busan": 1,
@@ -1825,7 +1829,8 @@
             "Setup time": 45,
             "Second round Assemble Your Team time": 25,
             "requires first tick before tiebreaking": true,
-            "control point progress can tiebreak": true
+            "control point progress can tiebreak": true,
+            "Time to capture first point": 240
         }
     }
 }

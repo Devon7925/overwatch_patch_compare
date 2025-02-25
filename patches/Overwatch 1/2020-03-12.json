@@ -490,7 +490,9 @@
                     "Damage": 15,
                     "Maximum damage falloff scalar": 50
                 },
-                "Configuration: Tank": {},
+                "Configuration: Tank": {
+                    "Ultimate cost": 2310
+                },
                 "Configuration: Recon": {
                     "Projectile size": 0.0,
                     "Damage": 20,
@@ -536,7 +538,8 @@
                     "Explosion damage": 25,
                     "Cooldown": 10,
                     "Projectile speed": 30,
-                    "Projectile size": 0.2
+                    "Projectile size": 0.2,
+                    "Recovery time": 0.35
                 },
                 "Deadeye": {
                     "Max movement speed penalty": 70,
@@ -1588,7 +1591,10 @@
         "Damage boost application time": "projectile fire",
         "ally outlines are visible through walls": true,
         "Sound distance": 1.25,
-        "Damage reduction cap": 50
+        "Damage reduction cap": 50,
+        "Initial overtime duration": 5,
+        "Secondary overtime duration": 3,
+        "Self-healing charges ultimates": true
     },
     "Map list": {
         "Busan": 1,
@@ -1640,7 +1646,8 @@
             "Setup time": 45,
             "Second round Assemble Your Team time": 25,
             "requires first tick before tiebreaking": true,
-            "control point progress can tiebreak": true
+            "control point progress can tiebreak": true,
+            "Time to capture first point": 240
         }
     }
 }
