@@ -7313,6 +7313,12 @@
                             "seconds"
                         ]
                     ],
+                    "allows scoping while unscoping": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
                     "Ammo": [
                         "ammo"
                     ],
