@@ -855,7 +855,7 @@ function displayPatchNotes(changes: Changes<PatchData>, breakpoint_data: [number
                 change_render += `<li>New map ${map}.</li>`
             } else if (map_change[1] === undefined) {
                 change_render += `<li>${map} removed.</li>`
-            } else{
+            } else {
                 change_render += `<li>${map} majorly updated.</li>`
             }
         }
