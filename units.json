@@ -4637,6 +4637,115 @@
                 "High Beams": {}
             }
         },
+        "Freja": {
+            "general": {
+                "Base health": [
+                    "health"
+                ]
+            },
+            "abilities": {
+                "Bounty Hunting": {
+                    "Kill count requirement": [],
+                    "Bonus ultimate charge": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Revdraw Crossbow": {
+                    "Damage": [
+                        [
+                            "damage instance",
+                            "normal"
+                        ]
+                    ],
+                    "Critical multiplier": [
+                        [
+                            "critical multiplier",
+                            "headshot"
+                        ]
+                    ],
+                    "Ammo": [
+                        "ammo"
+                    ]
+                },
+                "Take Aim": {
+                    "Explosion damage": [
+                        [
+                            "damage instance",
+                            "explosion"
+                        ]
+                    ],
+                    "Impact damage": [
+                        [
+                            "damage instance",
+                            "impact"
+                        ]
+                    ],
+                    "Critical multiplier": [
+                        [
+                            "critical multiplier",
+                            "headshot",
+                            "impact"
+                        ]
+                    ]
+                },
+                "Quick Dash": {
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Updraft": {
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Bola Shot": {
+                    "Explosion damage": [
+                        [
+                            "damage instance",
+                            "normal"
+                        ]
+                    ],
+                    "Damage over time": [
+                        [
+                            "damage instance",
+                            "damage over time"
+                        ]
+                    ],
+                    "Ultimate cost": []
+                }
+            },
+            "perks": {
+                "Frost Bolts": {
+                    "Required hits": [],
+                    "Slow": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Tracking Instinct": {},
+                "Ready to Hunt": {},
+                "Relentless Barrage": {
+                    "Refunded ammo": []
+                }
+            }
+        },
         "Genji": {
             "general": {
                 "Base health": [
