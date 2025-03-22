@@ -4666,6 +4666,20 @@
                             "headshot"
                         ]
                     ],
+                    "Recovery time": [
+                        "time between shots",
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Reload time": [
+                        "reload time",
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
                     "Ammo": [
                         "ammo"
                     ]
@@ -4689,6 +4703,23 @@
                             "headshot",
                             "impact"
                         ]
+                    ],
+                    "Recovery time": [
+                        "time between shots",
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Reload time": [
+                        "reload time",
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Ammo": [
+                        "ammo"
                     ]
                 },
                 "Quick Dash": {

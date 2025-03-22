@@ -1151,12 +1151,17 @@
                 "Revdraw Crossbow": {
                     "Damage": 30,
                     "Critical multiplier": 2,
+                    "Recovery time": 0.2,
+                    "Reload time": 1.5,
                     "Ammo": 12
                 },
                 "Take Aim": {
                     "Explosion damage": 90,
                     "Impact damage": 40,
-                    "Critical multiplier": 2
+                    "Critical multiplier": 2,
+                    "Recovery time": 0.5,
+                    "Reload time": 1.0,
+                    "Ammo": 1
                 },
                 "Quick Dash": {
                     "Cooldown": 4.5
