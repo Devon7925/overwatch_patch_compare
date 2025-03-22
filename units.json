@@ -520,6 +520,29 @@
                     ],
                     "Radius": []
                 }
+            },
+            "perks": {
+                "Bunny Stomp": {
+                    "Radius increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Ejection Suit": {
+                    "Extra overhealth": []
+                },
+                "Shield System": {
+                    "Converted shield health": [],
+                    "Shield restoration rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Heavy Rockets": {}
             }
         },
         "Hazard": {
@@ -720,6 +743,42 @@
                         ]
                     ],
                     "Ultimate cost": []
+                }
+            },
+            "perks": {
+                "Off the Top": {
+                    "Extra damage": [],
+                    "Health threshold": []
+                },
+                "Reconstitution": {
+                    "Energy restoration": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Max energy restoration": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Anarchic Zeal": {
+                    "Lifesteal rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Deep Leap": {
+                    "Violent Leap additional range": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
                 }
             }
         },
@@ -963,6 +1022,33 @@
                         [
                             "display unit",
                             "meters"
+                        ]
+                    ]
+                }
+            },
+            "perks": {
+                "Rending Recall": {},
+                "Battle Shout": {
+                    "Allied reload speed increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Deep Wounds": {
+                    "Extended wound duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Savage Satiation": {
+                    "Lifesteal rate": [
+                        [
+                            "display unit",
+                            "percent"
                         ]
                     ]
                 }
@@ -1334,6 +1420,12 @@
                         ]
                     ]
                 }
+            },
+            "perks": {
+                "Heat Dissipator": {},
+                "Fleeting Bulwark": {},
+                "Charged Javelin": {},
+                "Protective Barrier": {}
             }
         },
         "Roadhog": {
@@ -1640,6 +1732,19 @@
                         ]
                     ]
                 }
+            },
+            "perks": {
+                "Scrap Hook": {},
+                "Hog Toss": {
+                    "Pig Pen damage increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Invigorate": {},
+                "Hogdrogen Exposure": {}
             }
         },
         "Sigma": {
@@ -1831,6 +1936,12 @@
                     ],
                     "Ultimate cost": []
                 }
+            },
+            "perks": {
+                "Kinetic Cycle": {},
+                "Massive Impact": {},
+                "Hyper Strike": {},
+                "Levitation": {}
             }
         },
         "Wrecking Ball": {
@@ -2041,6 +2152,41 @@
                         ]
                     ]
                 }
+            },
+            "perks": {
+                "Steamroller": {
+                    "Additional damage rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Pack Rat": {
+                    "Additional healing": []
+                },
+                "Hang Time": {
+                    "Maximum additional damage": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Transfer Efficiency": {
+                    "Cooldown reduction per ally": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Ally transfer cost reduction": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                }
             }
         },
         "Zarya": {
@@ -2242,6 +2388,40 @@
                         ]
                     ],
                     "Ultimate cost": []
+                }
+            },
+            "perks": {
+                "Jump-Ups": {
+                    "Additional Secondary Fire's self-knockback": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Graviton Crush": {
+                    "Max health damage": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Energy Lance": {
+                    "Energy threshold": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Spotter": {
+                    "Movement speed increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
                 }
             }
         },
@@ -2590,6 +2770,22 @@
                     ],
                     "Ultimate cost": []
                 }
+            },
+            "perks": {
+                "One-Two": {},
+                "Survival of the Fittest": {
+                    "Overhealth from eliminations": [],
+                    "Max overhealth increase": []
+                },
+                "Seismic Empowerment": {},
+                "Power Matrix": {
+                    "Duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                }
             }
         },
         "Reinhardt": {
@@ -2729,6 +2925,40 @@
                     ],
                     "Ultimate cost": [],
                     "Critical damage": []
+                }
+            },
+            "perks": {
+                "Crusader's Resolve": {
+                    "Passive Regeneration trigger rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Fiery Uptake": {
+                    "Barrier field regeneration rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Shield Slam": {
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Crushing Victory": {
+                    "Overhealth generation rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
                 }
             }
         },
@@ -2924,6 +3154,19 @@
                         ]
                     ]
                 }
+            },
+            "perks": {
+                "Kinetic Bandolier": {
+                    "Max extra ammo": []
+                },
+                "Two Hearts": {
+                    "Healing per second": []
+                },
+                "Firewalker": {},
+                "Combat Fuel": {
+                    "Stored overhealth per hit": [],
+                    "Maximum stored overhealth": []
+                }
             }
         },
         "Ramattra": {
@@ -3117,6 +3360,24 @@
                         ]
                     ]
                 }
+            },
+            "perks": {
+                "Void Surge": {},
+                "Prolonged Barrier": {
+                    "Additional duration": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Barrier size multiplier": []
+                },
+                "Nanite Repair": {
+                    "Healing per second": []
+                },
+                "Vengeful Vortex": {
+                    "Damage on activation": []
+                }
             }
         },
         "Winston": {
@@ -3268,6 +3529,28 @@
                     ],
                     "Maximum health gained": [],
                     "Ultimate cost": []
+                }
+            },
+            "perks": {
+                "Short Circuit": {
+                    "Extra damage to deployable objects": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Heavy Landing": {
+                    "Maximum damage increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Chain Lightning": {},
+                "Revitalizing Barrier": {
+                    "Healing per second": []
                 }
             }
         },
@@ -3488,6 +3771,43 @@
                             "cast"
                         ]
                     ]
+                }
+            },
+            "perks": {
+                "Rapid Fire": {
+                    "Increased attack speed": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Dealt damage reduction": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Sidewinder": {
+                    "Knockback increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Viper's Sting": {
+                    "Damage": [],
+                    "Ammo reloaded": []
+                },
+                "Airburst": {
+                    "Increased detonation radius": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Ammo reloaded": []
                 }
             }
         },
@@ -3768,6 +4088,28 @@
                         ]
                     ]
                 }
+            },
+            "perks": {
+                "Smart Bomb": {
+                    "Self-knockback increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Armored Artillery": {
+                    "Overhealth generation": []
+                },
+                "Lindholm Explosives": {},
+                "Self-Repair": {
+                    "has resource meter": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ]
+                }
             }
         },
         "Cassidy": {
@@ -4041,6 +4383,35 @@
                         ]
                     ]
                 }
+            },
+            "perks": {
+                "Quick Draw": {
+                    "Critical multiplier": []
+                },
+                "Past Noon": {
+                    "Ultimate charge refunded": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Gun Slingin'": {
+                    "Cooldown reduction": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Bang Bang": {
+                    "Dealt damage reduction": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                }
             }
         },
         "Echo": {
@@ -4238,6 +4609,32 @@
                     "Zarya copy health": [],
                     "Zarya copy shield health": []
                 }
+            },
+            "perks": {
+                "Friendly Imaging": {},
+                "Enhanced Duplication": {
+                    "Extended duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Full Salvo": {
+                    "Extra projectiles": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Dealt damage reduction": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "High Beams": {}
             }
         },
         "Genji": {
@@ -4445,6 +4842,42 @@
                     ],
                     "Ultimate cost": []
                 }
+            },
+            "perks": {
+                "Acrobatics": {
+                    "resets double jump on wall climb": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ]
+                },
+                "Dragon's Thirst": {
+                    "Lifesteal rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Blade Twisting": {
+                    "Damage": [],
+                    "Duration after an elimination to trigger bonus damage": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Bonus damage duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Meditation": {
+                    "Healing per second": []
+                }
             }
         },
         "Hanzo": {
@@ -4639,6 +5072,39 @@
                         [
                             "display unit",
                             "flag"
+                        ]
+                    ]
+                }
+            },
+            "perks": {
+                "Sonic Disruption": {
+                    "Hack duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Scatter Arrows": {},
+                "Dragon Fury": {
+                    "Additional attack speed": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Yamagami Technique": {
+                    "Lunge cooldown acceleration": [
+                        [
+                            "display unit",
+                            "percent"
                         ]
                     ]
                 }
@@ -4876,6 +5342,53 @@
                         ]
                     ],
                     "Ultimate cost": []
+                }
+            },
+            "perks": {
+                "Aluminium Frame": {
+                    "Additional Steel Trap throw range": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Nitro Boost": {
+                    "Dealt damage reduction": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Frag Cannon": {
+                    "Projectile speed increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Max ammo decrease": []
+                },
+                "Tick Tock": {
+                    "Delay before arm": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Increased damage rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Increased health rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
                 }
             }
         },
@@ -5150,6 +5663,53 @@
                     ],
                     "Ultimate cost": []
                 }
+            },
+            "perks": {
+                "Chilling Reach": {
+                    "Additional range": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Permafrost": {
+                    "Duration increase": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Cooldown increase": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Biting Cold": {
+                    "Movement speed reduction": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Maximum slow": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Cryo-Storm": {
+                    "Damage per second": []
+                }
             }
         },
         "Pharah": {
@@ -5383,6 +5943,27 @@
                     ],
                     "Ultimate cost": []
                 }
+            },
+            "perks": {
+                "Drift Thrusters": {},
+                "Helix Shields": {
+                    "Converted Shields": []
+                },
+                "Concussive Implosion": {},
+                "Fuel Stores": {
+                    "Additional fuel": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Additional maximum overfuel": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                }
             }
         },
         "Reaper": {
@@ -5556,6 +6137,41 @@
                     ],
                     "Ultimate cost": []
                 }
+            },
+            "perks": {
+                "Death's Shadow": {
+                    "Shadow Step additional range": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Soul Reaving": {
+                    "Healing per globe": []
+                },
+                "Dire Triggers": {
+                    "Recovery time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Ravenous Wraith": {
+                    "Additional lifesteal percentage": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                }
             }
         },
         "Sojourn": {
@@ -5727,6 +6343,16 @@
                     "Energy charge rate": [],
                     "Ultimate cost": []
                 }
+            },
+            "perks": {
+                "Extended Mag": {
+                    "Additional ammo": []
+                },
+                "Overcharged": {
+                    "Additional maximum energy during overclock": []
+                },
+                "Dual Thrusters": {},
+                "Adhesive Siphon": {}
             }
         },
         "Soldier: 76": {
@@ -5907,6 +6533,53 @@
                         ]
                     ],
                     "Ultimate cost": []
+                }
+            },
+            "perks": {
+                "Recycled Pulse Munitions": {
+                    "Ammo reloaded": []
+                },
+                "Field Emergency": {
+                    "Healing increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Agility Training": {
+                    "Speed increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Stim Pack": {
+                    "Attack speed increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Cast time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "anti-heal is cleansable": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ]
                 }
             }
         },
@@ -6291,6 +6964,46 @@
                     ],
                     "Ultimate cost": []
                 }
+            },
+            "perks": {
+                "Viral Efficacy": {
+                    "Cooldown reduction": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "CTRL ALT ESC": {},
+                "White Hat": {
+                    "Healing": [],
+                    "Duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "uninterruptible from damage when healing allies": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ]
+                },
+                "Stack Overflow": {
+                    "Silence duration increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Range penalty": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                }
             }
         },
         "Symmetra": {
@@ -6581,6 +7294,34 @@
                     "Shield generation": [],
                     "Ultimate cost": []
                 }
+            },
+            "perks": {
+                "Sentry Capacity": {},
+                "Advanced Teleportation": {
+                    "Additional teleporter range": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Perfect Alignment": {
+                    "Additional range per level": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Shield Battery": {
+                    "Shield gain per second": [],
+                    "Range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ]
+                }
             }
         },
         "Torbjörn": {
@@ -6844,6 +7585,22 @@
                     "Bonus armor": [],
                     "Ultimate cost": []
                 }
+            },
+            "perks": {
+                "Craftsman": {
+                    "Additional healing": [],
+                    "Extra turret health": []
+                },
+                "Fully Loaded": {},
+                "Anchor Bolts": {
+                    "Additional throw distance": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Overloaded Turret": {}
             }
         },
         "Tracer": {
@@ -7018,6 +7775,27 @@
                         ]
                     ],
                     "Ultimate cost": []
+                }
+            },
+            "perks": {
+                "Blink Packs": {},
+                "Blast from the Past": {
+                    "Additional explosion range": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Flashback": {},
+                "Quantum Entanglement": {
+                    "Overhealth": [],
+                    "Overhealth duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
                 }
             }
         },
@@ -7200,6 +7978,35 @@
                         ]
                     ],
                     "Ultimate cost": []
+                }
+            },
+            "perks": {
+                "Seismic Sense": {
+                    "Range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ]
+                },
+                "Excavation Exhilaration": {
+                    "Cooldown acceleration": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "SMART-R Excavator": {
+                    "Additional range": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Covered In Dirt": {
+                    "Maximum additional shields": []
                 }
             }
         },
@@ -7443,6 +8250,35 @@
                     ],
                     "Ultimate cost": []
                 }
+            },
+            "perks": {
+                "Scoped Efficiency": {
+                    "Alt fire ammo cost": []
+                },
+                "Focused Aim": {
+                    "Additional charge rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Escape Plan": {
+                    "Cooldown reduction": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Deadly Deux": {
+                    "Additional damage": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                }
             }
         },
         "Ana": {
@@ -7593,6 +8429,22 @@
                     "Healing": [],
                     "Ultimate cost": []
                 }
+            },
+            "perks": {
+                "Groggy": {
+                    "Duration": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Biotic Bounce": {
+                    "Bounce damage": [],
+                    "Bounce healing": []
+                },
+                "Headhunter": {},
+                "Shrike": {}
             }
         },
         "Baptiste": {
@@ -7829,6 +8681,36 @@
                     ],
                     "Ultimate cost": []
                 }
+            },
+            "perks": {
+                "Field Medicine": {
+                    "Healing": [],
+                    "Self healing rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Automated Healing": {
+                    "Healing per shot": [],
+                    "Shots": []
+                },
+                "Assault Burst": {
+                    "Attack speed increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Rocket Boots": {}
             }
         },
         "Brigitte": {
@@ -8057,6 +8939,37 @@
                     "Maximum overhealth": [],
                     "Ultimate cost": []
                 }
+            },
+            "perks": {
+                "Barrier Restoration": {
+                    "Additional shield health": [],
+                    "Movement speed increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Duration increase": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Morale Boost": {
+                    "Additional Inspire duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Quick Fix": {
+                    "Additional healing": []
+                },
+                "Whiplash": {
+                    "Damage": []
+                }
             }
         },
         "Illari": {
@@ -8093,6 +9006,12 @@
                         ]
                     ],
                     "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "weapon recharging paused while using quick melee": [
                         [
                             "display unit",
                             "flag"
@@ -8203,6 +9122,65 @@
                         [
                             "display unit",
                             "meters"
+                        ]
+                    ]
+                }
+            },
+            "perks": {
+                "Rapid Construction": {
+                    "Additional construction speed": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Cooldown reduction": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Summer Solstice": {
+                    "Additional duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Speed increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Attack speed increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Solar Power": {
+                    "Energy per hit": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Maximum overfill": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Sunburn": {
+                    "Additional damage": [],
+                    "Duration": [
+                        [
+                            "display unit",
+                            "seconds"
                         ]
                     ]
                 }
@@ -8454,6 +9432,26 @@
                         ]
                     ]
                 }
+            },
+            "perks": {
+                "Familiar Vitals": {
+                    "Ally lock on time reduction": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Hyper Boost": {},
+                "Master Blaster": {},
+                "Re-Boots": {
+                    "Glide Boost duration increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                }
             }
         },
         "Kiriko": {
@@ -8616,6 +9614,41 @@
                         ]
                     ],
                     "Cooldown rate": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                }
+            },
+            "perks": {
+                "Urgent Care": {
+                    "Additional projectile speed": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Fortune Teller": {
+                    "Launched Ofuda": []
+                },
+                "Shuffling": {
+                    "Duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Foxtrot": {
+                    "Movement speed increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Duration": [
                         [
                             "display unit",
                             "seconds"
@@ -8845,6 +9878,32 @@
                         ]
                     ]
                 }
+            },
+            "perks": {
+                "Cleansing Grasp": {},
+                "Life Cycle": {
+                    "Healing per second": [],
+                    "Healing seed healing": []
+                },
+                "Lifeweaving": {
+                    "Bonus to Healing Blossom heal": [],
+                    "Duration": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Superbloom": {
+                    "Damage": [],
+                    "Number of hits to trigger": [],
+                    "Window of time to land hits": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                }
             }
         },
         "Lúcio": {
@@ -9048,6 +10107,35 @@
                         ]
                     ],
                     "Ultimate cost": []
+                }
+            },
+            "perks": {
+                "Bass Blowout": {
+                    "Additional knockback": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Groovin'": {
+                    "Ammo per second": []
+                },
+                "Noise Violation": {
+                    "Additional Crossfade range": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Accelerando": {
+                    "Additional attack speed": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
                 }
             }
         },
@@ -9333,6 +10421,35 @@
                         ]
                     ]
                 }
+            },
+            "perks": {
+                "Angelic Recovery": {
+                    "Healing per second": []
+                },
+                "Winged Reach": {
+                    "Additional Guardian Angel range": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Chain Boost": {},
+                "Flash Heal": {
+                    "Cast time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Healing": [],
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                }
             }
         },
         "Moira": {
@@ -9498,6 +10615,35 @@
                         "damage per second"
                     ],
                     "Resource regeneration multiplier": []
+                }
+            },
+            "perks": {
+                "Vanish": {
+                    "Additional duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Uprush": {
+                    "Additional jump height": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Ethical Nourishment": {
+                    "Instant healing": []
+                },
+                "Contamination": {
+                    "Healing reduction rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
                 }
             }
         },
@@ -9683,6 +10829,40 @@
                     ],
                     "Healing per second": [],
                     "Ultimate cost": []
+                }
+            },
+            "perks": {
+                "Zenith Kick": {
+                    "Additional knockback": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Ascendance": {
+                    "Maximum duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Focused Destruction": {
+                    "Additional secondary charge rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Duality": {
+                    "Heal rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
                 }
             }
         }

@@ -79,9 +79,16 @@
                 }
             },
             "perks": {
-                "Bunny Stomp": {},
-                "Ejection Suit": {},
-                "Shield System": {},
+                "Bunny Stomp": {
+                    "Radius increase": 50
+                },
+                "Ejection Suit": {
+                    "Extra overhealth": 75
+                },
+                "Shield System": {
+                    "Converted shield health": 150,
+                    "Shield restoration rate": 25
+                },
                 "Heavy Rockets": {}
             }
         },
@@ -137,10 +144,20 @@
                 }
             },
             "perks": {
-                "Off the Top": {},
-                "Reconstitution": {},
-                "Anarchic Zeal": {},
-                "Deep Leap": {}
+                "Off the Top": {
+                    "Extra damage": 30,
+                    "Health threshold": 250
+                },
+                "Reconstitution": {
+                    "Energy restoration": 25,
+                    "Max energy restoration": 50
+                },
+                "Anarchic Zeal": {
+                    "Lifesteal rate": 25
+                },
+                "Deep Leap": {
+                    "Violent Leap additional range": 20
+                }
             }
         },
         "Junker Queen": {
@@ -205,9 +222,15 @@
             },
             "perks": {
                 "Rending Recall": {},
-                "Battle Shout": {},
-                "Deep Wounds": {},
-                "Savage Satiation": {}
+                "Battle Shout": {
+                    "Allied reload speed increase": 50
+                },
+                "Deep Wounds": {
+                    "Extended wound duration": 0.25
+                },
+                "Savage Satiation": {
+                    "Lifesteal rate": 100
+                }
             }
         },
         "Orisa": {
@@ -336,7 +359,9 @@
             },
             "perks": {
                 "Scrap Hook": {},
-                "Hog Toss": {},
+                "Hog Toss": {
+                    "Pig Pen damage increase": 0
+                },
                 "Invigorate": {},
                 "Hogdrogen Exposure": {}
             }
@@ -450,10 +475,19 @@
                 }
             },
             "perks": {
-                "Steamroller": {},
-                "Pack Rat": {},
-                "Hang Time": {},
-                "Transfer Efficiency": {}
+                "Steamroller": {
+                    "Additional damage rate": 100
+                },
+                "Pack Rat": {
+                    "Additional healing": 100
+                },
+                "Hang Time": {
+                    "Maximum additional damage": 50
+                },
+                "Transfer Efficiency": {
+                    "Cooldown reduction per ally": 1.5,
+                    "Ally transfer cost reduction": 33
+                }
             }
         },
         "Zarya": {
@@ -507,10 +541,18 @@
                 }
             },
             "perks": {
-                "Jump-Ups": {},
-                "Graviton Crush": {},
-                "Energy Lance": {},
-                "Spotter": {}
+                "Jump-Ups": {
+                    "Additional Secondary Fire's self-knockback": 75
+                },
+                "Graviton Crush": {
+                    "Max health damage": 30
+                },
+                "Energy Lance": {
+                    "Energy threshold": 50
+                },
+                "Spotter": {
+                    "Movement speed increase": 15
+                }
             }
         },
         "Doomfist": {
@@ -584,9 +626,14 @@
             },
             "perks": {
                 "One-Two": {},
-                "Survival of the Fittest": {},
+                "Survival of the Fittest": {
+                    "Overhealth from eliminations": 25,
+                    "Max overhealth increase": 50
+                },
                 "Seismic Empowerment": {},
-                "Power Matrix": {}
+                "Power Matrix": {
+                    "Duration": 1
+                }
             }
         },
         "Reinhardt": {
@@ -627,10 +674,18 @@
                 }
             },
             "perks": {
-                "Crusader's Resolve": {},
-                "Fiery Uptake": {},
-                "Shield Slam": {},
-                "Crushing Victory": {}
+                "Crusader's Resolve": {
+                    "Passive Regeneration trigger rate": 50
+                },
+                "Fiery Uptake": {
+                    "Barrier field regeneration rate": 100
+                },
+                "Shield Slam": {
+                    "Cooldown": 8
+                },
+                "Crushing Victory": {
+                    "Overhealth generation rate": 50
+                }
             }
         },
         "Mauga": {
@@ -684,10 +739,17 @@
                 }
             },
             "perks": {
-                "Kinetic Bandolier": {},
-                "Two Hearts": {},
+                "Kinetic Bandolier": {
+                    "Max extra ammo": 150
+                },
+                "Two Hearts": {
+                    "Healing per second": 20
+                },
                 "Firewalker": {},
-                "Combat Fuel": {}
+                "Combat Fuel": {
+                    "Stored overhealth per hit": 2,
+                    "Maximum stored overhealth": 100
+                }
             }
         },
         "Ramattra": {
@@ -744,9 +806,16 @@
             },
             "perks": {
                 "Void Surge": {},
-                "Prolonged Barrier": {},
-                "Nanite Repair": {},
-                "Vengeful Vortex": {}
+                "Prolonged Barrier": {
+                    "Additional duration": 25,
+                    "Barrier size multiplier": 1
+                },
+                "Nanite Repair": {
+                    "Healing per second": 50
+                },
+                "Vengeful Vortex": {
+                    "Damage on activation": 50
+                }
             }
         },
         "Winston": {
@@ -791,10 +860,16 @@
                 }
             },
             "perks": {
-                "Short Circuit": {},
-                "Heavy Landing": {},
+                "Short Circuit": {
+                    "Extra damage to deployable objects": 30
+                },
+                "Heavy Landing": {
+                    "Maximum damage increase": 75
+                },
                 "Chain Lightning": {},
-                "Revitalizing Barrier": {}
+                "Revitalizing Barrier": {
+                    "Healing per second": 30
+                }
             }
         },
         "Ashe": {
@@ -848,10 +923,21 @@
                 }
             },
             "perks": {
-                "Rapid Fire": {},
-                "Sidewinder": {},
-                "Viper's Sting": {},
-                "Airburst": {}
+                "Rapid Fire": {
+                    "Increased attack speed": 30,
+                    "Dealt damage reduction": 15
+                },
+                "Sidewinder": {
+                    "Knockback increase": 20
+                },
+                "Viper's Sting": {
+                    "Damage": 25,
+                    "Ammo reloaded": 2
+                },
+                "Airburst": {
+                    "Increased detonation radius": 40,
+                    "Ammo reloaded": 3
+                }
             }
         },
         "Bastion": {
@@ -908,10 +994,16 @@
                 }
             },
             "perks": {
-                "Smart Bomb": {},
-                "Armored Artillery": {},
+                "Smart Bomb": {
+                    "Self-knockback increase": 25
+                },
+                "Armored Artillery": {
+                    "Overhealth generation": 300
+                },
                 "Lindholm Explosives": {},
-                "Self-Repair": {}
+                "Self-Repair": {
+                    "has resource meter": false
+                }
             }
         },
         "Cassidy": {
@@ -972,10 +1064,18 @@
                 }
             },
             "perks": {
-                "Quick Draw": {},
-                "Past Noon": {},
-                "Gun Slingin'": {},
-                "Bang Bang": {}
+                "Quick Draw": {
+                    "Critical multiplier": 1.5
+                },
+                "Past Noon": {
+                    "Ultimate charge refunded": 30
+                },
+                "Gun Slingin'": {
+                    "Cooldown reduction": 3
+                },
+                "Bang Bang": {
+                    "Dealt damage reduction": 30
+                }
             }
         },
         "Echo": {
@@ -1028,8 +1128,13 @@
             },
             "perks": {
                 "Friendly Imaging": {},
-                "Enhanced Duplication": {},
-                "Full Salvo": {},
+                "Enhanced Duplication": {
+                    "Extended duration": 3
+                },
+                "Full Salvo": {
+                    "Extra projectiles": 50,
+                    "Dealt damage reduction": 15
+                },
                 "High Beams": {}
             }
         },
@@ -1078,10 +1183,20 @@
                 "Cyber-agility": {}
             },
             "perks": {
-                "Acrobatics": {},
-                "Dragon's Thirst": {},
-                "Blade Twisting": {},
-                "Meditation": {}
+                "Acrobatics": {
+                    "resets double jump on wall climb": false
+                },
+                "Dragon's Thirst": {
+                    "Lifesteal rate": 30
+                },
+                "Blade Twisting": {
+                    "Damage": 25,
+                    "Duration after an elimination to trigger bonus damage": 6,
+                    "Bonus damage duration": 2
+                },
+                "Meditation": {
+                    "Healing per second": 25
+                }
             }
         },
         "Hanzo": {
@@ -1130,10 +1245,17 @@
                 }
             },
             "perks": {
-                "Sonic Disruption": {},
+                "Sonic Disruption": {
+                    "Hack duration": 12
+                },
                 "Scatter Arrows": {},
-                "Dragon Fury": {},
-                "Yamagami Technique": {}
+                "Dragon Fury": {
+                    "Additional attack speed": 25,
+                    "Duration": 1
+                },
+                "Yamagami Technique": {
+                    "Lunge cooldown acceleration": 250
+                }
             }
         },
         "Junkrat": {
@@ -1192,10 +1314,21 @@
                 }
             },
             "perks": {
-                "Aluminium Frame": {},
-                "Nitro Boost": {},
-                "Frag Cannon": {},
-                "Tick Tock": {}
+                "Aluminium Frame": {
+                    "Additional Steel Trap throw range": 50
+                },
+                "Nitro Boost": {
+                    "Dealt damage reduction": 50
+                },
+                "Frag Cannon": {
+                    "Projectile speed increase": 40,
+                    "Max ammo decrease": 1
+                },
+                "Tick Tock": {
+                    "Delay before arm": 0.5,
+                    "Increased damage rate": 50,
+                    "Increased health rate": 200
+                }
             }
         },
         "Mei": {
@@ -1252,10 +1385,21 @@
                 }
             },
             "perks": {
-                "Chilling Reach": {},
-                "Permafrost": {},
-                "Biting Cold": {},
-                "Cryo-Storm": {}
+                "Chilling Reach": {
+                    "Additional range": 30
+                },
+                "Permafrost": {
+                    "Duration increase": 2,
+                    "Cooldown increase": 2
+                },
+                "Biting Cold": {
+                    "Movement speed reduction": 15,
+                    "Duration": 1.5,
+                    "Maximum slow": 30
+                },
+                "Cryo-Storm": {
+                    "Damage per second": 70
+                }
             }
         },
         "Pharah": {
@@ -1314,9 +1458,14 @@
             },
             "perks": {
                 "Drift Thrusters": {},
-                "Helix Shields": {},
+                "Helix Shields": {
+                    "Converted Shields": 75
+                },
                 "Concussive Implosion": {},
-                "Fuel Stores": {}
+                "Fuel Stores": {
+                    "Additional fuel": 50,
+                    "Additional maximum overfuel": 100
+                }
             }
         },
         "Reaper": {
@@ -1363,10 +1512,19 @@
                 }
             },
             "perks": {
-                "Death's Shadow": {},
-                "Soul Reaving": {},
-                "Dire Triggers": {},
-                "Ravenous Wraith": {}
+                "Death's Shadow": {
+                    "Shadow Step additional range": 25
+                },
+                "Soul Reaving": {
+                    "Healing per globe": 50
+                },
+                "Dire Triggers": {
+                    "Recovery time": 0.9
+                },
+                "Ravenous Wraith": {
+                    "Additional lifesteal percentage": 40,
+                    "Duration": 3
+                }
             }
         },
         "Sojourn": {
@@ -1417,8 +1575,12 @@
                 }
             },
             "perks": {
-                "Extended Mag": {},
-                "Overcharged": {},
+                "Extended Mag": {
+                    "Additional ammo": 15
+                },
+                "Overcharged": {
+                    "Additional maximum energy during overclock": 50
+                },
                 "Dual Thrusters": {},
                 "Adhesive Siphon": {}
             }
@@ -1464,10 +1626,21 @@
                 }
             },
             "perks": {
-                "Recycled Pulse Munitions": {},
-                "Field Emergency": {},
-                "Agility Training": {},
-                "Stim Pack": {}
+                "Recycled Pulse Munitions": {
+                    "Ammo reloaded": 15
+                },
+                "Field Emergency": {
+                    "Healing increase": 100
+                },
+                "Agility Training": {
+                    "Speed increase": 20
+                },
+                "Stim Pack": {
+                    "Attack speed increase": 30,
+                    "Duration": 4,
+                    "Cast time": 0.4,
+                    "anti-heal is cleansable": false
+                }
             }
         },
         "Sombra": {
@@ -1549,10 +1722,19 @@
                 }
             },
             "perks": {
-                "Viral Efficacy": {},
+                "Viral Efficacy": {
+                    "Cooldown reduction": 3
+                },
                 "CTRL ALT ESC": {},
-                "White Hat": {},
-                "Stack Overflow": {}
+                "White Hat": {
+                    "Healing": 100,
+                    "Duration": 2,
+                    "uninterruptible from damage when healing allies": false
+                },
+                "Stack Overflow": {
+                    "Silence duration increase": 100,
+                    "Range penalty": 30
+                }
             }
         },
         "Symmetra": {
@@ -1619,9 +1801,16 @@
             },
             "perks": {
                 "Sentry Capacity": {},
-                "Advanced Teleportation": {},
-                "Perfect Alignment": {},
-                "Shield Battery": {}
+                "Advanced Teleportation": {
+                    "Additional teleporter range": 50
+                },
+                "Perfect Alignment": {
+                    "Additional range per level": 15
+                },
+                "Shield Battery": {
+                    "Shield gain per second": 20,
+                    "Range": 10
+                }
             }
         },
         "Torbjörn": {
@@ -1650,9 +1839,9 @@
                     "Pool damage per second": 160
                 },
                 "Deploy Turret": {
-                    "Turret damage": 13,
+                    "Turret damage": 12,
                     "Cooldown": 12,
-                    "Turret base health": 250,
+                    "Turret base health": 225,
                     "Turret recovery time": 0.256,
                     "Build time": 2.5,
                     "Deploy method": "thrown projectile"
@@ -1680,9 +1869,14 @@
                 }
             },
             "perks": {
-                "Craftsman": {},
+                "Craftsman": {
+                    "Additional healing": 25,
+                    "Extra turret health": 0
+                },
                 "Fully Loaded": {},
-                "Anchor Bolts": {},
+                "Anchor Bolts": {
+                    "Additional throw distance": 50
+                },
                 "Overloaded Turret": {}
             }
         },
@@ -1731,9 +1925,14 @@
             },
             "perks": {
                 "Blink Packs": {},
-                "Blast from the Past": {},
+                "Blast from the Past": {
+                    "Additional explosion range": 50
+                },
                 "Flashback": {},
-                "Quantum Entanglement": {}
+                "Quantum Entanglement": {
+                    "Overhealth": 50,
+                    "Overhealth duration": 3.5
+                }
             }
         },
         "Venture": {
@@ -1783,10 +1982,18 @@
                 "has overridden melee": true
             },
             "perks": {
-                "Seismic Sense": {},
-                "Excavation Exhilaration": {},
-                "SMART-R Excavator": {},
-                "Covered In Dirt": {}
+                "Seismic Sense": {
+                    "Range": 25
+                },
+                "Excavation Exhilaration": {
+                    "Cooldown acceleration": 200
+                },
+                "SMART-R Excavator": {
+                    "Additional range": 25
+                },
+                "Covered In Dirt": {
+                    "Maximum additional shields": 30
+                }
             }
         },
         "Widowmaker": {
@@ -1843,10 +2050,18 @@
                 }
             },
             "perks": {
-                "Scoped Efficiency": {},
-                "Focused Aim": {},
-                "Escape Plan": {},
-                "Deadly Deux": {}
+                "Scoped Efficiency": {
+                    "Alt fire ammo cost": 3
+                },
+                "Focused Aim": {
+                    "Additional charge rate": 50
+                },
+                "Escape Plan": {
+                    "Cooldown reduction": 4
+                },
+                "Deadly Deux": {
+                    "Additional damage": 50
+                }
             }
         },
         "Ana": {
@@ -1886,8 +2101,13 @@
                 }
             },
             "perks": {
-                "Groggy": {},
-                "Biotic Bounce": {},
+                "Groggy": {
+                    "Duration": 2
+                },
+                "Biotic Bounce": {
+                    "Bounce damage": 50,
+                    "Bounce healing": 50
+                },
                 "Headhunter": {},
                 "Shrike": {}
             }
@@ -1942,9 +2162,18 @@
                 }
             },
             "perks": {
-                "Field Medicine": {},
-                "Automated Healing": {},
-                "Assault Burst": {},
+                "Field Medicine": {
+                    "Healing": 80,
+                    "Self healing rate": 50
+                },
+                "Automated Healing": {
+                    "Healing per shot": 25,
+                    "Shots": 12
+                },
+                "Assault Burst": {
+                    "Attack speed increase": 20,
+                    "Duration": 4
+                },
                 "Rocket Boots": {}
             }
         },
@@ -2007,10 +2236,20 @@
                 }
             },
             "perks": {
-                "Barrier Restoration": {},
-                "Morale Boost": {},
-                "Quick Fix": {},
-                "Whiplash": {}
+                "Barrier Restoration": {
+                    "Additional shield health": 100,
+                    "Movement speed increase": 0,
+                    "Duration increase": 0
+                },
+                "Morale Boost": {
+                    "Additional Inspire duration": 3
+                },
+                "Quick Fix": {
+                    "Additional healing": 35
+                },
+                "Whiplash": {
+                    "Damage": 50
+                }
             }
         },
         "Illari": {
@@ -2059,10 +2298,23 @@
                 }
             },
             "perks": {
-                "Rapid Construction": {},
-                "Summer Solstice": {},
-                "Solar Power": {},
-                "Sunburn": {}
+                "Rapid Construction": {
+                    "Additional construction speed": 300,
+                    "Cooldown reduction": 1.5
+                },
+                "Summer Solstice": {
+                    "Additional duration": 3,
+                    "Speed increase": 20,
+                    "Attack speed increase": 0
+                },
+                "Solar Power": {
+                    "Energy per hit": 12.5,
+                    "Maximum overfill": 50
+                },
+                "Sunburn": {
+                    "Additional damage": 70,
+                    "Duration": 3
+                }
             }
         },
         "Juno": {
@@ -2123,10 +2375,14 @@
                 }
             },
             "perks": {
-                "Familiar Vitals": {},
+                "Familiar Vitals": {
+                    "Ally lock on time reduction": 35
+                },
                 "Hyper Boost": {},
                 "Master Blaster": {},
-                "Re-Boots": {}
+                "Re-Boots": {
+                    "Glide Boost duration increase": 0
+                }
             }
         },
         "Kiriko": {
@@ -2173,10 +2429,19 @@
                 }
             },
             "perks": {
-                "Urgent Care": {},
-                "Fortune Teller": {},
-                "Shuffling": {},
-                "Foxtrot": {}
+                "Urgent Care": {
+                    "Additional projectile speed": 50
+                },
+                "Fortune Teller": {
+                    "Launched Ofuda": 2
+                },
+                "Shuffling": {
+                    "Duration": 4
+                },
+                "Foxtrot": {
+                    "Movement speed increase": 40,
+                    "Duration": 2
+                }
             }
         },
         "Lifeweaver": {
@@ -2239,9 +2504,19 @@
             },
             "perks": {
                 "Cleansing Grasp": {},
-                "Life Cycle": {},
-                "Lifeweaving": {},
-                "Superbloom": {}
+                "Life Cycle": {
+                    "Healing per second": 10,
+                    "Healing seed healing": 250
+                },
+                "Lifeweaving": {
+                    "Bonus to Healing Blossom heal": 20,
+                    "Duration": 3
+                },
+                "Superbloom": {
+                    "Damage": 30,
+                    "Number of hits to trigger": 16,
+                    "Window of time to land hits": 1.5
+                }
             }
         },
         "Lúcio": {
@@ -2294,10 +2569,18 @@
                 }
             },
             "perks": {
-                "Bass Blowout": {},
-                "Groovin'": {},
-                "Noise Violation": {},
-                "Accelerando": {}
+                "Bass Blowout": {
+                    "Additional knockback": 15
+                },
+                "Groovin'": {
+                    "Ammo per second": 4
+                },
+                "Noise Violation": {
+                    "Additional Crossfade range": 150
+                },
+                "Accelerando": {
+                    "Additional attack speed": 50
+                }
             }
         },
         "Mercy": {
@@ -2352,10 +2635,18 @@
                 }
             },
             "perks": {
-                "Angelic Recovery": {},
-                "Winged Reach": {},
+                "Angelic Recovery": {
+                    "Healing per second": 15
+                },
+                "Winged Reach": {
+                    "Additional Guardian Angel range": 30
+                },
                 "Chain Boost": {},
-                "Flash Heal": {}
+                "Flash Heal": {
+                    "Cast time": 0.875,
+                    "Healing": 150,
+                    "Cooldown": 15
+                }
             }
         },
         "Moira": {
@@ -2398,10 +2689,18 @@
                 }
             },
             "perks": {
-                "Vanish": {},
-                "Uprush": {},
-                "Ethical Nourishment": {},
-                "Contamination": {}
+                "Vanish": {
+                    "Additional duration": 0.5
+                },
+                "Uprush": {
+                    "Additional jump height": 50
+                },
+                "Ethical Nourishment": {
+                    "Instant healing": 50
+                },
+                "Contamination": {
+                    "Healing reduction rate": 25
+                }
             }
         },
         "Zenyatta": {
@@ -2451,10 +2750,18 @@
                 }
             },
             "perks": {
-                "Zenith Kick": {},
-                "Ascendance": {},
-                "Focused Destruction": {},
-                "Duality": {}
+                "Zenith Kick": {
+                    "Additional knockback": 30
+                },
+                "Ascendance": {
+                    "Maximum duration": 3
+                },
+                "Focused Destruction": {
+                    "Additional secondary charge rate": 20
+                },
+                "Duality": {
+                    "Heal rate": 20
+                }
             }
         }
     },

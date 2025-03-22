@@ -294,7 +294,7 @@ const isCalculationUnits = erroringAutoTypeguard<Units>({
         general: erroringIsObjectWithValues(isArrayMatchingTypeguard(isUnit)),
         abilities: erroringIsObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isUnit))),
     }, {
-        perks: erroringIsObjectWithValues(isObjectWithValues(isArrayMatchingTypeguard(isUnit))),
+        perks: erroringIsObjectWithValues(erroringIsObjectWithValues(isArrayMatchingTypeguard(isUnit))),
         breakpoints: isObjectWithValues(isArrayMatchingTypeguard(isUnit)),
         breakpoints_data: isObjectWithValues(isObjectWithValues(isNumber))
     })),
@@ -801,14 +801,14 @@ function displayPatchNotes(changes: Changes<PatchData>, breakpoint_data: [number
                             }
                         }
                         for (let stat in abilityData) {
-                            if (!units.heroes[hero].abilities[ability]) {
-                                console.error(`Missing ability units for ${hero} - ${ability}`)
+                            if (!units.heroes[hero].perks || !units.heroes[hero].perks[ability]) {
+                                console.error(`Missing perk units for ${hero} - ${ability}`)
                                 break
                             }
-                            if (!(stat in units.heroes[hero].abilities[ability])) {
+                            if (!(stat in units.heroes[hero].perks[ability])) {
                                 console.error(`Missing units for ${hero} - ${ability} - ${stat}`)
                             }
-                            ability_changes += `<li>${getChangeText(stat, abilityData[stat], getDisplayUnit(units.heroes[hero].abilities[ability][stat]), display_ability_as_new)}</li>`
+                            ability_changes += `<li>${getChangeText(stat, abilityData[stat], getDisplayUnit(units.heroes[hero].perks[ability][stat]), display_ability_as_new)}</li>`
                         }
                         abilities += renderAbility(ability, display_ability_as_new, ability_changes)
                     }

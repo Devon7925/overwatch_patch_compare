@@ -1658,7 +1658,8 @@
                     "Projectile size": 0.05,
                     "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": true,
                     "Reload time": 1.8,
-                    "Recovery time": 0.3
+                    "Recovery time": 0.3,
+                    "weapon recharging paused while using quick melee": true
                 },
                 "Outburst": {
                     "Damage": 10,
