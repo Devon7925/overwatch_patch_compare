@@ -226,7 +226,7 @@
                     "Allied reload speed increase": 50
                 },
                 "Deep Wounds": {
-                    "Extended wound duration": 0.25
+                    "Extended wound duration": 0.5
                 },
                 "Savage Satiation": {
                     "Lifesteal rate": 100
@@ -360,7 +360,7 @@
             "perks": {
                 "Scrap Hook": {},
                 "Hog Toss": {
-                    "Pig Pen damage increase": 0
+                    "Pig Pen damage increase": 25
                 },
                 "Invigorate": {},
                 "Hogdrogen Exposure": {}
@@ -486,7 +486,7 @@
                 },
                 "Transfer Efficiency": {
                     "Cooldown reduction per ally": 1.5,
-                    "Ally transfer cost reduction": 33
+                    "Ally transfer cost reduction": 50
                 }
             }
         },
@@ -675,13 +675,13 @@
             },
             "perks": {
                 "Crusader's Resolve": {
-                    "Passive Regeneration trigger rate": 50
+                    "Passive Regeneration trigger rate": 75
                 },
                 "Fiery Uptake": {
                     "Barrier field regeneration rate": 100
                 },
                 "Shield Slam": {
-                    "Cooldown": 8
+                    "Cooldown": 6
                 },
                 "Crushing Victory": {
                     "Overhealth generation rate": 50
@@ -808,7 +808,7 @@
                 "Void Surge": {},
                 "Prolonged Barrier": {
                     "Additional duration": 25,
-                    "Barrier size multiplier": 1
+                    "Barrier size multiplier": 1.25
                 },
                 "Nanite Repair": {
                     "Healing per second": 50
@@ -861,7 +861,7 @@
             },
             "perks": {
                 "Short Circuit": {
-                    "Extra damage to deployable objects": 30
+                    "Extra damage to deployable objects": 50
                 },
                 "Heavy Landing": {
                     "Maximum damage increase": 75
@@ -1002,7 +1002,7 @@
                 },
                 "Lindholm Explosives": {},
                 "Self-Repair": {
-                    "has resource meter": false
+                    "has resource meter": true
                 }
             }
         },
@@ -1068,7 +1068,7 @@
                     "Critical multiplier": 1.5
                 },
                 "Past Noon": {
-                    "Ultimate charge refunded": 30
+                    "Ultimate charge refunded": 40
                 },
                 "Gun Slingin'": {
                     "Cooldown reduction": 3
@@ -1184,18 +1184,18 @@
             },
             "perks": {
                 "Acrobatics": {
-                    "resets double jump on wall climb": false
+                    "resets double jump on wall climb": true
                 },
                 "Dragon's Thirst": {
                     "Lifesteal rate": 30
                 },
                 "Blade Twisting": {
                     "Damage": 25,
-                    "Duration after an elimination to trigger bonus damage": 6,
-                    "Bonus damage duration": 2
+                    "Duration after an elimination to trigger bonus damage": 10,
+                    "Bonus damage duration": 1
                 },
                 "Meditation": {
-                    "Healing per second": 25
+                    "Healing per second": 35
                 }
             }
         },
@@ -1389,8 +1389,7 @@
                     "Additional range": 30
                 },
                 "Permafrost": {
-                    "Duration increase": 2,
-                    "Cooldown increase": 2
+                    "Duration increase": 2
                 },
                 "Biting Cold": {
                     "Movement speed reduction": 15,
@@ -1459,7 +1458,7 @@
             "perks": {
                 "Drift Thrusters": {},
                 "Helix Shields": {
-                    "Converted Shields": 75
+                    "Converted Shields": 125
                 },
                 "Concussive Implosion": {},
                 "Fuel Stores": {
@@ -1519,7 +1518,7 @@
                     "Healing per globe": 50
                 },
                 "Dire Triggers": {
-                    "Recovery time": 0.9
+                    "Recovery time": 0.7
                 },
                 "Ravenous Wraith": {
                     "Additional lifesteal percentage": 40,
@@ -1638,8 +1637,8 @@
                 "Stim Pack": {
                     "Attack speed increase": 30,
                     "Duration": 4,
-                    "Cast time": 0.4,
-                    "anti-heal is cleansable": false
+                    "Cast time": 0.15,
+                    "anti-heal is cleansable": true
                 }
             }
         },
@@ -1729,11 +1728,11 @@
                 "White Hat": {
                     "Healing": 100,
                     "Duration": 2,
-                    "uninterruptible from damage when healing allies": false
+                    "uninterruptible from damage when healing allies": true
                 },
                 "Stack Overflow": {
                     "Silence duration increase": 100,
-                    "Range penalty": 30
+                    "Range penalty": 15
                 }
             }
         },
@@ -1839,9 +1838,9 @@
                     "Pool damage per second": 160
                 },
                 "Deploy Turret": {
-                    "Turret damage": 13,
+                    "Turret damage": 12,
                     "Cooldown": 12,
-                    "Turret base health": 250,
+                    "Turret base health": 225,
                     "Turret recovery time": 0.256,
                     "Build time": 2.5,
                     "Deploy method": "thrown projectile"
@@ -1871,7 +1870,7 @@
             "perks": {
                 "Craftsman": {
                     "Additional healing": 25,
-                    "Extra turret health": 0
+                    "Extra turret health": 25
                 },
                 "Fully Loaded": {},
                 "Anchor Bolts": {
@@ -1931,7 +1930,7 @@
                 "Flashback": {},
                 "Quantum Entanglement": {
                     "Overhealth": 50,
-                    "Overhealth duration": 3.5
+                    "Overhealth duration": 6
                 }
             }
         },
@@ -2167,11 +2166,11 @@
                     "Self healing rate": 50
                 },
                 "Automated Healing": {
-                    "Healing per shot": 25,
+                    "Healing per shot": 30,
                     "Shots": 12
                 },
                 "Assault Burst": {
-                    "Attack speed increase": 20,
+                    "Attack speed increase": 30,
                     "Duration": 4
                 },
                 "Rocket Boots": {}
@@ -2238,8 +2237,8 @@
             "perks": {
                 "Barrier Restoration": {
                     "Additional shield health": 100,
-                    "Movement speed increase": 0,
-                    "Duration increase": 0
+                    "Movement speed increase": 30,
+                    "Duration increase": 1.5
                 },
                 "Morale Boost": {
                     "Additional Inspire duration": 3
@@ -2266,8 +2265,7 @@
                     "Projectile size": 0.12,
                     "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": false,
                     "Reload time": 1.8,
-                    "Recovery time": 0.25,
-                    "weapon recharging paused while using quick melee": true
+                    "Recovery time": 0.25
                 },
                 "Outburst": {
                     "Damage": 25,
@@ -2306,7 +2304,7 @@
                 "Summer Solstice": {
                     "Additional duration": 3,
                     "Speed increase": 20,
-                    "Attack speed increase": 0
+                    "Attack speed increase": 30
                 },
                 "Solar Power": {
                     "Energy per hit": 12.5,
@@ -2382,7 +2380,7 @@
                 "Hyper Boost": {},
                 "Master Blaster": {},
                 "Re-Boots": {
-                    "Glide Boost duration increase": 0
+                    "Glide Boost duration increase": 25
                 }
             }
         },
@@ -2510,13 +2508,13 @@
                     "Healing seed healing": 250
                 },
                 "Lifeweaving": {
-                    "Bonus to Healing Blossom heal": 20,
+                    "Bonus to Healing Blossom heal": 30,
                     "Duration": 3
                 },
                 "Superbloom": {
-                    "Damage": 30,
-                    "Number of hits to trigger": 16,
-                    "Window of time to land hits": 1.5
+                    "Damage": 40,
+                    "Number of hits to trigger": 20,
+                    "Window of time to land hits": 2.5
                 }
             }
         },
@@ -2644,7 +2642,7 @@
                 },
                 "Chain Boost": {},
                 "Flash Heal": {
-                    "Cast time": 0.875,
+                    "Cast time": 0.4,
                     "Healing": 150,
                     "Cooldown": 15
                 }
