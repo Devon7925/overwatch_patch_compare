@@ -556,7 +556,8 @@
                 "Cage Fight": {
                     "Ultimate cost": 2400,
                     "Duration": 7,
-                    "grants infinite ammo": false
+                    "grants infinite ammo": false,
+                    "Barrier health": 1500
                 },
                 "Berserker": {
                     "Overhealth conversion rate": 50
@@ -1209,7 +1210,8 @@
                     "Energy decay per second": 15
                 },
                 "Power Slide": {
-                    "Cooldown": 7
+                    "Cooldown": 7,
+                    "Maximum duration": 1.2
                 },
                 "Overclock": {
                     "Energy charge rate": 120,

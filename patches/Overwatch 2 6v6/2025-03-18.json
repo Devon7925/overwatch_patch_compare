@@ -732,7 +732,8 @@
                 "Cage Fight": {
                     "Ultimate cost": 2650,
                     "Duration": 7,
-                    "grants infinite ammo": false
+                    "grants infinite ammo": false,
+                    "Barrier health": 1500
                 },
                 "Berserker": {
                     "Overhealth conversion rate": 50
@@ -1056,7 +1057,7 @@
                     "Delay before lock-on starts": 0.2
                 },
                 "Fan the Hammer": {
-                    "Damage": 50,
+                    "Damage": 45,
                     "Recovery time": 0.112,
                     "Alt fire of": "Peacekeeper",
                     "Additional reload delay": 0.358,
@@ -1549,7 +1550,8 @@
                     "Energy decay per second": 15
                 },
                 "Power Slide": {
-                    "Cooldown": 7
+                    "Cooldown": 7,
+                    "Maximum duration": 1.2
                 },
                 "Overclock": {
                     "Energy charge rate": 100,
@@ -2107,7 +2109,9 @@
                     "Bounce healing": 50
                 },
                 "Headhunter": {},
-                "Shrike": {}
+                "Shrike": {
+                    "Duration": 8
+                }
             }
         },
         "Baptiste": {

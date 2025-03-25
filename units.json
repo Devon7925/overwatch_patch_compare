@@ -3140,7 +3140,7 @@
                     ]
                 },
                 "Cage Fight": {
-                    "Ultimate cost": [],
+                    "Barrier health": [],
                     "Duration": [
                         [
                             "display unit",
@@ -3152,7 +3152,8 @@
                             "display unit",
                             "flag"
                         ]
-                    ]
+                    ],
+                    "Ultimate cost": []
                 }
             },
             "perks": {
@@ -4417,6 +4418,9 @@
         "Echo": {
             "general": {
                 "Base health": [
+                    "health"
+                ],
+                "Shield health": [
                     "health"
                 ],
                 "Model size": [
@@ -6427,6 +6431,12 @@
                     ]
                 },
                 "Power Slide": {
+                    "Maximum duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
                     "Cooldown": [
                         [
                             "display unit",
@@ -8584,7 +8594,14 @@
                     "Bounce healing": []
                 },
                 "Headhunter": {},
-                "Shrike": {}
+                "Shrike": {
+                    "Duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                }
             }
         },
         "Baptiste": {

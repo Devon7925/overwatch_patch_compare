@@ -50,6 +50,6 @@ def process_json_files(folder_path, old_path, new_path=None, new_value=None, ren
 folder_path = 'patches'
 
 # Example usage for adding
-new_property_name = "weapon recharging paused while using quick melee"
-new_value = True
-process_json_files(folder_path, 'heroes/Illari/abilities/Solar Rifle/weapon recharging paused while using quick melee', new_property_name, new_value, rename=False)
+new_property_name = "Duration"
+new_value = 8
+process_json_files(folder_path, 'heroes/Ana/perks/Shrike/Duration', new_property_name, new_value, rename=False)

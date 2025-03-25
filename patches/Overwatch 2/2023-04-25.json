@@ -1128,7 +1128,8 @@
                     "Energy decay per second": 33
                 },
                 "Power Slide": {
-                    "Cooldown": 7
+                    "Cooldown": 7,
+                    "Maximum duration": 1.2
                 },
                 "Overclock": {
                     "Energy charge rate": 100,
