@@ -250,8 +250,22 @@
                 ]
             ]
         },
+        "offense": {},
+        "defense": {},
         "damage": {
             "Healing reduction inflicted on hit": [
+                [
+                    "display unit",
+                    "percent"
+                ]
+            ],
+            "Faster movement speed": [
+                [
+                    "display unit",
+                    "percent"
+                ]
+            ],
+            "Ultimate percent retained on swap": [
                 [
                     "display unit",
                     "percent"
@@ -267,6 +281,12 @@
                 [
                     "display unit",
                     "percent"
+                ]
+            ],
+            "Damage passive duration": [
+                [
+                    "display unit",
+                    "seconds"
                 ]
             ]
         },
