@@ -617,7 +617,7 @@
                     "Projectile size": 0.575,
                     "Damage": 65,
                     "Recovery time": 0.6,
-                    "Pierces barriers": false,
+                    "pierces barriers": false,
                     "Barrier damage multiplier": 2.5
                 },
                 "Block": {
