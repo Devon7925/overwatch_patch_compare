@@ -22,7 +22,9 @@
             "general": {
                 "Base health": 375,
                 "Armor health": 325,
-                "Pilot health": 175
+                "Pilot health": 175,
+                "Minor perk cost": 1615,
+                "Major perk cost": 3940
             },
             "abilities": {
                 "Fusion Cannons": {
@@ -89,19 +91,27 @@
                     "Converted shield health": 150,
                     "Shield restoration rate": 25
                 },
-                "Heavy Rockets": {}
+                "Heavy Rockets": {
+                    "Number of rockets": 8,
+                    "Impact damage": 7,
+                    "Explosion damage": 14,
+                    "Explosion radius": 2.75
+                }
             }
         },
         "Hazard": {
             "role": "tank",
             "general": {
                 "Base health": 425,
-                "Base armor": 225
+                "Base armor": 225,
+                "Minor perk cost": 1865,
+                "Major perk cost": 4665
             },
             "abilities": {
                 "Vault": {
                     "Movement speed": 6.33,
-                    "Minimum obstacle height to trigger": 1.25
+                    "Minimum obstacle height to trigger": 1.25,
+                    "Ledge climb animation time": 0.6
                 },
                 "Bonespur": {
                     "Damage": 7.5,
@@ -121,7 +131,8 @@
                     "Movement speed penalty": 50,
                     "Damage reduction angle": 180,
                     "Maximum duration": 3,
-                    "Recharge rate": 20
+                    "Recharge rate": 20,
+                    "prevents critical damage": true
                 },
                 "Violent Leap": {
                     "Damage": 80,
@@ -168,7 +179,9 @@
                 "Armor health": 0,
                 "has overridden melee": true,
                 "Torso hit volume": 1.12,
-                "Head hit volume": 1.12
+                "Head hit volume": 1.12,
+                "Minor perk cost": 2210,
+                "Major perk cost": 5520
             },
             "abilities": {
                 "Adrenaline Rush": {
@@ -239,7 +252,9 @@
                 "Base health": 300,
                 "Armor health": 325,
                 "Model size": 1.0,
-                "Head hitbox size": 0.85
+                "Head hitbox size": 0.85,
+                "Minor perk cost": 1830,
+                "Major perk cost": 4570
             },
             "abilities": {
                 "Fortify": {
@@ -251,7 +266,8 @@
                     "immune to taking forced critical hit damage": true,
                     "Damage reduction": 45,
                     "disables critical damage": true,
-                    "Heat generation reduction": 0
+                    "Heat generation reduction": 0,
+                    "prevents Hack's ability lockout from interrupting abilities": false
                 },
                 "Energy Javelin": {
                     "Direct damage": 70,
@@ -271,7 +287,9 @@
                     "can be interrupted by hack": true,
                     "pierces through barriers upon impact": true,
                     "Overhealth": 100,
-                    "Pull radius": 10.5
+                    "Pull radius": 10.5,
+                    "prevents forced critical hit damage": true,
+                    "prevents headshot critical damage": true
                 },
                 "Augmented Fusion Driver": {
                     "Projectile size": 0.225,
@@ -296,7 +314,9 @@
             "role": "tank",
             "general": {
                 "Base health": 750,
-                "Head hitbox size": 0.8
+                "Head hitbox size": 0.8,
+                "Minor perk cost": 2160,
+                "Major perk cost": 5400
             },
             "abilities": {
                 "Scrap Gun": {
@@ -363,7 +383,9 @@
                     "Pig Pen damage increase": 0
                 },
                 "Invigorate": {},
-                "Hogdrogen Exposure": {}
+                "Hogdrogen Exposure": {
+                    "Radius": 8
+                }
             }
         },
         "Sigma": {
@@ -371,7 +393,9 @@
             "general": {
                 "Base health": 350,
                 "Shield health": 275,
-                "has adjusted movement deceleration": false
+                "has adjusted movement deceleration": false,
+                "Minor perk cost": 1955,
+                "Major perk cost": 4890
             },
             "abilities": {
                 "Experimental Barrier": {
@@ -413,9 +437,13 @@
             },
             "perks": {
                 "Kinetic Cycle": {},
-                "Massive Impact": {},
+                "Massive Impact": {
+                    "Distance to reach maximum knockdown duration": 40
+                },
                 "Hyper Strike": {},
-                "Levitation": {}
+                "Levitation": {
+                    "can hover by holding jump": false
+                }
             }
         },
         "Wrecking Ball": {
@@ -423,7 +451,9 @@
             "general": {
                 "Base health": 400,
                 "Armor health": 175,
-                "Shield health": 150
+                "Shield health": 150,
+                "Minor perk cost": 1765,
+                "Major perk cost": 4410
             },
             "abilities": {
                 "Grappling Claw": {
@@ -448,7 +478,8 @@
                     "Ultimate cost": 1850,
                     "Arming time": 1.25,
                     "Cast time": 0.1,
-                    "Projectile speed": 12
+                    "Projectile speed": 12,
+                    "Duration": 20
                 },
                 "Quad Cannons": {
                     "Projectile size": 0.04,
@@ -494,7 +525,9 @@
             "role": "tank",
             "general": {
                 "Base health": 325,
-                "Shield health": 225
+                "Shield health": 225,
+                "Minor perk cost": 1910,
+                "Major perk cost": 4770
             },
             "abilities": {
                 "Particle Cannon": {
@@ -558,7 +591,9 @@
         "Doomfist": {
             "role": "tank",
             "general": {
-                "Base health": 525
+                "Base health": 525,
+                "Minor perk cost": 1800,
+                "Major perk cost": 4500
             },
             "abilities": {
                 "The Best Defense": {
@@ -641,7 +676,9 @@
             "general": {
                 "Base health": 400,
                 "Armor health": 300,
-                "has overridden melee": true
+                "has overridden melee": true,
+                "Minor perk cost": 1615,
+                "Major perk cost": 4040
             },
             "abilities": {
                 "Rocket Hammer": {
@@ -663,7 +700,9 @@
                 "Firestrike": {
                     "Ability charges": 2,
                     "Damage": 120,
-                    "Projectile size": 0.85
+                    "Projectile size": 0.85,
+                    "Projectile speed": 25,
+                    "Recovery time": 0.63
                 },
                 "Earthshatter": {
                     "Knockdown duration": 3,
@@ -694,7 +733,9 @@
                 "Base health": 575,
                 "Armor health": 150,
                 "Model Size": 1,
-                "Head hit volume": 0.85
+                "Head hit volume": 0.85,
+                "Minor perk cost": 1975,
+                "Major perk cost": 4935
             },
             "abilities": {
                 "Incendiary and Volatile Changuns": {
@@ -749,7 +790,8 @@
                 "Firewalker": {},
                 "Combat Fuel": {
                     "Stored overhealth per hit": 2,
-                    "Maximum stored overhealth": 100
+                    "Maximum stored overhealth": 100,
+                    "Stored overhealth per critical hit": 2
                 }
             }
         },
@@ -758,7 +800,9 @@
             "general": {
                 "Base health": 400,
                 "Armor health": 100,
-                "Model Size": 1
+                "Model Size": 1,
+                "Minor perk cost": 1820,
+                "Major perk cost": 4550
             },
             "abilities": {
                 "Nemesis Form": {
@@ -785,7 +829,8 @@
                     "Increased movement speed": 20,
                     "refreshes bonus armor if used while in Nemesis Form": true,
                     "Maximum duration": 20,
-                    "Minimum duration": 3
+                    "Minimum duration": 3,
+                    "Damage per second": 30
                 },
                 "Void Accelerator": {
                     "Projectile size": 0.15,
@@ -806,7 +851,9 @@
                 }
             },
             "perks": {
-                "Void Surge": {},
+                "Void Surge": {
+                    "Delay between bursts": 0.75
+                },
                 "Prolonged Barrier": {
                     "Additional duration": 25,
                     "Barrier size multiplier": 1
@@ -823,7 +870,9 @@
             "role": "tank",
             "general": {
                 "Base health": 375,
-                "Armor health": 250
+                "Armor health": 250,
+                "Minor perk cost": 1835,
+                "Major perk cost": 4585
             },
             "abilities": {
                 "Tesla Cannon": {
@@ -876,7 +925,9 @@
         "Ashe": {
             "role": "damage",
             "general": {
-                "Base health": 250
+                "Base health": 250,
+                "Minor perk cost": 1750,
+                "Major perk cost": 4380
             },
             "abilities": {
                 "B.O.B": {
@@ -905,7 +956,9 @@
                     "Critical multiplier": 2,
                     "Recovery time": 0.65,
                     "Alt fire of": "The Viper",
-                    "Maximum damage falloff scalar": 30
+                    "Maximum damage falloff scalar": 30,
+                    "Minimum damage falloff range": 30,
+                    "Maximum damage falloff range": 50
                 },
                 "Dynamite": {
                     "Cooldown": 12,
@@ -933,7 +986,8 @@
                 },
                 "Viper's Sting": {
                     "Damage": 25,
-                    "Ammo reloaded": 2
+                    "Ammo reloaded": 2,
+                    "Ammo gained": 2
                 },
                 "Airburst": {
                     "Increased detonation radius": 40,
@@ -946,7 +1000,10 @@
             "general": {
                 "Base health": 250,
                 "Armor health": 100,
-                "Model size": 1
+                "Model size": 1,
+                "Hit volume size": 1,
+                "Minor perk cost": 1750,
+                "Major perk cost": 4450
             },
             "abilities": {
                 "A-36 Tactical Grenade": {
@@ -999,7 +1056,8 @@
                     "Self-knockback increase": 25
                 },
                 "Armored Artillery": {
-                    "Overhealth generation": 300
+                    "Overhealth generation": 300,
+                    "Overhealth degeneration per second": 100
                 },
                 "Lindholm Explosives": {},
                 "Self-Repair": {
@@ -1010,7 +1068,9 @@
         "Cassidy": {
             "role": "damage",
             "general": {
-                "Base health": 275
+                "Base health": 275,
+                "Minor perk cost": 1560,
+                "Major perk cost": 3900
             },
             "abilities": {
                 "Peacekeeper": {
@@ -1083,7 +1143,9 @@
             "role": "damage",
             "general": {
                 "Base health": 225,
-                "Model size": 1.0
+                "Model size": 1.0,
+                "Minor perk cost": 1760,
+                "Major perk cost": 4405
             },
             "abilities": {
                 "Sticky Bombs": {
@@ -1106,7 +1168,8 @@
                     "Pellet count": 3,
                     "Recovery time": 0.33333,
                     "Reload time": 1.5,
-                    "Ammo": 12
+                    "Ammo": 12,
+                    "Spread": 1.4
                 },
                 "Focusing Beam": {
                     "Width": 0.25,
@@ -1142,7 +1205,9 @@
         "Genji": {
             "role": "damage",
             "general": {
-                "Base health": 250
+                "Base health": 250,
+                "Minor perk cost": 1520,
+                "Major perk cost": 3800
             },
             "abilities": {
                 "Shuriken": {
@@ -1153,7 +1218,8 @@
                     "Burst recovery time": 0.096,
                     "Bullets per burst": 3,
                     "Recovery time": 0.88,
-                    "Reload time": 1.5
+                    "Reload time": 1.5,
+                    "Projectile speed": 60
                 },
                 "Deflect": {
                     "Duration": 2,
@@ -1203,7 +1269,9 @@
         "Hanzo": {
             "role": "damage",
             "general": {
-                "Base health": 250
+                "Base health": 250,
+                "Minor perk cost": 1595,
+                "Major perk cost": 3985
             },
             "abilities": {
                 "Storm Bow": {
@@ -1214,7 +1282,8 @@
                     "Maximum charge time": 0.8,
                     "Recovery time": 0.5,
                     "Maximum projectile speed": 110,
-                    "Movement speed penalty": 30
+                    "Movement speed penalty": 30,
+                    "Preserves draw progress while wall climbing": false
                 },
                 "Storm Arrows": {
                     "Cooldown": 8,
@@ -1224,7 +1293,8 @@
                     "Damage per bullet": 75,
                     "Burst recovery time": 0.24,
                     "Richochets": 1,
-                    "Maximum duration": 5
+                    "Maximum duration": 5,
+                    "Projectile speed": 110
                 },
                 "Dragonstrike": {
                     "Speed": 15,
@@ -1262,7 +1332,9 @@
         "Junkrat": {
             "role": "damage",
             "general": {
-                "Base health": 250
+                "Base health": 250,
+                "Minor perk cost": 1675,
+                "Major perk cost": 4185
             },
             "abilities": {
                 "Frag Launcher": {
@@ -1316,7 +1388,9 @@
             },
             "perks": {
                 "Aluminium Frame": {
-                    "Additional Steel Trap throw range": 50
+                    "Additional Steel Trap throw range": 50,
+                    "reveals trapped enemies to allies": false,
+                    "prevents trapped enemies from being healed": false
                 },
                 "Nitro Boost": {
                     "Dealt damage reduction": 50
@@ -1328,14 +1402,17 @@
                 "Tick Tock": {
                     "Delay before arm": 0.5,
                     "Increased damage rate": 50,
-                    "Increased health rate": 200
+                    "Increased health rate": 200,
+                    "Increased explosion radius": 50
                 }
             }
         },
         "Mei": {
             "role": "damage",
             "general": {
-                "Base health": 300
+                "Base health": 300,
+                "Minor perk cost": 1600,
+                "Major perk cost": 4005
             },
             "abilities": {
                 "Endothermic Blaster": {
@@ -1348,7 +1425,8 @@
                     "Freeze rate": 1,
                     "Recovery time": 0.05,
                     "Damage": 5.0,
-                    "pierces through enemies": true
+                    "pierces through enemies": true,
+                    "Damage per second": 100
                 },
                 "Cryofreeze": {
                     "Healing per second": 62.5,
@@ -1406,7 +1484,9 @@
         "Pharah": {
             "role": "damage",
             "general": {
-                "Base health": 225
+                "Base health": 225,
+                "Minor perk cost": 1730,
+                "Major perk cost": 4330
             },
             "abilities": {
                 "Rocket Launcher": {
@@ -1460,7 +1540,8 @@
             "perks": {
                 "Drift Thrusters": {},
                 "Helix Shields": {
-                    "Converted Shields": 75
+                    "Converted Shields": 75,
+                    "triggers shield regeneration on direct rocket hits": false
                 },
                 "Concussive Implosion": {},
                 "Fuel Stores": {
@@ -1472,7 +1553,9 @@
         "Reaper": {
             "role": "damage",
             "general": {
-                "Base health": 300
+                "Base health": 300,
+                "Minor perk cost": 1625,
+                "Major perk cost": 4065
             },
             "abilities": {
                 "Hellfire Shotguns": {
@@ -1509,7 +1592,8 @@
                     "Min duration": 0.4,
                     "Recovery time": 0.4,
                     "Movement speed": 50,
-                    "refills ammo": true
+                    "refills ammo": true,
+                    "Movement speed increase": 50
                 }
             },
             "perks": {
@@ -1532,7 +1616,9 @@
             "role": "damage",
             "general": {
                 "Base health": 250,
-                "Torso hit volume": 1.2
+                "Torso hit volume": 1.2,
+                "Minor perk cost": 1695,
+                "Major perk cost": 4235
             },
             "abilities": {
                 "Railgun": {
@@ -1573,7 +1659,8 @@
                     "Max range": 30,
                     "Radius": 5,
                     "Duration": 4,
-                    "Cooldown": 15
+                    "Cooldown": 15,
+                    "Maximum travel duration": 1
                 }
             },
             "perks": {
@@ -1590,7 +1677,9 @@
         "Soldier: 76": {
             "role": "damage",
             "general": {
-                "Base health": 250
+                "Base health": 250,
+                "Minor perk cost": 1990,
+                "Major perk cost": 4975
             },
             "abilities": {
                 "Heavy Pulse Rifle": {
@@ -1648,7 +1737,9 @@
         "Sombra": {
             "role": "damage",
             "general": {
-                "Base health": 225
+                "Base health": 225,
+                "Minor perk cost": 1510,
+                "Major perk cost": 3590
             },
             "abilities": {
                 "Opportunist": {
@@ -1743,7 +1834,9 @@
             "role": "damage",
             "general": {
                 "Base health": 125,
-                "Shield health": 150
+                "Shield health": 150,
+                "Minor perk cost": 1595,
+                "Major perk cost": 3835
             },
             "abilities": {
                 "Photon Projector": {
@@ -1821,7 +1914,9 @@
                 "Base health": 225,
                 "Armor health": 75,
                 "Weapon swap time": 0.4,
-                "Head hit volume": 0.9
+                "Head hit volume": 0.9,
+                "Minor perk cost": 1750,
+                "Major perk cost": 4375
             },
             "abilities": {
                 "Rivet Gun": {
@@ -1879,20 +1974,25 @@
                 "Anchor Bolts": {
                     "Additional throw distance": 50
                 },
-                "Overloaded Turret": {}
+                "Overloaded Turret": {
+                    "transforms turret to level 3 when Overload activated before fully constructed": false
+                }
             }
         },
         "Tracer": {
             "role": "damage",
             "general": {
                 "Base health": 175,
-                "Model size": 1
+                "Model size": 1,
+                "Global projectile size increase": 0.04,
+                "Minor perk cost": 1400,
+                "Major perk cost": 3435
             },
             "abilities": {
                 "Pulse Pistols": {
                     "Minimum falloff range": 10,
                     "Projectile size": 0.04,
-                    "Spread": 3.5,
+                    "Spread": 3.0,
                     "Critical multiplier": 2,
                     "Recovery time": 0.05,
                     "Reload time": 1,
@@ -1930,7 +2030,9 @@
                 "Blast from the Past": {
                     "Additional explosion range": 50
                 },
-                "Flashback": {},
+                "Flashback": {
+                    "Blinks restored": 3
+                },
                 "Quantum Entanglement": {
                     "Overhealth": 50,
                     "Overhealth duration": 3.5
@@ -1959,7 +2061,8 @@
                     "Impact damage": 30,
                     "Damage over time": 60,
                     "Cooldown": 8,
-                    "Knockback": 14.5
+                    "Knockback": 14.5,
+                    "Radius": 2.4
                 },
                 "Burrow": {
                     "Grace period": 0.2,
@@ -1981,7 +2084,9 @@
             "general": {
                 "Base health": 250,
                 "Movement speed": 5.5,
-                "has overridden melee": true
+                "has overridden melee": true,
+                "Minor perk cost": 1590,
+                "Major perk cost": 3820
             },
             "perks": {
                 "Seismic Sense": {
@@ -2001,7 +2106,9 @@
         "Widowmaker": {
             "role": "damage",
             "general": {
-                "Base health": 200
+                "Base health": 200,
+                "Minor perk cost": 1500,
+                "Major perk cost": 3470
             },
             "abilities": {
                 "Infra-Sight": {
@@ -2018,7 +2125,8 @@
                     "Recovery time": 0.1,
                     "Damage": 13,
                     "Critical multiplier": 2,
-                    "Maximum damage falloff scalar": 30
+                    "Maximum damage falloff scalar": 30,
+                    "Maximum spread": 3
                 },
                 "Widow's Kiss Alt Fire": {
                     "Alt fire of": "Widow's Kiss",
@@ -2069,7 +2177,9 @@
         "Ana": {
             "role": "support",
             "general": {
-                "Base health": 250
+                "Base health": 250,
+                "Minor perk cost": 2025,
+                "Major perk cost": 5060
             },
             "abilities": {
                 "Biotic Rifle": {
@@ -2104,13 +2214,17 @@
             },
             "perks": {
                 "Groggy": {
-                    "Duration": 2
+                    "Duration": 2,
+                    "Initial slow": 75,
+                    "Damage over time": 0
                 },
                 "Biotic Bounce": {
                     "Bounce damage": 50,
                     "Bounce healing": 50
                 },
-                "Headhunter": {},
+                "Headhunter": {
+                    "Critical multiplier": 1.5
+                },
                 "Shrike": {
                     "Duration": 8
                 }
@@ -2119,7 +2233,9 @@
         "Baptiste": {
             "role": "support",
             "general": {
-                "Base health": 250
+                "Base health": 250,
+                "Minor perk cost": 2400,
+                "Major perk cost": 5830
             },
             "abilities": {
                 "Biotic Launcher": {
@@ -2175,8 +2291,11 @@
                     "Shots": 12
                 },
                 "Assault Burst": {
-                    "Attack speed increase": 20,
-                    "Duration": 4
+                    "Attack speed increase": 30,
+                    "Duration": 4,
+                    "does instant healing": false,
+                    "can critically heal low targets": true,
+                    "removes Regenerative Burst healing": true
                 },
                 "Rocket Boots": {}
             }
@@ -2186,7 +2305,9 @@
             "general": {
                 "Base health": 200,
                 "Armor health": 50,
-                "has overridden melee": true
+                "has overridden melee": true,
+                "Minor perk cost": 2035,
+                "Major perk cost": 5090
             },
             "abilities": {
                 "Inspire": {
@@ -2259,7 +2380,9 @@
         "Illari": {
             "role": "support",
             "general": {
-                "Base health": 250
+                "Base health": 250,
+                "Minor perk cost": 2355,
+                "Major perk cost": 5890
             },
             "abilities": {
                 "Solar Rifle": {
@@ -2271,7 +2394,8 @@
                     "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": false,
                     "Reload time": 1.8,
                     "Recovery time": 0.25,
-                    "weapon recharging paused while using quick melee": true
+                    "weapon recharging paused while using quick melee": true,
+                    "Minimum damage": 20
                 },
                 "Outburst": {
                     "Damage": 25,
@@ -2299,7 +2423,9 @@
                 "Solar Rifle Alt Fire": {
                     "Healing per second": 115,
                     "Recharge rate": 0.3448275862068966,
-                    "Depletion rate": 0.2857142857142857
+                    "Depletion rate": 0.2857142857142857,
+                    "Range": 15,
+                    "Maximum resource duration": 3.5
                 }
             },
             "perks": {
@@ -2318,7 +2444,8 @@
                 },
                 "Sunburn": {
                     "Additional damage": 70,
-                    "Duration": 3
+                    "Duration": 3,
+                    "Damage": 70
                 }
             }
         },
@@ -2326,7 +2453,9 @@
             "role": "support",
             "general": {
                 "Base health": 75,
-                "Shield health": 150
+                "Shield health": 150,
+                "Minor perk cost": 2110,
+                "Major perk cost": 5275
             },
             "abilities": {
                 "Martian Overboots": {
@@ -2342,7 +2471,8 @@
                     "Falloff range maximum": 35,
                     "Reload time": 1.8,
                     "Burst recovery time": 0.029411764705882353,
-                    "Recovery time": 0.78
+                    "Recovery time": 0.78,
+                    "Critical multiplier": 1
                 },
                 "Pulsar Torpedoes": {
                     "Damage": 85,
@@ -2395,7 +2525,9 @@
             "general": {
                 "Base health": 225,
                 "Arm hit volumes width": 0.85,
-                "Movement speed": 5.5
+                "Movement speed": 5.5,
+                "Minor perk cost": 1900,
+                "Major perk cost": 4800
             },
             "abilities": {
                 "Kunai": {
@@ -2409,7 +2541,9 @@
                 },
                 "Swift Step": {
                     "Cooldown": 7,
-                    "Invulnerability duration": 0.25
+                    "Invulnerability duration": 0.25,
+                    "cleanses on use": true,
+                    "Range": 35
                 },
                 "Protection Suzu": {
                     "cleanses hard knockdown stuns": true,
@@ -2430,7 +2564,8 @@
                 "Healing Ofuda": {
                     "Projectile speed": 18,
                     "Recovery time": 0.9,
-                    "Healing per projectile": 13
+                    "Healing per projectile": 13,
+                    "Fire rate": 5
                 }
             },
             "perks": {
@@ -2454,7 +2589,12 @@
             "general": {
                 "Base health": 225,
                 "Shield health": 50,
-                "Petal ornament size": 0.9
+                "Petal ornament size": 0.9,
+                "Hit volume size": 1,
+                "Model size": 1,
+                "Weapon swap time": 0.25,
+                "Minor perk cost": 1975,
+                "Major perk cost": 4940
             },
             "abilities": {
                 "Healing Blossom": {
@@ -2464,7 +2604,8 @@
                     "Maximum healing": 80,
                     "Recovery time": 0.3,
                     "Reload time": 1.5,
-                    "Passive charge per second": 13
+                    "Passive charge per second": 13,
+                    "Inactive weapon automatic reload time": 2.5
                 },
                 "Thorn Volley": {
                     "Ammo": 100,
@@ -2477,7 +2618,8 @@
                     "Critical multiplier": 2,
                     "Damage per pellet": 6,
                     "Pellet count": 2,
-                    "Ammo per shot": 2
+                    "Ammo per shot": 2,
+                    "Inactive weapon automatic reload time": 2.5
                 },
                 "Petal Platform": {
                     "Health": 300,
@@ -2508,7 +2650,9 @@
                 }
             },
             "perks": {
-                "Cleansing Grasp": {},
+                "Cleansing Grasp": {
+                    "Life Grip cooldown reduction on cleanse": 0
+                },
                 "Life Cycle": {
                     "Healing per second": 10,
                     "Healing seed healing": 250
@@ -2528,7 +2672,9 @@
             "role": "support",
             "general": {
                 "Base health": 225,
-                "Model size": 1
+                "Model size": 1,
+                "Minor perk cost": 2020,
+                "Major perk cost": 5050
             },
             "abilities": {
                 "Sonic Amplifier": {
@@ -2551,7 +2697,8 @@
                 "Sound Barrier": {
                     "Ultimate cost": 2650,
                     "Gravity during cast time": 240,
-                    "Overhealth": 750
+                    "Overhealth": 750,
+                    "Duration": 6
                 },
                 "Crossfade": {
                     "Crossfade self-healing penalty for the duration of Amp It Up": 0,
@@ -2592,7 +2739,9 @@
             "role": "support",
             "general": {
                 "Base health": 225,
-                "Weapon swap time": 0.35
+                "Weapon swap time": 0.35,
+                "Minor perk cost": 1835,
+                "Major perk cost": 4590
             },
             "abilities": {
                 "Sympathetic Recovery": {
@@ -2657,7 +2806,9 @@
         "Moira": {
             "role": "support",
             "general": {
-                "Base health": 225
+                "Base health": 225,
+                "Minor perk cost": 2295,
+                "Major perk cost": 5740
             },
             "abilities": {
                 "Biotic Grasp": {
@@ -2713,7 +2864,9 @@
             "general": {
                 "has overridden melee": true,
                 "Base health": 75,
-                "Shield health": 175
+                "Shield health": 175,
+                "Minor perk cost": 1880,
+                "Major perk cost": 4700
             },
             "abilities": {
                 "Snap Kick": {
@@ -2730,11 +2883,13 @@
                 },
                 "Transcendence": {
                     "Ultimate cost": 2295,
-                    "restores ammo on completion": true
+                    "restores ammo on completion": true,
+                    "Healing per second": 300
                 },
                 "Harmony Orb": {
                     "Time to wear off when not in line-of-sight": 5,
-                    "Projectile speed": 90
+                    "Projectile speed": 90,
+                    "Healing per second": 30
                 },
                 "Orb of Discord": {
                     "Reapplication cooldown": 6,
@@ -2759,7 +2914,8 @@
                     "Additional knockback": 30
                 },
                 "Ascendance": {
-                    "Maximum duration": 3
+                    "Maximum duration": 3,
+                    "can hover by holding jump": false
                 },
                 "Focused Destruction": {
                     "Additional secondary charge rate": 20

@@ -1127,37 +1127,65 @@ export function calculateRates(patch_data: PatchData, calculation_units: Units) 
     forEachAbility(patch_data, calculation_units, (abilityData, abilityDataUnits) => {
         let time_between_shots = 0
         {
-            let damage_per_second = 0
-            let crit_damage_per_second = 0
-            let healing_per_second = 0
+            let shots_per_second = 0
+            let damage_per_second: { [situation: string]: number } = {}
+            let crit_damage_per_second: { [situation: string]: number } = {}
+            let healing_per_second: { [situation: string]: number } = {}
+            const addRateDamage = (bucket: { [situation: string]: number }, property: string) => {
+                const situations = getUnitDataOfType(abilityDataUnits[property], "situation")
+                if (situations.length === 0) {
+                    situations.push("normal")
+                }
+                for (let situation of situations) {
+                    if (!(situation in bucket)) {
+                        bucket[situation] = 0
+                    }
+                    bucket[situation] += abilityData[property] as number
+                }
+            }
             for (let property in abilityData) {
                 if (typeof abilityData[property] === "number") {
                     if (abilityDataUnits[property].includes("time between shots")) {
                         time_between_shots += abilityData[property]
                     }
+                    if (abilityDataUnits[property].includes("shots per second")) {
+                        shots_per_second += abilityData[property]
+                    }
                     if (abilityDataUnits[property].includes("total damage")) {
-                        damage_per_second += abilityData[property]
+                        addRateDamage(damage_per_second, property)
                     }
                     if (abilityDataUnits[property].includes("total crit damage")) {
-                        crit_damage_per_second += abilityData[property]
+                        addRateDamage(crit_damage_per_second, property)
                     }
                     if (abilityDataUnits[property].includes("total healing")) {
-                        healing_per_second += abilityData[property]
+                        addRateDamage(healing_per_second, property)
                     }
                 }
             }
+            if (time_between_shots === 0 && shots_per_second > 0) {
+                time_between_shots = 1 / shots_per_second
+            }
             if (time_between_shots > 0) {
-                damage_per_second /= time_between_shots
-                crit_damage_per_second /= time_between_shots
-                healing_per_second /= time_between_shots
-                if (damage_per_second > 0) {
-                    assignValueAndUnits(abilityData, abilityDataUnits, "Damage per second", damage_per_second, ["damage per second"])
+                for (let situation in damage_per_second) {
+                    damage_per_second[situation] /= time_between_shots
+                    if (damage_per_second[situation] > 0) {
+                        const property = situation === "normal" ? "Damage per second" : `Damage per second (${situation})`
+                        assignValueAndUnits(abilityData, abilityDataUnits, property, damage_per_second[situation], ["damage per second", ["situation", situation]])
+                    }
                 }
-                if (crit_damage_per_second > 0) {
-                    assignValueAndUnits(abilityData, abilityDataUnits, "Critical damage per second", crit_damage_per_second, [])
+                for (let situation in crit_damage_per_second) {
+                    crit_damage_per_second[situation] /= time_between_shots
+                    if (crit_damage_per_second[situation] > 0) {
+                        const property = situation === "normal" ? "Critical damage per second" : `Critical damage per second (${situation})`
+                        assignValueAndUnits(abilityData, abilityDataUnits, property, crit_damage_per_second[situation], [])
+                    }
                 }
-                if (healing_per_second > 0) {
-                    assignValueAndUnits(abilityData, abilityDataUnits, "Healing per second", healing_per_second, ["healing per second"])
+                for (let situation in healing_per_second) {
+                    healing_per_second[situation] /= time_between_shots
+                    if (healing_per_second[situation] > 0) {
+                        const property = situation === "normal" ? "Healing per second" : `Healing per second (${situation})`
+                        assignValueAndUnits(abilityData, abilityDataUnits, property, healing_per_second[situation], ["healing per second", ["situation", situation]])
+                    }
                 }
             }
         }
@@ -1167,8 +1195,18 @@ export function calculateRates(patch_data: PatchData, calculation_units: Units) 
         let bullets_per_burst = 1;
         let burst_recovery_time = 0;
         let ammo_per_shot = 1;
-        let damage_per_second = 0
-        let healing_per_second = 0
+        let shots_per_second = 0;
+        let damage_per_second: { [situation: string]: number } = {}
+        let healing_per_second: { [situation: string]: number } = {}
+        const addSustainedRate = (bucket: { [situation: string]: number }, property: string) => {
+            const situations = getUnitDataOfType(abilityDataUnits[property], "situation")
+            if (situations.length === 0) {
+                situations.push("normal")
+            }
+            for (let situation of situations) {
+                bucket[situation] = abilityData[property] as number
+            }
+        }
         for (let property in abilityData) {
             if (typeof abilityData[property] === "number") {
                 if (abilityDataUnits[property].includes("reload time")) {
@@ -1189,13 +1227,19 @@ export function calculateRates(patch_data: PatchData, calculation_units: Units) 
                 if (abilityDataUnits[property].includes("ammo per shot")) {
                     ammo_per_shot *= abilityData[property]
                 }
+                if (abilityDataUnits[property].includes("shots per second")) {
+                    shots_per_second += abilityData[property]
+                }
                 if (abilityDataUnits[property].includes("damage per second")) {
-                    damage_per_second = abilityData[property]
+                    addSustainedRate(damage_per_second, property)
                 }
                 if (abilityDataUnits[property].includes("healing per second")) {
-                    healing_per_second = abilityData[property]
+                    addSustainedRate(healing_per_second, property)
                 }
             }
+        }
+        if (time_between_shots === 0 && shots_per_second > 0) {
+            time_between_shots = 1 / shots_per_second
         }
         reload_time += reload_time_per_ammo * ammo
         reload_time += (bullets_per_burst - 1) * burst_recovery_time
@@ -1211,12 +1255,18 @@ export function calculateRates(patch_data: PatchData, calculation_units: Units) 
                 time_before_reload /= abilityData["Ammo per second"]
             }
             const reload_multiplier = time_before_reload / (time_before_reload + reload_time)
-            if (damage_per_second > 0) {
-                assignValueAndUnits(abilityData, abilityDataUnits, "Damage per second(including reload)", damage_per_second * reload_multiplier, [])
+            for (let situation in damage_per_second) {
+                if (damage_per_second[situation] > 0) {
+                    const property = situation === "normal" ? "Damage per second(including reload)" : `Damage per second(including reload) (${situation})`
+                    assignValueAndUnits(abilityData, abilityDataUnits, property, damage_per_second[situation] * reload_multiplier, [])
+                }
             }
-            if (healing_per_second > 0) {
-                let healing_per_second_incl_reload = healing_per_second * reload_multiplier
-                assignValueAndUnits(abilityData, abilityDataUnits, "Healing per second(including reload)", healing_per_second_incl_reload, [])
+            for (let situation in healing_per_second) {
+                if (healing_per_second[situation] > 0) {
+                    let healing_per_second_incl_reload = healing_per_second[situation] * reload_multiplier
+                    const property = situation === "normal" ? "Healing per second(including reload)" : `Healing per second(including reload) (${situation})`
+                    assignValueAndUnits(abilityData, abilityDataUnits, property, healing_per_second_incl_reload, [])
+                }
             }
         }
     })

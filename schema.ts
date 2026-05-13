@@ -31,7 +31,7 @@ export type Unit =
     | ["special armor mitigation", DamageType]
     | ["display unit", DisplayUnit]
     | ["damage per second", DamageType]
-    | ["critical multiplier", CritType] | ["critical multiplier", CritType, DamageType] | "bullets per burst" | "ammo" | "charges" | "reload time" | "health" | "breakpoint damage" | "time between shots" | "burst recovery time" | "reload time per ammo" | "ammo per shot" | "damage per second" | "healing per second";
+    | ["critical multiplier", CritType] | ["critical multiplier", CritType, DamageType] | "bullets per burst" | "ammo" | "charges" | "reload time" | "health" | "breakpoint damage" | "time between shots" | "shots per second" | "burst recovery time" | "reload time per ammo" | "ammo per shot" | "damage per second" | "healing per second";
 
 export type Value = string | number | boolean;
 export type Hero = "D.Va" |
@@ -62,6 +62,8 @@ export type Hero = "D.Va" |
     "Symmetra" |
     "Torbjörn" |
     "Tracer" |
+    "Sierra" |
+    "Vendetta" |
     "Venture" |
     "Widowmaker" |
     "Ana" |
@@ -74,6 +76,12 @@ export type Hero = "D.Va" |
     "Lúcio" |
     "Mercy" |
     "Moira" |
+    "Domina" |
+    "Anran" |
+    "Emre" |
+    "Jetpack Cat" |
+    "Mizuki" |
+    "Wuyang" |
     "Zenyatta";
 export type PatchStructure<T> = {
     general: { [key: string]: T }
@@ -158,6 +166,7 @@ export const isUnit = unionTypeguard<Unit>([
     isLiteral("health"),
     isLiteral("breakpoint damage"),
     isLiteral("time between shots"),
+    isLiteral("shots per second"),
     isLiteral("burst recovery time"),
     isLiteral("reload time per ammo"),
     isLiteral("ammo per shot"),

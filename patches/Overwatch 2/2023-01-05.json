@@ -152,7 +152,8 @@
                     "immune to taking forced critical hit damage": false,
                     "Damage reduction": 40,
                     "disables critical damage": true,
-                    "Heat generation reduction": 50
+                    "Heat generation reduction": 50,
+                    "prevents Hack's ability lockout from interrupting abilities": false
                 },
                 "Energy Javelin": {
                     "Direct damage": 60,
@@ -172,7 +173,9 @@
                     "can be interrupted by hack": false,
                     "pierces through barriers upon impact": true,
                     "Overhealth": 100,
-                    "Pull radius": 8.5
+                    "Pull radius": 8.5,
+                    "prevents forced critical hit damage": true,
+                    "prevents headshot critical damage": true
                 },
                 "Augmented Fusion Driver": {
                     "Projectile size": 0.15,
@@ -320,7 +323,8 @@
                     "Ultimate cost": 1540,
                     "Arming time": 1.5,
                     "Cast time": 0.1,
-                    "Projectile speed": 12
+                    "Projectile speed": 12,
+                    "Duration": 20
                 },
                 "Quad Cannons": {
                     "Projectile size": 0.0,
@@ -493,7 +497,9 @@
                 "Firestrike": {
                     "Ability charges": 2,
                     "Damage": 90,
-                    "Projectile size": 0.85
+                    "Projectile size": 0.85,
+                    "Projectile speed": 25,
+                    "Recovery time": 0.63
                 },
                 "Earthshatter": {
                     "Knockdown duration": 2.5,
@@ -533,7 +539,8 @@
                     "Ultimate cost": 2120,
                     "Increased movement speed": 20,
                     "refreshes bonus armor if used while in Nemesis Form": false,
-                    "Minimum duration": 3
+                    "Minimum duration": 3,
+                    "Damage per second": 30
                 },
                 "Void Accelerator": {
                     "Projectile size": 0.075,
@@ -628,7 +635,9 @@
                     "Critical multiplier": 2,
                     "Recovery time": 0.65,
                     "Alt fire of": "The Viper",
-                    "Maximum damage falloff scalar": 30
+                    "Maximum damage falloff scalar": 30,
+                    "Minimum damage falloff range": 30,
+                    "Maximum damage falloff range": 50
                 },
                 "Dynamite": {
                     "Cooldown": 12,
@@ -651,7 +660,8 @@
             "general": {
                 "Base health": 200,
                 "Armor health": 100,
-                "Model size": 1
+                "Model size": 1,
+                "Hit volume size": 1
             },
             "abilities": {
                 "A-36 Tactical Grenade": {
@@ -786,7 +796,8 @@
                     "Pellet count": 3,
                     "Recovery time": 0.33333,
                     "Reload time": 1.5,
-                    "Ammo": 12
+                    "Ammo": 12,
+                    "Spread": 1.4
                 },
                 "Focusing Beam": {
                     "Width": 0.2,
@@ -822,7 +833,8 @@
                     "Burst recovery time": 0.096,
                     "Bullets per burst": 3,
                     "Recovery time": 0.88,
-                    "Reload time": 1.5
+                    "Reload time": 1.5,
+                    "Projectile speed": 60
                 },
                 "Deflect": {
                     "Duration": 2,
@@ -867,7 +879,8 @@
                     "Maximum charge time": 0.732,
                     "Recovery time": 0.5,
                     "Maximum projectile speed": 110,
-                    "Movement speed penalty": 30
+                    "Movement speed penalty": 30,
+                    "Preserves draw progress while wall climbing": false
                 },
                 "Storm Arrows": {
                     "Cooldown": 10,
@@ -877,7 +890,8 @@
                     "Damage per bullet": 65,
                     "Burst recovery time": 0.24,
                     "Richochets": 1,
-                    "Maximum duration": 5
+                    "Maximum duration": 5,
+                    "Projectile speed": 110
                 },
                 "Dragonstrike": {
                     "Speed": 12,
@@ -969,7 +983,8 @@
                     "Freeze rate": 1,
                     "Recovery time": 0.05,
                     "Damage": 5.0,
-                    "pierces through enemies": true
+                    "pierces through enemies": true,
+                    "Damage per second": 100
                 },
                 "Cryofreeze": {
                     "Healing per second": 50,
@@ -1098,7 +1113,8 @@
                     "Min duration": 0.4,
                     "Recovery time": 0.4,
                     "Movement speed": 50,
-                    "refills ammo": true
+                    "refills ammo": true,
+                    "Movement speed increase": 50
                 }
             }
         },
@@ -1147,7 +1163,8 @@
                     "Max range": 30,
                     "Radius": 5,
                     "Duration": 4,
-                    "Cooldown": 15
+                    "Cooldown": 15,
+                    "Maximum travel duration": 1
                 }
             }
         },
@@ -1376,13 +1393,14 @@
             "role": "damage",
             "general": {
                 "Base health": 150,
-                "Model size": 1
+                "Model size": 1,
+                "Global projectile size increase": 0.04
             },
             "abilities": {
                 "Pulse Pistols": {
                     "Minimum falloff range": 12,
                     "Projectile size": 0.0,
-                    "Spread": 3.6,
+                    "Spread": 3.0,
                     "Critical multiplier": 2,
                     "Recovery time": 0.05,
                     "Reload time": 1,
@@ -1436,7 +1454,8 @@
                     "Recovery time": 0.1,
                     "Damage": 13,
                     "Critical multiplier": 2,
-                    "Maximum damage falloff scalar": 30
+                    "Maximum damage falloff scalar": 30,
+                    "Maximum spread": 3
                 },
                 "Widow's Kiss Alt Fire": {
                     "Alt fire of": "Widow's Kiss",
@@ -1634,7 +1653,9 @@
                 },
                 "Swift Step": {
                     "Cooldown": 7,
-                    "Invulnerability duration": 0.25
+                    "Invulnerability duration": 0.25,
+                    "cleanses on use": true,
+                    "Range": 35
                 },
                 "Protection Suzu": {
                     "cleanses hard knockdown stuns": false,
@@ -1655,7 +1676,8 @@
                 "Healing Ofuda": {
                     "Projectile speed": 14,
                     "Recovery time": 0.85,
-                    "Healing per projectile": 13
+                    "Healing per projectile": 13,
+                    "Fire rate": 5
                 }
             }
         },
@@ -1685,7 +1707,8 @@
                 },
                 "Sound Barrier": {
                     "Ultimate cost": 2590,
-                    "Overhealth": 750
+                    "Overhealth": 750,
+                    "Duration": 6
                 },
                 "Crossfade": {
                     "Crossfade self-healing penalty for the duration of Amp It Up": 60,
@@ -1820,11 +1843,13 @@
                 },
                 "Transcendence": {
                     "Ultimate cost": 2318,
-                    "restores ammo on completion": true
+                    "restores ammo on completion": true,
+                    "Healing per second": 300
                 },
                 "Harmony Orb": {
                     "Time to wear off when not in line-of-sight": 3,
-                    "Projectile speed": 90
+                    "Projectile speed": 90,
+                    "Healing per second": 30
                 },
                 "Orb of Discord": {
                     "Reapplication cooldown": 0,

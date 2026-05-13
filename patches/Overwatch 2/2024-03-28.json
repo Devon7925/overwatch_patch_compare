@@ -155,7 +155,8 @@
                     "immune to taking forced critical hit damage": true,
                     "Damage reduction": 45,
                     "disables critical damage": true,
-                    "Heat generation reduction": 50
+                    "Heat generation reduction": 50,
+                    "prevents Hack's ability lockout from interrupting abilities": false
                 },
                 "Energy Javelin": {
                     "Direct damage": 60,
@@ -175,7 +176,9 @@
                     "can be interrupted by hack": true,
                     "pierces through barriers upon impact": true,
                     "Overhealth": 100,
-                    "Pull radius": 8.5
+                    "Pull radius": 8.5,
+                    "prevents forced critical hit damage": true,
+                    "prevents headshot critical damage": true
                 },
                 "Augmented Fusion Driver": {
                     "Projectile size": 0.225,
@@ -332,7 +335,8 @@
                     "Ultimate cost": 1850,
                     "Arming time": 1.25,
                     "Cast time": 0.1,
-                    "Projectile speed": 12
+                    "Projectile speed": 12,
+                    "Duration": 20
                 },
                 "Quad Cannons": {
                     "Projectile size": 0.05,
@@ -506,7 +510,9 @@
                 "Firestrike": {
                     "Ability charges": 2,
                     "Damage": 120,
-                    "Projectile size": 0.85
+                    "Projectile size": 0.85,
+                    "Projectile speed": 25,
+                    "Recovery time": 0.63
                 },
                 "Earthshatter": {
                     "Knockdown duration": 2.75,
@@ -599,7 +605,8 @@
                     "Increased movement speed": 20,
                     "refreshes bonus armor if used while in Nemesis Form": true,
                     "Maximum duration": 20,
-                    "Minimum duration": 3
+                    "Minimum duration": 3,
+                    "Damage per second": 30
                 },
                 "Void Accelerator": {
                     "Projectile size": 0.15,
@@ -694,7 +701,9 @@
                     "Critical multiplier": 2,
                     "Recovery time": 0.65,
                     "Alt fire of": "The Viper",
-                    "Maximum damage falloff scalar": 30
+                    "Maximum damage falloff scalar": 30,
+                    "Minimum damage falloff range": 30,
+                    "Maximum damage falloff range": 50
                 },
                 "Dynamite": {
                     "Cooldown": 12,
@@ -717,7 +726,8 @@
             "general": {
                 "Base health": 250,
                 "Armor health": 100,
-                "Model size": 1
+                "Model size": 1,
+                "Hit volume size": 1
             },
             "abilities": {
                 "A-36 Tactical Grenade": {
@@ -854,7 +864,8 @@
                     "Pellet count": 3,
                     "Recovery time": 0.33333,
                     "Reload time": 1.5,
-                    "Ammo": 12
+                    "Ammo": 12,
+                    "Spread": 1.4
                 },
                 "Focusing Beam": {
                     "Width": 0.25,
@@ -890,7 +901,8 @@
                     "Burst recovery time": 0.096,
                     "Bullets per burst": 3,
                     "Recovery time": 0.88,
-                    "Reload time": 1.5
+                    "Reload time": 1.5,
+                    "Projectile speed": 60
                 },
                 "Deflect": {
                     "Duration": 2,
@@ -935,7 +947,8 @@
                     "Maximum charge time": 0.732,
                     "Recovery time": 0.5,
                     "Maximum projectile speed": 110,
-                    "Movement speed penalty": 30
+                    "Movement speed penalty": 30,
+                    "Preserves draw progress while wall climbing": false
                 },
                 "Storm Arrows": {
                     "Cooldown": 8,
@@ -945,7 +958,8 @@
                     "Damage per bullet": 75,
                     "Burst recovery time": 0.24,
                     "Richochets": 1,
-                    "Maximum duration": 5
+                    "Maximum duration": 5,
+                    "Projectile speed": 110
                 },
                 "Dragonstrike": {
                     "Speed": 12,
@@ -1037,7 +1051,8 @@
                     "Freeze rate": 1,
                     "Recovery time": 0.05,
                     "Damage": 5.0,
-                    "pierces through enemies": true
+                    "pierces through enemies": true,
+                    "Damage per second": 100
                 },
                 "Cryofreeze": {
                     "Healing per second": 62.5,
@@ -1170,7 +1185,8 @@
                     "Min duration": 0.4,
                     "Recovery time": 0.4,
                     "Movement speed": 50,
-                    "refills ammo": true
+                    "refills ammo": true,
+                    "Movement speed increase": 50
                 }
             }
         },
@@ -1219,7 +1235,8 @@
                     "Max range": 30,
                     "Radius": 5,
                     "Duration": 4,
-                    "Cooldown": 15
+                    "Cooldown": 15,
+                    "Maximum travel duration": 1
                 }
             }
         },
@@ -1462,13 +1479,14 @@
             "role": "damage",
             "general": {
                 "Base health": 175,
-                "Model size": 1
+                "Model size": 1,
+                "Global projectile size increase": 0.04
             },
             "abilities": {
                 "Pulse Pistols": {
                     "Minimum falloff range": 10,
                     "Projectile size": 0.05,
-                    "Spread": 4.14,
+                    "Spread": 3.0,
                     "Critical multiplier": 2,
                     "Recovery time": 0.05,
                     "Reload time": 1,
@@ -1523,7 +1541,8 @@
                     "Impact damage": 60,
                     "Damage over time": 40,
                     "Cooldown": 8,
-                    "Knockback": 14.5
+                    "Knockback": 14.5,
+                    "Radius": 2.4
                 },
                 "Burrow": {
                     "Minimum damage": 55,
@@ -1567,7 +1586,8 @@
                     "Recovery time": 0.1,
                     "Damage": 13,
                     "Critical multiplier": 2,
-                    "Maximum damage falloff scalar": 30
+                    "Maximum damage falloff scalar": 30,
+                    "Maximum spread": 3
                 },
                 "Widow's Kiss Alt Fire": {
                     "Alt fire of": "Widow's Kiss",
@@ -1763,7 +1783,8 @@
                     "is primary fire charge gain paused by secondary fire, or channeling Captive Sun": false,
                     "Reload time": 1.8,
                     "Recovery time": 0.2,
-                    "weapon recharging paused while using quick melee": true
+                    "weapon recharging paused while using quick melee": true,
+                    "Minimum damage": 20
                 },
                 "Outburst": {
                     "Damage": 10,
@@ -1791,7 +1812,9 @@
                 "Solar Rifle Alt Fire": {
                     "Healing per second": 105,
                     "Recharge rate": 0.3448275862068966,
-                    "Depletion rate": 0.3333333333333333
+                    "Depletion rate": 0.3333333333333333,
+                    "Range": 15,
+                    "Maximum resource duration": 3.5
                 }
             }
         },
@@ -1814,7 +1837,9 @@
                 },
                 "Swift Step": {
                     "Cooldown": 7,
-                    "Invulnerability duration": 0.25
+                    "Invulnerability duration": 0.25,
+                    "cleanses on use": true,
+                    "Range": 35
                 },
                 "Protection Suzu": {
                     "cleanses hard knockdown stuns": false,
@@ -1835,7 +1860,8 @@
                 "Healing Ofuda": {
                     "Projectile speed": 18,
                     "Recovery time": 0.9,
-                    "Healing per projectile": 13
+                    "Healing per projectile": 13,
+                    "Fire rate": 5
                 }
             }
         },
@@ -1844,7 +1870,10 @@
             "general": {
                 "Base health": 225,
                 "Shield health": 50,
-                "Petal ornament size": 0.9
+                "Petal ornament size": 0.9,
+                "Hit volume size": 1,
+                "Model size": 1,
+                "Weapon swap time": 0.25
             },
             "abilities": {
                 "Healing Blossom": {
@@ -1854,7 +1883,8 @@
                     "Delay until slow": 1,
                     "Maximum healing": 80,
                     "Recovery time": 0.3,
-                    "Reload time": 1.5
+                    "Reload time": 1.5,
+                    "Inactive weapon automatic reload time": 2.5
                 },
                 "Thorn Volley": {
                     "Ammo": 80,
@@ -1867,7 +1897,8 @@
                     "Critical multiplier": 2,
                     "Damage per pellet": 6,
                     "Pellet count": 2,
-                    "Ammo per shot": 2
+                    "Ammo per shot": 2,
+                    "Inactive weapon automatic reload time": 2.5
                 },
                 "Petal Platform": {
                     "Health": 400,
@@ -1923,7 +1954,8 @@
                 },
                 "Sound Barrier": {
                     "Ultimate cost": 2650,
-                    "Overhealth": 750
+                    "Overhealth": 750,
+                    "Duration": 6
                 },
                 "Crossfade": {
                     "Crossfade self-healing penalty for the duration of Amp It Up": 0,
@@ -2060,11 +2092,13 @@
                 },
                 "Transcendence": {
                     "Ultimate cost": 2550,
-                    "restores ammo on completion": true
+                    "restores ammo on completion": true,
+                    "Healing per second": 300
                 },
                 "Harmony Orb": {
                     "Time to wear off when not in line-of-sight": 5,
-                    "Projectile speed": 90
+                    "Projectile speed": 90,
+                    "Healing per second": 30
                 },
                 "Orb of Discord": {
                     "Reapplication cooldown": 7,
