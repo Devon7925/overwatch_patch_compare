@@ -76,7 +76,7 @@
                     "Movement speed penalty": 30,
                     "Recovery time": 0.15,
                     "Critical multiplier": 2,
-                    "Damage per pellet": 2.0,
+                    "Damage per pellet": 2,
                     "Pellet count": 11
                 },
                 "Boosters": {
@@ -202,16 +202,19 @@
             "perks": {
                 "Reconstitution": {
                     "Energy restoration": 25,
-                    "Max energy restoration": 50
+                    "Max energy restoration": 50,
+                    "Tier": "Major"
                 },
                 "Anarchic Zeal": {
                     "Lifesteal rate": 30
                 },
                 "Deep Leap": {
-                    "Violent Leap additional range": 15
+                    "Violent Leap additional range": 15,
+                    "Tier": "Minor"
                 },
                 "Explosive Impalements": {
-                    "Explosion damage": 40
+                    "Explosion damage": 40,
+                    "Bonespur hits required": 14
                 }
             }
         },
@@ -240,7 +243,7 @@
                     "Critical multiplier": 2,
                     "Reload time": 1.5,
                     "Recovery time": 0.75,
-                    "Damage per pellet": 8.0,
+                    "Damage per pellet": 8,
                     "Pellet count": 10
                 },
                 "Jagged Blade": {
@@ -300,7 +303,7 @@
             "general": {
                 "Base health": 300,
                 "Armor health": 300,
-                "Model size": 1.0,
+                "Model size": 1,
                 "Head hitbox size": 0.85,
                 "Subrole": "Bruiser",
                 "Minor perk cost": 1830,
@@ -668,7 +671,7 @@
                     "Reload time per ammo": 0.4,
                     "Ammo": 4,
                     "Recovery time": 0.336,
-                    "Damage per pellet": 5.0,
+                    "Damage per pellet": 5,
                     "Maximum damage falloff scalar": 30,
                     "Minimum damage falloff range": 15
                 },
@@ -704,7 +707,9 @@
                     "Empowered damage multiplier": 1.5,
                     "Angle required for wall slam": 55,
                     "Maximum charge time": 1,
-                    "Empowered punch duration": 20
+                    "Empowered punch duration": 20,
+                    "Empowered collateral range increase": 75,
+                    "Empowered collateral radius increase": 50
                 },
                 "Meteor Strike": {
                     "Ultimate cost": 1950,
@@ -822,7 +827,9 @@
                     "Critical multiplier": 2,
                     "Recovery time": 0.055555,
                     "Damage": 4,
-                    "Reload time": 2.2
+                    "Reload time": 2.2,
+                    "Single-gun shots until maximum spread": 0,
+                    "Dual-gun minimum falloff range": 15
                 },
                 "Overrun": {
                     "Cooldown": 5,
@@ -841,7 +848,7 @@
                     "Allied lifesteal": 50
                 },
                 "Cage Fight": {
-                    "Ultimate cost": 2679.0,
+                    "Ultimate cost": 2679,
                     "Duration": 8,
                     "grants infinite ammo": false,
                     "Barrier health": 1200
@@ -1130,7 +1137,7 @@
                     "Maximum damage falloff scalar": 30
                 },
                 "Reconfigure": {
-                    "Cast time into turret": 1.0
+                    "Cast time into turret": 1
                 }
             },
             "perks": {
@@ -1216,7 +1223,11 @@
                 "Even the Odds": {
                     "Healing per second per Deadeye target": 30
                 },
-                "Silver Bullet": {},
+                "Silver Bullet": {
+                    "Bleed total damage": 70,
+                    "Bleed duration": 2.5,
+                    "Projectile size": 0.17
+                },
                 "Rollin' Round-Up": {
                     "Healing per bullet reloaded": 15
                 }
@@ -1227,7 +1238,7 @@
             "general": {
                 "Base health": 150,
                 "Shield health": 75,
-                "Model size": 1.0,
+                "Model size": 1,
                 "Subrole": "Recon",
                 "Minor perk cost": 1760,
                 "Major perk cost": 4405
@@ -1280,12 +1291,14 @@
             "perks": {
                 "Full Salvo": {
                     "Extra projectiles": 50,
-                    "Dealt damage reduction": 15
+                    "Dealt damage reduction": 15,
+                    "Additional projectile count": 3
                 },
                 "High Beams": {},
                 "Focused Rush": {
                     "Focusing Beam range increase": 6,
-                    "Movement speed increase": 20
+                    "Movement speed increase": 20,
+                    "Tier": "Minor"
                 },
                 "Partial Scan": {
                     "Duplicate starting ultimate charge": 50
@@ -1323,7 +1336,8 @@
                     "Recovery time": 0.5,
                     "Reload time": 1.5,
                     "Ammo": 1,
-                    "Slow momentum time": 1.0
+                    "Slow momentum time": 1,
+                    "Explosion delay": 1
                 },
                 "Quick Dash": {
                     "Cooldown": 4.5,
@@ -1553,7 +1567,8 @@
             },
             "perks": {
                 "Nitro Boost": {
-                    "Dealt damage reduction": 50
+                    "Dealt damage reduction": 50,
+                    "Movement speed increase": 125
                 },
                 "Frag Cannon": {
                     "Projectile speed increase": 25,
@@ -1586,9 +1601,10 @@
                     "Reload time": 1.5,
                     "Freeze rate": 1,
                     "Recovery time": 0.05,
-                    "Damage": 5.0,
+                    "Damage": 5,
                     "pierces through enemies": true,
-                    "Damage per second": 110
+                    "Damage per second": 110,
+                    "Range": 10
                 },
                 "Cryofreeze": {
                     "Healing per second": 62.5,
@@ -1629,7 +1645,9 @@
                 "Cryo-Storm": {
                     "Damage per second": 70
                 },
-                "Deep Freeze": {},
+                "Deep Freeze": {
+                    "Non-tank freeze rate increase": 0
+                },
                 "Skating Rink": {
                     "Ally movement speed increase": 25,
                     "Ally healing per second": 50
@@ -1770,7 +1788,8 @@
             },
             "perks": {
                 "Soul Reaving": {
-                    "Healing per globe": 50
+                    "Healing per globe": 50,
+                    "Pickup radius": 5
                 },
                 "Shadow Blink": {
                     "Cast time reduction": 25,
@@ -1814,7 +1833,7 @@
                 },
                 "Power Slide": {
                     "Cooldown": 7,
-                    "Maximum duration": 1.0
+                    "Maximum duration": 1
                 },
                 "Overclock": {
                     "Energy charge rate": 100,
@@ -1982,7 +2001,7 @@
                     "Cooldown": 3,
                     "Cooldown on successful enemy hero hack": 6,
                     "Health pack hacked duration": 45,
-                    "Ability lockout duration": 1.0,
+                    "Ability lockout duration": 1,
                     "can hack hacked enemies": false,
                     "reveals enemies": true,
                     "Cooldown on interrupt": 4,
@@ -2053,7 +2072,8 @@
                     "Automatic destruction range": 40,
                     "manually breakable": true,
                     "Interact range": 1.5,
-                    "Entry location": "in front of Symmetra"
+                    "Entry location": "in front of Symmetra",
+                    "Reuse cooldown": 1
                 },
                 "Photon Barrier": {
                     "Ultimate cost": 2025,
@@ -2241,7 +2261,7 @@
                     "Damage over time": 60,
                     "Cooldown": 8,
                     "Knockback": 14.5,
-                    "Radius": 2.0
+                    "Radius": 2
                 },
                 "Burrow": {
                     "Grace period": 0.2,
@@ -2257,7 +2277,8 @@
                 },
                 "Clobber": {
                     "Impact damage": 30,
-                    "Damage over time": 40
+                    "Damage over time": 40,
+                    "Recovery time": 1.6
                 }
             },
             "general": {
@@ -2503,7 +2524,8 @@
                     "Healing per second": 15,
                     "Duration": 4,
                     "triggers from Shield Bash damage": true,
-                    "Cooldown": 1
+                    "Cooldown": 1,
+                    "Instant healing": 0
                 },
                 "Rocket Flail": {
                     "Damage": 45,
@@ -2605,7 +2627,7 @@
                     "projectile impact and explosion are blocked by barriers": true,
                     "Projectile size": 0.45,
                     "Sunstruck duration": 6,
-                    "Environment collision projectile size": 0.0,
+                    "Environment collision projectile size": 0,
                     "Explosion radius": 10
                 },
                 "Solar Rifle Alt Fire": {
@@ -2674,7 +2696,8 @@
                     "Cooldown": 10,
                     "Healing over time": 50,
                     "Cooldown after no lock-on cancel": 2,
-                    "Forgiveness range": 5
+                    "Forgiveness range": 5,
+                    "Minimum lock-on time": 0.5
                 },
                 "Glide Boost": {
                     "Increased movement speed": 50,
@@ -2694,7 +2717,7 @@
                 },
                 "Orbital Ray": {
                     "Damage boost": 30,
-                    "Ultimate cost": 2875.0,
+                    "Ultimate cost": 2875,
                     "Healing per second": 85,
                     "Duration": 8,
                     "Radius": 8,
@@ -2710,7 +2733,9 @@
                     "Pulsar Torpedoes cooldown reduction per enemy hit": 1
                 },
                 "Lift Off": {},
-                "Faster Blaster": {}
+                "Faster Blaster": {
+                    "Shots per second": 20
+                }
             }
         },
         "Kiriko": {
@@ -2748,10 +2773,11 @@
                     "passes through enemy heroes": true,
                     "has knockback": false,
                     "Additional healing when cleansing a negative effect": 0,
-                    "Cast time": 0.1
+                    "Cast time": 0.1,
+                    "Explosion radius": 5
                 },
                 "Kitsune Rush": {
-                    "Ultimate cost": 2727.0,
+                    "Ultimate cost": 2727,
                     "Movement speed bonus": 30,
                     "Cooldown rate": 2
                 },
@@ -2759,7 +2785,8 @@
                     "Projectile speed": 24,
                     "Recovery time": 0.9,
                     "Healing per projectile": 13,
-                    "Fire rate": 7
+                    "Fire rate": 7,
+                    "Maximum seeking range": 35
                 }
             },
             "perks": {
@@ -2845,7 +2872,9 @@
                     "Cooldown": 11,
                     "Ability lockout duration": 0.75,
                     "Healing": 75,
-                    "cleanses on use": true
+                    "cleanses on use": true,
+                    "can be cancelled with Jump": false,
+                    "Base pull speed": 30
                 }
             },
             "perks": {
@@ -2886,7 +2915,8 @@
                     "Recovery time": 0.93,
                     "Bullets per burst": 4,
                     "Burst recovery time": 0.112,
-                    "Projectile speed": 50
+                    "Projectile speed": 50,
+                    "Damage": 20
                 },
                 "Soundwave": {
                     "Damage": 45,
@@ -2999,7 +3029,9 @@
                 }
             },
             "perks": {
-                "Chain Boost": {},
+                "Chain Boost": {
+                    "Additional damage boost": 0
+                },
                 "Angelic Resurrection": {
                     "Overhealth": 100
                 },
@@ -3034,7 +3066,7 @@
                 "Coalescence": {
                     "Self-heal per second": 55,
                     "can use fade during duration": true,
-                    "Ultimate cost": 2697.0,
+                    "Ultimate cost": 2697,
                     "Bonus movement speed": 40,
                     "Damage per second": 70,
                     "Resource regeneration multiplier": 3
@@ -3051,7 +3083,10 @@
                     "can fire damage orb": true,
                     "Damage radius": 4,
                     "Projectile speed": 20,
-                    "Duration": 7
+                    "Duration": 7,
+                    "Damage per second": 50,
+                    "Healing per second": 65,
+                    "Damage Orb capacity": 200
                 }
             },
             "perks": {
@@ -3278,7 +3313,8 @@
                     "First swing startup": 0.4,
                     "First swing recovery": 0.28,
                     "Second swing startup": 0.2,
-                    "Second swing recovery": 0.3
+                    "Second swing recovery": 0.3,
+                    "Horizontal swing duration": 0.25
                 },
                 "Palatine Fang (Overhead Strike)": {
                     "Overhead strike damage": 120,
@@ -3288,7 +3324,7 @@
                     "Overhead startup": 0.64,
                     "Overhead recovery": 0.74,
                     "Overhead recovery interruptable by Warding Stance": true,
-                    "Overhead swing bonus range": 2.0
+                    "Overhead swing bonus range": 2
                 },
                 "Warding Stance": {
                     "Cooldown": 0.5,
@@ -3325,7 +3361,8 @@
                     "Height": 4,
                     "Movement speed increase": 280,
                     "Impact knockback speed": 17.7,
-                    "Whirlwind knockback speed": 5.8
+                    "Whirlwind knockback speed": 5.8,
+                    "Recovery time": 0.5
                 },
                 "Soaring Slice": {
                     "Cooldown": 7,
@@ -3339,7 +3376,8 @@
                     "Jump cancel movement speed": 5,
                     "Projectile speed": 50,
                     "Projectile radius": 0.92,
-                    "starts on cooldown when respawning": true
+                    "starts on cooldown when respawning": true,
+                    "Respawn cooldown": 7
                 },
                 "Sundering Blade": {
                     "Ultimate cost": 2400,
@@ -3525,7 +3563,8 @@
                     "Knockback speed": 8.5,
                     "Increased jump height": 20,
                     "can be canceled with Quick Melee": true,
-                    "can automatically climb ledges": true
+                    "can automatically climb ledges": true,
+                    "Recovery time": 0.3
                 },
                 "Dancing Blaze": {
                     "Cooldown": 8,
@@ -3565,7 +3604,8 @@
                     "Explosion animation time": 0.7,
                     "Inner radius": 2.5,
                     "Outer radius": 7,
-                    "Cast window after death": 5
+                    "Cast window after death": 5,
+                    "Cast time": 3
                 }
             },
             "perks": {
@@ -3704,7 +3744,9 @@
                 "Base health": 225,
                 "Subrole": "Tactician",
                 "Minor perk cost": 2100,
-                "Major perk cost": 5200
+                "Major perk cost": 5200,
+                "Movement speed": 5.5,
+                "Air acceleration": 7.7
             },
             "abilities": {
                 "Jetpack": {},
@@ -3731,7 +3773,8 @@
                     "Regeneration delay": 0.75,
                     "Maximum movement speed increase": 230.1,
                     "Maximum speed": 18.155,
-                    "Acceleration multiplier": 89
+                    "Acceleration multiplier": 89,
+                    "Fuel regeneration slowdown while carrying": 2
                 },
                 "Lifeline": {
                     "Cooldown": 2,
@@ -3740,7 +3783,9 @@
                     "Selection height": 15,
                     "Tether detach launch speed": 13.2,
                     "Movement speed increase": 40,
-                    "Ally healing per second": 25
+                    "Ally healing per second": 25,
+                    "carried target stuns and mobility locks disconnect tether": false,
+                    "allies automatically accept over death planes": false
                 },
                 "Purr": {
                     "Cooldown": 12,
@@ -3750,7 +3795,8 @@
                     "Healing pulse rate": 0.95,
                     "Range": 10,
                     "Knockback speed": 16.6,
-                    "Pulses": 10
+                    "Pulses": 10,
+                    "Self-healing penalty": 25
                 },
                 "Catnapper": {
                     "Ultimate cost": 2400,
@@ -3769,7 +3815,8 @@
                     "Healing converted to fuel": 15
                 },
                 "Transport Shielding": {
-                    "Shield health": 75
+                    "Shield health": 75,
+                    "Duration": 5
                 },
                 "Headbutt": {
                     "Damage": 30,
@@ -3856,10 +3903,11 @@
                     "Tank hinder duration": 1.2,
                     "Range": 20,
                     "Projectile speed": 60,
-                    "Tether length": 2.5
+                    "Tether length": 2.5,
+                    "Projectile size": 0.35
                 },
                 "Kekkai Sanctuary": {
-                    "Ultimate cost": 3317.0,
+                    "Ultimate cost": 3317,
                     "Instant healing": 100,
                     "Healing per second": 40,
                     "Cast time": 0.832,
@@ -3908,7 +3956,8 @@
                     "Maximum spread": 3,
                     "Minimum spread": 0.5,
                     "Time to minimum spread": 0.75,
-                    "Critical multiplier": 2
+                    "Critical multiplier": 2,
+                    "Projectile size": 0.175
                 },
                 "Tracking Shot": {
                     "Cooldown": 10,
@@ -3927,7 +3976,8 @@
                     "Deploy range": 14,
                     "Grapple range": 17,
                     "Grapple move speed": 22,
-                    "ignores barriers": true
+                    "ignores barriers": true,
+                    "Deploy speed": 30
                 },
                 "Tremor Charge": {
                     "Cooldown": 8.5,
@@ -3970,7 +4020,8 @@
                 },
                 "Locked In": {
                     "Attack speed increase": 20,
-                    "Duration": 2
+                    "Duration": 2,
+                    "requires Tracking Shot to hit an enemy hero": false
                 }
             }
         }

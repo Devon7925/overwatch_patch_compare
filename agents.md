@@ -23,6 +23,7 @@ Use Blizzard's official patch notes as the primary source. Use the Overwatch wik
 
 1. Identify every missing balance patch since the latest entry in `patch_list.json` for the relevant patch group. Do not collapse multiple missed patches into one file; create one snapshot per official balance patch date.
 2. For each new patch, copy the latest recorded patch file in that same patch group to a new file named with the new patch date.
+   Finish and verify both modes for that date before proceeding to the next date.
 3. Add each new file name to the matching array in `patch_list.json`, preserving chronological order and the `.json` suffix convention used in the file.
 4. Apply changes to the new snapshot only, unless you are backfilling a stat that should have existed in previous snapshots.
 5. For changes to stats that already exist in patch data, update the existing key and preserve the existing stat name unless there is a strong reason to rename it across the data set.
@@ -34,7 +35,7 @@ Use Blizzard's official patch notes as the primary source. Use the Overwatch wik
 7. For new abilities or perks:
    - Add an entry in the new patch.
    - Add units for every tracked stat.
-   - Add an `image_map.json` entry when Blizzard patch notes or official assets provide an icon.
+   - Add an `image_map.json` entry from Blizzard patch notes or official hero pages. Never use wiki images. Verify hero, ability, and perk labels, including reused names; do not substitute Stadium icons.
    - Include balance-relevant numeric, boolean, and string values that could plausibly change in future patches.
 8. For removed abilities or perks, remove their entries entirely from the new patch snapshot. Do not remove them from historical snapshots where they existed.
 9. For added heroes, add the hero, role, general stats, abilities, perks, and units needed by the new patch. Also update `schema.ts` if the hero union requires it.

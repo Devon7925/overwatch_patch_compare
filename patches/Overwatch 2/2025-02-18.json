@@ -33,7 +33,7 @@
                     "Movement speed penalty": 30,
                     "Recovery time": 0.15,
                     "Critical multiplier": 2,
-                    "Damage per pellet": 2.0,
+                    "Damage per pellet": 2,
                     "Pellet count": 11
                 },
                 "Boosters": {
@@ -167,7 +167,8 @@
                     "Lifesteal rate": 25
                 },
                 "Deep Leap": {
-                    "Violent Leap additional range": 20
+                    "Violent Leap additional range": 20,
+                    "Tier": "Minor"
                 }
             }
         },
@@ -195,7 +196,7 @@
                     "Critical multiplier": 2,
                     "Reload time": 1.5,
                     "Recovery time": 0.75,
-                    "Damage per pellet": 8.0,
+                    "Damage per pellet": 8,
                     "Pellet count": 10
                 },
                 "Jagged Blade": {
@@ -251,7 +252,7 @@
             "general": {
                 "Base health": 300,
                 "Armor health": 325,
-                "Model size": 1.0,
+                "Model size": 1,
                 "Head hitbox size": 0.85,
                 "Minor perk cost": 1830,
                 "Major perk cost": 4570
@@ -608,7 +609,7 @@
                     "Reload time per ammo": 0.4,
                     "Ammo": 4,
                     "Recovery time": 0.336,
-                    "Damage per pellet": 5.0,
+                    "Damage per pellet": 5,
                     "Maximum damage falloff scalar": 30,
                     "Minimum damage falloff range": 15
                 },
@@ -1048,7 +1049,7 @@
                     "Maximum damage falloff scalar": 30
                 },
                 "Reconfigure": {
-                    "Cast time into turret": 1.0
+                    "Cast time into turret": 1
                 }
             },
             "perks": {
@@ -1143,7 +1144,7 @@
             "role": "damage",
             "general": {
                 "Base health": 225,
-                "Model size": 1.0,
+                "Model size": 1,
                 "Minor perk cost": 1760,
                 "Major perk cost": 4405
             },
@@ -1197,7 +1198,8 @@
                 },
                 "Full Salvo": {
                     "Extra projectiles": 50,
-                    "Dealt damage reduction": 15
+                    "Dealt damage reduction": 15,
+                    "Additional projectile count": 3
                 },
                 "High Beams": {}
             }
@@ -1424,7 +1426,7 @@
                     "Reload time": 1.5,
                     "Freeze rate": 1,
                     "Recovery time": 0.05,
-                    "Damage": 5.0,
+                    "Damage": 5,
                     "pierces through enemies": true,
                     "Damage per second": 100
                 },
@@ -1804,7 +1806,7 @@
                     "Cooldown": 3,
                     "Cooldown on successful enemy hero hack": 6,
                     "Health pack hacked duration": 45,
-                    "Ability lockout duration": 1.0,
+                    "Ability lockout duration": 1,
                     "can hack hacked enemies": false,
                     "reveals enemies": true,
                     "Cooldown on interrupt": 4,
@@ -1992,7 +1994,7 @@
                 "Pulse Pistols": {
                     "Minimum falloff range": 10,
                     "Projectile size": 0.04,
-                    "Spread": 3.0,
+                    "Spread": 3,
                     "Critical multiplier": 2,
                     "Recovery time": 0.05,
                     "Reload time": 1,
@@ -2417,7 +2419,7 @@
                     "projectile impact and explosion are blocked by barriers": true,
                     "Projectile size": 0.75,
                     "Sunstruck duration": 6,
-                    "Environment collision projectile size": 0.0,
+                    "Environment collision projectile size": 0,
                     "Explosion radius": 10
                 },
                 "Solar Rifle Alt Fire": {

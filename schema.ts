@@ -35,7 +35,10 @@ export type Unit =
 
 export type Value = string | number | boolean;
 export type Hero = "D.Va" |
+    "D.Mon" |
+    "Shion" |
     "Doomfist" |
+    "Hazard" |
     "Junker Queen" |
     "Mauga" |
     "Orisa" |

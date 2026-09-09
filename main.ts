@@ -882,6 +882,8 @@ export function calculatePostArmorProperties(patch_data: PatchData, calculation_
             console.error(`General hero data for ${hero}`)
             return
         }
+        // A partial baseline must not present armor alone as total hero health.
+        if (typeof generalHeroData["Base health"] !== "number") return;
         let total_health = Object.keys(generalHeroData)
             .filter((general_property) => generalHeroDataUnits[general_property].includes("health"))
             .map((general_property) => generalHeroData[general_property])

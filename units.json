@@ -1008,7 +1008,8 @@
                             "display unit",
                             "percent"
                         ]
-                    ]
+                    ],
+                    "Tier": []
                 },
                 "Anarchic Zeal": {
                     "Lifesteal rate": [
@@ -1024,7 +1025,8 @@
                             "display unit",
                             "percent"
                         ]
-                    ]
+                    ],
+                    "Tier": []
                 },
                 "Explosive Impalements": {
                     "Explosion damage": [
@@ -1032,7 +1034,8 @@
                             "damage instance",
                             "explosion"
                         ]
-                    ]
+                    ],
+                    "Bonespur hits required": []
                 }
             }
         },
@@ -1754,6 +1757,16 @@
                             "percent"
                         ]
                     ]
+                },
+                "Heavy Javelin": {
+                    "Tier": [],
+                    "Energy Javelin knockback increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Additional wall impact damage": []
                 }
             }
         },
@@ -3095,6 +3108,18 @@
                             "display unit",
                             "seconds"
                         ]
+                    ],
+                    "Empowered collateral range increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Empowered collateral radius increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
                     ]
                 },
                 "Seismic Slam": {
@@ -3628,6 +3653,13 @@
                         [
                             "display unit",
                             "seconds"
+                        ]
+                    ],
+                    "Single-gun shots until maximum spread": [],
+                    "Dual-gun minimum falloff range": [
+                        [
+                            "display unit",
+                            "meters"
                         ]
                     ]
                 },
@@ -4812,6 +4844,19 @@
                             "display unit",
                             "percent"
                         ]
+                    ],
+                    "Tier": [],
+                    "A-36 Tactical Grenade self-knockback increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "A-36 Tactical Grenade deals self damage": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
                     ]
                 },
                 "Armored Artillery": {
@@ -5157,12 +5202,41 @@
                         "healing per second"
                     ]
                 },
-                "Silver Bullet": {},
+                "Silver Bullet": {
+                    "Bleed total damage": [],
+                    "Bleed duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Projectile size": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ]
+                },
                 "Rollin' Round-Up": {
                     "Healing per bullet reloaded": [
                         [
                             "healing instance",
                             "normal"
+                        ]
+                    ]
+                },
+                "Giddy Up": {
+                    "Tier": [],
+                    "Movement speed increase after Combat Roll": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Movement speed decay duration": [
+                        [
+                            "display unit",
+                            "seconds"
                         ]
                     ]
                 }
@@ -5410,7 +5484,8 @@
                             "display unit",
                             "percent"
                         ]
-                    ]
+                    ],
+                    "Additional projectile count": []
                 },
                 "High Beams": {},
                 "Focused Rush": {
@@ -5425,13 +5500,23 @@
                             "display unit",
                             "percent"
                         ]
-                    ]
+                    ],
+                    "Tier": []
                 },
                 "Partial Scan": {
                     "Duplicate starting ultimate charge": [
                         [
                             "display unit",
                             "percent"
+                        ]
+                    ]
+                },
+                "Aerial Munitions": {
+                    "Tier": [],
+                    "Infinite ammo during Flight": [
+                        [
+                            "display unit",
+                            "flag"
                         ]
                     ]
                 }
@@ -5544,6 +5629,12 @@
                         "ammo"
                     ],
                     "Slow momentum time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Explosion delay": [
                         [
                             "display unit",
                             "seconds"
@@ -6477,6 +6568,12 @@
                             "display unit",
                             "percent"
                         ]
+                    ],
+                    "Movement speed increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
                     ]
                 },
                 "Frag Cannon": {
@@ -6645,6 +6742,12 @@
                         [
                             "display unit",
                             "health per second"
+                        ]
+                    ],
+                    "Range": [
+                        [
+                            "display unit",
+                            "meters"
                         ]
                     ]
                 },
@@ -6865,7 +6968,14 @@
                 "Cryo-Storm": {
                     "Damage per second": []
                 },
-                "Deep Freeze": {},
+                "Deep Freeze": {
+                    "Non-tank freeze rate increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
                 "Skating Rink": {
                     "Ally movement speed increase": [
                         [
@@ -7434,7 +7544,13 @@
                     ]
                 },
                 "Soul Reaving": {
-                    "Healing per globe": []
+                    "Healing per globe": [],
+                    "Pickup radius": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ]
                 },
                 "Dire Triggers": {
                     "Recovery time": [
@@ -8776,6 +8892,12 @@
                             "display unit",
                             "flag"
                         ]
+                    ],
+                    "Reuse cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
                     ]
                 },
                 "Photon Shield": {
@@ -9401,6 +9523,15 @@
                             "percent"
                         ]
                     ]
+                },
+                "Temporal Regen": {
+                    "Tier": [],
+                    "Passive health regeneration delay reduction": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
                 }
             }
         },
@@ -9441,6 +9572,12 @@
                         [
                             "damage instance",
                             "damage over time"
+                        ]
+                    ],
+                    "Recovery time": [
+                        [
+                            "display unit",
+                            "seconds"
                         ]
                     ]
                 },
@@ -10518,7 +10655,8 @@
                             "display unit",
                             "percent"
                         ]
-                    ]
+                    ],
+                    "Instant healing": []
                 },
                 "Rocket Flail": {
                     "Damage": [
@@ -11159,6 +11297,12 @@
                             "display unit",
                             "meters"
                         ]
+                    ],
+                    "Minimum lock-on time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
                     ]
                 },
                 "Glide Boost": {
@@ -11311,7 +11455,9 @@
                     ]
                 },
                 "Lift Off": {},
-                "Faster Blaster": {}
+                "Faster Blaster": {
+                    "Shots per second": []
+                }
             }
         },
         "Kiriko": {
@@ -11401,6 +11547,12 @@
                     ],
                     "Fire rate": [
                         "time between shots"
+                    ],
+                    "Maximum seeking range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
                     ]
                 },
                 "Swift Step": {
@@ -11475,6 +11627,12 @@
                         [
                             "display unit",
                             "seconds"
+                        ]
+                    ],
+                    "Explosion radius": [
+                        [
+                            "display unit",
+                            "meters"
                         ]
                     ]
                 },
@@ -11781,6 +11939,30 @@
                             "display unit",
                             "flag"
                         ]
+                    ],
+                    "can be cancelled with Jump": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "Manual cancel delay": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Base pull speed": [
+                        [
+                            "display unit",
+                            "meters per second"
+                        ]
+                    ],
+                    "Long-distance acceleration threshold": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
                     ]
                 },
                 "Tree of Life": {
@@ -12000,7 +12182,8 @@
                             "display unit",
                             "seconds"
                         ]
-                    ]
+                    ],
+                    "Damage": []
                 },
                 "Soundwave": {
                     "Damage": [
@@ -12494,7 +12677,14 @@
                         ]
                     ]
                 },
-                "Chain Boost": {},
+                "Chain Boost": {
+                    "Additional damage boost": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
                 "Flash Heal": {
                     "Cast time": [
                         [
@@ -12643,7 +12833,14 @@
                             "display unit",
                             "seconds"
                         ]
-                    ]
+                    ],
+                    "Damage per second": [
+                        "damage per second"
+                    ],
+                    "Healing per second": [
+                        "healing per second"
+                    ],
+                    "Damage Orb capacity": []
                 },
                 "Necrotic Orb": {
                     "Cooldown": [
@@ -13592,6 +13789,12 @@
                             "display unit",
                             "seconds"
                         ]
+                    ],
+                    "Horizontal swing duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
                     ]
                 },
                 "Warding Stance": {
@@ -13784,6 +13987,12 @@
                             "display unit",
                             "meters per second"
                         ]
+                    ],
+                    "Recovery time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
                     ]
                 },
                 "Soaring Slice": {
@@ -13853,7 +14062,13 @@
                             "meters"
                         ]
                     ],
-                    "starts on cooldown when respawning": []
+                    "starts on cooldown when respawning": [],
+                    "Respawn cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
                 },
                 "Sundering Blade": {
                     "Ultimate cost": [],
@@ -14405,6 +14620,10 @@
                             "percent"
                         ]
                     ]
+                },
+                "Corporate Retreat": {
+                    "Tier": [],
+                    "Barrier Array relocations": []
                 }
             }
         },
@@ -14622,6 +14841,12 @@
                             "display unit",
                             "percent"
                         ]
+                    ],
+                    "Recovery time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
                     ]
                 },
                 "Dancing Blaze": {
@@ -14818,6 +15043,12 @@
                         ]
                     ],
                     "Cast window after death": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Cast time": [
                         [
                             "display unit",
                             "seconds"
@@ -15405,7 +15636,14 @@
                 ],
                 "Subrole": [],
                 "Minor perk cost": [],
-                "Major perk cost": []
+                "Major perk cost": [],
+                "Movement speed": [
+                    [
+                        "display unit",
+                        "meters per second"
+                    ]
+                ],
+                "Air acceleration": []
             },
             "abilities": {
                 "Jetpack": {},
@@ -15536,7 +15774,8 @@
                             "display unit",
                             "percent"
                         ]
-                    ]
+                    ],
+                    "Fuel regeneration slowdown while carrying": []
                 },
                 "Lifeline": {
                     "Cooldown": [
@@ -15577,6 +15816,18 @@
                     ],
                     "Ally healing per second": [
                         "healing per second"
+                    ],
+                    "carried target stuns and mobility locks disconnect tether": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "allies automatically accept over death planes": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
                     ]
                 },
                 "Purr": {
@@ -15622,7 +15873,13 @@
                             "meters per second"
                         ]
                     ],
-                    "Pulses": []
+                    "Pulses": [],
+                    "Self-healing penalty": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
                 },
                 "Catnapper": {
                     "Ultimate cost": [],
@@ -15688,6 +15945,12 @@
                 "Transport Shielding": {
                     "Shield health": [
                         "health"
+                    ],
+                    "Duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
                     ]
                 },
                 "Headbutt": {
@@ -15749,6 +16012,10 @@
                             "percent"
                         ]
                     ]
+                },
+                "Purrfect Form": {
+                    "Tier": [],
+                    "Waves per Purr pulse": []
                 }
             }
         },
@@ -16090,6 +16357,12 @@
                             "display unit",
                             "meters"
                         ]
+                    ],
+                    "Projectile size": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
                     ]
                 },
                 "Kekkai Sanctuary": {
@@ -16256,6 +16529,12 @@
                             "critical multiplier",
                             "headshot"
                         ]
+                    ],
+                    "Projectile size": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
                     ]
                 },
                 "Tracking Shot": {
@@ -16343,6 +16622,12 @@
                         [
                             "display unit",
                             "flag"
+                        ]
+                    ],
+                    "Deploy speed": [
+                        [
+                            "display unit",
+                            "meters per second"
                         ]
                     ]
                 },
@@ -16521,6 +16806,810 @@
                         [
                             "display unit",
                             "seconds"
+                        ]
+                    ],
+                    "requires Tracking Shot to hit an enemy hero": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ]
+                }
+            }
+        },
+        "Shion": {
+            "general": {
+                "Base health": [
+                    "health"
+                ],
+                "Subrole": [],
+                "Minor perk cost": [],
+                "Major perk cost": []
+            },
+            "abilities": {
+                "Kira Pistols": {
+                    "Damage": [
+                        [
+                            "damage instance",
+                            "normal"
+                        ]
+                    ],
+                    "Minimum damage": [],
+                    "Minimum falloff range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Maximum falloff range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Critical multiplier": [
+                        [
+                            "critical multiplier",
+                            "headshot",
+                            "normal"
+                        ]
+                    ],
+                    "Recovery time": [
+                        "time between shots",
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Ammo": [
+                        "ammo"
+                    ],
+                    "Reload time": [
+                        "reload time",
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Projectile size": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ]
+                },
+                "Execution": {
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Damage per bullet": [
+                        [
+                            "damage instance",
+                            "normal"
+                        ]
+                    ],
+                    "Minimum damage per bullet": [],
+                    "Bullets per burst": [
+                        "bullets per burst",
+                        [
+                            "bullets per burst",
+                            "normal"
+                        ]
+                    ],
+                    "Critical multiplier": [
+                        [
+                            "critical multiplier",
+                            "headshot",
+                            "normal"
+                        ]
+                    ],
+                    "Cast time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Recovery time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Volley duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Projectile size": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Minimum falloff range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Maximum falloff range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Maximum horizontal spread": [
+                        [
+                            "display unit",
+                            "degrees"
+                        ]
+                    ],
+                    "Minimum horizontal spread": [
+                        [
+                            "display unit",
+                            "degrees"
+                        ]
+                    ],
+                    "Maximum vertical spread": [
+                        [
+                            "display unit",
+                            "degrees"
+                        ]
+                    ],
+                    "Minimum vertical spread": [
+                        [
+                            "display unit",
+                            "degrees"
+                        ]
+                    ],
+                    "Time to minimum spread": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Maximum hold after charge": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Evade": {
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Overhealth": [],
+                    "Recovery time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Overhealth duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Overhealth decay delay": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Movement speed": [
+                        [
+                            "display unit",
+                            "meters per second"
+                        ]
+                    ],
+                    "usable while reloading": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ],
+                    "usable while charging Execution": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ]
+                },
+                "Joyride": {
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Riding impact damage": [],
+                    "Ground launch damage": [],
+                    "Air launch impact damage": [],
+                    "Air launch explosion damage": [],
+                    "Cast time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Ground launch recovery": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Air launch cast time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Air launch recovery": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Maximum duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Air targeting duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Automatic reload time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Inner explosion radius": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Outer explosion radius": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Ground launch detection radius": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Movement speed": [
+                        [
+                            "display unit",
+                            "meters per second"
+                        ]
+                    ],
+                    "Knockback speed": [
+                        [
+                            "display unit",
+                            "meters per second"
+                        ]
+                    ]
+                },
+                "Satsuriku Spree": {
+                    "Ultimate cost": [],
+                    "Charges": [],
+                    "Damage per burst": [],
+                    "Minimum damage per burst": [],
+                    "Damage instances per burst": [],
+                    "Burst duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Activation recovery": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Rush cast time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Rush recovery": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Stationary cast time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Stationary recovery": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Maximum duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Dash duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Dash range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Inner radius": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Outer radius": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Rush movement speed": [
+                        [
+                            "display unit",
+                            "meters per second"
+                        ]
+                    ],
+                    "Stationary movement speed penalty": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                }
+            },
+            "perks": {
+                "Rapid Reload": {
+                    "Tier": [],
+                    "Ammo reloaded": []
+                },
+                "X Machina": {
+                    "Tier": [],
+                    "Execution damage increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Enemy health threshold": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Refuel": {
+                    "Tier": [],
+                    "Instant healing": [],
+                    "Healing per second": [
+                        [
+                            "display unit",
+                            "health per second"
+                        ]
+                    ]
+                },
+                "Faces of Death": {
+                    "Tier": [],
+                    "Additional subroles": []
+                }
+            }
+        },
+        "D.Mon": {
+            "general": {
+                "Base health": [
+                    "health"
+                ],
+                "Armor health": [
+                    "health"
+                ],
+                "Pilot health": [],
+                "Subrole": []
+            },
+            "abilities": {
+                "Plasma Saber": {
+                    "Damage": [
+                        [
+                            "damage instance",
+                            "normal"
+                        ]
+                    ],
+                    "Swings per second": [
+                        "shots per second"
+                    ],
+                    "Range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "ignores barriers": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ]
+                },
+                "Portable Fusion Repeater": {
+                    "Damage": [
+                        [
+                            "damage instance",
+                            "normal"
+                        ]
+                    ],
+                    "Critical multiplier": [
+                        [
+                            "critical multiplier",
+                            "headshot",
+                            "normal"
+                        ]
+                    ],
+                    "Shots per second": [
+                        "shots per second"
+                    ],
+                    "Ammo": [
+                        "ammo"
+                    ],
+                    "Spread": [
+                        [
+                            "display unit",
+                            "degrees"
+                        ]
+                    ],
+                    "Minimum falloff range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Maximum falloff range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ]
+                },
+                "Power Barrier": {
+                    "Health": [],
+                    "Regeneration rate": [
+                        [
+                            "display unit",
+                            "health per second"
+                        ]
+                    ],
+                    "Regeneration delay": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Destroyed cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Movement speed penalty": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Cast time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Propulsors": {
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Fuel drain rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Fuel regeneration rate": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Regeneration delay": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Movement speed increase": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Impact damage": [],
+                    "Knockback speed": [
+                        [
+                            "display unit",
+                            "meters per second"
+                        ]
+                    ]
+                },
+                "Fusion Repeater": {
+                    "Damage": [
+                        [
+                            "damage instance",
+                            "normal"
+                        ]
+                    ],
+                    "Critical multiplier": [
+                        [
+                            "critical multiplier",
+                            "headshot",
+                            "normal"
+                        ]
+                    ],
+                    "Shots per second": [
+                        "shots per second"
+                    ],
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Maximum duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Maximum spread": [
+                        [
+                            "display unit",
+                            "degrees"
+                        ]
+                    ],
+                    "Shots to maximum spread": [],
+                    "Minimum falloff range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Maximum falloff range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Cast time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Recovery time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Cooldown start": [],
+                    "can be cancelled early": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ]
+                },
+                "Surging Strike": {
+                    "Cooldown": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Damage": [],
+                    "Area range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Dash range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ],
+                    "Knockback speed": [
+                        [
+                            "display unit",
+                            "meters per second"
+                        ]
+                    ],
+                    "Cast time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Recovery time": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "requires Power Barrier": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ]
+                },
+                "Eject!": {
+                    "Invulnerability duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ]
+                },
+                "Limit Break": {
+                    "Damage": [],
+                    "Initial overhealth": [],
+                    "Overhealth per enemy hit": [],
+                    "Incoming damage amplification": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Overhealth decay delay": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Damage amplification duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Self movement speed penalty": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Enemy movement speed slow": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ],
+                    "Slow decay duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Range": [
+                        [
+                            "display unit",
+                            "meters"
+                        ]
+                    ]
+                },
+                "Call Mech (D.Mon)": {
+                    "Maximum damage": [],
+                    "Minimum damage": [],
+                    "Transformation duration": [
+                        [
+                            "display unit",
+                            "seconds"
+                        ]
+                    ],
+                    "Knockback speed": [
+                        [
+                            "display unit",
+                            "meters per second"
+                        ]
+                    ],
+                    "usable in midair": [
+                        [
+                            "display unit",
+                            "flag"
+                        ]
+                    ]
+                }
+            },
+            "perks": {
+                "Beast Within": {
+                    "Tier": [],
+                    "Barrier healing per Plasma Saber hit": []
+                },
+                "MEKA Mobility": {
+                    "Tier": [],
+                    "Propulsors fuel cost reduction while shielding": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Overstrike": {
+                    "Tier": [],
+                    "Surging Strike lifesteal": [
+                        [
+                            "display unit",
+                            "percent"
+                        ]
+                    ]
+                },
+                "Focused Fusion": {
+                    "Tier": [],
+                    "Damage": [],
+                    "Shots per second": [],
+                    "Spread": [
+                        [
+                            "display unit",
+                            "degrees"
+                        ]
+                    ],
+                    "Pilot weapon spread": [
+                        [
+                            "display unit",
+                            "degrees"
                         ]
                     ]
                 }
