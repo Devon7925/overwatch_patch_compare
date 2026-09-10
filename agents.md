@@ -63,6 +63,15 @@ After editing data for a patch, inspect the generated comparison between the pre
 
 The diff should include every balance-relevant official change that belongs in the model, and it should not include unrelated drift from accidental edits. If a larger system change does not fit the existing schema, look for precedent in older patches before adding a new structure. If there is no clear precedent, add the unresolved item to `unadded_changes.md` and keep the snapshot otherwise accurate.
 
+Schema and DPS tests alone are not a patch-note audit. Check both the raw snapshot diff and the rendered comparison with calculated properties and breakpoints enabled, in both modes and with armor on and off. Include negative assertions: an ultimate-cost, cooldown, or target-health-only change must not appear as an offensive breakpoint change for an otherwise unchanged attack.
+
+- Before reusing a stat key, verify its meaning and unit tags, not just its name. Absolute spread angles, relative multipliers, and percentage points are different quantities. Never store degrees in a relative-percent field. If the meaning changes, use distinct keys and document any unsupported historical baseline.
+- Compare attack sequences against the same target-health thresholds and compatible search limits on both sides. Check actual hero roles when selecting targets. Preserve threshold-crossing changes at the highest target health.
+- New weapon models must be tested through the actual breakpoint calculator and renderer, not just DPS. Cover rate tags, burst/volley counts, ammo limits, and representative multi-hit kills (including more than three hits). Mixed-ability searches remain bounded and are not an exhaustive combat simulator.
+- Redundancy filtering must use full before/after attack-count metadata; missing values in a sparse diff do not mean zero attacks. Processing and formatting must not mutate source data or global units.
+- Run the all-added-date regressions in `tests/breakpoints.test.ts`. To refresh the checked-in report, run `npm test` with `WRITE_COMPARISON_AUDIT=1`. This verifies calculator invariants, not the factual accuracy of every source value; state that distinction in audit reports.
+- Add an exact rendered-text regression for each reporting defect, including fractional relative changes. Calculate percentages before rounding for display.
+
 ## Ambiguities To Resolve Conservatively
 
 - "Latest recorded patch" means the final date listed in `patch_list.json` for the relevant patch group, not filesystem modification time.

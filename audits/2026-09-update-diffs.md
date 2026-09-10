@@ -200,7 +200,8 @@ Generated from consecutive snapshots after historical backfills. Source review a
 - heroes / Zarya / abilities / Particle Barrier / Cooldown: 11 -> 12
 - heroes / Mauga / general / Armor health: 150 -> 125
 - heroes / Mauga / abilities / Incendiary and Volatile Changuns / Spread when only one Chaingun is active: 1.5 -> 1
-- heroes / Mauga / abilities / Incendiary and Volatile Changuns / Spread for firing both guns: 0.85 -> 5
+- heroes / Mauga / abilities / Incendiary and Volatile Changuns / Spread for firing both guns: 4 -> 5
+- heroes / Mauga / abilities / Incendiary and Volatile Changuns / Dual-gun spread multiplier relative to preview: 0.85 -> 1.0625
 - heroes / Mauga / abilities / Incendiary and Volatile Changuns / Dual-gun minimum falloff range: 15 -> 10
 - heroes / Winston / abilities / Barrier Projector / Duration: 8 -> 7
 - heroes / Winston / abilities / Barrier Projector / Cooldown: 12 -> 10
@@ -441,7 +442,8 @@ Generated from consecutive snapshots after historical backfills. Source review a
 
 - heroes / Wrecking Ball / perks / Adaptive Barrier / Barrier duration: 1.4 -> 1
 - heroes / Mauga / abilities / Incendiary and Volatile Changuns / Spread when only one Chaingun is active: 1.5 -> 1
-- heroes / Mauga / abilities / Incendiary and Volatile Changuns / Spread for firing both guns: 0.85 -> 5
+- heroes / Mauga / abilities / Incendiary and Volatile Changuns / Spread for firing both guns: 4 -> 5
+- heroes / Mauga / abilities / Incendiary and Volatile Changuns / Dual-gun spread multiplier relative to preview: 0.85 -> 1.0625
 - heroes / Mauga / abilities / Incendiary and Volatile Changuns / Dual-gun minimum falloff range: 15 -> 10
 - heroes / Winston / abilities / Barrier Projector / Duration: 8 -> 7
 - heroes / Junkrat / abilities / Concussion Mine / Cooldown: 8 -> 7

@@ -1,8 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
-import { runInNewContext } from "node:vm";
-import ts from "typescript";
-import { isKeyOf, rest } from "../utils.js";
+import { loadMainFunctions } from "./helpers/mainFunctions.js";
 import type { PatchData, Units } from "../schema.js";
 
 const load = <T = unknown>(file: string): T => JSON.parse(readFileSync(new URL(`../${file}`, import.meta.url), "utf8")) as T;
@@ -10,21 +8,7 @@ const modes = ["Overwatch 2", "Overwatch 2 6v6"];
 const dates = ["2026-06-16", "2026-06-23", "2026-06-25", "2026-07-14", "2026-08-11", "2026-08-12", "2026-08-14", "2026-09-08"];
 const patch = (mode: string, date: string): PatchData => load<PatchData>(`patches/${mode}/${date}.json`);
 
-// Execute the actual calculation functions without main.ts's browser startup.
-// AST selection avoids duplicating formulas or changing production module boundaries.
-const names = new Set([
-    "getUnitsOfType", "getUnitArrayDataOfType", "getUnitDataOfType",
-    "forEachHero", "forEachAbility", "assignValueAndUnits",
-    "calculatePreArmorProperties", "calculatePostArmorProperties", "calculateRates",
-]);
-const source = ts.createSourceFile("main.ts", readFileSync(new URL("../main.ts", import.meta.url), "utf8"), ts.ScriptTarget.Latest, true);
-const selected = source.statements.filter(s => ts.isFunctionDeclaration(s) && s.name && names.has(s.name.text));
-if (selected.length !== names.size) throw new Error("Calculation function selection is incomplete");
-const compiled = ts.transpileModule(selected.map(s => s.getText(source)).join("\n"), {
-    compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.CommonJS },
-}).outputText;
-const calculations: Record<string, (p: PatchData, u: Units) => PatchData> = {};
-runInNewContext(compiled, { exports: calculations, isKeyOf, rest });
+const calculations = loadMainFunctions();
 function calculate(p: PatchData) {
     const units = load<Units>("units.json");
     calculations.calculatePreArmorProperties(p, units);

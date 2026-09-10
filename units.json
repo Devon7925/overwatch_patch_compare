@@ -3622,10 +3622,15 @@
                     "Spread for firing both guns": [
                         [
                             "display unit",
-                            "relative percent"
+                            "degrees"
                         ]
                     ],
-                    "Spread when only one Chaingun is active": [],
+                    "Spread when only one Chaingun is active": [
+                        [
+                            "display unit",
+                            "degrees"
+                        ]
+                    ],
                     "Incendiary Chaingun burn duration": [
                         [
                             "display unit",
@@ -3660,6 +3665,12 @@
                         [
                             "display unit",
                             "meters"
+                        ]
+                    ],
+                    "Dual-gun spread multiplier relative to preview": [
+                        [
+                            "display unit",
+                            "relative percent"
                         ]
                     ]
                 },

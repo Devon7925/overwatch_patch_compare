@@ -828,6 +828,7 @@
                     "Movement speed penalty per gun": 15,
                     "Minimum damage falloff range": 30,
                     "Fire rate multiplier for firing both guns": 0,
+                    "Dual-gun spread multiplier relative to preview": 1.0625,
                     "Spread for firing both guns": 5,
                     "Incendiary Chaingun burn duration": 4,
                     "Critical multiplier": 2,

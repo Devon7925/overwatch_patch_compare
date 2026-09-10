@@ -1,0 +1,1344 @@
+[
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-03-25",
+    "after": "2025-04-22",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 40,
+    "breakpointChanges": {
+      "Orisa": 10,
+      "Freja": 13
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-03-25",
+    "after": "2025-04-22",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 40,
+    "breakpointChanges": {
+      "Orisa": 13,
+      "Freja": 14
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-04-22",
+    "after": "2025-04-28",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-04-22",
+    "after": "2025-04-28",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-04-28",
+    "after": "2025-05-20",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 39,
+    "breakpointChanges": {
+      "Widowmaker": 18
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-04-28",
+    "after": "2025-05-20",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 39,
+    "breakpointChanges": {
+      "Widowmaker": 14
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-05-20",
+    "after": "2025-05-29",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-05-20",
+    "after": "2025-05-29",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-05-29",
+    "after": "2025-06-24",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 40,
+    "breakpointChanges": {
+      "Reaper": 2,
+      "Tracer": 7
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-05-29",
+    "after": "2025-06-24",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 0,
+    "breakpointChanges": {
+      "Reaper": 7,
+      "Tracer": 2
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-06-24",
+    "after": "2025-07-22",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 42,
+    "breakpointChanges": {
+      "Freja": 46
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-06-24",
+    "after": "2025-07-22",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 42,
+    "breakpointChanges": {
+      "Freja": 38
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-07-22",
+    "after": "2025-08-26",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 39,
+    "breakpointChanges": {
+      "Hazard": 119,
+      "Roadhog": 38,
+      "Wuyang": 115
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-07-22",
+    "after": "2025-08-26",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 39,
+    "breakpointChanges": {
+      "Hazard": 186,
+      "Roadhog": 64,
+      "Wuyang": 111
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-08-26",
+    "after": "2025-08-29",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {
+      "Roadhog": 31
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-08-26",
+    "after": "2025-08-29",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {
+      "Roadhog": 50
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-08-29",
+    "after": "2025-09-16",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 38,
+    "breakpointChanges": {
+      "Hazard": 48,
+      "Roadhog": 14,
+      "Widowmaker": 23,
+      "Brigitte": 3,
+      "Lúcio": 13
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-08-29",
+    "after": "2025-09-16",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 38,
+    "breakpointChanges": {
+      "Hazard": 91,
+      "Roadhog": 40,
+      "Wrecking Ball": 3,
+      "Widowmaker": 15,
+      "Brigitte": 2,
+      "Lúcio": 16
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-09-16",
+    "after": "2025-10-14",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-09-16",
+    "after": "2025-10-14",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-10-14",
+    "after": "2025-11-11",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 44,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-10-14",
+    "after": "2025-11-11",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 44,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-11-11",
+    "after": "2025-12-09",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 40,
+    "breakpointChanges": {
+      "Hazard": 116,
+      "Sigma": 6,
+      "Freja": 31,
+      "Vendetta": 1002
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-11-11",
+    "after": "2025-12-09",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 40,
+    "breakpointChanges": {
+      "Hazard": 196,
+      "Sigma": 7,
+      "Freja": 33,
+      "Vendetta": 999
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-12-09",
+    "after": "2025-12-11",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 45,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-12-09",
+    "after": "2025-12-11",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 45,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-12-11",
+    "after": "2025-12-12",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 44,
+    "breakpointChanges": {
+      "Sigma": 3
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-12-11",
+    "after": "2025-12-12",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 44,
+    "breakpointChanges": {
+      "Sigma": 3
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-12-12",
+    "after": "2025-12-18",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 44,
+    "breakpointChanges": {
+      "Vendetta": 24
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-12-12",
+    "after": "2025-12-18",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 44,
+    "breakpointChanges": {
+      "Vendetta": 25
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-12-18",
+    "after": "2026-01-08",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 39,
+    "breakpointChanges": {
+      "Roadhog": 25,
+      "Bastion": 46,
+      "Freja": 10,
+      "Illari": 15,
+      "Vendetta": 24
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2025-12-18",
+    "after": "2026-01-08",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 39,
+    "breakpointChanges": {
+      "Roadhog": 34,
+      "Bastion": 26,
+      "Freja": 5,
+      "Illari": 10,
+      "Vendetta": 37
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-01-08",
+    "after": "2026-02-10",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 42,
+    "breakpointChanges": {
+      "Tracer": 4,
+      "Vendetta": 19,
+      "Domina": 153,
+      "Anran": 476,
+      "Emre": 2281,
+      "Jetpack Cat": 8,
+      "Mizuki": 8
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-01-08",
+    "after": "2026-02-10",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 0,
+    "breakpointChanges": {
+      "Tracer": 2,
+      "Vendetta": 24,
+      "Domina": 152,
+      "Anran": 452,
+      "Emre": 2103,
+      "Jetpack Cat": 10,
+      "Mizuki": 8
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-02-10",
+    "after": "2026-02-13",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 49,
+    "breakpointChanges": {
+      "Anran": 23
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-02-10",
+    "after": "2026-02-13",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 49,
+    "breakpointChanges": {
+      "Anran": 31
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-02-13",
+    "after": "2026-02-24",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Vendetta": 19,
+      "Emre": 121
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-02-13",
+    "after": "2026-02-24",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Vendetta": 24,
+      "Emre": 134
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-02-24",
+    "after": "2026-03-10",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Roadhog": 13
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-02-24",
+    "after": "2026-03-10",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Roadhog": 27
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-03-10",
+    "after": "2026-04-14",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 45,
+    "breakpointChanges": {
+      "Ramattra": 9,
+      "Pharah": 24,
+      "Anran": 42,
+      "Sierra": 202
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-03-10",
+    "after": "2026-04-14",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 45,
+    "breakpointChanges": {
+      "Ramattra": 3,
+      "Pharah": 27,
+      "Anran": 52,
+      "Sierra": 203
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-04-14",
+    "after": "2026-04-17",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 50,
+    "breakpointChanges": {
+      "Sierra": 55
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-04-14",
+    "after": "2026-04-17",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 50,
+    "breakpointChanges": {
+      "Sierra": 51
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-04-17",
+    "after": "2026-04-23",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 51,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-04-17",
+    "after": "2026-04-23",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 51,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-04-23",
+    "after": "2026-05-12",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "D.Va": 181
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-04-23",
+    "after": "2026-05-12",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "D.Va": 48
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-05-12",
+    "after": "2026-06-16",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Reinhardt": 3,
+      "Jetpack Cat": 7,
+      "Shion": 53
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-05-12",
+    "after": "2026-06-16",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Reinhardt": 1,
+      "Jetpack Cat": 5,
+      "Shion": 43
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-06-16",
+    "after": "2026-06-23",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 52,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-06-16",
+    "after": "2026-06-23",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 52,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-06-23",
+    "after": "2026-06-25",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 52,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-06-23",
+    "after": "2026-06-25",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 52,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-06-25",
+    "after": "2026-07-14",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 49,
+    "breakpointChanges": {
+      "Ramattra": 10,
+      "Ana": 2
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-06-25",
+    "after": "2026-07-14",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 49,
+    "breakpointChanges": {
+      "Ramattra": 3,
+      "Ana": 2
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-07-14",
+    "after": "2026-08-11",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 51,
+    "breakpointChanges": {
+      "Doomfist": 18,
+      "D.Mon": 501
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-07-14",
+    "after": "2026-08-11",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 51,
+    "breakpointChanges": {
+      "Doomfist": 8,
+      "D.Mon": 356
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-08-11",
+    "after": "2026-08-12",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 52,
+    "breakpointChanges": {
+      "D.Mon": 194
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-08-11",
+    "after": "2026-08-12",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 52,
+    "breakpointChanges": {
+      "D.Mon": 114
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-08-12",
+    "after": "2026-08-14",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 53,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-08-12",
+    "after": "2026-08-14",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 53,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-08-14",
+    "after": "2026-09-08",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Freja": 29,
+      "Vendetta": 65,
+      "Jetpack Cat": 7,
+      "Sierra": 20,
+      "D.Mon": 156
+    }
+  },
+  {
+    "mode": "Overwatch 2",
+    "before": "2026-08-14",
+    "after": "2026-09-08",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Freja": 22,
+      "Vendetta": 62,
+      "Jetpack Cat": 5,
+      "Sierra": 25,
+      "D.Mon": 92
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-03-25",
+    "after": "2025-04-22",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 40,
+    "breakpointChanges": {
+      "Orisa": 10,
+      "Freja": 109
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-03-25",
+    "after": "2025-04-22",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 0,
+    "breakpointChanges": {
+      "Orisa": 13,
+      "Freja": 103
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-04-22",
+    "after": "2025-04-28",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-04-22",
+    "after": "2025-04-28",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-04-28",
+    "after": "2025-05-20",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 40,
+    "breakpointChanges": {
+      "Widowmaker": 18
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-04-28",
+    "after": "2025-05-20",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 40,
+    "breakpointChanges": {
+      "Widowmaker": 14
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-05-20",
+    "after": "2025-05-29",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-05-20",
+    "after": "2025-05-29",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-05-29",
+    "after": "2025-06-24",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 40,
+    "breakpointChanges": {
+      "Reaper": 2,
+      "Tracer": 7
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-05-29",
+    "after": "2025-06-24",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 0,
+    "breakpointChanges": {
+      "Reaper": 7,
+      "Tracer": 2
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-06-24",
+    "after": "2025-07-22",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 42,
+    "breakpointChanges": {
+      "Freja": 46
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-06-24",
+    "after": "2025-07-22",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 42,
+    "breakpointChanges": {
+      "Freja": 38
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-07-22",
+    "after": "2025-08-26",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 39,
+    "breakpointChanges": {
+      "Hazard": 119,
+      "Roadhog": 38,
+      "Wuyang": 115
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-07-22",
+    "after": "2025-08-26",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 39,
+    "breakpointChanges": {
+      "Hazard": 186,
+      "Roadhog": 64,
+      "Wuyang": 111
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-08-26",
+    "after": "2025-08-29",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {
+      "Roadhog": 31
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-08-26",
+    "after": "2025-08-29",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {
+      "Roadhog": 50
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-08-29",
+    "after": "2025-09-16",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 38,
+    "breakpointChanges": {
+      "Hazard": 48,
+      "Roadhog": 14,
+      "Widowmaker": 23,
+      "Brigitte": 3,
+      "Lúcio": 13
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-08-29",
+    "after": "2025-09-16",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 38,
+    "breakpointChanges": {
+      "Hazard": 91,
+      "Roadhog": 40,
+      "Wrecking Ball": 3,
+      "Widowmaker": 15,
+      "Brigitte": 2,
+      "Lúcio": 16
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-09-16",
+    "after": "2025-10-14",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-09-16",
+    "after": "2025-10-14",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 43,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-10-14",
+    "after": "2025-11-11",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 44,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-10-14",
+    "after": "2025-11-11",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 44,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-11-11",
+    "after": "2025-12-09",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 40,
+    "breakpointChanges": {
+      "Hazard": 116,
+      "Sigma": 5,
+      "Freja": 31,
+      "Vendetta": 1002
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-11-11",
+    "after": "2025-12-09",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 40,
+    "breakpointChanges": {
+      "Hazard": 196,
+      "Sigma": 7,
+      "Freja": 33,
+      "Vendetta": 999
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-12-09",
+    "after": "2025-12-11",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 45,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-12-09",
+    "after": "2025-12-11",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 45,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-12-11",
+    "after": "2025-12-12",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 44,
+    "breakpointChanges": {
+      "Sigma": 4
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-12-11",
+    "after": "2025-12-12",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 44,
+    "breakpointChanges": {
+      "Sigma": 3
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-12-12",
+    "after": "2025-12-18",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 44,
+    "breakpointChanges": {
+      "Vendetta": 24
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-12-12",
+    "after": "2025-12-18",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 44,
+    "breakpointChanges": {
+      "Vendetta": 25
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-12-18",
+    "after": "2026-01-08",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 39,
+    "breakpointChanges": {
+      "Roadhog": 25,
+      "Bastion": 46,
+      "Illari": 15,
+      "Freja": 10,
+      "Vendetta": 24
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2025-12-18",
+    "after": "2026-01-08",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 39,
+    "breakpointChanges": {
+      "Roadhog": 34,
+      "Bastion": 26,
+      "Illari": 10,
+      "Freja": 5,
+      "Vendetta": 37
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-01-08",
+    "after": "2026-02-10",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 42,
+    "breakpointChanges": {
+      "Tracer": 4,
+      "Vendetta": 19,
+      "Domina": 153,
+      "Anran": 476,
+      "Emre": 2281,
+      "Jetpack Cat": 8,
+      "Mizuki": 8
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-01-08",
+    "after": "2026-02-10",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 0,
+    "breakpointChanges": {
+      "Tracer": 2,
+      "Vendetta": 24,
+      "Domina": 152,
+      "Anran": 452,
+      "Emre": 2103,
+      "Jetpack Cat": 10,
+      "Mizuki": 8
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-02-10",
+    "after": "2026-02-13",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 49,
+    "breakpointChanges": {
+      "Anran": 23
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-02-10",
+    "after": "2026-02-13",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 49,
+    "breakpointChanges": {
+      "Anran": 31
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-02-13",
+    "after": "2026-02-24",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Vendetta": 19,
+      "Emre": 121
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-02-13",
+    "after": "2026-02-24",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Vendetta": 24,
+      "Emre": 134
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-02-24",
+    "after": "2026-03-10",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Roadhog": 13
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-02-24",
+    "after": "2026-03-10",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Roadhog": 27
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-03-10",
+    "after": "2026-04-14",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 45,
+    "breakpointChanges": {
+      "Ramattra": 9,
+      "Pharah": 24,
+      "Anran": 42,
+      "Sierra": 202
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-03-10",
+    "after": "2026-04-14",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 45,
+    "breakpointChanges": {
+      "Ramattra": 3,
+      "Pharah": 27,
+      "Anran": 52,
+      "Sierra": 203
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-04-14",
+    "after": "2026-04-17",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 50,
+    "breakpointChanges": {
+      "Sierra": 55
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-04-14",
+    "after": "2026-04-17",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 50,
+    "breakpointChanges": {
+      "Sierra": 51
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-04-17",
+    "after": "2026-04-23",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 51,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-04-17",
+    "after": "2026-04-23",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 51,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-04-23",
+    "after": "2026-05-12",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "D.Va": 181
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-04-23",
+    "after": "2026-05-12",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "D.Va": 48
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-05-12",
+    "after": "2026-06-16",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Reinhardt": 3,
+      "Jetpack Cat": 7,
+      "Shion": 53
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-05-12",
+    "after": "2026-06-16",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Reinhardt": 1,
+      "Jetpack Cat": 5,
+      "Shion": 43
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-06-16",
+    "after": "2026-06-23",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 52,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-06-16",
+    "after": "2026-06-23",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 52,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-06-23",
+    "after": "2026-06-25",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 52,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-06-23",
+    "after": "2026-06-25",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 52,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-06-25",
+    "after": "2026-07-14",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 49,
+    "breakpointChanges": {
+      "Ramattra": 10,
+      "Ana": 2
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-06-25",
+    "after": "2026-07-14",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 49,
+    "breakpointChanges": {
+      "Ramattra": 3,
+      "Ana": 2
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-07-14",
+    "after": "2026-08-11",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 51,
+    "breakpointChanges": {
+      "Doomfist": 18,
+      "D.Mon": 501
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-07-14",
+    "after": "2026-08-11",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 51,
+    "breakpointChanges": {
+      "Doomfist": 8,
+      "D.Mon": 356
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-08-11",
+    "after": "2026-08-12",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 52,
+    "breakpointChanges": {
+      "D.Mon": 194
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-08-11",
+    "after": "2026-08-12",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 52,
+    "breakpointChanges": {
+      "D.Mon": 114
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-08-12",
+    "after": "2026-08-14",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 53,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-08-12",
+    "after": "2026-08-14",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 53,
+    "breakpointChanges": {}
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-08-14",
+    "after": "2026-09-08",
+    "armor": false,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Freja": 29,
+      "Vendetta": 65,
+      "Jetpack Cat": 7,
+      "Sierra": 20,
+      "D.Mon": 156
+    }
+  },
+  {
+    "mode": "Overwatch 2 6v6",
+    "before": "2026-08-14",
+    "after": "2026-09-08",
+    "armor": true,
+    "unchangedAttackHeroesChecked": 48,
+    "breakpointChanges": {
+      "Freja": 22,
+      "Vendetta": 62,
+      "Jetpack Cat": 5,
+      "Sierra": 25,
+      "D.Mon": 92
+    }
+  }
+]
