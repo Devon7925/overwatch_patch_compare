@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmitOnError": true
+  },
+  "include": ["main.ts", "schema.ts", "utils.ts"]
+}

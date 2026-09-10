@@ -30,15 +30,39 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check
+        run: npm run typecheck
+
       - name: Build typescript
-        run: |
-          npx tsc
+        run: npm run build
+
+      - name: Run tests
+        run: npm test
 
       - name: Upload export artifact
         uses: actions/upload-artifact@v4
         with:
           name: site-artifact
-          path: .
+          path: |
+            index.html
+            *.css
+            main.js
+            schema.js
+            utils.js
+            image_map.json
+            patch_list.json
+            units.json
+            patches/
+            assets/
           compression-level: 1  
 
   # Deployment job

@@ -12,6 +12,8 @@ This repo stores Overwatch balance snapshots for the patch comparison UI.
 
 Run `npm test` after data edits. The validation tests require every listed patch file to exist, conform to `schema.ts`, and have unit definitions for all included stats.
 
+For TypeScript or workflow changes, also run `npm run typecheck` and `npm run build`. CI and Pages deployment must install lockfile dependencies with `npm ci` before running these checks; passing data tests alone does not verify the browser entry point or deployment build.
+
 ## Patch Data Update Workflow
 
 When updating current Overwatch 2 data, update both active patch groups unless the source patch is clearly specific to only one of them:

@@ -4,6 +4,140 @@
 import { isArrayMatchingTypeguard, isKeyOf, isObjectWithValues, isString, reorder, Rest, rest, UnwrapSingleton } from "./utils.js"
 import { DisplayUnit, Hero, isCalculationUnits, isPatchData, PatchData, SpecialArmorBehavior, Units, Unit } from "./schema.js"
 
+const patch_type_before_box = document.querySelector<HTMLSelectElement>("select#patch_type_before")!;
+const patch_type_after_box = document.querySelector<HTMLSelectElement>("select#patch_type_after")!;
+const patch_before_box = document.querySelector<HTMLSelectElement>("select#patch_before")!;
+const patch_after_box = document.querySelector<HTMLSelectElement>("select#patch_after")!;
+const display_calculated_properties_box = document.querySelector<HTMLInputElement>("input#disp_calc_props")!;
+const display_breakpoints_box = document.querySelector<HTMLInputElement>("input#disp_breakpoints")!;
+const apply_damage_to_armor_box = document.querySelector<HTMLInputElement>("input#apply_damage_to_armor")!;
+const last_patch_buttons = document.querySelectorAll<HTMLButtonElement>(".last_patch_button")!;
+const next_patch_buttons = document.querySelectorAll<HTMLButtonElement>(".next_patch_button")!;
+const swap_patches_button = document.querySelector<HTMLButtonElement>("#swap-patches-button")!;
+const patch_before_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost")!;
+const patch_before_dmg_boost_slider = document.querySelector<HTMLInputElement>("input#patch_before_dmg_boost_slider")!;
+const patch_after_dmg_boost = document.querySelector<HTMLInputElement>("input#patch_after_dmg_boost")!;
+const patch_after_dmg_boost_slider = document.querySelector<HTMLInputElement>("input#patch_after_dmg_boost_slider")!;
+
+const patchList = await fetch("./patch_list.json")
+    .then((res) => res.text())
+    .then((text) => JSON.parse(text, (key, value) => {
+        if (typeof value != "string") {
+            return value;
+        }
+        return value.replace(/(\.\w+)+$/, "")
+    })).then((patchList) => {
+        if (!(isObjectWithValues(isArrayMatchingTypeguard(isString)))(patchList)) throw new Error("patchList could not be verified");
+        return patchList;
+    });
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+type SiteState = {
+    before_patch: [string, string],
+    after_patch: [string, string],
+    show_calculated_properties: boolean,
+    show_breakpoints: boolean,
+    apply_to_armor: boolean,
+    before_dmg_boost: number,
+    after_dmg_boost: number,
+};
+let siteState: SiteState;
+const DEFAULT_SITE_STATE: SiteState = {
+    before_patch: ["Previous", "previous"],
+    after_patch: ["Overwatch 2", "latest"],
+    show_calculated_properties: false,
+    show_breakpoints: false,
+    apply_to_armor: false,
+    before_dmg_boost: 1,
+    after_dmg_boost: 1,
+}
+
+function patch_from_path(path: [string, string]): [string, string] {
+    let versionType = path[0];
+    let version = "";
+    if (path[1] == "oldest") {
+        version = patchList[path[0]][0];
+    } else if (path[1] == "latest") {
+        version = patchList[path[0]][patchList[path[0]].length - 1];
+    } else if (path[1] == "recent") {
+        version = patchList[path[0]][patchList[path[0]].length - 2];
+    } else {
+        version = path[1];
+    }
+    return [versionType, version]
+}
+
+{
+    let patch_type_options = Object.entries(patchList)
+        .map(([k, v], i) => `<option value="${k}">${k}</option>`).join();
+
+    let patch_type_selectors = document.getElementsByClassName("patch-type-selector");
+    for (let i = 0; i < patch_type_selectors.length; i++) {
+        patch_type_selectors[i].innerHTML = patch_type_options;
+    }
+}
+
+{
+    siteState = structuredClone(DEFAULT_SITE_STATE)
+    {
+        let url_before = urlParams.get("before")
+        if (url_before) {
+            siteState.before_patch = url_before.split(":", 2) as [string, string]
+        }
+        let url_after = urlParams.get("after")
+        if (url_after) {
+            siteState.after_patch = url_after.split(":", 2) as [string, string]
+        }
+        url_before = urlParams.get("before_patch")
+        if (url_before) {
+            siteState.before_patch = url_before.split(":", 2) as [string, string]
+        }
+        url_after = urlParams.get("after_patch")
+        if (url_after) {
+            siteState.after_patch = url_after.split(":", 2) as [string, string]
+        }
+    }
+    if (urlParams.get("show_calculated_properties")) {
+        siteState.show_calculated_properties = urlParams.get("show_calculated_properties") === "true"
+    }
+    if (urlParams.get("show_breakpoints")) {
+        siteState.show_breakpoints = urlParams.get("show_breakpoints") === "true"
+    }
+    if (urlParams.get("apply_to_armor")) {
+        siteState.apply_to_armor = urlParams.get("apply_to_armor") === "true"
+    }
+    let before_dmg_boost_param = urlParams.get("before_dmg_boost")
+    if (typeof before_dmg_boost_param == "string") {
+        siteState.before_dmg_boost = parseFloat(before_dmg_boost_param)
+    }
+    let after_dmg_boost_param = urlParams.get("after_dmg_boost")
+    if (typeof after_dmg_boost_param == "string") {
+        siteState.after_dmg_boost = parseFloat(after_dmg_boost_param)
+    }
+
+    siteState.before_patch = patch_from_path(siteState.before_patch)
+    siteState.after_patch = patch_from_path(siteState.after_patch)
+    patch_type_before_box.value = siteState.before_patch[0];
+    patch_type_after_box.value = siteState.after_patch[0];
+}
+
+{
+    let newUrlParams = new URLSearchParams();
+    let encoded: { [key: string]: any } = structuredClone(siteState);
+    if (Array.isArray(encoded["before_patch"])) {
+        encoded["before_patch"] = encoded["before_patch"].join(":")
+    }
+    if (Array.isArray(encoded["after_patch"])) {
+        encoded["after_patch"] = encoded["after_patch"].join(":")
+    }
+
+    for (let key in encoded) {
+        newUrlParams.append(key, `${encoded[key]}`)
+    }
+    window.history.replaceState(siteState, "", "index.html?" + newUrlParams)
+}
+
 let units: Units;
 let image_map: { [key: string]: string } = {};
 export let patches: { [key: string]: { [key: string]: PatchData } } = {};
